@@ -1,4 +1,4 @@
-# ONT.IO Technical White Paper
+# Ontology Technical White Paper
 
  - [English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf)
  - [Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
