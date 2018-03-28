@@ -16,7 +16,7 @@
 - [Ecosystem White Papers](#ecosystem-white-papers)
 - [Ontology](https://github.com/ontio/ontology)
 - [Ontology DID](https://github.com/ontio/ontology-DID)
-- [Ontology RPC and Restful](#ontology-did)
+- [Ontology RPC and Restful](https://github.com/ontio/documentation/tree/master/ontology-API)
 - [Ontology Java SDK](https://github.com/ontio/ontology-java-sdk)
 - [Ontology TS SDK](https://github.com/ontio/ontology-ts-sdk)
 - [ONTO](https://github.com/ontio/onto)
