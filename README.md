@@ -27,14 +27,14 @@
 - [Ontology Oracle](https://github.com/ontio/ontology-oracle-py)
 - [Ontology OEPs](https://github.com/ontio/ontology-oeps)
 - [Ontology Distributed Data eXchange Framework](https://github.com/ontio/ontology-odxf)
-- [Smart Contract](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
+- [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
 
 ---
 
 ## Introductory White Papers
 
- - [English](https://ont.io/wp/Ontology-Introductory-white-paper-EN.pdf)
- - [Chinese](https://ont.io/wp/Ontology-Introductory-white-paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
+ - [English](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf)
+ - [Chinese](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
 
 ## Technical White Papers
 
@@ -43,5 +43,5 @@
 
 ## Ecosystem White Papers
 
- - [English](https://ont.io/wp/Ontology-Ecosystem-white-paper-EN.pdf)
- - [Chinese](https://ont.io/wp/Ontology-Ecosystem-white-paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
+ - [English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf)
+ - [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
