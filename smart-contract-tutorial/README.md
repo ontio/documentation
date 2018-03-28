@@ -7,11 +7,32 @@ A smart contract is a set of commitments that are defined in digital form, inclu
 
 ## Characteristics of Ontology smart contracts
 
-//TODO
+Ontology smart contract have certainty, high performance and expansibility features, it includes two modules: Interactive Service and Virtual Machine. Interactive Service provides interaction between virtual machine and blockchain ledger. Virtual Machine provides smart contract execution environment.
 
+Interactive Service includes native service, neovm service and wasmvm service. native service provides special smart contract implementation in blockchain of the underlying, they can be quick and convenient used. neovm service provides api of neovm communicates with the outside, it can enhance the invoke function of smart contract. wasmvm service provides api of wasmvm communicates with the outside virtual machine.
+
+Virtual Machine includes neovm and wasmvm, neovm is a lightweight virtual machine，the characteristics of it have been some public blockchain proved very well. wasmvm is high performance and universal virtual machine.
+
+Ontology smart contract also support invoke in different contracts and virtual machine, developers can easily use Ontology smart contract to build the project.
 ## Write smart contracts in any language
 
-//TODO
+The languages that are currently supported are:
+
+C#, VB.Net, F#
+
+Java, Kotlin
+
+Python
+
+C, C++
+
+The languages that we plan to support include:
+
+Rust
+
+Golang
+
+JavaScript
 
 ## How to make a effective smart contract?
 
