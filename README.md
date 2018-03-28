@@ -20,7 +20,7 @@
 - [Ontology Java SDK](https://github.com/ontio/ontology-java-sdk)
 - [Ontology TS SDK](https://github.com/ontio/ontology-ts-sdk)
 - [ONTO](https://github.com/ontio/onto)
-- [Ontology WSAM](https://github.com/ontio/ontology-wsam)
+- [Ontology WASM](https://github.com/ontio/ontology-wasm)
 - [Ontology FPGA](https://github.com/ontio/ontology-fpga)
 - [Ontology Crypto](https://github.com/ontio/ontology-crypto)
 - [Ontology Eventbus](https://github.com/ontio/ontology-eventbus)
