@@ -1,10 +1,10 @@
 <p align="center">
   <img
     src="https://github.com/ontio/documentation/blob/master/zh-CN/Ontology.png"
-    width="125px"
+    width="200px"
   >
 </p>
-
+<h1 align="center"></h1>
 <p align="center">
   A New High-Performance Public Chain Infrastructure & A Distributed Trust Collaboration Platform.
 </p>
