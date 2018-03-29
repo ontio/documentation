@@ -6,21 +6,21 @@
 </p>
 <h1 align="center"></h1>
 <p align="center">
-  A New High-Performance Public Chain Infrastructure & A Distributed Trust Collaboration Platform.
+  A New High-Performance Public Chain Infrastructure & A Distributed Trust Collaboration Platform
 </p>
 
 
 ## Ontology Infrastructure
 
 - [Ontology](https://github.com/ontio/ontology)
-- [Ontology RPC and Restful](https://github.com/ontio/documentation/tree/master/ontology-API)
 - [Ontology WASM](https://github.com/ontio/ontology-wasm)
-- [Ontology FPGA](https://github.com/ontio/ontology-fpga)
 - [Ontology Crypto](https://github.com/ontio/ontology-crypto)
 - [Ontology Eventbus](https://github.com/ontio/ontology-eventbus)
+- [Ontology RPC and Restful](https://github.com/ontio/documentation/tree/master/ontology-API)
 - [Ontology Oracle](https://github.com/ontio/ontology-oracle-py)
+- [Ontology FPGA](https://github.com/ontio/ontology-fpga)
 
-## Ontology Module and Protocols
+## Ontology Protocols and SDK
 
 - [Ontology DID](https://github.com/ontio/ontology-DID)
 - [Ontology Java SDK](https://github.com/ontio/ontology-java-sdk)
