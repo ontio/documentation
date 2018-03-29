@@ -38,4 +38,4 @@
 - Technical White Papers<br/>[English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
 - Ecosystem White Papers<br/>[English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
 - [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
-- [Ontology OEPs](https://github.com/ontio/ontology-oeps)
+- [OEPs](https://github.com/ontio/OEPs)
