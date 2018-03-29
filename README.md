@@ -26,7 +26,7 @@
 - [Ontology Eventbus](https://github.com/ontio/ontology-eventbus)
 - [Ontology Oracle](https://github.com/ontio/ontology-oracle-py)
 - [Ontology OEPs](https://github.com/ontio/ontology-oeps)
-- [Ontology Distributed Data eXchange Framework](https://github.com/ontio/ontology-odxf)
+- [Ontology DDXF(Distributed Data eXchange Framework)](https://github.com/ontio/ontology-ddxf)
 - [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
 
 ---
