@@ -10,7 +10,7 @@ This document describes the restful api format for the http/https used in the On
 
 ## Restful API list
 
-### Response parameters descri
+### Response Parameter Description
 
 | Field | Type | Description |
 | :--- | :--- | :--- |

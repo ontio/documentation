@@ -6,42 +6,36 @@
 </p>
 <h1 align="center"></h1>
 <p align="center">
-  A New High-Performance Public Chain Infrastructure & A Distributed Trust Collaboration Platform.
+  A New High-Performance Public Chain Infrastructure & A Distributed Trust Collaboration Platform
 </p>
 
-## Contents
 
-- [Introductory White Papers](#introductory-white-papers)
-- [Technical White Papers](#technical-white-papers)
-- [Ecosystem White Papers](#ecosystem-white-papers)
+## Ontology Infrastructure
+
 - [Ontology](https://github.com/ontio/ontology)
-- [Ontology DID](https://github.com/ontio/ontology-DID)
-- [Ontology RPC and Restful](#ontology-did)
-- [Ontology Java SDK](https://github.com/ontio/ontology-java-sdk)
-- [Ontology TS SDK](https://github.com/ontio/ontology-ts-sdk)
-- [ONTO](https://github.com/ontio/onto)
-- [Ontology WSAM](https://github.com/ontio/ontology-wsam)
-- [Ontology FPGA](https://github.com/ontio/ontology-fpga)
+- [Ontology WASM](https://github.com/ontio/ontology-wasm)
 - [Ontology Crypto](https://github.com/ontio/ontology-crypto)
 - [Ontology Eventbus](https://github.com/ontio/ontology-eventbus)
+- [Ontology RPC and Restful](https://github.com/ontio/documentation/tree/master/ontology-API)
 - [Ontology Oracle](https://github.com/ontio/ontology-oracle-py)
-- [Ontology OEPs](https://github.com/ontio/ontology-oeps)
-- [Ontology Distributed Data eXchange Framework](https://github.com/ontio/ontology-odxf)
-- [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
+- [Ontology FPGA](https://github.com/ontio/ontology-fpga)
+
+## Ontology Protocols and SDK
+
+- [Ontology DID](https://github.com/ontio/ontology-DID)
+- [Ontology Java SDK](https://github.com/ontio/ontology-java-sdk)
+- [Ontology TS SDK](https://github.com/ontio/ontology-ts-sdk)
+
+## Ontology Applications
+- [ONTO](https://github.com/ontio/onto)
+- [Ontology DDXF(Distributed Data eXchange Framework)](https://github.com/ontio/ontology-ddxf)
 
 ---
 
-## Introductory White Papers
+## Ontology Documents and Resources
 
- - [English](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf)
- - [Chinese](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
-
-## Technical White Papers
-
- - [English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf)
- - [Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
-
-## Ecosystem White Papers
-
- - [English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf)
- - [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
+- Introductory White Papers<br/>[English](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
+- Technical White Papers<br/>[English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
+- Ecosystem White Papers<br/>[English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
+- [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
+- [OEPs](https://github.com/ontio/OEPs)
