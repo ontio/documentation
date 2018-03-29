@@ -9,25 +9,33 @@
   A New High-Performance Public Chain Infrastructure & A Distributed Trust Collaboration Platform.
 </p>
 
-## Contents
+## Ontology Documents and Resources
 
 - [Introductory White Papers](#introductory-white-papers)
 - [Technical White Papers](#technical-white-papers)
 - [Ecosystem White Papers](#ecosystem-white-papers)
+- [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
+
+## Ontology Infrastructure
+
 - [Ontology](https://github.com/ontio/ontology)
-- [Ontology DID](https://github.com/ontio/ontology-DID)
 - [Ontology RPC and Restful](https://github.com/ontio/documentation/tree/master/ontology-API)
 - [Ontology Java SDK](https://github.com/ontio/ontology-java-sdk)
 - [Ontology TS SDK](https://github.com/ontio/ontology-ts-sdk)
-- [ONTO](https://github.com/ontio/onto)
+
+## Ontology Module and Protocols
+
+- [Ontology DID](https://github.com/ontio/ontology-DID)
 - [Ontology WASM](https://github.com/ontio/ontology-wasm)
 - [Ontology FPGA](https://github.com/ontio/ontology-fpga)
 - [Ontology Crypto](https://github.com/ontio/ontology-crypto)
 - [Ontology Eventbus](https://github.com/ontio/ontology-eventbus)
 - [Ontology Oracle](https://github.com/ontio/ontology-oracle-py)
 - [Ontology OEPs](https://github.com/ontio/ontology-oeps)
+
+## Ontology Applications
+- [ONTO](https://github.com/ontio/onto)
 - [Ontology DDXF(Distributed Data eXchange Framework)](https://github.com/ontio/ontology-ddxf)
-- [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
 
 ---
 
