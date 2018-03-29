@@ -1,3 +1,6 @@
+<h1 align="center">ONT Rpc Api</h1>
+<h4 align="center">Version V0.6.0 </h4>
+
 # ONT Rpc Api
 
 * [Introduction](#Introduction)
