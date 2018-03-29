@@ -92,16 +92,16 @@ curl -i http://server:port/api/v1/block/transactions/height/100
 
 ```
 {
-    "Action": "getblocktransactionsbyheight",
+    "Action": "getblocktxsbyheight",
     "Desc": "SUCCESS",
     "Error": 0,
     "Result": {
-        "Hash": "8723534588ea3202c0949ce5e39876cfcec83f3e9a3ed20168133714944d1227",
-        "Height": 22,
+        "Hash": "ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603",
+        "Height": 100,
         "Transactions": [
-        "8c4a7568701fe58211adfe2cba2a7a5438f0670af5f24be8442c57f36e625996"        
+            "37e017cb9de93aa93ef817e82c555812a0a6d5c3f7d6c521c7808a5a77fc93c7"
         ]
-    },    
+    },
     "Version": "1.0.0"
 }
 ```
@@ -129,27 +129,23 @@ curl -i http://server:port/api/v1/block/details/height/22
     "Desc": "SUCCESS",
     "Error": 0,
     "Result": {
-        "Hash": "8723534588ea3202c0949ce5e39876cfcec83f3e9a3ed20168133714944d1227",
-        "BlockData": {
+        "Hash": "ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603",
+        "Header": {
             "Version": 0,
-            "PrevBlockHash": "a26c7b7659069b1ccf40793c8d5af1af7ca44e55ffc0aadc5e51ec1ee0b5bf92",
-            "TransactionsRoot": "8c4a7568701fe58211adfe2cba2a7a5438f0670af5f24be8442c57f36e625996",
-            "BlockRoot": "1ce9d347ddc4e03b587d10e89f96c0d0c8f2f9b4f0ab12c212198e7cbd12d68f",
-            "StateRoot": "49c6405eae477bb053406c0a4f56a830289798e2d70dc77e0a1d927fa9fb93c4",
-            "Timestamp": 1521432329,
-            "Height": 22,
-            "ConsensusData": 11160228784438648574,
-            "NextBookKeeper": "027c557d2e735b9a369d20dd099bfd42db5cdb74",
-            "BookKeepers": [
-                {
-                    "X": "11045594958442581564679839478917319740817938700262919124154204990772552987783",
-                    "Y": "28445199876541353997545685344458930058882115795876754515124389392470701852812"
-                }
+            "PrevBlockHash": "fc3066adb581c5aee8edaa47eecda2b7cc039c8662757f8b1e3c3aed60314353",
+            "TransactionsRoot": "37e017cb9de93aa93ef817e82c555812a0a6d5c3f7d6c521c7808a5a77fc93c7",
+            "BlockRoot": "7154a6dcb3c23254334bc1f5d8f054c143a39ff28f46fdeb8a9c7488147ccec6",
+            "Timestamp": 1522313652,
+            "Height": 100,
+            "ConsensusData": 18012644264110396442,
+            "NextBookkeeper": "TABrSU6ABhj6Rdw5KozV53wvZNSUATgKHW",
+            "Bookkeepers": [
+                "120203fe4f9ba2022b68595dd163f4a92ac80f918919674de2d6e2a7e04a10c59d0066"
             ],
             "SigData": [
-                "2c9a4c3ed2663cf542e58be466350f5244b2792e4e23f2e0bdc06f1ef69a9382c33ab7f31d1f8658f2ca90d578f1e55c20377659c62ce2ff0a526c6ac14cff41"
+                "01a2369280b0ff75bed85f351d3ef0dd58add118328c1ed2f7d3320df32cb4bd55541f1bb8e11ad093bd24da3de4cd12464800310bfdb49dc62d42d97ca0549762"
             ],
-            "Hash": "8723534588ea3202c0949ce5e39876cfcec83f3e9a3ed20168133714944d1227"
+            "Hash": "ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603"
         },
         "Transactions": [
             {
@@ -157,17 +153,23 @@ curl -i http://server:port/api/v1/block/details/height/22
                 "Nonce": 0,
                 "TxType": 0,
                 "Payload": {
-                    "Nonce": 1521432329060775000,
-                    "Issuer": {
-                        "X": "",
-                        "Y": ""
-                    }
+                    "Nonce": 1522313652068190000
                 },
                 "Attributes": [],
-                "Fee": null,
-                "NetworkFee": "0",
-                "Sigs": null,
-                "Hash": "8c4a7568701fe58211adfe2cba2a7a5438f0670af5f24be8442c57f36e625996"
+                "Fee": [],
+                "NetworkFee": 0,
+                "Sigs": [
+                    {
+                        "PubKeys": [
+                            "120203fe4f9ba2022b68595dd163f4a92ac80f918919674de2d6e2a7e04a10c59d0066"
+                        ],
+                        "M": 1,
+                        "SigData": [
+                            "017d3641607c894dd85f455c71a94afaea2661acbe372ff8f3f4c7921b0c768756e3a6e9308a4c4c8b1b58e717f1486a2f10f5bc809b803a27c10a2cd579778a54"
+                        ]
+                    }
+                ],
+                "Hash": "37e017cb9de93aa93ef817e82c555812a0a6d5c3f7d6c521c7808a5a77fc93c7"
             }
         ]
     },
@@ -187,7 +189,7 @@ GET
 #### Request Example:
 
 ```
-curl -i http://server:port/api/v1/block/details/hash/8723534588ea3202c0949ce5e39876cfcec83f3e9a3ed20168133714944d1227
+curl -i http://server:port/api/v1/block/details/hash/ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603
 ```
 
 #### Response Example:
@@ -198,27 +200,23 @@ curl -i http://server:port/api/v1/block/details/hash/8723534588ea3202c0949ce5e39
     "Desc": "SUCCESS",
     "Error": 0,
     "Result": {
-        "Hash": "8723534588ea3202c0949ce5e39876cfcec83f3e9a3ed20168133714944d1227",
-        "BlockData": {
+        "Hash": "ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603",
+        "Header": {
             "Version": 0,
-            "PrevBlockHash": "a26c7b7659069b1ccf40793c8d5af1af7ca44e55ffc0aadc5e51ec1ee0b5bf92",
-            "TransactionsRoot": "8c4a7568701fe58211adfe2cba2a7a5438f0670af5f24be8442c57f36e625996",
-            "BlockRoot": "1ce9d347ddc4e03b587d10e89f96c0d0c8f2f9b4f0ab12c212198e7cbd12d68f",
-            "StateRoot": "49c6405eae477bb053406c0a4f56a830289798e2d70dc77e0a1d927fa9fb93c4",
-            "Timestamp": 1521432329,
-            "Height": 22,
-            "ConsensusData": 11160228784438648574,
-            "NextBookKeeper": "027c557d2e735b9a369d20dd099bfd42db5cdb74",
-            "BookKeepers": [
-                {
-                    "X": "11045594958442581564679839478917319740817938700262919124154204990772552987783",
-                    "Y": "28445199876541353997545685344458930058882115795876754515124389392470701852812"
-                }
+            "PrevBlockHash": "fc3066adb581c5aee8edaa47eecda2b7cc039c8662757f8b1e3c3aed60314353",
+            "TransactionsRoot": "37e017cb9de93aa93ef817e82c555812a0a6d5c3f7d6c521c7808a5a77fc93c7",
+            "BlockRoot": "7154a6dcb3c23254334bc1f5d8f054c143a39ff28f46fdeb8a9c7488147ccec6",
+            "Timestamp": 1522313652,
+            "Height": 100,
+            "ConsensusData": 18012644264110396442,
+            "NextBookkeeper": "TABrSU6ABhj6Rdw5KozV53wvZNSUATgKHW",
+            "Bookkeepers": [
+                "120203fe4f9ba2022b68595dd163f4a92ac80f918919674de2d6e2a7e04a10c59d0066"
             ],
             "SigData": [
-                "2c9a4c3ed2663cf542e58be466350f5244b2792e4e23f2e0bdc06f1ef69a9382c33ab7f31d1f8658f2ca90d578f1e55c20377659c62ce2ff0a526c6ac14cff41"
+                "01a2369280b0ff75bed85f351d3ef0dd58add118328c1ed2f7d3320df32cb4bd55541f1bb8e11ad093bd24da3de4cd12464800310bfdb49dc62d42d97ca0549762"
             ],
-            "Hash": "8723534588ea3202c0949ce5e39876cfcec83f3e9a3ed20168133714944d1227"
+            "Hash": "ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603"
         },
         "Transactions": [
             {
@@ -226,17 +224,23 @@ curl -i http://server:port/api/v1/block/details/hash/8723534588ea3202c0949ce5e39
                 "Nonce": 0,
                 "TxType": 0,
                 "Payload": {
-                    "Nonce": 1521432329060775000,
-                    "Issuer": {
-                        "X": "",
-                        "Y": ""
-                    }
+                    "Nonce": 1522313652068190000
                 },
                 "Attributes": [],
-                "Fee": null,
-                "NetworkFee": "0",
-                "Sigs": null,
-                "Hash": "8c4a7568701fe58211adfe2cba2a7a5438f0670af5f24be8442c57f36e625996"
+                "Fee": [],
+                "NetworkFee": 0,
+                "Sigs": [
+                    {
+                        "PubKeys": [
+                            "120203fe4f9ba2022b68595dd163f4a92ac80f918919674de2d6e2a7e04a10c59d0066"
+                        ],
+                        "M": 1,
+                        "SigData": [
+                            "017d3641607c894dd85f455c71a94afaea2661acbe372ff8f3f4c7921b0c768756e3a6e9308a4c4c8b1b58e717f1486a2f10f5bc809b803a27c10a2cd579778a54"
+                        ]
+                    }
+                ],
+                "Hash": "37e017cb9de93aa93ef817e82c555812a0a6d5c3f7d6c521c7808a5a77fc93c7"
             }
         ]
     },
@@ -328,7 +332,7 @@ curl -i http://server:port/api/v1/transaction/c5e0d387c6a97aef12f1750840d24b53d9
         "Nonce": 0,
         "TxType": 0,
         "Payload": {
-            "Nonce": 1522029014774111000
+            "Nonce": 1522313652068190000
         },
         "Attributes": [],
         "Fee": [],
@@ -336,15 +340,15 @@ curl -i http://server:port/api/v1/transaction/c5e0d387c6a97aef12f1750840d24b53d9
         "Sigs": [
             {
                 "PubKeys": [
-                    "02186b95cf941d4ac5340f83431402bf32c7642fd6bd852a7a13f2488d72e8f487"
+                    "120203fe4f9ba2022b68595dd163f4a92ac80f918919674de2d6e2a7e04a10c59d0066"
                 ],
                 "M": 1,
                 "SigData": [
-                    "97168d2613919ac877e26efd7fa2451dc3c0089f16a4d16f3f00f67e5b18392b3e9fe8d465ecc3fbc38bdcd71deeaeeec72955f2c8514b1ed6767946c433755b"
+                    "017d3641607c894dd85f455c71a94afaea2661acbe372ff8f3f4c7921b0c768756e3a6e9308a4c4c8b1b58e717f1486a2f10f5bc809b803a27c10a2cd579778a54"
                 ]
             }
         ],
-        "Hash": "c453557af780fe403db6e954ebc9adeafd5818c596c6c60e5cc42851c5b41884"
+        "Hash": "37e017cb9de93aa93ef817e82c555812a0a6d5c3f7d6c521c7808a5a77fc93c7"
     },
     "Version": "1.0.0"
 }
@@ -473,7 +477,7 @@ GET
 #### Request Example:
 
 ```
-curl -i http://server:port/api/v1/block/details/hash/fff49c809d302a2956e9dc0012619a452d4b846c
+curl -i http://server:port/api/v1/contract/fff49c809d302a2956e9dc0012619a452d4b846c
 ```
 
 #### Response Example:
@@ -502,13 +506,13 @@ curl -i http://server:port/api/v1/block/details/hash/fff49c809d302a2956e9dc00126
 GET
 
 ```
-/api/v1/smartcode/event/height/:height
+/api/v1/smartcode/event/transactions/:height
 ```
 
 #### Example usage:
 
 ```
-curl -i http://localhost:20384/api/v1/smartcode/event/height/900
+curl -i http://localhost:20384/api/v1/smartcode/event/transactions/900
 ```
 
 #### response
@@ -517,10 +521,14 @@ curl -i http://localhost:20384/api/v1/smartcode/event/height/900
     "Action": "getsmartcodeeventbyheight",
     "Desc": "SUCCESS",
     "Error": 0,
-    "Result": null,
+    "Result": [
+        "592d83c739d9d167b74b385161fee09bfe820eae5bc4a69411f8e00f4847b833"
+    ],
     "Version": "1.0.0"
 }
 ```
+> Note: result is the txHash list.
+
 ### 15 get contract event by txhash
 
 GET
@@ -534,11 +542,118 @@ curl -i http://localhost:20384/api/v1/smartcode/event/txhash/3e23cf222a47739d414
 #### Response:
 ```
 {
-    "Action": "getsmartcodeeventbyhash",
-    "Desc": "SUCCESS",
-    "Error": 0,
-    "Result": null,
-    "Version": "1.0.0"
+    "desc": "SUCCESS",
+    "error": 0,
+    "id": 1,
+    "jsonpc": "2.0",
+    "result": [
+        {
+            "CodeHash": [
+                255,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "States": [
+                "transfer",
+                [
+                    1,
+                    244,
+                    149,
+                    61,
+                    108,
+                    40,
+                    239,
+                    222,
+                    202,
+                    110,
+                    207,
+                    9,
+                    30,
+                    145,
+                    251,
+                    12,
+                    243,
+                    231,
+                    143,
+                    25
+                ],
+                [
+                    1,
+                    211,
+                    140,
+                    123,
+                    200,
+                    98,
+                    120,
+                    251,
+                    191,
+                    70,
+                    26,
+                    255,
+                    222,
+                    168,
+                    211,
+                    95,
+                    153,
+                    188,
+                    122,
+                    84
+                ],
+                100
+            ],
+            "TxHash": [
+                89,
+                45,
+                131,
+                199,
+                57,
+                217,
+                209,
+                103,
+                183,
+                75,
+                56,
+                81,
+                97,
+                254,
+                224,
+                155,
+                254,
+                130,
+                14,
+                174,
+                91,
+                196,
+                166,
+                148,
+                17,
+                248,
+                224,
+                15,
+                72,
+                71,
+                184,
+                51
+            ]
+        }
+    ]
 }
 ```
 ### 16 Api_GetBlkHeightByTxHash

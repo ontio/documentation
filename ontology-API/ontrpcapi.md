@@ -172,26 +172,23 @@ Response when verbose = 1:
     "id": 1,
     "jsonpc": "2.0",
     "result": {
-        "Hash": "71d614dd1594c0e4cc615e12678f6357c3686387519731b8231699301960c39d",
+        "Hash": "95555da65d6feaa7cde13d6bf12131f750b670569d98c63813441cf24a99c0d2",
         "Header": {
             "Version": 0,
-            "PrevBlockHash": "a12bc630d58af7c7ef94cc5339567f9042c95a9b5722d58dc3b87dd30bc6154e",
-            "TransactionsRoot": "291026c1df3183e96839d0f0caf8c2640919de6b79114a026d35f73b4b6b3b48",
-            "BlockRoot": "8f592ec921a950553be88a2f575b5c52f1ff0b9d5f263fbae86a5d1abd557dba",
-            "Timestamp": 1521703551,
-            "Height": 4,
-            "ConsensusData": 17166119660593720000,
-            "NextBookKeeper": "027c557d2e735b9a369d20dd099bfd42db5cdb74",
-            "BookKeepers": [
-                {
-                    "X": "11045594958442581564679839478917319740817938700262919124154204990772552987783",
-                    "Y": "28445199876541353997545685344458930058882115795876754515124389392470701852812"
-                }
+            "PrevBlockHash": "205c905493c7c1e3be7cd58542e45aafb007edcb8363f8ff555f63745f1b7ce5",
+            "TransactionsRoot": "4452db2634d81e80048002c2f327b25ded4e547ebfcc1b28f28608938b9d2154",
+            "BlockRoot": "42e01a2b27c182d4e115883c3b166a0fbc019efe2498b568b7febcc83a35346e",
+            "Timestamp": 1522295648,
+            "Height": 2,
+            "ConsensusData": 10322907760044199803,
+            "NextBookkeeper": "TAAr9AH4NqxXSKur7XTUbmP8wsKD4KPL2t",
+            "Bookkeepers": [
+                "120203e45fe0189a36b284e6080c6983cf12879d239886ecee1e257ab992970ecaa000"
             ],
             "SigData": [
-                "e8f2333b43ead2af0890edb8f104b5bba0b57a7192c30919ca8cc50dcc54890483f026c7733544d877fcf4ed76bc00dac90a000a4067347c99e593067e32bf19"
+                "014ed021011a6e0a4e9771b0be9fd156f9fc411968ce1dc4aed18382c85f6827d50373f3e3931966066cdc7dfab52823b79c80df8af25569c33ddf8140df5385b6"
             ],
-            "Hash": "71d614dd1594c0e4cc615e12678f6357c3686387519731b8231699301960c39d"
+            "Hash": "95555da65d6feaa7cde13d6bf12131f750b670569d98c63813441cf24a99c0d2"
         },
         "Transactions": [
             {
@@ -199,30 +196,23 @@ Response when verbose = 1:
                 "Nonce": 0,
                 "TxType": 0,
                 "Payload": {
-                    "Nonce": 1521703551136164000,
-                    "Issuer": {
-                        "X": "",
-                        "Y": ""
-                    }
+                    "Nonce": 1522295648487066000
                 },
-                "Attributes": [ ],
-                "Fee": null,
+                "Attributes": [],
+                "Fee": [],
                 "NetworkFee": 0,
                 "Sigs": [
                     {
                         "PubKeys": [
-                            {
-                                "X": "11045594958442581564679839478917319740817938700262919124154204990772552987783",
-                                "Y": "28445199876541353997545685344458930058882115795876754515124389392470701852812"
-                            }
+                            "120203e45fe0189a36b284e6080c6983cf12879d239886ecee1e257ab992970ecaa000"
                         ],
                         "M": 1,
                         "SigData": [
-                            "2531945f93ee57b651ef94bd91f10bc75dc539ff1f0afba32adfa59778b8f67ce4865094100e9697d4523e8a533791d2e0aa893d0a941a997add1f2ed5dfa338"
+                            "01021197ad4140a50442b700ad814aeb2595578bf4d97e187a69aacf35917be4a27f76bc1dad2ee9bb386be79ca9638e78e14c869edbc3556499b06cc9c9b9452e"
                         ]
                     }
                 ],
-                "Hash": "291026c1df3183e96839d0f0caf8c2640919de6b79114a026d35f73b4b6b3b48"
+                "Hash": "4452db2634d81e80048002c2f327b25ded4e547ebfcc1b28f28608938b9d2154"
             }
         ]
     }
@@ -390,7 +380,93 @@ Response:
   "id": 1,
   "result": "80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
 }
+
+```
+
 or
+
+```
+{
+    "desc": "SUCCESS",
+    "error": 0,
+    "id": 1,
+    "jsonpc": "2.0",
+    "result": {
+        "Version": 0,
+        "Nonce": 3377520203,
+        "TxType": 209,
+        "Payload": {
+            "Code": "00ff00000000000000000000000000000000000001087472616e736665722d000100017d439492af400d014c2b0cc4975d7252868d8001c484de9cde9d10c3bf49362e6d66a6c3b196b70164",
+            "GasLimit": 0,
+            "VmType": 255
+        },
+        "Attributes": [
+            {
+                "Usage": 0,
+                "Data": "34336234663163352d373764392d346634342d626262662d326539396136656538376237"
+            }
+        ],
+        "Fee": [
+            {
+                "Amount": 0,
+                "Payer": "017d439492af400d014c2b0cc4975d7252868d80"
+            }
+        ],
+        "NetworkFee": 0,
+        "Sigs": [
+            {
+                "PubKeys": [
+                    "12020206b47806887dfb13679ae884e7843ef263f54a861792502100f6bb3f5bd896cc"
+                ],
+                "M": 1,
+                "SigData": [
+                    "012a0623b31b681c74866c9e72c255ac026a1fcc61867b3f1dc7a25266939e73a24c87c2aceda41174b85a872b11dbf7020a4d52dffbbfefdb704406738dd042bf"
+                ]
+            }
+        ],
+        "Hash": "a724c0215afa1aeb31be857f2fc69038cf557b4748941bfed8281473b39152e7"
+    }
+}
+```
+
+
+
+#### 8. sendrawtransaction
+
+Broadcast transaction.
+
+#### Parameter instruction
+
+Hex: Serialized signed transactions constructed in the program into hexadecimal strings.
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "sendrawtransaction",
+  "params": ["80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+  "desc":"SUCCESS",
+  "error":0,
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": false
+}
+```
+
+or
+
+```
 {
   "desc":"SUCCESS",
   "error":0,
@@ -437,38 +513,7 @@ or
 }
 ```
 
-#### 8. sendrawtransaction
 
-Broadcast transaction.
-
-#### Parameter instruction
-
-Hex: Serialized signed transactions constructed in the program into hexadecimal strings.
-
-#### Example
-
-Request:
-
-```
-{
-  "jsonrpc": "2.0",
-  "method": "sendrawtransaction",
-  "params": ["80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"],
-  "id": 1
-}
-```
-
-Response:
-
-```
-{
-  "desc":"SUCCESS",
-  "error":0,
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": false
-}
-```
 
 Response instruction:
 
@@ -555,7 +600,7 @@ Get smartcode event.
 
 blockheight: getsmartcodeevent by blockheight
 or
-txHash: getsmartcodeevent by blockheight
+txHash: getsmartcodeevent by txhash
 
 #### Example
 
