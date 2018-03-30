@@ -28,7 +28,7 @@
 
 ## Ontology Applications
 - [ONTO](#onto) :hatching_chick:
-- [Ontology DDXF(Distributed Data eXchange Framework)](#ontology-ddxf) :hatched_chick:
+- [Ontology DDXF(Distributed Data eXchange Framework)](#Ontology-ddxf) :hatched_chick:
 
 ---
 
@@ -75,11 +75,7 @@
 - [Ontology DID](https://github.com/ontio/ontology-DID) - main repository
 
 ### <a name="Ontology-java-sdk"></a>Ontology Java SDK <sup>[top⇈](#ontology-infrastructure)</sup>
-> Design and FPGA Implementation of Fast Signature Verification.
-- [Ontology Java SDK](https://github.com/ontio/ontology-java-sdk) - main repository
-
-### <a name="Ontology-java-sdk"></a>Ontology Java SDK <sup>[top⇈](#ontology-infrastructure)</sup>
-> This is a comprehensive Java library for the Ontology blockchain. Currently, it supports local wallet management, digital identity management, digital asset management, deployment and invoke for Smart Contract , and communication with Ontology Blockchain. The future will also support more rich functions and applications.
+> This is a comprehensive Java library for the Ontology blockchain. Currently, it supports local wallet management, digital identity management, digital asset management, deployment and invoke for Smart Contract, and communication with Ontology Blockchain. The future will also support more rich functions and applications.
 - [Ontology Java SDK](https://github.com/ontio/ontology-java-sdk) - main repository
 
 ### <a name="Ontology-ts-sdk"></a>Ontology TS SDK <sup>[top⇈](#ontology-infrastructure)</sup>
