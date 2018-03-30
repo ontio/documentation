@@ -9,6 +9,9 @@
   A New High-Performance Public Chain Infrastructure & A Distributed Trust Collaboration Platform
 </p>
 
+---
+
+English | [中文](/zh-CN/README.md)
 
 ## Ontology Infrastructure
 
