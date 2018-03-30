@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="https://github.com/ontio/documentation/blob/master/zh-CN/Ontology_CH.png"
+    src="https://github.com/ontio/documentation/blob/master/zh-CN/Ontology_CH.png"
     width="200px"
   >
 </p>
