@@ -63,7 +63,7 @@
 - [Ontology RPC and Restful](https://github.com/ontio/documentation/tree/master/ontology-API) - main repository
 
 ### <a name="Ontology-oracle"></a>Ontology Oracle <sup>[top⇈](#ontology-infrastructure)</sup>
-> Ontology’s Oracle and the Prediction market contract.
+> An oracle is a mechanism that tells the blockchain facts about the real-world we live in.
 - [Ontology Oracle](https://github.com/ontio/ontology-oracle-py) - main repository
 
 ### <a name="Ontology-fpga"></a>Ontology FPGA <sup>[top⇈](#ontology-infrastructure)</sup>
