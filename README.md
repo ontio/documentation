@@ -12,7 +12,7 @@
 
 ## Ontology Infrastructure
 
-- [Ontology](https://github.com/ontio/ontology) :hatching_chick:
+- [Ontology](#Ontology) :hatching_chick:
 - [Ontology WASM](https://github.com/ontio/ontology-wasm) :hatching_chick:
 - [Ontology Crypto](https://github.com/ontio/ontology-crypto) :hatching_chick:
 - [Ontology Eventbus](https://github.com/ontio/ontology-eventbus) :hatching_chick:
@@ -39,3 +39,11 @@
 - Ecosystem White Papers<br/>[English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
 - [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
 - [OEPs](https://github.com/ontio/OEPs)
+
+---
+
+### <a name="Ontology"></a>Ontology <sup>[top⇈](#contents)</sup>
+> Official Go implementation of the Ontology protocol.
+- [Ontology](https://github.com/ontio/ontology) - main repository
+
+[Ontology WASM](https://github.com/ontio/ontology-wasm)
