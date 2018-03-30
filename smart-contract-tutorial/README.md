@@ -46,7 +46,7 @@ Don't worry, we have built a simple tool to help you with all these things. It's
 
 For more information, please check the [Smart Contract IDE user guide]().
 
-### Step1 - Write & Compile 
+### Step1 - Write & Compile  
 
 We now support smart contracts that run in **NEOVM** and **WASMVM**.
 
