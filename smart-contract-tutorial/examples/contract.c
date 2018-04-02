@@ -3,6 +3,11 @@ char * JsonMashal(void * val,char * types);
 int strcmp(char *a,char *b);
 int arrayLen(char *a);
 void * malloc(int size);
+void RuntimeNotify(char * message);
+void PutStorage(char * key,char *value);
+char * GetStorage(char * key);
+void DeleteStorage(char * key);
+
 
 int add(int a, int b ){
         return a + b;
@@ -56,7 +61,8 @@ char * invoke(char * method,char * args){
                 JsonUnmashal(&param,sizeof(param),args);
                 int res = add(param.a,param.b);
                 char * result = JsonMashal(res,"int");
-                return result;
+                RuntimeNotify(result);
+		return result;
         }
 
 	if(strcmp(method,"concat")==0){
@@ -68,6 +74,7 @@ char * invoke(char * method,char * args){
 		JsonUnmashal(&param,sizeof(param),args);
 		char * res = concat(param.a,param.b);
 		char * result = JsonMashal(res,"string");
+		RuntimeNotify(result);
 		return result;
 	}
 	
@@ -80,8 +87,46 @@ char * invoke(char * method,char * args){
 		JsonUnmashal(&param,sizeof(param),args);
 		int res = sumArray(param.a,param.b);
 		char * result = JsonMashal(res,"int");
+		RuntimeNotify(result);
 		return result;
 	}
 
+	if(strcmp(method,"addStorage")==0){
+
+		struct Params{
+			char * a;
+			char * b;
+		};
+		struct Params param;
+		JsonUnmashal(&param,sizeof(param),args);
+		PutStorage(param.a,param.b);
+		char * result = JsonMashal("Done","string");
+		RuntimeNotify(result);
+		return result;
+        }
+	if(strcmp(method,"getStorage")==0){
+
+		struct Params{
+			char * a;
+		};
+		struct Params param;
+		JsonUnmashal(&param,sizeof(param),args);
+		char * value = GetStorage(param.a);
+		char * result = JsonMashal(value,"string");
+		RuntimeNotify(result);
+		return result;
+	}
+	if(strcmp(method,"deleteStorage")==0){
+
+                struct Params{
+                        char * a;
+                };
+                struct Params param;
+                JsonUnmashal(&param,sizeof(param),args);
+                DeleteStorage(param.a);
+                char * result = JsonMashal("Done","string");
+                RuntimeNotify(result);
+                return result;
+        }
 }
-	
+		
