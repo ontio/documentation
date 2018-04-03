@@ -1,5 +1,5 @@
-void JsonUnmashal(void * addr,int size,char * arg);
-char * JsonMashal(void * val,char * types);
+void JsonUnmashalInput(void * addr,int size,char * arg);
+char * JsonMashalResult(void * val,char * types);
 int strcmp(char *a,char *b);
 int arrayLen(char *a);
 void * malloc(int size);
@@ -54,18 +54,10 @@ char * invoke(char * method,char * args){
         }
 
         if (strcmp(method, "add")==0){
-               // struct Params {
-               //         int a;
-               //         int b;
-               // };
-               // struct Params param;
-
-                //JsonUnmashal(&param,sizeof(param),args);
-                
 		int a = ReadInt32Param(args);
 		int b = ReadInt32Param(args);
 		int res = add(a,b);
-                char * result = JsonMashal(res,"int");
+                char * result = JsonMashalResult(res,"int");
 		RuntimeNotify(result);
                 return result;
         }
@@ -75,7 +67,7 @@ char * invoke(char * method,char * args){
 		char * a = ReadStringParam(args);
 		char * b = ReadStringParam(args);
 		char * res = concat(a,b);
-		char * result = JsonMashal(res,"string");
+		char * result = JsonMashalResult(res,"string");
 		RuntimeNotify(result);
 		return result;
 	}
@@ -86,7 +78,7 @@ char * invoke(char * method,char * args){
                 char * b = ReadStringParam(args);
 		
 		PutStorage(a,b);
-		char * result = JsonMashal("Done","string");
+		char * result = JsonMashalResult("Done","string");
 		RuntimeNotify(result);
 		return result;
 	}
@@ -96,7 +88,7 @@ char * invoke(char * method,char * args){
                 char * a = ReadStringParam(args);
 
                 char * value = GetStorage(a);
-                char * result = JsonMashal(value,"string");
+                char * result = JsonMashalResult(value,"string");
                 RuntimeNotify(result);
                 return result;
         }

@@ -1,5 +1,5 @@
-void JsonUnmashal(void * addr,int size,char * arg);
-char * JsonMashal(void * val,char * types);
+void JsonUnmashalInput(void * addr,int size,char * arg);
+char * JsonMashalResult(void * val,char * types);
 int strcmp(char *a,char *b);
 int arrayLen(char *a);
 void * malloc(int size);
@@ -58,9 +58,9 @@ char * invoke(char * method,char * args){
                 };
                 struct Params param;
 
-                JsonUnmashal(&param,sizeof(param),args);
+                JsonUnmashalInput(&param,sizeof(param),args);
                 int res = add(param.a,param.b);
-                char * result = JsonMashal(res,"int");
+                char * result = JsonMashalResult(res,"int");
                 RuntimeNotify(result);
 		return result;
         }
@@ -71,9 +71,9 @@ char * invoke(char * method,char * args){
 			char *b;
 		};
 		struct Params param;
-		JsonUnmashal(&param,sizeof(param),args);
+		JsonUnmashalInput(&param,sizeof(param),args);
 		char * res = concat(param.a,param.b);
-		char * result = JsonMashal(res,"string");
+		char * result = JsonMashalResult(res,"string");
 		RuntimeNotify(result);
 		return result;
 	}
@@ -84,9 +84,9 @@ char * invoke(char * method,char * args){
 			int *b;
 		};
 		struct Params param;
-		JsonUnmashal(&param,sizeof(param),args);
+		JsonUnmashalInput(&param,sizeof(param),args);
 		int res = sumArray(param.a,param.b);
-		char * result = JsonMashal(res,"int");
+		char * result = JsonMashalResult(res,"int");
 		RuntimeNotify(result);
 		return result;
 	}
@@ -98,9 +98,9 @@ char * invoke(char * method,char * args){
 			char * b;
 		};
 		struct Params param;
-		JsonUnmashal(&param,sizeof(param),args);
+		JsonUnmashalInput(&param,sizeof(param),args);
 		PutStorage(param.a,param.b);
-		char * result = JsonMashal("Done","string");
+		char * result = JsonMashalResult("Done","string");
 		RuntimeNotify(result);
 		return result;
         }
@@ -110,9 +110,9 @@ char * invoke(char * method,char * args){
 			char * a;
 		};
 		struct Params param;
-		JsonUnmashal(&param,sizeof(param),args);
+		JsonUnmashalInput(&param,sizeof(param),args);
 		char * value = GetStorage(param.a);
-		char * result = JsonMashal(value,"string");
+		char * result = JsonMashalResult(value,"string");
 		RuntimeNotify(result);
 		return result;
 	}
@@ -122,9 +122,9 @@ char * invoke(char * method,char * args){
                         char * a;
                 };
                 struct Params param;
-                JsonUnmashal(&param,sizeof(param),args);
+                JsonUnmashalInput(&param,sizeof(param),args);
                 DeleteStorage(param.a);
-                char * result = JsonMashal("Done","string");
+                char * result = JsonMashalResult("Done","string");
                 RuntimeNotify(result);
                 return result;
         }

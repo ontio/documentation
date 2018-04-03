@@ -5,18 +5,18 @@
   (type (;3;) (func (param i32)))
   (type (;4;) (func (param i32 i32 i32) (result i32)))
   (type (;5;) (func))
-  (import "env" "memory" (memory (;0;) 256))
+  (import "env" "memory" (memory (;0;) 1))
   (import "env" "memoryBase" (global (;0;) i32))
-  (import "env" "_GetStorage" (func (;0;) (type 0)))
-  (import "env" "_JsonMashal" (func (;1;) (type 1)))
-  (import "env" "_PutStorage" (func (;2;) (type 2)))
-  (import "env" "_ReadInt32Param" (func (;3;) (type 0)))
-  (import "env" "_ReadStringParam" (func (;4;) (type 0)))
-  (import "env" "_RuntimeNotify" (func (;5;) (type 3)))
-  (import "env" "_arrayLen" (func (;6;) (type 0)))
-  (import "env" "_malloc" (func (;7;) (type 0)))
-  (import "env" "_memcpy" (func (;8;) (type 4)))
-  (import "env" "_strcmp" (func (;9;) (type 1)))
+  (import "env" "GetStorage" (func (;0;) (type 0)))
+  (import "env" "JsonMashalResult" (func (;1;) (type 1)))
+  (import "env" "PutStorage" (func (;2;) (type 2)))
+  (import "env" "ReadInt32Param" (func (;3;) (type 0)))
+  (import "env" "ReadStringParam" (func (;4;) (type 0)))
+  (import "env" "RuntimeNotify" (func (;5;) (type 3)))
+  (import "env" "arrayLen" (func (;6;) (type 0)))
+  (import "env" "malloc" (func (;7;) (type 0)))
+  (import "env" "memcpy" (func (;8;) (type 4)))
+  (import "env" "strcmp" (func (;9;) (type 1)))
   (func (;10;) (type 1) (param i32 i32) (result i32)
     get_local 1
     get_local 0
@@ -214,23 +214,7 @@
       end
     end
     get_local 0)
-  (func (;14;) (type 5)
-    nop)
-  (func (;15;) (type 5)
-    get_global 0
-    i32.const 80
-    i32.add
-    set_global 1
-    get_global 1
-    i32.const 5242880
-    i32.add
-    set_global 2)
   (global (;1;) (mut i32) (i32.const 0))
   (global (;2;) (mut i32) (i32.const 0))
-  (export "__post_instantiate" (func 15))
-  (export "_add" (func 10))
-  (export "_concat" (func 11))
-  (export "_invoke" (func 13))
-  (export "_sumArray" (func 12))
-  (export "runPostSets" (func 14))
+  (export "invoke" (func 13))
   (data (get_global 0) "init\00init success!\00add\00int\00concat\00string\00addStorage\00Done\00getStorage"))
