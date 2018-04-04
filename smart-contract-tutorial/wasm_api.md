@@ -36,3 +36,21 @@ Ledger APIs provides the abilities to  access blockchain ledger
 ## BlockChain
 
 BlockChain APIs provides the abilities to  access blockchain attributes
+| Name                 | Parameters | Returns | Description                             |
+| -------------------- | ---------- | ------- | --------------------------------------- |
+| GetBlockHeight       |            | int     | return current blockchain height        |
+| GetBlockHashByNumber | int number | char *  | return block hash by input block number |
+| GetTimeStamp         |            | int     | return current block timestamp          |
+
+## Other
+
+| Name             | Parameters                                     | Returns | Description                              |
+| ---------------- | ---------------------------------------------- | ------- | ---------------------------------------- |
+| CheckWitness     | char * address                                 | int     | return 1 if the address is valid         |
+| RuntimeNotify    | char * content                                 | void    | add notification to SDK or other clients |
+| CallContract     | char * address,char * method,char * parameters | char *  | call other wasm contract                 |
+| ContractLogDebug | char * message                                 | void    | add debug log                            |
+| ContractLogInfo  | char * message                                 | void    | add info log                             |
+| ContractLogError | char * message                                 | void    | add error log                            |
+
+
