@@ -40,9 +40,9 @@ JavaScript
 
 First, you should choose a language to write your smart contract, let's suppose it's C#. Then you need to compile your code. Last, you can deploy your smart contract to the blockchain and invoke it. 
 
-Do not worry, we have built a simple tool to help you with all these things. It's an [online IDE]() for Ontology smart contracts. You can write smart contract with popular languages, deploy, and invoke contracts easily. 
+Do not worry, we have built a simple tool to help you with all these things. It's an [online IDE](http://dev.ont.io/#/) for Ontology smart contracts. You can write smart contract with popular languages, deploy, and invoke contracts easily. 
 
-For more information, please check the [Smart Contract IDE user guide]().
+For more information, please check the [Smart Contract IDE user guide](/docs/en/ont sc ide user guide.md).
 
 ### Step 1 - Write & Compile  
 
@@ -64,7 +64,7 @@ The right side is the operation panel.
 
 The middle area is the editor and the logs output box.
 
-![](https://s1.ax1x.com/2018/03/24/9bzj2t.md.png)
+![Compile contract](https://s1.ax1x.com/2018/04/04/CpIdpR.png)
 
 #### Write smart contract
 
@@ -93,14 +93,14 @@ Besides IDE, you can use ONT SDK to deploy the smart contract. Please check the 
 [>> Java SDK](https://opendoc.ont.io/javasdk/en/chapter5/smartcontract.html)
 
 
-![](https://s1.ax1x.com/2018/03/24/9qp10S.png)
+![Deploy contract](https://s1.ax1x.com/2018/04/04/CpIcAe.png)
 
 
 ### Step 3 - Invoke smart contract
 
 Last, you can run the method of your contract. This step costs a fee too. You can select the method and  input the params to invoke. The result will display on the right side.
 
-![Invoke smart contract](https://s1.ax1x.com/2018/03/24/9qpLct.png)
+![Invoke smart contract](https://s1.ax1x.com/2018/04/04/CpoCEF.png)
 
 Besides IDE, you can use [>> Java SDK](https://opendoc.ont.io/javasdk/en/chapter5/smartcontract.html) to invoke a smart contract. Please check the SDKs for more detailed information. 
 
