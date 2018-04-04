@@ -45,13 +45,15 @@ BlockChain APIs provides the abilities to  access blockchain attributes.
 
 ## Other
 
-| Name             | Parameters                                     | Returns | Description                              |
-| ---------------- | ---------------------------------------------- | ------- | ---------------------------------------- |
-| CheckWitness     | char * address                                 | int     | return 1 if the address is valid         |
-| RuntimeNotify    | char * content                                 | void    | add notification to SDK or other clients |
-| CallContract     | char * address,char * method,char * parameters | char *  | call other wasm contract                 |
-| ContractLogDebug | char * message                                 | void    | add debug log                            |
-| ContractLogInfo  | char * message                                 | void    | add info log                             |
-| ContractLogError | char * message                                 | void    | add error log                            |
+To be add more APIs here
+
+| Name             | Parameters                                                   | Returns | Description                                                  |
+| ---------------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
+| CheckWitness     | char * address                                               | int     | return 1 if the address is valid                             |
+| RuntimeNotify    | char * content                                               | void    | add notification to SDK or other clients                     |
+| CallContract     | char * address,char * method,char * parameters,char * isOffchian | char *  | call other contract,first parameter could be the contract address or byte code with Hex format and the last parameter should be "true" or "false" according to the "address" case |
+| ContractLogDebug | char * message                                               | void    | add debug log                                                |
+| ContractLogInfo  | char * message                                               | void    | add info log                                                 |
+| ContractLogError | char * message                                               | void    | add error log                                                |
 
 
