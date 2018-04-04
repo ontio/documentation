@@ -7,25 +7,15 @@ Wasm (WebAssembly) is a binary instruction format for stack-based virtual machin
 
 ## Compilation
 
-1. First, we will prepare a simple c language contract including following actions:
-   - add : calculate two integers.
-   - concat : concat two strings.
-   - sumArray : calculate the sumary of an integer array.
-   - addStorage : add a key-value pair to ledger storage.
-   - getStorage : get a ledger stored value by input key .
+1. First, we will prepare a simple c language contract that calculates the sum of two integers or concatenates two strings.
 
 ```c
 char * JsonMashal(void * val,char * types);
 int strcmp(char *a,char *b);
 int arrayLen(char *a);
 void * malloc(int size);
-void RuntimeNotify(char * message);
-void PutStorage(char * key,char *value);
-char * GetStorage(char * key);
-void DeleteStorage(char * key);
 int ReadInt32Param(char *addr);
 char * ReadStringParam(char *addr);
-
 
 int add(int a, int b ){
         return a + b;
@@ -45,24 +35,6 @@ char * concat(char * a, char * b){
 	return res;
 }
 
-
-int sumArray(int * a, int * b){
-
-	int res = 0;
-	int lena = arrayLen(a);
-	int lenb = arrayLen(b);
-
-	for (int i = 0;i<lena;i++){
-		res += a[i];
-	}
-	for (int j = 0;j<lenb;j++){
-		res += b[j];
-	}
-	return res;
-}
-
-
-
 char * invoke(char * method,char * args){
 
         if (strcmp(method ,"init")==0 ){
@@ -70,12 +42,10 @@ char * invoke(char * method,char * args){
         }
 
         if (strcmp(method, "add")==0){
-
-		int a = ReadInt32Param(args);
-		int b = ReadInt32Param(args);
-		int res = add(a,b);
+                int a = ReadInt32Param(args);
+                int b = ReadInt32Param(args);
+                int res = add(a,b);
                 char * result = JsonMashal(res,"int");
-		RuntimeNotify(result);
                 return result;
         }
 
@@ -85,48 +55,23 @@ char * invoke(char * method,char * args){
 		char * b = ReadStringParam(args);
 		char * res = concat(a,b);
 		char * result = JsonMashal(res,"string");
-		RuntimeNotify(result);
 		return result;
 	}
 	
-	if(strcmp(method,"addStorage")==0){
-		
-		char * a = ReadStringParam(args);
-                char * b = ReadStringParam(args);
-		
-		PutStorage(a,b);
-		char * result = JsonMashal("Done","string");
-		RuntimeNotify(result);
-		return result;
-	}
-
-	if(strcmp(method,"getStorage")==0){
-
-                char * a = ReadStringParam(args);
-
-                char * value = GetStorage(a);
-                char * result = JsonMashal(value,"string");
-                RuntimeNotify(result);
-                return result;
-        }
-
-
 }
-	
+
 
 ```
 
 The following functions are provided by the virtual machine API and need to be declared at the head of the file.
 
 ```c
-char * JsonMashalResult(void * val,char * types);
+char * JsonMashal(void * val,char * types);
 int strcmp(char *a,char *b);
 int arrayLen(char *a);
 void * malloc(int size);
-void RuntimeNotify(char * message);
-void PutStorage(char * key,char *value);
-char * GetStorage(char * key);
-void DeleteStorage(char * key);
+int ReadInt32Param(char *addr);
+char * ReadStringParam(char *addr);
 
 ```
 
@@ -136,29 +81,13 @@ The entry of WASM contract is unified as ```char * invoke(char * method, char * 
 
 **args** are the incoming parameters, raw bytes
 
-**API Description**
+API ```int strcmp(char *a,char *b)``` ：String comparison function, which can be used to judge the method’s name that needs to be called
 
--  ```int strcmp(char *a,char *b)``` ：String comparison function, which can be used to judge the method’s name that needs to be called.
+API ```char * JsonMashal(void * val,char * types)```  : It can serialize results to Json format
 
+API ```int ReadInt32Param(char *addr)``` and ```char * JsonMashal(void * val,char * types);``` can read string or int param from input bytes
 
-
--  ```int ReadInt32Param(char *addr)``` : read int  param from input bytes.
--  ```char * ReadStringParam(char *addr)``` : read  string param from input bytes.
-
-
-- ```int arrayLen(char *a)``` : get String length.
-
-- ```void * malloc(int size)``` : alloc memory for input size.
-
-- ```void RuntimeNotify(char * message)```  : add a system notification, can be catched in SDK side.
-
-- ```void PutStorage(char * key,char *value)``` : add a  key-value storage to ledger.
-
-- ```char * GetStorage(char * key)``` : get stored value from ledger by input key.
-
-- ```char * JsonMashalResult(void * val,char * types)``` : mashal result to json format.  For example:```  {"type":"string","value":"hello world!"}```.
-
-  ​
+[The detail wasm contract APIs](wasm_api.md)
 
 2. Compile the above C file into a smart contract in wasm format.
     * Emscripten tool [http://kripken.github.io/emscripten-site/](http://http://kripken.github.io/emscripten-site/)
@@ -184,52 +113,46 @@ And use the [wabt](https://github.com/WebAssembly/wabt) tool to compile the wast
 
 Incoming parameters can be in Json format:
 
-```c
-void JsonUnmashalInput(void * addr,int size,char * arg);
-char * JsonMashalResult(void * val,char * types);
+```
+void JsonUnmashal(void * addr,int size,char * arg);
+char * JsonMashal(void * val,char * types);
 int strcmp(char *a,char *b);
-int arrayLen(char *a);
+int arrayLen(void *a);
 void * malloc(int size);
-void RuntimeNotify(char * message);
-void PutStorage(char * key,char *value);
-char * GetStorage(char * key);
-void DeleteStorage(char * key);
-
 
 int add(int a, int b ){
         return a + b;
 }
 
 char * concat(char * a, char * b){
-	int lena = arrayLen(a);
-	int lenb = arrayLen(b);
-	char * res = (char *)malloc((lena + lenb)*sizeof(char));
-	for (int i = 0 ;i < lena ;i++){
-		res[i] = a[i];
-	}
+        int lena = arrayLen(a);
+        int lenb = arrayLen(b);
+        char * res = (char *)malloc((lena + lenb)*sizeof(char));
+        for (int i = 0 ;i < lena ;i++){
+                res[i] = a[i];
+        }
 
-	for (int j = 0; j < lenb ;j++){
-		res[lenb + j] = b[j];
-	}
-	return res;
+        for (int j = 0; j < lenb ;j++){
+                res[lenb + j] = b[j];
+        }
+        return res;
 }
 
 
 int sumArray(int * a, int * b){
 
-	int res = 0;
-	int lena = arrayLen(a);
-	int lenb = arrayLen(b);
+        int res = 0;
+        int lena = arrayLen(a);
+        int lenb = arrayLen(b);
 
-	for (int i = 0;i<lena;i++){
-		res += a[i];
-	}
-	for (int j = 0;j<lenb;j++){
-		res += b[j];
-	}
-	return res;
+        for (int i = 0;i<lena;i++){
+                res += a[i];
+        }
+        for (int j = 0;j<lenb;j++){
+                res += b[j];
+        }
+        return res;
 }
-
 
 
 char * invoke(char * method,char * args){
@@ -245,87 +168,46 @@ char * invoke(char * method,char * args){
                 };
                 struct Params param;
 
-                JsonUnmashalInput(&param,sizeof(param),args);
+                JsonUnmashal(&param,sizeof(param),args);
                 int res = add(param.a,param.b);
-                char * result = JsonMashalResult(res,"int");
-                RuntimeNotify(result);
-		return result;
-        }
-
-	if(strcmp(method,"concat")==0){
-		struct Params{
-			char *a;
-			char *b;
-		};
-		struct Params param;
-		JsonUnmashalInput(&param,sizeof(param),args);
-		char * res = concat(param.a,param.b);
-		char * result = JsonMashalResult(res,"string");
-		RuntimeNotify(result);
-		return result;
-	}
-	
-	if(strcmp(method,"sumArray")==0){
-		struct Params{
-			int *a;
-			int *b;
-		};
-		struct Params param;
-		JsonUnmashalInput(&param,sizeof(param),args);
-		int res = sumArray(param.a,param.b);
-		char * result = JsonMashalResult(res,"int");
-		RuntimeNotify(result);
-		return result;
-	}
-
-	if(strcmp(method,"addStorage")==0){
-
-		struct Params{
-			char * a;
-			char * b;
-		};
-		struct Params param;
-		JsonUnmashalInput(&param,sizeof(param),args);
-		PutStorage(param.a,param.b);
-		char * result = JsonMashalResult("Done","string");
-		RuntimeNotify(result);
-		return result;
-        }
-	if(strcmp(method,"getStorage")==0){
-
-		struct Params{
-			char * a;
-		};
-		struct Params param;
-		JsonUnmashalInput(&param,sizeof(param),args);
-		char * value = GetStorage(param.a);
-		char * result = JsonMashalResult(value,"string");
-		RuntimeNotify(result);
-		return result;
-	}
-	if(strcmp(method,"deleteStorage")==0){
-
-                struct Params{
-                        char * a;
-                };
-                struct Params param;
-                JsonUnmashalInput(&param,sizeof(param),args);
-                DeleteStorage(param.a);
-                char * result = JsonMashalResult("Done","string");
-                RuntimeNotify(result);
+                char * result = JsonMashal(res,"int");
                 return result;
         }
-}	                                                                                 
+
+        if(strcmp(method,"concat")==0){
+                struct Params{
+                        char *a;
+                        char *b;
+                };
+                struct Params param;
+                JsonUnmashal(&param,sizeof(param),args);
+                char * res = concat(param.a,param.b);
+                char * result = JsonMashal(res,"string");
+                return result;
+        }
+
+        if(strcmp(method,"sumArray")==0){
+                struct Params{
+                        int *a;
+                        int *b;
+                };
+                struct Params param;
+                JsonUnmashal(&param,sizeof(param),args);
+                int res = sumArray(param.a,param.b);
+                char * result = JsonMashal(res,"int");
+                return result;
+        }
+
+}
+                                                                                                                                      
 ```
 
-This example adds the new APIs:
-```go
-void JsonUnmashalInput(void * addr,int size,char * arg);
-void DeleteStorage(char * key):
+This example adds the new API:
+```
+void JsonUnmashal(void * addr,int size,char * arg);
 ```
 
--  ```void JsonUnmashalInput(void * addr,int size,char * arg)``` ：parse the parameters in json format into defined structures.
-- ```void DeleteStorage(char * key)``` : delete storage from ledger by input key.
+API ```void JsonUnmashal(void * addr,int size,char * arg)``` ：It can parse the parameters in json format into defined structures.
 
 Since webFiddle has problems with the compilation of the ```&``` operation of the C language, it needs to use Emscripten to compile it.
 
