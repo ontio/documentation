@@ -35,7 +35,8 @@ Ledger APIs provides the abilities to  access blockchain ledger
 
 ## BlockChain
 
-BlockChain APIs provides the abilities to  access blockchain attributes
+BlockChain APIs provides the abilities to  access blockchain attributes.
+
 | Name                 | Parameters | Returns | Description                             |
 | -------------------- | ---------- | ------- | --------------------------------------- |
 | GetBlockHeight       |            | int     | return current blockchain height        |
