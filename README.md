@@ -28,6 +28,7 @@ English | [中文](/zh-CN/README.md)
 - [Ontology DID](#Ontology-did) :hatched_chick:
 - [Ontology Java SDK](#Ontology-java-sdk) :hatched_chick:
 - [Ontology TS SDK](#Ontology-ts-sdk) :hatched_chick:
+- [Ontology Go SDK](#Ontology-go-sdk) :hatched_chick:
 
 ## Ontology Applications
 - [ONTO](#onto) :hatching_chick:
@@ -84,6 +85,11 @@ English | [中文](/zh-CN/README.md)
 ### <a name="Ontology-ts-sdk"></a>Ontology TS SDK <sup>[top⇈](#ontology-infrastructure)</sup>
 > The project is a comprehensive TypeScript library for the Ontology blockchain. Currently, it supports local wallet management, digital identity management, digital asset management, deployment and envoke for Smart Contract . The future will also support more rich functions and applications.
 - [Ontology TS SDK](https://github.com/ontio/ontology-ts-sdk) - main repository
+
+### <a name="Ontology-go-sdk"></a>Ontology GO SDK <sup>[top⇈](#ontology-infrastructure)</sup>
+> The project is a comprehensive Go library for the Ontology blockchain. Currently, it supports local wallet management, digital asset management, deployment and envoke for Smart Contract . The future will also support more rich functions and applications.
+- [Ontology GO SDK](https://github.com/ontio/ontology-go-sdk) - main repository
+
 
 ### <a name="onto"></a>ONTO <sup>[top⇈](#ontology-infrastructure)</sup>
 > ONTO is a comprehensive decentralized client product, and gives users self-sovereign of their digital identities, digital assets, etc.
