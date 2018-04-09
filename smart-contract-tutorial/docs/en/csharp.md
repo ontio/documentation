@@ -107,12 +107,12 @@ namespace Neo.SmartContract
             }
         }
 
-        private static byte[] Query(string domain)
+        public static byte[] Query(string domain)
         {
             return Storage.Get(Storage.CurrentContext, domain);
         }
 
-        private static bool Register(string domain, byte[] owner)
+        public static bool Register(string domain, byte[] owner)
         {
             if (!Runtime.CheckWitness(owner)) return false;
             byte[] value = Storage.Get(Storage.CurrentContext, domain);
@@ -121,7 +121,7 @@ namespace Neo.SmartContract
             return true;
         }
 
-        private static bool Transfer(string domain, byte[] to)
+        public static bool Transfer(string domain, byte[] to)
         {
             byte[] from = Storage.Get(Storage.CurrentContext, domain);
             if (from == null) return false;
@@ -130,7 +130,7 @@ namespace Neo.SmartContract
             return true;
         }
 
-        private static bool Delete(string domain)
+        public static bool Delete(string domain)
         {
             byte[] owner = Storage.Get(Storage.CurrentContext, domain);
             if (owner == null) return false;
