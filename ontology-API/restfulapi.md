@@ -7,21 +7,37 @@
 Restful API list
 
 get_gen_blk_time
+
 get_conn_count
+
 get_blk_txs_by_height
+
 get_blk_by_height
+
 get_blk_by_hash
+
 get_blk_height
+
 get_blk_hash
+
 get_tx
+
 get_storage
+
 get_balance
+
 get_contract_state
+
 get_smtcode_evt_txs
+
 get_smtcode_evts
+
 get_blk_hgt_by_txhash
+
 get_merkle_proof
+
 post_raw_tx
+
 
 ## Introduction
 
