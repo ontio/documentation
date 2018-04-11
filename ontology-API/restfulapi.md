@@ -6,8 +6,8 @@
 
 Restful API list
 
-| Method | url | Description |
-| :---| :---| :---|
+| Method | url |
+| :---| :---|
 | get_gen_blk_time | GET /api/v1/node/generateblocktime |
 | get_conn_count | GET /api/v1/node/connectioncount |
 | get_blk_txs_by_height | GET /api/v1/block/transactions/height/:height |
@@ -23,7 +23,7 @@ Restful API list
 | get_smtcode_evts | GET /api/v1/smartcode/event/txhash/:hash |
 | get_blk_hgt_by_txhash | GET /api/v1/block/height/txhash/:hash |
 | get_merkle_proof | GET /api/v1/merkleproof/:hash|
-| post_raw_tx | GET /api/v1/transaction |
+| post_raw_tx | post /api/v1/transaction |
 
 
 ## Introduction
