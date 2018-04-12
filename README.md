@@ -75,7 +75,7 @@ English | [中文](/zh-CN/README.md)
 - [Ontology FPGA](https://github.com/ontio/ontology-fpga) - main repository
 
 ### <a name="Ontology-did"></a>Ontology DID <sup>[top⇈](#ontology-infrastructure)</sup>
-> Ontology DID(Also: ONT ID) is a decentralized identification protocol which based on W3C DID specifications.It supports collaborative services such as distributed and diversified ownership confirmation, identification, and authentication of various entities including individuals, legal entities, objects, and contents. ONT ID establishes a cryptographically-based digital identity for each entity, allowing self-sovereign of data authorization and ownership confirmation, which makes the identity and data truly assets that the user can control. ONT ID has the characteristics of decentralization, self-management, privacy protection, security and ease of use.
+> Ontology DID(Also: ONT ID) is a decentralized identification protocol which based on W3C DID specifications. It supports collaborative services such as distributed and diversified ownership confirmation, identification, and authentication of various entities including individuals, legal entities, objects, and contents. ONT ID establishes a cryptographically-based digital identity for each entity, allowing self-sovereign of data authorization and ownership confirmation, which makes the identity and data truly assets that the user can control. ONT ID has the characteristics of decentralization, self-management, privacy protection, security and ease of use.
 - [Ontology DID](https://github.com/ontio/ontology-DID) - main repository
 
 ### <a name="Ontology-java-sdk"></a>Ontology Java SDK <sup>[top⇈](#ontology-infrastructure)</sup>
