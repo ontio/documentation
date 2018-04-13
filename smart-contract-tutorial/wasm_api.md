@@ -44,6 +44,7 @@ BlockChain APIs provides the abilities to  access blockchain attributes.
 | GetTimeStamp         |            | int     | return current block timestamp          |
 
 ## Other
+
 To be add more APIs here
 
 | Name             | Parameters                                                   | Returns | Description                                                  |
