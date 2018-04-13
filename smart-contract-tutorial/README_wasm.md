@@ -113,7 +113,7 @@ And use the [wabt](https://github.com/WebAssembly/wabt) tool to compile the wast
 
 Incoming parameters can be in Json format:
 
-```
+```c
 void JsonUnmashal(void * addr,int size,char * arg);
 char * JsonMashal(void * val,char * types);
 int strcmp(char *a,char *b);
@@ -203,7 +203,7 @@ char * invoke(char * method,char * args){
 ```
 
 This example adds the new API:
-```
+```c
 void JsonUnmashal(void * addr,int size,char * arg);
 ```
 
