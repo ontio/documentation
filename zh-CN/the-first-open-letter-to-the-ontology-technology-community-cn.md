@@ -1,4 +1,4 @@
-[English Version](../en/the-first-open-letter-to-the-ontology-technology-community.md)
+[English Version](../EN/the-first-open-letter-to-the-ontology-technology-community.md)
 
 
 <h1 align="center">给本体技术社区的第一封公开信 </h1>
