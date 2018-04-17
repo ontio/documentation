@@ -39,7 +39,8 @@
 
 - 白皮书概览<br/>[英语](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
 - 技术白皮书<br/>[英语](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
-- 生态白皮书<br/>[英语](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
+- 生态白皮书<br/>[英语](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)<br><br>
+- [本体开发者新手指南](https://github.com/ontio/documentation/blob/master/zh-CN/tutorial_for_developer.md)
 - [智能合约](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
 - [OEPs](https://github.com/ontio/OEPs)
 
