@@ -16,7 +16,7 @@
 
 * 个人技术贡献者
 
-每个个人技术参与者，可以在本体的项目群中选择感兴趣的项目参与，提交新的Enhancement Proposal (OEP)、实现代码、解决BUG等等多种方式。也可以申请提出新的项目。本体基金会会根据不同的贡献参与度进行不同程度的支持。[>> 贡献标准流程](https://github.com/ontio/documentation/blob/master/zh-CN/standard_process_for_contributor.md)
+每个个人技术参与者，可以在本体的项目群中选择感兴趣的项目参与，提交新的Enhancement Proposal (OEP)、实现代码、解决BUG等等多种方式。也可以申请提出新的项目。本体基金会会根据不同的贡献参与度进行不同程度的支持。
 
 * 技术社区小组
 
@@ -25,6 +25,8 @@
 * 机构技术贡献者
 
 机构可以与本体合作开展与自身业务相关的技术研究，共同进行底层产品技术和业务通用模块的研究，双方可以共同在技术、经费、资源等各方面进行灵活合作。
+
+[>> 社区贡献标准流程](https://github.com/ontio/documentation/blob/master/zh-CN/standard_process_for_contributor.md)
 
 ## 了解您的开发需求
 
