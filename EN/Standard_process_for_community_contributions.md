@@ -1,3 +1,5 @@
+[中文](https://github.com/ontio/documentation/blob/master/zh-CN/standard_process_for_contributor.md)
+
 # **Standard process for community contributions**
 
 #### (1) Personal Developer or Group Technical contributions
