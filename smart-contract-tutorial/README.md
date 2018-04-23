@@ -11,7 +11,7 @@ Ontology smart contract have certainty, high-performance, and expandable feature
 
 Interactive Service includes native service, NeoVM service, and WasmVM service. Native service provides special smart contract implementation in the underlying blockchain, which can be quickly and conveniently used. NeoVM service provides the API of NeoVM to communicate externally, it can enhance the invoke function of the smart contract. WasmVM service provides the API of WasmVM to communicate with the external virtual machine.
 
-Virtual Machine includes NeoVM and WasmVM. NeoVM is a lightweight virtual machine，which has proven to perform well on public chains. WasmVM is a high-performance and universal virtual machine.
+Virtual Machine includes NeoVM and WasmVM. NeoVM is a lightweight virtual machine, which has proven to perform well on public chains. WasmVM is a high-performance and universal virtual machine.
 
 Ontology smart contract also support invoke in different contracts and virtual machines. Developers can easily use Ontology smart contracts to build projects.
 ## Write smart contracts in any language
@@ -80,7 +80,7 @@ You can check more specific examples here:
 
 After you have written your smart contract, you can click the **Compile** button on the right side to compile your code. 
 
-If your code is correct, your smart contract will be compiled to the ABI and AVM file , and display on the right side.
+If your code is correct, your smart contract will be compiled to the ABI and AVM file, and display on the right side.
 
 
 
