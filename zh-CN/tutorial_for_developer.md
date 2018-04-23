@@ -1,4 +1,4 @@
-[English Version](./tutorial_for_developer.md)
+[English Version](https://github.com/ontio/documentation/blob/master/Ontology-Developer-Guide.md)
 
 
 <h1 align="center"> 本体开发者新手指南</h1>
