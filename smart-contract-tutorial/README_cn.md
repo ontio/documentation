@@ -40,6 +40,7 @@ JavaScript
 
 ![Workflow of smart contract](https://s1.ax1x.com/2018/03/24/9q9vx1.png)
 
+
 首先，你需要选择一种语言来编写你的智能合约，假设你选择了C#。然后你需要编译你编写的合约。最后，你可以将合约部署到区块链上并调用它。我们已经开发了一个在线工具[Smartx](http://smartx.ont.io)，来帮助广大开发者更便利地应对创建智能合约相关的事情。
 
 
