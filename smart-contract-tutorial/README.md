@@ -1,5 +1,7 @@
+[中文](README_cn.md) | English
+
 <h1 align="center">Ontology Smart Contract</h1>
-<h4 align="center">Version V0.6.0 </h4>
+<p align="center" class="version">Version V0.7.0 </p>
 
 ## What is a smart contract?
 
@@ -40,7 +42,9 @@ JavaScript
 
 First, you should choose a language to write your smart contract, let's suppose it's C#. Then you need to compile your code. Last, you can deploy your smart contract to the blockchain and invoke it. 
 
-Do not worry, we have built a simple tool to help you with all these things. It's an [online IDE](http://dev.ont.io/#/) for Ontology smart contracts. You can write smart contract with popular languages, deploy, and invoke contracts easily. 
+Do not worry, we have built a [online tool](http://smartx.ont.io) to help you with all these things.
+
+We call this tool "Smartx". First of all, it is a one-stop solution service for compiling, deploying and invoking smart contracts. It offers abundant smart contract templates for your reference. It offers a powful online editor that supports several languages. It aslo offers a testnet account for you to deploy and invoke contracts. Next, it will support social function and smart contracts transaction. Users can invite others to join the team work of making smart contracts. And they can put their contracts to the market for sale.
 
 For more information, please check the [Smart Contract IDE user guide](/docs/en/ont sc ide user guide.md).
 
@@ -49,7 +53,7 @@ For more information, please check the [Smart Contract IDE user guide](/docs/en/
 We now support smart contracts that run in **NeoVM** and **WasmVM**.
 
 
-* **For NeoVM**, we supply your Smart Contract IDE to help you write, compile, deploy, and invoke smart contracts. 
+* **For NeoVM**, you can use[Smartx](http://smartx.ont.io) to write, compile, deploy, and invoke smart contracts. 
 * **For WASMVM**, Please go to [>> Wasm Smart Contract](README_wasm.md).
 
 First you should create a project and choose the language to write your smart contract.
@@ -57,8 +61,6 @@ First you should create a project and choose the language to write your smart co
 ![Select language](https://s1.ax1x.com/2018/03/24/9bxJYR.png)
 
 Then you can see the main editor page. 
-
-The left side is the file structure of your smart contract.
 
 The right side is the operation panel.
 
@@ -86,12 +88,13 @@ If your code is correct, your smart contract will be compiled to the ABI and AVM
 
 ### Step 2 - Deploy smart contract
 
-Next, you can deploy the smart contract to the blockchain. This step costs a fee, so you have to select one of your local wallets with enough balance. Then click the **Deploy** button to deploy the contract.
+Next, you can deploy the smart contract to the blockchain. This step costs some fee, you can use the testnet account for test. Then click the **Deploy** button to deploy the contract.
 
 Besides IDE, you can use ONT SDK to deploy the smart contract. Please check the SDKs for more detailed information.
 
 [>> Java SDK](https://opendoc.ont.io/javasdk/en/chapter5/smartcontract.html)
 
+[>> TS SDK](https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/smart_contract%20en.md)
 
 ![Deploy contract](https://s1.ax1x.com/2018/04/04/CpIcAe.png)
 
@@ -102,9 +105,11 @@ Last, you can run the method of your contract. This step costs a fee too. You ca
 
 ![Invoke smart contract](https://s1.ax1x.com/2018/04/04/CpoCEF.png)
 
-Besides IDE, you can use [>> Java SDK](https://opendoc.ont.io/javasdk/en/chapter5/smartcontract.html) to invoke a smart contract. Please check the SDKs for more detailed information. 
+Besides IDE, you can use ONT SDK to invoke a smart contract. Please check the SDKs for more detailed information. 
 
+[>> Java SDK](https://opendoc.ont.io/javasdk/en/chapter5/smartcontract.html)
 
+[>> TS SDK](https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/smart_contract%20en.md)
 
 
 
