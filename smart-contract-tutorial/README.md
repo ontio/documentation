@@ -50,7 +50,6 @@ Smartx is a powerful online tool for developers. First of all, it is a one-stop 
 For more information, please check the [Smartx user guide](http://smartx.ont.io/#/help).
 
 
-
 ### Step 1 - Write & Compile  
 
 We now support smart contracts that run in **NeoVM** and **WasmVM**.
