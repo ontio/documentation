@@ -43,7 +43,7 @@ English | [中文](/zh-CN/README.md)
 - Ecosystem White Papers<br/>[English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)<br><br>
 - [Ontology Developer Guide](https://github.com/ontio/documentation/blob/master/Ontology_Developer_Guide.md)
 - [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
-- [VBFT Introduction](vbft-intro/vbft-intro.md)
+- [VBFT Introduction](/vbft-intro/vbft-intro.md)
 - [OEPs](https://github.com/ontio/OEPs)
 
 ---
