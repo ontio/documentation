@@ -1,3 +1,5 @@
+[English Version](https://github.com/ontio/documentation/blob/doc_update/EN/Standard_process_for_community_contributions.md)
+
 ## **社区贡献标准流程**
 
 #### 一、个人或小组技术贡献者
