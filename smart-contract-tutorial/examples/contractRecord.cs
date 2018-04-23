@@ -17,22 +17,19 @@ namespace Ontology
 
         public static Object Main(string operation, params object[] args)
         {
-            if (Runtime.Trigger == TriggerType.Application)
+            if (operation == "Put")
             {
-                if (operation == "Put")
-                {
-                    if (args.Length != 2) return false;
-                    byte[] key = (byte[])args[0];
-                    byte[] value = (byte[])args[1];
-                    return Put(key, value);
-                }
+                if (args.Length != 2) return false;
+                byte[] key = (byte[])args[0];
+                byte[] value = (byte[])args[1];
+                return Put(key, value);
+            }
 
-                if (operation == "Get")
-                {
-                    if (args.Length != 1) return false;
-                    byte[] key = (byte[])args[0];
-                    return Get(key);
-                }
+            if (operation == "Get")
+            {
+                if (args.Length != 1) return false;
+                byte[] key = (byte[])args[0];
+                return Get(key);
             }
             return false;
         }

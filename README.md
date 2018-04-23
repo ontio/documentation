@@ -42,6 +42,7 @@ English | [中文](/zh-CN/README.md)
 - Technical White Papers<br/>[English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)  
 - Ecosystem White Papers<br/>[English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)<br><br>
 - [Ontology Developer Guide](https://github.com/ontio/documentation/blob/master/Ontology_Developer_Guide.md)
+
 - [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
 - [OEPs](https://github.com/ontio/OEPs)
 
