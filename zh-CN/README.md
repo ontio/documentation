@@ -42,6 +42,7 @@
 - 生态白皮书<br/>[英语](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)<br><br>
 - [本体开发者新手指南](https://github.com/ontio/documentation/blob/master/zh-CN/tutorial_for_developer.md)
 - [智能合约](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
+- [VBFT介绍](/vbft-intro/vbft-intro-CN.md)
 - [OEPs](https://github.com/ontio/OEPs)
 
 ---
