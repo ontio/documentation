@@ -161,6 +161,7 @@ ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
 //更新一个属性
 String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,byte[] value)
 ```
+
 | 参数      | 字段   | 类型  | 描述 |             说明 |
 | ----- | ------- | ------ | ------------- | ----------- |
 | 输入参数 | password| String | 发行者地址 | 必选，私钥解密的密码 |
@@ -170,11 +171,13 @@ String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,b
 |        | value   | byte[] | value     | 必选，值 |
 | 输出参数 | txhash   | String  | 交易hash  | 交易hash是64位字符串 |
 
+
 * 9 移除链上DDO属性
 
 ```
 String hash = ontSdk.getOntIdTx().sendRemoveAttribute(did.ontid, "passwordtest", "attri".getBytes());
 ```
+
 | 参数      | 字段   | 类型  | 描述 |             说明 |
 | ----- | ------- | ------ | ------------- | ----------- |
 | 输入参数 | password| String | 发行者地址 | 必选，私钥解密的密码 |

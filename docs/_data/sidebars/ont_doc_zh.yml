@@ -52,7 +52,7 @@ entries:
       url: /ontology_testnet_zh.html
       output: web, pdf
 
-    - title: Cli示例
+    - title: Cli使用说明
       url: /ontology_cli_sample_zh.html
       output: web, pdf
 
