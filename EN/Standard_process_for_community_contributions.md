@@ -18,7 +18,7 @@ If a bug is found, submit a pull request according to the GitHub standard proces
 
 ##### 4. Technical Committee
 
-We welcome community talent to join the Ontology Technical Community. If you are interested, please apply in the [developer community on Discord区](https://discord.gg/4TQujHj).
+We welcome community talent to join the Ontology Technical Community. If you are interested, please apply in the [developer community on Discord](https://discord.gg/4TQujHj).
 
 #### (2) Developer community organizational cooperation
 
