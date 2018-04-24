@@ -64,7 +64,7 @@ We now support smart contracts that run in **NeoVM** and **WasmVM**.
 
 
 * **For NeoVM**, you can use[Smartx](http://smartx.ont.io) to write, compile, deploy, and invoke smart contracts. 
-* **For WASMVM**, Please go to [>> Wasm Smart Contract](README_wasm.md).
+* **For WASMVM**, Please go to [>> Wasm Smart Contract](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/README_wasm.md).
 
 First you should create a project and choose the language to write your smart contract.
 
@@ -84,9 +84,9 @@ You can enjoy coding your smart contracts now. We also provide some useful contr
 
 You can check more specific examples here:
 
-[ C# Smart Contract](docs/en/csharp.md)
+[ C# Smart Contract](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/docs/en/csharp.md)
 
-[Python Smart Contract](docs/en/python.md)
+[Python Smart Contract](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/docs/en/python.md)
 
 #### Compile smart contract
 

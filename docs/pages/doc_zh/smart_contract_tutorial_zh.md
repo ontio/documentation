@@ -73,7 +73,7 @@ Smartx是面向广大开发者的功能强大的在线工具。
 目前，我们支持运行于**NEO虚拟机**和**WASM虚拟机**的智能合约。
 
 * **对于NEO虚拟机**，我们提供了[Smartx](http://smartx.ont.io)来帮助你编写和编译智能合约。
-* **对于WASM虚拟机**, 请查阅 [>>WASM智能合约](README_wasm.md)文档。
+* **对于WASM虚拟机**, 请查阅 [>>WASM智能合约](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/README_wasm.md)文档。
 
 首先你需要创建一个项目并选择你喜欢的语言，开始编写智能合约。
 
@@ -94,9 +94,9 @@ Smartx是面向广大开发者的功能强大的在线工具。
 
 更多具体实例请查询：
 
-[ C# Smart Contract](docs/en/csharp.md)
+[ C# Smart Contract](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/docs/en/csharp.md)
 
-[Python Smart Contract](docs/en/python.md)
+[Python Smart Contract](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/docs/en/python.md)
 
 #### 编译智能合约
 在你完成编写合约之后，你可以点击操作面板上的**编译**按钮，编译你的合约。
