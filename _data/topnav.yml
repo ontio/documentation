@@ -1,0 +1,16 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+topnav:
+- title: Topnav
+  items:
+
+#Topnav dropdowns
+topnav_dropdowns:
+- title: Topnav dropdowns
+  folders:
+    - title: Language
+      folderitems:
+        - title: ENGLISH
+          url: /first_open_letter_en.html
+        - title: 中文
+          url: /first_open_letter_zh.html

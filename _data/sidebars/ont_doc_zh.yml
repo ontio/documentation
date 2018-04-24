@@ -1,0 +1,202 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: 
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Introduction
+    output: web, pdf
+    folderitems:
+
+    - title: 给社区开发者的公开信
+      url: /first_open_letter_zh.html
+      output: web, pdf
+      type: homepage
+
+    - title: 开发者新手指南
+      url: /tutorial_for_developer_zh.html
+      output: web, pdf
+
+    - title: 社区贡献标准流程
+      url: /standard_process_for_contributor_zh.html
+      output: web, pdf
+
+  - title: Ontology
+    output: web, pdf
+    folderitems:
+
+    - title: 功能和特点介绍
+      url: /ontology_features_zh.html
+      output: web, pdf
+
+    - title: 环境配置
+      url: /ontology_install_zh.html
+      output: web, pdf
+
+    - title: TestNet搭建
+      url: /ontology_testnet_zh.html
+      output: web, pdf
+
+    - title: Cli示例
+      url: /ontology_cli_sample_zh.html
+      output: web, pdf
+
+      subfolders:
+      - title: RPC/Restful API  接口说明 
+        output: web
+        subfolderitems:
+
+        - title: RPC API
+          url: /ontrpcapi_zh.html
+          output: web
+
+        - title: Restful API
+          url: /restfulapi_zh.html
+          output: web
+
+    - title: 共识机制说明
+      url: /vbft_intro_zh.html
+      output: web, pdf
+
+  - title: Ontology DID
+    output: web, pdf
+    folderitems:
+
+    - title: 总体介绍
+      url: /ontology_DID_zh.html
+      output: web, pdf
+
+    - title: Ontology DID身份标识协议规范
+      url: /ONTID_protocol_spec_zh.html
+      output: web, pdf
+
+    - title: 可信申明协议规范
+      url: /claim_spec_zh.html
+      output: web, pdf
+
+    - title: 信任锚接入标准
+      url: /verification_provider_specification_zh.html
+      output: web, pdf
+
+  - title: SDKs
+    output: web, pdf
+    folderitems:
+
+    - title: 总体说明
+      url: /overview_of_sdks_zh.html
+      output: web, pdf
+
+    - title: 钱包文件规范
+      url: /ontology_wallet_file_specification_zh.html
+      output: web, pdf
+      subfolders:
+      - title: Java SDK
+        output: web
+        subfolderitems:
+
+        - title: 介绍
+          url: /ontology_java_sdk_zh.html
+          output: web
+
+        - title: 节点控制
+          url: /ontology_java_sdk_blockchain_interop_zh.html
+          output: web
+
+        - title: 数字身份管理
+          url: /ontology_java_sdk_identity_claim_zh.html
+          output: web
+
+        - title: 数字资产管理
+          url: /ontology_java_sdk_asset_zh.html
+          output: web
+
+        - title: 智能合约部署和调用
+          url: /ontology_java_sdk_smartcontract_zh.html
+          output: web
+
+        - title: 存证
+          url: /ontology_java_sdk_attestation_zh.html
+          output: web
+
+        - title: 错误码
+          url: /ontology_java_sdk_error_code_zh.html
+          output: web
+
+      - title: TS SDK
+        output: web
+        subfolderitems:
+
+        - title: 介绍
+          url: /ontology_ts_sdk_zh.html
+          output: web
+
+        - title: 数字身份管理
+          url: /ontology_ts_sdk_identity_claim_zh.html
+          output: web
+
+        - title: 数字资产管理
+          url: /ontology_ts_sdk_asset_zh.html
+          output: web
+
+        - title: 智能合约部署和调用
+          url: /ontology_ts_sdk_smartcontract_zh.html
+          output: web
+
+        - title: 错误码
+          url: /ontology_ts_sdk_error_code_zh.html
+          output: web
+
+  - title: 智能合约
+    output: web, pdf
+    folderitems:
+
+    - title: 总体介绍
+      url: /smart_contract_tutorial_overview_zh.html
+      output: web, pdf
+
+    - title: WASM-VM 简介
+      url: /smart_contract_tutorial_wasm_zh.html
+      output: web, pdf
+
+    - title: 智能合约开发指南
+      url: /smart_contract_tutorial_zh.html
+      output: web, pdf
+
+  - title: 分布式数据交易
+    output: web, pdf
+    folderitems:
+
+    - title: 总体介绍
+      url: /ontology_ddxf_zh.html
+      output: web, pdf
+
+  - title: White Papers
+    output: web, pdf
+    folderitems:
+
+    - title: Download
+      url: /wp_download_zh.html
+      output: web, pdf
+
+  - title: FAQ
+    output: web, pdf
+    folderitems:
+
+    - title: FAQ
+      url: /FAQ_zh.html
+      output: web, pdf
