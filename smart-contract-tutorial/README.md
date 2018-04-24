@@ -46,7 +46,10 @@ First, you should choose a language to write your smart contract, let's suppose 
 
 Smartx is a powerful online tool for developers. First of all, it is a one-stop solution service for compiling, deploying and invoking smart contracts. It offers abundant smart contract templates for your reference. It offers a powful online editor that supports several languages. It aslo offers a testnet account for you to deploy and invoke contracts. Next, it will support social function and smart contracts transaction. Users can invite others to join the team work of making smart contracts. And they can put their contracts to the market for sale.
 
+
 For more information, please check the [Smartx user guide](http://smartx.ont.io/#/help).
+
+
 
 ### Step 1 - Write & Compile  
 
