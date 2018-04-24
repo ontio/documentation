@@ -55,7 +55,7 @@ WebAssembly 是基于栈式的虚拟机，指令的执行都是在栈内完成�
 
 ![wasm4](lib/images/wasm4.png)
 
-webAssembly 指令集参考：[webAssembly bianry code](wasm_binarycode.md )
+webAssembly 指令集参考：[webAssembly bianry code](https://github.com/ontio/ontology-wasm/blob/master/doc/wasm_binarycode.md )
 
 WebAssembly 只支持4种基本类型：
 

@@ -17,7 +17,7 @@ folder: doc_zh
 
 ## 钱包文件及规范
 
-钱包文件是一个Json格式的数据存储文件，可同时存储多个数字身份和多个数字资产账户。具体参考[钱包文件规范](Wallet_File_Specification.md)。
+钱包文件是一个Json格式的数据存储文件，可同时存储多个数字身份和多个数字资产账户。具体参考[钱包文件规范](./ontology_wallet_file_specification_zh.html)。
 
 为了创建数字身份，您首先需要创建/打开一个钱包文件。
 

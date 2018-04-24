@@ -45,7 +45,7 @@ ONT ID 生成算法：
 本体支持多种国内、国际标准化的数字签名算法，如RSA、ECDSA、SM2等。ONT ID绑定的密钥需指定所使用的算法，同时一个ONT ID可以绑定多个不同的密钥，以满足实体在不同的应用场景的使用需求。
 
 ### 1.4 身份丢失恢复
-ONT ID的所有者可以设置恢复人代替本人行使对ONT ID的管理权，如修改ONT ID对应的属性信息，在密钥丢失时替换密钥。恢复人可以实现多种访问控制逻辑，如“与”、“或”、“(m, n)-门限”。更多示例参见[附录A](ONTID_protocol_spec_cn.md#a-恢复人地址)。
+ONT ID的所有者可以设置恢复人代替本人行使对ONT ID的管理权，如修改ONT ID对应的属性信息，在密钥丢失时替换密钥。恢复人可以实现多种访问控制逻辑，如“与”、“或”、“(m, n)-门限”。更多示例参见[附录A](#a-恢复人地址)。
 
 ### 1.5 身份描述对象DDO规范
 
@@ -95,7 +95,7 @@ public static Object Main(string op, object[] params);
 大部分子函数的返回值是布尔类型，代表执行操作的成功与否。正确执行之后，会推送事件消息通知调用者，具体消息类型请参考“**API描述**”小节。
 
 #### Ontology智能合约调用
-通过发送类型为*InvocationTransaction*的交易，并将需要调用的合约地址及调用传入参数作为交易的Payload。更为详尽的信息请参考[合约调用]()。
+通过发送类型为*InvocationTransaction*的交易，并将需要调用的合约地址及调用传入参数作为交易的Payload。更为详尽的信息请参考[合约调用https://github.com/ontio/ontology-DID/tree/master/docs/cn)。
 
 ### 2.2 IdContract接口定义
 ####  a. 身份登记

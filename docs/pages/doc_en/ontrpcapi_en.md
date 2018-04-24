@@ -11,9 +11,9 @@ English / [中文](./ontrpcapi_zh.html)
 <h1 align="center">Ontology Rpc API</h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
-* [Introduction](#Introduction)
-* [Rpc API list](#Rpc API list)
-* [Error code](#Errorcode)
+* [Introduction](#introduction)
+* [Rpc API list](#rpc-api-list)
+* [Error code](#errorcode)
 
 Rpc API list
 

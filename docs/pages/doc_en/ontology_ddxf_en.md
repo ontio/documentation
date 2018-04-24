@@ -158,7 +158,7 @@ bool Confirm(byte[] serial_no, byte[33] buyer, byte[33] user, byte[33] issuer, i
 
 This is a Smart Contract,access to [>> smart contract tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial), to learn how to use smart contract.
 
-At the same time, DDXF has prepared the basic smart contract templates for you to use, click the [>> DXC sample template](./demo/dex-sc-csharp/dex.cs) to get it.
+At the same time, DDXF has prepared the basic smart contract templates for you to use, click the [>> DXC sample template](https://github.com/ontio/ontology-ddxf/blob/master/demo/dex-sc-csharp/dex.cs) to get it.
 
 ### 4 Start Transaction
 

@@ -359,5 +359,5 @@ String result = (String) sdk.getConnectMgr().sendRawTransactionPreExec(txHex);
 * 想查看转账时的推送结果？
 
 
-请查看智能合约采用websocket连接调用合约方法，详见[smartcontract](smartcontract.md)。
+请查看智能合约采用websocket连接调用合约方法，详见 [smartcontract](./ontology_java_sdk_smartcontract_zh.html)。
 

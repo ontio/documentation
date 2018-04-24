@@ -69,7 +69,7 @@ You can also refer to our RPC and RESTful interfaces, including the following:
 
 A smart contract is a set of digital terms, including which contract participants can execute these terms. Blockchain technology has brought us a decentralized, irreproducible, and highly reliable system. In this environment, smart contracts are very useful. Smart contracts are one of the most important features of blockchain and a main reason why blockchain can be called a "disruptive" technology.
 
-Visit [>>Ontology Smart Contract Development Guide](./smart-contract-tutorial)to learn how to develop and configure your application with smart contracts.
+Visit [>>Ontology Smart Contract Development Guide](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)to learn how to develop and configure your application with smart contracts.
 
 
 ### **Become an Ontology trust anchor**
@@ -78,7 +78,7 @@ A trust anchor refers to a partner that provides authentication services for the
 
 If you would like to be a trust anchor, please apply [here](https://info.ont.io/cooperation/zh).
 
-If you already are a trust anchor，please go to [>> Verification Provider Specification](./docs/cn/verification_provider_specification_cn.md) to understand access procedures and standards.
+If you already are a trust anchor，please go to [>> Verification Provider Specification](./verification_provider_specification_en.html) to understand access procedures and standards.
 
 
 ### **Other ecosystem developers**

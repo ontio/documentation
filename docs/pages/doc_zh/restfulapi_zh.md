@@ -11,9 +11,9 @@ folder: doc_zh
 <h1 align="center">Ontology Restful API </h1>
 <p align="center" class="version">版本 0.7.0 </p>
 
-* [Introduction](#Introduction)
-* [Restful API list](#Restful API list)
-* [Errorcode](#Errorcode)
+* [Introduction](#introduction)
+* [Restful API list](#restful-api-list)
+* [Errorcode](#errorcode)
 
 Restful API list
 
