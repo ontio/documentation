@@ -52,7 +52,7 @@ entries:
       url: /ontology_testnet_en.html
       output: web, pdf
 
-    - title: Cli Samples
+    - title: Cli User Guide
       url: /ontology_cli_sample_en.html
       output: web, pdf
 
