@@ -13,13 +13,13 @@ namespace Neo.SmartContract
         {
             switch (operation)
             {
-                case "query":
+                case "Query":
                     return Query((string)args[0]);
-                case "register":
+                case "Register":
                     return Register((string)args[0], (byte[])args[1]);
-                case "transfer":
+                case "Transfer":
                     return Transfer((string)args[0], (byte[])args[1]);
-                case "delete":
+                case "Delete":
                     return Delete((string)args[0]);
                 default:
                     return false;
