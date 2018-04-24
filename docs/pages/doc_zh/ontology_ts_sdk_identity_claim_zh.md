@@ -16,11 +16,11 @@ folder: doc_zh
 
 ONT ID是一个去中心化的身份标识，能够管理用户的各种数字身份认证。数字身份(Identity)是ONT SDK导出的一个核心类，该类包含代表身份的ONT ID属性。
 
-> 关于数字身份的具体信息请查阅[ONT TS SDk]() 中相关内容。
+> 关于数字身份的具体信息请查阅[ONT TS SDk](https://github.com/ontio/ontology-ts-sdk/tree/master/docs/cn) 中相关内容。
 
 可以通过SDK来创建一个身份。创建身份的过程中会基于用户的私钥生成ONT ID。
 
-> 关于ONT ID 的规范参见[ONT ID生成规范](./ONTID_protocol_spec.md/#1.1_ONT_ID生成)
+> 关于ONT ID 的规范参见[ONT ID生成规范](./ONTID_protocol_spec_zh.html#11-ont-id生成)
 
 创建身份需要提供的参数如下：
 
@@ -82,7 +82,7 @@ txSender.sendTxWithSocket( param, callback )
 
 当我们定义的回调函数里处理得到上链成功的推送消息时，ONT ID创建过程才真正完成。接下来就可以通过ONT ID来管理用户的各项可信声明了。
 
-关于链上推送返回的具体信息，可以参见[ONT ID智能合约的设计与调用相关文档](./ONTID_protocol_spec.md/#g._事件推送)。
+关于链上推送返回的具体信息，可以参见[ONT ID智能合约的设计与调用相关文档](./ONTID_protocol_spec_zh.html#g-事件推送)。
 
 ## 2. 签发可信声明
 
@@ -93,7 +93,7 @@ txSender.sendTxWithSocket( param, callback )
 > 任何一个ONT ID的所有者（Owner）均可以向自己或他人签发可信声明。 
 
 > 政府机关、大学、银行、第三方认证服务机构（比如CA机构）、生物识别科技公司等等可作为现实信任机构，可以作为特定的合作方，加入到在本体生态中。
-如果你可能成为认证服务合作方，请参见[认证服务合作方接入标准](./verification_provider_specification.md)。
+如果你可能成为认证服务合作方，请参见[认证服务合作方接入标准](./verification_provider_specification_zh.html)。
 
 我们以中国复旦大学颁发数字毕业证书来举例，说明如何获取第三方授予用户的的身份声明。
 
@@ -131,11 +131,11 @@ var claim = SDK.signClaim(context, claimData, issuer, subject, privateKey)
 }
 ````
 
-关于声明对象的具体规范，详见[claim的规范]()。
+关于声明对象的具体规范，详见[claim的规范](https://github.com/ontio/ontology-ts-sdk/tree/master/docs/cn)。
 
 接下来需要发送交易到链上用于存证。上链成功后，会返回该声明上链的完整性证明。该证明的具体格式参见
 
-[claim完整性证明]()。
+[claim完整性证明](https://github.com/ontio/ontology-ts-sdk/tree/master/docs/cn)。
 
 首先需要构造要发送的交易。需要传递的参数
 

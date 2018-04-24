@@ -14,11 +14,11 @@ English / [中文](./ontology_cli_sample_zh.html)
 
 ## Ontology CLI User Guide
 
-- [CLI Wallet Command](#cli-wallet-cmd)
-- [CLI Info Show Command](#cli-info-show-cmd)
-- [CLI ASSET Command](#cli-asset-cmd)
-- [CLI Setting Command](#cli-setting-cmd)
-- [CLI Contract Command](#cli-contract-cmd)
+- [CLI Wallet Command](#-cli-wallet-command)
+- [CLI Info Show Command](#cli-info-show-command)
+- [CLI ASSET Command](#-cli-asset-command)
+- [CLI Setting Command](#-cli-setting-command)
+- [CLI Contract Command](#-cli-contract-command)
 
 ```
 User can start ontology directly,by the command as follow:

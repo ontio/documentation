@@ -18,7 +18,7 @@ Relevant descriptions of digital ID can be found in [ONT ID Protocol and Trust F
 ## Wallet file specification
 
 A wallet file is a JSON data storage file that stores multiple digital identities and digital asset accounts. 
-You may refer to [Wallet File Specification](Wallet_File_Specification.md) for detailed information.
+You may refer to [Wallet File Specification](./ontology_wallet_file_specification_en.html) for detailed information.
 
 You need to create/open a wallet file to create a digital identity.
 

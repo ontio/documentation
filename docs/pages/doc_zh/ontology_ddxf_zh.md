@@ -157,7 +157,7 @@ bool Confirm(byte[] serial_no, byte[33] buyer, byte[33] user, byte[33] issuer, i
 
 您可以进入[本体智能合约开发指南](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)，了解如何使用智能合约。
 
-同时，DDXF已经准备好了基本的智能合约模板供您使用，进入[智能合约示例模板](./demo/dex-sc-csharp/dex.cs)。
+同时，DDXF已经准备好了基本的智能合约模板供您使用，进入[智能合约示例模板](https://github.com/ontio/ontology-ddxf/blob/master/demo/dex-sc-csharp/dex.cs)。
 
 ### 4 开始数据交易
 

@@ -12,9 +12,9 @@ folder: doc_zh
 <p align="center" class="version">版本 0.7.0 </p>
 
 
-* [Introduction](#Introduction)
-* [Rpc API list](#Rpc API list)
-* [Error code](#Errorcode)
+* [Introduction](#introduction)
+* [Rpc API list](#rpc-api-list)
+* [Error code](#errorcode)
 
 Rpc API list
 

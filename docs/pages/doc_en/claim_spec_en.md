@@ -41,7 +41,7 @@ In general, a verifiable claim should include the contents of the claim, digital
     - The Public key ID of a issuer 
     - Signature value
 
-See [**Appendix A**](#A. Verifiable claim template) section for an example of verifiable claim that shows an empolyee's salary certificate issued by a company.
+See [**Appendix A**](#a-verifiable-claim-template) section for an example of verifiable claim that shows an empolyee's salary certificate issued by a company.
 
 ### 1.1 Verifiable claim issuance process
 

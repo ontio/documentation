@@ -53,7 +53,7 @@ folder: doc_zh
 
 ```extra``` 是客户端由开发者用来存储额外数据字段，可以为null。
 
-希望了解更多钱包数据规范请参考[Wallet_File_Specification](./Wallet_File_Specification.md).
+希望了解更多钱包数据规范请参考[Wallet_File_Specification](./ontology_wallet_file_specification_zh.html).
 
 ### 创建钱包
 

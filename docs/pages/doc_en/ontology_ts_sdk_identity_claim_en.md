@@ -17,11 +17,11 @@ English / [中文](./ontology_ts_sdk_identity_claim_zh.html)
 
 ONT ID is a decentralized identity that managed users’ various digital identity authentications.Identity is one of the core classes exposed from ONT SDK, which contains the ONT ID that represent the identity.
 
-> For more information about identity, see [ONT TS SDK]()
+> For more information about identity, see [ONT TS SDK](https://github.com/ontio/ontology-ts-sdk/tree/master/docs/en)
 
 You can use SDK to create a digital identity. During the process, SDK will generate a ONT ID base on user's private key.
 
-> For ONT ID specifications, see [ONT ID Generation Specifications](./ONTID_protocol_spec.md/#1.1_ONT_ID生成).
+> For ONT ID specifications, see [ONT ID Generation Specifications](./ONTID_protocol_spec_en.html#11-ont-id-generation).
 
 The method needs parameters as follows:
 
@@ -83,7 +83,7 @@ txSender.sendTxWithSocket( param, callback )
 
 The ONT ID creation process is completed when the push message we have defined in the callback function is processed successfully. Next, you can manager users’ verifiable claims through ONT ID.
 
-For detailed information about the data returned by the blockchain, see [ONT ID Smart Contract Design and Related Documents](./ONTID_protocol_spec.md/#g._事件推送).
+For detailed information about the data returned by the blockchain, see [ONT ID Smart Contract Design and Related Documents](./ONTID_protocol_spec_en.html#g-event-push).
 
 ## Issuing a verifiable claim
 
@@ -93,7 +93,7 @@ For example, a student who graduates from a university can obtain the status of 
 
 > The owner of an ONT ID can issue a verifiable claim to himself or others.
 
-> Government agencies, universities, banks, third-party authentication service agencies (such as CA), biometrics technology companies, etc., can serve as trusted institutions and be added to the Ontology ecosystem as partners. If you think you could be a certification service partner, please see the [Certification Service Partner Assessment Standard](./verification_provider_specification.md).
+> Government agencies, universities, banks, third-party authentication service agencies (such as CA), biometrics technology companies, etc., can serve as trusted institutions and be added to the Ontology ecosystem as partners. If you think you could be a certification service partner, please see the [Certification Service Partner Assessment Standard](./verification_provider_specification_en.html).
 
 We use a digital diploma issued by China’s Fudan University as an example to illustrate how users can obtain a third-party claim.
 
@@ -131,10 +131,10 @@ The claim object returned by this method looks like this:
 }
 ````
 
-For claim object specification, see [claim specifications]().
+For claim object specification, see [claim specifications](https://github.com/ontio/ontology-ts-sdk/tree/master/docs/en).
 
 The next step is to send to the blockchain for attestation. After successful recording to the blockchain a claim will be sent. The claim format is:
-[claim complete certification]()。
+[claim complete certification](https://github.com/ontio/ontology-ts-sdk/tree/master/docs/en)。
 
 First you need to construct the transaction to send. The parameters needed are:
 

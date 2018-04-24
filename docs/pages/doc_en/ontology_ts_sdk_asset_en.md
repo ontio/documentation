@@ -54,7 +54,7 @@ Wallet is a data storing file of JSON format. In the terms of Ontology, Wallet c
 
 ```extra``` is the field used by client developer to store extra informations. It can be null.
 
-More detail about wallet data specification could be found in [Wallet_File_Specification](./Wallet_File_Specification.md).
+More detail about wallet data specification could be found in [Wallet_File_Specification](./ontology_wallet_file_specification_en.html).
 
 ----
 

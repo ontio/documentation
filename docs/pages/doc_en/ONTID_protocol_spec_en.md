@@ -43,7 +43,7 @@ Ontology applies digital signature technology to guarantee entities have rights 
 Ontology supports a variety of domestic and international standardized digital signature algorithms such as RSA, ECDSA, and SM2. The algorithm applied to the key that is bounded by ONT ID should be specified. At the same time, an ONT ID can bound multiple different keys to meet the usage requirements of entities in different application scenarios.
 
 ### 1.4 Recovery of identity loss
-The owner of the ONT ID can assign someone else to execute his management rights, such as modifying the attributes of the ONT ID and replacing the key when the key is lost. The assigned person can implement a variety of access control logic such as “AND”, “OR”, and “(m, n)-thresholds”. Refer to [Appendix A](ONTID_protocol_spec.md#a-recovery-account-address) for more details.
+The owner of the ONT ID can assign someone else to execute his management rights, such as modifying the attributes of the ONT ID and replacing the key when the key is lost. The assigned person can implement a variety of access control logic such as “AND”, “OR”, and “(m, n)-thresholds”. Refer to [Appendix A](#a-recovery-account-address) for more details.
 
 ### 1.5 Identity description object DDO specification
 
@@ -93,7 +93,7 @@ public static Object Main(string op, object[] params);
 The return value of most of sub-functions is a boolean type, which represents the success or failure of the execution operation. After correct execution, an event message will be pushed to notify the caller. For the specific message type, please refer to the “**API description**” subsection.
 
 #### The call of Ontology smart contract
-By sending a transaction with a type of *InvocationTransaction*, transaction payload will include contract address and parameters. For more detailed information, please refer to [Contract Call]().
+By sending a transaction with a type of *InvocationTransaction*, transaction payload will include contract address and parameters. For more detailed information, please refer to [Contract Call](https://github.com/ontio/ontology-DID/tree/master/docs/en).
 
 ### 2.2 IdContract Interface Definition
 ####  a. Identity registration
