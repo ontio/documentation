@@ -40,13 +40,16 @@ JavaScript
 
 ![Workflow of smart contract](https://s1.ax1x.com/2018/03/24/9q9vx1.png)
 
-First, you should choose a language to write your smart contract, let's suppose it's C#. Then you need to compile your code. Last, you can deploy your smart contract to the blockchain and invoke it. 
+First, you should choose a language to write your smart contract, let's suppose it's C#. Then you need to compile your code. Last, you can deploy your smart contract to the blockchain and invoke it. Do not worry, we have built the [Smartx](http://smartx.ont.io) to help you with all these things.
 
-Do not worry, we have built a [online tool](http://smartx.ont.io) to help you with all these things.
+## What is Smartx?
 
-We call this tool "Smartx". First of all, it is a one-stop solution service for compiling, deploying and invoking smart contracts. It offers abundant smart contract templates for your reference. It offers a powful online editor that supports several languages. It aslo offers a testnet account for you to deploy and invoke contracts. Next, it will support social function and smart contracts transaction. Users can invite others to join the team work of making smart contracts. And they can put their contracts to the market for sale.
+Smartx is a powerful online tool for developers. First of all, it is a one-stop solution service for compiling, deploying and invoking smart contracts. It offers abundant smart contract templates for your reference. It offers a powful online editor that supports several languages. It aslo offers a testnet account for you to deploy and invoke contracts. Next, it will support social function and smart contracts transaction. Users can invite others to join the team work of making smart contracts. And they can put their contracts to the market for sale.
 
-For more information, please check the [Smart Contract IDE user guide](/docs/en/ont sc ide user guide.md).
+
+For more information, please check the [Smartx user guide](http://smartx.ont.io/#/help).
+
+
 
 ### Step 1 - Write & Compile  
 
