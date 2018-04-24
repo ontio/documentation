@@ -1,3 +1,10 @@
+[English](./overview_en.md) / 中文
+
+
+<h1 align="center">Ontology 智能合约 总体说明</h1>
+<p align="center" class="version">Version 0.7.0 </p>
+
+
 ## 1. 简介
 智能合约是1994年由尼克萨博首次提出的理念，是一种旨在以信息化方式传播、验证或执行合约的计算机协议。智能合允许在没有第三方的情况下进行可信交易。这些交易可追踪且不可逆。Ontology智能合约是一个多功能、轻量级、高可用、可并发、多语言、跨合约、跨虚拟机等集于一体的完备体系。Ontology智能合约支持多种智能合约类型，包含：Native智能合约、NeoVm智能合约、Wasm智能合约。Ontology智能合约支持丰富的智能合约开发语言，开发者不需要学习新的合约开发语言，即可很方便的开发Ontology智能合约，现支持的语言种类包含：Java, C#, Python, C, C++, Kotlin等，同时，在不远的将来我们将会支持更多类型的主流开发语言，包括：Rust, Go, JavaScript等。
 
