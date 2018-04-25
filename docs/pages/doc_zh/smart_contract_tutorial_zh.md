@@ -2,7 +2,7 @@
 title: 
 keywords: sample homepage
 sidebar: ont_doc_zh
-permalink: /smart_contract_tutorial_zh.html
+permalink: smart_contract_tutorial_zh.html
 folder: doc_zh
 ---
 

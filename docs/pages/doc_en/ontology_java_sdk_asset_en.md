@@ -224,4 +224,4 @@ String result = (String) sdk.getConnectMgr().sendRawTransactionPreExec(txHex);
 * How to view the push results when transferring funds？
 
 
-See smart contract using websocket connection call contract method，details [smartcontract](.//ontology_java_sdk_smartcontract_en.html)。
+See smart contract using websocket connection call contract method，details [smartcontract](./ontology_java_sdk_smartcontract_en.html)。

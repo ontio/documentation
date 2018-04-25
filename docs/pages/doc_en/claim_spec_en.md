@@ -1,6 +1,4 @@
 ---
-title: 
-keywords: sample homepage
 sidebar: ont_doc_en
 permalink: claim_spec_en.html
 folder: doc_en
