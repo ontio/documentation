@@ -7,9 +7,8 @@ folder: doc_en
 
 English / [中文](./ontology_features_zh.html)
 
-<h1 align="center">Ontology Features</h1>
+<h1 align="center">Ontology </h1>
 <p align="center" class="version">Version 0.7.0 </p>
-
 
 - Scalable lightweight universal smart contract
 - Scalable WASM contract support

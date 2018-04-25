@@ -7,10 +7,11 @@ folder: doc_en
 
 English / [中文](./ontology_install_zh.html)
 
-<h1 align="center">Build development environment</h1>
+<h1 align="center">Install</h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
 
+## Build development environment
 The requirements to build Ontology are:
 
 - Golang version 1.9 or later
@@ -18,9 +19,8 @@ The requirements to build Ontology are:
 - Properly configured Go language environment
 - Golang supported operating system
 
-## Deployment and test
-### Get Ontology
-#### Get from source code
+## Deployment|Get Ontology
+### Get from source code
 
 Clone the Ontology repository into the appropriate $GOPATH/src/github.com/ontio directory.
 
@@ -48,5 +48,5 @@ After building the source code sucessfully, you should see two executable progra
 
 - `ontology`: the node program/command line program for node control
 
-#### get from release
+### get from release
 You can download at [release page](https://github.com/ontio/ontology/releases).
