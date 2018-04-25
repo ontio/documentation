@@ -16,7 +16,7 @@ English / [中文](./ontology_java_sdk_attestation_zh.html)
 ## Step
 
 
-* 1. SDK init
+* 1 SDK init
 
 
 ```
@@ -35,7 +35,7 @@ wm.setCodeAddress("803ca638069742da4b6871fe3d7f78718eeee78a");
 > Note: codeAddress is the address of the record contract。
 
 
-* 2. attest data onto the blockchain
+* 2 attest data onto the blockchain
 
 
 ```
@@ -45,7 +45,7 @@ String res = ontSdk.getRecordTx().sendPut("TA9WXpq7GNAc2D6gX9NZtCdybRq8ehGUxw","
 > Note: The key represents the key of the data value stored in the chain, which can later be stored according to the key.
 
 
-* 3. Get data from the chain by the key
+* 3 Get data from the chain by the key
 
 
 ```
@@ -53,7 +53,7 @@ String res = ontSdk.getRecordTx().sendGet("TA9WXpq7GNAc2D6gX9NZtCdybRq8ehGUxw","
 ```
 
 
-* 4. description of response
+* 4 description of response
 
 
 ```

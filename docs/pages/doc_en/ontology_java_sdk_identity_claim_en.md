@@ -6,7 +6,7 @@ folder: doc_en
 
 English / [中文](./ontology_java_sdk_identity_claim_zh.html)
 
-<h1 align="center"> Ontology Java SDK User Guide </h1>
+<h1 align="center"> Digital Identity </h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
 # Overivew
@@ -17,7 +17,6 @@ Relevant descriptions of digital ID can be found in [ONT ID Protocol and Trust F
 
 A wallet file is a JSON data storage file that stores multiple digital identities and digital asset accounts. 
 You may refer to [Wallet File Specification](./ontology_wallet_file_specification_en.html) for detailed information.
-
 You need to create/open a wallet file to create a digital identity.
 
 ```
@@ -96,7 +95,7 @@ The identity cannot be put to use until being successfully registered on the blo
 
 ```
 ontSdk.getOntIdTx().sendRegister(identity,"passwordtest");
-或
+or
 ontSdk.getOntIdTx().sendRegister("passwordtest");
 ```
 
@@ -107,7 +106,7 @@ Upon successful registration, the corresponding DDO of the ONT ID will be stored
 
 Users who have already created a digital identity or account may import it into a wallet file from SDK.
 
-> **Note:** It is advised to check if an identity already exists on the blockchain before you import one. If DDO does not exist, it means that no such identity has been registered on the blockchain. Then you may need to use ontSdk.getOntIdTx().register(identity) for registration.
+> **Note:** It is advised to check if an identity already exists on the blockchain before you import one. If DDO does not exist, it means that no such identity has been registered on the blockchain. Then you may need to use ontSdk.getOntIdTx().sendRegister(identity,"passwordtest") for registration.
 
 ```
 Identity identity = ontSdk.getWalletMgr().importIdentity("6PYMpk8DjWzaEvneyaqxMBap9DuUPH72W6BsWWTtpWE4JJZkGq5ENtfYbT","passwordtest");
@@ -286,5 +285,5 @@ map.put("Subject", dids.get(1).ontid);
 //Password is confidentially held by the issuer, who must be contained in wallet file ontid.
 String claim = ontSdk.getOntIdTx().createOntIdClaim(ontid,"passwordtest","claim:context",map,map);
 System.out.println(claim);
-boolean b = ontSdk.getOntIdTx().verifyOntIdClaim(ontid,"passwordtest",claim);
+boolean b = ontSdk.getOntIdTx().verifyOntIdClaim(claim);
 ```

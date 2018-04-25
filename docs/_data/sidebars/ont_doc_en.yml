@@ -129,10 +129,6 @@ entries:
           url: /ontology_java_sdk_smartcontract_en.html
           output: web
 
-        - title: Attestation
-          url: /ontology_java_sdk_attestation_en.html
-          output: web
-
         - title: Errorcode
           url: /ontology_java_sdk_error_code_en.html
           output: web

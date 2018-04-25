@@ -129,10 +129,6 @@ entries:
           url: /ontology_java_sdk_smartcontract_zh.html
           output: web
 
-        - title: 存证
-          url: /ontology_java_sdk_attestation_zh.html
-          output: web
-
         - title: 错误码
           url: /ontology_java_sdk_error_code_zh.html
           output: web
