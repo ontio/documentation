@@ -29,6 +29,7 @@ ontSdk.openWalletFile("OntAssetDemo.json");
 ## 基本操作接口
 
 * 获取当前区块高度
+
 ```
 int height = ontSdk.getConnectMgr().getBlockHeight();
 ```
@@ -42,26 +43,24 @@ Block block = ontSdk.getConnectMgr().getBlock(9757);
 * 获取区块链节点数
 
 ```
-System.out.println(ontSdk.getConnectMgr().getNodeCount());
+ontSdk.getConnectMgr().getNodeCount();
 ```
 
 * 获取出块时间
 
 ```
-System.out.println(ontSdk.getConnectMgr().getGenerateBlockTime());
+ontSdk.getConnectMgr().getGenerateBlockTime();
 ```
 
 * 从区块链中获取交易
 
 ```
-String info = ontSdk.getConnectMgr().getTransaction(txhash);
-System.out.println(info);
+Transaction info = ontSdk.getConnectMgr().getTransaction(txhash);
 ```
 * 从区块链中获取InvokeCodeTransaction
 
 ```
 InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnectMgr().getTransaction(txhash);
-System.out.println(t);
 ```
 ## 数据结构说明
 

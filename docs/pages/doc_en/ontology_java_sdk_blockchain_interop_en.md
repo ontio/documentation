@@ -45,27 +45,25 @@ Block block = ontSdk.getConnectMgr().getBlock(9757);
 * Get blockchain node count
 
 ```
-System.out.println(ontSdk.getConnectMgr().getNodeCount());
+ontSdk.getConnectMgr().getNodeCount();
 ```
 
 * Get block time
 
 ```
-System.out.println(ontSdk.getConnectMgr().getGenerateBlockTime());
+ontSdk.getConnectMgr().getGenerateBlockTime();
 ```
 
 * Get blockchain-based transaction
 
 ```
-String info = ontSdk.getConnectMgr().getTransaction(hash);
-System.out.println(info);
+Transaction info = ontSdk.getConnectMgr().getTransaction(hash);
 ```
 
 * Get InvokeTransaction
 
 ```
 InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnectMgr().getTransaction(hash);
-System.out.println(t);
 ```
 
 ## Data structure
