@@ -6,7 +6,7 @@ folder: doc_en
 
 English / [中文](./ontology_java_sdk_identity_claim_zh.html)
 
-<h1 align="center"> Ontology Java SDK User Guide </h1>
+<h1 align="center"> Digital Identity </h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
 # Overivew
@@ -17,7 +17,6 @@ Relevant descriptions of digital ID can be found in [ONT ID Protocol and Trust F
 
 A wallet file is a JSON data storage file that stores multiple digital identities and digital asset accounts. 
 You may refer to [Wallet File Specification](./ontology_wallet_file_specification_en.html) for detailed information.
-
 You need to create/open a wallet file to create a digital identity.
 
 ```
@@ -162,7 +161,6 @@ ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
 //update an attribute
 String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,byte[] value)
 ```
-
 | Param   | Field   | Type  | Descriptions |      Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | input param | password| String | publisher's address | required, password to decrypt private key|
@@ -177,7 +175,6 @@ String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,b
 ```
 String hash = ontSdk.getOntIdTx().sendRemoveAttribute(did.ontid, "passwordtest", "attri".getBytes());
 ```
-
 | Param        | Field   | Type   | Descriptions  |       Remarks       |
 | -----        | ------- | ------ | ------------- | ------------------- |
 | input param  | password| String | publisher's address | required, password to decrypt private key |
@@ -286,5 +283,5 @@ map.put("Subject", dids.get(1).ontid);
 //Password is confidentially held by the issuer, who must be contained in wallet file ontid.
 String claim = ontSdk.getOntIdTx().createOntIdClaim(ontid,"passwordtest","claim:context",map,map);
 System.out.println(claim);
-boolean b = ontSdk.getOntIdTx().verifyOntIdClaim(ontid,"passwordtest",claim);
+boolean b = ontSdk.getOntIdTx().verifyOntIdClaim(claim);
 ```

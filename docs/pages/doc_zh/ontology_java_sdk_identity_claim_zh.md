@@ -8,7 +8,7 @@ folder: doc_zh
 
 [English](./ontology_java_sdk_identity_claim_en.html) / 中文
 
-<h1 align="center"> Ontology Java SDK User Guide </h1>
+<h1 align="center"> 数字身份 </h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
 # 总体介绍
@@ -17,7 +17,7 @@ folder: doc_zh
 
 ## 钱包文件及规范
 
-钱包文件是一个Json格式的数据存储文件，可同时存储多个数字身份和多个数字资产账户。具体参考[钱包文件规范](./ontology_wallet_file_specification_zh.html)。
+钱包文件是一个Json格式的数据存储文件，可同时存储多个数字身份和多个数字资产账户。具体参考[钱包文件规范](./ontology_wallet_file_specification_en.html)。
 
 为了创建数字身份，您首先需要创建/打开一个钱包文件。
 
@@ -161,7 +161,6 @@ ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
 //更新一个属性
 String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,byte[] value)
 ```
-
 | 参数      | 字段   | 类型  | 描述 |             说明 |
 | ----- | ------- | ------ | ------------- | ----------- |
 | 输入参数 | password| String | 发行者地址 | 必选，私钥解密的密码 |
@@ -171,13 +170,11 @@ String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,b
 |        | value   | byte[] | value     | 必选，值 |
 | 输出参数 | txhash   | String  | 交易hash  | 交易hash是64位字符串 |
 
-
 * 9 移除链上DDO属性
 
 ```
 String hash = ontSdk.getOntIdTx().sendRemoveAttribute(did.ontid, "passwordtest", "attri".getBytes());
 ```
-
 | 参数      | 字段   | 类型  | 描述 |             说明 |
 | ----- | ------- | ------ | ------------- | ----------- |
 | 输入参数 | password| String | 发行者地址 | 必选，私钥解密的密码 |
@@ -262,7 +259,7 @@ System.out.println(claim);
 ### 3 验证可信申明
 
 ```
-boolean b = ontSdk.getOntIdTx().verifyOntIdClaim(dids.get(0).ontid,"passwordtest",claim);
+boolean b = ontSdk.getOntIdTx().verifyOntIdClaim(claim);
 
 ```
 
