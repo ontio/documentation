@@ -80,6 +80,7 @@ ontSdk.getConnectMgr().sendRawTransaction(txHex);
 Thread.sleep(6000);
 DeployCodeTransaction t = (DeployCodeTransaction) ontSdk.getConnectMgr().getTransaction(txhash);
 ```
+
 | Parameters    | Field       | Type                  | Description                       | Explaination                           |
 | -----         | -------     | ------                | -------------                     | -----------                            |
 | Input params  | codeHexStr  | String                | Contract code hexadecimal string  | Required                               |

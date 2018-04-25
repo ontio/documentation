@@ -77,6 +77,7 @@ ontSdk.getConnectMgr().sendRawTransaction(txHex);
 Thread.sleep(6000);
 DeployCodeTransaction t = (DeployCodeTransaction) ontSdk.getConnectMgr().getTransaction(txHex);
 ```
+
 | 参数      | 字段   | 类型  | 描述 |             说明 |
 | ----- | ------- | ------ | ------------- | ----------- |
 | 输入参数 | codeHexStr| String | 合约code十六进制字符串 | 必选 |

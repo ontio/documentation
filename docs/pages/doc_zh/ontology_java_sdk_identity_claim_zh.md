@@ -105,7 +105,7 @@ ontSdk.getOntIdTx().sendRegister("passwordtest");
 
 当用户已经拥有了一个数字身份或者数字账户，SDK支持将其导入到钱包文件中。
 
-> Note: 建议导入一个数字身份之前，建议查询链上身份，如果链上身份DDO不存在，表示此数字身份未在链上注册，请使用ontSdk.getOntIdTx().register(identity)把身份注册到链上。
+> Note: 建议导入一个数字身份之前，建议查询链上身份，如果链上身份DDO不存在，表示此数字身份未在链上注册，请使用ontSdk.getOntIdTx().sendRegister(identity,"passwordtest")把身份注册到链上。
 
 ```
 Identity identity = ontSdk.getWalletMgr().importIdentity("6PYMpk8DjWzaEvneyaqxMBap9DuUPH72W6BsWWTtpWE4JJZkGq5ENtfYbT","passwordtest");
@@ -161,6 +161,7 @@ ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
 //更新一个属性
 String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,byte[] value)
 ```
+
 | 参数      | 字段   | 类型  | 描述 |             说明 |
 | ----- | ------- | ------ | ------------- | ----------- |
 | 输入参数 | password| String | 发行者地址 | 必选，私钥解密的密码 |
@@ -175,6 +176,7 @@ String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,b
 ```
 String hash = ontSdk.getOntIdTx().sendRemoveAttribute(did.ontid, "passwordtest", "attri".getBytes());
 ```
+
 | 参数      | 字段   | 类型  | 描述 |             说明 |
 | ----- | ------- | ------ | ------------- | ----------- |
 | 输入参数 | password| String | 发行者地址 | 必选，私钥解密的密码 |

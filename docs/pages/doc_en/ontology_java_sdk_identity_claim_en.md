@@ -95,7 +95,7 @@ The identity cannot be put to use until being successfully registered on the blo
 
 ```
 ontSdk.getOntIdTx().sendRegister(identity,"passwordtest");
-或
+or
 ontSdk.getOntIdTx().sendRegister("passwordtest");
 ```
 
@@ -106,7 +106,7 @@ Upon successful registration, the corresponding DDO of the ONT ID will be stored
 
 Users who have already created a digital identity or account may import it into a wallet file from SDK.
 
-> **Note:** It is advised to check if an identity already exists on the blockchain before you import one. If DDO does not exist, it means that no such identity has been registered on the blockchain. Then you may need to use ontSdk.getOntIdTx().register(identity) for registration.
+> **Note:** It is advised to check if an identity already exists on the blockchain before you import one. If DDO does not exist, it means that no such identity has been registered on the blockchain. Then you may need to use ontSdk.getOntIdTx().sendRegister(identity,"passwordtest") for registration.
 
 ```
 Identity identity = ontSdk.getWalletMgr().importIdentity("6PYMpk8DjWzaEvneyaqxMBap9DuUPH72W6BsWWTtpWE4JJZkGq5ENtfYbT","passwordtest");
@@ -161,6 +161,7 @@ ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
 //update an attribute
 String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,byte[] value)
 ```
+
 | Param   | Field   | Type  | Descriptions |      Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | input param | password| String | publisher's address | required, password to decrypt private key|
@@ -175,6 +176,7 @@ String sendUpdateAttribute(String ontid,String password,byte[] key,byte[] type,b
 ```
 String hash = ontSdk.getOntIdTx().sendRemoveAttribute(did.ontid, "passwordtest", "attri".getBytes());
 ```
+
 | Param        | Field   | Type   | Descriptions  |       Remarks       |
 | -----        | ------- | ------ | ------------- | ------------------- |
 | input param  | password| String | publisher's address | required, password to decrypt private key |
