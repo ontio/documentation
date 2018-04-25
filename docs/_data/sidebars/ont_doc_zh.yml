@@ -44,7 +44,7 @@ entries:
       url: /ontology_features_zh.html
       output: web, pdf
 
-    - title: 环境配置
+    - title: 安装
       url: /ontology_install_zh.html
       output: web, pdf
 
