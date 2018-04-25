@@ -69,7 +69,7 @@ You can also refer to our RPC and RESTful interfaces, including the following:
 
 A smart contract is a set of digital terms, including which contract participants can execute these terms. Blockchain technology has brought us a decentralized, irreproducible, and highly reliable system. In this environment, smart contracts are very useful. Smart contracts are one of the most important features of blockchain and a main reason why blockchain can be called a "disruptive" technology.
 
-Visit [>>Ontology Smart Contract Development Guide](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)to learn how to develop and configure your application with smart contracts.
+Visit [>>Ontology Smart Contract Development Guide](./smart_contract_tutorial_en.html)to learn how to develop and configure your application with smart contracts.
 
 
 ### **Become an Ontology trust anchor**

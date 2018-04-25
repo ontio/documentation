@@ -1,6 +1,4 @@
 ---
-title: 
-keywords: sample homepage
 sidebar: ont_doc_en
 permalink: ontology_java_sdk_identity_claim_en.html
 folder: doc_en
