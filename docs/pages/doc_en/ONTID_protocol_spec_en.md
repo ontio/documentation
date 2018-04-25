@@ -93,7 +93,7 @@ public static Object Main(string op, object[] params);
 The return value of most of sub-functions is a boolean type, which represents the success or failure of the execution operation. After correct execution, an event message will be pushed to notify the caller. For the specific message type, please refer to the “**API description**” subsection.
 
 #### The call of Ontology smart contract
-By sending a transaction with a type of *InvocationTransaction*, transaction payload will include contract address and parameters. For more detailed information, please refer to [Contract Call](https://github.com/ontio/ontology-DID/tree/master/docs/en).
+By sending a transaction with a type of *InvocationTransaction*, transaction payload will include contract address and parameters. For more detailed information, please refer to [Contract Call](./smart_contract_tutorial_overview_en.html).
 
 ### 2.2 IdContract Interface Definition
 ####  a. Identity registration
