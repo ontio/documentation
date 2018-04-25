@@ -95,7 +95,7 @@ public static Object Main(string op, object[] params);
 大部分子函数的返回值是布尔类型，代表执行操作的成功与否。正确执行之后，会推送事件消息通知调用者，具体消息类型请参考“**API描述**”小节。
 
 #### Ontology智能合约调用
-通过发送类型为*InvocationTransaction*的交易，并将需要调用的合约地址及调用传入参数作为交易的Payload。更为详尽的信息请参考[合约调用https://github.com/ontio/ontology-DID/tree/master/docs/cn)。
+通过发送类型为*InvocationTransaction*的交易，并将需要调用的合约地址及调用传入参数作为交易的Payload。更为详尽的信息请参考[合约调用](./smart_contract_tutorial_overview_zh.html)。
 
 ### 2.2 IdContract接口定义
 ####  a. 身份登记
