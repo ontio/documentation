@@ -23,11 +23,15 @@ System APIs provide basic operations.
 | Name      | Parameters              | Returns   | Description                                        |
 | --------- | ----------------------- | --------- | -------------------------------------------------- |
 | strcmp    | char * src, char * dest | int       | Compare two strings, return 0 if they are the same |
+<<<<<<< a7760c835e01f1b1610200fa9dcbfe510ddcd0fb
 <<<<<<< 14a42d53c45ebad02d4abac148af677d510d4d77
 | strconcat | char * a，char *b       | char *    | concat strings to one string                       |
 =======
 | strconcat | char * array            | char *    | concat strings to one string                       |
 >>>>>>> modify wasm documents
+=======
+| strconcat | char * a，char *b       | char *    | concat strings to one string                       |
+>>>>>>> modify the strconcat api
 | Atoi      | char * s                | int       | convert string to  int32                           |
 | Atoi64    | char * s                | long long | convert string to int64                            |
 | Itoa      | int a                   | char *    | convert int32 to string                            |
