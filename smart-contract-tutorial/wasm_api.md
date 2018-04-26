@@ -19,7 +19,7 @@ System APIs provide basic operations.
 | Name      | Parameters              | Returns   | Description                                        |
 | --------- | ----------------------- | --------- | -------------------------------------------------- |
 | strcmp    | char * src, char * dest | int       | Compare two strings, return 0 if they are the same |
-| strconcat | char * array            | char *    | concat strings to one string                       |
+| strconcat | char * a，char *b       | char *    | concat strings to one string                       |
 | Atoi      | char * s                | int       | convert string to  int32                           |
 | Atoi64    | char * s                | long long | convert string to int64                            |
 | Itoa      | int a                   | char *    | convert int32 to string                            |
