@@ -5,6 +5,8 @@ folder : doc_en
 ---
 English / [中文](./smart_contract_tutorial_zh.html) 
 
+[中文](README_cn.md) | English
+
 <h1 align="center">Ontology Smart Contract</h1>
 <p align="center" class="version">Version V0.7.0 </p>
 
