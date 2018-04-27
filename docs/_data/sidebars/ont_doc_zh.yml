@@ -178,7 +178,7 @@ entries:
     folderitems:
 
     - title: 总体介绍
-      url: /ontology_ddxf_zh.html
+      url: /DDXF_zh.html
       output: web, pdf
 
   - title: White Papers
