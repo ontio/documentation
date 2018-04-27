@@ -38,15 +38,13 @@ JavaScript
 
 ## How to make an effective smart contract?
 
-![Workflow of smart contract](https://s1.ax1x.com/2018/03/24/9q9vx1.png)
+we have built the [Smartx](http://smartx.ont.io) to help you with all these things.
 
-First, you should choose a language to write your smart contract, let's suppose it's C#. Then you need to compile your code. Last, you can deploy your smart contract to the blockchain and invoke it. Do not worry, we have built the [Smartx](http://smartx.ont.io) to help you with all these things.
+SmartX is a one-stop IDE that can be used to compile, deploy, and invoke smart contracts. It provides a range of smart contract templates and a powerful online editor. Individuals can use SmartX templates or commission community developers to customize contracts. In the future, smart contract developers will be able to trade smart contracts they have written or collaborate with multiple people to develop smart contracts, using their own expertise to profit.
 
-## What is Smartx?
+Ontology smart contracts support multiple contract types such as native smart contracts, NeoVM smart contracts, Wasm smart contracts, and more. Currently, SmartX supports NeoVM-based C# and Python, and will support Wasm online compilation functions and additional mainstream programming languages in the future, including Java, Rust, Go, JavaScript, and more.
 
-Smartx is a powerful online tool for developers. First of all, it is a one-stop solution service for compiling, deploying and invoking smart contracts. It offers abundant smart contract templates for your reference. It offers a powful online editor that supports several languages. It aslo offers a testnet account for you to deploy and invoke contracts. Next, it will support social function and smart contracts transaction. Users can invite others to join the team work of making smart contracts. And they can put their contracts to the market for sale.
-
-For more information, please check the [Smartx user guide](http://smartx.ont.io/#/help).
+In the future SmartX will work like GitHub to be a distributed software project code hosting platform. This will support multiple people to participate in and share complex contracts, and at the time same, implement a set of economic incentives and integrate fair governance policies to reflect the contributions of each participant. This will foster smart contract writing, smart contract transactions, collaboration, community building, and an altogether valuable smart contract development ecosystem.
 
 
 ### Step 1 - Write & Compile  
@@ -73,11 +71,8 @@ The middle area is the editor and the logs output box.
 
 You can enjoy coding your smart contracts now. We also provide some useful contract templates for you to start writing easily.
 
-You can check more specific examples here:
+You can check more specific [examples](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial/examples) here.
 
-[ C# Smart Contract](docs/en/csharp.md)
-
-[Python Smart Contract](docs/en/python.md)
 
 #### Compile smart contract
 
@@ -93,9 +88,9 @@ Next, you can deploy the smart contract to the blockchain. This step costs some 
 
 Besides IDE, you can use ONT SDK to deploy the smart contract. Please check the SDKs for more detailed information.
 
-[>> Java SDK](https://opendoc.ont.io/javasdk/en/chapter5/smartcontract.html)
+[>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_en.html)
 
-[>> TS SDK](https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/smart_contract%20en.md)
+[>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_en.html)
 
 ![Deploy contract](https://s1.ax1x.com/2018/04/04/CpIcAe.png)
 
@@ -108,10 +103,9 @@ Last, you can run the method of your contract. This step costs a fee too. You ca
 
 Besides IDE, you can use ONT SDK to invoke a smart contract. Please check the SDKs for more detailed information. 
 
-[>> Java SDK](https://opendoc.ont.io/javasdk/en/chapter5/smartcontract.html)
+[>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_en.html)
 
-[>> TS SDK](https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/smart_contract%20en.md)
-
+[>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_en.html)
 
 
 

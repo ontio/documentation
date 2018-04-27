@@ -36,24 +36,17 @@ Golang
 
 JavaScript
 
-## 如何创建一份有效的智能合约？
-
-![Workflow of smart contract](https://s1.ax1x.com/2018/03/24/9q9vx1.png)
+## 如何开发智能合约？
 
 
-首先，你需要选择一种语言来编写你的智能合约，假设你选择了C#。然后你需要编译你编写的合约。最后，你可以将合约部署到区块链上并调用它。我们已经开发了一个在线工具[Smartx](http://smartx.ont.io)，来帮助广大开发者更便利地应对创建智能合约相关的事情。
+我们已经开发了一个在线工具[Smartx](http://smartx.ont.io)，来帮助应用开发者。
 
+SmartX是一个可用于编译，部署和调用智能合约的一站式IDE。它提供了丰富的智能合约模板以及强大的在线编辑器。基于SmartX这个工具，智能合约的需求方可以参考和使用模板合约，或者委托社区开发人员定制开发所需的合约。未来，智能合约的开发人员可以交易自己编写的智能合约，或者协作多人开发智能合约，利用自己的专业知识获得收益。
 
-## 什么是Smartx？
-Smartx是面向广大开发者的功能强大的在线工具。
+本体智能合约支持了Native智能合约、NeoVm智能合约、WASM智能合约等多种合约类型，目前，Smartx支持基于NeoVM的C＃和Python两种语言，未来还会支持WASM在线编译功能及更多主流开发语言，包括Java、Rust、Go、JavaScript等。
 
-首先它是开发者编写、部署和调用智能合约的一站式的解决方案。
-工具提供了丰富的智能合约模板，用户可以根据需要选择模板并基于模板开发自己的智能合约；
-工具提供了一个强大的在线编辑器，支持多种语言开发智能合约；在部署和调用合约时，工具提供了测试网上的数字资产账户，方便用户开发测试时使用。将来，该工具将会是支持社交和智能合约交易的平台。它能帮助开发者更好的管理和协作自己的智能合约。用户能够邀请其他人协同开发智能合约，或者将自己的合约放到市场上交易。
+下一步，我们将像类似GitHub等分布式软件项目代码托管平台一样，支持多人共同参与、分享一份复杂的合约；并同时实施一套的经济激励措施，融入公正的治理政策，反映每一个参与者的贡献，使智能合约编写、智能合约交易、协作、社区建设等相结合，形成一个良好的智能合约开发生态。
 
-
-
-更多信息请查阅[Smartx用户指南](http://smartx.ont.io/#/help).
 
 下面介绍了使用Smartx来创建智能合约的主要流程。
 
@@ -83,11 +76,7 @@ Smartx是面向广大开发者的功能强大的在线工具。
 #### 编写智能合约
 接下里你可以开始编写你的智能合约。我们提供众多实用的模板供你参考。
 
-更多具体实例请查询：
-
-[ C# Smart Contract](docs/en/csharp.md)
-
-[Python Smart Contract](docs/en/python.md)
+[>>> 更多具体实例](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial/examples) 
 
 #### 编译智能合约
 在你完成编写合约之后，你可以点击操作面板上的**编译**按钮，编译你的合约。
@@ -101,9 +90,9 @@ Smartx是面向广大开发者的功能强大的在线工具。
 除了Smartx外，你还可以使用本体的SDK来部署合约。更多信息请查阅相关文档。
 
 
-[>> Java SDK](https://opendoc.ont.io/javasdk/en/chapter5/smartcontract.html)
+[>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_zh.html)
 
-[>> TS SDK](https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/smart_contract%20en.md)
+[>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_zh.html)
 
 ![Deploy contract](https://s1.ax1x.com/2018/04/04/CpIcAe.png)
 
@@ -116,9 +105,9 @@ Smartx是面向广大开发者的功能强大的在线工具。
 
 除了Smartx，你还可以使用本体的SDK来调用智能合约。更多信息请查阅相关文档。
 
-[>> Java SDK](https://opendoc.ont.io/javasdk/en/chapter5/smartcontract.html)
+[>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_zh.html)
 
-[>> TS SDK](https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/smart_contract%20en.md)
+[>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_zh.html)
 
 
 
