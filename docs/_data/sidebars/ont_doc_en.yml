@@ -178,7 +178,7 @@ entries:
     folderitems:
 
     - title: Introduction
-      url: /ontology_ddxf_en.html
+      url: /DDXF_en.html
       output: web, pdf
 
   - title: White Papers
