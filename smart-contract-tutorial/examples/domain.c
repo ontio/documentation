@@ -7,7 +7,7 @@ int memset(void * dest,char c,int length);
 
 //utility apis
 int strcmp(char *a,char *b);
-void * strconcat(char *a,char *b);
+char * strconcat(char *a,char *b);
 int Atoi(char * s);
 long long Atoi64(char *s);
 char * Itoa(int a);
@@ -26,7 +26,8 @@ char * ONT_RawMashalParams(void *s);
 char * ONT_GetCallerAddress();
 char * ONT_GetSelfAddress();
 char * ONT_CallContract(char * address,char * contractCode,char * method,char * args);
-char * ONT_MarshalNativeParams(void *);
+char * ONT_MarshalNativeParams(void * s);
+char * ONT_MarshalNeoParams(void * s);
 
 //Runtime apis
 int ONT_Runtime_CheckWitness(char * address);
@@ -45,7 +46,7 @@ int ONT_Block_GetCurrentHeaderHeight();
 char * ONT_Block_GetCurrentBlockHash();
 int ONT_Block_GetCurrentBlockHeight();
 char * ONT_Block_GetTransactionByHash(char * hash);
-char * ONT_Block_GetTransactionCount(int count);
+int * ONT_Block_GetTransactionCount(char * data);
 char * ONT_Block_GetTransactions(char * data);
 
 //Blockchain apis
@@ -76,7 +77,7 @@ char * ONT_Transaction_GetHash(char * data);
 int ONT_Transaction_GetType(char * data);
 char * ONT_Transaction_GetAttributes(char * data);
 
-//contract code below
+
 char * registe(char *address,char * domain){
     if (arrayLen(domain) == 0) {
         return ONT_JsonMashalResult("empty domain not allowed","string",0);
@@ -138,7 +139,7 @@ int transOnt(char * from ,char * to,long long amount){
         struct State * states
     };
 
-
+     
     struct State * state = (struct State*)malloc(sizeof(struct State));
     state->ver = 1;
     state->amount = amount;
@@ -147,9 +148,9 @@ int transOnt(char * from ,char * to,long long amount){
 
     struct Transfer * transfer =(struct Transfer*)malloc(sizeof(struct Transfer));
     transfer->ver = 1;
-    transfer->states = state;
+    transfer->states = state; 
 
-    char * args = ONT_MarshalNativeParams(transfer);
+    char * args = ONT_MarshalNativeParams(transfer); 
     char * result = ONT_CallContract("ff00000000000000000000000000000000000001","","transfer",args);
     if (strcmp(result,"true")==0){
         return 1;
