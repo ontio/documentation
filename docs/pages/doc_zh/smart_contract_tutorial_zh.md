@@ -3,6 +3,7 @@ sidebar : ont_doc_zh
 permalink : smart_contract_tutorial_zh.html
 folder : doc_zh
 ---
+
 [English](./smart_contract_tutorial_en.html) / 中文 
 
 <h1 align="center">本体智能合约</h1>
@@ -113,11 +114,4 @@ SmartX是一个可用于编译，部署和调用智能合约的一站式IDE。�
 [>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_zh.html)
 
 [>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_zh.html)
-
-
-
-
-
-
-
 
