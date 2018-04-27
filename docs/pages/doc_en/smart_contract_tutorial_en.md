@@ -1,12 +1,9 @@
 ---
-title: 
-keywords: sample homepage
-sidebar: ont_doc_en
-permalink: smart_contract_tutorial_en.html
-folder: doc_en
+sidebar : ont_doc_en
+permalink : smart_contract_tutorial_en.html
+folder : doc_en
 ---
-
-English / [中文](./smart_contract_tutorial_zh.html)
+English / [中文](./smart_contract_tutorial_zh.html) 
 
 [中文](README_cn.md) | English
 
@@ -63,7 +60,7 @@ We now support smart contracts that run in **NeoVM** and **WasmVM**.
 
 
 * **For NeoVM**, you can use[Smartx](http://smartx.ont.io) to write, compile, deploy, and invoke smart contracts. 
-* **For WASMVM**, Please go to [>> Wasm Smart Contract](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/README_wasm.md).
+* **For WASMVM**, Please go to [>> Wasm Smart Contract](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/README_wasm.md ).
 
 First you should create a project and choose the language to write your smart contract.
 
@@ -116,13 +113,6 @@ Besides IDE, you can use ONT SDK to invoke a smart contract. Please check the SD
 [>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_en.html)
 
 [>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_en.html)
-
-
-
-
-
-
-
 
 
 

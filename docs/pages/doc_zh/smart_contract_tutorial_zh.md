@@ -1,11 +1,10 @@
 ---
-title: 
-keywords: sample homepage
-sidebar: ont_doc_zh
-permalink: smart_contract_tutorial_zh.html
-folder: doc_zh
+sidebar : ont_doc_zh
+permalink : smart_contract_tutorial_zh.html
+folder : doc_zh
 ---
-[English](./smart_contract_tutorial_en.html) / 中文
+
+[English](./smart_contract_tutorial_en.html) / 中文 
 
 <h1 align="center">本体智能合约</h1>
 <p align="center" class="version">Version V0.7.0 </p>
@@ -64,7 +63,7 @@ SmartX是一个可用于编译，部署和调用智能合约的一站式IDE。�
 目前，我们支持运行于**NEO虚拟机**和**WASM虚拟机**的智能合约。
 
 * **对于NEO虚拟机**，我们提供了[Smartx](http://smartx.ont.io)来帮助你编写和编译智能合约。
-* **对于WASM虚拟机**, 请查阅 [>>WASM智能合约](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/README_wasm.md)文档。
+* **对于WASM虚拟机**, 请查阅 [>>WASM智能合约](https://github.com/ontio/documentation/blob/master/smart-contract-tutorial/README_wasm.md )文档。
 
 首先你需要创建一个项目并选择你喜欢的语言，开始编写智能合约。
 
