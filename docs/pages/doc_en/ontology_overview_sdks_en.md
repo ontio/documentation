@@ -17,7 +17,7 @@ SDK integrates encryption algorithm, RPC interaction and smart contract function
 
 Currently, Ontology has provided a variety of SDK, including [Java SDK](https://github.com/ontio/ontology-java-sdk),[Typescript SDK](https://github.com/ontio/ontology-typescript-sdk) and  [Golang SDK](https://github.com/ontio/ontology-go-sdk)。
 
-More SDKs that is being developed and is about to start are as follows: C#,C++,Pathon 。
+More SDKs that is being developed and is about to start are as follows: C#,C++,Python 。
 
 Main functions of SDK are as below：
 
