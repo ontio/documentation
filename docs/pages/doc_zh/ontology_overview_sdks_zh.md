@@ -16,7 +16,7 @@ folder: doc_zh
 
 SDK封装了加密算法、RPC交互和智能合约，是应用程序与本体区块链交互的重要桥梁。
 
-目前本体已经提供了多种SDK，包括[Java SDK](https://github.com/ontio/ontology-java-sdk)，[Typescript SDK](https://github.com/ontio/ontology-typescript-sdk) 和 [Golang SDK](https://github.com/ontio/ontology-go-sdk)。正在开发中和即将启动开发的SDK包括：C#,C++,Pathon 。
+目前本体已经提供了多种SDK，包括[Java SDK](https://github.com/ontio/ontology-java-sdk)，[Typescript SDK](https://github.com/ontio/ontology-typescript-sdk) 和 [Golang SDK](https://github.com/ontio/ontology-go-sdk)。正在开发中和即将启动开发的SDK包括：C#,C++,Python 。
 
 目前支持的功能：
 
