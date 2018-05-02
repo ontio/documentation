@@ -1,4 +1,4 @@
-using Neo.SmartContract.Framework.Services.Neo;
+ using Neo.SmartContract.Framework.Services.Neo;
 using Neo.SmartContract.Framework;
 using System;
 using System.ComponentModel;
@@ -12,7 +12,6 @@ namespace Neo.SmartContract
             switch (operation)
             {
                 case "Hello":
-                    if (args.Length != 1) return false;
                     Hello((string)args[0]);
                     return true;
                 default:
