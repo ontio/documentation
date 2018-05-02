@@ -1,7 +1,13 @@
-from boa.blockchain.vm.Ont.Storage import GetContext, Put
+from boa.blockchain.vm.Neo.Runtime import Log
+
+def Main(operation, args):
+    if operation == 'Hello':
+        msg = args[0]
+        return Hello(msg)
+
+    return False
 
 
-def Main():
-    context = GetContext()
-
-    Put(context, 'hello', 'world')
+def Hello(msg):
+    Log(msg)
+    return True
