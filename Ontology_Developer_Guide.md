@@ -26,7 +26,7 @@ Developers can organize different technical community groups based on their pref
 
 Institutions can cooperate with Ontology to conduct technology research related to their own business, and jointly conduct research on underlying product technologies and common business modules. Both parties can collaborate on technology, funding, resources, and other aspects in a flexible manner.
 
-[>> Standard process for community contributions](https://github.com/ontio/documentation/tree/master/EN/Standard_process_for_community_contributions.md)
+[>> Standard process for community contributions](https://github.com/ontio/documentation/tree/master/en-EN/Standard_process_for_community_contributions.md)
 
 ## Understand your development needs
 
