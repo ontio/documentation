@@ -1,4 +1,3 @@
-
 //system apis
 void * calloc(int count,int length);
 void * malloc(int size);
@@ -78,104 +77,53 @@ char * ONT_Transaction_GetHash(char * data);
 int ONT_Transaction_GetType(char * data);
 char * ONT_Transaction_GetAttributes(char * data);
 
-
-int add(int a, int b ){
-        return a + b;
-}
-
-char * concat(char * a, char * b){
-	int lena = arrayLen(a);
-	int lenb = arrayLen(b);
-	char * res = (char *)malloc((lena + lenb)*sizeof(char));
-	for (int i = 0 ;i < lena ;i++){
-		res[i] = a[i];
-	}
-
-	for (int j = 0; j < lenb ;j++){
-		res[lenb + j] = b[j];
-	}
-	return res;
-}
-
-
-int sumArray(int * a, int * b){
-
-	int res = 0;
-	int lena = arrayLen(a);
-	int lenb = arrayLen(b);
-
-	for (int i = 0;i<lena;i++){
-		res += a[i];
-	}
-	for (int j = 0;j<lenb;j++){
-		res += b[j];
-	}
-	return res;
-}
-
-
 char * invoke(char * method,char * args){
 
-    if (strcmp(method ,"init")==0 ){
-            return "init success!";
+    if (strcmp(method,"putValue")== 0){
+        struct Params{
+            char * key;
+            char * value;
+        };
+        struct Params * p = (struct Params *)malloc(sizeof(struct Params));
+        ONT_JsonUnmashalInput(p,sizeof(struct Params),args);
+
+        struct NeoArgs{
+            char * ptype;
+            char * pvalue;
+        };
+
+        struct NeoArgs * arg = (struct NeoArgs *)malloc(sizeof(struct NeoArgs) * 2);
+        arg[0].ptype = "string";
+        arg[0].pvalue = p->key;
+        
+        arg[1].ptype = "string";
+        arg[1].pvalue = p->value;
+        char * result = ONT_CallContract("80f6bff7645a84298a1a52aa3745f84dba6615cf","","Put",ONT_MarshalNeoParams(arg));
+        char * res = ONT_JsonMashalResult(result,"string",1);
+        ContractLogError(res);
+        ONT_Runtime_Notify(res);
+        return res;
+    }
+    if(strcmp(method,"getValue"==0)){
+        struct Params{
+            char * key;
+        };
+        struct Params * p = (struct Params *)malloc(sizeof(struct Params));
+        ONT_JsonUnmashalInput(p,sizeof(struct Params),args);
+        struct NeoArgs{
+            char * ptype;
+            char * pvalue;
+        };
+
+        struct NeoArgs * arg = (struct NeoArgs *)malloc(sizeof(struct NeoArgs));
+        arg[0].ptype = "string";
+        arg[0].pvalue = p->key;
+
+        char * result = ONT_CallContract("80f6bff7645a84298a1a52aa3745f84dba6615cf","","Get",ONT_MarshalNeoParams(arg));
+        char * res = ONT_JsonMashalResult(result,"string",1);
+        ContractLogError(res);
+        ONT_Runtime_Notify(res);
+        return res;
     }
 
-    if (strcmp(method, "add")==0){
-        int a = ONT_ReadInt32Param(args);
-        int b = ONT_ReadInt32Param(args);
-
-        int res = add(a,b);
-        char * result = ONT_JsonMashalResult(res,"int",1);
-        ONT_Runtime_Notify(result);
-        return result;
-    }
-
-	if(strcmp(method,"concat")==0){
-        char *a = ONT_ReadStringParam(args);
-        char *b = ONT_ReadStringParam(args);
-		char * res = concat(a,b);
-		char * result = ONT_JsonMashalResult(res,"string",1);
-		ONT_Runtime_Notify(result);
-		return result;
-	}
-	
-    //not support int array for now
-	// if(strcmp(method,"sumArray")==0){
-	// 	struct Params{
-	// 		int *a;
-	// 		int *b;
-	// 	};
-	// 	struct Params *p = (struct Params *)malloc(sizeof(struct Params));
-	// 	ONT_JsonUnmashalInput(p,sizeof(struct Params),args);
-	// 	int res = sumArray(p->a,p->b);
-	// 	char * result = ONT_JsonMashalResult(res,"int",1);
-	// 	ONT_Runtime_Notify(result);
-	// 	return result;
-	// }
-
-	if(strcmp(method,"addStorage")==0){
-
-        char *a = ONT_ReadStringParam(args);
-        char *b = ONT_ReadStringParam(args);
-		ONT_Storage_Put(a,b);
-		char * result = ONT_JsonMashalResult("Done","string",1);
-		ONT_Runtime_Notify(result);
-		return result;
-    }
-
-	if(strcmp(method,"getStorage")==0){
-		char *a = ONT_ReadStringParam(args);
-		char * value = ONT_Storage_Get(a);
-		char * result = ONT_JsonMashalResult(value,"string",1);
-		ONT_Runtime_Notify(result);
-		return result;
-	}
-
-	if(strcmp(method,"deleteStorage")==0){
-        char *a = ONT_ReadStringParam(args);
-        ONT_Storage_Delete(a);
-        char * result = ONT_JsonMashalResult("Done","string",1);
-        ONT_Runtime_Notify(result);
-        return result;
-    }
 }
