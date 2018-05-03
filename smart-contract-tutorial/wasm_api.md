@@ -44,6 +44,7 @@ System APIs provide basic operations.
 | ONT_GetSelfAddress      |                                                              | char *    | get  self contract address                       |
 | ONT_CallContract        | char * address,char * contractCode,char * method,char * args | char *    | call other contract                              |
 | ONT_MarshalNativeParams | void * s                                                     | char *    | marshal parameter for(native) contract           |
+| ONT_MarshalNeoParams    | void * s                                                     | char *    | marshal parameter for(neo) contract              |
 
 to call Native contract , we need to pass the ```struct Transfer *``` to **MarshalNativeParams** to get the marshaled parameter string
 
@@ -156,5 +157,4 @@ struct State{
 
 
 ## 
-
 
