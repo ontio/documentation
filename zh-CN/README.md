@@ -37,12 +37,10 @@
 
 ## 本体文档
 
-- 白皮书概览<br/>[英语](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
-- 技术白皮书<br/>[英语](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)
-- 生态白皮书<br/>[英语](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com)<br><br>
-- [本体开发者新手指南](https://github.com/ontio/documentation/blob/master/zh-CN/tutorial_for_developer.md)
-- [智能合约](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
-- [VBFT介绍](/vbft-intro/vbft-intro-CN.md)
+- 白皮书概览<br/>[英语](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com) / [韩语](https://ont.io/wp/Ontology-Introductory-White-Paper-KR.pdf) translated by @Sunghwan Kim / [荷兰语](https://github.com/ontio/documentation/blob/master/nl-NL/Introductory%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel
+- 技术白皮书<br/>[英语](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com) / [韩语](https://ont.io/wp/Ontology-technology-white-paper-KR.pdf) translated by @Sunghwan Kim / [荷兰语](https://github.com/ontio/documentation/blob/master/nl-NL/Technology%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel
+- 生态白皮书<br/>[英语](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [中文](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)  translated by  [@Onchain](http://www.onchain.com) / [韩语](https://ont.io/wp/Ontology-Ecosystem-White-Paper-KR.pdf) translated by @Sunghwan Kim / [荷兰语](https://github.com/ontio/documentation/blob/master/nl-NL/Ecosystem%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel<br><br>
+- [文档中心](https://ontio.github.io/documentation/first_open_letter_zh.html)
 - [OEPs](https://github.com/ontio/OEPs)
 
 ---
