@@ -48,11 +48,11 @@ Yes, it is supported.
 You can find more specific claim related docs in our GitHub documents. (https://github.com/ontio/ontology-DID/blob/master/docs/en/claim_spec.md)
 
 ### Am I free to add any attribute to claimData for example gender, address, profession?
-As a claim issue , You are fee to define a new context template and add/delete any attribute in it. If you are a user , you can��t change that but share it .
+As a claim issue , You are fee to define a new context template and add/delete any attribute in it. If you are a user , you can't change that but share it .
 
 
 ### Is metaData fixed for all context template? Are we allowed to create customized claim template scheme and give a unique name other than claim:standard0001? (not answered)
-As a claim issue , You are fee to define a new context template and add/delete any attribute in it. If you are a user , you can��t change that but share it .
+As a claim issue , You are fee to define a new context template and add/delete any attribute in it. If you are a user , you can't change that but share it .
 
 
 ### To transfer ONT from one account to another is it necessary to generate OP code with the VM and then use sendrawtransaction or is there a more simplistic approach?
