@@ -57,7 +57,7 @@ entries:
       output: web, pdf
 
       subfolders:
-      - title: RPC/Restful API
+      - title: API
         output: web
         subfolderitems:
 
@@ -67,6 +67,10 @@ entries:
 
         - title: Restful API
           url: /restfulapi_en.html
+          output: web
+
+        - title: Websocket API
+          url: /websocket_en.html
           output: web
 
     - title: Consensus

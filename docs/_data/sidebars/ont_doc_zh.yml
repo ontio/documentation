@@ -57,7 +57,7 @@ entries:
       output: web, pdf
 
       subfolders:
-      - title: RPC/Restful API  接口说明 
+      - title: API  接口说明 
         output: web
         subfolderitems:
 
@@ -67,6 +67,10 @@ entries:
 
         - title: Restful API
           url: /restfulapi_zh.html
+          output: web
+
+        - title: Websocket API
+          url: /websocket_zh.html
           output: web
 
     - title: 共识机制说明
