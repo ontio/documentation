@@ -273,3 +273,5 @@ Merkle proof示例
     }
 }
 ```
+
+### [更多可信声明模板示例](https://github.com/ontio/ontology-DID/blob/master/claimtemplate/cn/可信声明模板定义.md)
