@@ -92,7 +92,7 @@ char * concat(char * a, char * b){
 	}
 
 	for (int j = 0; j < lenb ;j++){
-		res[lenb + j] = b[j];
+		res[lena + j] = b[j];
 	}
 	return res;
 }
