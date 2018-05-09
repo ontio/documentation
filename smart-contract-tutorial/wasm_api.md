@@ -96,43 +96,38 @@ struct State{
 
 ## Block APIs
 
-| Name                             | Parameters  | Returns | Description                  |
-| -------------------------------- | ----------- | ------- | ---------------------------- |
-| ONT_Block_GetCurrentHeaderHash   |             | char *  | get current header hash      |
-| ONT_Block_GetCurrentHeaderHeight |             | int     | get current header height    |
-| ONT_Block_GetCurrentBlockHash    |             | char *  | get current block hash       |
-| ONT_Block_GetCurrentBlockHeight  |             | int     | get current block height     |
-| ONT_Block_GetTransactionByHash   | char * hash | char *  | get transaction by hash      |
-| ONT_Block_GetTransactionCount    | char * data | int     | get block transactions count |
-| ONT_Block_GetTransactions        | char * data | char *  | get block transactions       |
-
-
-
-## Blockchain APIs
-
-| Name                             | Parameters     | Returns | Description             |
-| -------------------------------- | -------------- | ------- | ----------------------- |
-| ONT_BlockChain_GetHeight         |                | int     | get blockchain height   |
-| ONT_BlockChain_GetHeaderByHeight | int height     | char *  | get header by height    |
-| ONT_BlockChain_GetHeaderByHash   | char * hash    | char *  | get header by hash      |
-| ONT_BlockChain_GetBlockByHeight  | int height     | char *  | get block by height     |
-| ONT_BlockChain_GetBlockByHash    | char * hash    | char *  | get block by hash       |
-| ONT_BlockChain_GetContract       | char * address | char *  | get contract by address |
+| Name                                     | Parameters  | Returns | Description                  |
+| ---------------------------------------- | ----------- | ------- | ---------------------------- |
+| ONT_Block_GetCurrentHeaderHash           |             | char *  | get current header hash      |
+| ONT_Block_GetCurrentHeaderHeight         |             | int     | get current header height    |
+| ONT_Block_GetCurrentBlockHash            |             | char *  | get current block hash       |
+| ONT_Block_GetCurrentBlockHeight          |             | int     | get current block height     |
+| ONT_Block_GetTransactionByHash           | char * hash | char *  | get transaction by hash      |
+| ONT_Block_GetTransactionCountByBlkHash   | char * hash | int     | get block transactions count |
+| ONT_Block_GetTransactionCountByBlkHeight | int height  | int     | get block transactions count |
+| ONT_Block_GetTransactionsByBlkHash       | char * hash | char ** | get block transactions       |
+| ONT_Block_GetTransactionsByBlkHeight     | int height  | char ** | get block transactions       |
 
 
 
 ## Header APIs
 
-| Name                        | Parameters  | Returns   | Description          |
-| --------------------------- | ----------- | --------- | -------------------- |
-| ONT_Header_GetHash          | char * data | char *    | get header hash      |
-| ONT_Header_GetVersion       | char * data | int       | get header version   |
-| ONT_Header_GetPrevHash      | char * data | char *    | get previous hash    |
-| ONT_Header_GetMerkleRoot    | char * data | char *    | get merkletree root  |
-| ONT_Header_GetIndex         | char * data | int       | get header height    |
-| ONT_Header_GetTimestamp     | char * data | int       | get header timestamp |
-| ONT_Header_GetConsensusData | char * data | long long | get consensus data   |
-| ONT_Header_GetNextConsensus | char * data | char *    | get next consensus   |
+| Name                          | Parameters  | Returns   | Description          |
+| ----------------------------- | ----------- | --------- | -------------------- |
+| ONT_Header_GetHashByHeight    | int height  | char *    | get header hash      |
+| ONT_Header_GetVersionByHash    | char *hash  | int    | get header version      |
+| ONT_Header_GetVersionByHeight | int height | int       | get header version   |
+| ONT_Header_GetPrevHashByHeight        | int height | char *    | get previous hash    |
+| ONT_Header_GetPrevHashByHash      | char * hash | char *    | get previous hash  |
+| ONT_Header_GetMerkleRootByHeight           | int height | char *       | get merkle root    |
+| ONT_Header_GetMerkleRootByHash       | char * hash | char *        | get merkle root |
+| ONT_Header_GetIndexByHash   | char * hash | int | get header height   |
+| ONT_Header_GetTimestampByHeight   | int height | int    | get header timestamp   |
+| ONT_Header_GetTimestampByHash    | char * hash | int   | get header timestamp   |
+| ONT_Header_GetConsensusDataByHeight  | int height | long long | get header consensus data |
+| ONT_Header_GetConsensusDataByHash | char * hash | long long | get header consensus data |
+| ONT_Header_GetNextConsensusByHeight | int height | char * | get header next consensus |
+| ONT_Header_GetNextConsensusByHash | char * hash | char * | get header next consensus |
 
 
 
@@ -150,7 +145,6 @@ struct State{
 
 | Name                          | Parameters  | Returns | Description                |
 | ----------------------------- | ----------- | ------- | -------------------------- |
-| ONT_Transaction_GetHash       | char * data | char *  | get transaction hash       |
 | ONT_Transaction_GetType       | char * data | int     | get transaction type       |
 | ONT_Transaction_GetAttributes | char * data | char *  | get transaction attributes |
 
