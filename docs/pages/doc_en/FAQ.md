@@ -87,7 +87,7 @@ ONTID is more than a key. It needs to support many complicated scenarios, such a
 Yes, it is supported. Now you have the Ontology Java SDK or JS SDK to deploy it. The community development group are working on a C# SDK, you can find it here: https://github.com/OntologyCommunityDevelopers/ontology-csharp-sdk.
 
 ### Are there any docker images available for Ontology development?
-Docker images are currently in the process.
+Yes, the community development group have created one and it can be found here: https://github.com/OntologyCommunityDevelopers/ontology-privatenet-docker.
 
 ### Is there any plan of incentives/benefits for ONT developers?
 Yes, you can read about it here: https://github.com/ontio/documentation/blob/master/EN/the-first-open-letter-to-the-ontology-technology-community.md.
