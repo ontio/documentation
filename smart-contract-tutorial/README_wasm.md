@@ -10,12 +10,88 @@ Wasm (WebAssembly) is a binary instruction format for stack-based virtual machin
 1. First, we will prepare a simple c language contract that calculates the sum of two integers or concatenates two strings.
 
 ```c
-char * JsonMashal(void * val,char * types);
-int strcmp(char *a,char *b);
-int arrayLen(char *a);
+//system apis
+void * calloc(int count,int length);
 void * malloc(int size);
-int ReadInt32Param(char *addr);
-char * ReadStringParam(char *addr);
+int arrayLen(void *a);
+int memcpy(void * dest,void * src,int length);
+int memset(void * dest,char c,int length);
+
+//utility apis
+int strcmp(char *a,char *b);
+char * strconcat(char *a,char *b);
+int Atoi(char * s);
+long long Atoi64(char *s);
+char * Itoa(int a);
+char * I64toa(long long amount,int radix);
+char * SHA1(char *s);
+char * SHA256(char *s);
+
+//parameter apis
+int ONT_ReadInt32Param(char *args);
+long long ONT_ReadInt64Param(char * args);
+char * ONT_ReadStringParam(char * args);
+void ONT_JsonUnmashalInput(void * addr,int size,char * arg);
+char * ONT_JsonMashalResult(void * val,char * types,int succeed);
+char * ONT_JsonMashalParams(void * s);
+char * ONT_RawMashalParams(void *s);
+char * ONT_GetCallerAddress();
+char * ONT_GetSelfAddress();
+char * ONT_CallContract(char * address,char * contractCode,char * method,char * args);
+char * ONT_MarshalNativeParams(void * s);
+char * ONT_MarshalNeoParams(void * s);
+
+//Runtime apis
+int ONT_Runtime_CheckWitness(char * address);
+void ONT_Runtime_Notify(char * address);
+int ONT_Runtime_CheckSig(char * pubkey,char * data,char * sig);
+int ONT_Runtime_GetTime();
+void ONT_Runtime_Log(char * message);
+
+//Attribute apis
+int ONT_Attribute_GetUsage(char * data);
+char * ONT_Attribute_GetData(char * data);
+
+//Block apis
+char * ONT_Block_GetCurrentHeaderHash();
+int ONT_Block_GetCurrentHeaderHeight();
+char * ONT_Block_GetCurrentBlockHash();
+int ONT_Block_GetCurrentBlockHeight();
+char * ONT_Block_GetTransactionByHash(char * hash);
+int * ONT_Block_GetTransactionCountByBlkHash(char * hash);
+int * ONT_Block_GetTransactionCountByBlkHeight(int height);
+char ** ONT_Block_GetTransactionsByBlkHash(char * hash);
+char ** ONT_Block_GetTransactionsByBlkHeight(int height);
+
+
+//Blockchain apis
+int ONT_BlockChain_GetHeight();
+char * ONT_BlockChain_GetHeaderByHeight(int height);
+char * ONT_BlockChain_GetHeaderByHash(char * hash);
+char * ONT_BlockChain_GetBlockByHeight(int height);
+char * ONT_BlockChain_GetBlockByHash(char * hash);
+char * ONT_BlockChain_GetContract(char * address);
+
+//header apis
+char * ONT_Header_GetHash(char * data);
+int ONT_Header_GetVersion(char * data);
+char * ONT_Header_GetPrevHash(char * data);
+char * ONT_Header_GetMerkleRoot(char  * data);
+int ONT_Header_GetIndex(char * data);
+int ONT_Header_GetTimestamp(char * data);
+long long ONT_Header_GetConsensusData(char * data);
+char * ONT_Header_GetNextConsensus(char * data);
+
+//storage apis
+void ONT_Storage_Put(char * key,char * value);
+char * ONT_Storage_Get(char * key);
+void ONT_Storage_Delete(char * key);
+
+//transaction apis
+char * ONT_Transaction_GetHash(char * data);
+int ONT_Transaction_GetType(char * data);
+char * ONT_Transaction_GetAttributes(char * data);
+
 
 int add(int a, int b ){
         return a + b;
@@ -30,34 +106,76 @@ char * concat(char * a, char * b){
 	}
 
 	for (int j = 0; j < lenb ;j++){
-		res[lenb + j] = b[j];
+		res[lena + j] = b[j];
 	}
 	return res;
 }
 
+
+int sumArray(int * a, int * b){
+
+	int res = 0;
+	int lena = arrayLen(a);
+	int lenb = arrayLen(b);
+
+	for (int i = 0;i<lena;i++){
+		res += a[i];
+	}
+	for (int j = 0;j<lenb;j++){
+		res += b[j];
+	}
+	return res;
+}
+
+
 char * invoke(char * method,char * args){
 
-        if (strcmp(method ,"init")==0 ){
-                return "init success!";
-        }
+    if (strcmp(method ,"init")==0 ){
+            return "init success!";
+    }
 
-        if (strcmp(method, "add")==0){
-                int a = ReadInt32Param(args);
-                int b = ReadInt32Param(args);
-                int res = add(a,b);
-                char * result = JsonMashal(res,"int");
-                return result;
-        }
+    if (strcmp(method, "add")==0){
+        int a = ONT_ReadInt32Param(args);
+	int b = ONT_ReadInt32Param(args);
+        int res = add(a,b);
+        char * result = ONT_JsonMashalResult(res,"int",1);
+        ONT_Runtime_Notify(result);
+        return result;
+    }
 
 	if(strcmp(method,"concat")==0){
-		
-		char * a = ReadStringParam(args);
-		char * b = ReadStringParam(args);
+		char * a = ONT_ReadStringParam(args);
+		char * b = ONT_ReadStringParam(args);
 		char * res = concat(a,b);
-		char * result = JsonMashal(res,"string");
+		char * result = ONT_JsonMashalResult(res,"string",1);
+		ONT_Runtime_Notify(result);
 		return result;
 	}
-	
+	if(strcmp(method,"addStorage")==0){
+		char * a = ONT_ReadStringParam(args);
+		char * b = ONT_ReadStringParam(args);
+		ONT_Storage_Put(a,b);
+		char * result = ONT_JsonMashalResult("Done","string",1);
+		ONT_Runtime_Notify(result);
+		return result;
+      }
+
+      if(strcmp(method,"getStorage")==0){
+		char * a = ONT_ReadStringParam(args);
+		char * value = ONT_Storage_Get(a);
+		char * result = ONT_JsonMashalResult(value,"string",1);
+		ONT_Runtime_Notify(result);
+		return result;
+     }
+
+     if(strcmp(method,"deleteStorage")==0){
+
+        char * a = ONT_ReadStringParam(args);
+        ONT_Storage_Delete(a);
+        char * result = ONT_JsonMashalResult("Done","string",1);
+        ONT_Runtime_Notify(result);
+        return result;
+    }
 }
 
 
@@ -66,12 +184,88 @@ char * invoke(char * method,char * args){
 The following functions are provided by the virtual machine API and need to be declared at the head of the file.
 
 ```c
-char * JsonMashal(void * val,char * types);
-int strcmp(char *a,char *b);
-int arrayLen(char *a);
+//system apis
+void * calloc(int count,int length);
 void * malloc(int size);
-int ReadInt32Param(char *addr);
-char * ReadStringParam(char *addr);
+int arrayLen(void *a);
+int memcpy(void * dest,void * src,int length);
+int memset(void * dest,char c,int length);
+
+//utility apis
+int strcmp(char *a,char *b);
+char * strconcat(char *a,char *b);
+int Atoi(char * s);
+long long Atoi64(char *s);
+char * Itoa(int a);
+char * I64toa(long long amount,int radix);
+char * SHA1(char *s);
+char * SHA256(char *s);
+
+//parameter apis
+int ONT_ReadInt32Param(char *args);
+long long ONT_ReadInt64Param(char * args);
+char * ONT_ReadStringParam(char * args);
+void ONT_JsonUnmashalInput(void * addr,int size,char * arg);
+char * ONT_JsonMashalResult(void * val,char * types,int succeed);
+char * ONT_JsonMashalParams(void * s);
+char * ONT_RawMashalParams(void *s);
+char * ONT_GetCallerAddress();
+char * ONT_GetSelfAddress();
+char * ONT_CallContract(char * address,char * contractCode,char * method,char * args);
+char * ONT_MarshalNativeParams(void * s);
+char * ONT_MarshalNeoParams(void * s);
+
+//Runtime apis
+int ONT_Runtime_CheckWitness(char * address);
+void ONT_Runtime_Notify(char * address);
+int ONT_Runtime_CheckSig(char * pubkey,char * data,char * sig);
+int ONT_Runtime_GetTime();
+void ONT_Runtime_Log(char * message);
+
+//Attribute apis
+int ONT_Attribute_GetUsage(char * data);
+char * ONT_Attribute_GetData(char * data);
+
+//Block apis
+char * ONT_Block_GetCurrentHeaderHash();
+int ONT_Block_GetCurrentHeaderHeight();
+char * ONT_Block_GetCurrentBlockHash();
+int ONT_Block_GetCurrentBlockHeight();
+char * ONT_Block_GetTransactionByHash(char * hash);
+int * ONT_Block_GetTransactionCountByBlkHash(char * hash);
+int * ONT_Block_GetTransactionCountByBlkHeight(int height);
+char ** ONT_Block_GetTransactionsByBlkHash(char * hash);
+char ** ONT_Block_GetTransactionsByBlkHeight(int height);
+
+
+//Blockchain apis
+int ONT_BlockChain_GetHeight();
+char * ONT_BlockChain_GetHeaderByHeight(int height);
+char * ONT_BlockChain_GetHeaderByHash(char * hash);
+char * ONT_BlockChain_GetBlockByHeight(int height);
+char * ONT_BlockChain_GetBlockByHash(char * hash);
+char * ONT_BlockChain_GetContract(char * address);
+
+//header apis
+char * ONT_Header_GetHash(char * data);
+int ONT_Header_GetVersion(char * data);
+char * ONT_Header_GetPrevHash(char * data);
+char * ONT_Header_GetMerkleRoot(char  * data);
+int ONT_Header_GetIndex(char * data);
+int ONT_Header_GetTimestamp(char * data);
+long long ONT_Header_GetConsensusData(char * data);
+char * ONT_Header_GetNextConsensus(char * data);
+
+//storage apis
+void ONT_Storage_Put(char * key,char * value);
+char * ONT_Storage_Get(char * key);
+void ONT_Storage_Delete(char * key);
+
+//transaction apis
+char * ONT_Transaction_GetHash(char * data);
+int ONT_Transaction_GetType(char * data);
+char * ONT_Transaction_GetAttributes(char * data);
+
 
 ```
 
@@ -80,12 +274,6 @@ The entry of Wasm contract is unified as ```char * invoke(char * method, char * 
 **method** is the method’s name that needs to be called.
 
 **args** are the incoming parameters, raw bytes.
-
-API ```int strcmp(char *a,char *b)```: String comparison function, which can be used to judge the method’s name that needs to be called.
-
-API ```char * JsonMashal(void * val,char * types)```: Can serialize results to JSON format.
-
-API ```int ReadInt32Param(char *addr)``` and ```char * JsonMashal(void * val,char * types);``` can read string or int param from input bytes.
 
 [More details on Wasm contract APIs](wasm_api.md)
 
@@ -112,116 +300,211 @@ And use the [wabt](https://github.com/WebAssembly/wabt) tool to compile the wast
 Incoming parameters can be in JSON format:
 
 ```c
-void JsonUnmashal(void * addr,int size,char * arg);
-char * JsonMashal(void * val,char * types);
-int strcmp(char *a,char *b);
-int arrayLen(void *a);
+//system apis
+void * calloc(int count,int length);
 void * malloc(int size);
+int arrayLen(void *a);
+int memcpy(void * dest,void * src,int length);
+int memset(void * dest,char c,int length);
 
+//utility apis
+int strcmp(char *a,char *b);
+char * strconcat(char *a,char *b);
+int Atoi(char * s);
+long long Atoi64(char *s);
+char * Itoa(int a);
+char * I64toa(long long amount,int radix);
+char * SHA1(char *s);
+char * SHA256(char *s);
+
+//parameter apis
+int ONT_ReadInt32Param(char *args);
+long long ONT_ReadInt64Param(char * args);
+char * ONT_ReadStringParam(char * args);
+void ONT_JsonUnmashalInput(void * addr,int size,char * arg);
+char * ONT_JsonMashalResult(void * val,char * types,int succeed);
+char * ONT_JsonMashalParams(void * s);
+char * ONT_RawMashalParams(void *s);
+char * ONT_GetCallerAddress();
+char * ONT_GetSelfAddress();
+char * ONT_CallContract(char * address,char * contractCode,char * method,char * args);
+char * ONT_MarshalNativeParams(void * s);
+char * ONT_MarshalNeoParams(void * s);
+
+//Runtime apis
+int ONT_Runtime_CheckWitness(char * address);
+void ONT_Runtime_Notify(char * address);
+int ONT_Runtime_CheckSig(char * pubkey,char * data,char * sig);
+int ONT_Runtime_GetTime();
+void ONT_Runtime_Log(char * message);
+
+//Attribute apis
+int ONT_Attribute_GetUsage(char * data);
+char * ONT_Attribute_GetData(char * data);
+
+//Block apis
+char * ONT_Block_GetCurrentHeaderHash();
+int ONT_Block_GetCurrentHeaderHeight();
+char * ONT_Block_GetCurrentBlockHash();
+int ONT_Block_GetCurrentBlockHeight();
+char * ONT_Block_GetTransactionByHash(char * hash);
+int * ONT_Block_GetTransactionCountByBlkHash(char * hash);
+int * ONT_Block_GetTransactionCountByBlkHeight(int height);
+char ** ONT_Block_GetTransactionsByBlkHash(char * hash);
+char ** ONT_Block_GetTransactionsByBlkHeight(int height);
+
+
+//Blockchain apis
+int ONT_BlockChain_GetHeight();
+char * ONT_BlockChain_GetHeaderByHeight(int height);
+char * ONT_BlockChain_GetHeaderByHash(char * hash);
+char * ONT_BlockChain_GetBlockByHeight(int height);
+char * ONT_BlockChain_GetBlockByHash(char * hash);
+char * ONT_BlockChain_GetContract(char * address);
+
+//header apis
+char * ONT_Header_GetHash(char * data);
+int ONT_Header_GetVersion(char * data);
+char * ONT_Header_GetPrevHash(char * data);
+char * ONT_Header_GetMerkleRoot(char  * data);
+int ONT_Header_GetIndex(char * data);
+int ONT_Header_GetTimestamp(char * data);
+long long ONT_Header_GetConsensusData(char * data);
+char * ONT_Header_GetNextConsensus(char * data);
+
+//storage apis
+void ONT_Storage_Put(char * key,char * value);
+char * ONT_Storage_Get(char * key);
+void ONT_Storage_Delete(char * key);
+
+//transaction apis
+char * ONT_Transaction_GetHash(char * data);
+int ONT_Transaction_GetType(char * data);
+char * ONT_Transaction_GetAttributes(char * data);
 int add(int a, int b ){
         return a + b;
 }
 
 char * concat(char * a, char * b){
-        int lena = arrayLen(a);
-        int lenb = arrayLen(b);
-        char * res = (char *)malloc((lena + lenb)*sizeof(char));
-        for (int i = 0 ;i < lena ;i++){
-                res[i] = a[i];
-        }
+	int lena = arrayLen(a);
+	int lenb = arrayLen(b);
+	char * res = (char *)malloc((lena + lenb)*sizeof(char));
+	for (int i = 0 ;i < lena ;i++){
+		res[i] = a[i];
+	}
 
-        for (int j = 0; j < lenb ;j++){
-                res[lenb + j] = b[j];
-        }
-        return res;
+	for (int j = 0; j < lenb ;j++){
+		res[lena + j] = b[j];
+	}
+	return res;
 }
 
 
 int sumArray(int * a, int * b){
 
-        int res = 0;
-        int lena = arrayLen(a);
-        int lenb = arrayLen(b);
+	int res = 0;
+	int lena = arrayLen(a);
+	int lenb = arrayLen(b);
 
-        for (int i = 0;i<lena;i++){
-                res += a[i];
-        }
-        for (int j = 0;j<lenb;j++){
-                res += b[j];
-        }
-        return res;
+	for (int i = 0;i<lena;i++){
+		res += a[i];
+	}
+	for (int j = 0;j<lenb;j++){
+		res += b[j];
+	}
+	return res;
 }
 
 
 char * invoke(char * method,char * args){
 
-        if (strcmp(method ,"init")==0 ){
-                return "init success!";
-        }
+    if (strcmp(method ,"init")==0 ){
+            return "init success!";
+    }
 
-        if (strcmp(method, "add")==0){
-                struct Params {
-                        int a;
-                        int b;
-                };
-                struct Params param;
+    if (strcmp(method, "add")==0){
+        struct Params {
+                int a;
+                int b;
+        };
+        struct Params *p = (struct Params *)malloc(sizeof(struct Params));
 
-                JsonUnmashal(&param,sizeof(param),args);
-                int res = add(param.a,param.b);
-                char * result = JsonMashal(res,"int");
-                return result;
-        }
+        ONT_JsonUnmashalInput(p,sizeof(struct Params),args);
+        int res = add(p->a,p->b);
+        char * result = ONT_JsonMashalResult(res,"int",1);
+        ONT_Runtime_Notify(result);
+        return result;
+    }
 
-        if(strcmp(method,"concat")==0){
-                struct Params{
-                        char *a;
-                        char *b;
-                };
-                struct Params param;
-                JsonUnmashal(&param,sizeof(param),args);
-                char * res = concat(param.a,param.b);
-                char * result = JsonMashal(res,"string");
-                return result;
-        }
+	if(strcmp(method,"concat")==0){
+		struct Params{
+			char *a;
+			char *b;
+		};
+		struct Params *p = (struct Params *)malloc(sizeof(struct Params));
+		ONT_JsonUnmashalInput(p,sizeof(struct Params),args);
+		char * res = concat(p->a,p->b);
+		char * result = ONT_JsonMashalResult(res,"string",1);
+		ONT_Runtime_Notify(result);
+		return result;
+	}
+	
+	if(strcmp(method,"sumArray")==0){
+		struct Params{
+			int *a;
+			int *b;
+		};
+		struct Params *p = (struct Params *)malloc(sizeof(struct Params));
+		ONT_JsonUnmashalInput(p,sizeof(struct Params),args);
+		int res = sumArray(p->a,p->b);
+		char * result = ONT_JsonMashalResult(res,"int",1);
+		ONT_Runtime_Notify(result);
+		return result;
+	}
 
-        if(strcmp(method,"sumArray")==0){
-                struct Params{
-                        int *a;
-                        int *b;
-                };
-                struct Params param;
-                JsonUnmashal(&param,sizeof(param),args);
-                int res = sumArray(param.a,param.b);
-                char * result = JsonMashal(res,"int");
-                return result;
-        }
+	if(strcmp(method,"addStorage")==0){
 
+		struct Params{
+			char * a;
+			char * b;
+		};
+		struct Params *p = (struct Params *)malloc(sizeof(struct Params));
+		ONT_JsonUnmashalInput(p,sizeof(struct Params),args);
+		ONT_Storage_Put(p->a,p->b);
+		char * result = ONT_JsonMashalResult("Done","string",1);
+		ONT_Runtime_Notify(result);
+		return result;
+    }
+
+	if(strcmp(method,"getStorage")==0){
+		struct Params{
+			char * a;
+		};
+		struct Params *p = (struct Params *)malloc(sizeof(struct Params));
+		ONT_JsonUnmashalInput(p,sizeof(struct Params),args);
+		char * value = ONT_Storage_Get(p->a);
+		char * result = ONT_JsonMashalResult(value,"string",1);
+		ONT_Runtime_Notify(result);
+		return result;
+	}
+
+	if(strcmp(method,"deleteStorage")==0){
+
+        struct Params{
+                char * a;
+        };
+		struct Params *p = (struct Params *)malloc(sizeof(struct Params));
+		ONT_JsonUnmashalInput(p,sizeof(struct Params),args);
+        ONT_Storage_Delete(p->a);
+        char * result = ONT_JsonMashalResult("Done","string",1);
+        ONT_Runtime_Notify(result);
+        return result;
+    }
 }
                                                                                                                                       
 ```
 
-This example adds the new API:
-```c
-void JsonUnmashal(void * addr,int size,char * arg);
-```
-
-API ```void JsonUnmashal(void * addr,int size,char * arg)```: It can parse the parameters in JSON format into defined structures.
-
-Since webFiddle has problems with the compilation of the ```&``` operation of the C language, it needs to use Emscripten to compile it.
-
-* For installation of Emscripten, please refer to [http://kripken.github.io/emscripten-site/](http://http://kripken.github.io/emscripten-site/).
-* Use the command ```emcc cfiles/{file}.c -Os -s WASM=1 -s SIDE_MODULE=1 -o cfiles/{file}.wasm``` to compile the C file to a Wasm format file.
-* Install WABT [https://github.com/WebAssembly/wabt](https://github.com/WebAssembly/wabt).
-* Use the wasm2wat {file}.wasm > {file}.wast command to view.
+### Deploy and Invoke
+Please follow the instraction of ontology test frame work :https://github.com/ontio/ontology-test
 
 
-* You can see that the method names are compiled into names that start with ```_``` , which needs to be modified manually.
-
-* We only want to export the ```invoke``` method and need to delete the other "export".
-* ```(import "env" "memory" (memory (;0;) 256))``` memory size is set to 256 pages, according to Webassembly [spec](https://github.com/WebAssembly/design/blob/27ac254c854994103c24834a994be16f74f54186/Semantics.md#linear-memory), each page is 64K. Our contract does not require so much memory. So we can change 256 to 1.
-* Use```wat2wasm {file}.wast ```to compile the Wasm format file
-
-
-### Get the binary contents of the Wasm file
-Use the online tool [http://tomeko.net/online_tools/file_to_hex.php?lang=en](http://tomeko.net/online_tools/file_to_hex.php?lang=en).
-![hexadecimal](images/hexadecimal.png)
