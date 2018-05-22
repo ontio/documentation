@@ -1,4 +1,4 @@
-from boa.blockchain.vm.Neo.Runtime import Log
+from boa.interop.Neo.Runtime import Log
 
 def Main(operation, args):
     if operation == 'Hello':
