@@ -12,18 +12,18 @@ folder: doc_zh
 <p align="center" class="version">版本 0.7.0 </p>
 
 * [Introduction](#introduction)
-* [Restful API list](#restful-api-list)
-* [Errorcode](#errorcode)
+* [Restful Api List](#restful-api-list)
+* [Error Code](#error-code)
 
-Restful API list
+Restful Api List
 
 | Method | url |
 | :---| :---|
 | get_gen_blk_time | GET /api/v1/node/generateblocktime |
 | get_conn_count | GET /api/v1/node/connectioncount |
 | get_blk_txs_by_height | GET /api/v1/block/transactions/height/:height |
-| get_blk_by_height | GET /api/v1/block/details/height/:height |
-| get_blk_by_hash | GET /api/v1/block/details/hash/:hash |
+| get_blk_by_height | GET /api/v1/block/details/height/:height?raw=0 |
+| get_blk_by_hash | GET /api/v1/block/details/hash/:hash?raw=1 |
 | get_blk_height | GET /api/v1/block/height |
 | get_blk_hash | GET /api/v1/block/hash/:height |
 | get_tx | GET /api/v1/transaction/:hash |
@@ -34,14 +34,16 @@ Restful API list
 | get_smtcode_evts | GET /api/v1/smartcode/event/txhash/:hash |
 | get_blk_hgt_by_txhash | GET /api/v1/block/height/txhash/:hash |
 | get_merkle_proof | GET /api/v1/merkleproof/:hash|
-| post_raw_tx | post /api/v1/transaction |
+| get_gasprice | GET /api/v1/gasprice|
+| get_allowance | GET /api/v1/allowance/:asset/:from/:to |
+| post_raw_tx | post /api/v1/transaction?preExec=0 |
 
 
 ## Introduction
 
 This document describes the restful api format for the http/https used in the Onchain Ontology.
 
-## Restful API list
+## Restful Api List
 
 ### Response parameters descri
 
@@ -57,7 +59,7 @@ This document describes the restful api format for the http/https used in the On
 
 Get the generate block time
 
-GET
+##### GET
 
 ```
 /api/v1/node/generateblocktime
@@ -145,11 +147,11 @@ curl -i http://server:port/api/v1/block/transactions/height/100
 
 Get the block by block height
 return block details based on block height
-
+if raw=1 return serialized block
 GET
 
 ```
-/api/v1/block/details/height/:height
+/api/v1/block/details/height/:height?raw=1
 ```
 
 #### Request Example:
@@ -216,12 +218,12 @@ curl -i http://server:port/api/v1/block/details/height/22
 ### 5 get_blk_by_hash
 
 Get block by blockhash
-return block details based on block hash
+return block details based on block hash,if raw=1 return serialized block
 
 GET
 
 ```
-/api/v1/block/details/hash/:hash
+/api/v1/block/details/hash/:hash?raw=0
 ```
 
 #### Request Example:
@@ -346,12 +348,12 @@ curl -i http://server:port/api/v1/block/hash/100
 
 ### 8 get_tx
 
-get transaction by transaction hash
+get transaction by transaction hash,if raw=1 return serialized transaction
 
 GET
 
 ```
-/api/v1/transaction/:hash
+/api/v1/transaction/:hash?raw=0
 ```
 
 ####Request Example:
@@ -395,12 +397,12 @@ curl -i http://server:port/api/v1/transaction/c5e0d387c6a97aef12f1750840d24b53d9
 
 ### 9 post_raw_tx
 
-send transaction.
+send transaction. set preExec=1 if want prepare exec smartcontract
 
 POST
 
 ```
-/api/v1/transaction
+/api/v1/transaction?preExec=0
 ```
 
 #### Request Example:
@@ -520,7 +522,7 @@ GET
 ```
 Request Example
 ```
-curl -i http://localhost:20384/api/v1/storage/ff00000000000000000000000000000000000001/0144587c1094f6929ed7362d6328cffff4fb4da2
+curl -i http://localhost:20334/api/v1/storage/ff00000000000000000000000000000000000001/0144587c1094f6929ed7362d6328cffff4fb4da2
 ```
 #### Response
 ```
@@ -546,7 +548,7 @@ GET
 
 Request Example
 ```
-curl -i http://localhost:20384/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kPqJzGZWq
+curl -i http://localhost:20334/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kPqJzGZWq
 ```
 
 #### Response
@@ -556,8 +558,9 @@ curl -i http://localhost:20384/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kPqJzGZWq
     "Desc": "SUCCESS",
     "Error": 0,
     "Result": {
-        "ont": "25000000000000000",
-        "ong": "0"
+        "ont": "2500",
+        "ong": "0",
+        "ong_appove": "0"
     },
     "Version": "1.0.0"
 }
@@ -613,7 +616,7 @@ GET
 #### Example usage:
 
 ```
-curl -i http://localhost:20384/api/v1/smartcode/event/transactions/900
+curl -i http://localhost:20334/api/v1/smartcode/event/transactions/900
 ```
 
 #### response
@@ -640,7 +643,7 @@ GET
 ```
 #### Request Example:
 ```
-curl -i http://localhost:20384/api/v1/smartcode/event/txhash/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
+curl -i http://localhost:20334/api/v1/smartcode/event/txhash/20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac
 ```
 #### Response:
 ```
@@ -649,18 +652,22 @@ curl -i http://localhost:20384/api/v1/smartcode/event/txhash/3e23cf222a47739d414
     "Desc": "SUCCESS",
     "Error": 0,
     "Version": "1.0.0",
-    "Result": [
-        {
-            "CodeHash":"80e7d2fc22c24c466f44c7688569cc6e6d6c6f92",
-            "TxHash":"7c3e38afb62db28c7360af7ef3c1baa66aeec27d7d2f60cd22c13ca85b2fd4f3"
-            "States": [
-                "transfer",
-                "TA63xZXqdPLtDeznWQ6Ns4UsbqprLrrLJk",
-                "TA23xZXqdPLtDeznWQ6Ns4UsbqprLrrLfgf",
-                100
-            ]
-        }
-    ]
+    "Result": {
+             "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
+             "State": 1,
+             "GasConsumed": 0,
+             "Notify": [
+                    {
+                      "ContractAddress": "ff00000000000000000000000000000000000001",
+                      "States": [
+                            "transfer",
+                            "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+                            "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
+                            1000000000
+                         ]
+                     }
+              ]
+    }
 }
 ```
 ### 15 get_blk_hgt_by_txhash
@@ -673,7 +680,7 @@ GET
 ```
 #### Request Example:
 ```
-curl -i http://localhost:20384/api/v1/block/height/txhash/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
+curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
 ```
 #### Response
 ```
@@ -696,7 +703,7 @@ GET
 ```
 #### Request Example:
 ```
-curl -i http://localhost:20384/api/v1/merkleproof/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
+curl -i http://localhost:20334/api/v1/merkleproof/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
 ```
 #### Response
 ```
@@ -730,7 +737,56 @@ curl -i http://localhost:20384/api/v1/merkleproof/3e23cf222a47739d4141255da617cd
 }
 ```
 
-## Errorcode
+### 17 get_gasprice
+
+Get gasprice
+
+GET
+```
+/api/v1/gasprice
+```
+#### Request Example:
+```
+curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
+```
+#### Response
+```
+{
+    "Action": "getgasprice",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": {
+          "gasprice": 0,
+          "height": 1
+    },
+    "Version": "1.0.0"
+}
+```
+
+### 18 get_allowance
+
+Get allowance
+
+GET
+```
+/api/v1/allowance
+```
+#### Request Example:
+```
+curl -i http://localhost:20334/api/v1/allowance/:asset/:from/:to
+```
+#### Response
+```
+{
+    "Action": "getallowance",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": "10",
+    "Version": "1.0.0"
+}
+```
+
+## Error Code
 
 | Field | Type | Description |
 | :--- | :--- | :--- |

@@ -11,16 +11,15 @@ folder: doc_zh
 <h1 align="center">Ontology Websocket API </h1>
 <p align="center" class="version">版本 0.7.0 </p>
 
-
 * [Introduction](#introduction)
-* [Websocket API list](#websocket-api-list)
-* [Errorcode](#errorcode)
+* [Websocket Api List](#websocket-api-list)
+* [Error Code](#error-code)
 
 ## Introduction
 
 This document describes the Websocket api format for the ws/wss used in the Onchain Ontology.
 
-## Websocket API list
+## Websocket Api List
 
 ### Response parameters descri
 
@@ -181,7 +180,7 @@ return all transaction hash contained in the block corresponding to this height
 ### 6. Get the block by block height
 
 return block details based on block height
-
+if raw=1 return serialized block
 
 #### Request Example:
 
@@ -252,7 +251,7 @@ return block details based on block height
 ### 7. Get block by blockhash
 
 return block details based on block hash
-
+if raw=1 return serialized block
 
 #### Request Example:
 
@@ -378,7 +377,7 @@ return block hash based on block height
 ### 10. get transaction by transaction hash
 
 get transaction details based on transaction hash
-
+if raw=1 return serialized transaction
 
 #### Request Example:
 
@@ -426,7 +425,7 @@ get transaction details based on transaction hash
 
 ### 11. send transaction
 
-send transaction.
+send transaction.set PreExec=1 if want prepare exec smartcontract
 
 
 #### Request Example:
@@ -435,6 +434,7 @@ send transaction.
 {
     "Action":"sendrawtransaction",
     "Version":"1.0.0",
+    "PreExec": 0,
     "Data":"80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
 }
 ```
@@ -497,8 +497,9 @@ Request Example
     "Desc": "SUCCESS",
     "Error": 0,
     "Result": {
-        "ont": "25000000000000000",
-        "ong": "0"
+        "ont": "2500",
+        "ong": "0",
+        "ong_appove": "0"
     },
     "Version": "1.0.0"
 }
@@ -512,7 +513,7 @@ According to the contract script hash, query the contract information.
 
 ```
 {
-    "Action": "gettransaction",
+    "Action": "getcontract",
     "Version": "1.0.0",
     "Hash": "fff49c809d302a2956e9dc0012619a452d4b846c"
 }
@@ -576,7 +577,7 @@ Get a list of transaction hash with smartevent based on height
 {
     "Action": "getsmartcodeeventbyhash",
     "Version": "1.0.0",
-    "Hash": "3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8"
+    "Hash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac"
 }
 ```
 #### Response:
@@ -586,18 +587,22 @@ Get a list of transaction hash with smartevent based on height
     "Desc": "SUCCESS",
     "Error": 0,
     "Version": "1.0.0",
-    "Result": [
-        {
-            "CodeHash":"80e7d2fc22c24c466f44c7688569cc6e6d6c6f92",
-            "TxHash":"7c3e38afb62db28c7360af7ef3c1baa66aeec27d7d2f60cd22c13ca85b2fd4f3"
-            "States": [
-                "transfer",
-                "TA63xZXqdPLtDeznWQ6Ns4UsbqprLrrLJk",
-                "TA23xZXqdPLtDeznWQ6Ns4UsbqprLrrLfgf",
-                100
-            ]
-        }
-    ]
+    "Result": {
+             "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
+             "State": 1,
+             "GasConsumed": 0,
+             "Notify": [
+                    {
+                      "ContractAddress": "ff00000000000000000000000000000000000001",
+                      "States": [
+                            "transfer",
+                            "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+                            "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
+                            1000000000
+                         ]
+                     }
+              ]
+    }
 }
 ```
 ### 17. Get block height by transaction hash
@@ -668,7 +673,76 @@ get merkle proof
 }
 ```
 
-## Errorcode
+### 19. Get session count
+get session count
+
+#### Request Example:
+```
+{
+    "Action": "getsessioncount",
+    "Version": "1.0.0"
+}
+```
+#### Response
+```
+{
+    "Action": "getsessioncount",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": 10,
+    "Version": "1.0.0"
+}
+```
+
+### 20. Get gasprice
+get gasprice
+
+#### Request Example:
+```
+{
+    "Action": "getgasprice",
+    "Version": "1.0.0"
+}
+```
+#### Response
+```
+{
+    "Action": "getgasprice",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": {
+         "gasprice": 0,
+         "height": 1
+     },
+    "Version": "1.0.0"
+}
+```
+
+### 21. Get allowance
+get allowance
+
+#### Request Example:
+```
+{
+    "Action": "getallowance",
+    "Asset": "ont",
+    "From" :  "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+    "To"   :  "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
+    "Version": "1.0.0"
+}
+```
+#### Response
+```
+{
+    "Action": "getallowance",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": "10",
+    "Version": "1.0.0"
+}
+```
+
+## Error Code
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
