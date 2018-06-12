@@ -33,7 +33,7 @@ entries:
       output: web, pdf
 
     - title: 社区贡献标准流程
-      url: /standard_process_for_contributor_zh.html
+      url: /guidelines_for_technical_community_contributions_zh.html
       output: web, pdf
 
   - title: Ontology
