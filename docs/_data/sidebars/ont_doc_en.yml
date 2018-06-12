@@ -32,8 +32,8 @@ entries:
       url: /tutorial_for_developer_en.html
       output: web, pdf
 
-    - title: Standard process for contributor
-      url: /standard_process_for_contributor_en.html
+    - title: Contributor guideline
+      url: /guidelines_for_technical_community_contributions_en.html
       output: web, pdf
 
   - title: Ontology
