@@ -329,7 +329,7 @@ Signature scheme: SHA256withECDSA
 
    ```
 
-   3. 通过CLI ```./ontology info status```根据Transaction Hash 取得block中的所有Transaction信息
+3. 通过CLI ```./ontology info status```根据Transaction Hash 取得block中的所有Transaction信息
 
 ```
 $ ./ontology info status f4b39ac8f39e4eb92bbb8cc4f46b427bf68624a225c56fc0fa6310a6012538f0
