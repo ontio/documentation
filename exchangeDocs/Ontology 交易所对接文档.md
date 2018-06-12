@@ -306,7 +306,7 @@ Signature scheme: SHA256withECDSA
             "Payer": "0148cb3cb662b84b4bc59bd6e84bafe13b3c0c1f",
             "TxType": 209,
             "Payload": {
-               "Code": "00000000000000000000000000000000000000000001087472616e736665722a010148cb3cb662b84b4bc59bd6e84bafe13b3c0c1f01bb163b9224d91160c8fbd65585d3a64c7b1a7f0a",
+               "Code": "0100000000000000000000000000000000000000087472616e736665722a010148cb3cb662b84b4bc59bd6e84bafe13b3c0c1f01bb163b9224d91160c8fbd65585d3a64c7b1a7f0a",
                "GasLimit": 0,
                "VmType": 255
             },
@@ -340,7 +340,7 @@ Transaction states:
    "GasConsumed": 0,
    "Notify": [
       {
-         "ContractAddress": "0000000000000000000000000000000000000001",
+         "ContractAddress": "0100000000000000000000000000000000000000",
          "States": [
             "transfer",
             "TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq",
@@ -356,9 +356,9 @@ Transaction states:
 
 解析“Notify"数组：
 
-​     ContractAddress：合约地址	```0000000000000000000000000000000000000001``` 为ONT
+​     ContractAddress：合约地址	```0100000000000000000000000000000000000000``` 为ONT
 
-​						        ```0000000000000000000000000000000000000002``` 为ONG
+​						        ```0200000000000000000000000000000000000000``` 为ONG
 
 ​     States：数组
 
@@ -438,7 +438,7 @@ Transaction states:
         "GasConsumed": 0,
         "Notify": [
            {
-              "ContractAddress": "0000000000000000000000000000000000000001",
+              "ContractAddress": "0100000000000000000000000000000000000000",
               "States": [
                  "transfer",
                  "TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq",
@@ -648,7 +648,7 @@ response:
         "GasConsumed": 0,
         "Notify": [
             {
-                "ContractAddress": "ff00000000000000000000000000000000000001",
+                "ContractAddress": "0100000000000000000000000000000000000000",
                 "States": [
                     "transfer",
                     "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
