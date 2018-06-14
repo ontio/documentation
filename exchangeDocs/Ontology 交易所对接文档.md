@@ -106,7 +106,7 @@ $ make
    - 通过CLI，创建节点运行所需的钱包文件 wallet.dat
 
      ```
-     $ ./ontology-linux account add -d
+     $ ./ontology account add -d
      Use default setting '-t ecdsa -b 256 -s SHA256withECDSA' 
      	signature algorithm: ecdsa 
      	curve: P-256 
@@ -116,8 +116,8 @@ $ make
 
      Index: 1
      Label: 
-     Address: TA4fG1ybsg6XHXp6qGymiubG4V1qN9rWRL
-     Public key: 120203ac15db156e2af2c6f70b846de387e1dae0cc73a3a489e43db28b17ac7ae07e65
+     Address: AWVNFw74G8Sx9vcxGbmh4gT54ayuwb3bcm
+     Public key: 02c17cd91acf618d497f65f1fc4f52de7952c8b2337883f898dda887953cd29dd7
      Signature scheme: SHA256withECDSA
 
      Create account successfully.
@@ -178,14 +178,20 @@ CLI 本身不提供远程开关钱包功能，打开钱包时也没有验证过�
 
 ```
 $ ./ontology account add -d
-use default value for all options
-Enter a password for encrypting the private key:
-Re-enter password:
+Use default setting '-t ecdsa -b 256 -s SHA256withECDSA' 
+	signature algorithm: ecdsa 
+	curve: P-256 
+	signature scheme: SHA256withECDSA 
+Password:
+Re-enter Password:
+
+Index: 1
+Label: 
+Address: AWVNFw74G8Sx9vcxGbmh4gT54ayuwb3bcm
+Public key: 02c17cd91acf618d497f65f1fc4f52de7952c8b2337883f898dda887953cd29dd7
+Signature scheme: SHA256withECDSA
 
 Create account successfully.
-Address:  TA9TVuR4Ynn4VotfpExY5SaEy8a99obFPr
-Public key: 120202a1cfbe3a0a04183d6c25ceff1e34957ace6e4899e4361c2e1a2bc3c817f90936
-Signature scheme: SHA256withECDSA	
 ```
 
 **ONT的公钥和私钥生成算法和NEO一致，同一个私钥对应的ONT和NEO的公钥地址是相同的。**
@@ -216,21 +222,22 @@ Re-enter Password:
 
 Index: 1
 Label: 
-Address: TA5JtcQC21fLtUy6Eacfkhg8pLEywTv82b
-Public key: 120203eaa379d7ca8fdd9705854a72b36b831fb59e0c9cf8863e4bad177d2ad35b90a2
+Address: ATh1dt4pKZTASu45VeRChPi3iYmk8nYKJH
+Public key: 03f8e59f0059d11dcec2902c44a9e7a2466adc9b25a61b1d94d2027d13f78ac45a
 Signature scheme: SHA256withECDSA
 
 Index: 2
 Label: 
-Address: TA6VB77YfWE7AayMijgzVkaewF8geagja1
-Public key: 1202024ee20b5028dbff7d2ab3db47a48bad599cc04b1fb31ff605dc24412415b973ef
+Address: AdYpqD8kn3NwBkkDktqfLfT8jJMCaD7BrB
+Public key: 03e05424e711faa1591ee62a20648b45d8328f40c1ad5c479484501445fea62c50
 Signature scheme: SHA256withECDSA
 
 Index: 3
 Label: 
-Address: TA5JpD5tTWyyPANxmzvXec1BXUYWpaaGBk
-Public key: 120202b8e3f88081d99a88bf019380c27a8da301802157752ed1f8db27e3e108fae0ea
+Address: AY5hDhn2z8ND6F4JF9rQV1a4SDUT4aUr88
+Public key: 03de554a6e3eea61aa9f78fa683ce9069ca8980a9f44b85eebe1d2c2e9a611875c
 Signature scheme: SHA256withECDSA
+
 ....
 ```
 
@@ -273,56 +280,93 @@ Signature scheme: SHA256withECDSA
    ```
    $ ./ontology info block 209304
    {
-      "Hash": "cc92674c0efae4d64e0d974cf4eff78fa9297ca804595d82132afe372ffbc120",
+      "Hash": "83a70a5380532ededb4f3d65bcd4d3a8cd52f7f87bf1863d68bada59b95133d4",
       "Header": {
          "Version": 0,
-         "PrevBlockHash": "1c27e93d0079ab701d3dce85edc22dc03c3d6ed58ac733829797a77e657fbead",
-         "TransactionsRoot": "f4b39ac8f39e4eb92bbb8cc4f46b427bf68624a225c56fc0fa6310a6012538f0",
-         "BlockRoot": "19a65b8fbedc9ebad41d4026e58bcc27a0bed396d95269a27cf1f725ad6a171e",
-         "Timestamp": 1528195357,
-         "Height": 209304,
-         "ConsensusData": 5441406265160202485,
+         "PrevBlockHash": "e63ede75d1a1784c150edd537b2b5439cc3893be909d5e6970b7baa8b39a5437",
+         "TransactionsRoot": "24ac1b3dbecedbac41413ef4578769dd858aab42ccb60b2918c879b129edbf5d",
+         "BlockRoot": "8a03e9f3e9adb8abde5b129ba5f833a3555719ffbbf3dd97a931450620a6bbf0",
+         "Timestamp": 1528959514,
+         "Height": 3016,
+         "ConsensusData": 8772979148630824583,
          "ConsensusPayload": "",
-         "NextBookkeeper": "TAACeeRwwbHrEZZNCbqFQrNSutcsR3xkK3",
+         "NextBookkeeper": "AQGN8sEz2dycryR5BxLCQCPYiqKPN5BMnx",
          "Bookkeepers": [
-            "120202a76a434b18379e3bda651b7c04e972dadc4760d1156b5c86b3c4d27da48c91a1",
-            "12020384d843c02ecef233d3dd3bc266ee0d1a67cf2a1666dc1b2fb455223efdee7452",
-            "120203c43f136596ee666416fedb90cde1e0aee59a79ec18ab70e82b73dd297767eddf",
-            "120203fab19438e18d8a5bebb6cd3ede7650539e024d7cc45c88b95ab13f8266ce9570"
+            "0217c25948722c14c1a6fa8e06b78691e722f4598585805671b0beaa7fd6c7662b"
          ],
          "SigData": [
-            "01536b64896f2cd47af30721fad3640980f7ad06042859d75632871735e0fef7d1f404ab0b9904a3c6c67bc9f4887ad663bf7af9bd6239790ab5e1ec1cda7b0066",
-            "018367431fb032992cb364df5cd1832c72de63d95d8901e1efadd4271773a4e634697cd33c07c3322dc83a79278112ff9b541e9373651ef96a9415bd547ee113ce",
-            "0167b8192cd608bb9589057e87c8da18a32f7aa3664a0790d86d4bbccccd374ce7f092c3521f26ee40dcc91d7a2ad6c23f057f1408d5bf9ba8202165ea8a889653"
+            "a6faf7a3fe356e36977c249f858b8f0a11b719ae310470948e374b69cfb4c3f3d295ac3e81244ebbfc13a4ea94c3deee132ee9ef0caa745b4b6eaf21aeb92c40"
          ],
-         "Hash": "cc92674c0efae4d64e0d974cf4eff78fa9297ca804595d82132afe372ffbc120"
+         "Hash": "83a70a5380532ededb4f3d65bcd4d3a8cd52f7f87bf1863d68bada59b95133d4"
       },
       "Transactions": [
          {
             "Version": 0,
-            "Nonce": 1528195351,
+            "Nonce": 4023588455,
             "GasPrice": 0,
             "GasLimit": 30000,
-            "Payer": "0148cb3cb662b84b4bc59bd6e84bafe13b3c0c1f",
+            "Payer": "f72c773b346d3cdf9672fcf9d1a9e0daababa270",
             "TxType": 209,
             "Payload": {
-               "Code": "0100000000000000000000000000000000000000087472616e736665722a010148cb3cb662b84b4bc59bd6e84bafe13b3c0c1f01bb163b9224d91160c8fbd65585d3a64c7b1a7f0a",
-               "GasLimit": 0,
-               "VmType": 255
+               "Code": "00c66b14e98f4998d837fcdd44a50561f7f32140c7c6c2606a7cc814dd803188dcc41329b6e9faa775a6085269b5db376a7cc808e8030000000000006a7cc86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65",
+               "GasLimit": 0
             },
             "Attributes": [],
             "Sigs": [
                {
                   "PubKeys": [
-                     "12020345ed8085fe96f4e816d5d8bda6d387f8df3ab1e52c88548e35315236732d6483"
+                     "0217c25948722c14c1a6fa8e06b78691e722f4598585805671b0beaa7fd6c7662b"
                   ],
                   "M": 1,
                   "SigData": [
-                     "01d2d2587d8c79d5aaef3b43a938a9d60c0eebc898a21df9fc089b2c891a3c553ee855c4f59a38c8f2d649aa1950a12444b39f795bbfbe5d9e69cd57765c7a5619"
+                     "0160ade36dc83fc79e8aee00ca2d7553bbef876a14b511bb68555247903732853134ecae9b9ce053c61b0fb65167e9745fdf7e85bd85861fde901430c3fd4de516"
+                  ]
+               },
+               {
+                  "PubKeys": [
+                     "0250291da2e26b9f155e19d9a0aae1980124caa55760fcade32217fd93e8a0e750"
+                  ],
+                  "M": 1,
+                  "SigData": [
+                     "0106956ada8fb0fe2effe88215b39e607f7faa37f07428b5151a359868b03f701ff04b689bd9a96f5fb3272ee362d6176176f0a04959b953c0c85f220f1198d25f"
                   ]
                }
             ],
-            "Hash": "f4b39ac8f39e4eb92bbb8cc4f46b427bf68624a225c56fc0fa6310a6012538f0"
+            "Hash": "bce10eb97c6cd122131e448ddf415bcd15aabbddd466e6850074c6c839a26596"
+         },
+         {
+            "Version": 0,
+            "Nonce": 238868671,
+            "GasPrice": 0,
+            "GasLimit": 30000,
+            "Payer": "f72c773b346d3cdf9672fcf9d1a9e0daababa270",
+            "TxType": 209,
+            "Payload": {
+               "Code": "00c66b14e98f4998d837fcdd44a50561f7f32140c7c6c2606a7cc814dd803188dcc41329b6e9faa775a6085269b5db376a7cc808b0040000000000006a7cc86c51c1087472616e736665721400000000000000000000000000000000000000020068164f6e746f6c6f67792e4e61746976652e496e766f6b65",
+               "GasLimit": 0
+            },
+            "Attributes": [],
+            "Sigs": [
+               {
+                  "PubKeys": [
+                     "0217c25948722c14c1a6fa8e06b78691e722f4598585805671b0beaa7fd6c7662b"
+                  ],
+                  "M": 1,
+                  "SigData": [
+                     "0167697964e63236565e81ca35670b7b160fe4c5365bd437d54d467a63c83084f1988dc6c429d683a71ee590520a5c3ee1735657a485a9f549a4bbef76258db67b"
+                  ]
+               },
+               {
+                  "PubKeys": [
+                     "0250291da2e26b9f155e19d9a0aae1980124caa55760fcade32217fd93e8a0e750"
+                  ],
+                  "M": 1,
+                  "SigData": [
+                     "01980eb20147a016b7ddf614107f4d178be3d7d66d56a5ecc56e80daa89bfed11b081f4a907c89338bbe1182d692307b2727d1227809f75c18662c5f3f9f0c43b4"
+                  ]
+               }
+            ],
+            "Hash": "10ccaf9188e249a7ff61aa68e429f9e5a916ca01bbeb55ccaec38588b1227518"
          }
       ]
    }
@@ -332,10 +376,10 @@ Signature scheme: SHA256withECDSA
 3. 通过CLI ```./ontology info status```根据Transaction Hash 取得block中的所有Transaction信息
 
 ```
-$ ./ontology info status f4b39ac8f39e4eb92bbb8cc4f46b427bf68624a225c56fc0fa6310a6012538f0
+$ ./ontology info status bce10eb97c6cd122131e448ddf415bcd15aabbddd466e6850074c6c839a26596
 Transaction states:
 {
-   "TxHash": "f4b39ac8f39e4eb92bbb8cc4f46b427bf68624a225c56fc0fa6310a6012538f0",
+   "TxHash": "bce10eb97c6cd122131e448ddf415bcd15aabbddd466e6850074c6c839a26596",
    "State": 1,
    "GasConsumed": 0,
    "Notify": [
@@ -343,9 +387,9 @@ Transaction states:
          "ContractAddress": "0100000000000000000000000000000000000000",
          "States": [
             "transfer",
-            "TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq",
-            "TA8MoGmzS4T6g3T1CMGEVFiNGkZnn7ixw9",
-            10
+            "Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT",
+            "Aby4Yw4tNEUN28cWY3cYK5Hk3t7opENq8q",
+            1000
          ]
       }
    ]
@@ -387,16 +431,16 @@ Transaction states:
 2. 使用CLI命令对用户提现地址进行转账：
 
    ```
-   $ ./ontology asset transfer --from TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq --to TA8MoGmzS4T6g3T1CMGEVFiNGkZnn7ixw9 --amount 100
+   $ ./ontology asset transfer --from Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT --to AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb --amount 10 
    Password:
    Transfer ONT
-     From:TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq
-     To:TA8MoGmzS4T6g3T1CMGEVFiNGkZnn7ixw9
-     Amount:100
-     TxHash:9863485348031a333681d81e69bc93de66fe93dce3e17cd55a928025a23b512f
+     From:Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT
+     To:AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb
+     Amount:10
+     TxHash:49a705f6beb6a15b92493db496f56e8bcddc95b803dac1e4a02b4579ce760b3f
 
    Tip:
-     Using './ontology info status 9863485348031a333681d81e69bc93de66fe93dce3e17cd55a928025a23b512f' to query transaction status
+     Using './ontology info status 49a705f6beb6a15b92493db496f56e8bcddc95b803dac1e4a02b4579ce760b3f' to query transaction status
 
    ```
 
@@ -430,10 +474,10 @@ Transaction states:
    - 使用返回的交易hash直接查询：
 
      ```
-     ./ontology info status 9863485348031a333681d81e69bc93de66fe93dce3e17cd55a928025a23b512f
+     $ ./ontology info status 49a705f6beb6a15b92493db496f56e8bcddc95b803dac1e4a02b4579ce760b3f
      Transaction states:
      {
-        "TxHash": "9863485348031a333681d81e69bc93de66fe93dce3e17cd55a928025a23b512f",
+        "TxHash": "49a705f6beb6a15b92493db496f56e8bcddc95b803dac1e4a02b4579ce760b3f",
         "State": 1,
         "GasConsumed": 0,
         "Notify": [
@@ -441,9 +485,9 @@ Transaction states:
               "ContractAddress": "0100000000000000000000000000000000000000",
               "States": [
                  "transfer",
-                 "TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq",
-                 "TA8MoGmzS4T6g3T1CMGEVFiNGkZnn7ixw9",
-                 100
+                 "Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT",
+                 "AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb",
+                 10
               ]
            }
         ]
@@ -651,8 +695,8 @@ response:
                 "ContractAddress": "0100000000000000000000000000000000000000",
                 "States": [
                     "transfer",
-                    "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
-                    "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
+                    "Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT",
+                    "AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb",
                     1000000000
                 ]
             }
@@ -663,22 +707,32 @@ response:
 
 ```
 
-根据块高查询智能合约事件，返回有事件的交易hash
+根据块高查询智能合约事件，返回有事件的交易
 
 ```
 ontSdk.getConnect().getSmartCodeEvent(10)
 
 response:
 {
-    "Action": "getsmartcodeeventbyheight",
+    "Action": "getsmartcodeeventbyhash",
     "Desc": "SUCCESS",
     "Error": 0,
-    "Result": [
-        "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
-        "38e88c4f3e566737d45f25acbbfeaaebd226cc71aef16ba266c55bf6f8333966",
-        "724c6f7645e489e9405e6a9745e89a27c13e3a8563b71e71197fc80fe94023ab",
-        "923320009925c6468a483e5dad2989f590d21a9f8bc1230b8fc31e7459da32c8"
-    ],
+    "Result": {
+        "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
+        "State": 1,
+        "GasConsumed": 0,
+        "Notify": [
+            {
+                "ContractAddress": "0100000000000000000000000000000000000000",
+                "States": [
+                    "transfer",
+                    "Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT",
+                    "AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb",
+                    1000000000
+                ]
+            }
+        ]
+    },
     "Version": "1.0.0"
 }
 
@@ -882,7 +936,7 @@ ONG解绑的数量由时间区间决定，解绑规则如下：每一秒钟解�
 ```
 $ ./ontology asset unboundong 1
 Unclaim Ong:
-  Account:TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq
+  Account:Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT
   ONG:23698.8755104
 
 ```
@@ -902,7 +956,7 @@ gaslimit参数指定转账交易的gas limit。交易的gas limit不能小于接
 $ ./ontology asset withdrawong 1
 Password:
 Claim Ong:
-  Account:TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq
+  Account:Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT
   Amount:23698.8755104
   TxHash:c696033f1589a88c7b849dbd2ad0c13a9ca695c3220e4f846f9b1096d0972b80
 
@@ -926,16 +980,17 @@ Tip:
 用户提取ONG的流程和提取ONT的流程一致，只需指定asset 参数为ong即可：
 
 ```
-$ ./ontology asset transfer --asset ong --from TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq --to TA8MoGmzS4T6g3T1CMGEVFiNGkZnn7ixw9 --amount 100
+$ ./ontology asset transfer --from Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT --to AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb --amount 10 --asset ong
 Password:
 Transfer ONG
-  From:TA5zt4PrSzjWA7DaVHVw2nhxH5ZY9uQiGq
-  To:TA8MoGmzS4T6g3T1CMGEVFiNGkZnn7ixw9
-  Amount:100
-  TxHash:a77f84040700f0a68d0ce401f6eae5786744b56061c1888b5848f4dc46648b4f
+  From:Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT
+  To:AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb
+  Amount:10
+  TxHash:76b19689042d255f3dac2aaf1b30c86fd83c5abfc983d80b8c64fdcc86f33f5e
 
 Tip:
-  Using './ontology info status a77f84040700f0a68d0ce401f6eae5786744b56061c1888b5848f4dc46648b4f' to query transaction status
+  Using './ontology info status 76b19689042d255f3dac2aaf1b30c86fd83c5abfc983d80b8c64fdcc86f33f5e' to query transaction status
+
 
 ```
 
