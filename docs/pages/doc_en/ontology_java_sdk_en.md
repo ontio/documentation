@@ -9,7 +9,7 @@ folder: doc_en
 English / [中文](./ontology_java_sdk_zh.html)
 
 <h1 align="center"> Ontology Java SDK User Guide </h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<p align="center" class="version">Version 0.9.0 </p>
 
 ## Overview
 
