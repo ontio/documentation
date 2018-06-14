@@ -9,7 +9,7 @@ folder: doc_zh
 [English](./ontology_java_sdk_identity_claim_en.html) / 中文
 
 <h1 align="center"> 数字身份 </h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<p align="center" class="version">Version 0.9.0 </p>
 
 # 总体介绍
 

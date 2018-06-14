@@ -9,7 +9,7 @@ folder: doc_zh
 [English](./ontology_java_sdk_blockchain_interop_en.html) / 中文
 
 <h1 align="center"> Ontology Java SDK User Guide </h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<p align="center" class="version">Version 0.9.0 </p>
 
 # 区块链交互基本操作
 
