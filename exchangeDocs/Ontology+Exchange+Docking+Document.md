@@ -495,7 +495,7 @@ With regard to user withdrawal, the exchange needs to complete the following ope
 
 5. If the transaction is not confirmed all the time, that is, the corresponding event log cannot be queried through the transaction hash, then
 
-   - Check if the transaction is in the transaction pool via RPC/SDK interface（refer to[Java SDK:ONT and ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/sdk_get_start.md#2-%E5%8E%9F%E7%94%9F%E8%B5%84%E4%BA%A7ont%E5%92%8Cong%E8%BD%AC%E8%B4%A6))，if it exists，you needs to wait for the consensus node to pack and then query
+   - Check if the transaction is in the transaction pool via RPC/SDK interface（refer to[Java SDK:ONT and ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md#2-%E5%8E%9F%E7%94%9F%E8%B5%84%E4%BA%A7ont%E5%92%8Cong%E8%BD%AC%E8%B4%A6))，if it exists，you needs to wait for the consensus node to pack and then query
 
    - If not, the transaction can be considered as failure and the transfer operation needs to be executed again.
 
@@ -506,7 +506,7 @@ With regard to user withdrawal, the exchange needs to complete the following ope
 
 ## 4. Java SDK Tutorials
 
-Java SDK Tutorials: [Java SDK Tutorials](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/sdk_get_start.md) 
+Java SDK Tutorials: [Java SDK Tutorials](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md) 
 
 ### Account management
 
@@ -969,7 +969,7 @@ Tip:
 
 ```
 
-Use Java SDK to withdraw ONG，please refer to[Java SDK:ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
+Use Java SDK to withdraw ONG，please refer to[Java SDK:ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
 
 ## 6. Signature service
 
