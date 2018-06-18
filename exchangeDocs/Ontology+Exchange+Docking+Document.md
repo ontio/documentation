@@ -439,10 +439,17 @@ With regard to user withdrawal, the exchange needs to complete the following ope
    Wallet specifies the wallet path of transfer-out account. The default value is: "./wallet.dat".
 
    --gasprice  
+   The total ONG cost of a transaction  is the gaslimit * Gasprice
    The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 0. When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized. 
 
    --gaslimit  
-   The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 30000.
+   The gas limit is called the limit because it's the maximum amount of units of gas you are willing to spend on a transaction. 
+   However, the actual gas cost is determined by the number of steps or APIs executed by the VM, assuming the following two conditions:  
+   1. gaslimit>= actual cost, the transaction will be executed successfully, and return the unconsumed gas;  
+   2. Gaslimt< actual cost, the transaction will fail to execute and consume the gas that the VM has already executed;  
+   The minimum gas limit allowed for trading is 30,000. Transactions below this amount will not be packaged.
+   Gaslimit can be calculate by transaction pre-execution. (Of course by different execution context, such as time, this is not a definite value).  
+   In order to make the use of ONT/ONG simpler, all methods of ONT/ONG are set to the lowest gas limit, ie, 30000 gas.
 
    --asset  
    The asset parameter specifies the asset type of the transfer. Ont indicates the ONT and ong indicates the ONG. The default value is ONT.

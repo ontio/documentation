@@ -450,10 +450,17 @@ Transaction states:
    wallet指定转出账户钱包路径，默认值为:"./wallet.dat"
 
    --gasprice  
+   gasprice * gaslimit 为账户实际支付的ONG 费用。
    gasprice参数指定转账交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为0。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price有高到低排序，gas price高的交易会被优先处理。
 
    --gaslimit  
-   gaslimit参数指定转账交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支持的ONG 费用。 默认值为30000。
+   gaslimit参数指定最大的gas使用上限。但实际gas花费由VM执行的步数与API决定，假定以下2种情况:  
+   1. gaslimit>=实际花费，交易将执行成功，并退回未消费的gas；
+   2. gaslimt<实际所需花费，交易将执行失败，并消费掉VM已执行花费的gas;  
+   
+   交易允许最低的gaslimit为30000，少于这个数量交易将无法被打包。
+   gaslimit可以通过交易预执行获得。(当然考虑到执行上下文的变化，比如时间，这不是一个确定的值)。  
+   为了便于ONT/ONG相关方法的使用,ONT/ONG的所有方法被设定成为最低的gaslimit,即 30000 gas。这部分交易只需要指定gaslimt=30000即可。
 
    --asset  
    asset参数指定转账的资产类型，ont表示ONT，ong表示ONG。默认值为ont。
