@@ -48,7 +48,7 @@ Login to GitHub [OEPs](https://github.com/ontio/OEPs) to view existing proposals
 
 After starting the project you can start development. Please submit a pull request according to the [GitHub standard processes](https://help.github.com/). The Ontology Technical Committee will make an assessment and submit the report to the Ontology Council. It will then provide compensation based on the results of the assessment.
 
-If a bug is found, submit a pull request according to the GitHub standard processes, which is evaluated by the Ontology Technical Committee and submitted to the Ontology Council. After that, compensation is given based on the evaluation result.
+If you identify a bug in any of the Ontology Github repositories, submit a pull request according to the GitHub standard processes, which is evaluated by the Ontology Technical Committee and submitted to the Ontology Council. After that, compensation is given based on the evaluation result.
 
 ##### 3. dApps
 
@@ -58,7 +58,9 @@ Ontology has its own ecosystem accelerator program, which aims to incubate new d
 
 ### Compensation
 
-Compensation for qualified contributions are made according to the standard process for community contributions. They will be based on case-by-case evaluation conducted by the Ontology Technical Committee and approved by the Ontology Council. Compensation is distributed upon project completion and evaluation.
+Compensation for qualified contributions are made according to the standard process for community contributions. They will be based on case-by-case evaluation conducted by the Ontology Technical Committee and approved by the Ontology Council. Compensation is distributed upon project completion and evaluation.  
+
+Note: Assessment of contributions for compensation is a detailed process and can take some time.
 
 ##### How we measure compensation
 
