@@ -32,7 +32,7 @@ entries:
       url: /tutorial_for_developer_zh.html
       output: web, pdf
 
-    - title: 社区贡献标准流程
+    - title: 技术社区贡献指南
       url: /guidelines_for_technical_community_contributions_zh.html
       output: web, pdf
 
