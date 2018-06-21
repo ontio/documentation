@@ -6,46 +6,47 @@ permalink: ONTID_protocol_spec_zh.html
 folder: doc_zh
 ---
 
+[English](../doc_en/ONTID_protocol_spec_en.md) / 中文
 
-[English](./ONTID_protocol_spec_en.html) / 中文
-
-<h1 align="center">Ontology DID身份标识协议规范 </h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<h1 align="center">本体分布式身份标识</h1>
+<p align="center" class="version">Version 0.9</p>
 
 
 实体是指现实世界中的个人、组织（组织机构、企事业单位等）、物品（手机、汽车、IOT设备等）、内容（文章、版权等），而身份是指实体在网络上的对应标识。本体使用本体⾝份标识（ONT ID）来标识和管理实体的网络身份。在本体上，⼀个实体可以对应到多个身份标识，且多个身份标识之间没有任何关联。
 
 ONT ID是⼀个去中心化的身份标识协议，ONT ID具有去中心化、自主管理、隐私保护、安全易用等特点。每⼀个ONT ID都会对应到⼀个ONT ID描述对象（ONT DDO）。
 
-> ONT ID协议已被本体区块链智能合约完整实现，作为协议层，和区块链是解耦设计，并不仅限于本体区块链，同样可以基于其他区块链。
+> ONT ID协议已被本体区块链智能合约完整实现。作为协议层，它遵循解耦设计，并不仅限于本体区块链，同样可以基于其他区块链。
 
-## 身份标识协议规范
+## 1. 身份标识协议规范
 
-### 1.1 ONT ID生成
+### 1.1 ONT ID 生成
 
-ONT ID是一种URI，由每个实体自己生成。其生成算法需要保证发生碰撞的概率极低，同时在向本体注册时，共识节点会检查该ID是否已被注册。
+ONT ID是一种URI，由每个实体自己生成成，生成算法需要保证碰撞概率非常低。同时在向本体注册时，共识节点会检查该ID是否已被注册。
 
 ONT ID 生成算法：
 
-为了防止用户错误输入ONT ID，我们定义一个合法的ONT ID必须包含4个字节的校验数据。我们详细描述一下如何生成一个合法的ONT ID。
+为了防止用户错误输入ONT ID，我们定义一个合法的ONT ID必须包含4个字节的校验数据。下面详细描述一下如何生成一个合法的ONT ID。
 
- 1. 生成32字节临时随机数nonce，计算h = Hash160(nonce），data = `<VER>` || h；
- 2. 计算出data的一个4字节校验，即checksum = SHA256(SHA256(data))[0:3]；
- 3. 令idString = data || checksum；
- 4. 将"did:`<ont>`:"与data级联，即 ontId = "did:`<ont>`:" || idString；
- 5. 输出ONT ID。
+ 1. 生成32字节临时随机数nonce，计算h = Hash160(nonce），data = VER || h；
+ 2. 计算出data的一个4字节校验，即checksum = SHA256(SHA256(data))[0:4]；
+ 3. 令idString = base58(data || checksum)；
+ 4. 将"did:ont:"与idString拼接，即 ontId = "did:ont:" || idString；
+ 5. 输出ontId。
 
-其中，`<ont>`是一个网络标识,`<VER>`是1字节的版本号。在ONT中， `<VER> = 41, <ont> = "ont"`，也就是说，ONT中的身份标识的前8个字节是"did:ont:", 再加上25字节的idString，构成完整的ONT ID。
-
+如上所述，`<ont>`是网络标识符，`<VER>`是1个字节的版本标签。 在ONT中，`<VER> = 0x41，<ont> =“ont”`。 也就是说，ONTology中身份的前8个字节是“did：ont：”，外加一个25字节长的idString，构成一个完整的ONT ID。
 
 ### 1.2 自主管理
+
 本体利用数字签名技术保障实体对自己身份标识的管理权。ONT ID在注册时即与实体的公钥绑定，从而表明其所有权。对ONT ID的使用及其属性的修改需要提供所有者的数字签名。实体可以自主决定ONT ID的使用范围，设置ONT ID绑定的公钥，以及管理ONT ID的属性。
 
 ### 1.3 多密钥绑定
-本体支持多种国内、国际标准化的数字签名算法，如RSA、ECDSA、SM2等。ONT ID绑定的密钥需指定所使用的算法，同时一个ONT ID可以绑定多个不同的密钥，以满足实体在不同的应用场景的使用需求。
+
+本体支持多种国内、国际标准化的数字签名算法，如ECDSA、SM2等。ONT ID绑定的密钥需指定所使用的算法，同时一个ONT ID可以绑定多个不同的密钥，以满足实体在不同的应用场景的使用需求。
 
 ### 1.4 身份丢失恢复
-ONT ID的所有者可以设置恢复人代替本人行使对ONT ID的管理权，如修改ONT ID对应的属性信息，在密钥丢失时替换密钥。恢复人可以实现多种访问控制逻辑，如“与”、“或”、“(m, n)-门限”。更多示例参见[附录A](#a-恢复人地址)。
+
+ONT ID的所有者可以设置恢复人代替本人行使对ONT ID的管理权，如修改ONT ID对应的属性信息，在密钥丢失时替换密钥。恢复人可以实现多种访问控制逻辑，如“与”、“或”、“(m, n)-门限”。请参阅 [附录 B](#b.-recovery-account-address) 获取更多细节。
 
 ### 1.5 身份描述对象DDO规范
 
@@ -56,10 +57,11 @@ DDO规范包含如下信息：
 - 属性对象`Attributes`：所有的属性构成一个JSON对象；
 - 恢复人地址`Recovery`：恢复人可帮助重置用户公钥列表。
 
-举个例子
+以下是一个json格式的DDO样例,
+
 ```json
 {
-	"OntId": "did:ont:TVuF6FH1PskzWJAFhWAFg17NSitMDEBNoa",
+	"ONTId": "did:ont:TVuF6FH1PskzWJAFhWAFg17NSitMDEBNoa",
 	"Owners": [{
 			"PubKeyId": "did:ont:TVuF6FH1PskzWJAFhWAFg17NSitMDEBNoa#keys-1",
 			"Type": "ECDSA",
@@ -83,152 +85,281 @@ DDO规范包含如下信息：
 }
 ```
 
-## 智能合约实现说明
+## 2. 智能合约实现说明
 
-IdContract是在Ontology区块链平台上ONT ID协议的智能合约实现。借助ONT IdContract合约，用户可以管理自己的公钥列表、修改自己的个人资料、添加账户恢复人。
+ONT ID协议在Ontology Blockchain平台上以原生合约的形式实现。通过ONT ID合约，用户可以注册ID，管理自己的公钥列表，修改个人的信息，并添加账户恢复人。
 
-###  2.1 如何调用
-IdContract合约对外的接口只有一个主函数，其参数包括要调用的子函数名（称之为操作码`op`），然后是传入该子函数的参数列表`params`。
-```json
-public static Object Main(string op, object[] params);
+对于大多数方法，如果执行成功，将会推送一条事件消息来通知调用者。 请参阅 [事件](#2.2.-events) 小节.
+
+## 2.1 调用方法
+
+**注意事项**: 用作以下方法参数的用户公钥应该是构造交易的公钥，即它可以通过交易的签名验证，且该公钥应该已绑定到用户的ID（注册方法除外）。
+
+###  a. 身份登记
+
+用户在登记身份时，必须要提交一个公钥，并且这次操作必须是由该公钥发起。
+
 ```
-大部分子函数的返回值是布尔类型，代表执行操作的成功与否。正确执行之后，会推送事件消息通知调用者，具体消息类型请参考“**API描述**”小节。
+方法: regIDWithPublicKey
 
-#### Ontology智能合约调用
-通过发送类型为*InvocationTransaction*的交易，并将需要调用的合约地址及调用传入参数作为交易的Payload。更为详尽的信息请参考[合约调用](./smart_contract_tutorial_overview_zh.html)。
+参数:
+    0    ByteArray    用户ID
+    1    ByteArray    公钥
 
-### 2.2 IdContract接口定义
-####  a. 身份登记
-用户在登记身份时，必须要提交一个公钥，并且**这次操作必须是由该公钥发起**。
-
-```json
-bool RegIdWIthPublicKey(byte[] ontId, byte[] publicKey); 
+事件: 当成功时触发'Register'事件
 ```
- 参数：
-  - ontId，用户标识，byte[] 类型；
-  - publicKey，公钥， byte[] 类型。
-   
  
-####  b. 增加控制密钥
+### b. 增加控制密钥
 
 用户在自己的公钥列表中添加一个新公钥。
-```json
-bool AddKey(byte[] ontId, byte[] newPublicKey, byte[] sender); 
+
 ```
-参数
-- ontId：用户ont Id；
-- newPublicKey：欲添加的新公钥；
-- sender：交易发起者，账户现有公钥，或者恢复人。
-	
-#### c. 删减控制密钥	
+方法: addKey
+
+参数:
+    0    ByteArray    用户ID
+    1    ByteArray    欲添加的新公钥
+    2    ByteArray    用户公钥或恢复地址
+
+事件: 当成功时触发'PublicKey'事件
+```
+
+### c. 删减控制密钥
+
 从用户的公钥列表中，移除一个公钥。
-```json
-bool RemoveKey(byte[] ontId, byte[] oldPublicKey, byte[] sender);
+
 ```
-参数
-- ontId：用户Ont ID；
-- oldPublicKey：欲添加的新公钥；
-- sender：交易发起者，账户现有公钥，或者恢复人。	
+方法: removeKey
+
+参数:
+    0    ByteArray    用户ID
+    1    ByteArray    欲删除的公钥
+    2    ByteArray    用户公钥或恢复地址
+
+事件: 当成功时触发'PublicKey'事件
+```
 	
-#### d. 密钥恢复机制
+### d. 密钥恢复机制
 
 添加与修改账户的恢复人。
-```json
-bool AddRecovery(byte[] ontId, byte[20] recovery, byte[] publicKey);
-```
-在函数`AddRecovery`中，当且仅当`publicKey`是账户现有公钥，且恢复人没有被设置过，`recovery`才能被添加进去。
 
-参数
-- ontId：用户Ont ID；
-- recovery：恢复人地址；
-- publicKey：用户公钥
-
-```json
-bool ChangeRecovery(byte[] ontId, byte[] newRecovery, byte[20] oldRecovery);
 ```
-这次合约调用必须是由oldRecovery发起。
-参数
-- ontId：用户Ont ID；
-- newRecovery：新恢复人
-- oldRecovery：现有恢复人
-	
-#### e. 属性管理
+方法: addRecovery
+
+参数:
+    0    ByteArray    用户ID
+    1    Address      恢复地址
+    2    ByteArray    用户公钥
+
+事件: 当成功时触发'Recovery'事件
+```
+
+当且仅当参数2是用户现有的公钥并且恢复地址尚未设置时，此方法才能成功。
+
+
+```
+Method: changeRecovery
+
+Arguments:
+    0    ByteArray    用户ID
+    1    Address      新的恢复地址
+    2    Address      原先的恢复地址
+
+事件: 当成功时触发'Recovery'事件
+```
+
+这次合约调用必须是由原先的恢复地址发起。
+
+### e. 属性管理
+
+一个属性包含以下3个参数:
+
+```
+attribute {
+    path    // ByteArray
+    type    // ByteArray
+    value   // ByteArray
+}
+```
+
+当注册ID的同时, 用户可以用 `regIDWithAttributes`设置属性.
+
+```
+方法: regIDWithAttributes
+
+参数:
+    0    ByteArray         用户ID
+    1    ByteArray         用户公钥
+    2    Attribute Array   属性
+```
 用户个人属性的增删改，均需要得到用户的授权。
-```json
-bool AddAttribute(byte[] ontId, byte[] path, byte[] type, byte[] value, byte[] publicKey);
 
 ```
-- ontId：用户Ont ID； path：属性名路径；
-- type：属性类型； value：属性值；
-- publicKey： 用户公钥。
-	
-必须由一个合法公钥调用，且`publicKey`在用户公钥列表中。若该属性不存在时，则插入该属性，否则更新原先的属性值。	
+方法: addAttributes
 
-```json
-bool AddAttributeArray(byte[] ontId, byte[] tuples, byte[] publicKey);
+参数:
+    0    ByteArray        用户ID
+    1    Attribute Array  属性
+    2    ByteArray        用户公钥
+
+事件: 当成功时触发'Attribute'事件
 ```
 
-#### f. 查询身份信息
-```json
-byte[] GetDDO(byte[] ontId);
+如果一个属性不存在，该属性将被添加。如果存在，原始属性将被更新。
+
 ```
-返回用户的所有信息，是一个JSON对象的序列化。
+方法: removeAttribute
 
-```json
-byte[] GetPublicKeys(byte[] ontId);
-```	
-返回用户的所有公钥。
+参数:
+    0    ByteArray    用户ID
+    1    ByteArray    欲删除属性的路径
+    2    ByteArray    用户公钥
 
-#### g. 事件推送
+事件: 当成功时触发'Attribute'事件
+```
 
-IdContract中包含三种事件消息，分别是
+
+### f. 查询身份信息
+
+查询方法通过预执行的方式调用，不需要发送交易到网络，直接从本地存储获得结果。
+
+#### 密钥
+
+```
+方法: getPublicKeys
+
+参数: ByteArray, 用户ID
+
+返回结果: ByteArray
+```
+
+每个公钥包含以下属性:
+
+```
+publicKey {
+    index   // 32 bits unsigned int
+    data    // ByteArray
+}
+```
+
+返回的字节数组由一系列序列化的公钥组成，即`publicKey array`的序列化.
+
+索引是出现在DDO的PubKeyID中的数字。 它在被注册或被添加时自动生成。被撤销的密钥的索引不会被回收。该密钥的状态会被标识为已撤回。用以下方法可获得密钥状态：
+
+```
+方法: getKeyState
+
+参数:
+    0    ByteArray  user's ID
+    1    Int        key index
+
+返回结果: "in use" | "revoked" | "not exist"
+```
+
+#### 属性
+
+```
+方法: getAttributes
+
+参数: ByteArray, 用户ID
+
+返回结果: ByteArray
+```
+
+返回的字节数组由一系列序列化后的属性组成，其结构如前文定义。
+
+#### DDO
+
+```
+方法: getDDO
+
+参数: ByteArray, 用户ID
+
+返回结果: ByteArray
+```
+
+返回值包含 `GetPublicKeys` 和 `GetAttributes`的结果和恢复地址:
+
+```
+ddo {
+    byte[] keys         // publicKey[]的序列化
+    byte[] attributes   // attribute[]的序列化
+    byte[] recovery     // 恢复地址
+}
+```
+
+### g. Verify signature
+
+```
+方法: verifySignature
+
+参数:
+    0    String    user's ID
+    1    Int       key index
+
+返回结果: true | false
+```
+
+此方法主要为其他合约提供验签功能，验证合约的调用者是否为参数指定的密钥。
+
+## 2.2. 事件
+
+有三种事件消息：
+
 - `Register`:  会推送与身份登记有关的信息。
 
-	| Field | Type | Description |
-	| :--- | :--- | :--- |
-	|op| string | 消息类型 |
-	| ontId | byte[] | 注册的Ont Id |
+	| Field | Type       | Description       |
+	| :---- | :--------- | :---------------- |
+	|  op   | String     | 消息类型      |
+	|  ID   | ByteArray | 注册的 ONT ID |
 
 - `PublicKey`: 会推送与公钥操作有关的消息。
 
-	| Field | Type | Description |
-	| :--- | :--- | :--- |
-	|op| string | 消息类型："add"或"remove" |
-	| ontId | byte[] | 用户的Ont Id |
-	| publicKey | byte[] | 公钥数据 |
+	| Field      | Type       | Description    |
+	| :--------- | :--------- | :--------------|
+	|  op        | String     | 消息类型："add" 或 "remove" |
+	|  ID        | ByteArray | 用户的 ONT ID    |
+	| key index  | int     | 密钥索引 |
+	| public key | ByteArray | 公钥数据  |
 
 - `Attribute`: 会推送与属性操作有关的消息。
 
-	| Field | Type | Description |
-	| :--- | :--- | :--- |
-	|op| string | 消息类型："add"、"update"、"remove"  |
-	| ontId | byte[] | 用户的Ont Id |
-	| attrName | byte[] | 属性名 |
+	| Field    | Type       | Description    |
+	| :------- | :--------- | :------------- | 
+	| op       | String     | 消息类型："add"、remove"  |
+	| ID       | ByteArray | 用户的 ONT ID|
+	| attrName | ByteArray | 属性名 |
 	
+- `Recovery`: Push the messages related to recovery operations.
+
+	| Field    | Type       | Description    |
+	| :------- | :--------- | :------------- | 
+	| op       | String     | 消息类型："add"、"change" |
+	| ID       | ByteArray | 用户的 ONT ID |
+	| address  | ByteArray | 恢复地址 |
 
 ## 附录
 
-### A. 恢复人地址
-恢复人账户可以实现多种逻辑，如(m,n)-门限，即该账户由n个人共同管理，要使用账户必须集齐至少m个签名方可。
+### A. 公钥数据
 
-- (m,n)-门限账户
-	```
-	0x02 || RIPEMD160(SHA256(n || m || publicKey_1 || ... || publicKey_n))
-	```
+类型字节数组的公钥数据遵循[ontology-crypto serialization](https://github.com/ontio/ontology-crypto/wiki/Asymmetric-Keys#Serialization)中定义的格式:
 
-- `AND` 账户地址
-
-  等价于(n, n)-门限账户地址
-
-- `OR` 账户地址
-
-  等价于(1, n)-门限账户地址
+    algorithm_id || algorithm_parameters || public_key
 
 
+### B. 恢复账户地址
 
+恢复帐户可以实现各种访问控制逻辑，如（m，n）- 门限控制。 一个（m，n）门限控制账户由n个公钥共同管理。 要使用它，您必须至少收集m个有效签名。
 
+- `(m, n)` 门限控制账户
 
+   门限控制账户使用多签名地址实现。
 
+- `AND` 控制账户
+   
+   这相当于（n，n）门限控制账户。
 
-
+- `OR` 控制账户
+  
+   这相当于（1，n）门限控制账户。
 
