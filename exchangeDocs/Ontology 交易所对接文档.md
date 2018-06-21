@@ -1005,4 +1005,4 @@ Tip:
 
 ## 6. 签名服务
 
-[Ontology 签名服务器使用说明](./Ontology+签名服务器使用说明.md)
+[Ontology 签名服务器使用说明](./sigsvr_CN.md)

@@ -358,13 +358,14 @@ Example:
          }
       ]
    }
+   ```
 
 
    ```
 
 3. Get all transaction information in the block according to Transaction Hash by CLI  ```./ontology info status```
 
-```
+   ```
 $ ./ontology info status bce10eb97c6cd122131e448ddf415bcd15aabbddd466e6850074c6c839a26596
 Transaction states:
 {
@@ -419,7 +420,7 @@ With regard to user withdrawal, the exchange needs to complete the following ope
 
 2. Use the CLI command to transfer tokens to the user's withdrawal address:
 
-   ```
+```
    $ ./ontology asset transfer --from Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT --to AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb --amount 10 
    Password:
    Transfer ONT
@@ -468,7 +469,7 @@ With regard to user withdrawal, the exchange needs to complete the following ope
 
    - Use the returned transaction hash to query directly:
 
-     ```
+   ```
      $ ./ontology info status 49a705f6beb6a15b92493db496f56e8bcddc95b803dac1e4a02b4579ce760b3f
      Transaction states:
      {
@@ -487,9 +488,9 @@ With regard to user withdrawal, the exchange needs to complete the following ope
            }
         ]
      }
-
+    
      ```
-
+    
      ​
 
    - Same as ”user deposit“, monitor transactions in new blocks and filter out successful transactions which are from exchange addresses to user's withdrawal addresses
@@ -628,7 +629,7 @@ System.out.println(ontSdk.nativevm().ong().queryTotalSupply());
 ontSdk.getConnect().getMemPoolTxState("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
 
 
-response 交易池存在此交易:
+response:transaction is in the tx pool
 
 {
     "Action": "getmempooltxstate",
@@ -651,7 +652,7 @@ response 交易池存在此交易:
     "Version": "1.0.0"
 }
 
-或 交易池不存在此交易
+Or transaction is Not in the tx pool:
 
 {
     "Action": "getmempooltxstate",
@@ -980,4 +981,4 @@ Use Java SDK to withdraw ONG，please refer to[Java SDK:ONG transfer](https://gi
 
 ## 6. Signature service
 
-[Ontology Signature Server Tutorials](./Ontology+Signature+Server+Tutorials.md)
+[Ontology Signature Server Tutorials](./sigsvr.md)
