@@ -2,9 +2,21 @@
 
 Ontology Signature Server - sigsvr is a rpc server for signing transactions. The signature server is bound to the 127.0.0.1 address and only supports signature requests sent by the local machine.
 
+* [Ontology Signature Server Tutorials](#ontology-signature-server-tutorials)
+	* [1. Signature Service Startup](#1-signature-service-startup)
+		* [1.1 The Parameters of Signature Service Startup](#11-the-parameters-of-signature-service-startup)
+		* [1.2 Start up](#12-start-up)
+	* [2. Signature Service Method](#2-signature-service-method)
+		* [2.1  Signature Service Calling Method](#21-signature-service-calling-method)
+		* [2.2 Signature for Raw Transactions](#22-signature-for-raw-transactions)
+		* [2.3 Multiple Signature for Raw Transactions](#23-multiple-signature-for-raw-transactions)
+		* [2.4 Signature of Transfer Transaction](#24-signature-of-transfer-transaction)
+		* [2.5 Native Contract Invokes Signature](#25-native-contract-invokes-signature)
+		* [2.6 Neovm Contract Invokes Signature](#26-neovm-contract-invokes-signature)
+
 ## 1. Signature Service Startup
 
-### The Parameters of Signature Service Startup
+### 1.1 The Parameters of Signature Service Startup
 
 --loglevel
 The loglevel parameter is used to set the log level for the sigsvr output. Sigsvr supports 7 different log levels - 0:Debug 1:Info 2:Warn 3:Error 4:Fatal 5:Trace 6:MaxLevel. The log level is from low to high, and the output log volume is from high to low. The default value is 1, which means that only output logs at the info level or higher level.
@@ -17,6 +29,13 @@ The account parameter specifies the account address when sigsvr starts. If the a
 
 --cliport
 The port number to which the signature server is bound. The default value is 20000.
+
+### 1.2 Start up
+
+```
+./sigsvr
+```
+
 
 ## 2. Signature Service Method
 
