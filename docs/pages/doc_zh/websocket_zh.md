@@ -9,7 +9,7 @@ folder: doc_zh
 [English](./websocket_en.html) / 中文
 
 <h1 align="center">Ontology Websocket API </h1>
-<p align="center" class="version">版本 0.7.0 </p>
+<p align="center" class="version">版本 0.9.0 </p>
 
 * [Introduction](#introduction)
 * [Websocket Api List](#websocket-api-list)
@@ -542,7 +542,7 @@ According to the contract script hash, query the contract information.
 
 #### 15. get smart contract event txhash list by height
 
-Get a list of transaction hash with smartevent based on height
+Get a list of transaction  with smartcontract event based on height
 
 
 #### Example usage:
@@ -562,7 +562,38 @@ Get a list of transaction hash with smartevent based on height
     "Desc": "SUCCESS",
     "Error": 0,
     "Result": [
-        "592d83c739d9d167b74b385161fee09bfe820eae5bc4a69411f8e00f4847b833"
+               {
+                    "TxHash": "7e8c19fdd4f9ba67f95659833e336eac37116f74ea8bf7be4541ada05b13503e",
+                    "State": 1,
+                    "GasConsumed": 0,
+                    "Notify": [
+                        {
+                            "ContractAddress": "0200000000000000000000000000000000000000",
+                            "States": [
+                                "transfer",
+                                "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+                                "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+                                1000000000000000000
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "TxHash": "fc82cd363271729367098fbabcfd0c02cf6ded1e535700d04658b596d53cf07d",
+                    "State": 1,
+                    "GasConsumed": 0,
+                    "Notify": [
+                        {
+                            "ContractAddress": "0200000000000000000000000000000000000000",
+                            "States": [
+                                "transfer",
+                                "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+                                "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+                                1000000000000000000
+                            ]
+                        }
+                    ]
+                }
     ],
     "Version": "1.0.0"
 }
@@ -596,8 +627,8 @@ Get a list of transaction hash with smartevent based on height
                       "ContractAddress": "ff00000000000000000000000000000000000001",
                       "States": [
                             "transfer",
-                            "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
-                            "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
+                            "A9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+                            "AA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
                             1000000000
                          ]
                      }
@@ -726,8 +757,8 @@ get allowance
 {
     "Action": "getallowance",
     "Asset": "ont",
-    "From" :  "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
-    "To"   :  "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
+    "From" :  "A9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+    "To"   :  "AA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
     "Version": "1.0.0"
 }
 ```
@@ -741,6 +772,104 @@ get allowance
     "Version": "1.0.0"
 }
 ```
+
+### 22. Get unboundong
+get unboundong
+
+#### Request Example:
+```
+{
+    "Action": "getunboundong",
+    "Addr": "ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6",
+    "Version": "1.0.0"
+}
+```
+#### Response
+```
+{
+    "Action": "getunboundong",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": "204957950400000",
+    "Version": "1.0.0"
+}
+```
+
+### 23. Get mempooltxstate
+Query the transaction state in the memory pool.
+
+#### Request Example:
+```
+{
+    "Action": "getmempooltxstate",
+    "Hash": "0b437771a42d18d292741c5d4f1300a135fa6e65b0594e39dc299e7f8279221a",
+    "Version": "1.0.0"
+}
+```
+#### Response
+```
+{
+    "Action": "getmempooltxstate",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Version": "1.0.0",
+    "Result": {
+              	"State": [{
+              		"Type": 1,
+              		"Height": 342,
+              		"ErrCode": 0
+              	}, {
+              		"Type": 0,
+              		"Height": 0,
+              		"ErrCode": 0
+              	}]
+    }
+}
+```
+
+### 24. Get mempooltxcount
+Query the transaction count in the memory pool.
+
+#### Request Example:
+```
+{
+    "Action": "getmempooltxcount",
+    "Version": "1.0.0"
+}
+```
+#### Response
+```
+{
+    "Action": "getmempooltxcount",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Version": "1.0.0",
+    "Result": [100,50]
+}
+```
+
+
+### 25. Get version
+Get the version information of the node.
+
+#### Request Example:
+```
+{
+    "Action": "getversion",
+    "Version": "1.0.0"
+}
+```
+#### Response
+```
+{
+    "Action": "getversion",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Version": "1.0.0",
+    "Result": "0.9"
+}
+```
+
 
 ## Error Code
 
