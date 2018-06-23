@@ -9,7 +9,7 @@ folder: doc_en
 English / [中文](./ontrpcapi_zh.html)
 
 <h1 align="center">Ontology Rpc API</h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<p align="center" class="version">Version 0.9.0 </p>
 
 * [Introduction](#introduction)
 * [Rpc Api List](#rpc-api-list)
@@ -89,16 +89,18 @@ Transaction field description
 | getrawtransaction | transactionhash | Returns the corresponding transaction information based on the specified hash value. |  |
 | sendrawtransaction | hex,preExec | Broadcast transaction. | Serialized signed transactions constructed in the program into hexadecimal strings |
 | getstorage | script_hash | Returns the stored value according to the contract script hashes and stored key. |  |
-| getversion |  | Get the version information of the query node |  |
-| getblocksysfee |  | According to the specified index, return the system fee before the block. |  |
+| getversion |  | Get the version information of the node |  |
 | getcontractstate | script_hash,[verbose] | According to the contract script hash, query the contract information. |  |
-| getmempooltxstate | tx_hash | Query the transaction status in the memory pool. |  |
+| getmempooltxcount |         | Query the transaction count in the memory pool. |  |
+| getmempooltxstate | tx_hash | Query the transaction state in the memory pool. |  |
 | getsmartcodeevent |  | Get smartcode event |  |
 | getblockheightbytxhash | tx_hash | get blockheight of txhash|  |
 | getbalance | address | return balance of base58 account address. |  |
 | getmerkleproof | tx_hash | return merkle_proof |  |
 | getgasprice |  | return gasprice |  |
 | getallowance | asset, from, to | return allowance |  |
+| getunboundong | address | return getunboundong |  |
+| getblocktxsbyheight | height | return tx hashes |  |
 
 ### 1. getbestblockhash
 
@@ -187,7 +189,7 @@ Response when verbose = 1:
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": {
         "Hash": "95555da65d6feaa7cde13d6bf12131f750b670569d98c63813441cf24a99c0d2",
         "Header": {
@@ -403,7 +405,7 @@ or
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": {
         "Version": 0,
         "Nonce": 3377520203,
@@ -557,7 +559,7 @@ Reponse
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": "498db60e96828581eff991c58fa46abbfd97d2f4a4f9915a11f85c54f2a2fedf"
 }
 ```
@@ -602,7 +604,7 @@ Response:
 
 #### 10. getversion
 
-Get the version information of the query node.
+Get the version information of the node.
 
 #### Example
 
@@ -672,9 +674,39 @@ Response:
   "error":0,
   "jsonrpc": "2.0",
   "id": 3,
-  "result": {
-
-  }
+  "result": [
+       {
+            "TxHash": "7e8c19fdd4f9ba67f95659833e336eac37116f74ea8bf7be4541ada05b13503e",
+            "State": 1,
+            "GasConsumed": 0,
+            "Notify": [
+                {
+                    "ContractAddress": "0200000000000000000000000000000000000000",
+                    "States": [
+                        "transfer",
+                        "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+                        "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+                        1000000000000000000
+                    ]
+                }
+            ]
+        },
+        {
+            "TxHash": "fc82cd363271729367098fbabcfd0c02cf6ded1e535700d04658b596d53cf07d",
+            "State": 1,
+            "GasConsumed": 0,
+            "Notify": [
+                {
+                    "ContractAddress": "0200000000000000000000000000000000000000",
+                    "States": [
+                        "transfer",
+                        "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+                        "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+                        1000000000000000000
+                    ]
+                }
+        }
+  ]
 }
 ```
 
@@ -685,7 +717,7 @@ or
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": {
              "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
              "State": 1,
@@ -707,44 +739,8 @@ or
 
 > Note: If params is a number, the response result will be the txhash list. If params is txhash, the response result will be smartcode event.
 
-#### 12. getblocksysfee
 
-According to the specified index, return the system fee before the block.
-
-#### Parameter instruction
-
-Index: Block index
-
-#### Example
-
-Request:
-
-```
-{
-  "jsonrpc": "2.0",
-  "method": "getblocksysfee",
-  "params": [1005434],
-  "id": 1
-}
-```
-
-Response:
-
-```
-{
-    "desc":"SUCCESS",
-    "error":0,
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": "195500"
-}
-```
-
-Response instruction:
-
-Result: The system fee before the block and the unit is OntGas.
-
-#### 13. getcontractstate
+#### 12. getcontractstate
 
 According to the contract script hash, query the contract information.
 
@@ -773,7 +769,7 @@ Response:
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": {
         "VmType": 255,
         "Code": "4f4e5420546f6b656e",
@@ -787,9 +783,9 @@ Response:
 }
 ```
 
-#### 14. getmempooltxstate
+#### 13. getmempooltxstate
 
-Query the transaction status in the memory pool.
+Query the transaction state in the memory pool.
 
 #### Parameter instruction
 
@@ -817,9 +813,48 @@ Response:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
+              	"State": [{
+              		"Type": 1,
+              		"Height": 342,
+              		"ErrCode": 0
+              	}, {
+              		"Type": 0,
+              		"Height": 0,
+              		"ErrCode": 0
+              	}]
     }
 }
 ```
+
+#### 14. getmempooltxcount
+
+Query the transaction count in the memory pool.
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getmempooltxcount",
+  "params": [],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+    "desc":"SUCCESS",
+    "error":0,
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": [100,50]
+}
+```
+
 
 #### 15. getblockheightbytxhash
 get blockheight by txhash
@@ -844,7 +879,7 @@ Response:
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": 10
 }
 ```
@@ -877,7 +912,7 @@ Response:
    "desc":"SUCCESS",
    "error":0,
    "id":1,
-   "jsonpc":"2.0",
+   "jsonrpc":"2.0",
    "result":{
         "ont": "2500",
         "ong": "0",
@@ -914,7 +949,7 @@ Response:
    "desc":"SUCCESS",
    "error":0,
    "id":1,
-   "jsonpc":"2.0",
+   "jsonrpc":"2.0",
    "result":{
         "Type": "MerkleProof",
         "TransactionsRoot": "fe3a4ee8a44e3e588de55de1b8fe08f08b6184d9c062cf7316fb9481eb57b9e6",
@@ -965,7 +1000,7 @@ Response:
    "desc":"SUCCESS",
    "error":0,
    "id":1,
-   "jsonpc":"2.0",
+   "jsonrpc":"2.0",
    "result":{
         "gasprice": 0,
         "height": 1
@@ -998,8 +1033,74 @@ Response:
    "desc":"SUCCESS",
    "error":0,
    "id":1,
-   "jsonpc":"2.0",
+   "jsonrpc":"2.0",
    "result": "10"
+}
+```
+
+#### 20. getunboundong
+
+return unboundong.
+
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getunboundong",
+  "params": ["address"],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+   "desc":"SUCCESS",
+   "error":0,
+   "id":1,
+   "jsonrpc":"2.0",
+   "result": "204957950400000"
+}
+```
+
+#### 21 getblocktxsbyheight
+
+Get transactions by block height
+return all transaction hash contained in the block corresponding to this height
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getblocktxsbyheight",
+  "params": [100],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+   "desc":"SUCCESS",
+   "error":0,
+   "id":1,
+   "jsonrpc":"2.0",
+   "result": {
+        "Hash": "ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603",
+        "Height": 100,
+        "Transactions": [
+            "37e017cb9de93aa93ef817e82c555812a0a6d5c3f7d6c521c7808a5a77fc93c7"
+        ]
+    }
 }
 ```
 
