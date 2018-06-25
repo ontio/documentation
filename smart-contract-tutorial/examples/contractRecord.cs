@@ -9,11 +9,14 @@ namespace Ontology
 {
     public class Ontology : SmartContract
     {
+        public delegate void PutRecord(string operation, byte[] key, byte[] value);
+        public delegate void GetRecord(string operation, byte[] key);
+
         [DisplayName("putRecord")]
-        public static event Action<string, byte[], byte[]> PutEvent;
+        public static event PutRecord PutEvent;
 
         [DisplayName("getRecord")]
-        public static event Action<string, byte[]> GetEvent;
+        public static event GetRecord GetEvent;
 
         public static Object Main(string operation, params object[] args)
         {
