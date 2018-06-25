@@ -1005,4 +1005,4 @@ Tip:
 
 ## 6. 签名服务
 
-[Ontology 签名服务器使用说明](./sigsvr_CN.md)
+[Ontology 签名服务器使用说明](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr_CN.md)
