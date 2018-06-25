@@ -11,23 +11,22 @@ namespace Neo.SmartContract
     {
         public static Object Main(string operation, params object[] args)
         {
-            if (Runtime.Trigger == TriggerType.Application)
+           
+            if (operation == "add")
             {
-                if (operation == "add")
-                {
-                    if (args.Length != 2) return false;
-                    int a = (int)args[0];
-                    int b = (int)args[1];
-                    return Add(a, b);
-                }
-                if (operation == "compare")
-                {
-                    if (args.Length != 2) return false;
-                    int a = (int)args[0];
-                    int b = (int)args[1];
-                    return Compare(a, b);
-                }
+                if (args.Length != 2) return false;
+                int a = (int)args[0];
+                int b = (int)args[1];
+                return Add(a, b);
             }
+            if (operation == "compare")
+            {
+                if (args.Length != 2) return false;
+                int a = (int)args[0];
+                int b = (int)args[1];
+                return Compare(a, b);
+            }
+           
             return false;
         }
 
