@@ -612,7 +612,7 @@ String ip = "http://polaris1.ont.io";
 String rpcUrl = ip + ":" + "20336";
 OntSdk ontSdk = OntSdk.getInstance();
 ontSdk.setRpc(rpcUrl);
-ontSdk.setDefaultConnect(wm.getRpc());
+ontSdk.setDefaultConnect(ontSdk.getRpc());
 
 ```
 
