@@ -137,9 +137,9 @@ $ make
 
 2. #### 启动节点
 
-   由于同步节点只同步记账节点生成的区块，并不参与网络共识，因此可以通过--disableconsensus参数关闭网络共识模块
+   启动节点命令：
 
-   ```./ontology --disableconsensus```
+   ```./ontology ```
 
    节点启动默认是关闭websocket和rest端口的，需要开放上述端口，可以配置以下参数
 
