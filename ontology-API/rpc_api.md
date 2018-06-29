@@ -1,34 +1,18 @@
 # ONT Rpc Api
 
-* [Introduction](#Introduction)
-* [Rpc API list](#Rpc API list)
-* [Error code](#Errorcode)
+English|[中文](rpc_api_CN.md)
 
-Rpc API list
-
-| Method | Parameters | Description | Note |
-| :---| :---| :---| :---|
-| getbestblockhash |  | get the hash of the highest height block in the main chain |  |
-| getblock | height or blockhash,[verbose] | get block by block height or block hash | verbose can be 0 or 1,response is different |
-| getblockcount |  | get the number of blocks |  |
-| getblockhash | height | get block hash by block height |  |
-| getconnectioncount|  | get the current number of connections for the node |  |
-| getgenerateblocktime|  | The time required to create a new block |  |
-| getrawtransaction | transactionhash | Returns the corresponding transaction information based on the specified hash value. |  |
-| sendrawtransaction | hex | Broadcast transaction. | Serialized signed transactions constructed in the program into hexadecimal strings |
-| getstorage | script_hash | Returns the stored value according to the contract script hashes and stored key. |  |
-| getversion |  | Get the version information of the query node |  |
-| getblocksysfee |  | According to the specified index, return the system fee before the block. |  |
-| getcontractstate | script_hash | According to the contract script hash, query the contract information. |  |
-| getmempooltxstate | tx_hash | Query the transaction status in the memory pool. |  |
-| getsmartcodeevent |  | Get smartcode event |  |
-| getblockheightbytxhash | tx_hash | get blockheight of txhash|  |
-| getbalance | address | return balance of base58 account address. |  |
-
+* [Introduction](#introduction)
+* [Rpc Api List](#rpc-api-list)
+* [Error Code](#error-code)
 
 ## Introduction
 
-Request parameter description:
+The document description remote process call(RPC) specification in Onchain Ontology.
+
+There are some description of parameter used in rpc:
+
+#### Request parameter description:
 
 | Field | Type | Description |
 | :---| :---| :---|
@@ -37,7 +21,7 @@ Request parameter description:
 | params | string | method required parameters |
 | id | int | any value |
 
-Response parameter description:
+#### Response parameter description:
 
 | Field | Type | Description |
 | :---| :---| :---|
@@ -47,9 +31,9 @@ Response parameter description:
 | id | int | any value |
 | result | object | program execution result |
 
-Note: The type of result varies with the request.
+>Note: The type of result varies with the request.
 
-Block field description
+#### Block field description
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
@@ -57,7 +41,7 @@ Block field description
 | Transactions | []*Transaction ||
 | hash | *Uint256 | |
 
-Header field description
+#### Header field description
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
@@ -68,12 +52,12 @@ Header field description
 | Timestamp | int | block timestamp,uinix timestamp |
 | Height | int | block height |
 | ConsensusData | uint64 |  |
-| NextBookkeeper | Address | Accounting contract hash value for the next block |
+| NextBookkeeper | Address | bookkeeper of the next block |
 | Bookkeepers | []*crypto.PubKey ||
 | SigData | [][]byte ||
 | Hash | Uint256 | Script to verify the block |
 
-Transaction field description
+#### Transaction field description
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
@@ -83,11 +67,35 @@ Transaction field description
 | Nonce | uint32 | random number |
 | Attributes | []*TxAttribute |  |
 | Fee | []*Fee | transaction fees  |
-| NetworkFee | Fixed64 | neitwork fees |
+| NetworkFee | Fixed64 | network fees |
 | Sigs | []*Sig | signature array |
 | Hash | *Uint256 | transaction hash |
 
-## Rpc API list
+## Rpc Api List
+
+| Method | Parameters | Description | Note |
+| :---| :---| :---| :---|
+| [getbestblockhash](#1-getbestblockhash) |  | get the hash of the highest height block in the main chain |  |
+| [getblock](#2-getblock) | height or blockhash,[verbose] | get block by block height or block hash | verbose can be 0 or 1,response is different |
+| [getblockcount](#3-getblockcount) |  | get the number of blocks |  |
+| [getblockhash](#4-getblockhash) | height | get block hash by block height |  |
+| [getconnectioncount](#5-getconnectioncount)|  | get the current number of connections for the node |  |
+| [getgenerateblocktime](#6-getgenerateblocktime)|  | The time required to create a new block |  |
+| [getrawtransaction](#7-getrawtransaction) | transactionhash | Returns the corresponding transaction information based on the specified hash value. |  |
+| [sendrawtransaction](#8-sendrawtransaction) | hex,preExec | Broadcast transaction. | Serialized signed transactions constructed in the program into hexadecimal strings |
+| [getstorage](#9-getstorage) | script_hash, key | Returns the stored value according to the contract address hash and stored key. |  |
+| [getversion](#10-getversion) |  | Get the version information of the node |  |
+| [getcontractstate](#11-getcontractstate) | script_hash,[verbose] | According to the contract address hash, query the contract information. |  |
+| [getmempooltxcount](#12-getmempooltxcount) |         | Query the transaction count in the memory pool. |  |
+| [getmempooltxstate](#13-getmempooltxstate) | tx_hash | Query the transaction state in the memory pool. |  |
+| [getsmartcodeevent](#14-getsmartcodeevent) |  | Get smartcode event |  |
+| [getblockheightbytxhash](#15-getblockheightbytxhash) | tx_hash | get blockheight of transaction hash|  |
+| [getbalance](#16-getbalance) | address | return balance of base58 account address. |  |
+| [getmerkleproof](#17-getmerkleproof) | tx_hash | return merkle proof |  |
+| [getgasprice](#18-getgasprice) |  | return gasprice |  |
+| [getallowance](#19-getallowance) | asset, from, to | return the allowance from transfer-from accout to transfer-to account |  |
+| [getunboundong](#20-getunboundong) | address | return unbound ong |  |
+| [getblocktxsbyheight](#21-getblocktxsbyheight) | height | return transaction hashes |  |
 
 ### 1. getbestblockhash
 
@@ -118,20 +126,14 @@ Response:
 }
 ```
 
-Response instruction:
-
-Result: The hash of the highest block height in the main chain.
-
 ### 2. getblock
 
 Get the block information by block hash or height.
 
 #### Parameter instruction
+Hash/height: Block hash/height 
 
-| Parameter | Type | Optional/required | Description |
-| :--- | :--- | :--- | :--- |
-| Hash/height | String/long | Required | Block hash/height |
-| Verbose | int | Optional | Optional parameter, the default value of verbose is 0. When verbose is 0, it returns the block serialized information, which is represented by a hexadecimal string. To get detailed information from it, you need to call the SDK to deserialize. When verbose is 1, the detailed information of the corresponding block is returned, which is represented by a JSON format string. |
+Verbose: Optional parameter, the default value of verbose is 0. When verbose is 0, it returns the block serialized information, which is represented by a hexadecimal string. To get detailed information from it, you need to call the SDK to deserialize. When verbose is 1, the detailed information of the corresponding block is returned, which is represented by a JSON format string.
 
 #### Example
 
@@ -176,7 +178,7 @@ Response when verbose = 1:
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": {
         "Hash": "95555da65d6feaa7cde13d6bf12131f750b670569d98c63813441cf24a99c0d2",
         "Header": {
@@ -254,9 +256,7 @@ Response:
 }
 ```
 
-Response instruction:
-
-Result: the height of the main chain.
+>Result: the height of the main chain.
 
 #### 4. getblockhash
 
@@ -322,7 +322,7 @@ Response:
 
 #### 6. getgenerateblocktime
 
-Get a list of unconfirmed transactions in memory.
+The time required to create a new block
 
 #### Example
 
@@ -345,13 +345,9 @@ Reponse:
   "error":0,
   "jsonrpc": "2.0",
   "id": 1,
-  "result": [
-    "b4534f6d4c17cda008a76a1968b7fa6256cd90ca448739eae8e828698ccc44e7"
-  ]
+  "result": 6
 }
 ```
-
-These are the undetermined transactions received by the node, that is, those with zero confirmed transactions.
 
 #### 7. getrawtransaction
 
@@ -361,9 +357,11 @@ Returns the corresponding transaction information based on the specified hash va
 
 txid: transaction ID
 
-Verbose: Optional parameter, the default value of verbose is 0, when verbose is 0, it returns the block serialized information, which is represented by a hexadecimal string. To get detailed information from it, you need to call the SDK to deserialize. When verbose is 1, the detailed information of the corresponding block is returned, which is represented by a JSON format string.
+Verbose: Optional parameter, the default value of verbose is 0, when verbose is 0, it returns the transaction serialized information, which is represented by a hexadecimal string. To get detailed information from it, you need to call the SDK to deserialize. When verbose is 1, the detailed information of the corresponding transaction is returned, which is represented by a JSON format string.
 
 #### Example
+
+When verbose is nil or verbose = 0:
 
 Request:
 
@@ -389,14 +387,26 @@ Response:
 
 ```
 
-or
+When verbose = 1:
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getrawtransaction",
+  "params": ["f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657", 1],
+  "id": 1
+}
+```
+Response:
 
 ```
 {
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": {
         "Version": 0,
         "Nonce": 3377520203,
@@ -443,91 +453,60 @@ send transaction.
 
 #### Parameter instruction
 
-Hex: Serialized signed transactions constructed in the program into hexadecimal strings.Building the parameter,please refer to TestInvokefunction in ontology/http/func_test.go.
+Hex: Serialized signed transactions constructed in the program into hexadecimal strings. Building the parameter,please refer to NewNativeInvokeTransaction in ontology-go-sdk/rpc.go
+
+PreExec : set 1 if want prepare exec smartcontract
 
 How to build the parameter?
 
-Take the "AddAttribute" in the IdContract contract as an example
-
-1. build parameter
-
 ```
-acct := account.Open(account.WALLET_FILENAME, []byte("passwordtest"))
-acc, err := acct.GetDefaultAccount()
-pubkey := keypair.SerializePublicKey(acc.PubKey())
-funcName := "AddAttribute"
-paras := []interface{}{[]byte("did:ont:" + acc.Address.ToBase58()),[]byte("key1"),[]byte("bytes"),[]byte("value1"),pubkey}
-builder := neovm.NewParamsBuilder(new(bytes.Buffer))
-err = BuildSmartContractParamInter(builder, []interface{}{funcName, params})
-codeParams := builder.ToArray()
-op_verify,_ := common.HexToBytes("69")
-codeaddress,_ := common.HexToBytes("8055b362904715fd84536e754868f4c8d27ca3f6")
-codeParams = BytesCombine(codeParams,op_verify)
-codeParams = BytesCombine(codeParams,codeaddress)
+    // get sdk instance
+    sdk := goSdk.NewOntologySdk()
+    rpcClient := sdk.Rpc
+    // generate invoke native contract transaction; if you want to invoke neo vm contrace,
+    // use NewNeoVMSInvokeTransaction
+    // cversion is contract version, method is contract method name, params is []interface{}type,
+    // represent the contract method param
+    // For example: 
+    // NewNativeInvokeTransaction(0, 200000, byte(0),utils.ParamContractAddress,
+    //      "getGlobalParam", []interface{}{global_params.ParamNameList{"gasPrice"}})
+    tx, err := rpcClient.NewNativeInvokeTransaction(gasPrice, gasLimit, cversion, contractAddress, method, params)
+    if err != nil {
+    	return common.UINT256_EMPTY, err
+    }
+    // sign for tx, signer is sender of transaction
+    err = rpcClient.SignToTransaction(tx, signer)
+    if err != nil {
+        return common.UINT256_EMPTY, err
+    }
 
-func BytesCombine(pBytes ...[]byte) []byte {
-	len := len(pBytes)
-	s := make([][]byte, len)
-	for index := 0; index < len; index++ {
-		s[index] = pBytes[index]
-	}
-	sep := []byte("")
-	return bytes.Join(s, sep)
-}
-```
-funcName:the smartcontract function name to be called, params: contract function required parameters, codeAddress: smartcontract address
-
-2. build transaction
-```
-tx := utils.NewInvokeTransaction(vmtypes.VmCode{
-		VmType: vmtypes.NEOVM,
-		Code:   codeParams,
-	})
-	tx.Nonce = uint32(time.Now().Unix())
-```
-
-3. sign transaction
-
-```
-hash := tx.Hash()
-sign, _ := signature.Sign(acc.PrivateKey, hash[:])
-tx.Sigs = append(tx.Sigs, &ctypes.Sig{
-    PubKeys: []keypair.PublicKey{acc.PublicKey},
-    M:       1,
-    SigData: [][]byte{sign},
-})
-```
-
-4. Convert transactions to hexadecimal strings
-```
-txbf := new(bytes.Buffer)
-err = tx.Serialize(txbf);
-common.ToHexString(txbf.Bytes())
+    txbf := new(bytes.Buffer)
+    err = tx.Serialize(txbf);
+    hexCode = common.ToHexString(txbf.Bytes())
 ```
 
 Related struct
 ```
 type Transaction struct {
-	Version    byte
-	TxType     TransactionType
-	Nonce      uint32
-	Payload    Payload
-	Attributes []*TxAttribute
-	Fee        []*Fee
-	NetWorkFee common.Fixed64
+	Version  byte
+	TxType   TransactionType
+	Nonce    uint32
+	GasPrice uint64
+	GasLimit uint64
+	Payer    common.Address
+	Payload  Payload
+	attributes byte
 	Sigs       []*Sig
 
 	hash *common.Uint256
 }
 
 type Sig struct {
-	PubKeys []keypair.PublicKey
-	M       uint8
 	SigData [][]byte
+	PubKeys []keypair.PublicKey
+	M       uint16
 }
 ```
-
-
 
 #### Example
 
@@ -537,7 +516,7 @@ Request:
 {
   "jsonrpc": "2.0",
   "method": "sendrawtransaction",
-  "params": ["80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"],
+  "params": ["80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac",0],
   "id": 1
 }
 ```
@@ -549,20 +528,26 @@ Reponse
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": "498db60e96828581eff991c58fa46abbfd97d2f4a4f9915a11f85c54f2a2fedf"
 }
 ```
 
-> Note:result is txhash
+> Note:result is transaction hash
 
 #### 9. getstorage
 
-Returns the stored value according to the contract script hashes and stored key.
+Return the stored value according to the contract address hash and stored key.
 
 #### Parameter instruction
 
-script\_hash: Contract script hash.
+script\_hash: contract address hash, could be generated by follow function
+
+```
+    addr := types.AddressFromVmCode([]byte{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04})
+    fmt.Println(addr.ToHexString())
+```
 
 Key: stored key \(required to be converted into hex string\)
 
@@ -594,7 +579,7 @@ Response:
 
 #### 10. getversion
 
-Get the version information of the query node.
+Get the version information of the node.
 
 #### Example
 
@@ -617,23 +602,137 @@ Response:
   "error":0,
   "jsonrpc": "2.0",
   "id": 3,
-  "result": {
-      "port": 0,
-      "nonce": 156443862,
-      "useragent": "/ONT:1.0.0/"
-  }
+  "result": "v0.9.2-1-g231e"
 }
 ```
 
-#### 11. getsmartcodeevent
+#### 11. getcontractstate
+
+According to the contract address hash, query the contract information.
+
+#### Parameter instruction
+
+script\_hash:  contract address hash.
+
+verbose: Optional parameter, the default value of verbose is 0, when verbose is 0, it returns the contract serialized information, which is represented by a hexadecimal string. To get detailed information from it, you need to call the SDK to deserialize. When verbose is 1, the detailed information of the corresponding contract is returned, which is represented by a JSON format string.
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getcontractstate",
+  "params": ["fff49c809d302a2956e9dc0012619a452d4b846c",1],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+    "desc": "SUCCESS",
+    "error": 0,
+    "id": 1,
+    "jsonrpc": "2.0",
+    "result": {
+        "VmType": 255,
+        "Code": "4f4e5420546f6b656e",
+        "NeedStorage": true,
+        "Name": "ONT",
+        "CodeVersion": "1.0",
+        "Author": "Ontology Team",
+        "Email": "contact@ont.io",
+        "Description": "Ontology Network ONT Token"
+    }
+}
+```
+
+#### 12. getmempooltxcount
+
+Query the transaction count in the memory pool.
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getmempooltxcount",
+  "params": [],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+    "desc":"SUCCESS",
+    "error":0,
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": [100,50]
+}
+```
+
+#### 13. getmempooltxstate
+
+Query the transaction state in the memory pool.
+
+#### Parameter instruction
+
+tx\_hash: transaction hash.
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getmempooltxstate",
+  "params": ["773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e"],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+    "desc":"SUCCESS",
+    "error":0,
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+              	"State": [{
+              		"Type": 1,
+              		"Height": 342,
+              		"ErrCode": 0
+              	}, {
+              		"Type": 0,
+              		"Height": 0,
+              		"ErrCode": 0
+              	}]
+    }
+}
+```
+
+#### 14. getsmartcodeevent
 
 Get smartcode event.
 
 #### Parameter instruction
 
-blockheight: getsmartcodeevent by blockheight
+blockheight: block height
+
 or
-txHash: getsmartcodeevent by txhash
+
+txHash: transaction hash
 
 #### Example
 
@@ -664,9 +763,39 @@ Response:
   "error":0,
   "jsonrpc": "2.0",
   "id": 3,
-  "result": {
-
-  }
+  "result": [
+       {
+            "TxHash": "7e8c19fdd4f9ba67f95659833e336eac37116f74ea8bf7be4541ada05b13503e",
+            "State": 1,
+            "GasConsumed": 0,
+            "Notify": [
+                {
+                    "ContractAddress": "0200000000000000000000000000000000000000",
+                    "States": [
+                        "transfer",
+                        "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+                        "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+                        1000000000000000000
+                    ]
+                }
+            ]
+        },
+        {
+            "TxHash": "fc82cd363271729367098fbabcfd0c02cf6ded1e535700d04658b596d53cf07d",
+            "State": 1,
+            "GasConsumed": 0,
+            "Notify": [
+                {
+                    "ContractAddress": "0200000000000000000000000000000000000000",
+                    "States": [
+                        "transfer",
+                        "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+                        "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+                        1000000000000000000
+                    ]
+                }
+        }
+  ]
 }
 ```
 
@@ -677,141 +806,36 @@ or
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
-    "result": [
-        {
-            "CodeHash":"80e7d2fc22c24c466f44c7688569cc6e6d6c6f92",
-            "TxHash":"7c3e38afb62db28c7360af7ef3c1baa66aeec27d7d2f60cd22c13ca85b2fd4f3"
-            "States": [
-                "transfer",
-                "TA63xZXqdPLtDeznWQ6Ns4UsbqprLrrLJk",
-                "TA23xZXqdPLtDeznWQ6Ns4UsbqprLrrLfgf",
-                100
-            ]
-        }
-    ]
-}
-```
-
-> Note: If params is a number, the response result will be the txhash list. If params is txhash, the response result will be smartcode event.
-
-#### 12. getblocksysfee
-
-According to the specified index, return the system fee before the block.
-
-#### Parameter instruction
-
-Index: Block index
-
-#### Example
-
-Request:
-
-```
-{
-  "jsonrpc": "2.0",
-  "method": "getblocksysfee",
-  "params": [1005434],
-  "id": 1
-}
-```
-
-Response:
-
-```
-{
-    "desc":"SUCCESS",
-    "error":0,
     "jsonrpc": "2.0",
-    "id": 1,
-    "result": "195500"
-}
-```
-
-Response instruction:
-
-Result: The system fee before the block and the unit is OntGas.
-
-#### 13. getcontractstate
-
-According to the contract script hash, query the contract information.
-
-#### Parameter instruction
-
-script\_hash: Contract script hash.
-
-#### Example
-
-Request:
-
-```
-{
-  "jsonrpc": "2.0",
-  "method": "getcontractstate",
-  "params": ["fff49c809d302a2956e9dc0012619a452d4b846c",1],
-  "id": 1
-}
-```
-
-Response:
-
-```
-{
-    "desc": "SUCCESS",
-    "error": 0,
-    "id": 1,
-    "jsonpc": "2.0",
     "result": {
-        "VmType": 255,
-        "Code": "4f4e5420546f6b656e",
-        "NeedStorage": true,
-        "Name": "ONT",
-        "CodeVersion": "1.0",
-        "Author": "Ontology Team",
-        "Email": "contact@ont.io",
-        "Description": "Ontology Network ONT Token"
+             "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
+             "State": 1,
+             "GasConsumed": 0,
+             "Notify": [
+                    {
+                      "ContractAddress": "ff00000000000000000000000000000000000001",
+                      "States": [
+                            "transfer",
+                            "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+                            "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
+                            1000000000
+                         ]
+                     }
+              ]
     }
 }
 ```
 
-#### 14. getmempooltxstate
-
-Query the transaction status in the memory pool.
-
-#### Parameter instruction
-
-tx\_hash: transaction hash.
-
-#### Example
-
-Request:
-
-```
-{
-  "jsonrpc": "2.0",
-  "method": "getmempooltxstate",
-  "params": ["773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e"],
-  "id": 1
-}
-```
-
-Response:
-
-```
-{
-    "desc":"SUCCESS",
-    "error":0,
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-    }
-}
-```
+> Note: If params is a number, the response result will be the smartcode list. If params is transaction hash, the response result will be smartcode event.
 
 #### 15. getblockheightbytxhash
-get blockheight by txhash
+
+get blockheight by transaction hash
+
 #### Parameter instruction
+
 txhash: transaction hash
+
 #### Example
 
 Request:
@@ -831,7 +855,7 @@ Response:
     "desc": "SUCCESS",
     "error": 0,
     "id": 1,
-    "jsonpc": "2.0",
+    "jsonrpc": "2.0",
     "result": 10
 }
 ```
@@ -864,10 +888,11 @@ Response:
    "desc":"SUCCESS",
    "error":0,
    "id":1,
-   "jsonpc":"2.0",
+   "jsonrpc":"2.0",
    "result":{
-       "ont":"24999862561046528",
-       "ong":"0"
+        "ont": "2500",
+        "ong": "0",
+        "ong_appove": "0"
        }
 }
 ```
@@ -900,7 +925,7 @@ Response:
    "desc":"SUCCESS",
    "error":0,
    "id":1,
-   "jsonpc":"2.0",
+   "jsonrpc":"2.0",
    "result":{
         "Type": "MerkleProof",
         "TransactionsRoot": "fe3a4ee8a44e3e588de55de1b8fe08f08b6184d9c062cf7316fb9481eb57b9e6",
@@ -926,7 +951,136 @@ Response:
 }
 ```
 
-## Errorcode
+#### 18. getgasprice
+
+return gas price.
+
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getgasprice",
+  "params": [],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+   "desc":"SUCCESS",
+   "error":0,
+   "id":1,
+   "jsonrpc":"2.0",
+   "result":{
+        "gasprice": 0,
+        "height": 1
+       }
+}
+```
+
+#### 19. getallowance
+
+return allowance.
+
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getallowance",
+  "params": ["ont","from address","to address"],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+   "desc":"SUCCESS",
+   "error":0,
+   "id":1,
+   "jsonrpc":"2.0",
+   "result": "10"
+}
+```
+
+#### 20. getunboundong
+
+return unbound ong.
+
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getunboundong",
+  "params": ["address"],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+   "desc":"SUCCESS",
+   "error":0,
+   "id":1,
+   "jsonrpc":"2.0",
+   "result": "204957950400000"
+}
+```
+
+#### 21 getblocktxsbyheight
+
+Get transactions by block height
+return all transaction hash contained in the block corresponding to this height
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getblocktxsbyheight",
+  "params": [100],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+   "desc":"SUCCESS",
+   "error":0,
+   "id":1,
+   "jsonrpc":"2.0",
+   "result": {
+        "Hash": "ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603",
+        "Height": 100,
+        "Transactions": [
+            "37e017cb9de93aa93ef817e82c555812a0a6d5c3f7d6c521c7808a5a77fc93c7"
+        ]
+    }
+}
+```
+
+## Error Code
 
 errorcode instruction
 
