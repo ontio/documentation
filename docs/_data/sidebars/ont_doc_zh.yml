@@ -77,6 +77,10 @@ entries:
       url: /vbft_intro_zh.html
       output: web, pdf
 
+    - title: 签名服务器使用说明
+      url: /sigsvr_zh.html
+      output: web, pdf
+
   - title: Ontology DID
     output: web, pdf
     folderitems:
@@ -166,11 +170,31 @@ entries:
     folderitems:
 
     - title: 总体介绍
-      url: /smart_contract_tutorial_overview_zh.html
+      url: /smart_contract_tutorial_introduction_zh.html
       output: web, pdf
 
     - title: WASM-VM 简介
       url: /smart_contract_tutorial_wasm_zh.html
+      output: web, pdf
+
+    - title: SmartX Tutorial
+      url: /smart_contract_tutorial_smartx_zh.html
+      output: web, pdf
+
+    - title: Hello world
+      url: /smart_contract_tutorial_helloworld_zh.html
+      output: web, pdf
+
+    - title: Smart Contract Deployment
+      url: /smart_contract_tutorial_deployment_zh.html
+      output: web, pdf
+
+    - title: Smart Contract Invocation
+      url: /smart_contract_tutorial_invocation_zh.html
+      output: web, pdf
+
+    - title: 权限管理
+      url: /smart_contract_tutorial_auth_zh.html
       output: web, pdf
 
     - title: 智能合约开发指南

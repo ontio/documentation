@@ -9,31 +9,60 @@ folder: doc_zh
 [English](./websocket_en.html) / 中文
 
 <h1 align="center">Ontology Websocket API </h1>
-<p align="center" class="version">版本 0.9.0 </p>
+<p align="center" class="version">版本 1.0.0 </p>
 
-* [Introduction](#introduction)
-* [Websocket Api List](#websocket-api-list)
-* [Error Code](#error-code)
+* [介绍](#介绍)
+* [Websocket接口列表](#websocket接口列表)
+* [错误代码](#错误代码)
 
-## Introduction
+## 介绍
 
-This document describes the Websocket api format for the ws/wss used in the Onchain Ontology.
+本文档是Ontology的websocket接口文档，详细定义了各个接口所需的参数与返回值。
 
-## Websocket Api List
-
-### Response parameters descri
+### 响应参数定义
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| Action | string | action name |
-| Desc | string | description |
-| Error | int64 | error code |
-| Result | object | execute result |
-| Version | string | version information |
-| Id | int | req Id|
+| Action | string | 响应动作名称 |
+| Desc | string | 响应结果描述 |
+| Error | int64 | 错误代码 |
+| Result | object | 执行结果 |
+| Version | string | 版本号 |
+| Id | int | 请求id|
+
+## Websocket接口列表
+
+| Method | Parameter | Description |
+| :---| :---| :---|
+| [heartbeat](#1-heartbeat) |  | 发送心跳信号 |
+| [subscribe](#2-subscribe) | [ConstractsFilter],[SubscribeEvent],[SubscribeJsonBlock],[SubscribeRawBlock],[SubscribeBlockTxHashs] | 订阅某个服务 |
+| [getgenerateblocktime](#3-getgenerateblocktime) | | 返回区块生成间隔 |
+| [getconnectioncount](#4-getconnectioncount) |  | 得到当前连接的节点数量 |
+| [getblocktxsbyheight](#5-getblocktxsbyheight) | height | 返回对应高度的区块中落账的所有交易哈希 |
+| [getblockbyheight](#6-getblockbyheight) | height | 得到该高度的区块的详细信息 |
+| [getblockbyhash](#7-getblockbyhash) | hash | 通过区块哈希得到区块信息 |
+| [getblockheight](#8-getblockheight) |  | 得到当前网络上的区块高度 |
+| [getblockhash](#9-getblockhash) | height | 根据高度得到对应区块的哈希 |
+| [gettransaction](#10-gettransaction) | hash,[raw] | 通过交易哈希得到该交易的信息 |
+| [sendrawtransaction](#11-sendrawtransaction) | data,[PreExec] | 向ontology网络发送交易, 如果 preExec=1，则交易为预执行 |
+| [getstorage](#12-getstorage) | hash,key | 通过合约地址哈希和键得到对应的值 |
+| [getbalance](#13-getbalance) | address | 得到该地址的账户的余额 |
+| [getcontract](#14-getcontract) | hash | 根据合约地址哈希得到合约信息 |
+| [getsmartcodeeventbyheight](#15-getsmartcodeeventbyheight) | height | 得到该高度区块上的智能合约执行结果 |
+| [getsmartcodeeventbyhash](#16-getsmartcodeeventbyhash) | hash | 通过交易哈希得到该交易的执行结果 |
+| [getblockheightbytxhash](#17-getblockheightbytxhash) | hash | 通过交易哈希得到该交易落账的区块高度 |
+| [getmerkleproof](#18-getmerkleproof) | hash | 通过交易哈希得到该交易的merkle证明 |
+| [getsessioncount](#19-getsessioncount) |  | 得到会话数量 |
+| [getgasprice](#20-getgasprice) |  | 得到gas的价格 |
+| [getallowance](#21-getallowance) | asset, from, to | 返回允许从from账户转出到to账户的额度 |
+| [getunboundong](#22-getunboundong) | address | 返回该账户未提取的ong数量 |
+| [getmempooltxstate](#23-getmempooltxstate) | hash | 通过交易哈希得到内存中该交易的状态 |
+| [getmempooltxcount](#24-getmempooltxcount) |  | 得到内存中的交易的数量 |
+| [getversion](#25-getversion) |  | 得到版本信息 |
 
 ###  1. heartbeat
-if don't send heartbeat, the session expire after 5min
+
+如果超过五分钟没有发送心跳信号，则连接关闭。
 
 #### Request Example:
 
@@ -62,7 +91,7 @@ if don't send heartbeat, the session expire after 5min
 ```
 
 ###  2. subscribe
-subscribe service
+订阅某个服务。
 
 #### Request Example:
 
@@ -96,9 +125,9 @@ subscribe service
 }
 ```
 
-### 3. Get the generate block time
-return the time required to create a new block
+### 3. getgenerateblocktime
 
+返回区块生成间隔。
 
 #### Request Example:
 
@@ -120,9 +149,9 @@ return the time required to create a new block
     "Version": "1.0.0"
 }
 ```
-### 4 Get the number of connected node
+### 4 getconnectioncount
 
-get the current number of connections for the node
+得到当前连接的节点数量。
 
 
 #### Request Example:
@@ -145,9 +174,9 @@ get the current number of connections for the node
     "Version": "1.0.0"
 }
 ```
-### 5 Get transactions by block height
+### 5 getblocktxsbyheight
 
-return all transaction hash contained in the block corresponding to this height
+返回对应高度的区块中落账的所有交易哈希。
 
 
 #### Request Example:
@@ -177,10 +206,12 @@ return all transaction hash contained in the block corresponding to this height
     "Version": "1.0.0"
 }
 ```
-### 6. Get the block by block height
+### 6. getblockbyheight
 
-return block details based on block height
-if raw=1 return serialized block
+得到该高度的区块的详细信息。
+
+raw：可选参数，默认值为零，不设置时为默认值。当值为1时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用
+ SDK中的方法对该字符串进行反序列化。当值为0时，将以json格式返回对应区块的详细信息。
 
 #### Request Example:
 
@@ -248,10 +279,12 @@ if raw=1 return serialized block
     "Version": "1.0.0"
 }
 ```
-### 7. Get block by blockhash
+### 7. getblockbyhash
 
-return block details based on block hash
-if raw=1 return serialized block
+通过区块哈希得到区块信息。
+
+raw：可选参数，默认值为零，不设置时为默认值。当值为1时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用
+ SDK中的方法对该字符串进行反序列化。当值为0时，将以json格式返回对应区块的详细信息。
 
 #### Request Example:
 
@@ -320,9 +353,9 @@ if raw=1 return serialized block
 }
 ```
 
-### 8. Get the current block height
+### 8. getblockheight
 
-return the current block height
+得到当前网络上的区块高度。
 
 
 #### Request Example:
@@ -347,9 +380,9 @@ return the current block height
 }
 ```
 
-### 9. Get blockhash by block height
+### 9. getblockhash
 
-return block hash based on block height
+根据高度得到对应区块的哈希。
 
 
 #### Request Example:
@@ -374,10 +407,12 @@ return block hash based on block height
 }
 ```
 
-### 10. get transaction by transaction hash
+### 10. gettransaction
 
-get transaction details based on transaction hash
-if raw=1 return serialized transaction
+通过交易哈希得到该交易的信息。
+
+raw：可选参数，默认值为零，不设置时为默认值。当值为1时，接口返回交易序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用
+ SDK中的方法对该字符串进行反序列化。当值为0时，将以json格式返回对应交易的详细信息。
 
 #### Request Example:
 
@@ -423,9 +458,11 @@ if raw=1 return serialized transaction
 }
 ```
 
-### 11. send transaction
+### 11. sendrawtransaction
 
-send transaction.set PreExec=1 if want prepare exec smartcontract
+向ontology网络发送交易。
+
+如果 preExec=1，则交易为预执行。
 
 
 #### Request Example:
@@ -438,6 +475,7 @@ send transaction.set PreExec=1 if want prepare exec smartcontract
     "Data":"80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
 }
 ```
+可以使用ontology-go-sdk生成十六进制数据，参考这个[例子](rpc_api_CN.md#8-sendrawtransaction)
 
 #### Response Example:
 ```
@@ -449,13 +487,21 @@ send transaction.set PreExec=1 if want prepare exec smartcontract
     "Version": "1.0.0"
 }
 ```
-> Result: txhash
+> Result: 交易哈希
 
-### 12. getStorage
+### 12. getstorage
 
-Returns the stored value according to the contract script hashes and stored key.
+通过合约地址哈希和键得到对应的值。
 
-Request Example
+合约地址哈希的生成方式如下：
+
+```
+    addr := types.AddressFromVmCode([]byte{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04})
+    fmt.Println(addr.ToHexString())
+```
+
+#### Request Example
 ```
 {
     "Action": "getstorage",
@@ -464,7 +510,7 @@ Request Example
     "Key" : "4587c1094f6"
 }
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getstorage",
@@ -474,14 +520,14 @@ Request Example
     "Version": "1.0.0"
 }
 ```
-> Result:Returns the stored value according to the contract script hashes and stored key.
+> 注意: 返回的值和传入的key参数均是十六进制。
 
-### 13. GetBalanceByAddr
+### 13. getbalance
 
-return the balance of base58 account address.
+得到该地址的账户的余额。
 
 
-Request Example
+#### Request Example
 ```
 {
     "Action": "getbalance",
@@ -490,7 +536,7 @@ Request Example
 }
 ```
 
-#### Response
+#### Response Example
 ```
 {
     "Action": "getbalance",
@@ -504,9 +550,9 @@ Request Example
     "Version": "1.0.0"
 }
 ```
-### 14. get contractstate
+### 14. getcontract
 
-According to the contract script hash, query the contract information.
+根据合约地址哈希得到合约信息。
 
 
 #### Request Example:
@@ -540,9 +586,9 @@ According to the contract script hash, query the contract information.
 }
 ```
 
-#### 15. get smart contract event txhash list by height
+#### 15. getsmartcodeeventbyheight
 
-Get a list of transaction  with smartcontract event based on height
+得到该高度区块上的智能合约执行结果。
 
 
 #### Example usage:
@@ -555,7 +601,7 @@ Get a list of transaction  with smartcontract event based on height
 }
 ```
 
-#### response
+#### Response Example
 ```
 {
     "Action": "getsmartcodeeventbyheight",
@@ -598,10 +644,11 @@ Get a list of transaction  with smartcontract event based on height
     "Version": "1.0.0"
 }
 ```
-> Note: result is the txHash list.
+> 注意: 返回的结果是交易简略信息的集合，并不是完整的交易信息。
 
-### 16. get smart contract event by txhash
+### 16. getsmartcodeeventbyhash
 
+通过交易哈希得到该交易的执行结果。
 
 #### Request Example:
 ```
@@ -611,7 +658,7 @@ Get a list of transaction  with smartcontract event based on height
     "Hash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac"
 }
 ```
-#### Response:
+#### Response Example:
 ```
 {
     "Action": "getsmartcodeeventbyhash",
@@ -636,8 +683,9 @@ Get a list of transaction  with smartcontract event based on height
     }
 }
 ```
-### 17. Get block height by transaction hash
-get blockheight of txhash
+### 17. getblockheightbytxhash
+
+通过交易哈希得到该交易落账的区块高度。
 
 #### Request Example:
 ```
@@ -647,7 +695,7 @@ get blockheight of txhash
     "Hash": "3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8"
 }
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getblockheightbytxhash",
@@ -661,7 +709,7 @@ get blockheight of txhash
 
 ### 18. getmerkleproof
 
-get merkle proof
+通过交易哈希得到该交易的merkle证明。
 
 #### Request Example:
 ```
@@ -672,7 +720,7 @@ get merkle proof
 }
 
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getmerkleproof",
@@ -704,8 +752,9 @@ get merkle proof
 }
 ```
 
-### 19. Get session count
-get session count
+### 19. getsessioncount
+
+得到会话数量。
 
 #### Request Example:
 ```
@@ -714,7 +763,7 @@ get session count
     "Version": "1.0.0"
 }
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getsessioncount",
@@ -725,8 +774,9 @@ get session count
 }
 ```
 
-### 20. Get gasprice
-get gasprice
+### 20. getgasprice
+
+得到gas的价格。
 
 #### Request Example:
 ```
@@ -735,7 +785,7 @@ get gasprice
     "Version": "1.0.0"
 }
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getgasprice",
@@ -749,8 +799,9 @@ get gasprice
 }
 ```
 
-### 21. Get allowance
-get allowance
+### 21. getallowance
+
+得到允许从from账户转出到to账户的额度。
 
 #### Request Example:
 ```
@@ -762,7 +813,7 @@ get allowance
     "Version": "1.0.0"
 }
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getallowance",
@@ -773,8 +824,9 @@ get allowance
 }
 ```
 
-### 22. Get unboundong
-get unboundong
+### 22. getunboundong
+
+得到该账户未提取的ong数量。
 
 #### Request Example:
 ```
@@ -784,7 +836,7 @@ get unboundong
     "Version": "1.0.0"
 }
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getunboundong",
@@ -795,8 +847,9 @@ get unboundong
 }
 ```
 
-### 23. Get mempooltxstate
-Query the transaction state in the memory pool.
+### 23. getmempooltxstate
+
+通过交易哈希得到内存中该交易的状态。
 
 #### Request Example:
 ```
@@ -806,7 +859,7 @@ Query the transaction state in the memory pool.
     "Version": "1.0.0"
 }
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getmempooltxstate",
@@ -827,8 +880,9 @@ Query the transaction state in the memory pool.
 }
 ```
 
-### 24. Get mempooltxcount
-Query the transaction count in the memory pool.
+### 24. getmempooltxcount
+
+得到内存中的交易的数量。
 
 #### Request Example:
 ```
@@ -837,7 +891,7 @@ Query the transaction count in the memory pool.
     "Version": "1.0.0"
 }
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getmempooltxcount",
@@ -849,8 +903,9 @@ Query the transaction count in the memory pool.
 ```
 
 
-### 25. Get version
-Get the version information of the node.
+### 25. getversion
+
+得到版本信息。
 
 #### Request Example:
 ```
@@ -859,7 +914,7 @@ Get the version information of the node.
     "Version": "1.0.0"
 }
 ```
-#### Response
+#### Response Example
 ```
 {
     "Action": "getversion",
@@ -870,23 +925,22 @@ Get the version information of the node.
 }
 ```
 
-
-## Error Code
+## 错误代码
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | 0 | int64 | SUCCESS |
-| 41001 | int64 | SESSION\_EXPIRED: invalided or expired session |
-| 41002 | int64 | SERVICE\_CEILING: reach service limit |
-| 41003 | int64 | ILLEGAL\_DATAFORMAT: illegal dataformat |
-| 41004 | int64 | INVALID\_VERSION: invalid version |
-| 42001 | int64 | INVALID\_METHOD: invalid method |
-| 42002 | int64 | INVALID\_PARAMS: invalid params |
-| 43001 | int64 | INVALID\_TRANSACTION: invalid transaction |
-| 43002 | int64 | INVALID\_ASSET: invalid asset |
-| 43003 | int64 | INVALID\_BLOCK: invalid block |
-| 44001 | int64 | UNKNOWN\_TRANSACTION: unknown transaction |
-| 44002 | int64 | UNKNOWN\_ASSET: unknown asset |
-| 44003 | int64 | UNKNOWN\_BLOCK: unknown block |
-| 45001 | int64 | INTERNAL\_ERROR: internel error |
-| 47001 | int64 | SMARTCODE\_ERROR: smartcode error |
+| 41001 | int64 | SESSION\_EXPIRED: 无效或超时的会话 |
+| 41002 | int64 | SERVICE\_CEILING: 达到服务上限 |
+| 41003 | int64 | ILLEGAL\_DATAFORMAT: 不合法的数据格式 |
+| 41004 | int64 | INVALID\_VERSION: 无效的版本号 |
+| 42001 | int64 | INVALID\_METHOD: 无效的方法 |
+| 42002 | int64 | INVALID\_PARAMS: 无效的参数 |
+| 43001 | int64 | INVALID\_TRANSACTION: 无效的交易 |
+| 43002 | int64 | INVALID\_ASSET: 无效的资源 |
+| 43003 | int64 | INVALID\_BLOCK: 无效的区块 |
+| 44001 | int64 | UNKNOWN\_TRANSACTION: 未知的交易 |
+| 44002 | int64 | UNKNOWN\_ASSET: 未知的资源 |
+| 44003 | int64 | UNKNOWN\_BLOCK: 未知的区块 |
+| 45001 | int64 | INTERNAL\_ERROR: 内部错误 |
+| 47001 | int64 | SMARTCODE\_ERROR: 智能合约执行错误 |
