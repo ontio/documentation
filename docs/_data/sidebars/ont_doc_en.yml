@@ -173,10 +173,6 @@ entries:
       url: /smart_contract_tutorial_introduction_en.html
       output: web, pdf
 
-    - title: Introduction of WASM-VM
-      url: /smart_contract_tutorial_wasm_en.html
-      output: web, pdf
-
     - title: SmartX Tutorial
       url: /smart_contract_tutorial_smartx_en.html
       output: web, pdf
@@ -191,10 +187,6 @@ entries:
 
     - title: Smart Contract Invocation
       url: /smart_contract_tutorial_invocation_en.html
-      output: web, pdf
-
-    - title: Smart contract tutorial
-      url: /smart_contract_tutorial_en.html
       output: web, pdf
 
   - title: Distributed marketplace

@@ -173,23 +173,19 @@ entries:
       url: /smart_contract_tutorial_introduction_zh.html
       output: web, pdf
 
-    - title: WASM-VM 简介
-      url: /smart_contract_tutorial_wasm_zh.html
-      output: web, pdf
-
-    - title: SmartX Tutorial
+    - title: SmartX 教程
       url: /smart_contract_tutorial_smartx_zh.html
       output: web, pdf
 
-    - title: Hello world
+    - title: "Hello World"合约
       url: /smart_contract_tutorial_helloworld_zh.html
       output: web, pdf
 
-    - title: Smart Contract Deployment
+    - title: 智能合约部署
       url: /smart_contract_tutorial_deployment_zh.html
       output: web, pdf
 
-    - title: Smart Contract Invocation
+    - title: 智能合约调用
       url: /smart_contract_tutorial_invocation_zh.html
       output: web, pdf
 
@@ -197,9 +193,6 @@ entries:
       url: /smart_contract_tutorial_auth_zh.html
       output: web, pdf
 
-    - title: 智能合约开发指南
-      url: /smart_contract_tutorial_zh.html
-      output: web, pdf
 
   - title: 分布式数据交易
     output: web, pdf

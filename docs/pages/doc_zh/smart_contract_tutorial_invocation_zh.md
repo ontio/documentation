@@ -9,30 +9,30 @@ folder: doc_zh
 
 [English](./smart_contract_tutorial_invocation_en.html) / 中文
 
-<h1 align="center">Smart Contract Invocation</h1>
+<h1 align="center">智能合约调用</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-## 1. Construct a transaction
+### 1. 构建交易
 
-When a smart contract is deployed on the blockchain, we can construct a transaction to invoke a contract's method.
+当智能合约被部署到区块链上后，我们可以通过构建交易（Transaction），调用合约中的相应方法。
 
-Before constructing a transaction, we need to know the contract's abi file and the hash address of the contract.
+在构建交易之前，我们需要知道合约的abi文件和合约的hash地址。
 
-### What is an abi file
+#### 什么是abi文件？
 
-After a smart contract is written, the developer will use the corresponding compiler to compile the contract. After the compilation, the abi file and avm file will be generated. The avm file is the bytecode of the contract. When the contract is deployed on the blockchain, the contract bytecode is stored in the storage area allocated to the contract. The abi file is a JSON file that describes the specific structure of a contract, including the entry function, the interface functions, the parameter list of functions, the return value and events. From contract's abi file, we can learn about the detailed features of the contract.
+一般开发者智能合约在编写完成后，会将使用相应编译器对合约进行编译，编译后一般会得到合约的abi文件和avm文件。avm文件是合约的字节码。当合约部署到区块链上时，合约字节码会存储在分配给合约的存储区里。 abi文件是描述了合约的具体结构的json文件，包含了合约的入口函数，接口函数，函数的参数列表和返回值，事件等。当我们了解了合约的abi文件，我们就了解了该合约的具体功能。
 
-Using SmartX as an example, we have a template contract "Arith" that can do simple addition calculation. After the contract is compiled, the abi content in JSON format will be displayed on the operation panel. Users can choose to download the abi.json file.
+以smartx为例，我们有一个可以做简单加法计算的模板合约Arith， 编译完合约后，页面上会显示JSON格式的abi内容。用户可以选择下载abi.json文件。
 
-![](http://wx2.sinaimg.cn/mw690/0060lm7Tly1fsqydcu9nzj30ep09udg9.jpg)
+![](https://upload-images.jianshu.io/upload_images/150344-297f0b59eb7b3e94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-### What is a contract hash?
+#### 什么是合约hash？
 
-A contract hash is a value obtained by performing some hash operations on the avm content of the contract. This unique value is used to distinguish different contracts. An abi file also contains contract hash.
+合约hash是对合约的avm内容进行某些hash运算得到的值，该值是用来区分不同合约的唯一值。abi文件里一般也含有合约hash值。
 
-### Construct a transaction by SDK
+#### 通过SDK构建交易
 
-We can easily construct a transaction through the SDK. Using TS SDK as an example. The contract we want to invoke is the template contract "Arith", and the method to be invoked is "Add" function of the contract.
+我们通过SDK可以方便的构建交易，调用合约中的方法。下面以TS SDK为例说明。我们要调用的合约是模板合约Arith，要调用的方法是合约中的加法Add。
 
 ````
 import {Parameter, ParameterType, Address, reverseHex, TransactionBuilder} from 'Ont'
@@ -54,11 +54,11 @@ const gasLimit = '30000';
 const tx = TransactionBuilder.makeInvokeTransaction(funcName, [p1, p2], contractAddr, gasPrice, gasLimit)
 ````
 
-Now we follow the above steps to construct a transaction object. During the construction process, the method name and method parameters need to be consistent with the description in the abi file; otherwise, an error will occur.
+现在我们按照如上步骤构建好了交易对象。在构建过程中，方法名和方法参数需要跟abi文件中的描述一致，否则会执行出错。
 
-Generally, executing a smart contract needs to consume gas. Therefore, gasPrice and gasLimit must be set in the transaction object. If these two values are too small, the transaction will not be packed into the block and the contract method will fail to execute. In the current TestNet, gasPrice is allowed to be set to 0, that is, it does not need to consume gas. In the MainNet, a certain amount of gas is needed  to ensure that the contract is properly invoked.
+一般执行智能合约是需要消耗gas的，所以交易对象中需要设置gasPrice和gasLimit, 这两个值如果太小，是不会被打包到区块中，合约方法就执行失败。在当前的测试网环境中，允许将gasPrice设置为0，这样就不需要耗费gas了。在正式环境中需要适当的gas才能保证合约正确调用。
 
-A correct transaction also requires a signature before it is sent to the blockchain for execution. Suppose now we have account and private key.
+正确的交易还需要签名，才能发送到区块链上执行。假设我们事先准备好了账户和私钥。
 
 ````
 //assume we have an account and the private key
@@ -66,23 +66,23 @@ tx.payer = account.address;
 signTransaction(tx, privateKey);
 ````
 
-Now the signed transaction can be sent to the blockchain for execution.
+现在可以将签名过的交易发送到链上执行。
 
-## 2. Send a transaction
+### 2. 发送交易
 
-We have multiple ways to send transaction:
+我们有多种方式发送交易：
 
-1. Send a transaction via the rpc interface
-2. Send a transactions via the restful interface
-3. Send a transactions via the websocket
+1. 通过rpc接口发送交易
+2. 通过restful接口发送交易
+3. 通过websocket发送交易
 
-Sending a transaction through the rpc and restful interfaces, the result returned is the status of the transaction and the transaction hash;
+通过rpc和restful接口发送交易，返回的结果是交易发送的状态和交易hash；
 
-Sending a transaction through websocket, if the contract method has event pushes, it can listen for pushed messages, which are usually the result of contract execution.
+通过websocket发送交易，如果合约方法有事件推送，可以监听到推送的消息，该消息一般是合约执行成功的结果。
 
-We can also send a pre-executed transaction to the blockchain through the above interface. Pre-execution means that the transaction only runs on the node that received the transaction, and the result of the execution can be obtained directly from this node instead of result after blockchain consensus. By pre-executing the transaction, it can easily verify whether the transaction is constructed correctly and the gas is expected to consume.
+我们还可以通过以上接口，发送预执行的交易到链上。预执行意味着交易只在接收到该交易的节点上运行，不用等到区块共识后才能获得执行的结果。通过预执行交易，可以验证构建的交易是否正确，和获得该交易预计消耗的gas。
 
-We use the restful interface of the TS SDK as an example to show how to send a transaction.
+我们以TS SDK的restful接口为例，说明如何简单地发送交易。
 
 ````
 import {RestClient} from 'Ont'
@@ -91,70 +91,70 @@ const client = new RestClient();
 
 //we use the tx made in last step
 client.sendRawTransaction(tx.serialize()).then(res => {
-//here is the result
-console.log(res);
+	//here is the result
+    console.log(res);
 })
 ````
 
-## 3. Get the transaction result
+### 3. 获取交易结果
 
-In the previous step, we sent the transaction to the blockchain via the restful interface. The results returned are as follows:
+在上一步我们通过restful的接口发送了交易到链上，返回的结果如下：
 
 ````
 {
-"Action": "sendrawtransaction",
-"Desc": "SUCCESS",
-"Error": 0,
-"Id": null,
-"Result": "886b2cd35af7ea65e502077b70966652f4cf281244868814b8f3b2cf82776214",
-"Version": "1.0.0"
+	"Action": "sendrawtransaction",
+	"Desc": "SUCCESS",
+	"Error": 0,
+	"Id": null,
+	"Result": "886b2cd35af7ea65e502077b70966652f4cf281244868814b8f3b2cf82776214",
+	"Version": "1.0.0"
 }
 ````
 
-The value of the Result field is the transaction hash. We can query the execution result of the transaction through the restful interface.
+其中Result字段的值就是交易hash。我们可以通过restful接口查询交易的执行结果。
 
 ````
 import {RestClient} from 'Ont'
 const client = new RestClient();
 client.getSmartCodeEvent('886b2cd35af7ea65e502077b70966652f4cf281244868814b8f3b2cf82776214').then(res => {
-console.log(res)
+    console.log(res)
 })
 ````
 
-We can query the execution result of the transaction through the restful interface of the TS SDK, or query it through web tools such as postman. The query url is as follows:
+我们可以通过TS SDK中封装的restful接口查询该交易的执行结果，也可以通过postman等网络工具查询。查询的url如下：
 
 ````
 http://{{NODE_URL}}/api/v1/smartcode/event/txhash/03295a1b38573f3a40cf75ae2bdda7e7fb5536f067ff5e47de44aeaf5447259b
 ````
 
-The NODE_URL can be either a TestNet node or a local node.
+这里的NODE_URL可以是测试网节点，也可以是本地节点。
 
-The result of the query is as follows:
+查询得到的结果如下：
 
 ````
 {
-"Action": "getsmartcodeeventbyhash",
-"Desc": "SUCCESS",
-"Error": 0,
-"Result": {
-"TxHash": "03295a1b38573f3a40cf75ae2bdda7e7fb5536f067ff5e47de44aeaf5447259b",
-"State": 1,
-"GasConsumed": 0,
-"Notify": [
-{
-"ContractAddress": "bd76a5917e0444d4b615b87c5912362164676dc7",
-"States": [
-"02"
-]
-}
-]
-},
-"Version": "1.0.0"
+    "Action": "getsmartcodeeventbyhash",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": {
+        "TxHash": "03295a1b38573f3a40cf75ae2bdda7e7fb5536f067ff5e47de44aeaf5447259b",
+        "State": 1,
+        "GasConsumed": 0,
+        "Notify": [
+            {
+                "ContractAddress": "bd76a5917e0444d4b615b87c5912362164676dc7",
+                "States": [
+                    "02"
+                ]
+            }
+        ]
+    },
+    "Version": "1.0.0"
 }
 ````
 
-By observing the data in the results, you can judge whether the transaction is executed successfully.
+通过观察结果里的数据可以判断该次交易是否执行成功。
 
-```State``` is equal to 1 indicating successful execution and equal to 0 indicating failure.
+```State``` 等于1表示执行成功；等于0表示执行失败。
 
-````Notify```` is a message push in the execution of a contract method.
+````Notify```` 是合约方法执行中的消息推送。

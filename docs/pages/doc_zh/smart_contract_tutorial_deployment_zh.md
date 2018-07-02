@@ -9,48 +9,48 @@ folder: doc_zh
 
 [English](./smart_contract_tutorial_deployment_en.html) / 中文
 
-<h1 align="center">Smart Contract Deployment</h1>
+<h1 align="center">智能合约部署</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-## Preparation
+## 准备工作
 
-Before deploying a contract, the developer needs to prepare the contract that has been properly compiled as an .avm file.
+在部署合约之前，开发者需要准备好要部署的合约，且该合约已经被正确编译为.avm文件。
 
-The developer also needs Ontology's wallet account and guarantees that there are enough ONGs on the account to pay for the contract deployment.
+开发者还需要有Ontology的钱包账户，且保证账户上有足够的ONG，用以支付部署合约的费用。
 
-Currently, the cost can be set to 0 for deploying contracts on the test network.
+目前，在测试网上部署合约，费用可以设为0。
 
-## How to deploy
+## 如何部署
 
-Contract deployment require users to build specific transactions and send them to the blockchain for execution. When the execution of the transaction is completed, the contract is deployed.
+部署合约需要用户构建特定的交易，并发送到区块链上执行。当交易执行完成后，合约就部署完成。
 
-Ontology provides different SDK and contract development tools SmartX to help users deploy contracts.
+Ontology提供了不同的SDK和合约开发工具SmartX，帮助用户部署合约。
 
-## Contract deployment by SDK
+## 通过SDK部署合约
 
-Ontology provides different SDKs. Here we use the [Typescript SDK](https://github.com/ontio/ontology-ts-sdk)as an example to illustrate the process of deploying a contract.
+Ontology提供了不同的SDK。这里我们以[Typescript SDK](https://github.com/ontio/ontology-ts-sdk)为例，说明部署合约的过程。
 
-TS SDK provides the interface for deploying a contract. The parameters of the interface are as follows:
+Ts sdk提供了部署合约的接口，该接口的参数如下：
 
-```avmCode``` contract's avm code, required parameter 
+```avmCode``` 合约的avm code。必须值。
 
-```name``` contract's name. Optional parameter. The default value is an empty string.
+```name``` 合约的名称。可选值。默认为空字符串。
 
-```version``` contract's version. Optional parameter. The default value is an empty string.
+```version``` 合约的版本。可选值。默认为空字符串。
 
-```author``` contract's author. Optional parameter. The default value is an empty string.
+```author``` 合约的作者名。可选值。默认为空字符串。
 
-```email``` the email of the contract's author. Optional parameter. The default value is an empty string.
+```email``` 合约作者的邮件。可选值。默认为空字符串。
 
-```desc``` the description of contract. Optional parameter. The default value is an empty string.
+```desc``` 合约的描述。可选值。默认为空字符串。
 
-```needStorage``` Whether the contract needs to be stored. Optional value. The default value is true.
+```needStorage``` 合约是否需要存储。可选值。默认为true。
 
-```gasPrice``` the gas price for contract deployment. Required value. If this value is too small, the transaction will fail to execute.
+```gasPrice``` 部署合约支付的gas price。必须值。该值如果过小，交易将执行失败。
 
-```gasLimit``` the gas limit for contract deployment. Required value. If this value is too small, the transaction will fail to execute.
+```gasLimit``` 部署合约支付的gas limit。必须值。该值如果过小，交易将执行失败。
 
-```payer``` The account address that pays deployment fee. Required value.
+```payer``` 支付部署费用的账户地址。必须值。
 
 ````
 import { makeDeployCodeTransaction } from 'Ont'
@@ -71,82 +71,81 @@ const tx = makeDeployCodeTransaction(avmCode, name, version, author, email, desc
 signTransaction(tx, privateKey)
 ````
 
-After constructing the transaction object according to the above steps, it is necessary to send the transaction to the blockchain. There are many ways to send transactions. For more information, please refer to [How to invoke a contract] ( ./Smart_Contract_Invocation.md).
+按照如上步骤构造好交易对象后，接下来需要发送交易到区块链上。有多种方式发送交易。更多信息可参考文档[智能合约调用]()。
 
-Here we use the method in the TS SDK as an example to illustrate the process of sending a transaction.
+这里我们用TS SDK里的方法为例，说明发送交易的过程。
 
 ````
 import { RestClient } from 'Ont''
 const restClient = new RestClient('http://polaris1.ont.io');
 restClient.sendRawTransaction(tx.serialize()).then(res => {
-	console.log(res);
+    console.log(res);
 })
 ````
 
-The result returned by this request is as follows:
+该请求返回的结果类似如下：
 
 ````
 {
-"Action": "sendrawtransaction",
-"Desc": "SUCCESS",
-"Error": 0,
-"Result": "70b81e1594afef4bb0131602922c28f47273e1103e389441a2e18ead344f4bd0",
-"Version": "1.0.0"
+	"Action": "sendrawtransaction",
+	"Desc": "SUCCESS",
+	"Error": 0,
+	"Result": "70b81e1594afef4bb0131602922c28f47273e1103e389441a2e18ead344f4bd0",
+	"Version": "1.0.0"
 }
 ````
 
-```Result``` is the hash of this transaction, which can be used to query whether the transaction is successfully executed.
+```Result``` 是该次交易的hash。可以用来查询交易是否执行成功。如果成功执行，说明合约部署成功。
 
-We can also query the execution result of the transaction via the restful interface.
+我们仍然通过restful接口查询交易的执行结果。
 
 ````
 restClient.getSmartCodeEvent('70b81e1594afef4bb0131602922c28f47273e1103e389441a2e18ead344f4bd0').then(res => {
-	console.log(res);
+    console.log(res);
 })
 ````
 
-The result returned by this request is as follows:
+该请求返回的结果类似如下：
 
 ````
 {
-"Action": "getsmartcodeeventbyhash",
-"Desc": "SUCCESS",
-"Error": 0,
-"Result": {
-"TxHash": "70b81e1594afef4bb0131602922c28f47273e1103e389441a2e18ead344f4bd0",
-"State": 1,
-"GasConsumed": 0,
-"Notify": []
-},
-"Version": "1.0.0"
+    "Action": "getsmartcodeeventbyhash",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": {
+        "TxHash": "70b81e1594afef4bb0131602922c28f47273e1103e389441a2e18ead344f4bd0",
+        "State": 1,
+        "GasConsumed": 0,
+        "Notify": []
+    },
+    "Version": "1.0.0"
 }
 ````
 
-When the ```State``` value is 1, it means that the transaction execution is successful, that is, the contract is deployed successfully; when the value is 0, the transaction execution fails, that is, the contract deployment fails.
+```State``` 值为1时， 说明交易执行成功，即合约部署成功；值为0时，说明交易执行失败，即合约部署失败。
 
-In addition, we can also check whether there is a contract on the blockchain by the contract hash. The contract hash value is calculated by hash operation of
-the contract avm content.
+另外，我们还可以通过合约的hash值，查询链上是否有合约。合约hash值是根据合约avm内容hash运算得到。
 
-Suppose we know that the hash value of the contract is **bcb08a0977ed986612c29cc9a7cbf92c6bd66d86**.
+假设我们已知合约的hash值为**bcb08a0977ed986612c29cc9a7cbf92c6bd66d86**。
 
 ````
 restClient.getContract('bcb08a0977ed986612c29cc9a7cbf92c6bd66d86').then(res => {
-	console.log(res)
+    console.log(res)
 })
 ````
 
-If the request returns the avm content of the contract, the contract has been successfully deployed to the blockchain.
+如果该请求返回合约的avm内容，说明合约已成功部署到链上。
 
-## Contract deployment by SmartX
+## 通过SmartX部署合约
 
-[SmartX](http://smartx.ont.io) is a one-stop tool for developers to write, deploy, and invoke smart contracts. For specific instructions, please refer to [smart document](./SmartX_Tutorial.md).
+[SmartX](http://smartx.ont.io) 是开发者编写、部署和调用智能合约的一站式工具。具体使用说明请参考[smart文档]()。
 
-![](http://wx1.sinaimg.cn/mw690/0060lm7Tly1fss9ydpl3ij30f90m840c.jpg)
+![](https://upload-images.jianshu.io/upload_images/150344-1186fa3b18f9752f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-First, we need to compile the contract on SmartX. When the contract is successfully compiled, the next step is to deploy the contract.
+首先，我们需要在smartx上编译写好的合约。当合约编译成功后，下一步，选择部署合约。
 
-![](http://wx2.sinaimg.cn/mw690/0060lm7Tly1fss9v7mp42j30ex0m5t9z.jpg)
+![](https://upload-images.jianshu.io/upload_images/150344-5f94d283e690512d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-In testing network, SmartX provides a default account to pay for the fee of contract deployment and sign the transaction.
+在选择测试网环境时，SmartX提供了默认的账户，用来支付部署合约的费用和对交易签名。
 
-SmartX deploys the contract for us by clicking the "Deploy" button.
+通过简单的点击“部署”按钮，SmartX就为我们部署好了合约。
