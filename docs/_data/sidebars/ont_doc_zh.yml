@@ -177,7 +177,7 @@ entries:
       url: /smart_contract_tutorial_smartx_zh.html
       output: web, pdf
 
-    - title: "Hello World"合约
+    - title: Hello World 合约
       url: /smart_contract_tutorial_helloworld_zh.html
       output: web, pdf
 
