@@ -194,6 +194,7 @@ Run `./ontology --help` for details.
   ./ontology asset transfer --amount=500 --from  AYiToLDT2yZuNs3PZieXcdTpyC5VWQmfaN  --to AeoBhZtS8AmGp3Zt4LxvCqhdU4eSGiK44M
 ```
 If transfer asset successd, the result will show as follow:
+
 ```
 Transfer ONT
   From:AYiToLDT2yZuNs3PZieXcdTpyC5VWQmfaN

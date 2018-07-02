@@ -174,6 +174,7 @@ ontology的运行支持以下3钟方式
   ./ontology asset transfer --amount=500 --from  AYiToLDT2yZuNs3PZieXcdTpyC5VWQmfaN  --to AeoBhZtS8AmGp3Zt4LxvCqhdU4eSGiK44M
 ```
 如果成功调用会返回如下event:
+
 ```
 Transfer ONT
   From:AYiToLDT2yZuNs3PZieXcdTpyC5VWQmfaN
