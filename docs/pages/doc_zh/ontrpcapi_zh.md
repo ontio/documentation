@@ -9,102 +9,106 @@ folder: doc_zh
 [English](./ontrpcapi_en.html) / 中文
 
 <h1 align="center">Ontology Rpc API </h1>
-<p align="center" class="version">版本 0.9.0 </p>
+<p align="center" class="version">版本 1.0.0 </p>
 
-* [Introduction](#introduction)
-* [Rpc Api List](#rpc-api-list)
-* [Error Code](#error-code)
+* [介绍](#介绍)
+* [RPC接口列表](#rpc接口列表)
+* [错误代码](#错误代码)
 
-## Introduction
+## 介绍
 
-Request parameter description:
+本文档是Ontology的RPC接口文档，详细定义了每种接口的参数与返回值。
 
-| Field | Type | Description |
+以下是一些接口中用到的字段的定义：
+
+#### 请求参数定义:
+
+| 字段 | 类型 | 定义 |
 | :---| :---| :---|
-| jsonrpc | string | jsonrpc version |
-| method | string | method name |
-| params | string | method required parameters |
-| id | int | any value |
+| jsonrpc | string | jsonrpc版本号 |
+| method | string | 方法名 |
+| params | string | 方法要求的参数 |
+| id | int | 任意值 |
 
-Response parameter description:
+#### 相应参数定义:
 
-| Field | Type | Description |
+| 字段 | 类型 | 定义 |
 | :---| :---| :---|
-| desc| string | resopnse description |
-| error | int64 | error code |
-| jsonrpc | string | jsonrpc version |
-| id | int | any value |
-| result | object | program execution result |
+| desc| string | 请求结果描述 |
+| error | int64 | 错误代码 |
+| jsonrpc | string | jsonrpc版本号 |
+| id | int | 任意值 |
+| result | object | RPC执行结果 |
 
-Note: The type of result varies with the request.
+>注意: 不同的请求类型会返回不同类型的Result。
 
-Block field description
+#### 区块字段定义：
 
-| Field | Type | Description |
+| 字段 | 类型 | 定义 |
 | :--- | :--- | :--- |
 | Header | *Header |  |
 | Transactions | []*Transaction ||
 | hash | *Uint256 | |
 
-Header field description
+#### 区块头字段定义
 
-| Field | Type | Description |
+| 字段 | 类型 | 定义 |
 | :--- | :--- | :--- |
-| Version | uint32 | version number |
-| PrevBlockHash | Uint256 | The hash of the previous block |
-| TransactionsRoot | Uint256 | The root of the Merkle tree for all transactions in this block |
-| BlockRoot | Uint256 | blockroot |
-| Timestamp | int | block timestamp,uinix timestamp |
-| Height | int | block height |
+| Version | uint32 | 版本号 |
+| PrevBlockHash | Uint256 | 前一个区块的哈希 |
+| TransactionsRoot | Uint256 | 该区块中所有交易的Merkle树树根 |
+| BlockRoot | Uint256 | 区块根 |
+| Timestamp | int | 区块时间戳，unix时间格式 |
+| Height | int | 区块高度 |
 | ConsensusData | uint64 |  |
-| NextBookkeeper | Address | Accounting contract hash value for the next block |
+| NextBookkeeper | Address | 下一个记账人的地址 |
 | Bookkeepers | []*crypto.PubKey ||
 | SigData | [][]byte ||
-| Hash | Uint256 | Script to verify the block |
+| Hash | Uint256 | 区块哈希 |
 
-Transaction field description
+#### 交易字段定义
 
-| Field | Type | Description |
+| 字段 | 类型 | 定义 |
 | :--- | :--- | :--- |
-| Version| byte | version number |
-| TxType | TransactionType | transaction type |
-| Payload | Payload | payload |
-| Nonce | uint32 | random number |
+| Version| byte | 版本号 |
+| TxType | TransactionType | 交易类型 |
+| Payload | Payload | 载荷，具体执行的交易数据 |
+| Nonce | uint32 | 随机值，可以设置为时间戳 |
 | Attributes | []*TxAttribute |  |
-| Fee | []*Fee | transaction fees  |
-| NetworkFee | Fixed64 | neitwork fees |
-| Sigs | []*Sig | signature array |
-| Hash | *Uint256 | transaction hash |
+| Fee | []*Fee | 交易费用  |
+| NetworkFee | Fixed64 | 网络费用 |
+| Sigs | []*Sig | 签名数据 |
+| Hash | *Uint256 | 交易哈希 |
 
-## Rpc Api List
+## RPC接口列表
 
 | Method | Parameters | Description | Note |
 | :---| :---| :---| :---|
-| getbestblockhash |  | get the hash of the highest height block in the main chain |  |
-| getblock | height or blockhash,[verbose] | get block by block height or block hash | verbose can be 0 or 1,response is different |
-| getblockcount |  | get the number of blocks |  |
-| getblockhash | height | get block hash by block height |  |
-| getconnectioncount|  | get the current number of connections for the node |  |
-| getgenerateblocktime|  | The time required to create a new block |  |
-| getrawtransaction | transactionhash | Returns the corresponding transaction information based on the specified hash value. |  |
-| sendrawtransaction | hex,preExec | Broadcast transaction. | Serialized signed transactions constructed in the program into hexadecimal strings |
-| getstorage | script_hash | Returns the stored value according to the contract script hashes and stored key. |  |
-| getversion |  | Get the version information of the node |  |
-| getcontractstate | script_hash,[verbose] | According to the contract script hash, query the contract information. |  |
-| getmempooltxcount |         | Query the transaction count in the memory pool. |  |
-| getmempooltxstate | tx_hash | Query the transaction state in the memory pool. |  |
-| getsmartcodeevent |  | Get smartcode event |  |
-| getblockheightbytxhash | tx_hash | get blockheight of txhash|  |
-| getbalance | address | return balance of base58 account address. |  |
-| getmerkleproof | tx_hash | return merkle_proof |  |
-| getgasprice |  | return gasprice |  |
-| getallowance | asset, from, to | return allowance |  |
-| getunboundong | address | return getunboundong |  |
-| getblocktxsbyheight | height | return tx hashes |  |
+| [getbestblockhash](#1-getbestblockhash) |  | 得到主链上的最高区块的哈希 |  |
+| [getblock](#2-getblock) | height or blockhash,[verbose] | 通过区块哈希或高度得到区块 | verbose为可选参数，默认值为0，可选值为1 |
+| [getblockcount](#3-getblockcount) |  | 得到区块的数量 |  |
+| [getblockhash](#4-getblockhash) | height | 得到对应高度的区块的哈希 |  |
+| [getconnectioncount](#5-getconnectioncount)|  | 得到当前网络上连接的节点数 |  |
+| [getgenerateblocktime](#6-getgenerateblocktime)|  | 每个区块的生成时间间隔|  |
+| [getrawtransaction](#7-getrawtransaction) | transactionhash | 通过交易哈希得到交易详情 |  |
+| [sendrawtransaction](#8-sendrawtransaction) | hex,preExec | 向网络中发送交易 | 发送的数据为签过名的交易序列化后的十六进制字符串 |
+| [getstorage](#9-getstorage) | script_hash, key |根据合约地址和存储的键，得到对应的值 |  |
+| [getversion](#10-getversion) |  | 得到运行的ontology版本 |  |
+| [getcontractstate](#11-getcontractstate) | script_hash,[verbose] | 根据合约地址，得到合约信息 |  |
+| [getmempooltxcount](#12-getmempooltxcount) |         | 查询内存中的交易的数量 |  |
+| [getmempooltxstate](#13-getmempooltxstate) | tx_hash | 查询内存中的交易的状态 |  |
+| [getsmartcodeevent](#14-getsmartcodeevent) |  | 得到智能合约执行的结果 |  |
+| [getblockheightbytxhash](#15-getblockheightbytxhash) | tx_hash | 得到该交易哈希所落账的区块的高度 |  |
+| [getbalance](#16-getbalance) | address | 返回base58地址的余额 |  |
+| [getmerkleproof](#17-getmerkleproof) | tx_hash | 返回merkle证明 |  |
+| [getgasprice](#18-getgasprice) |  | 返回gas的价格 |  |
+| [getallowance](#19-getallowance) | asset, from, to | 返回允许从from转出到to账户的额度 |  |
+| [getunboundong](#20-getunboundong) | address | 返回该账户未提取的ong |  |
+| [getblocktxsbyheight](#21-getblocktxsbyheight) | height | 返回该高度对应的区块落账的交易的哈希 |  |
 
 ### 1. getbestblockhash
 
-Get the hash of the highest height block in the main chain.
+得到主链上的最高区块的哈希。
 
 #### Example
 
@@ -131,20 +135,15 @@ Response:
 }
 ```
 
-Response instruction:
-
-Result: The hash of the highest block height in the main chain.
-
 ### 2. getblock
 
-Get the block information by block hash or height.
+通过区块哈希或高度得到区块。
 
-#### Parameter instruction
+#### 参数定义
+Hash/height: 区块哈希/高度
 
-| Parameter | Type | Optional/required | Description |
-| :--- | :--- | :--- | :--- |
-| Hash/height | String/long | Required | Block hash/height |
-| Verbose | int | Optional | Optional parameter, the default value of verbose is 0. When verbose is 0, it returns the block serialized information, which is represented by a hexadecimal string. To get detailed information from it, you need to call the SDK to deserialize. When verbose is 1, the detailed information of the corresponding block is returned, which is represented by a JSON format string. |
+Verbose: 可选参数，默认值为零，不设置时为默认值。当值为0时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用
+SDK中的方法对该字符串进行反序列化。当值为1时，将以json格式返回对应区块的详细信息。
 
 #### Example
 
@@ -240,7 +239,7 @@ Response when verbose = 1:
 
 ### 3. getblockcount
 
-Get the number of blocks in the main chain.
+得到主链上的区块总量。
 
 #### Example
 
@@ -267,17 +266,15 @@ Response:
 }
 ```
 
-Response instruction:
-
-Result: the height of the main chain.
+>Result: 主链高度。
 
 #### 4. getblockhash
 
-Returns the hash value of the corresponding block according to the specified index.
+返回对应高度的区块哈希。
 
-#### Parameter instruction
+#### 参数定义
 
-Index: block index.
+Index: 区块高度
 
 #### Example
 
@@ -306,7 +303,7 @@ Reponse:
 
 #### 5. getconnectioncount
 
-Get the current number of connections for the node.
+得到当前网络上连接的节点数。
 
 #### Example
 
@@ -335,7 +332,7 @@ Response:
 
 #### 6. getgenerateblocktime
 
-The time required to create a new block
+得到区块生成时间。
 
 #### Example
 
@@ -364,15 +361,18 @@ Reponse:
 
 #### 7. getrawtransaction
 
-Returns the corresponding transaction information based on the specified hash value.
+通过交易哈希得到交易详情。
 
-#### Parameter instruction
+#### 参数定义
 
-txid: transaction ID
+txid: 交易哈希
 
-Verbose: Optional parameter, the default value of verbose is 0, when verbose is 0, it returns the transaction serialized information, which is represented by a hexadecimal string. To get detailed information from it, you need to call the SDK to deserialize. When verbose is 1, the detailed information of the corresponding transaction is returned, which is represented by a JSON format string.
+Verbose: 可选参数，默认值为零，不设置时为默认值。当值为0时，接口返回交易序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用
+SDK中的方法对该字符串进行反序列化。当值为1时，将以json格式返回对应交易的详细信息。
 
 #### Example
+
+When verbose is nil or verbose = 0:
 
 Request:
 
@@ -398,7 +398,19 @@ Response:
 
 ```
 
-or
+When verbose = 1:
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getrawtransaction",
+  "params": ["f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657", 1],
+  "id": 1
+}
+```
+Response:
 
 ```
 {
@@ -448,96 +460,62 @@ or
 
 #### 8. sendrawtransaction
 
-send transaction.
+发送交易。
 
-#### Parameter instruction
+#### 参数定义
 
-Hex: Serialized signed transactions constructed in the program into hexadecimal strings.Building the parameter,please refer to TestInvokefunction in ontology/http/func_test.go.
-PreExec : set 1 if want prepare exec smartcontract
+Hex: 签名后的交易序列化成的十六进数据。可以参考ontology-go-sdk/rpc.go中的NewNativeInvokeTransaction方法生成。
 
-How to build the parameter?
+PreExec : 值设置为1则表示此交易为预执行。
 
-Take the "AddAttribute" in the IdContract contract as an example
-
-1. build parameter
+如何生成交易参数（Hex）？
 
 ```
-acct := account.Open(account.WALLET_FILENAME, []byte("passwordtest"))
-acc, err := acct.GetDefaultAccount()
-pubkey := keypair.SerializePublicKey(acc.PubKey())
-funcName := "AddAttribute"
-paras := []interface{}{[]byte("did:ont:" + acc.Address.ToBase58()),[]byte("key1"),[]byte("bytes"),[]byte("value1"),pubkey}
-builder := neovm.NewParamsBuilder(new(bytes.Buffer))
-err = BuildSmartContractParamInter(builder, []interface{}{funcName, params})
-codeParams := builder.ToArray()
-op_verify,_ := common.HexToBytes("69")
-codeaddress,_ := common.HexToBytes("8055b362904715fd84536e754868f4c8d27ca3f6")
-codeParams = BytesCombine(codeParams,op_verify)
-codeParams = BytesCombine(codeParams,codeaddress)
+    // 得到SDK的实例
+    sdk := goSdk.NewOntologySdk()
+    rpcClient := sdk.Rpc
+    // 生成native合约调用交易; 如果想调用NEO VM合约，可以使用NewNeoVMSInvokeTransaction方法
+    // cversion 为合约的版本, method 是要调用的合约方法名, params 是该方法需要的参数
+    // 例如：
+    // NewNativeInvokeTransaction(0, 200000, byte(0),utils.ParamContractAddress,
+    //      "getGlobalParam", []interface{}{global_params.ParamNameList{"gasPrice"}})
+    tx, err := rpcClient.NewNativeInvokeTransaction(gasPrice, gasLimit, cversion, contractAddress, method, params)
+    if err != nil {
+    	return common.UINT256_EMPTY, err
+    }
+    // 对交易签名，signer为交易的发送者
+    err = rpcClient.SignToTransaction(tx, signer)
+    if err != nil {
+        return common.UINT256_EMPTY, err
+    }
 
-func BytesCombine(pBytes ...[]byte) []byte {
-	len := len(pBytes)
-	s := make([][]byte, len)
-	for index := 0; index < len; index++ {
-		s[index] = pBytes[index]
-	}
-	sep := []byte("")
-	return bytes.Join(s, sep)
-}
-```
-funcName:the smartcontract function name to be called, params: contract function required parameters, codeAddress: smartcontract address
-
-2. build transaction
-```
-tx := utils.NewInvokeTransaction(vmtypes.VmCode{
-		VmType: vmtypes.NEOVM,
-		Code:   codeParams,
-	})
-	tx.Nonce = uint32(time.Now().Unix())
+    txbf := new(bytes.Buffer)
+    err = tx.Serialize(txbf);
+    hexCode = common.ToHexString(txbf.Bytes())
 ```
 
-3. sign transaction
-
-```
-hash := tx.Hash()
-sign, _ := signature.Sign(acc.PrivateKey, hash[:])
-tx.Sigs = append(tx.Sigs, &ctypes.Sig{
-    PubKeys: []keypair.PublicKey{acc.PublicKey},
-    M:       1,
-    SigData: [][]byte{sign},
-})
-```
-
-4. Convert transactions to hexadecimal strings
-```
-txbf := new(bytes.Buffer)
-err = tx.Serialize(txbf);
-common.ToHexString(txbf.Bytes())
-```
-
-Related struct
+相关的结构体
 ```
 type Transaction struct {
-	Version    byte
-	TxType     TransactionType
-	Nonce      uint32
-	Payload    Payload
-	Attributes []*TxAttribute
-	Fee        []*Fee
-	NetWorkFee common.Fixed64
+	Version  byte
+	TxType   TransactionType
+	Nonce    uint32
+	GasPrice uint64
+	GasLimit uint64
+	Payer    common.Address
+	Payload  Payload
+	attributes byte
 	Sigs       []*Sig
 
 	hash *common.Uint256
 }
 
 type Sig struct {
-	PubKeys []keypair.PublicKey
-	M       uint8
 	SigData [][]byte
+	PubKeys []keypair.PublicKey
+	M       uint16
 }
 ```
-
-
 
 #### Example
 
@@ -564,17 +542,23 @@ Reponse
 }
 ```
 
-> Note:result is txhash
+> 注意：返回的结果是交易哈希
 
 #### 9. getstorage
 
-Returns the stored value according to the contract script hashes and stored key.
+根据合约地址和存储的键，得到对应的值。
 
-#### Parameter instruction
+#### 参数定义
 
-script\_hash: Contract script hash.
+script\_hash: 合约地址哈希，通过以下方法生成：
 
-Key: stored key \(required to be converted into hex string\)
+```
+	addr := types.AddressFromVmCode([]byte{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04})
+	fmt.Println(addr.ToHexString())
+```
+
+Key: 存储的条目的键，要求转化成十六进制字符串
 
 #### Example
 
@@ -600,11 +584,11 @@ Response:
     "result": "4c696e"
 }
 ```
-> result: Hexadecimal string
+> 返回结果为十六进制字符串
 
 #### 10. getversion
 
-Get the version information of the node.
+得到运行的ontology版本。
 
 #### Example
 
@@ -627,23 +611,136 @@ Response:
   "error":0,
   "jsonrpc": "2.0",
   "id": 3,
-  "result": {
-      "port": 0,
-      "nonce": 156443862,
-      "useragent": "/ONT:1.0.0/"
-  }
+  "result": "v0.9.2-1-g231e"
 }
 ```
 
-#### 11. getsmartcodeevent
+#### 11. getcontractstate
 
-Get smartcode event.
+根据合约地址，得到对应的合约信息。
 
-#### Parameter instruction
+#### 参数定义
 
-blockheight: getsmartcodeevent by blockheight
-or
-txHash: getsmartcodeevent by txhash
+script\_hash: 合约地址哈希。
+
+verbose: 可选参数，默认值为零，不设置时为默认值。当值为0时，接口返回合约序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用
+SDK中的方法对该字符串进行反序列化。当值为1时，将以json格式返回对应合约的详细信息。
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getcontractstate",
+  "params": ["fff49c809d302a2956e9dc0012619a452d4b846c",1],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+    "desc": "SUCCESS",
+    "error": 0,
+    "id": 1,
+    "jsonrpc": "2.0",
+    "result": {
+        "VmType": 255,
+        "Code": "4f4e5420546f6b656e",
+        "NeedStorage": true,
+        "Name": "ONT",
+        "CodeVersion": "1.0",
+        "Author": "Ontology Team",
+        "Email": "contact@ont.io",
+        "Description": "Ontology Network ONT Token"
+    }
+}
+```
+
+#### 12. getmempooltxcount
+
+查询内存中的交易的数量。
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getmempooltxcount",
+  "params": [],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+    "desc":"SUCCESS",
+    "error":0,
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": [100,50]
+}
+```
+
+#### 13. getmempooltxstate
+
+查询内存中的交易的状态
+
+#### 参数定义
+
+tx\_hash: 交易哈希。
+
+#### Example
+
+Request:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "getmempooltxstate",
+  "params": ["773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e"],
+  "id": 1
+}
+```
+
+Response:
+
+```
+{
+    "desc":"SUCCESS",
+    "error":0,
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+              	"State": [{
+              		"Type": 1,
+              		"Height": 342,
+              		"ErrCode": 0
+              	}, {
+              		"Type": 0,
+              		"Height": 0,
+              		"ErrCode": 0
+              	}]
+    }
+}
+```
+
+#### 14. getsmartcodeevent
+
+得到智能合约执行的结果。
+
+#### 参数定义
+
+blockheight: 区块高度
+或者
+txHash: 交易哈希
 
 #### Example
 
@@ -737,129 +834,16 @@ or
 }
 ```
 
-> Note: If params is a number, the response result will be the txhash list. If params is txhash, the response result will be smartcode event.
-
-
-#### 12. getcontractstate
-
-According to the contract script hash, query the contract information.
-
-#### Parameter instruction
-
-script\_hash: Contract script hash.
-verbose: Optional parameter, the default value of verbose is 0, when verbose is 0, it returns the contract serialized information, which is represented by a hexadecimal string. To get detailed information from it, you need to call the SDK to deserialize. When verbose is 1, the detailed information of the corresponding contract is returned, which is represented by a JSON format string.
-
-#### Example
-
-Request:
-
-```
-{
-  "jsonrpc": "2.0",
-  "method": "getcontractstate",
-  "params": ["fff49c809d302a2956e9dc0012619a452d4b846c",1],
-  "id": 1
-}
-```
-
-Response:
-
-```
-{
-    "desc": "SUCCESS",
-    "error": 0,
-    "id": 1,
-    "jsonrpc": "2.0",
-    "result": {
-        "VmType": 255,
-        "Code": "4f4e5420546f6b656e",
-        "NeedStorage": true,
-        "Name": "ONT",
-        "CodeVersion": "1.0",
-        "Author": "Ontology Team",
-        "Email": "contact@ont.io",
-        "Description": "Ontology Network ONT Token"
-    }
-}
-```
-
-#### 13. getmempooltxstate
-
-Query the transaction state in the memory pool.
-
-#### Parameter instruction
-
-tx\_hash: transaction hash.
-
-#### Example
-
-Request:
-
-```
-{
-  "jsonrpc": "2.0",
-  "method": "getmempooltxstate",
-  "params": ["773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e"],
-  "id": 1
-}
-```
-
-Response:
-
-```
-{
-    "desc":"SUCCESS",
-    "error":0,
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-              	"State": [{
-              		"Type": 1,
-              		"Height": 342,
-              		"ErrCode": 0
-              	}, {
-              		"Type": 0,
-              		"Height": 0,
-              		"ErrCode": 0
-              	}]
-    }
-}
-```
-
-#### 14. getmempooltxcount
-
-Query the transaction count in the memory pool.
-
-#### Example
-
-Request:
-
-```
-{
-  "jsonrpc": "2.0",
-  "method": "getmempooltxcount",
-  "params": [],
-  "id": 1
-}
-```
-
-Response:
-
-```
-{
-    "desc":"SUCCESS",
-    "error":0,
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": [100,50]
-}
-```
-
+> 注意： 如果参数是区块高度，则返回执行结果的集合；如果是交易哈希，则返回该交易对应的结果。
 
 #### 15. getblockheightbytxhash
-get blockheight by txhash
-#### Parameter instruction
-txhash: transaction hash
+
+得到该交易哈希所落账的区块的高度。
+
+#### 参数定义
+
+txhash: 交易哈希
+
 #### Example
 
 Request:
@@ -886,11 +870,11 @@ Response:
 
 #### 16. getbalance
 
-return balance of base58 account address.
+返回base58地址的余额
 
-#### Parameter instruction
+#### 参数定义
 
-address: Base58-encoded form of account address
+address: base58地址
 
 #### Example
 
@@ -923,11 +907,11 @@ Response:
 
 #### 17. getmerkleproof
 
-return merkle proof
+返回对应交易的merkle证明
 
-#### Parameter instruction
+#### 参数定义
 
-hash: transaction hash
+hash: 交易哈希
 
 #### Example
 
@@ -977,7 +961,7 @@ Response:
 
 #### 18. getgasprice
 
-return gasprice.
+返回gas价格
 
 
 #### Example
@@ -1010,8 +994,15 @@ Response:
 
 #### 19. getallowance
 
-return allowance.
+返回允许从from转出到to账户的额度
 
+#### 参数定义
+
+asset: "ont"或者"ong"
+
+from: 转出账户base58地址
+
+to: 转入账户base58地址
 
 #### Example
 
@@ -1040,8 +1031,11 @@ Response:
 
 #### 20. getunboundong
 
-return unboundong.
+返回可以提取的ong。
 
+#### 参数定义
+
+address：提取ong的账户地址
 
 #### Example
 
@@ -1070,8 +1064,11 @@ Response:
 
 #### 21 getblocktxsbyheight
 
-Get transactions by block height
-return all transaction hash contained in the block corresponding to this height
+返回该高度对应的区块落账的所有交易的哈希
+
+#### 参数定义
+
+height： 区块高度
 
 #### Example
 
@@ -1104,24 +1101,24 @@ Response:
 }
 ```
 
-## Error Code
+## 错误代码
 
-errorcode instruction
+错误码定义
 
-| Field | Type | Description |
+| 字段 | 类型 | 定义 |
 | :--- | :--- | :--- |
-| 0 | int64 | SUCCESS |
-| 41001 | int64 | SESSION\_EXPIRED: invalided or expired session |
-| 41002 | int64 | SERVICE\_CEILING: reach service limit |
-| 41003 | int64 | ILLEGAL\_DATAFORMAT: illegal dataformat |
-| 41004 | int64 | INVALID\_VERSION: invalid version |
-| 42001 | int64 | INVALID\_METHOD: invalid method |
-| 42002 | int64 | INVALID\_PARAMS: invalid params |
-| 43001 | int64 | INVALID\_TRANSACTION: invalid transaction |
-| 43002 | int64 | INVALID\_ASSET: invalid asset |
-| 43003 | int64 | INVALID\_BLOCK: invalid block |
-| 44001 | int64 | UNKNOWN\_TRANSACTION: unknown transaction |
-| 44002 | int64 | UNKNOWN\_ASSET: unknown asset |
-| 44003 | int64 | UNKNOWN\_BLOCK: unknown block |
-| 45001 | int64 | INTERNAL\_ERROR: internel error |
-| 47001 | int64 | SMARTCODE\_ERROR: smartcode error |
+| 0 | int64 | 成功 |
+| 41001 | int64 | SESSION\_EXPIRED: 无效或超时的会话 |
+| 41002 | int64 | SERVICE\_CEILING: 达到服务上限 |
+| 41003 | int64 | ILLEGAL\_DATAFORMAT: 不合法的数据格式 |
+| 41004 | int64 | INVALID\_VERSION: 无效的版本号 |
+| 42001 | int64 | INVALID\_METHOD: 无效的方法 |
+| 42002 | int64 | INVALID\_PARAMS: 无效的参数 |
+| 43001 | int64 | INVALID\_TRANSACTION: 无效的交易 |
+| 43002 | int64 | INVALID\_ASSET: 无效的资源 |
+| 43003 | int64 | INVALID\_BLOCK: 无效的区块 |
+| 44001 | int64 | UNKNOWN\_TRANSACTION: 未知的交易 |
+| 44002 | int64 | UNKNOWN\_ASSET: 未知的资源 |
+| 44003 | int64 | UNKNOWN\_BLOCK: 未知的区块 |
+| 45001 | int64 | INTERNAL\_ERROR: 内部错误 |
+| 47001 | int64 | SMARTCODE\_ERROR: 智能合约执行错误 |

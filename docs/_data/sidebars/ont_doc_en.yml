@@ -77,6 +77,10 @@ entries:
       url: /vbft_intro_en.html
       output: web, pdf
 
+    - title: Signature Server Tutorials
+      url: /sigsvr_en.html
+      output: web, pdf
+
   - title: Ontology DID
     output: web, pdf
     folderitems:
@@ -165,12 +169,28 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: Overview
-      url: /smart_contract_tutorial_overview_en.html
+    - title: Introduction
+      url: /smart_contract_tutorial_introduction_en.html
       output: web, pdf
 
     - title: Introduction of WASM-VM
       url: /smart_contract_tutorial_wasm_en.html
+      output: web, pdf
+
+    - title: SmartX Tutorial
+      url: /smart_contract_tutorial_smartx_en.html
+      output: web, pdf
+
+    - title: Hello world
+      url: /smart_contract_tutorial_helloworld_en.html
+      output: web, pdf
+
+    - title: Smart Contract Deployment
+      url: /smart_contract_tutorial_deployment_en.html
+      output: web, pdf
+
+    - title: Smart Contract Invocation
+      url: /smart_contract_tutorial_invocation_en.html
       output: web, pdf
 
     - title: Smart contract tutorial

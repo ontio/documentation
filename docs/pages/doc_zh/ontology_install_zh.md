@@ -8,7 +8,7 @@ folder: doc_zh
 [English](./ontology_install_en.html) / 中文
 
 <h1 align="center">安装 </h1>
-<p align="center" class="version">版本 0.7.0 </p>
+<p align="center" class="version">版本 1.0.0 </p>
 
 ## 构建开发环境
 成功编译ontology需要以下准备：
