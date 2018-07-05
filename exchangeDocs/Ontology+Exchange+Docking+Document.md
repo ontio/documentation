@@ -883,16 +883,13 @@ ontSdk.nativevm().ong().makeTransfer...
 
 ```
 //Query non-withdrawal ONG
-String claimer = acct0.getAddressU160().toBase58();
-sdk.nativevm().ong().unclaimOng(claimer);
+String addr = acct0.getAddressU160().toBase58();
+String ong = sdk.nativevm().ong().unboundOng(addr);
 
 //Claim ong，withdraw ONG
-com.github.ontio.account.Account acct0 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey0), ontSdk.signatureScheme);
+com.github.ontio.account.Account account = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey0), ontSdk.signatureScheme);
+String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,30000,500);
 
-Transaction tx = sdk.nativevm().ong().makeClaimOng(claimer,claimer,10,claimer,30000,0);
-sdk.signTx(tx, new com.github.ontio.account.Account[][]{{acct0}});
-
-ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 ```
 
 | Method Name       | Parameter                                                         | Parameter Description                                                      |
