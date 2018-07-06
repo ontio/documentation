@@ -979,3 +979,16 @@ Use Java SDK to withdraw ONG，please refer to[Java SDK:ONG transfer](https://gi
 ## 6. Signature service
 
 [Ontology Signature Server Tutorials](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr.md)
+
+## Native contract address
+Name | Address(Hex) | Address(Base58)
+---|---|---
+ONT Token | 0000000000000000000000000000000000000001| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
+ONG Token | 0000000000000000000000000000000000000002 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
+ONT ID | 0000000000000000000000000000000000000003 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
+Global Params | 0000000000000000000000000000000000000004 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
+Oracle | 0000000000000000000000000000000000000005 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
+Authorization Manager(Auth) | 0000000000000000000000000000000000000006 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
+Governance | 0000000000000000000000000000000000000007 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
+DDXF(Decentralized Exchange) | 0000000000000000000000000000000000000008 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
+
