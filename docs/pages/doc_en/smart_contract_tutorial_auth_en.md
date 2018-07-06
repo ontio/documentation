@@ -24,6 +24,7 @@ At present, smart contracts can be called on by anyone, but this does not confor
 If a smart contract needs to add an authority management function, then information such as roles allocated in the contract, roles callable function, and which entity does the role belong to and etc. must be recorded. This can be a very elaborate process and can be managed by a system contract. 
 
 For further details, please refer to:
+
 https://github.com/ontio/ontology-smartcontract/blob/master/smartcontract/native/auth/auth.md
 
 * Authority Contract Management
