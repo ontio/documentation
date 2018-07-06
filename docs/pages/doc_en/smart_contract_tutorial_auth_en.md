@@ -14,10 +14,9 @@ English / [中文](./smart_contract_tutorial_auth_zh.html)
 
 # Authority Management
 
-- [Authority Management](#authority-management)
-    - [Authority Contract Management](#authority-contract-management)
-        - [Usage Examples](#usage-examples)
-        - [Interface List](#interface-list)
+- [Authority Contract Management](#authority-contract-management)
+    - [Usage Examples](#usage-examples)
+    - [Interface List](#interface-list)
 
 At present, smart contracts can be called on by anyone, but this does not conform to the real requirements. The basic idea of the role-based authority management is that each role can call on certain functions and each entity can be given multiple roles (entities are identified by ONT ID).
 
