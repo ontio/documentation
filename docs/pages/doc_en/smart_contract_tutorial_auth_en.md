@@ -15,8 +15,8 @@ English / [中文](./smart_contract_tutorial_auth_zh.html)
 # Authority Management
 
 - [Authority Contract Management](#authority-contract-management)
-    - [Usage Examples](#usage-examples)
-    - [Interface List](#interface-list)
+- [Usage Examples](#usage-examples)
+- [Interface List](#interface-list)
 
 At present, smart contracts can be called on by anyone, but this does not conform to the real requirements. The basic idea of the role-based authority management is that each role can call on certain functions and each entity can be given multiple roles (entities are identified by ONT ID).
 
@@ -30,7 +30,7 @@ https://github.com/ontio/ontology-smartcontract/blob/master/smartcontract/native
 * Usage Examples
 * Interface List
  
-## Authority Contract Management
+### Authority Contract Management
 
 `Auth` contract is responsible for managing authority of an application contract. Contract administrator can transfer the authority, allocate functions for roles, revoke contract calling privileges, and can verify the validity of the contract call token through entity validation.
 
