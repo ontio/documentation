@@ -1018,4 +1018,7 @@ Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVr
 Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
 DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
 
+## 附2 FAQ
+[FAQ](https://github.com/ontio/documentation/blob/master/exchangeDocs/ONT%20%E4%BA%A4%E6%98%93%E6%89%80%E5%AF%B9%E6%8E%A5FAQ.md)
+
 
