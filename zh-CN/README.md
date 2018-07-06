@@ -19,7 +19,7 @@
 - [本体 WASM](#Ontology-wsam) :hatching_chick:
 - [本体 Crypto](#Ontology-crypto) :hatching_chick:
 - [本体 Eventbus](#Ontology-eventbus) :hatching_chick:
-- [本体 RPC and Restful](#Ontology-rpc-and-restful) :hatching_chick:
+- [本体 RPC、Restful and WebSocket](#Ontology-rpc-restful-and-websocket) :hatching_chick:
 - [本体预言机](#Ontology-oracle) :hatching_chick:
 - [本体 FPGA](#Ontology-fpga) :egg:
 
@@ -61,9 +61,9 @@
 > 本体 eventbus是基于actor模型的消息中间件，提供高性能的模块间或节点间通信功能。
 - [本体 Eventbus](https://github.com/ontio/ontology-eventbus) - 主仓库
 
-### <a name="Ontology-rpc-and-restful"></a>本体 RPC and Restful <sup>[top⇈](#本体基础架构体系)</sup>
-> 本体 Rpc Api 和本体 Restful API。
-- [本体 RPC and Restful](https://github.com/ontio/documentation/tree/master/ontology-API) - 主仓库
+### <a name="Ontology-rpc-restful-and-websocket"></a>本体 RPC Restful and WebSocket <sup>[top⇈](#本体基础架构体系)</sup>
+> 本体 Rpc Api、 Restful API 和 WebSocket API。
+- [本体 RPC、Restful和WebSocket](https://github.com/ontio/documentation/tree/master/ontology-API) - 主仓库
 
 ### <a name="Ontology-oracle"></a>本体预言机 <sup>[top⇈](#本体基础架构体系)</sup>
 > 预言机是现实世界与区块链数据交互的入口。
