@@ -19,8 +19,6 @@ The outline of this document is as follows:
 	* [3. Process Asset Transactions](#3-process-asset-transactions)
 		* [Transaction docking program the exchange needs to develop](#transaction-docking-program-the-exchange-needs-to-develop)
 		* [User deposit](#user-deposit)
-		* [Deposit record](#deposit-record)
-		* [Process user withdrawal request](#process-user-withdrawal-request)
 	* [4. Java SDK Tutorials](#4-java-sdk-tutorials)
 		* [Account management](#account-management)
 			* [Do not use wallet management](#do-not-use-wallet-management)
@@ -31,10 +29,10 @@ The outline of this document is as follows:
 		* [ONT and ONG transfer](#ont-and-ong-transfer)
 			* [1. Initialization](#1-initialization)
 			* [2. Query](#2-query)
-				* [Query ONT, ONG Balance](#query-ont,-ong-balance)
+				* [Query ONT, ONG Balance](#query-ont-ong-balance)
 				* [Query whether the transaction is in the transaction pool](#query-whether-the-transaction-is-in-the-transaction-pool)
 				* [Query whether the transaction is successful](#query-whether-the-transaction-is-successful)
-			* [The list of chain interaction interface](#the-list-of-chain-interaction-interface)
+			* [The list of chain interaction interfaces](#the-list-of-chain-interaction-interfaces)
 			* [3. ONT transfer](#3-ont-transfer)
 				* [Construct transfer transaction and send](#construct-transfer-transaction-and-send)
 				* [Multiple signatures](#multiple-signatures)
@@ -46,10 +44,10 @@ The outline of this document is as follows:
 	* [5. Distribute ONG to Users](#5-distribute-ong-to-users)
 		* [What is ONG](#what-is-ong)
 		* [Calculate the amount of ONG that can withdraw](#calculate-the-amount-of-ong-that-can-withdraw)
-		* [Distribute ONG to users](#distribute-ONG-to-users)
+		* [Distribute ONG to users](#distribute-ong-to-users)
 		* [Users withdraw ONG](#users-withdraw-ong)
 	* [6. Signature service](#6-signature-service)
-
+	* [Native contract address](#native-contract-address)
 
 ## 1.Deploy Ontology Synchronization Node
 
@@ -358,14 +356,11 @@ Example:
          }
       ]
    }
-   ```
-
-
-   ```
+  
 
 3. Get all transaction information in the block according to Transaction Hash by CLI  ```./ontology info status```
 
-   ```
+```
 $ ./ontology info status bce10eb97c6cd122131e448ddf415bcd15aabbddd466e6850074c6c839a26596
 Transaction states:
 {
@@ -463,7 +458,7 @@ With regard to user withdrawal, the exchange needs to complete the following ope
 
    --amount   
    The amount parameter specifies the transfer amount. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
-   ​
+   
 
    Confirm the transaction result:
 
@@ -491,7 +486,7 @@ With regard to user withdrawal, the exchange needs to complete the following ope
     
      ```
     
-     ​
+     
 
    - Same as ”user deposit“, monitor transactions in new blocks and filter out successful transactions which are from exchange addresses to user's withdrawal addresses
 
@@ -991,4 +986,3 @@ Oracle | 0000000000000000000000000000000000000005 | AFmseVrdL9f9oyCzZefL9tG6Ubvh
 Authorization Manager(Auth) | 0000000000000000000000000000000000000006 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
 Governance | 0000000000000000000000000000000000000007 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
 DDXF(Decentralized Exchange) | 0000000000000000000000000000000000000008 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
-
