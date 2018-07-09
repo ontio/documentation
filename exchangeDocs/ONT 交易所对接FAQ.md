@@ -46,6 +46,11 @@ A:
 ## Q: ONT有区块链浏览器么
 A：[https://explorer.ont.io/](https://explorer.ont.io/)
 
+## Q: 什么是白名单启动方式
+A: 为了避免同步到一些被污染或恶意节点的区块，可以使用白名单启动方式直接同步官方的种子节点，启动方式：
+```./ontology --reservedfile=./peers.rsv --reservedonly```
+白名单文件peer.rsv另附
+
 
 
 
