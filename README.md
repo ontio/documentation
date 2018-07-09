@@ -19,7 +19,7 @@ English | [中文](/zh-CN/README.md)
 - [Ontology WASM](#Ontology-wsam) :hatching_chick:
 - [Ontology Crypto](#Ontology-crypto) :hatching_chick:
 - [Ontology Eventbus](#Ontology-eventbus) :hatching_chick:
-- [Ontology RPC and Restful](#Ontology-rpc-and-restful) :hatching_chick:
+- [Ontology RPC、Restful and WebSocket](#Ontology-rpc-restful-and-websocket) :hatching_chick:
 - [Ontology Oracle](#Ontology-oracle) :hatching_chick:
 - [Ontology FPGA](#Ontology-fpga) :egg:
 
@@ -62,9 +62,9 @@ English | [中文](/zh-CN/README.md)
 > ontology eventbus an actor model middle ware, providing high performance communication between modules or nodes.
 - [Ontology Eventbus](https://github.com/ontio/ontology-eventbus) - main repository
 
-### <a name="Ontology-rpc-and-restful"></a>Ontology RPC and Restful <sup>[top⇈](#ontology-infrastructure)</sup>
-> Ontology Rpc Api and Ontology Restful API.
-- [Ontology RPC and Restful](https://github.com/ontio/documentation/tree/master/ontology-API) - main repository
+### <a name="Ontology-rpc-restful-and-websocket"></a>Ontology RPC Restful and WebSocket <sup>[top⇈](#ontology-infrastructure)</sup>
+> Ontology Rpc Api、Restful API and WebSocket API.
+- [Ontology RPC、Restful和WebSocket](https://github.com/ontio/documentation/tree/master/ontology-API) - main repository
 
 ### <a name="Ontology-oracle"></a>Ontology Oracle <sup>[top⇈](#ontology-infrastructure)</sup>
 > An oracle is a mechanism that tells the blockchain facts about the real-world we live in.
