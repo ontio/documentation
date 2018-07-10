@@ -20,7 +20,7 @@ namespace Neo.SmartContract
         }
         public static void Hello(string msg)
         {
-            Runtime.Log(msg);
+            Runtime.Notify(msg);
         }
     }
 }
