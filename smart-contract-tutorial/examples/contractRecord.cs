@@ -41,14 +41,14 @@ namespace Ontology
         {
             Storage.Put(Storage.CurrentContext, key, value);
             PutEvent("Put", key, value);
-            Runtime.Log("Put");
+            Runtime.Notify("Put");
             return true;
         }
 
         public static byte[] Get(byte[] key)
         {
             GetEvent("Get", key);
-            Runtime.Log("Get");
+            Runtime.Notify("Get");
             return Storage.Get(Storage.CurrentContext, key);
         }
     }
