@@ -54,7 +54,7 @@ SDK已经封装了本体的标准化交易，我们推荐您使用SDK来和本�
 
 * [>> Go SDK](https://github.com/ontio/ontology-go-sdk)  
 
-另外可以参考我们的RPC和RESTFUL接口,包括以下:
+另外可以参考我们的RPC、RESTFUL和WebSocket接口,包括以下:
 * [>> RPC & RESTFUL](https://github.com/ontio/documentation/tree/master/ontology-API)
 
 
