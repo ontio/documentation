@@ -28,7 +28,6 @@ A wallet file in JSON format has the following basic structure:
   "extra": null
 }
 ```
-
 ```name``` is a label that the user has made to the wallet file.
 
 ```version``` is currently fixed at 1.0 and will be used for functional upgrades in the future.
@@ -51,49 +50,49 @@ Here is an example as below.
 
 ```
 {
-	"name": "mywallet",
+	"name": "mickey",
+	"defaultOntid": "",
+	"defaultAccountAddress": "",
+	"createTime": "2018-06-30T08:52:01.519Z",
 	"version": "1.0",
 	"scrypt": {
-		"n": 16384,
-		"p": 8,
+		"n": 4096,
 		"r": 8,
-		"dkLen" : 64
+		"p": 8,
+		"dkLen": 64
 	},
-	"defaultOntid": "did:ont:AMs5NFdXPgCgC7Dci1FdFttvD42HELoLxG",
-    "defaultAccountAddress": "AMs5NFdXPgCgC7Dci1FdFttvD42HELoLxG",
-    "createTime": "2018-03-14T03:12:30.862Z",
-    "identitys": [
-		{
-			"controls": [{
-				"algorithm": "ECDSA",
-				"id": "",
-				"key": "6PYT85poeK8XpuQhnroArEov64NfRsEeB4KiGD1YCoq5xU7sJrnXC92Vey", //加密后的私钥
-				"parameters": {
-				    "curve": "secp256r1"
-				}
-			}],
-			"label": "",
-			"lock": false,
-			"ontid": "did:ont:AMs5NFdXPgCgC7Dci1FdFttvD42HELoLxG"  //ontid,身份id
-		}
-	],
-	"accounts": [
-		{
-			"address": "AMs5NFdXPgCgC7Dci1FdFttvD42HELoLxG",
+	"identities": [{
+		"ontid": "did:ont:ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
+		"label": "mickey",
+		"lock": false,
+		"controls": [{
+			"id": "1",
 			"algorithm": "ECDSA",
-			"contract": {
-				"deployed": false,
-				"parameters": ["Signature"],
-				"script": "210392a4dbb2a44da81e0942cee1a62ff4298e04ed463b88911b97de19a1597fa83dac"
-			},
-			"key": "6PYT85poeK8XpuQhnroArEov64NfRsEeB4KiGD1YCoq5xU7sJrnXC92Vey", //加密后的私钥
-			"label": "",
-			"lock": false,
 			"parameters": {
-				 "curve": "secp256r1"
-			}
-		}
-	]
+				"curve": "P-256"
+			},
+			"key": "M+PnrYLVDrU0gkSzj0FAsvqCYv+HWEEUMDSyKSJACzJhZVglFU9tkfQKlLby5UCY",
+			"address": "ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
+			"salt": "wwa12j4K0SyDP23+UDJNtA==",
+			"enc-alg": "aes-256-gcm"
+		}]
+	}],
+	"accounts": [{
+		"address": "AJQLNWy9X6qdeEFrSH6UzgEjadSsRiYDCS",
+		"label": "mickey",
+		"lock": false,
+		"algorithm": "ECDSA",
+		"parameters": {
+			"curve": "P-256"
+		},
+		"key": "qFbemAbu7fEjOJzAZZhGkmzp2YNxdSCuK7xyvhBAnUBX/FmAj2Ns84Y7frh6hfQv",
+		"enc-alg": "aes-256-gcm",
+		"salt": "u+SiqpRk17b0vIPesh4xXA==",
+		"isDefault": false,
+		"publicKey": "037fb6dfc9420e1d8275d9133d6d69fe64e8e3567241e7583234b9efa8b2ce7ae1",
+		"signatureScheme": "SHA256withECDSA"
+	}],
+	"extra": null
 }
 ```
 
@@ -109,30 +108,26 @@ ScryptParameters object has the following structure:
   "dkLen" : 64
 }
 ```
-
 ```n``` is a parameter that defines the CPU/memory cost. Must be a value 2^N.
 
 ```r``` is a tuning parameter.
 
 ```p``` is a tuning parameter (parallelization parameter). A large value of p can increase computational cost of SCrypt without increasing the memory usage.
 
-```dkLen``` is the intended output length in octets of the derived key.
+```dkLen``` Intended output length in octets of the derived key.
 
 ## Identity
 
 Identity object has the following structure:
-
 ```
 {
   "ontid": "did:ont:TQLASLtT6pWbThcSCYU1biVqhMnzhTgLFq",
   "label": "MyIdentity",
   "lock": false,
   "isDefault" : false,
-  "controls": [],
-  "extra": null
+  "controls": []
 }
 ```
-
 ```ontid``` is the ontid of the identity.
 
 ```label``` is a label that the user has made to the identity.
@@ -143,8 +138,6 @@ Identity object has the following structure:
 
 ```controls``` is an array of Controller objects which describe the details of each controller in the identity.
 
-```extra``` is an object that is defined by the implementor of the client for storing extra data. This field can be null.
-
 ## Control
 
 Control object has the following structure:
@@ -154,6 +147,8 @@ Control object has the following structure:
   "parameters": {},
   "id": "1",
   "key": "6PYWB8m1bCnu5bQkRUKAwbZp2BHNvQ3BQRLbpLdTuizpyLkQPSZbtZfoxx",
+  "address": "AQkGLumU1tnyJBGV1ZUmD229iQf9KRTTDL",
+  "salt": "Rv4v3a4U1zFEq28/"
 }
 ```
 ```algorithm``` is the algorithms used in encryption system.
@@ -164,12 +159,16 @@ Control object has the following structure:
 
 ```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only address or non-standard address).
 
+```address```  address in base58 format.
+
+```salt``` 16 bytes salt value in base64 format.
+
 ## Parameter
 
 Parameter object has the following structure:
 ```
 {
-  "curve":"secp256r1"
+  "curve":"P-256"
 }
 ```
 ```curve``` is the name of the elliptic curve.
@@ -179,29 +178,26 @@ Parameter object has the following structure:
 Account object has the following structure:
 ```
 {
-  "address": "TA78QdiA6DgqD5Jc5AX97GQ2fPuCt98kqr",
-  "enc-alg": "aes-256-ctr",
-  "key": "AI08vJjflG4BH2+n+Uus+t1mr1sVSA/KwGoaRt83wKU=",
-  "hash": "sha256",
-  "algorithm": "SM2",
-  "parameters": {
-  	"curve": "sm2p256v1"
-  },
-  "label": "",
-  "publicKey": "131402a7491e289e13cdea16833ccc0dd320abf8a7e93ebc4ae3854403910f3ce27ffc",
-  "signatureScheme": "SM3withSM2",
-  "isDefault": true,
-  "lock": false,
-  "passwordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+    "address": "AadQ5xRwrSsFTGzKfLHc1brzykdnf7phhD",
+    "label": "a6575fd9",
+    "lock": false,
+    "algorithm": "ECDSA",
+    "parameters": {
+    	"curve": "P-256"
+     },
+    "key": "NyfxXX+xKDG2agrDy3espqX7N0k3MysTgqx5FxJGI8bkklZQO6+6BSluyBRvEsOx",
+    "enc-alg": "aes-256-gcm",
+    "salt": "MHct5XIedi86rQILJFi9lA==",
+    "isDefault": false,
+    "publicKey": "03e897f5a1ea306270e3e1e539c9065b6905e2430aae7f4802e1114f01634d7235",
+    "signatureScheme": "SHA256withECDSA"
 }
 ```
 ```address``` is the base58 encoded address of the account.
 
 ```enc-alg``` the algorithm to encrypt private key.
 
-```hash``` the hash algorithm to hash password.
-
-```passwordHash``` the value of password after hash operation.
+```salt``` salt value for decryption.
 
 ```publicKey``` the public key.
 
@@ -219,7 +215,7 @@ Account object has the following structure:
 
 ```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only address or non-standard address).
 
-```extra``` is an object that is defined by the implementor of the client for storing extra data. This field can be null.
+
 
 ## QR Code Specification 
 
@@ -233,12 +229,14 @@ This is QR Code Specification for both identity and account.
 	"scrypt": {
 		"n": 4096,
 		"p": 8,
-		"r": 8
+		"r": 8,
+		"dkLen": 64
 	},
 	"key":"x0U3gy7mQMpzCYXwlt/oWZerSGaCUimSMN2UiSd2aKs=",
-	"prefix" : "6P27U3I4",
+	"address" : "AQkGLumU1tnyJBGV1ZUmD229iQf9KRTTDL",
+	"salt" : "Rv4v3a4U1zFEq28/",
 	"parameters": {
-		 "curve": "secp256r1"
+		 "curve": "P-256"
 	}
 }
 ```
@@ -255,4 +253,7 @@ This is QR Code Specification for both identity and account.
 
 ```key``` the encrypted private key
 
-```prefix``` do two sha256 operations on the address, and get the first 4 bytes of the result.
+```address```  address in base58 format.
+
+```salt``` 16 bytes salt in base64 format.
+
