@@ -1,0 +1,52 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: 
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Smart Contract
+    output: web, pdf
+    folderitems:
+
+    - title: Introduction
+      url: /smart_contract_tutorial_introduction_en.html
+      output: web, pdf
+
+    - title: SmartX Tutorial
+      url: /smart_contract_tutorial_smartx_en.html
+      output: web, pdf
+
+    - title: Hello world
+      url: /smart_contract_tutorial_helloworld_en.html
+      output: web, pdf
+
+    - title: Smart Contract Deployment
+      url: /smart_contract_tutorial_deployment_en.html
+      output: web, pdf
+
+    - title: Smart Contract Invocation
+      url: /smart_contract_tutorial_invocation_en.html
+      output: web, pdf
+
+    - title: Permission Control
+      url: /smart_contract_tutorial_auth_en.html
+      output: web, pdf
+
+    - title: API reference
+      external_url: https://apidoc.ont.io/smartcontract/
+      output: web

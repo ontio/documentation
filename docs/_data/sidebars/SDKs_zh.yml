@@ -1,0 +1,88 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: 
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: SDKs
+    output: web, pdf
+    folderitems:
+
+    - title: 总体说明
+      url: /overview_of_sdks_zh.html
+      output: web, pdf
+
+    - title: 钱包文件规范
+      url: /ontology_wallet_file_specification_zh.html
+      output: web, pdf
+      subfolders:
+      - title: Java SDK
+        output: web
+        subfolderitems:
+
+        - title: 介绍
+          url: /ontology_java_sdk_zh.html
+          output: web
+
+        - title: 节点控制
+          url: /ontology_java_sdk_blockchain_interop_zh.html
+          output: web
+
+        - title: 数字身份管理
+          url: /ontology_java_sdk_identity_claim_zh.html
+          output: web
+
+        - title: 数字资产管理
+          url: /ontology_java_sdk_asset_zh.html
+          output: web
+
+        - title: 智能合约部署和调用
+          url: /ontology_java_sdk_smartcontract_zh.html
+          output: web
+
+        - title: 存证
+          url: /ontology_java_sdk_attestation_zh.html
+          output: web
+
+        - title: 错误码
+          url: /ontology_java_sdk_error_code_zh.html
+          output: web
+
+      - title: TS SDK
+        output: web
+        subfolderitems:
+
+        - title: 介绍
+          url: /ontology_ts_sdk_zh.html
+          output: web
+
+        - title: 数字身份管理
+          url: /ontology_ts_sdk_identity_claim_zh.html
+          output: web
+
+        - title: 数字资产管理
+          url: /ontology_ts_sdk_asset_zh.html
+          output: web
+
+        - title: 错误码
+          url: /ontology_ts_sdk_error_code_zh.html
+          output: web
+
+        - title: API 文档
+          external_url: https://apidoc.ont.io/tssdk/
+          output: web

@@ -3,14 +3,15 @@
 topnav:
 - title: Topnav
   items:
-
+    - title: Introduction
+      url: /index.html
+    - title: Ontology Blockchain
+      url: /ontology_features_en.html
+    - title: Ontology DID
+      url: /ontology_DID_en.html
+    - title: SDKs
+      url: /overview_of_sdks_en.html
+    - title: Smart Contract
+      url: /smart_contract_tutorial_introduction_en.html
 #Topnav dropdowns
 topnav_dropdowns:
-- title: Topnav dropdowns
-  folders:
-    - title: Language
-      folderitems:
-        - title: ENGLISH
-          url: /first_open_letter_en.html
-        - title: 中文
-          url: /first_open_letter_zh.html
