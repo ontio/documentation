@@ -23,25 +23,12 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: 给社区开发者的公开信
-      url: /first_open_letter_zh.html
-      output: web, pdf
-      type: homepage
-
-    - title: 开发者新手指南
+    - title: 开发者快速指南
       url: /tutorial_for_developer_zh.html
       output: web, pdf
 
     - title: 技术社区贡献指南
       url: /guidelines_for_technical_community_contributions_zh.html
-      output: web, pdf
-
-  - title: 分布式数据交易
-    output: web, pdf
-    folderitems:
-
-    - title: 总体介绍
-      url: /DDXF_zh.html
       output: web, pdf
 
   - title: White Papers

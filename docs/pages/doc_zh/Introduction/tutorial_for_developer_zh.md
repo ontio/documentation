@@ -7,11 +7,12 @@ folder: doc_zh
 ---
 
 
-[English](./tutorial_for_developer_en.html) / 中文
+[English](./index.html) / 中文
 
 
-<h1 align="center"> Get Started</h1>
+<h1 align="center">开发者快速指南</h1>
 <p align="center" class="version">版本 1.0.0 </p>
+
 
 本体是新一代高性能公有式区块链，在主网上线之后，已经有非常多的开发者加入了本体技术社区。文档是开发者加入本体生态的入口，完善的文档体系能大大提高
 开发者的开发效率，通过文档，开发者们将对本体生态、本体技术有清晰的认识。本篇文档是本体文档中心的概览，将会大致介绍文档中心的各个组成本分，这将为

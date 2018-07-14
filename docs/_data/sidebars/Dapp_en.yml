@@ -43,6 +43,10 @@ entries:
       url: /smart_contract_tutorial_invocation_en.html
       output: web, pdf
 
-    - title: Permission Controll
+    - title: Permission Control
       url: /smart_contract_tutorial_auth_en.html
       output: web, pdf
+
+    - title: API reference
+      external_url: https://apidoc.ont.io/smartcontract/
+      output: web

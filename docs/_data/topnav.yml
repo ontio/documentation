@@ -11,7 +11,7 @@ topnav:
       url: /ontology_DID_en.html
     - title: SDKs
       url: /overview_of_sdks_en.html
-    - title: Dapp development
+    - title: Smart Contract
       url: /smart_contract_tutorial_introduction_en.html
 #Topnav dropdowns
 topnav_dropdowns:

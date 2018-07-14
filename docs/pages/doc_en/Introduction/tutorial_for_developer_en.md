@@ -2,7 +2,7 @@
 title: 
 keywords: sample homepage
 sidebar: Introduction_en
-permalink: tutorial_for_developer_en.html
+permalink: index.html
 folder: doc_en
 ---
 
@@ -10,7 +10,7 @@ folder: doc_en
 English / [中文](./tutorial_for_developer_zh.html)
 
 
-<h1 align="center">Get Started</h1>
+<h1 align="center">Ontology developers guide</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 The ontology is a new generation high-performance public blockchain. After the MainNet releases, many awesome developers have joined the ontology technology community. The documentation is the entry for developers to participate in the ontology ecosystem, so a perfect document system can greatly improve the development efficiency. Through the documentation, developers will have a clear understanding of ontology technology and ecosystem. This document is an overview of the Ontology Documentation Center and will provide the introduction of each section, which help developers quick familiarize ontology.
@@ -38,15 +38,15 @@ The ontology is a new generation high-performance public blockchain. After the M
      * [Authority management of smart contract](#authority-management-of-smart-contract)
 * [Use Ontology](#use-ontology)
     * [Environmental Deployment](#environmental-deployment)
-    * [Contract writing, deployment and invocation](#contract-writing-deployment-and-invocation)
+    * [Contract writing, deployment and invocation](#contract-writing,-deployment-and-invocation)
   
   ## Ontology
   
   ### What is the Ontology
   
-  The features of the ontology are outlined [here](https://ontio.github.io/documentation/ontology_features_en.html). Simultaneously, we released a [Open Letter](https://ontio.github.io/documentation/first_open_letter_en.html) to introduce each part of the Ontology and invite developers to join Ontology technology community and build an ontology developer ecosystem.
+The features of the ontology are outlined [here](https://ontio.github.io/documentation/ontology_features_en.html). Simultaneously, we released a [Open Letter](https://ontio.github.io/documentation/first_open_letter_en.html) to introduce each part of the Ontology and invite developers to join Ontology technology community and build an ontology developer ecosystem.
   
-  ###  How to get the ontology
+  ### How to get the ontology
   
   At present, all the source code of the ontology is open source on GitHub. Users can go to the [Github repository](https://github.com/ontio/ontology) to download the source code and compile it，or directly obtain [release version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [here](https://ontio.github.io/documentation/ontology_install_en.html).
   
@@ -104,19 +104,19 @@ The ontology is a new generation high-performance public blockchain. After the M
   
   ### Ontology API
   
-  In addition to the command line, the ontology provides a more convenient blockchain interaction interface. These interfaces are provided in the form of APIs. The current ontology API contains: [RPC API](https://ontio.github.io/documentation/ontrpcapi_en.html)，
+In addition to the command line, the ontology provides a more convenient blockchain interaction interface. These interfaces are provided in the form of APIs. The current ontology API contains: [RPC API](https://ontio.github.io/documentation/ontrpcapi_en.html)，
   [Restful API](https://ontio.github.io/documentation/restfulapi_en.html)，[Websocket API](https://ontio.github.io/documentation/websocket_en.html).
   
-  By these APIs, developers can easily send transactions and query data through the ontology network.
+By these APIs, developers can easily send transactions and query data through the ontology network.
   
   ### Ontology SDK
   
-  For developers, the SDK is a tool invoked directly in the program. Currently, the ontology provides three sets of SDKs for developers to use, [Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_en.html), [Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_en.html) and [Golang SDK](https://github.com/ontio/ontology-go-sdk). 
+For developers, the SDK is a tool invoked directly in the program. Currently, the ontology provides three sets of SDKs for developers to use, [Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_en.html), [Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_en.html) and [Golang SDK](https://github.com/ontio/ontology-go-sdk). 
   
-  Before using the SDK, It is recommended to read the [Overall Description] of the SDK (https://ontio.github.io/documentation/overview_of_sdks_en.html) and the [Wallet File Specification](https://ontio.github.io/documentation/ontology_wallet_file_specification_en.html ).
+Before using the SDK, It is recommended to read the [Overall Description] of the SDK (https://ontio.github.io/documentation/overview_of_sdks_en.html) and the [Wallet File Specification](https://ontio.github.io/documentation/ontology_wallet_file_specification_en.html ).
 
   
-  ## Ontology smart contract
+## Ontology smart contract
   
   Smart contract are the most important function of the current blockchain, and the ontology also has its own smart contract system. For details, please refer to [here](https://ontio.github.io/documentation/smart_contract_tutorial_introduction_en.html).
   
@@ -136,18 +136,18 @@ The ontology is a new generation high-performance public blockchain. After the M
   
   ### Authority management of smart contract
   
-  Currently, the functions of a smart contract can be invoked by anyone, which obviously does not meet the actual requirements. The basic idea of ​​role-based authority management is that each role can call a partial function, and each entity can be assigned multiple roles (the entity is identified by its ONT ID). [This document](https://ontio.github.io/documentation/smart_contract_tutorial_auth_zh.html) introduce the authority management methods for ontology smart contracts.
+Currently, the functions of a smart contract can be invoked by anyone, which obviously does not meet the actual requirements. The basic idea of ​​role-based authority management is that each role can call a partial function, and each entity can be assigned multiple roles (the entity is identified by its ONT ID). [This document](https://ontio.github.io/documentation/smart_contract_tutorial_auth_zh.html) introduce the authority management methods for ontology smart contracts.
   
   
   ## Use Ontology
   
-  After a full understanding of the ontology, a simple example is introduced to describe how to develop on the ontology network.
+After a full understanding of the ontology, a simple example is introduced to describe how to develop on the ontology network.
   
   ### Environmental Deployment
   
   1. Set up your own test network as described in [Ontology network setup](#ontology-network-setup). If there are not enough resources to run multiple nodes, it is recommended to use testing private network. Of course, you can also choose to connect to the ontology's public testing network called Polaris.
   
-  The next step will take the solo mode as an example.
+The next step will take the solo mode as an example.
   
   2. Use the command `./ontology --rest --ws --localrpc --gaslimit 20000 --gasprice 0 --testmode --networkid 3` to start the testing network and enter the password of wallet account.
   
@@ -169,7 +169,7 @@ The ontology is a new generation high-performance public blockchain. After the M
   ONG:0
   ```
   
-  * The reason why the number of ongs that can be extracted at this time is zero is the account has not activated the release of ONG. You can use transfer method to activate it;
+   * The reason why the number of ongs that can be extracted at this time is zero is the account has not activated the release of ONG. You can use transfer method to activate it;
   
   * Use `./ontology account add -d`  to create another Ontology account. The address is `AGrJQhb7bZsy57MoQk6YDt3hDP7zRioHia`. Use `./ontology account list`  to query the account status of the default wallet;
   
@@ -318,4 +318,4 @@ The ontology is a new generation high-performance public blockchain. After the M
   }
   ```
   
-  66. In the returned result, States is the msg information of the call contract notification. The returned value is a hexadecimal string. After conversion by the transcoder, the result is `tester`.
+  6. In the returned result, States is the msg information of the call contract notification. The returned value is a hexadecimal string. After conversion by the transcoder, the result is `tester`.

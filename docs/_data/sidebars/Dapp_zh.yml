@@ -49,3 +49,7 @@ entries:
     - title: 权限管理
       url: /smart_contract_tutorial_auth_zh.html
       output: web, pdf
+
+    - title: API 文档
+      external_url: https://apidoc.ont.io/smartcontract/
+      output: web
