@@ -2,7 +2,9 @@
 title: 
 keywords: sample homepage
 sidebar: Introduction_en
-permalink: index.html
+permalink: first_open_letter_en.html
+folder: doc_en
+url: letter_en.html
 ---
 
 
