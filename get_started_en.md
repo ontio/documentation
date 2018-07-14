@@ -1,4 +1,4 @@
-# Get Started
+# Ontology developers guide
 
 The ontology is a new generation high-performance public blockchain. After the MainNet releases, many awesome developers have joined the ontology technology community. The documentation is the entry for developers to participate in the ontology ecosystem, so a perfect document system can greatly improve the development efficiency. Through the documentation, developers will have a clear understanding of ontology technology and ecosystem. This document is an overview of the Ontology Documentation Center and will provide the introduction of each section, which help developers quick familiarize ontology.
 
@@ -305,4 +305,4 @@ The next step will take the solo mode as an example.
   }
   ```
   
-  66. In the returned result, States is the msg information of the call contract notification. The returned value is a hexadecimal string. After conversion by the transcoder, the result is `tester`.
+  6. In the returned result, States is the msg information of the call contract notification. The returned value is a hexadecimal string. After conversion by the transcoder, the result is `tester`.
