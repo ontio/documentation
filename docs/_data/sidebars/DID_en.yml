@@ -1,0 +1,40 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: 
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Ontology DID
+    output: web, pdf
+    folderitems:
+
+    - title: Overview 
+      url: /ontology_DID_en.html
+      output: web, pdf
+
+    - title: Identification Protocol
+      url: /ONTID_protocol_spec_en.html
+      output: web, pdf
+
+    - title: Verifiable Claim Protocol
+      url: /claim_spec_en.html
+      output: web, pdf
+
+    - title: TrustAnchor Access Stardard
+      url: /verification_provider_specification_en.html
+      output: web, pdf

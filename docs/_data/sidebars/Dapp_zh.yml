@@ -1,0 +1,51 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: 
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: 智能合约
+    output: web, pdf
+    folderitems:
+
+    - title: 总体介绍
+      url: /smart_contract_tutorial_introduction_zh.html
+      output: web, pdf
+
+    - title: Ontology CLI 与智能合约交互
+      url: /Ontology_CLI_interact_with_smart_contract_zh.html
+      output: web, pdf
+    - title: SmartX 教程
+      url: /smart_contract_tutorial_smartx_zh.html
+      output: web, pdf
+
+    - title: Hello World 合约
+      url: /smart_contract_tutorial_helloworld_zh.html
+      output: web, pdf
+
+    - title: 智能合约部署
+      url: /smart_contract_tutorial_deployment_zh.html
+      output: web, pdf
+
+    - title: 智能合约调用
+      url: /smart_contract_tutorial_invocation_zh.html
+      output: web, pdf
+
+    - title: 权限管理
+      url: /smart_contract_tutorial_auth_zh.html
+      output: web, pdf

@@ -1,0 +1,40 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: 
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Ontology DID
+    output: web, pdf
+    folderitems:
+
+    - title: 总体介绍
+      url: /ontology_DID_zh.html
+      output: web, pdf
+
+    - title: Ontology DID身份标识协议规范
+      url: /ONTID_protocol_spec_zh.html
+      output: web, pdf
+
+    - title: 可信申明协议规范
+      url: /claim_spec_zh.html
+      output: web, pdf
+
+    - title: 信任锚接入标准
+      url: /verification_provider_specification_zh.html
+      output: web, pdf

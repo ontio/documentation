@@ -1,0 +1,88 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: 
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: SDKs
+    output: web, pdf
+    folderitems:
+
+    - title: Overview
+      url: /overview_of_sdks_en.html
+      output: web, pdf
+
+    - title: Wallet File Specification
+      url: /ontology_wallet_file_specification_en.html
+      output: web, pdf
+      subfolders:
+      - title: Java SDK
+        output: web
+        subfolderitems:
+
+        - title:  Introduction
+          url: /ontology_java_sdk_en.html
+          output: web
+
+        - title: Node controll
+          url: /ontology_java_sdk_blockchain_interop_en.html
+          output: web
+
+        - title: Digital Identity
+          url: /ontology_java_sdk_identity_claim_en.html
+          output: web
+
+        - title: Digital Token
+          url: /ontology_java_sdk_asset_en.html
+          output: web
+
+        - title: How to use Smart Contract
+          url: /ontology_java_sdk_smartcontract_en.html
+          output: web
+
+        - title: Attestation
+          url: /ontology_java_sdk_attestation_en.html
+          output: web
+
+        - title: Errorcode
+          url: /ontology_java_sdk_error_code_en.html
+          output: web
+
+      - title: TS SDK
+        output: web
+        subfolderitems:
+
+        - title:  Introduction
+          url: /ontology_ts_sdk_en.html
+          output: web
+
+        - title: Digital Identity
+          url: /ontology_ts_sdk_identity_claim_en.html
+          output: web
+
+        - title: Digital Token
+          url: /ontology_ts_sdk_asset_en.html
+          output: web
+
+        - title: Errorcode
+          url: /ontology_ts_sdk_error_code_en.html
+          output: web
+
+        - title: API reference
+          external_url: https://apidoc.ont.io/tssdk/
+          output: web
