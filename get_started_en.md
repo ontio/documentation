@@ -25,7 +25,7 @@ The ontology is a new generation high-performance public blockchain. After the M
      * [Authority management of smart contract](#authority-management-of-smart-contract)
 * [Use Ontology](#use-ontology)
     * [Environmental Deployment](#environmental-deployment)
-    * [Contract writing, deployment and invocation](#contract-writing,-deployment-and-invocation)
+    * [Contract writing deployment and invocation](#contract-writing-deployment-and-invocation)
   
 ## Ontology
 
