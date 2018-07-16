@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_ts_sdk_asset_en.html
-folder: doc_en
+folder: doc_en/SDKs
 ---
 
 English / [中文](./ontology_ts_sdk_asset_zh.html)

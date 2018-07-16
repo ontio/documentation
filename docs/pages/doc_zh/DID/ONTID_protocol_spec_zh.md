@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: DID_zh
 permalink: ONTID_protocol_spec_zh.html
-folder: doc_zh
+folder: doc_zh/DID
 ---
 
 

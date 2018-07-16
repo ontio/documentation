@@ -2,7 +2,7 @@
 title: 
 sidebar: Ontology_en
 permalink: ontology_cli_sample_en.html
-folder: doc_en
+folder: doc_en/Ontology
 ---
 
 English / [中文](./ontology_cli_sample_zh.html)

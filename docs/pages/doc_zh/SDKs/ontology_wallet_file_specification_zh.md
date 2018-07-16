@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_wallet_file_specification_zh.html
-folder: doc_zh
+folder: doc_zh/SDKs
 ---
 
 [English](./ontology_wallet_file_specification_en.html) / 中文

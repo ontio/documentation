@@ -2,7 +2,7 @@
 title: 
 sidebar: Ontology_en
 permalink: ontology_install_en.html
-folder: doc_en
+folder: doc_en/Ontology
 ---
 
 English / [中文](./ontology_install_zh.html)

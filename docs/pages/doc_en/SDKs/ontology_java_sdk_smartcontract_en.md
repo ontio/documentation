@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_java_sdk_smartcontract_en.html
-folder: doc_en
+folder: doc_en/SDKs
 ---
 
 English / [中文](./ontology_java_sdk_smartcontract_zh.html)

@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Introduction_zh
 permalink: tutorial_for_developer_zh.html
-folder: doc_zh
+folder: doc_zh/Introduction
 ---
 
 

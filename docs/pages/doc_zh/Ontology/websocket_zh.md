@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Ontology_zh
 permalink: websocket_zh.html
-folder: doc_zh
+folder: doc_zh/Ontology
 ---
 
 [English](./websocket_en.html) / 中文

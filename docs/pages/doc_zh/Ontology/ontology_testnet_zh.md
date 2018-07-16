@@ -2,7 +2,7 @@
 title: 
 sidebar: Ontology_zh
 permalink: ontology_testnet_zh.html
-folder: doc_zh
+folder: doc_zh/Ontology
 ---
 
 

@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Ontology_en
 permalink: sigsvr_en.html
-folder: doc_en
+folder: doc_en/Ontology
 ---
 
 English / [中文](./sigsvr_zh.html)

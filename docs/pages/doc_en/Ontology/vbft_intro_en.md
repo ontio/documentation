@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Ontology_en
 permalink: vbft_intro_en.html
-folder: doc_en
+folder: doc_en/Ontology
 ---
 
 English / [中文](./vbft_intro_zh.html)

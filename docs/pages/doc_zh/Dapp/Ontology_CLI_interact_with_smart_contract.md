@@ -1,7 +1,7 @@
 ---
 sidebar : Dapp_zh
 permalink : Ontology_CLI_interact_with_smart_contract_zh.html
-folder : doc_zh
+folder : doc_zh/Dapp
 ---
 
 

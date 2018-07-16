@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: DID_en
 permalink: ONTID_protocol_spec_en.html
-folder: doc_en
+folder: doc_en/DID
 ---
 
 

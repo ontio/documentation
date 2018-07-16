@@ -1,7 +1,7 @@
 ---
 sidebar : Dapp_zh
 permalink : smart_contract_tutorial_zh.html
-folder : doc_zh
+folder : doc_zh/Dapp
 ---
 
 [English](./smart_contract_tutorial_en.html) / 中文 

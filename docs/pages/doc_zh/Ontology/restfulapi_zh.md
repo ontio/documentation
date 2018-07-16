@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Ontology_zh
 permalink: restfulapi_zh.html
-folder: doc_zh
+folder: doc_zh/Ontology
 ---
 
 [English](./restfulapi_en.html) / 中文

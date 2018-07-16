@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_java_sdk_identity_claim_zh.html
-folder: doc_zh
+folder: doc_zh/SDKs
 ---
 
 [English](./ontology_java_sdk_identity_claim_en.html) / 中文
