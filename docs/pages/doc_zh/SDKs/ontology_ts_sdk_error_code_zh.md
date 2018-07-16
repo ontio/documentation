@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_ts_sdk_error_code_zh.html
-folder: doc_zh
+folder: doc_zh/SDKs
 ---
 
 [English](./ontology_ts_sdk_error_code_en.html) / 中文

@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_java_sdk_blockchain_interop_zh.html
-folder: doc_zh
+folder: doc_zh/SDKs
 ---
 
 [English](./ontology_java_sdk_blockchain_interop_en.html) / 中文

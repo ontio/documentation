@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: DID_zh
 permalink: verification_provider_specification_zh.html
-folder: doc_zh
+folder: doc_zh/DID
 ---
 
 

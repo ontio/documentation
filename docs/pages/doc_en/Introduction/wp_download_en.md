@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Introduction_en
 permalink: wp_download_en.html
-folder: doc_en
+folder: doc_en/Introduction
 ---
 
 

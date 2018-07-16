@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Introduction_en
 permalink: FAQ_en.html
-folder: doc_en
+folder: doc_en/Introduction
 ---
 
 

@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Dapp_en
 permalink: smart_contract_tutorial_wasm_en.html
-folder: doc_en
+folder: doc_en/Dapp
 ---
 
 English / [中文](./smart_contract_tutorial_wasm_zh.html)

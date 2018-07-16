@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Introduction_zh
 permalink: guidelines_for_technical_community_contributions_zh.html
-folder: doc_zh
+folder: doc_zh/Introduction
 ---
 
 [English](./guidelines_for_technical_community_contributions_en.html) / 中文

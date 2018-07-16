@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Introduction_en
 permalink: guidelines_for_technical_community_contributions_en.html
-folder: doc_en
+folder: doc_en/Introduction
 ---
 
 

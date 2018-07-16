@@ -2,7 +2,7 @@
 title: 
 sidebar: Ontology_en
 permalink: ontology_testnet_en.html
-folder: doc_en
+folder: doc_en/Ontology
 ---
 
 

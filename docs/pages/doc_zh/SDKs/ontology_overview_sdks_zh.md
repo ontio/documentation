@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: SDKs_zh
 permalink: overview_of_sdks_zh.html
-folder: doc_zh
+folder: doc_zh/SDKs
 ---
 
 [English](./overview_of_sdks_en.html) / 中文

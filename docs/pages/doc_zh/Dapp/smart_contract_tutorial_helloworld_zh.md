@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Dapp_zh
 permalink: smart_contract_tutorial_helloworld_zh.html
-folder: doc_zh
+folder: doc_zh/Dapp
 ---
 
 

@@ -2,7 +2,7 @@
 title: 
 sidebar: SDKs_zh
 permalink: ontology_ts_sdk_smartcontract_zh.html
-folder: doc_zh
+folder: doc_zh/SDKs
 ---
 
 

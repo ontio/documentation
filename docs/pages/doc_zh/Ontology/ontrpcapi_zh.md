@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: Ontology_zh
 permalink: ontrpcapi_zh.html
-folder: doc_zh
+folder: doc_zh/Ontology
 ---
 
 [English](./ontrpcapi_en.html) / 中文

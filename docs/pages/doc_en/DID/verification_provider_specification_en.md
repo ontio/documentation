@@ -3,7 +3,7 @@ title:
 keywords: sample homepage
 sidebar: DID_en
 permalink: verification_provider_specification_en.html
-folder: doc_en
+folder: doc_en/DID
 ---
 
 English / [中文](./verification_provider_specification_zh.html)

@@ -1,7 +1,7 @@
 ---
 sidebar: DID_en
 permalink: claim_spec_en.html
-folder: doc_en
+folder: doc_en/DID
 ---
 
 English / [中文](./claim_spec_zh.html)
