@@ -305,4 +305,4 @@ Transaction states:
 }
 ```
 
-6. In the returned result, States is the msg information of the call contract notification. The returned value is a hexadecimal string. After conversion by the transcoder, the result is `tester`.
+6. In the returned result, States is the message information of the call contract notification. The returned value is a hexadecimal string. After conversion by the transcoder, the result is `tester`.
