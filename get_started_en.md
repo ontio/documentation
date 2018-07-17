@@ -1,4 +1,4 @@
-English | [中文](https://github.com/ontio/documentation/blob/master/zh-CN/standard_process_for_contributor.md)
+English | [中文](https://github.com/christinaliu66/documentation/blob/master/get_started_cn.md)
 
 <h1 align="center">Ontology Developer Guide</h1> 
 <p align="center" class="version">Version 1.0.0 </p> 
