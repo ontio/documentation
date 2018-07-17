@@ -28,6 +28,7 @@ Ontology is a new generation high-performance public blockchain. After its MainN
     * [Environmental deployment](#environmental-deployment)
     * [Contract writing deployment and invocation](#contract-writing-deployment-and-invocation)
   
+  
 ## Ontology
 
 ### What is Ontology
@@ -76,7 +77,7 @@ Ontology DID（also called ONT ID) is a decentralized identity identification pr
 
 #### Distributed data transaction
 
-In view of the pain points of the current centralized data exchange such as data cache, privacy data usage without user authorization, and data copyright protection, Ontology proposes a distributed data management protocol ONT DATA. And based on this protocol, Ontology launched the decentralized data transaction framework DDXF. For more details, please refer to [Distributed Data Exchange Framework] (https://ontio.github.io/documentation/DDXF_en.html).
+In view of the pain points of the current centralized data exchange such as data cache, privacy data usage without user authorization, and data copyright protection, Ontology proposes a distributed data management protocol ONT DATA. And based on this protocol, Ontology launched the decentralized data transaction framework DDXF. For more details, please refer to [Distributed Data Exchange Framework](https://ontio.github.io/documentation/DDXF_en.html).
 
 
 ## How to interact with Ontology
@@ -85,21 +86,20 @@ In view of the pain points of the current centralized data exchange such as data
 
 You may use a lot of command line parameters when building an Ontology network. For more detailed information about these parameters, please refer to [Ontology CLI User Guide](https://ontio.github.io/documentation/ontology_cli_sample_en.html). These command line parameters are also executed through the Ontology CLI tool. The CLI can execute and invoke most of the functions of the ontology network, which is the first entry of the Ontology network. In addition to the documentation, you can get a brief description of the command line parameters by executing `./ontology --help`.
 
-
 ### Ontology signature server
 
 In order to adapt to more needs, Ontology provides a service called a signature machine. The service uses the specified wallet to sign the transaction sent to the service. For details, please refer to [Ontology Signature Server Tutorials](https://ontio.github.io/documentation/sigsvr_en.html).
 
 ### Ontology API
 
-In addition to the command line, Ontology provides a more convenient blockchain interaction interface. These interfaces are provided in the form of APIs. The current Ontology API contains: [RPC API](https://ontio.github.io/documentation/ontrpcapi_en.html)，
-[Restful API](https://ontio.github.io/documentation/restfulapi_en.html)，[Websocket API](https://ontio.github.io/documentation/websocket_en.html).
+In addition to the command line, Ontology provides a more convenient blockchain interaction interface. These interfaces are provided in the form of APIs. The current Ontology API contains: [RPC API](https://ontio.github.io/documentation/ontrpcapi_en.html), 
+[Restful API](https://ontio.github.io/documentation/restfulapi_en.html), [Websocket API](https://ontio.github.io/documentation/websocket_en.html).
 
 By these APIs, developers can easily send transactions and query data through the Ontology network.
 
 ### Ontology SDK
 
-For developers, the SDK is a tool invoked directly in the program. Currently, Ontology provides three sets of SDKs for developers to use, [Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_en.html), [Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_en.html) and [Golang SDK](https://github.com/ontio/ontology-go-sdk). 
+For developers, the SDK is a tool invoked directly in the program. Currently, Ontology provides three sets of SDKs for developers to use, [Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_en.html), [Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_en.html), and [Golang SDK](https://github.com/ontio/ontology-go-sdk). 
 
 Before using the SDK, it is recommended to read the [Overall Description] of the SDK (https://ontio.github.io/documentation/overview_of_sdks_en.html) and the [Wallet File Specification](https://ontio.github.io/documentation/ontology_wallet_file_specification_en.html ).
 
