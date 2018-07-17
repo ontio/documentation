@@ -2,12 +2,11 @@
 title: 
 keywords: sample homepage
 sidebar: Introduction_en
-permalink: wp_download_en.html
+permalink: guidelines_for_technical_community_contributions_en.html
 folder: doc_en/Introduction
 ---
 
-
-English | [中文](https://github.com/ontio/documentation/blob/master/zh-CN/standard_process_for_contributor.md)
+English / [中文](./guidelines_for_technical_community_contributions_zh.html)
 
 <h1 align="center">Guidelines for Technical Community Contributions</h1>
 
