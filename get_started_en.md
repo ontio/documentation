@@ -1,4 +1,13 @@
-English | [中文](https://github.com/christinaliu66/documentation/blob/master/get_started_cn.md)
+---
+title: 
+keywords: sample homepage
+sidebar: Introduction_en
+permalink: index.html
+folder: pages/doc_en/Introduction
+---
+
+
+English / [中文](./tutorial_for_developer_zh.html)
 
 <h1 align="center">Ontology Developer Guide</h1> 
 <p align="center" class="version">Version 1.0.0 </p> 
@@ -135,19 +144,19 @@ After a full understanding of Ontology, a simple example is introduced to descri
 
 ### Environmental deployment
 
-1. Set up your own test network as described in [Ontology network setup](#ontology-network-setup). If there are not enough resources to run multiple nodes, it is recommended to use testing private network. Of course, you can also choose to connect to the Ontology's public testing network called Polaris.
+A. Set up your own test network as described in [Ontology network setup](#ontology-network-setup). If there are not enough resources to run multiple nodes, it is recommended to use testing private network. Of course, you can also choose to connect to the Ontology's public testing network called Polaris.
 
 The next step will take the solo mode as an example.
 
-2. Use the command `./ontology --rest --ws --localrpc --gaslimit 20000 --gasprice 0 --testmode --networkid 3` to start the testing network and enter the wallet account password.
+B. Use the command `./ontology --rest --ws --localrpc --gaslimit 20000 --gasprice 0 --testmode --networkid 3` to start the testing network and enter the wallet account password.
 
-3. Use the rest interface to query the balance of the initial account (the biller in solo mode).
+C. Use the rest interface to query the balance of the initial account (the biller in solo mode).
 
 * Enter `http://localhost:20334/api/v1/balance/APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh` in your browser. `localhost` is the IP address of node，`20334` is the default rest port，and this port can also be specified by yourself, the command is `--rest --restport 20339`；`api/v1/balance/` is the URL path of the rest interface and `APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh` is the address of the initial biller. This entire URL constitutes the rest interface call method for the balance query.
 
 * The browser returns a response `{"Action":"getbalance","Desc":"SUCCESS","Error":0,"Result":{"ont":"1000000000","ong":"0"},"Version":"1.0.0"}`，which is a response string in json format. You can see there are 1000000000 ONT and 0 ONG.
 
-4. In the Ontology network, almost all operations need to consume gas, ie ong. In this example, the `--gasprice 0` parameter is set to be 0 at startup, so subsequent operations do not consume any gas. But you can still pay for gas. This step will demonstrate how to extract ONG from your account.
+D. In the Ontology network, almost all operations need to consume gas, ie ong. In this example, the `--gasprice 0` parameter is set to be 0 at startup, so subsequent operations do not consume any gas. But you can still pay for gas. This step will demonstrate how to extract ONG from your account.
 
 * ONG is the associated fuel of ONT, which is gradually released with ONT, but it needs to be manually extracted into your own account;
 
@@ -223,7 +232,7 @@ ONG:5242930
 
 ### Contract writing, deployment and invocation
 
-1. Open [Ontology smart contract IDE--SmartX](#Ontology-smart-contract-IDE--Smartx), and write a Hello World smart contract according to [How to Write a Smart Contract](#how-to-write-a-smart-contract). For the convenience of calling, we change the contract code to the following form and then compile it into AVM bytecode, download the AVM bytecode and name it `hello.avm`:
+A. Open [Ontology smart contract IDE--SmartX](#Ontology-smart-contract-IDE--Smartx), and write a Hello World smart contract according to [How to Write a Smart Contract](#how-to-write-a-smart-contract). For the convenience of calling, we change the contract code to the following form and then compile it into AVM bytecode, download the AVM bytecode and name it `hello.avm`:
 
 ```
 using Neo.SmartContract.Framework.Services.Neo;
@@ -257,7 +266,7 @@ Runtime.Notify(msg);
 > Description: In the Hello method, Runtime.Notify will make a notification on the chain for the passed parameters.
   
 
-2. Use the command `./ontology contract deploy --code hello.avm --name 'Hello' --version '1.0' --author 'ester' --email 'tester@test.com' --desc 'helloworld' --account 1 --gaslimit 100000000` to deploy the contract on the network. The contract deployment command can be obtained using `./ontology contract deploy -h`;
+B. Use the command `./ontology contract deploy --code hello.avm --name 'Hello' --version '1.0' --author 'ester' --email 'tester@test.com' --desc 'helloworld' --account 1 --gaslimit 100000000` to deploy the contract on the network. The contract deployment command can be obtained using `./ontology contract deploy -h`;
 
 
 ```
@@ -269,14 +278,14 @@ Tip:
 Using './ontology info status c49865b16009177ed4b06add97f7be1b0b1c246e4d4575c367e918da294d3287' to query transaction status
 ```
 
-3. Enter `http://localhost:20334/api/v1/contract/362cb5608b3eca61d4846591ebb49688900fedd0`  in the browser and call the rest interface to query the contract information:
+C. Enter `http://localhost:20334/api/v1/contract/362cb5608b3eca61d4846591ebb49688900fedd0`  in the browser and call the rest interface to query the contract information:
 
 ```
 {"Action":"getcontract","Desc":"SUCCESS","Error":0,"Result":{"Code":"54c56b6c7...","NeedStorage":false,"Name":"Hello","CodeVersion":"1.0","Author":"ester","Email":
 "tester@test.com","Description":"helloworld"},"Version":"1.0.0"}
 ```
 
-4. Use the command `./ontology contract invoke --address 362cb5608b3eca61d4846591ebb49688900fedd0 --params string:Hello,[string:tester] --gaslimit 200000` to invoke the contract：
+D. Use the command `./ontology contract invoke --address 362cb5608b3eca61d4846591ebb49688900fedd0 --params string:Hello,[string:tester] --gaslimit 200000` to invoke the contract：
 
 ```
 Invoke:d0ed0f908896b4eb916584d461ca3e8b60b52c36 Params:["Hello",["tester"]]
@@ -289,7 +298,7 @@ Using './ontology info status 2cc94de8c26fce3be233bef007ec3492043ffc304b79a02d9b
 
 >Description: `--params string:Hello,[string:tester]` specifies the parameters passed in the call contract. Here are two parameters, `string:Hello` and `[string:tester]`. The argument is the argument passed to the main function in the contract code.
 
-5. Use the command`./ontology info status 2cc94de8c26fce3be233bef007ec3492043ffc304b79a02d9b612df96e950186` to query the transaction status as prompted:
+E. Use the command`./ontology info status 2cc94de8c26fce3be233bef007ec3492043ffc304b79a02d9b612df96e950186` to query the transaction status as prompted:
 
 ```
 Transaction states:
@@ -308,4 +317,4 @@ Transaction states:
 }
 ```
 
-6. In the returned result, States is the message information of the call contract notification. The returned value is a hexadecimal string. After conversion by the transcoder, the result is `tester`.
+F. In the returned result, States is the message information of the call contract notification. The returned value is a hexadecimal string. After conversion by the transcoder, the result is `tester`.
