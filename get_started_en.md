@@ -101,16 +101,16 @@ By these APIs, developers can easily send transactions and query data through th
 
 For developers, the SDK is a tool invoked directly in the program. Currently, Ontology provides three sets of SDKs for developers to use, [Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_en.html), [Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_en.html), and [Golang SDK](https://github.com/ontio/ontology-go-sdk). 
 
-Before using the SDK, it is recommended to read the [Overall Description] of the SDK (https://ontio.github.io/documentation/overview_of_sdks_en.html) and the [Wallet File Specification](https://ontio.github.io/documentation/ontology_wallet_file_specification_en.html ).
+Before using the SDK, it is recommended to read the [Overview of the SDK](https://ontio.github.io/documentation/overview_of_sdks_en.html) and the [Wallet File Specification](https://ontio.github.io/documentation/ontology_wallet_file_specification_en.html ).
 
 
 ## Ontology smart contract
 
-Smart contract are the most important function of the current blockchain, and Ontology also has its own smart contract system. For details, please refer to [ntroduction of Ontology Smart Contract](https://ontio.github.io/documentation/smart_contract_tutorial_introduction_en.html).
+Smart contract are the most important function of the current blockchain, and Ontology also has its own smart contract system. For details, please refer to [Introduction of Ontology Smart Contract](https://ontio.github.io/documentation/smart_contract_tutorial_introduction_en.html).
 
 ### Ontology smart contract IDE--SmartX
 
-SmartX is a one-stop smart contract writing tool launched by Ontology. It integrates functions such as writing, compiling, deploying and debugging, which greatly improve the development efficiency of smart contract. Please refer to [SmartX Tutorial] (https://ontio.github.io/documentation/smart_contract_tutorial_smartx_en.html) for how to use SmartX.
+SmartX is a one-stop smart contract writing tool launched by Ontology. It integrates functions such as writing, compiling, deploying and debugging, which greatly improve the development efficiency of smart contract. Please refer to [SmartX Tutorial](https://ontio.github.io/documentation/smart_contract_tutorial_smartx_en.html) for how to use SmartX.
 
 ### How to write a smart contract
 
