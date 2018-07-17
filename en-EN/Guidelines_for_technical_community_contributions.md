@@ -1,4 +1,4 @@
-English | [中文](https://github.com/ontio/documentation/blob/doc_update/EN/Standard_process_for_community_contributions.md)
+English | [中文](https://github.com/ontio/documentation/edit/master/zh-CN/standard_process_for_contributor.md)
 
 <h1 align="center">Guidelines for Technical Community Contributions</h1>
 
