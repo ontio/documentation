@@ -2,12 +2,12 @@
 title: 
 keywords: sample homepage
 sidebar: Introduction_en
-permalink: wp_download_en.html
-folder: doc_en/Introduction
+permalink: index.html
+folder: pages/doc_en/Introduction
 ---
 
 
-English | [中文](https://github.com/christinaliu66/documentation/blob/master/get_started_cn.md)
+English / [中文](./tutorial_for_developer_zh.html)
 
 <h1 align="center">Ontology Developer Guide</h1> 
 <p align="center" class="version">Version 1.0.0 </p> 
