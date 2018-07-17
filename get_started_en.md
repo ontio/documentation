@@ -221,7 +221,7 @@ ONG:5242930
 
 ### Contract writing, deployment and invocation
 
-1. Open [Ontology smart contract IDE--SmartX](#Ontology-smart-contract-IDE--Smartx), and write a Hello World smart contract according to [How to write a smart contract](#how-to-write-a-smart-contract). For the convenience of calling, we change the contract code to the following form and then compile it into AVM bytecode, download the AVM bytecode and name it `hello.avm`:
+1. Open [Ontology smart contract IDE--SmartX](#Ontology-smart-contract-IDE--Smartx), and write a Hello World smart contract according to [How to Write a Smart Contract](#how-to-write-a-smart-contract). For the convenience of calling, we change the contract code to the following form and then compile it into AVM bytecode, download the AVM bytecode and name it `hello.avm`:
 
 ```
 using Neo.SmartContract.Framework.Services.Neo;
