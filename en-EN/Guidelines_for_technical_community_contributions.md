@@ -1,6 +1,6 @@
 [中文](https://github.com/ontio/documentation/blob/master/zh-CN/standard_process_for_contributor.md)
 
-<h1 align="center">Guidelines for technical community contributions</h1>
+<h1 align="center">Guidelines for Technical Community Contributions</h1>
 
 ## Introduction
 
@@ -12,7 +12,7 @@ Please note that these guidelines focus on technical contributions e.g. code con
 
 From the Ontology side we wish to build a highly engaged, quality community and believe that this is best achieved by teamwork. We encourage the community to form independent groups so that we, the Ontology core team, can engage on a strategic level for support and compensation. It’s important for us that the community takes responsibility for their own development and management.
 
-<h4 align="center">We believe that projects are best executed in teams and encourage contributors to form independent groups</h4>
+<h4 align="center">We believe that projects are best executed in teams and encourage contributors to form independent groups.</h4>
 
 How you chose to structure groups or function as an individual contributor is entirely up to yourself. However, for groups, we would like you to identify a single point of contact so that we can engage with someone who's carrying out the interests of the group as a whole.
 
@@ -28,7 +28,7 @@ To get an overview of potential and ongoing projects, we are working on an index
 Generally, we divide development ideas into three categories
 
 - Ontology enhancement proposals (OEP)
-  - E.g. major proposals to design, network, architecture, protocols or modules
+  - E.g. major proposals for design, network, architecture, protocols, or modules
 - Code contribution
   - E.g. SDK development or bug fixing
 - dApps
@@ -46,13 +46,13 @@ Login to GitHub [OEPs](https://github.com/ontio/OEPs) to view existing proposals
 
 ##### 2. Code contribution
 
-After starting the project you can start development. Please submit a pull request according to the [GitHub standard processes](https://help.github.com/). The Ontology Technical Committee will make an assessment and submit the report to the Ontology Council. It will then provide compensation based on the results of the assessment.
+After starting the project you can start development. Please submit a pull request according to the [GitHub Standard Processes](https://help.github.com/). The Ontology Technical Committee will make an assessment and submit the report to the Ontology Council. It will then provide compensation based on the results of the assessment.
 
 If you identify a bug in any of the Ontology Github repositories, submit a pull request according to the GitHub standard processes, which is evaluated by the Ontology Technical Committee and submitted to the Ontology Council. After that, compensation is given based on the evaluation result.
 
 ##### 3. dApps
 
-Ontology welcomes the community to build dApps in the ecosystem. If you have general inquiries regarding support, please refer to our [Organizational cooperation](https://info.ont.io/cooperation/en) portal.
+Ontology welcomes the community to build dApps in the ecosystem. If you have general inquiries regarding support, please refer to our [Organizational Cooperation](https://info.ont.io/cooperation/en) portal.
 
 Ontology has its own ecosystem accelerator program, which aims to incubate new dApps. The program invites technology and product experts across fields to collaborate in entrepreneurship and build new distributed business applications based on Ontology’s next-generation public chain infrastructure to build an open-source, open-minded, and collaborative distributed trust ecosystem. The Ontology Olympus Accelerator program will provide complete technical, marketing, funding, talent, and legal compliance support. For more information please visit [Ontology Olympus Accelerator](https://medium.com/ontologynetwork/ontology-launches-ecosystem-accelerator-program-ontology-olympus-accelerator-ooa-a2ad9229de83).
 
@@ -80,7 +80,7 @@ Our first approach will be based on case-by-case evaluation, hence as the commun
   - Impact
   - Likelihood
 
-### Technical Committee
+### Technical committee
 
 We welcome community talent to join the Ontology Technical Community. If you are interested, please apply in the [developer community on Discord](https://discord.gg/4TQujHj).
 
@@ -96,7 +96,7 @@ Ontology Technical Committee：
 
 | **Group**                                     | **Name**     | **Discord**              | **GitHub**   | **Gitter**   |
 | --------------------------------------------- | ------------ | ------------------------ | ------------ | ------------ |
-| [ontology](https://github.com/ontio/ontology) | Weng Junjie  | luodanwg                 | luodanwg     | luodanwg     |
+| [Ontology](https://github.com/ontio/ontology) | Weng Junjie  | luodanwg                 | luodanwg     | luodanwg     |
 |                                               | Zhou Yan     | harry.zy                 | harryzy      | harryzy      |
 |                                               | Tan Yuan     | tanyuan                  | tanZiWen     | tanZiWen     |
 | [OEPs](https://github.com/ontio/OEPs)         | Hu Ning      | dcjojo                   | javajoker    | javajoker    |
