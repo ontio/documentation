@@ -103,4 +103,4 @@ Ontology Technical Committee：
 |                                               | Cong Honglei | Honglei                  | Honglei-Cong | Honglei-Cong |
 | [dApps](https://github.com/ontio/ONTO)        | Xiao Min     | xiaomin-trouble shooting | xiaomin49    | xiaomin49    |
 |                                               | Ding Wenbing | dwb1991                  | dwb19911025  | dwb19911025  |
-|  Community mgmt.                              | Mathias G    | Fluid_DK                 | Fluid_DK     | Fluid_DK     |
+|  Community Mgmt.                              | Mathias G    | Fluid_DK                 | Fluid_DK     | Fluid_DK     |
