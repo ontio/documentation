@@ -1,5 +1,5 @@
 English | [中文](https://github.com/ontio/documentation/edit/master/zh-CN/standard_process_for_contributor.md)
-
+1
 <h1 align="center">Guidelines for Technical Community Contributions</h1>
 
 ## Introduction
