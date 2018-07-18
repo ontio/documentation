@@ -989,3 +989,7 @@ DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseV
 
 ## FAQ
 [FAQ](https://github.com/ontio/documentation/blob/master/exchangeDocs/ONT%2BExchange%2BDocking%2BFAQ.md)
+
+## Mainnet update note
+please refer to the following note to check whether you need to upgrade your sdk version or not:
+[Update note](https://github.com/ontio/documentation/blob/master/exchangeDocs/Ontology%20mainnet%20update%20note.md)
