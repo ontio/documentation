@@ -1022,5 +1022,6 @@ DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseV
 [FAQ](https://github.com/ontio/documentation/blob/master/exchangeDocs/ONT%20%E4%BA%A4%E6%98%93%E6%89%80%E5%AF%B9%E6%8E%A5FAQ.md)
 
 ## 附3 主网及sdk更新日志
+请参照下面的更新日志，根据需要来决定是否要更新您的sdk版本
 [Update note](https://github.com/ontio/documentation/blob/master/exchangeDocs/Ontology%20mainnet%20update%20note.md)
 
