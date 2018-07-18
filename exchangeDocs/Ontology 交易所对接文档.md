@@ -4,8 +4,6 @@ ONT中有两种资产：原生资产和合约资产。原生资产如ont和ong�
 
 本文档大纲如下：
 
-
-
 * [Ontology 交易所对接文档](#ontology-交易所对接文档)
 	* [1.部署Ontology同步节点](#1部署ontology同步节点)
 		* [从源码获取](#从源码获取)
@@ -51,14 +49,11 @@ ONT中有两种资产：原生资产和合约资产。原生资产如ont和ong�
 		* [给用户分发ONG](#给用户分发ong)
 		* [用户提取ONG](#用户提取ong)
 	* [6. 签名服务](#6-签名服务)
+	* [附 native 合约地址](#附-native-合约地址)
+	* [附2 FAQ](#附2-faq)
+	* [附3 主网及sdk更新日志](#附3-主网及sdk更新日志)
 
 
-
-​
-
-​
-
-​
 
 ## 1.部署Ontology同步节点
 
@@ -602,6 +597,8 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 | addressFromMultiPubkeys | int m,byte\[\]... pubkeys | 最小验签个数(<=公钥个数)，公钥 |
 
 ### ONT和ONG转账
+
+**对于在主网转账，请将gaslimit 设为20000，gasprice设为500**
 
 参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
