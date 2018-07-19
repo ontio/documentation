@@ -3,7 +3,9 @@
 ## Q：ontology 主网和测试网IP是多少
 
 A : 
+
 String ip = "http://polaris1.ont.io"; //测试网
+
 String ip = "http://dappnode1.ont.io"; //主网
 
 ## Q：ontology 节点如何连接 polaris 测试网
