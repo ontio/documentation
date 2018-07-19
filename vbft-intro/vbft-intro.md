@@ -1,4 +1,9 @@
-# VBFT Introduction
+
+English / [中文](./vbft-intro-CN.md)
+
+<h1 align="center">VBFT Introduction</h1> 
+
+<p align="center" class="version">Version 1.0.0 </p>
 
 On March 30th Ontology released the first batch of open-source projects to GitHub. As a next-generation public chain infrastructure platform, Ontology will also introduce a new consensus algorithm VBFT, which is based on verifiable random function (VRF). Below we will introduce Ontology’s latest consensus model and its VBFT consensus algorithm. The VBFT algorithm will also be open-source on GitHub.
 

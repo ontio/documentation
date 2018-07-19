@@ -1,6 +1,7 @@
-[English](./guidelines_for_technical_community_contributions_en.html) / 中文
+[English](../en-EN/Guidelines_for_technical_community_contributions.md) / 中文
 
 <h1 align="center">社区贡献标准流程</h1>
+
 <p align="center" class="version">Version 1.0.0 </p> 
 
 #### 一、个人或小组技术贡献者
