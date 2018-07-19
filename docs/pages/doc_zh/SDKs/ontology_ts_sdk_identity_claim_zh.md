@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_ts_sdk_identity_claim_zh.html
 folder: doc_zh/SDKs
-giturl: https://github.com/ontio/ontology-ts-sdk/master/docs/cn/identity_claim.md
+giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/cn/identity_claim.md
 ---
 
 [English](./ontology_ts_sdk_identity_claim_en.html) | 中文

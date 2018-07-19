@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_java_sdk_attest_zh.html
 folder: doc_zh/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/cn/attest.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/attest.md
 ---
 
 <h1 align="center"> 数字身份Claim存证 </h1>

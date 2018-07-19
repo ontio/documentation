@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_java_sdk_basic_zh.html
 folder: doc_zh/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/cn/basic.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md
 ---
 
 <h1 align="center"> 区块链交互基本操作 </h1>

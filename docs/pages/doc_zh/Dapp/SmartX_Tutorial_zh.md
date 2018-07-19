@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Dapp_zh
 permalink: SmartX_Tutorial_zh.html
 folder: doc_zh/Dapp
-giturl: https://github.com/ontio/ontology-smartcontract/master/smart-contract-tutorial/SmartX_Tutorial_cn.md
+giturl: https://github.com/ontio/ontology-smartcontract/blob/master/smart-contract-tutorial/SmartX_Tutorial_cn.md
 ---
 
 <h1 align="center">SmartX 教程</h1>

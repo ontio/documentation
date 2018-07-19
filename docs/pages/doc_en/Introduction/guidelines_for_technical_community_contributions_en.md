@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Introduction_en
 permalink: guidelines_for_technical_community_contributions_en.html
 folder: doc_en/Introduction
-giturl: https://github.com/ontio/documentation/master/en-EN/Guidelines_for_technical_community_contributions.md
+giturl: https://github.com/ontio/documentation/blob/master/en-EN/Guidelines_for_technical_community_contributions.md
 ---
 
 English / [中文](./guidelines_for_technical_community_contributions_zh.html)

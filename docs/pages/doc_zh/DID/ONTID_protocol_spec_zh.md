@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: DID_zh
 permalink: ONTID_protocol_spec_zh.html
 folder: doc_zh/DID
-giturl: https://github.com/ontio/ontology-DID/master/docs/cn/ONTID_protocol_spec_cn.md
+giturl: https://github.com/ontio/ontology-DID/blob/master/docs/cn/ONTID_protocol_spec_cn.md
 ---
 
 ﻿[English](./ONTID_protocol_spec_en.html) / 中文

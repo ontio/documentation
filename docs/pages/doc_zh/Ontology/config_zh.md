@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Ontology_zh
 permalink: config_zh.html
 folder: doc_zh/Ontology
-giturl: https://github.com/ontio/ontology/master/docs/specifications/config_CN.md
+giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/config_CN.md
 ---
 
 <h1 align="center">Ontology 配置文件说明</h1>

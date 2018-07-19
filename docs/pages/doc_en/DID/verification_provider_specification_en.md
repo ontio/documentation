@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: DID_en
 permalink: verification_provider_specification_en.html
 folder: doc_en/DID
-giturl: https://github.com/ontio/ontology-DID/master/docs/en/verification_provider_specification.md
+giturl: https://github.com/ontio/ontology-DID/blob/master/docs/en/verification_provider_specification.md
 ---
 
 English / [中文](./verification_provider_specification_zh.html)

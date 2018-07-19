@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Ontology_en
 permalink: cli_user_guide_en.html
 folder: doc_en/Ontology
-giturl: https://github.com/ontio/ontology/master/docs/specifications/cli_user_guide.md
+giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/cli_user_guide.md
 ---
 
 <h1 align="center">Ontology CLI Instruction</h1>

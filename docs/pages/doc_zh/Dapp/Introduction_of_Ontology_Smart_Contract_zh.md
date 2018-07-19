@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Dapp_zh
 permalink: Introduction_of_Ontology_Smart_Contract_zh.html
 folder: doc_zh/Dapp
-giturl: https://github.com/ontio/ontology-smartcontract/master/smart-contract-tutorial/Introduction_of_Ontology_Smart_Contract_cn.md
+giturl: https://github.com/ontio/ontology-smartcontract/blob/master/smart-contract-tutorial/Introduction_of_Ontology_Smart_Contract_cn.md
 ---
 
 <h1 align="center">本体智能合约简介</h1>

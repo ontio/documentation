@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Introduction_en
 permalink: tutorial_for_developer_en.html
 folder: doc_en/Introduction
-giturl: https://github.com/ontio/documentation/master/get_started_en.md
+giturl: https://github.com/ontio/documentation/blob/master/get_started_en.md
 ---
 
 

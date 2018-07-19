@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Ontology_en
 permalink: websocket_api_en.html
 folder: doc_en/Ontology
-giturl: https://github.com/ontio/ontology/master/docs/specifications/websocket_api.md
+giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/websocket_api.md
 ---
 
 <h1 align="center">Ontology Websocket API</h1>

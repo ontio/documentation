@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Ontology_zh
 permalink: testnet_zh.html
 folder: doc_zh/Ontology
-giturl: https://github.com/ontio/ontology/master/docs/specifications/testnet_CN.md
+giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/testnet_CN.md
 ---
 
 

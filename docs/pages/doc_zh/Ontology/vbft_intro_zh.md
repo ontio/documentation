@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Ontology_zh
 permalink: vbft_intro_zh.html
 folder: doc_zh/Ontology
-giturl: https://github.com/ontio/documentation/master/vbft-intro/vbft-intro-CN.md
+giturl: https://github.com/ontio/documentation/blob/master/vbft-intro/vbft-intro-CN.md
 ---
 
 

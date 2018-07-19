@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_java_sdk_asset_zh.html
 folder: doc_zh/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/cn/asset.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/asset.md
 ---
 
 <h1 align="center"> 数字资产 </h1>

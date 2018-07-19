@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_java_sdk_attest_en.html
 folder: doc_en/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/en/attest.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/attest.md
 ---
 
 <h1 align="center"> Attest Attestation </h1>
