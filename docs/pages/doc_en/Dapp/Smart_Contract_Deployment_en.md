@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Dapp_en
 permalink: Smart_Contract_Deployment_en.html
 folder: doc_en/Dapp
-giturl: https://github.com/ontio/ontology-smartcontract/master/smart-contract-tutorial/Smart_Contract_Deployment.md
+giturl: https://github.com/ontio/ontology-smartcontract/blob/master/smart-contract-tutorial/Smart_Contract_Deployment.md
 ---
 
 <h1 align="center">Smart Contract Deployment</h1>

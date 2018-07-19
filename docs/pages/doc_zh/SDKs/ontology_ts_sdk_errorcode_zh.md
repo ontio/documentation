@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_ts_sdk_errorcode_zh.html
 folder: doc_zh/SDKs
-giturl: https://github.com/ontio/ontology-ts-sdk/master/docs/cn/errorcode.md
+giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/cn/errorcode.md
 ---
 
 [English](./ontology_ts_sdk_errorcode_en.html) | 中文

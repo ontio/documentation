@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Dapp_zh
 permalink: auth_zh.html
 folder: doc_zh/Dapp
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/cn/auth.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/auth.md
 ---
 
 <h1 align="center"> 权限管理 </h1>

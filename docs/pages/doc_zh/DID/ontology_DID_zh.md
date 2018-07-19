@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: DID_zh
 permalink: ontology_DID_zh.html
 folder: doc_zh/DID
-giturl: https://github.com/ontio/ontology-DID/master/README_cn.md
+giturl: https://github.com/ontio/ontology-DID/blob/master/README_cn.md
 ---
 
 [English](./ontology_DID_en.html) / 中文

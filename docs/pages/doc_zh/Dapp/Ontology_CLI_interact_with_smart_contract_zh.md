@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Dapp_zh
 permalink: Ontology_CLI_interact_with_smart_contract_zh.html
 folder: doc_zh/Dapp
-giturl: https://github.com/ontio/ontology-smartcontract/master/smart-contract-tutorial/Ontology_CLI_interact_with_smart_contract.md
+giturl: https://github.com/ontio/ontology-smartcontract/blob/master/smart-contract-tutorial/Ontology_CLI_interact_with_smart_contract.md
 ---
 
 <h1 align="center">Ontology CLI 与智能合约交互</h1>

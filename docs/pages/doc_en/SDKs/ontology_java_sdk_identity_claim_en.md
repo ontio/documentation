@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_java_sdk_identity_claim_en.html
 folder: doc_en/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/en/identity_claim.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/identity_claim.md
 ---
 
 <h1 align="center"> Digital Identity and Verifable Claim Management</h1>

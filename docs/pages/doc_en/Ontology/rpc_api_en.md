@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Ontology_en
 permalink: rpc_api_en.html
 folder: doc_en/Ontology
-giturl: https://github.com/ontio/ontology/master/docs/specifications/rpc_api.md
+giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/rpc_api.md
 ---
 
 <h1 align="center">ONT Rpc Api</h1>

@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_java_sdk_interface_en.html
 folder: doc_en/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/en/interface.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/interface.md
 ---
 
 <h1 align="center">  Ontology Java SDK Interface</h1>

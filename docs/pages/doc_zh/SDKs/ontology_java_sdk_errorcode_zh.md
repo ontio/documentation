@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_java_sdk_errorcode_zh.html
 folder: doc_zh/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/cn/errorcode.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/errorcode.md
 ---
 
 <h1 align="center"> 错误码 </h1>

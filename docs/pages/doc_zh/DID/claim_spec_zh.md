@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: DID_zh
 permalink: claim_spec_zh.html
 folder: doc_zh/DID
-giturl: https://github.com/ontio/ontology-DID/master/docs/cn/claim_spec_cn.md
+giturl: https://github.com/ontio/ontology-DID/blob/master/docs/cn/claim_spec_cn.md
 ---
 
 [English](./claim_spec_en.html) / 中文

@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_ts_sdk_asset_en.html
 folder: doc_en/SDKs
-giturl: https://github.com/ontio/ontology-ts-sdk/master/docs/en/asset.md
+giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/asset.md
 ---
 
 

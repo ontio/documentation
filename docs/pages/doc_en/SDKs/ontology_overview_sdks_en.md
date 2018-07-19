@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_overview_sdks_en.html
 folder: doc_en/SDKs
-giturl: https://github.com/ontio/documentation/master/ontology-API/ontology_overview_sdks_en.md
+giturl: https://github.com/ontio/documentation/blob/master/ontology-API/ontology_overview_sdks_en.md
 ---
 
 

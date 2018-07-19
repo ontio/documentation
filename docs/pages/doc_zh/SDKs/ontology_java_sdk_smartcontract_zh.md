@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_java_sdk_smartcontract_zh.html
 folder: doc_zh/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/cn/smartcontract.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/smartcontract.md
 ---
 
 <h1 align="center"> Java sdk 智能合约 </h1>

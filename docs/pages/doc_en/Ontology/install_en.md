@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Ontology_en
 permalink: install_en.html
 folder: doc_en/Ontology
-giturl: https://github.com/ontio/ontology/master/docs/specifications/install.md
+giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/install.md
 ---
 
 

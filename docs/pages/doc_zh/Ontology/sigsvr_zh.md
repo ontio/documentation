@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Ontology_zh
 permalink: sigsvr_zh.html
 folder: doc_zh/Ontology
-giturl: https://github.com/ontio/ontology/master/docs/specifications/sigsvr_CN.md
+giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr_CN.md
 ---
 
 <h1 align="center">Ontology 签名服务器使用说明</h1>

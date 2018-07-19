@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Others_zh
 permalink: config-vbft.json
 folder: doc_zh/Others
-giturl: https://github.com/ontio/ontology/master/docs/specifications/config-dbft.json
+giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/config-dbft.json
 ---
 
 {

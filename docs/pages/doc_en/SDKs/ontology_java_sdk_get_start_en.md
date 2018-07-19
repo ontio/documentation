@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_java_sdk_get_start_en.html
 folder: doc_en/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/master/docs/en/sdk_get_start.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md
 ---
 
 <h1 align="center"> Ontology Java SDK Tutorials </h1>

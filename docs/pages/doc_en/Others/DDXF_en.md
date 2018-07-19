@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Others_en
 permalink: DDXF_en.html
 folder: doc_en/Others
-giturl: https://github.com/ontio/ontology-ddxf/master/README.md
+giturl: https://github.com/ontio/ontology-ddxf/blob/master/README.md
 ---
 
 English / [中文](./DDXF_zh)
