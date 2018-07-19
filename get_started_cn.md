@@ -1,5 +1,5 @@
 
-[English](./tutorial_for_developer_en.html) / 中文
+[English](./get_started_en.md) / 中文
 
 <h1 align="center">开发者快速指南</h1> 
 
