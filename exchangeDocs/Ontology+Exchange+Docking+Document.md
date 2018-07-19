@@ -81,7 +81,7 @@ $ make
 ```
 
 An executable program will be generated after a successful compilation
-
+(using ```make all``` command will generate sig server under 'tools' directory ）
 - `ontology`: Node program/node control program provided by command line
 
 ### Get from release
