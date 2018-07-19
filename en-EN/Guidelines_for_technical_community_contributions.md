@@ -1,14 +1,7 @@
----
-title: 
-keywords: sample homepage
-sidebar: Introduction_en
-permalink: guidelines_for_technical_community_contributions_en.html
-folder: doc_en/Introduction
----
-
 English / [中文](./guidelines_for_technical_community_contributions_zh.html)
 
 <h1 align="center">Guidelines for Technical Community Contributions</h1>
+<p align="center" class="version">Version 1.0.0 </p> 
 
 ## Introduction
 

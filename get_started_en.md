@@ -1,11 +1,3 @@
----
-title: 
-keywords: sample homepage
-sidebar: Introduction_en
-permalink: index.html
-folder: pages/doc_en/Introduction
----
-
 
 English / [中文](./tutorial_for_developer_zh.html)
 
