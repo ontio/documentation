@@ -1,6 +1,10 @@
 # Ontology 钱包开发文档
 
-钱包开发分数字资产和数字身份两部分。ONT中有两种资产：原生资产和合约资产，对接时主要涉及转账和ONG提取。数字身份主要包括注册，更新属性，查询DDO等功能。
+钱包开发分数字资产和数字身份两部分。
+
+ONT中有两种资产：原生资产和合约资产。对接时主要涉及查询、转账、ONG提取等接口。
+
+数字身份主要包括注册，更新属性，查询身份等功能。
 
 本文档大纲如下：
 
@@ -22,7 +26,7 @@
 				* [根据私钥创建账号](#根据私钥创建账号)
 			* [使用钱包管理：](#使用钱包管理)
 		    * [地址生成](#地址生成)
-		* [资产](#资产)
+		* [数字资产](#数字资产)
 			* [1. ONT转账](#1-ont转账)
                 * [ONT转账](#ont转账)
 			* [2. ONG转账](#2-ong转账)
@@ -32,6 +36,9 @@
 				* [构造转账交易并发送](#构造转账交易并发送)
             	* [多次签名](#多次签名)
             	* [一转多或多转多](#一转多或多转多)
+        * [数字身份](#数字身份)
+        	* [注册身份](#注册身份)
+        	* [查询身份](#查询身份)
 	* [部署Ontology同步节点](#部署ontology同步节点)
     * [附 native 合约地址](#附-native-合约地址)		
 
@@ -340,7 +347,7 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 | :---------------------- | :------------------------ | :----------------------------- |
 | addressFromMultiPubkeys | int m,byte\[\]... pubkeys | 最小验签个数(<=公钥个数)，公钥 |
 
-### 资产
+### 数字资产
 
 
 
@@ -397,8 +404,30 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 | withdrawOng | String claimer,String to,long amount,String payer,long gaslimit,long gasprice | ong提取者，提给谁，金额，网络付费人地址，gaslimit，gasprice |
 
 
+### 数字身份
 
-#### 3. 构造转账
+##### 注册身份
+
+参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
+
+```
+
+Identity identity = ontSdk.getWalletMgr().createIdentity(password);
+ontSdk.nativevm().ontId().sendRegister(identity,password,payerAcct,ontSdk.DEFAULT_GAS_LIMIT,0);
+ 
+```
+
+##### 查询身份
+
+参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
+
+```
+
+String ddo2 = ontSdk.nativevm().ontId().sendGetDDO(identity.ontid);
+ 
+```
+
+### 3. 构造转账
 
 参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
