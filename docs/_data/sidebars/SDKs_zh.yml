@@ -24,11 +24,11 @@ entries:
     folderitems:
 
     - title: 总体说明
-      url: /overview_of_sdks_zh.html
+      url: /ontology_overview_sdks_zh.html
       output: web, pdf
 
     - title: 钱包文件规范
-      url: /ontology_wallet_file_specification_zh.html
+      url: /Wallet_File_Specification_zh.html
       output: web, pdf
       subfolders:
       - title: Java SDK
@@ -39,8 +39,16 @@ entries:
           url: /ontology_java_sdk_zh.html
           output: web
 
+        - title:  开始使用
+          url: /ontology_java_sdk_get_start_en.html
+          output: web
+
+        - title:  接口基本信息
+          url: /ontology_java_sdk_interface_en.html
+          output: web
+
         - title: 节点控制
-          url: /ontology_java_sdk_blockchain_interop_zh.html
+          url: /ontology_java_sdk_basic_zh.html
           output: web
 
         - title: 数字身份管理
@@ -51,16 +59,24 @@ entries:
           url: /ontology_java_sdk_asset_zh.html
           output: web
 
+        - title: 数字存证
+          url: /ontology_java_sdk_attest_zh.html
+          output: web
+
+        - title: 权限管理
+          url: /ontology_java_sdk_auth_zh.html
+          output: web
+
         - title: 智能合约部署和调用
           url: /ontology_java_sdk_smartcontract_zh.html
           output: web
 
         - title: 存证
-          url: /ontology_java_sdk_attestation_zh.html
+          url: /ontology_java_sdk_attest_zh.html
           output: web
 
         - title: 错误码
-          url: /ontology_java_sdk_error_code_zh.html
+          url: /ontology_java_sdk_errorcode_en.html
           output: web
 
       - title: TS SDK
@@ -80,7 +96,7 @@ entries:
           output: web
 
         - title: 错误码
-          url: /ontology_ts_sdk_error_code_zh.html
+          url: /ontology_ts_sdk_errorcode_zh.html
           output: web
 
         - title: API 文档

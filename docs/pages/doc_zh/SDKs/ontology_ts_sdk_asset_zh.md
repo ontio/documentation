@@ -1,15 +1,16 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_ts_sdk_asset_zh.html
 folder: doc_zh/SDKs
+giturl: https://github.com/ontio/ontology-ts-sdk/master/docs/cn/asset.md
 ---
 
 [English](./ontology_ts_sdk_asset_en.html) / 中文
 
 <h1 align="center">数字资产管理 </h1>
-<p align="center" class="version">Version 0.9.0 </p>
+<p align="center" class="version">Version 0.7.0 </p>
 
 ## 钱包 Wallet
 
@@ -53,7 +54,7 @@ folder: doc_zh/SDKs
 
 ```extra``` 是客户端由开发者用来存储额外数据字段，可以为null。
 
-希望了解更多钱包数据规范请参考[Wallet_File_Specification](./Wallet_File_Specification.md).
+希望了解更多钱包数据规范请参考[Wallet_File_Specification](./Wallet_File_Specification_en.html).
 
 ### 创建钱包
 

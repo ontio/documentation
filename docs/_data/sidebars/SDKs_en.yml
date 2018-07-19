@@ -24,11 +24,11 @@ entries:
     folderitems:
 
     - title: Overview
-      url: /overview_of_sdks_en.html
+      url: /ontology_overview_sdks_en.html
       output: web, pdf
 
     - title: Wallet File Specification
-      url: /ontology_wallet_file_specification_en.html
+      url: /Wallet_File_Specification_en.html
       output: web, pdf
       subfolders:
       - title: Java SDK
@@ -39,8 +39,16 @@ entries:
           url: /ontology_java_sdk_en.html
           output: web
 
+        - title:  Getting Started
+          url: /ontology_java_sdk_get_start_en.html
+          output: web
+
+        - title:  Interface Information
+          url: /ontology_java_sdk_interface_en.html
+          output: web
+
         - title: Node controll
-          url: /ontology_java_sdk_blockchain_interop_en.html
+          url: /ontology_java_sdk_basic_en.html
           output: web
 
         - title: Digital Identity
@@ -51,16 +59,24 @@ entries:
           url: /ontology_java_sdk_asset_en.html
           output: web
 
+        - title: Digital Attest
+          url: /ontology_java_sdk_attest_en.html
+          output: web
+
+        - title: Authority Management
+          url: /ontology_java_sdk_auth_en.html
+          output: web
+
         - title: How to use Smart Contract
           url: /ontology_java_sdk_smartcontract_en.html
           output: web
 
         - title: Attestation
-          url: /ontology_java_sdk_attestation_en.html
+          url: /ontology_java_sdk_attest_en.html
           output: web
 
         - title: Errorcode
-          url: /ontology_java_sdk_error_code_en.html
+          url: /ontology_java_sdk_errorcode_en.html
           output: web
 
       - title: TS SDK
@@ -80,7 +96,7 @@ entries:
           output: web
 
         - title: Errorcode
-          url: /ontology_ts_sdk_error_code_en.html
+          url: /ontology_ts_sdk_errorcode_en.html
           output: web
 
         - title: API reference

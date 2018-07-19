@@ -24,27 +24,27 @@ entries:
     folderitems:
 
     - title: Introduction
-      url: /smart_contract_tutorial_introduction_en.html
+      url: /Introduction_of_Ontology_Smart_Contract_en.html
       output: web, pdf
 
     - title: SmartX Tutorial
-      url: /smart_contract_tutorial_smartx_en.html
+      url: /SmartX_Tutorial_en.html
       output: web, pdf
 
     - title: Hello world
-      url: /smart_contract_tutorial_helloworld_en.html
+      url: /The_Hello_World_Contract_en.html
       output: web, pdf
 
     - title: Smart Contract Deployment
-      url: /smart_contract_tutorial_deployment_en.html
+      url: /Smart_Contract_Deployment_en.html
       output: web, pdf
 
     - title: Smart Contract Invocation
-      url: /smart_contract_tutorial_invocation_en.html
+      url: /Smart_Contract_Invocation_en.html
       output: web, pdf
 
     - title: Permission Control
-      url: /smart_contract_tutorial_auth_en.html
+      url: /auth_en.html
       output: web, pdf
 
     - title: API reference

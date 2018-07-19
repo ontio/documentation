@@ -1,19 +1,24 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_ts_sdk_asset_en.html
 folder: doc_en/SDKs
+giturl: https://github.com/ontio/ontology-ts-sdk/master/docs/en/asset.md
 ---
 
-English / [中文](./ontology_ts_sdk_asset_zh.html)
 
+[中文](./ontology_ts_sdk_asset_zh.html) | Enlish
 
 <h1 align="center">Digital Asset Management </h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<p align="center" class="version">Version 0.9.0 </p>
 
 
-# Wallet
+<h1 align="center">Wallet</h1>
+
+
+
+
 
 Wallet is a data storing file of JSON format. In the terms of Ontology, Wallet could store not only the digital identity but also digital assets.
 
@@ -58,7 +63,7 @@ Wallet is a data storing file of JSON format. In the terms of Ontology, Wallet c
 
 ```extra``` is the field used by client developer to store extra informations. It can be null.
 
-More detail about wallet data specification could be found in [Wallet_File_Specification](./Wallet_File_Specification.md).
+More detail about wallet data specification could be found in [Wallet_File_Specification](./Wallet_File_Specification_en.html).
 
 
 ## 1.1 Create An Wallet

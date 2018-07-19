@@ -1,9 +1,10 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: DID_en
 permalink: verification_provider_specification_en.html
 folder: doc_en/DID
+giturl: https://github.com/ontio/ontology-DID/master/docs/en/verification_provider_specification.md
 ---
 
 English / [中文](./verification_provider_specification_zh.html)
@@ -24,7 +25,7 @@ According to demands, there are two specific interaction processes.
 
     This mode means that users can initiate the real-time authentication through the client (such as Ontology official ONTO client), and immediately obtain the verifiable claim after the authentication passes. For example, Face++ follows this process.
 
-![Trust Anchor](lib/images/5a92d69de4b0874437cfe5f4.png)
+![](./lib/images/5a92d69de4b0874437cfe5f4.png)
 
 
 * Offline Issuance Mode

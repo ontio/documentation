@@ -1,15 +1,17 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_java_sdk_en.html
 folder: doc_en/SDKs
+giturl: https://github.com/ontio/ontology-java-sdk/master/docs/en/README.md
 ---
 
-English / [中文](./ontology_java_sdk_zh.html)
-
 <h1 align="center"> Ontology Java SDK User Guide </h1>
-<p align="center" class="version">Version 0.9.0 </p>
+
+<p align="center" class="version">Version 1.0.0 </p>
+
+English / [中文](./ontology_java_sdk_zh.html)
 
 ## Overview
 
@@ -17,13 +19,16 @@ This is a comprehensive Java library for the Ontology blockchain,which is releas
 
 ## Main functions
 
-
-- [Basic operation of blockchain nodes](./ontology_java_sdk_blockchain_interop_en.html)
-- [Wallet file specification](./ontology_wallet_file_specification_en.html)
+- [Getting Started](./ontology_java_sdk_get_start_en.html)
+- [interface](./ontology_java_sdk_interface_en.html)
+- [Basic operation of blockchain nodes](./ontology_java_sdk_basic_en.html)
+- [Wallet file specification](./Wallet_File_Specification_en.html)
 - [Digital identity and verifable claim management](./ontology_java_sdk_identity_claim_en.html)
 - [Digital assets](./ontology_java_sdk_asset_en.html)
+- [Digital Attest](./ontology_java_sdk_attest_en.html)
+- [Auth manager](./ontology_java_sdk_auth_en.html)
 - [Smart contract deployment and invocation](./ontology_java_sdk_smartcontract_en.html)
-- [Error code](./ontology_java_sdk_error_code_en.html)
+- [Error code](./ontology_java_sdk_errorcode_en.html)
 
 
 ## Code structure:
@@ -57,4 +62,5 @@ mvn clean install
 ### Preparations
 
 * Make sure Ontology Blockchain has deployed well,  RPC port has been opened, and SDK will connect the RPC server to initialize.
+
 

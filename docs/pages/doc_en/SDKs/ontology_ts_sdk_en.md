@@ -1,18 +1,17 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_ts_sdk_en.html
 folder: doc_en/SDKs
+giturl: https://github.com/ontio/ontology-ts-sdk/master/docs/en/README.md
 ---
 
 
-
-
-English / [中文](./ontology_ts_sdk_zh.html)
+[中文](./ontology_ts_sdk_zh.html) | English
 
 <h1 align="center">Ontology TypeScript SDK Developer Guide</h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<h4 align="center">Version V0.7.0 </h4>
 
 ## Overview
 
@@ -21,9 +20,9 @@ Ontology official TypeScript SDK(also supports JavaScript), which is a comprehen
 ## Main Content
 
 
-- [Wallet File Specification](./ontology_wallet_file_specification_en.html)
+- [Wallet File Specification](./Wallet_File_Specification_en.html)
 - [Digtal Identity & Verifiable Claim](./ontology_ts_sdk_identity_claim_en.html)
 - [Digtal Asset](./ontology_ts_sdk_asset_en.html)
 - [Deploy and invoke smart contract](./ontology_ts_sdk_smartcontract_en.html)
-- [Error Code](./ontology_ts_sdk_error_code_en.html)
+- [Error Code](./ontology_ts_sdk_errorcode_en.html)
 

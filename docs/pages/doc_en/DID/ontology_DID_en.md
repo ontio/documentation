@@ -1,11 +1,11 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: DID_en
 permalink: ontology_DID_en.html
 folder: doc_en/DID
+giturl: https://github.com/ontio/ontology-DID/master/README.md
 ---
-
 
 English / [中文](./ontology_DID_zh.html)
 
@@ -61,13 +61,13 @@ At the same time, **ONT ID is an open protocol, and we also support the use of d
 
 * Step 2 Deploy IDContract 
     
-    [Here](https://github.com/ontio/ontology-DID/blob/master/resources/smart-contract/NeoVM/IdContract.avm) to download .avm file ，and [>> smart contract tutorial](./smart_contract_tutorial_en.html)，deploy this .avm to Blockchain.
+    [Here](./resources/smart-contract/NeoVM/IdContract.avm) to download .avm file ，and [>> smart contract tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)，deploy this .avm to Blockchain.
 
 
 
 ## Getting Started
 
-Enter [>>Quick Development Guide ](https://github.com/ontio/ontology-DID/blob/master/docs/en/get_started.md)to Get Started.
+Enter [>>Quick Development Guide ](https://github.com/ontio/ontology-DID/blob/master/docs/en/get_started.html)to Get Started.
 
 Of course, you can also refer directly to our various SDKs and RPC interfaces, including the following:
 
@@ -84,8 +84,6 @@ Trust Anchor refers to the partner that provides authentication services on the 
 [Here](https://info.ont.io/cooperation/en) to join us. 
 
 If you have been a trust anchor,please go to [>> The Access Standard for Trust Anchor](./verification_provider_specification_en.html) for details.
-
-
 
 
 

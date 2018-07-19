@@ -4,14 +4,14 @@ topnav:
 - title: Topnav
   items:
     - title: Introduction
-      url: /index.html
+      url: /tutorial_for_developer_en.html
     - title: Ontology Blockchain
-      url: /ontology_features_en.html
+      url: /features_en.html
     - title: Ontology DID
       url: /ontology_DID_en.html
     - title: SDKs
-      url: /overview_of_sdks_en.html
+      url: /ontology_overview_sdks_en.html
     - title: Smart Contract
-      url: /smart_contract_tutorial_introduction_en.html
+      url: /Introduction_of_Ontology_Smart_Contract_en.html
 #Topnav dropdowns
 topnav_dropdowns:

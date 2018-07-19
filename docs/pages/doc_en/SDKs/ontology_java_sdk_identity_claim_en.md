@@ -1,22 +1,26 @@
 ---
+title:
+keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_java_sdk_identity_claim_en.html
 folder: doc_en/SDKs
+giturl: https://github.com/ontio/ontology-java-sdk/master/docs/en/identity_claim.md
 ---
+
+<h1 align="center"> Digital Identity and Verifable Claim Management</h1>
+
+<p align="center" class="version">Version 1.0.0 </p>
 
 English / [中文](./ontology_java_sdk_identity_claim_zh.html)
 
-<h1 align="center"> Digital Identity </h1>
-<p align="center" class="version">Version 0.9.0 </p>
-
-# Overivew
+## Introduction
 
 Relevant descriptions of digital ID can be found in [ONT ID Protocol and Trust Framework](https://github.com/ontio/ontology-DID).
 
 ## Wallet file specification
 
 A wallet file is a JSON data storage file that stores multiple digital identities and digital asset accounts.
-You may refer to [Wallet File Specification](Wallet_File_Specification.md) for detailed information.
+You may refer to [Wallet File Specification](./Wallet_File_Specification_en.html) for detailed information.
 
 You need to create/open a wallet file to create a digital identity.
 
@@ -57,6 +61,8 @@ public class Identity {
 `curve` Elliptic curve  
 `id` The single identifier of control  
 `key` NEP-2 private key
+`salt`
+`hash` hash algorithm
 
 
 ```
@@ -65,6 +71,11 @@ public class Control {
     public Map parameters = new HashMap() ;
     public String id = "";
     public String key = "";
+    public String salt = "";
+    public String hash = "sha256";
+    @JSONField(name = "enc-alg")
+    public String encAlg = "aes-256-gcm";
+    public String address = "";
 }
 ```
 
@@ -101,12 +112,13 @@ Send the constructed transaction to the server and let the server sign the trans
 
 ```
 Identity identity = ontSdk.getWalletMgr().createIdentity(password);
-Transaction tx = ontSdk.nativevm().ontId().makeRegister(identity.ontid,password,payerAcc.address,ontSdk.DEFAULT_GAS_LIMIT,0);
-ontSdk.signTx(tx,identity.ontid,password);
+Transaction tx = ontSdk.nativevm().ontId().makeRegister(identity.ontid,password,salt,payerAcc.address,ontSdk.DEFAULT_GAS_LIMIT,0);
+ontSdk.signTx(tx,identity.ontid,password,salt);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
-Upon successful registration, the corresponding DDO of the ONT ID will be stored in Ontology blockchain. Detailed information about DDO can be found in [ONT ID identity protocol and smart contract implementation](https://git.ont.network/Ontology_Open_Platform/ontid/src/master/docs/en/ONTID_protocol_spec.md).
+Upon successful registration, the corresponding DDO of the ONT ID will be stored in Ontology blockchain. Detailed information about DDO can be found in [ONT ID identity protocol and smart contract implementation]
+https://github.com/ontio/ontology-DID/blob/master/README.md
 
 
 * 4 Import account or identity
@@ -116,14 +128,16 @@ Users who have already created a digital identity or account may import it into 
 > **Note:** It is advised to check if an identity already exists on the blockchain before you import one. If DDO does not exist, it means that no such identity has been registered on the blockchain. Then you may need to use ontSdk.getOntIdTx().sendRegister(identity,"passwordtest") for registration.
 
 ```
-Identity identity = ontSdk.getWalletMgr().importIdentity(encriptPrivateKey,password);
+Identity identity = ontSdk.getWalletMgr().importIdentity(encriptPrivateKey,password,salt,address);
 //write to wallet     
 ontSdk.getWalletMgr().writeWallet();
 ```
 
 Parameter Description：
 encriptPrivateKey: Encrypted private key
-password： Password used to encrypt the private key
+password: Password used to encrypt the private key
+salt: Private key decryption parameters.
+address: account address
 
 * 5 Query blockchain-based identity
 
@@ -183,7 +197,7 @@ specifies the account address for payment of transaction fees
 
 ```
 //update an attribute
-String sendAddAttributes(String ontid, String password, Attribute[] attributes,Account payerAcct,long gaslimit,long gasprice)
+String sendAddAttributes(String ontid, String password,byte[] salt, Attribute[] attributes,Account payerAcct,long gaslimit,long gasprice)
 ```
 
 
@@ -191,6 +205,7 @@ String sendAddAttributes(String ontid, String password, Attribute[] attributes,A
 | ----- | ------- | ------ | ------------- | ----------- |
 | input param | password| String | publisher's address | required, password to decrypt private key|
 |   | ontid    | String | name of asset | required, ID |
+|   | salt     | byte[] | |required|
 |        | attributes | Attribute[]|  Attribute array | required |
 |        | payerAcct    | Account | Payment transaction account    |  required |
 |           | gaslimit      | long | gaslimit     | required |
@@ -202,12 +217,12 @@ method two
 
 Send the constructed transaction to the server and let the server sign the transaction fee account.
 ```
-Transaction makeAddAttributes(String ontid, String password, Attribute[] attributes,String payer,long gaslimit,long gasprice)
+Transaction makeAddAttributes(String ontid, String password,byte[] salt, Attribute[] attributes,String payer,long gaslimit,long gasprice)
 ```
 
 example:
 ```
-Transaction tx = ontSdk.nativevm().ontId().makeAddAttributes(ontid,password,attributes,payer,gaslimit,0);
+Transaction tx = ontSdk.nativevm().ontId().makeAddAttributes(ontid,password,salt,attributes,payer,gaslimit,0);
 ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
@@ -217,13 +232,14 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 method one
 
 ```
-String sendRemoveAttribute(String ontid,String password,String path,Account payerAcct,long gaslimit,long gasprice)
+String sendRemoveAttribute(String ontid,String password,salt,String path,Account payerAcct,long gaslimit,long gasprice)
 ```
 
 | Param        | Field   | Type   | Descriptions  |       Remarks       |
 | -----        | ------- | ------ | ------------- | ------------------- |
 | input param  | password| String | publisher's address | required, password to decrypt private key |
 |   | ontid    | String | name of asset | required, ID |
+|   | salt     | byte[] | |    required  |
 |   | path    | String | path       | required |
 |   | payerAcct    | Account  |Payment transaction account  | required，payer |
 |   | gaslimit      | long | gaslimit     | required |
@@ -234,13 +250,13 @@ method two
 
 Send the constructed transaction to the server and let the server sign the transaction fee account.
 ```
-Transaction makeRemoveAttribute(String ontid,String password,String path,String payer,long gaslimit,long gasprice)
+Transaction makeRemoveAttribute(String ontid,String password,byte[] salt,String path,String payer,long gaslimit,long gasprice)
 ```
 
 
 example:
 ```
-Transaction tx = ontSdk.nativevm().ontId().makeRemoveAttribute(ontid,password,path,payer,gaslimit,0);
+Transaction tx = ontSdk.nativevm().ontId().makeRemoveAttribute(ontid,password,salt,path,payer,gaslimit,0);
 ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
@@ -251,12 +267,13 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 method one
 
 ```
-String sendAddPubKey(String ontid, String password, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
+String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
 
 | Param      | Field   | Type  | Descriptions |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | input param| password| String | identity password | required |
+|         | salt     | byte[] | |    required  |
 |        | ontid    | String | identity ID   | required，identity Id |
 |        | newpubkey| String  |public key       | required， newpubkey|
 |        | payerAcct    | Account  | payerAcct       | required，payer |
@@ -274,7 +291,7 @@ Transaction makeAddPubKey(String ontid,String password,String newpubkey,String p
 
 example
 ```
-Transaction tx = ontSdk.nativevm().ontId().makeAddPubKey(ontid,password,newpubkey,payer,gas);
+Transaction tx = ontSdk.nativevm().ontId().makeAddPubKey(ontid,password,salt,newpubkey,payer,gas);
 ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
@@ -282,7 +299,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 method three(recovery)
 
 ```
-String sendAddPubKey(String ontid,String recoveryAddr, String password, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
+String sendAddPubKey(String ontid,String recoveryAddr, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
 
 
@@ -291,6 +308,7 @@ String sendAddPubKey(String ontid,String recoveryAddr, String password, String n
 | input param|ontid|String | identity ID   | required，identity Id |
 |        | recoveryAddr| String | recovery address | required |
 |        | password| String | recovery password | required |
+|        | salt    | byte[] |                   | required |
 |        | newpubkey| String  |public key       | required， newpubkey|
 |        | payerAcct | Account  | payer       | required，payer |
 |        | gaslimit      | long | gaslimit     | required |
@@ -311,13 +329,14 @@ parameter description,please refer to method three(recovery)
 method one
 
 ```
-String sendRemovePubKey(String ontid, String password, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
+String sendRemovePubKey(String ontid, String password,,byte[] salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
 
 
 | Param      | Field   | Type  | Descriptions |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | input param | password| String | identity password | required |
+|        | salt | byte[] | | required|
 |        | ontid    | String | identity ID   | required，identity Id |
 |        | removePubkey| String  |public key       | required， removePubkey|
 |        | payerAcct    | Account  | payerAcct       | required，payer |
@@ -331,20 +350,21 @@ method two
 Send the constructed transaction to the server and let the server sign the transaction fee account.
 
 ```
-Transaction tx = ontSdk.nativevm().ontId().makeRemovePubKey(ontid,password,removePubkey,payer,gas);
+Transaction tx = ontSdk.nativevm().ontId().makeRemovePubKey(ontid,password,salt,removePubkey,payer,gas);
 ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
 method three(recovery)
 ```
-String sendRemovePubKey(String ontid, String recoveryAddr,String password, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
+String sendRemovePubKey(String ontid, String recoveryAddr,String password,salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
 
 | Param      | Field   | Type  | Descriptions |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | input param | ontid    | String | identity ID   | required，identity Id |
 |        | password| String | identity password | required |
+|        | salt| byte[] |  | required |
 |        | recoveryAddr| String | recovery password | required |
 |        | removePubkey| String  |public key       | required， removePubkey|
 |        | payerAcct    | Account  | payer       | required，payer |
@@ -355,7 +375,7 @@ String sendRemovePubKey(String ontid, String recoveryAddr,String password, Strin
 
 method four(recovery)
 ```
-Transaction makeRemovePubKey(String ontid,String recoveryAddr, String password, String removePubkey,String payer,long gaslimit,long gasprice)
+Transaction makeRemovePubKey(String ontid,String recoveryAddr, String password,salt, String removePubkey,String payer,long gaslimit,long gasprice)
 ```
 
 parameter description,please refer to method four(recovery)
@@ -365,14 +385,16 @@ parameter description,please refer to method four(recovery)
 method one
 
 ```
-String sendAddRecovery(String ontid, String password, String recoveryAddr,Account payerAcct,long gaslimit,long gasprice)
+String sendAddRecovery(String ontid, String password,byte[] salt, String recoveryAddr,Account payerAcct,long gaslimit,long gasprice)
 ```
 
 | Param      | Field   | Type  | Descriptions |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | input param | password| String | identity password | required |
 |        | ontid    | String | identity ID   | required，identity Id |
-|        | recovery| String  |recovery address | required，recovery|
+|        | password | String | identity password |required|
+|        | salt     | byte[] | identity salt  | required|
+|        | recoveryAddr| String  |recovery address | required，recovery|
 |        | payerAcct    | Account  | payer       | required，payer |
 |   | gaslimit      | long | gaslimit     | required |
 |   | gasprice      | long | gas price    | required |
@@ -384,12 +406,12 @@ method two
 Send the constructed transaction to the server and let the server sign the transaction fee account.
 
 ```
-Transaction makeAddRecovery(String ontid, String password, String recoveryAddr,String payer,long gaslimit,long gasprice)
+Transaction makeAddRecovery(String ontid, String password,salt, String recoveryAddr,String payer,long gaslimit,long gasprice)
 ```
 
 example:
 ```
-Transaction tx = ontSdk.nativevm().ontId().makeAddRecovery(ontid,password,recovery,payer,gas);
+Transaction tx = ontSdk.nativevm().ontId().makeAddRecovery(ontid,password,salt,recovery,payer,gas);
 ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
@@ -398,7 +420,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 
 
 ```
-String sendChangeRecovery(String ontid, String newRecovery, String oldRecovery, String password,long gaslimit,long gasprice)
+String sendChangeRecovery(String ontid, String newRecovery, String oldRecovery, String password,salt,long gaslimit,long gasprice)
 ```
 
 | Param      | Field   | Type  | Descriptions |             Remarks |
@@ -407,6 +429,7 @@ String sendChangeRecovery(String ontid, String newRecovery, String oldRecovery, 
 |        | newRecovery| String  |newRecovery address | required，newRecovery|
 |        | oldRecovery| String  |oldRecovery address | required，oldRecovery|
 |        |  password | String  | oldRecovery password  | required |
+|        | salt| byte[] |  | required |
 |   | gaslimit      | long | gaslimit     | required |
 |   | gasprice      | long | gas price    | required |
 | output param | txhash   | String  | transaction hash  | transaction hash |
@@ -474,7 +497,7 @@ class Payload {
 
 ### 2 interface list
 
-1. createOntIdClaim(String signerOntid, String password, String context, Map<String, Object> claimMap, Map metaData,Map clmRevMap,long expire)
+1. createOntIdClaim(String signerOntid, String password,byte[] salt, String context, Map<String, Object> claimMap, Map metaData,Map clmRevMap,long expire)
 
      function description： create claim
 
@@ -482,6 +505,7 @@ class Payload {
     | ----- | ------- | ------ | ------------- | ----------- |
     | input parameter | signerOntid| String | ontid | required |
     |        | password    | String | ontid password   | required |
+    |        | salt        | byte[] | Private key decryption parameters |required|
     |        | context| String  |attribute specifies the uri of claim content definition document which defines the meaning of each field and the type of the value | required|
     |        | claimMap| Map  |content of claim | required|
     |        | metaData   | Map | claim issuer and subject's ontid | required |
@@ -511,7 +535,7 @@ map.put("Subject", dids.get(1).ontid);
 Map clmRevMap = new HashMap();
 clmRevMap.put("typ","AttestContract");
 clmRevMap.put("addr",dids.get(1).ontid.replace(Common.didont,""));
-String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,password, "claim:context", map, map,clmRevMap,System.currentTimeMillis()/1000 +100000);
+String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,password,salt, "claim:context", map, map,clmRevMap,System.currentTimeMillis()/1000 +100000);
 ```
 > Note: The Issuer may have multiple public keys. The parameter ontid of createOntIdClaim specifies which public key to use.
 
@@ -527,13 +551,13 @@ boolean b = ontSdk.nativevm().ontId().verifyOntIdClaim(claim);
 
 ```
 Identity identity = ontSdk.getWalletMgr().createIdentity(password);
-ontSdk.nativevm().ontId().sendRegister(identity2,password,payerAcc.address,password,ontSdk.DEFAULT_GAS_LIMIT,0);
+ontSdk.nativevm().ontId().sendRegister(identity2,password,salt,payerAcc,ontSdk.DEFAULT_GAS_LIMIT,0);
 String ontid = ident.ontid;
 Map recordMap = new HashMap();
 recordMap.put("key0", "world0");
 recordMap.put("keyNum", 1234589);
 recordMap.put("key2", false);
-String hash = ontSdk.nativevm().ontId().sendAddAttributes(dids.get(0).ontid,password,attributes,payerAcc.address,password,ontSdk.DEFAULT_GAS_LIMIT,0);
+String hash = ontSdk.nativevm().ontId().sendAddAttributes(dids.get(0).ontid,password,salt,attributes,payerAcc,ontSdk.DEFAULT_GAS_LIMIT,0);
 ```
 > Note: When the attribute does not exist, calling the sendUpdateAttribute method will increase the corresponding attribute. When the attribute exists, the corresponding attribute will be updated. Attri represents the attribute name, "Json" is the attribute value data type, and recordMap represents the attribute value.
 
@@ -548,6 +572,6 @@ Map clmRevMap = new HashMap();
 clmRevMap.put("typ","AttestContract");
 clmRevMap.put("addr",dids.get(1).ontid.replace(Common.didont,""));
 
-String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,password, "claim:context", map, map,clmRevMap,System.currentTimeMillis()/1000 +100000);
+String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,password,salt, "claim:context", map, map,clmRevMap,System.currentTimeMillis()/1000 +100000);
 boolean b = ontSdk.nativevm().ontId().verifyOntIdClaim(claim);
 ```
