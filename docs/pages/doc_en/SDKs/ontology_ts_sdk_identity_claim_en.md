@@ -1,19 +1,22 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_ts_sdk_identity_claim_en.html
 folder: doc_en/SDKs
+giturl: https://github.com/ontio/ontology-ts-sdk/master/docs/en/identity_claim.md
 ---
 
-English / [中文](./ontology_ts_sdk_identity_claim_zh.html)
+[中文](./ontology_ts_sdk_identity_claim_zh.html) | Enlish
 
 <h1 align="center">Identity and Claim </h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
+<h1 align="center">Identity</h1>
 
 
-# Identity
+
+
 Identity has following structure:
 
 ```
@@ -66,7 +69,7 @@ ONT ID is a decentralized identity that managed users’ various digital identit
 
 You can use SDK to create a digital identity. During the process, SDK will generate a ONT ID base on user's private key.
 
-> For ONT ID specifications, see [ONT ID Generation Specifications](./ONTID_protocol_spec.md/#1.1_ONT_ID生成).
+> For ONT ID specifications, see [ONT ID Generation Specifications](./ONTID_protocol_spec_en.html).
 
 The method needs parameters as follows:
 
@@ -186,7 +189,7 @@ For example, a student who graduates from a university can obtain the status of 
 
 > The owner of an ONT ID can issue a verifiable claim to himself or others.
 
-> Government agencies, universities, banks, third-party authentication service agencies (such as CA), biometrics technology companies, etc., can serve as trusted institutions and be added to the Ontology ecosystem as partners. If you think you could be a certification service partner, please see the [Certification Service Partner Assessment Standard](./verification_provider_specification.md).
+> Government agencies, universities, banks, third-party authentication service agencies (such as CA), biometrics technology companies, etc., can serve as trusted institutions and be added to the Ontology ecosystem as partners. If you think you could be a certification service partner, please see the [Certification Service Partner Assessment Standard](./verification_provider_specification_en.html).
 
 We use a digital diploma issued by China’s Fudan University as an example to illustrate how users can obtain a third-party claim.
 

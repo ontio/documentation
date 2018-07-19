@@ -1,11 +1,11 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: DID_zh
 permalink: verification_provider_specification_zh.html
 folder: doc_zh/DID
+giturl: https://github.com/ontio/ontology-DID/master/docs/cn/verification_provider_specification_cn.md
 ---
-
 
 [English](./verification_provider_specification_en.html) / 中文
 
@@ -25,7 +25,7 @@ folder: doc_zh/DID
 
     该模式指，用户可以通过客户端（如：本体官方ONTO客户端）发起，实时认证，认证通过后立即获取到可信声明Verified Claim。比如Face++是按照如下流程。
 
-    ![信任锚](lib/images/5a92d69de4b0874437cfe5f3.png)
+    ![](./lib/images/5a92d69de4b0874437cfe5f3.png)
 
 
 * 线下签发模式

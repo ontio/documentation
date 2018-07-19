@@ -1,16 +1,18 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_zh
-permalink: overview_of_sdks_zh.html
+permalink: ontology_overview_sdks_zh.html
 folder: doc_zh/SDKs
+giturl: https://github.com/ontio/documentation/master/ontology-API/ontology_overview_sdks_zh.md
 ---
 
-[English](./overview_of_sdks_en.html) / 中文
+
+[English](./ontology_overview_sdks_en.html) / 中文
 
 
 <h1 align="center">Ontology SDKs 总体说明</h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<p align="center" class="version">Version 1.0.0 </p>
 
 ## 总体介绍
 

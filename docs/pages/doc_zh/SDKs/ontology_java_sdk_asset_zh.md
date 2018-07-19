@@ -1,19 +1,17 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_java_sdk_asset_zh.html
 folder: doc_zh/SDKs
+giturl: https://github.com/ontio/ontology-java-sdk/master/docs/cn/asset.md
 ---
 
-[English](./ontology_java_sdk_asset_en.html) / 中文
-
 <h1 align="center"> 数字资产 </h1>
-<p align="center" class="version">Version 0.9.0 </p>
 
+<p align="center" class="version">Version 1.0.0 </p>
 
-# 数字资产
-
+[English](./ontology_java_sdk_asset_en.html) / 中文
 
 ## 数据结构说明
 `address` 是base58编码的账户地址。
@@ -24,11 +22,11 @@ folder: doc_zh/SDKs
 `parameters` 是加密算法所需参数。
 `curve` 是椭圆曲线的名称。
 `key` 是NEP-2格式的私钥。该字段可以为null（对于只读地址或非标准地址）。
-`encAlg` 私钥加密的算法名称，固定为aes-256-ctr.
+`encAlg` 私钥加密的算法名称，固定为aes-256-ctr。
+`salt` 私钥解密参数。
 `extra` 是客户端存储额外信息的字段。该字段可以为null。
 `signatureScheme` 是签名方案，用于交易签名。
 `hash` hash算法，用于派生秘钥。
-`passwordHash` 密码hash值
 
 
 ```
@@ -41,10 +39,10 @@ public class Account {
     public Map parameters = new HashMap() ;
     public String key = "";
     @JSONField(name = "enc-alg")
-    public String encAlg = "aes-256-ctr";
+    public String encAlg = "aes-256-gcm";
+    public String salt = "";
     public String hash = "sha256";
     public String signatureScheme = "SHA256withECDSA";
-    public String passwordHash = "";
     public Object extra = null;
 }
 ```
@@ -149,7 +147,7 @@ ont和ong资产接口列表
 
 4. long queryBalanceOf(String address)
 
-         功能说明： 查询账户address的assetName资产余额
+         功能说明： 查询账户address资产余额
 
          参数说明：
 
@@ -394,5 +392,4 @@ Object result =  sdk.getConnect().sendRawTransactionPreExec(txHex);
 * 想查看转账时的推送结果？
 
 
-请查看智能合约采用websocket连接调用合约方法，详见 [smartcontract](./ontology_java_sdk_smartcontract_zh.html)。
-
+请查看智能合约采用websocket连接调用合约方法，详见[smartcontract](./ontology_java_sdk_smartcontract_zh.html)。

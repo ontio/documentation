@@ -24,19 +24,23 @@ entries:
     folderitems:
 
     - title: Features
-      url: /ontology_features_en.html
+      url: /features_en.html
       output: web, pdf
 
     - title: Install
-      url: /ontology_install_en.html
+      url: /install_en.html
       output: web, pdf
 
     - title: Testnet
-      url: /ontology_testnet_en.html
+      url: /testnet_en.html
+      output: web, pdf
+
+    - title: Configuration
+      url: /config_en.html
       output: web, pdf
 
     - title: Cli User Guide
-      url: /ontology_cli_sample_en.html
+      url: /cli_user_guide_en.html
       output: web, pdf
 
       subfolders:
@@ -45,15 +49,15 @@ entries:
         subfolderitems:
 
         - title: RPC API
-          url: /ontrpcapi_en.html
+          url: /rpc_api_en.html
           output: web
 
         - title: Restful API
-          url: /restfulapi_en.html
+          url: /restful_api_en.html
           output: web
 
         - title: Websocket API
-          url: /websocket_en.html
+          url: /websocket_api_en.html
           output: web
 
     - title: Consensus

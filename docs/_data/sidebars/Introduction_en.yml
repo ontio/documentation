@@ -24,7 +24,7 @@ entries:
     folderitems:
 
     - title: Ontology developers guide
-      url: /index.html
+      url: /tutorial_for_developer_en.html
       output: web, pdf
 
     - title: Contributor guideline

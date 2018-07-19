@@ -1,19 +1,35 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: Ontology_zh
 permalink: sigsvr_zh.html
 folder: doc_zh/Ontology
+giturl: https://github.com/ontio/ontology/master/docs/specifications/sigsvr_CN.md
 ---
 
-[English](./sigsvr_en.html) / 中文
-
 <h1 align="center">Ontology 签名服务器使用说明</h1>
+
 <p align="center" class="version">Version 1.0.0 </p>
 
-# Ontology 签名服务器使用说明
+
+
+[[English](./sigsvr_en.html)|中文]
 
 Ontology签名服务器sigsvr是一个用于对交易进行签名的rpc服务器。签名服务器绑定在127.0.0.1地址上，只支持本机发送的签名请求。
+
+* [Ontology 签名服务器使用说明](#ontology-签名服务器使用说明)
+	* [1、签名服务启动](#1-签名服务启动)
+		* [1.1 签名服务启动参数：](#11-签名服务启动参数)
+		* [1.2 启动](#12-启动)
+	* [2、签名服务方法](#2-签名服务方法)
+		* [2.1 签名服务调用方法](#21-签名服务调用方法)
+		* [2.2 对数据签名](#22-对数据签名)
+		* [2.3 对普通交易签名](#23-对普通交易签名)
+		* [2.4 对普通方法多重签名](#24-对普通方法多重签名)
+		* [2.5 转账交易签名](#25-转账交易签名)
+		* [2.6 Native合约调用签名](#26-native合约调用签名)
+		* [2.7 NeoVM合约调用签名](#27-neovm合约调用签名)
+		* [2.8 NeoVM合约ABI调用签名](#28-neovm合约abi调用签名)
 
 ## 1、签名服务启动
 
@@ -263,7 +279,7 @@ http://localhost:20000/cli
 	"method":"sigtransfertx",
 	"params":{
 		"gas_price":0,
-		"gas_limit":30000,
+		"gas_limit":20000,
 		"asset":"ont",
 		"from":"ATACcJPZ8eECdWS4ashaMdqzhywpRTq3oN",
 		"to":"AeoBhZtS8AmGp3Zt4LxvCqhdU4eSGiK44M",
@@ -324,7 +340,7 @@ sigsvr启动时，默认会在当前目录下查找"./abi"下的native合约abi�
 	"Method":"signativeinvoketx",
 	"Params":{
 		"gas_price":0,
-		"gas_limit":50000,
+		"gas_limit":20000,
 		"address":"0100000000000000000000000000000000000000",
 		"method":"transfer",
 		"version":0,
@@ -511,3 +527,4 @@ NeoVM合约ABI调用签名，需要提供合约的abi，以及合约调用的参
     "error_info": ""
 }
 ```
+

@@ -1,12 +1,13 @@
 ---
-title: 
+title:
+keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_ts_sdk_smartcontract_zh.html
 folder: doc_zh/SDKs
+giturl: https://github.com/ontio/ontology-ts-sdk/master/docs/cn/smart_contract.md
 ---
 
-
-[English](./ontology_ts_sdk_smartcontract_en.html) / 中文
+[English](./ontology_ts_sdk_smartcontract_en.html) | 中文
 
 <h1 align="center">智能合约的部署和调用</h1>
 <p align="center" class="version">Version 0.7.0 </p>
@@ -76,7 +77,7 @@ axios.post(url, param).then((res:any)=> {
 
 //从链上查询合约
 const getContract = (avmCode, vmType=VmType.NEOVM) => {
-    const codeHash = getContractHash(avmCode,vmType)
+    const codeHash = Address.fromVmCode(avmCode,vmType).serialize()
     let url = `${TEST_ONT_URL.REST_URL}/api/v1/contract/${codeHash}`
     console.log('url : '+ url)
     axios.get(url).then((res)=>{
@@ -256,6 +257,7 @@ const callback = (err, res, socket) => {
 }
 txSender.sendTxWithSocket(param, callback)
 ````
+
 
 
 

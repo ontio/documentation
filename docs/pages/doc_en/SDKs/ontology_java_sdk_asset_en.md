@@ -1,17 +1,17 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_java_sdk_asset_en.html
 folder: doc_en/SDKs
+giturl: https://github.com/ontio/ontology-java-sdk/master/docs/en/asset.md
 ---
 
-English / [中文](./ontology_java_sdk_asset_zh.html)
-
 <h1 align="center"> Digital assets </h1>
-<p align="center" class="version">Version 0.9.0 </p>
 
-# Digital assets
+<p align="center" class="version">Version 1.0.0 </p>
+
+English / [中文](./ontology_java_sdk_asset_zh.html)
 
 ## Data structure
 `address` base58 encoded account address  
@@ -23,27 +23,28 @@ English / [中文](./ontology_java_sdk_asset_zh.html)
 `curve` elliptic curve  
 `key` NEP-2 private key, whose value can be null (in case of read-only or non-standard address)  
 `contract` smart contract, whose value can be null (in case of read-only address)
-`encAlg` 私钥加密的算法名称，固定为aes-256-ctr.
+`encAlg` Private key encryption algorithm name, fixed at aes-256-ctr.
+`salt` Private key decryption parameters.
 `extra` extra information stored by client developer, whose value can be null
 `signatureScheme` `signatureScheme` is a signature scheme used for transaction signatures.
 `hash` hash algorithm for derived privateKey。
-`passwordHash`  password hash
+
 ```
-    public class Account {
-        public String label = "";
-        public String address = "";
-        public boolean isDefault = false;
-        public boolean lock = false;
-        public String algorithm = "";
-        public Map parameters = new HashMap() ;
-        public String key = "";
-        @JSONField(name = "enc-alg")
-        public String encAlg = "aes-256-ctr";
-        public String hash = "sha256";
-        public String signatureScheme = "SHA256withECDSA";
-        public String passwordHash = "";
-        public Object extra = null;
-    }
+public class Account {
+    public String label = "";
+    public String address = "";
+    public boolean isDefault = false;
+    public boolean lock = false;
+    public String algorithm = "";
+    public Map parameters = new HashMap() ;
+    public String key = "";
+    @JSONField(name = "enc-alg")
+    public String encAlg = "aes-256-gcm";
+    public String salt = "";
+    public String hash = "sha256";
+    public String signatureScheme = "SHA256withECDSA";
+    public Object extra = null;
+}
 
 ```
 
@@ -145,7 +146,7 @@ ont and ong asset list
 
  4. long queryBalanceOf(String address)
 
-         function description： Query the assetName asset balance of the account address
+         function description： Query the asset balance of the account address
 
          parameter description：
 
@@ -181,7 +182,7 @@ ont and ong asset list
 
  8. long queryDecimals()
 
-            function description： query the accuracy of assetName assets
+            function description： query the accuracy of  assets
 
             parameter description：
 
@@ -189,7 +190,7 @@ ont and ong asset list
 
  9. long queryTotalSupply()
 
-             function description： query the total supply of assetName assets
+             function description： query the total supply of  assets
 
              parameter description：
 
@@ -201,7 +202,7 @@ Example:
 ```
 //step1:get sdk instance
 OntSdk sdk = OntSdk.getInstance();
-sdk.setRpcConnection(url);
+sdk.setRpc(url);
 sdk.openWalletFile("OntAssetDemo.json");
 //step2:get ontAssetTx instance
 ont = sdk.nativevm().ont()
@@ -368,4 +369,5 @@ String result = (String) sdk.getConnectMgr().sendRawTransactionPreExec(txHex);
 
 * How to view the push results when transferring funds？
 
-See smart contract using websocket connection call contract method，details [smartcontract](./ontology_java_sdk_smartcontract_en.html).
+
+See smart contract using websocket connection call contract method，details[smartcontract](./ontology_java_sdk_smartcontract_en.html)。

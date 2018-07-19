@@ -1,16 +1,18 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: Ontology_zh
 permalink: vbft_intro_zh.html
 folder: doc_zh/Ontology
+giturl: https://github.com/ontio/documentation/master/vbft-intro/vbft-intro-CN.md
 ---
+
 
 [English](./vbft_intro_en.html) / 中文
 
-<h1 align="center">VBFT算法介绍</h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<h1 align="center">VBFT算法介绍</h1> 
 
+<p align="center" class="version">Version 1.0.0 </p>
 
 2018年3月30日，本体完成了第一批项目在GitHub上开源。作为新一代基础性公有链平台，本体也将推出全新基于可验证随机函数（VRF）的共识算法VBFT。以下我们将为您介绍本体最新的共识网络架构及其VBFT共识算法。VBFT算法也将在GitHub上开源。
 
@@ -87,8 +89,7 @@ Ontology作为一个公有链，运行在公有网络之中，必然面临着公
 
 | 共识机制 | 适用场景 | 性能效率 | 共识确认时间 | 共识确认时间举例 | 共识节点数量 | 防恶意节点数        | 资源消耗 | 安全可控 |
 | ------------------ | -------------------- | ------------ | ---------------------------- | ------------------------------------ | ------------------------ | --------------------------------------- | ---------------- | ------------ |
-| POW                | 公有链               | <20tps       | 高    | 比特币：60分钟  <br> 以太坊：1分钟    | -                        | 50%                                     | 高               | 低           |
-| POS                | 公有链               | <20tps       | 高                           |                                      | -      | 50%    | 中               | 中           |
+| POW                | 公有链               | <20tps       | 高    | 比特币：60分钟  <br> 以太坊：1分钟    | -                        | 50%                                     | 高               | 低           | POS                | 公有链               | <20tps       | 高                           |                                      | -      | 50%    | 中               | 中           |
 | DPOS               | 公有链               | >500tps      | 中                           | 比特股：10秒                         | 小于30                   | 有              | 低               | 高           |
 | PBFT               | 联盟链/专有链        | >1000tps     | 低                           | FISCO-BCOS：1秒   <br> Fabric：1秒   | 小于30                   | 不超过1/3共识节点                       | 低               | 高           |
 | VBFT               | 公有链/专有链        | >3000tps     | 中                           | ontology testnet：5-10秒             | 小于1000                 | 可配置拜占庭容错数目，不超过1/3共识节点 | 低               | 高           |

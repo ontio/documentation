@@ -24,30 +24,30 @@ entries:
     folderitems:
 
     - title: 总体介绍
-      url: /smart_contract_tutorial_introduction_zh.html
+      url: /Introduction_of_Ontology_Smart_Contract_zh.html
       output: web, pdf
 
     - title: Ontology CLI 与智能合约交互
       url: /Ontology_CLI_interact_with_smart_contract_zh.html
       output: web, pdf
     - title: SmartX 教程
-      url: /smart_contract_tutorial_smartx_zh.html
+      url: /SmartX_Tutorial_zh.html
       output: web, pdf
 
     - title: Hello World 合约
-      url: /smart_contract_tutorial_helloworld_zh.html
+      url: /The_Hello_World_Contract_zh.html
       output: web, pdf
 
     - title: 智能合约部署
-      url: /smart_contract_tutorial_deployment_zh.html
+      url: /Smart_Contract_Deployment_zh.html
       output: web, pdf
 
     - title: 智能合约调用
-      url: /smart_contract_tutorial_invocation_zh.html
+      url: /Smart_Contract_Invocation_zh.html
       output: web, pdf
 
     - title: 权限管理
-      url: /smart_contract_tutorial_auth_zh.html
+      url: /auth_zh.html
       output: web, pdf
 
     - title: API 文档

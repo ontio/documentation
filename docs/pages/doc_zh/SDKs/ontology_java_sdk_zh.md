@@ -1,29 +1,38 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_zh
 permalink: ontology_java_sdk_zh.html
 folder: doc_zh/SDKs
+giturl: https://github.com/ontio/ontology-java-sdk/master/docs/cn/README.md
 ---
+
+<h1 align="center"> Ontology Java SDK 介绍 </h1>
+
+<p align="center" class="version">Version 1.0.0 </p>
 
 [English](./ontology_java_sdk_en.html) / 中文
 
-<h1 align="center"> Ontology Java SDK User Guide </h1>
-<p align="center" class="version">Version 0.9.0 </p>
+<h1 align="center">总体介绍</h1>
 
-# 总体介绍
+
+
+
 
 该项目是本体官方Java SDK，它是一个综合性SDK，目前支持：本地钱包管理、数字身份管理、数字资产管理、智能合约部署和调用、与节点通信等。未来还将支持更丰富的功能和应用。
 
 ## 主要功能
 
-
-- [区块链节点基本操作](./ontology_java_sdk_blockchain_interop_zh.html)
-- [钱包文件及规范](./ontology_wallet_file_specification_zh.html)
+- [Getting Started](./ontology_java_sdk_get_start_zh.html)
+- [接口基本信息](./ontology_java_sdk_interface_zh.html)
+- [区块链节点基本操作](./ontology_java_sdk_basic_zh.html)
+- [钱包文件及规范](./Wallet_File_Specification_en.html)
 - [数字身份及可信声明管理](./ontology_java_sdk_identity_claim_zh.html)
 - [数字资产](./ontology_java_sdk_asset_zh.html)
+- [数字存证](./ontology_java_sdk_attest_zh.html)
+- [权限管理](./ontology_java_sdk_auth_zh.html)
 - [智能合约部署和调用](./ontology_java_sdk_smartcontract_zh.html)
-- [错误码](./ontology_java_sdk_error_code_zh.html)
+- [错误码](./ontology_java_sdk_errorcode_zh.html)
 
 
 ## 代码结构说明：

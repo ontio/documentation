@@ -1,13 +1,16 @@
 ---
+title:
+keywords: sample homepage
 sidebar: DID_en
 permalink: claim_spec_en.html
 folder: doc_en/DID
+giturl: https://github.com/ontio/ontology-DID/master/docs/en/claim_spec.md
 ---
 
 English / [中文](./claim_spec_zh.html)
 
 <h1 align="center">Verifiable Claim Protocol</h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<p align="center" class="version">Version 0.7.1 </p>
 
 The entire workflow of the verifiable claim is shown in the figure below. It contains three major parts:
 
@@ -70,7 +73,7 @@ The header part defines the type of the format, the signature scheme employed an
     "kid": "did:ont:TRAtosUZHNSiLhzBdHacyxMX4Bg3cjWy3r#keys-1"
 }
 ```
-- **alg** attribute specifies the signature scheme to use. A list of supported values can be found [here](#supported-signature-schemes).
+- **alg** attribute specifies the signature scheme to use. A list of supported values can be found [here](##_Supported_signature_schemes).
 - **typ** attribute can take one of the two values
     - JWT: This corresponds to the case that blockchain proof is not contained in the claim.
     - JWT-X: This corresponds to the case that blockchain proof is a part of the claim. 
@@ -107,7 +110,7 @@ The claim id, claim content and claim metadata are encoded as a JSON object that
 - **jti** attribute specifies the unique identifier of the verifiable claim. 
 - **@context** attribute specifies the uri of claim content definition document which  defines the meaning of each field and the type of the value;
 - **clm** attribute is an object which contains the claim content.
-- **clm-rev** attribute is an object which defines the revocation mechanism the claim use. A list of supported mechanism is listed in the [Appendix C](#c-revocation).
+- **clm-rev** attribute is an object which defines the revocation mechanism the claim use. A list of supported mechanism is listed in the [Appendix C](#C-Revocation).
 
 
 To issue a claim, first construct the JSON object that represents the claim id, content and metadata, then use the standard JSON serialization method to serialize it. Finally, use one of the issuer's private keys to sign the binary data of the header and payload. For example, after serialization, the above payload will look like 
@@ -176,10 +179,10 @@ The interfaces provided are mainly
 - Commit attest
 
     ```
-    bool Commit(byte[] claimId, byte[] committerOntId);
+    bool Commit(byte[] claimId, byte[] committerOntId, byte[] ownerOntId);
     ```
 
-    In the attest contract, the unique identifier of a claim is the claim ID. It is the first parameter; The committerOntId is the ONT identity of the attester.
+    In the attest contract, the unique identifier of a claim is the claim ID. It is the first parameter; The committerOntId is the ONT identity of the attester.The ownerOntId is the ONT identity of the owner.
     
     This function will return `true` if and only if the claim is not attested, and the function is called by the committer; Otherwise, it will return `false`.
 
@@ -372,7 +375,7 @@ Two revocation mechanisms can be used.
 
 - Revocation with attest contract
         
-    The revocation information is recorded in the attest contract via the `Revoke` function. To find out if a claim has been revoked, the standard approach is to invoke the `GetStatus` function. Please refer to [section 1.3](#13-attest-contract) for more information.
+    The revocation information is recorded in the attest contract via the `Revoke` function. To find out if a claim has been revoked, the standard approach is to invoke the `GetStatus` function. Please refer to [section 1.3](claim_spec.md#1.3-attest-contract) for more information.
 
     ```json
     "clm-rev": {
@@ -382,3 +385,6 @@ Two revocation mechanisms can be used.
     ```
 
 ### [More claim template examples](https://github.com/ontio/ontology-DID/blob/master/claimtemplate/en/ClaimTemplate_definition.md)
+
+
+

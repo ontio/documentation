@@ -1,16 +1,18 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: Ontology_en
 permalink: vbft_intro_en.html
 folder: doc_en/Ontology
+giturl: https://github.com/ontio/documentation/master/vbft-intro/vbft-intro.md
 ---
+
 
 English / [中文](./vbft_intro_zh.html)
 
+<h1 align="center">VBFT Introduction</h1> 
 
-<h1 align="center">VBFT Introduction</h1>
-<p align="center" class="version">Version 0.7.0 </p>
+<p align="center" class="version">Version 1.0.0 </p>
 
 On March 30th Ontology released the first batch of open-source projects to GitHub. As a next-generation public chain infrastructure platform, Ontology will also introduce a new consensus algorithm VBFT, which is based on verifiable random function (VRF). Below we will introduce Ontology’s latest consensus model and its VBFT consensus algorithm. The VBFT algorithm will also be open-source on GitHub.
 
@@ -85,7 +87,11 @@ The time span from when the consensus network is updated by the smart contract i
 
 After the consensus is reached in the block containing the consensus management smart contract transaction, each node will automatically execute the consensus management contract, update the consensus node list, and complete the update of the consensus node list.
 
-# Performance Comparison
+<h1 align="center">Performance Comparison</h1>
+
+
+
+
 
 | Consensus mechanism | Application scenario      | Performance efficiency | Consensus confirmation  time | Consensus confirmation time example | Number of consensus nodes | Tolerated malicious nodes                                | Resource consumption | Manageability |
 | ----------------------- | ----------------------------- | -------------------------- | -------------------------------- | --------------------------------------- | ----------------------------- | ------------------------------------------------------------ | ------------------------ | ------------------------- |
@@ -95,3 +101,4 @@ After the consensus is reached in the block containing the consensus management 
 | PBFT                    | Alliance chain/private  chain | >1000tps                   | Low                              | FISCO-BCOS: 1 second  <br> Fabric: 1 second                  | Less than 30                  | No more than 1/3 of consensus nodes                          | Low                      | High                      |
 | VBFT                    | Public chain/private chain    | >3000tps                   | Medium                           | Ontology TestNet: 5-10 seconds          | Less than 1,000               | Configurable, no  more than 1/3 of consensus nodes | Low                      | High                      |
 | Paxos/RAFT              | Alliance chain/private  chain | >5000tps                   | Low                              | FISCO-BCOS: 1 second                    | Less than 30                  | Not supported                                                | Low                      | High                      |
+

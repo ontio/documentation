@@ -1,19 +1,17 @@
 ---
-title: 
+title:
 keywords: sample homepage
 sidebar: SDKs_en
 permalink: ontology_java_sdk_smartcontract_en.html
 folder: doc_en/SDKs
+giturl: https://github.com/ontio/ontology-java-sdk/master/docs/en/smartcontract.md
 ---
 
+<h1 align="center"> Ontology Java SDK Smart Contract </h1>
+
+<p align="center" class="version">Version 1.0.0 </p>
+
 English / [中文](./ontology_java_sdk_smartcontract_zh.html)
-
-
-<h1 align="center"> Smart Contract </h1>
-<p align="center" class="version">Version 0.9.0 </p>
-
-
-# Smart Contract
 
 * What is codeAddress?
 
