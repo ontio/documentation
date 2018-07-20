@@ -49,7 +49,7 @@
 ```
    
 ### 3.通过smartx开发HelloWorld 合约
-1. 打开[smartx]:(smartx.ont.io)，按照[HelloWorld示例](#如何编写智能合约)编写一个Hello World智能合约，可以直接使用template代码，然后编译成AVM字节码，
+1. 打开[smartx](http://smartx.ont.io)，按照`HelloWorld示例`编写一个Hello World智能合约，可以直接使用template代码，然后编译成AVM字节码，
 将AVM字节码下载下来，命名为`hello.avm`：
 ![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/1.png)
 ![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/2.png)
