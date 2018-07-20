@@ -27,9 +27,6 @@ entries:
       url: /ontology_overview_sdks_zh.html
       output: web, pdf
 
-    - title: 钱包文件规范
-      url: /Wallet_File_Specification_zh.html
-      output: web, pdf
       subfolders:
       - title: Java SDK
         output: web
