@@ -2,7 +2,7 @@
 title: 
 keywords: sample homepage
 sidebar: Introduction_zh
-permalink: index.html
+permalink: first_open_letter_zh.html
 folder: doc_zh/Introduction
 ---
 
