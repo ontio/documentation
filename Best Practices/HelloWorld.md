@@ -1,15 +1,15 @@
 # HelloWorld on ontology
 
-本文将演示在testmode下，部署一本helloWorld合约，并去执行。
+本文将演示在testmode下，部署一本helloWorld合约，并做执行。
 
-* [HelloWorld on ontology](#helloWorld-on-ontology)  
-        * [1. 下载ontology并使用ontology创建一个默认账户](#1-下载ontology并使用ontology创建一个默认账户)  
-        * [2. 启动testmode](#2-启动testmode)  
-        * [3. 通过smartx开发HelloWorld 合约](#3通过smartx开发helloWorld-合约)  
-        * [4. 部署合约](#4部署合约)  
-        * [5. 查询已部署合约信息](#5查询已部署合约信息)  
-        * [6. 调用合约方法](#6调用合约方法)  
-        * [7. 查询调用交易的事件](#7查询调用交易的事件)  
+* [HelloWorld on ontology](#helloworld-on-ontology)  
+		* [1. 下载ontology并使用ontology创建一个默认账户](#1-下载ontology并使用ontology创建一个默认账户)  
+		* [2. 启动testmode](#2-启动testmode)  
+		* [3. 通过smartx开发HelloWorld 合约](#3通过smartx开发helloworld-合约)  
+		* [4. 部署合约](#4部署合约)  
+		* [5. 查询已部署合约信息](#5查询已部署合约信息)  
+		* [6. 调用合约方法](#6调用合约方法)  
+		* [7. 查询调用交易的事件](#7查询调用交易的事件)  
 
 ### 1. 下载ontology并使用ontology创建一个默认账户
   ./ontology account add -d
@@ -49,9 +49,12 @@
 ```
    
 ### 3.通过smartx开发HelloWorld 合约
-1. 打开[smartx]:(smartx.ont.io)，按照[HelloWorld示例](#如何编写智能合约)编写一个Hello World智能合约，为方便调用，我们将合约代码改成如下形式，然后编译成AVM字节码，
+1. 打开[smartx]:(smartx.ont.io)，按照[HelloWorld示例](#如何编写智能合约)编写一个Hello World智能合约，可以直接使用template代码，然后编译成AVM字节码，
 将AVM字节码下载下来，命名为`hello.avm`：
-
+![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/1.png)
+![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/2.png)
+![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/3.png)
+![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/4.png)
 
     >说明：Hello方法中，Runtime.Notify将传入的参数在链上做一个通知。
 
