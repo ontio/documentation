@@ -243,12 +243,12 @@ Smartx是本体推出的一站式智能合约编写工具，集成了编写、�
 将AVM字节码下载下来，命名为`hello.avm`：
 
     ```
-    using Neo.SmartContract.Framework.Services.Neo;
-    using Neo.SmartContract.Framework;
+    using Ont.SmartContract.Framework.Services.Ont;
+    using Ont.SmartContract.Framework;
     using System;
     using System.ComponentModel;
     
-    namespace Neo.SmartContract
+    namespace Ont.SmartContract
     {
         public class HelloWorld : Framework.SmartContract
         {

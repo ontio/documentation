@@ -13,6 +13,6 @@ folder: doc_zh/Introduction
 
 
 
-- Introductory White Papers<br/>[English](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf)<br/>[Chinese](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf)<br/>[Korean](https://ont.io/wp/Ontology-Introductory-White-Paper-KR.pdf) 
-- Technical White Papers<br/>[English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf)<br/>[Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)<br/>[Korean](https://ont.io/wp/Ontology-technology-white-paper-KR.pdf)  
-- Ecosystem White Papers<br/>[English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf)<br/>[Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)<br/>[Korean](https://ont.io/wp/Ontology-Ecosystem-White-Paper-KR.pdf)<br><br>
+- 白皮书<br/>[English](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf)<br/>[Chinese](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf)<br/>[Korean](https://ont.io/wp/Ontology-Introductory-White-Paper-KR.pdf) 
+- 技术白皮书<br/>[English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf)<br/>[Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)<br/>[Korean](https://ont.io/wp/Ontology-technology-white-paper-KR.pdf)  
+- 生态白皮书<br/>[English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf)<br/>[Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)<br/>[Korean](https://ont.io/wp/Ontology-Ecosystem-White-Paper-KR.pdf)<br><br>
