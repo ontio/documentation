@@ -825,12 +825,12 @@ BalanceOf:AaG9jUSBTWXjeUzR3LBDiPBUPrGUbSKu3g
 示例智能合约如下：
 
 ```
-using Neo.SmartContract.Framework.Services.Neo;
-using Neo.SmartContract.Framework;
+using Ont.SmartContract.Framework.Services.Ont;
+using Ont.SmartContract.Framework;
 using System;
 using System.ComponentModel;
 
-namespace Neo.SmartContract
+namespace Ont.SmartContract
 {
     public class HelloWorld : Framework.SmartContract
     {
@@ -1071,12 +1071,12 @@ Transaction states:
 ##### 按字节码执行
 
 ```
-using Neo.SmartContract.Framework.Services.Neo;
-using Neo.SmartContract.Framework;
+using Ont.SmartContract.Framework.Services.Ont;
+using Ont.SmartContract.Framework;
 using System;
 using System.ComponentModel;
 
-namespace Neo.SmartContract
+namespace Ont.SmartContract
 {
     public class HelloWorld : Framework.SmartContract
     {
