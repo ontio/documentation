@@ -19,10 +19,8 @@ The outline of this document is as follows:
 	* [3. Process Asset Transactions](#3-process-asset-transactions)
 		* [Transaction docking program the exchange needs to develop](#transaction-docking-program-the-exchange-needs-to-develop)
 		* [User deposit](#user-deposit)
-	* [4. Java SDK Tutorials](#4-java-sdk-tutorials)
-		* [Account management](#account-management)
-			* [Do not use wallet management](#do-not-use-wallet-management)
-				* [Create account randomly](#create-account-randomly)
+		* [Deposit record](#deposit-record)
+		* [Process user withdrawal request](#process-user-withdrawal-request)
 				* [Create account based on private key](#create-account-based-on-private-key)
 			* [Use wallet management](#use-wallet-management)
 		* [Address generation](#address-generation)
@@ -32,12 +30,12 @@ The outline of this document is as follows:
 				* [Query ONT, ONG Balance](#query-ont-ong-balance)
 				* [Query whether the transaction is in the transaction pool](#query-whether-the-transaction-is-in-the-transaction-pool)
 				* [Query whether the transaction is successful](#query-whether-the-transaction-is-successful)
-			* [The list of chain interaction interfaces](#the-list-of-chain-interaction-interfaces)
+				* [The list of chain interaction interfaces](#the-list-of-chain-interaction-interfaces)
 			* [3. ONT transfer](#3-ont-transfer)
 				* [Construct transfer transaction and send](#construct-transfer-transaction-and-send)
 				* [Multiple signatures](#multiple-signatures)
 				* [One to multiple or multiple to multiple](#one-to-multiple-or-multiple-to-multiple)
-			* [Use signature server to sign](#use-signature-server-to-sign)
+				* [Use signature server to sign](#use-signature-server-to-sign)
 			* [4. ONG transfer](#4-ong-transfer)
 				* [ONG transfer](#ong-transfer)
 				* [Withdraw ONG](#withdraw-ong)
@@ -48,6 +46,8 @@ The outline of this document is as follows:
 		* [Users withdraw ONG](#users-withdraw-ong)
 	* [6. Signature service](#6-signature-service)
 	* [Native contract address](#native-contract-address)
+	* [FAQ](#faq)
+	* [Mainnet update note](#mainnet-update-note)
 
 ## 1.Deploy Ontology Synchronization Node
 
@@ -725,7 +725,7 @@ response:
 
 ```
 
-#### The list of chain interaction interfaces
+##### The list of chain interaction interfaces
 
 | No   |                    Main   Function                     |     Description      |
 | ---- | :----------------------------------------------------: | :------------------: |
@@ -820,7 +820,7 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct1, acct2});
 
 ```
 
-#### Use signature server to sign
+##### Use signature server to sign
 
 - **Construct transaction and sign**
 
