@@ -41,7 +41,7 @@ giturl: https://github.com/ontio/documentation/blob/master/get_started_cn.md
      * [智能合约的权限管理](#智能合约的权限管理)
 * [使用本体](#使用本体)
      * [环境部署](#环境部署)
-     * [合约编写、部署与调用](#合约编写部署与调用)	 
+     * [合约编写、部署与调用](#合约编写部署与调用)
   
 ## 本体
 
@@ -111,8 +111,8 @@ Ontology DID（简称：ONT ID）基于W3C的DID规范，是一个去中心化�
 
 ### 本体的API
 
-在命令行之外，本体提供了一套更方便的区块链交互接口。这些接口以API的形式提供，目前本体的API包含三类：[本体RPC API](https://ontio.github.io/documentation/ontrpcapi_zh.html)，
-[本体Restful API](https://ontio.github.io/documentation/restfulapi_zh.html)，[本体Websocket API](https://ontio.github.io/documentation/websocket_zh.html)。
+在命令行之外，本体提供了一套更方便的区块链交互接口。这些接口以API的形式提供，目前本体的API包含三类：[本体RPC API](https://ontio.github.io/documentation/rpc_api_zh.html)，
+[本体Restful API](https://ontio.github.io/documentation/restful_api_zh.html)，[本体Websocket API](https://ontio.github.io/documentation/websocket_api_zh.html)。
 通过使用API，开发者可以十分便捷的向本体网络发送交易、查询数据。
 
 ### 本体的SDK

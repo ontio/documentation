@@ -96,8 +96,8 @@ In order to adapt to more needs, Ontology provides a service called a signature 
 
 ### Ontology API
 
-In addition to the command line, Ontology provides a more convenient blockchain interaction interface. These interfaces are provided in the form of APIs. The current Ontology API contains: [RPC API](https://ontio.github.io/documentation/ontrpcapi_en.html), 
-[Restful API](https://ontio.github.io/documentation/restfulapi_en.html), [Websocket API](https://ontio.github.io/documentation/websocket_en.html).
+In addition to the command line, Ontology provides a more convenient blockchain interaction interface. These interfaces are provided in the form of APIs. The current Ontology API contains: [RPC API](https://ontio.github.io/documentation/rpc_api_en.html), 
+[Restful API](https://ontio.github.io/documentation/restful_api_en.html), [Websocket API](https://ontio.github.io/documentation/websocket_api_en.html).
 
 By these APIs, developers can easily send transactions and query data through the Ontology network.
 
