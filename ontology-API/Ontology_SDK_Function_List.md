@@ -68,12 +68,9 @@ The wallet function includes three parts, digit account, digit identity, and mne
 |   1 | Account importAccount(String encryptedPrikey, String pwd,byte[] salt,String address)   |   import account|
 |   2 | Account createAccount(String password)                                     |   create account|
 |   3 | Account createAccountFromPriKey(String password, String prikey)            |   create with private key|
-|   4 | AccountInfo createAccountInfo(String password)                             |   create with private key|
-|   5 | AccountInfo createAccountInfoFromPriKey(String password, String prikey)    |   create with private key|
-|   6 | AccountInfo getAccountInfo(String address, String password,byte[] salt)    |   get account info|
-|   7 | List<Account> getAccounts()                                                |   get accounts|
-|   8 | Account getAccount(String address)                                         |   get account|
-|   9 | Account getDefaultAccount()                                                |   get default account|
+|   4 | List<Account> getAccounts()                                                |   get accounts|
+|   5 | Account getAccount(String address)                                         |   get account|
+|   6 | Account getDefaultAccount()                                                |   get default account|
 
 
 ### Digit identity
@@ -83,13 +80,10 @@ The wallet function includes three parts, digit account, digit identity, and mne
 |   1 | Identity importIdentity(String encryptedPrikey, String pwd,String address) |   
 |   2 | Identity createIdentity(String password)                                   |   
 |   3 | Identity createIdentityFromPriKey(String password, String prikey)          |   
-|   4 | IdentityInfo createIdentityInfo(String password)                           |   
-|   5 | IdentityInfo createIdentityInfoFromPriKey(String password, String prikey)  |   
- |  6 | IdentityInfo getIdentityInfo(String ontid, String password)                |     
- |  7 | List<Identity> getIdentitys()                                              |    
- |  8 | Identity getIdentity(String ontid)                                         |    
-|   9 | Identity getDefaultIdentity()                                              |   
-|  10 | Identity addOntIdController(String ontid, String key, String id)           |    
+ |  4 | List<Identity> getIdentitys()                                              |    
+ |  5 | Identity getIdentity(String ontid)                                         |    
+|   6 | Identity getDefaultIdentity()                                              |   
+|   7 | Identity addOntIdController(String ontid, String key, String id)           |    
    
 
 ### Mnemonics and kestore interface
@@ -103,7 +97,7 @@ The wallet function includes three parts, digit account, digit identity, and mne
 |   5 | byte[] getSeedFromMnemonicCodesStr(String mnemonicCodesStr) |   
  |  6 | byte[] getPrikeyFromMnemonicCodesStrBip44(String mnemonicCodesStr)                |     
 |   7 | String encryptMnemonicCodesStr(String mnemonicCodesStr, String password, String address)    |    
-|   8 | decryptMnemonicCodesStr(String encryptedMnemonicCodesStr, String password,String address)     |    
+|   8 | String decryptMnemonicCodesStr(String encryptedMnemonicCodesStr, String password,String address)     |    
    
 
 ## Asset function list
@@ -141,8 +135,8 @@ The asset includes native digit asset and Nep-5 smart constract digit asset.
  |   7 | String querySymbol()                                                                        |  query Symbol|
   |  8 | long queryDecimals()                                                                        |  query Decimals|
  |   9 | long queryTotalSupply()                                                                     |  query TotalSupply|
-  | 10 | String claimOng(Account sendAcct, String toAddr, long amount, Account payerAcct, long gaslimit, long gasprice)             |  claim ong|
- |  11 | String unclaimOng(String address)   |  query unclaim ong|
+  | 10 | String withdrawOng(Account sendAcct, String toAddr, long amount, Account payerAcct, long gaslimit, long gasprice)             |  withdraw ong|
+ |  11 | String unboundOng(String address)   |  query unbound ong|
       
       
 
@@ -186,7 +180,7 @@ The asset includes native digit asset and Nep-5 smart constract digit asset.
 |   16 | String sendGetDDO(String ontid)  |  get DDO|
    
 
-### Make a transaction
+### Make ontid transaction
 
  |     | Main   Function |           
  |:-----|:--------|
@@ -243,7 +237,7 @@ The asset includes native digit asset and Nep-5 smart constract digit asset.
 |     5 | String withdraw(String initiatorOntid,String password,byte[] salt,String contractAddr,String delegate, String role,int key,Account payerAcct, long gaslimit,long gasprice)          |
 
 
- ##### Make transaction
+ ##### Make auth transaction
 
  |     | Main   Function |      
  |:-----|:--------|
