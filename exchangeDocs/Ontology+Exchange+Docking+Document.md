@@ -39,12 +39,12 @@ The outline of this document is as follows:
 			* [4. ONG transfer](#4-ong-transfer)
 				* [ONG transfer](#ong-transfer)
 				* [Withdraw ONG](#withdraw-ong)
-	* [5. Distribute ONG to Users](#5-distribute-ong-to-users)
+	* [4. Distribute ONG to Users](#4-distribute-ong-to-users)
 		* [What is ONG](#what-is-ong)
 		* [Calculate the amount of ONG that can withdraw](#calculate-the-amount-of-ong-that-can-withdraw)
 		* [Distribute ONG to users](#distribute-ong-to-users)
 		* [Users withdraw ONG](#users-withdraw-ong)
-	* [6. Signature service](#6-signature-service)
+	* [5. Signature service](#5-signature-service)
 	* [Native contract address](#native-contract-address)
 	* [FAQ](#faq)
 	* [Mainnet update note](#mainnet-update-note)
@@ -892,7 +892,7 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 | makeClaimOng | String claimer,String to,long amount,String payer,long gaslimit,long gasprice | claimer，who to send，amount, network payer address，gaslimit，gasprice |
 
 
-## 5. Distribute ONG to Users
+## 4. Distribute ONG to Users
 
 The exchange can choose whether to distribute the ONG to users. The ONG is used to pay for the Ontology blockchain bookkeeping fees, network fees, and other service fees.
 
@@ -971,7 +971,7 @@ Tip:
 
 Use Java SDK to withdraw ONG，please refer to[Java SDK:ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
 
-## 6. Signature service
+## 5. Signature service
 
 [Ontology Signature Server Tutorials](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr.md)
 
