@@ -43,12 +43,12 @@ ONT中有两种资产：原生资产和合约资产。原生资产如ont和ong�
 			* [4. ONG转账](#4-ong转账)
 				* [ONG转账](#ong转账)
 				* [提取ONG](#提取ong)
-	* [5. 给用户分发ONG](#5-给用户分发ong)
+	* [4. 给用户分发ONG](#5-给用户分发ong)
 		* [什么是ONG](#什么是ong)
 		* [计算可提取的ONG总量](#计算可提取的ong总量)
 		* [给用户分发ONG](#给用户分发ong)
 		* [用户提取ONG](#用户提取ong)
-	* [6. 签名服务](#6-签名服务)
+	* [5. 签名服务](#6-签名服务)
 	* [附 native 合约地址](#附-native-合约地址)
 	* [附2 FAQ](#附2-faq)
 	* [附3 主网及sdk更新日志](#附3-主网及sdk更新日志)
@@ -916,7 +916,7 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 
 
-## 5. 给用户分发ONG
+## 4. 给用户分发ONG
 
 交易所可以选择是否给用户分发ONG， ONG用于支付Ontology区块链的记账费用和网络等附加服务费。
 
@@ -998,7 +998,7 @@ Tip:
 
 使用Java SDK 提取ONG，请参照[Java SDK:ONG转账](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
 
-## 6. 签名服务
+## 5. 签名服务
 
 [Ontology 签名服务器使用说明](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr_CN.md)
 
