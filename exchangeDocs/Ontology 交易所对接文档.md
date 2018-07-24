@@ -999,6 +999,7 @@ Tip:
 使用Java SDK 提取ONG，请参照[Java SDK:ONG转账](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
 
 ## 5. 签名服务
+当无法使用sdk或cli时，您可以通过签名服务器来构造和发送交易：
 
 [Ontology 签名服务器使用说明](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr_CN.md)
 
