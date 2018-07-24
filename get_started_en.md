@@ -31,8 +31,8 @@ Ontology is a new generation high-performance public blockchain. After its MainN
 * [Use Ontology](#use-ontology)
     * [Environmental deployment](#environmental-deployment)
     * [Contract writing deployment and invocation](#contract-writing-deployment-and-invocation)
-  
-  
+
+
 ## Ontology
 
 ### What is Ontology
@@ -41,7 +41,7 @@ The features of Ontology are outlined in [Ontology Features](https://ontio.githu
 
 ### How to get Ontology
 
-At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it，or directly obtain the [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/ontology_install_en.html).
+At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it. Users can download latest ontology binary file with  curl  https://dev.ont.io/ontology_install  | sh .or directly download other vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/ontology_install_en.html).
 
 ### The introduction of Ontology node
 
@@ -50,9 +50,9 @@ After installing Ontology, you can run Ontology locally and connect it to the On
 Before that, you need to know the node types in the current Ontology network.
 
 The network nodes of Ontology are currently divided into two categories: consensus nodes and synchronization nodes.
-  
+
 The consensus nodes participate in the consensus, package the transaction and generate the block;
-  
+
 The synchronization nodes synchronize the latest block and do not participate in the consensus.
 
 #### Synchronization node
@@ -257,7 +257,7 @@ Runtime.Notify(msg);
 ```
 
 > Description: In the Hello method, Runtime.Notify will make a notification on the chain for the passed parameters.
-  
+
 
 B. Use the command `./ontology contract deploy --code hello.avm --name 'Hello' --version '1.0' --author 'ester' --email 'tester@test.com' --desc 'helloworld' --account 1 --gaslimit 100000000` to deploy the contract on the network. The contract deployment command can be obtained using `./ontology contract deploy -h`;
 
