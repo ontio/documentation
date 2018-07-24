@@ -51,7 +51,25 @@ A: 为了避免同步到一些被污染或恶意节点的区块，可以使用�
 ```./ontology --reservedfile=./peers.rsv --reservedonly```
 白名单文件peer.rsv另附
 
+## Q: 关于NEP-5 ont和主网ONT兑换
+请于2018.10.1之前
 
+1. 首先将NEP-5的ONT 转到销毁地址:AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM
+
+2. 将下列信息以邮件形式发送到xiaomin@ont.io;wengjunjie@ont.io;zhoupeiwen@ont.io
+
+   交易所名称：
+
+   兑换代币总量：
+
+   转账交易hash：
+
+3. 我们将在一个工作日内将主网ONT和对应解绑的ONG发送到原转入地址，并邮件确认。
+
+## 关于换币产生的ONG
+1. 换币时发放的ong数量：是从ontology 主网上线 到nep-5币打入销毁地址的时间内解绑的ong，不包括我们人工处理时间（最长24小时）产生的ong。
+2. 给用户分配ong：ong转账同ont一样，会最少消耗0.01ong的手续费。
+3. 当账户发生交易时，会按比例解绑ong，可以通过接口进行提取，同样每次提取操作也会消耗0.01ong的手续费，所以不建议频繁提取
 
 
 
