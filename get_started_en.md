@@ -7,30 +7,30 @@ English / [中文](./get_started_cn.md)
 
 Ontology is a new generation high-performance public blockchain. After its MainNet release, many excellent developers have joined the Ontology technical community. For developers, these documents are an entry to the Ontology ecosystem, therefore, a perfect documentation system can greatly improve the development efficiency. Through the documentation, developers will have a clear understanding of Ontology's technology and ecosystem. This document is an overview of the Ontology Documentation Center and provides an introduction of each section, which help developers familiarize with Ontology quickly.
 
-* [Ontology](#ontology)
-     * [What is Ontology](#what-is-the-ontology)
-     * [How to get Ontology](#how-to-get-the-ontology)
-     * [The introduction of Ontology node](#the-introduction-of-ontology-node)
-        * [Synchronization node](#synchronization-node)
-        * [Consensus node](#consensus-node)
-     * [Ontology consensus mechanism](#ontology-consensus-mechanism)
-     * [Ontology network setup](#ontology-network-setup)
-     * [Ontology special features](#ontology-special-features)
-        * [Ontology DID](#ontology-did)
-        * [Distributed data transaction](#distributed-data-transaction)
-* [How to interact with Ontology](#how-to-interact-with-the-ontology)
-     * [Ontology command line tool](#ontology-command-line-tool)
-     * [Ontology signature server](#ontology-signature-server)
-     * [Ontology API](#ontology-api)
-     * [Ontology SDK](#ontology-sdk)
-* [Ontology smart contract](#ontology-smart-contract)
-     * [Ontology smart contract IDE--Smartx](#ontology-smart-contract-ide--smartx)
-     * [How to write a smart contract](#how-to-write-a-smart-contract)
-     * [Contract deployment and invocation](#contract-deployment-and-invocation)
-     * [Authority management of smart contract](#authority-management-of-smart-contract)
-* [Use Ontology](#use-ontology)
-    * [Environmental deployment](#environmental-deployment)
-    * [Contract writing deployment and invocation](#contract-writing-deployment-and-invocation)
+- [Ontology](#ontology)
+    - [What is Ontology](#what-is-ontology)
+    - [How to get Ontology](#how-to-get-ontology)
+    - [The introduction of Ontology node](#the-introduction-of-ontology-node)
+        - [Synchronization node](#synchronization-node)
+        - [Consensus node](#consensus-node)
+    - [Ontology consensus mechanism](#ontology-consensus-mechanism)
+    - [Ontology network setup](#ontology-network-setup)
+    - [Ontology special features](#ontology-special-features)
+        - [Ontology DID](#ontology-did)
+        - [Distributed data transaction](#distributed-data-transaction)
+- [How to interact with Ontology](#how-to-interact-with-ontology)
+    - [Ontology command line tool](#ontology-command-line-tool)
+    - [Ontology signature server](#ontology-signature-server)
+    - [Ontology API](#ontology-api)
+    - [Ontology SDK](#ontology-sdk)
+- [Ontology smart contract](#ontology-smart-contract)
+    - [Ontology smart contract IDE--SmartX](#ontology-smart-contract-ide--smartx)
+    - [How to write a smart contract](#how-to-write-a-smart-contract)
+    - [Contract deployment and invocation](#contract-deployment-and-invocation)
+    - [Authority management of smart contract](#authority-management-of-smart-contract)
+- [Use Ontology](#use-ontology)
+    - [Environmental deployment](#environmental-deployment)
+    - [Contract writing, deployment and invocation](#contract-writing-deployment-and-invocation)
 
 
 ## Ontology
@@ -41,7 +41,7 @@ The features of Ontology are outlined in [Ontology Features](https://ontio.githu
 
 ### How to get Ontology
 
-At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it. Users can download latest ontology binary file with  curl  https://dev.ont.io/ontology_install  | sh .or directly download other vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/ontology_install_en.html).
+At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it. Users can download latest ontology binary file with ` curl  https://dev.ont.io/ontology_install | sh `.or directly download other vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/ontology_install_en.html).
 
 ### The introduction of Ontology node
 
