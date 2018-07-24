@@ -48,6 +48,29 @@ A: In order to avoid syncing to some contaminated or malicious nodes, you can us
 ``` ./ontology --reservedfile=./peers.rsv --reservedonly``` 
 We will provide the white list file peers.rsv in another place
 
+## Q: How to swap NEP-5 ONT token
+
+Before 2018.10.1 ,please
+
+1. Transfer you NEP-5 ONT token to our destroy address :AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM
+
+2. Send email to : xiaomin@ont.io;wengjunjie@ont.io;zhoupeiwen@ont.io with following form:
+
+   Exchange Name:
+
+   Token swap amount:
+
+   Transfer transaction hash:
+
+3. We will send mainnet ONT back to the original address within a working day,  and send the confirm email.
+
+## Q: How about the ong produced by token swap
+
+1. The amount of ongs issued during the token swap: It is the unbounded ong from the ontology mainnet launched to the time when the nep-5 coin is transfered to the destruction address, excluding our manual processing time (up to 24 hours).
+
+2. Assigning users to ong:ong transfer is the same as ont, and will consume at least 0.01 ong.
+
+3. When withdraw ongs, the same processing fee will be consumed for each extraction operation, so it is not recommended to extract frequently.
 
 
 
