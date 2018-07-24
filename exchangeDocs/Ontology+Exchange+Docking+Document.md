@@ -972,6 +972,7 @@ Tip:
 Use Java SDK to withdraw ONG，please refer to[Java SDK:ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
 
 ## 5. Signature service
+When your system doesn't support the SDKs and CLI, you can use the sign server to make and sign transactions:
 
 [Ontology Signature Server Tutorials](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr.md)
 
