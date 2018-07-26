@@ -12,7 +12,10 @@
 		* [7. 查询调用交易的事件](#7查询调用交易的事件)  
 
 ### 1. 下载ontology并使用ontology创建一个默认账户
-  ./ontology account add -d
+如果是linux, mac, 可以通过 curl https://dev.ont.io/ontology_install | sh 下载, 否则可以在这里[下载](https://github.com/ontio/ontology/releases)
+
+创建账户：
+  ./ontology account add -d  
     Use default setting '-t ecdsa -b 256 -s SHA256withECDSA'
             signature algorithm: ecdsa
             curve: P-256
