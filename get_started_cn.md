@@ -38,14 +38,14 @@
 
 ### 什么是本体？
 
-本体的特性在[这里](https://ontio.github.io/documentation/ontology_features_zh.html)有大致的介绍。同时，
+本体的特性在[这里](https://ontio.github.io/documentation/features_zh.html)有大致的介绍。同时，
 又以[公开信](https://ontio.github.io/documentation/first_open_letter_zh.html)的形式，介绍了本体的各个组成部分，并且对广大技术人员发出了邀请，希望大家
 能积极加入本体技术社区，共建本体开发者生态。
 
 ### 如何获取本体？
 
 目前本体的所有源码均在GitHub上开源，用户可以自行前往[代码库](https://github.com/ontio/ontology)中下载源码编译安装，你也可以通过命令 `curl  <https://dev.ont.io/ontology_install> | sh `  获取最新的ontology版本。或者直接获取不同版本号的
-[release版本](https://github.com/ontio/ontology/releases)。具体的获取、安装方法可以参考[这里](https://ontio.github.io/documentation/ontology_install_zh.html)。
+[release版本](https://github.com/ontio/ontology/releases)。具体的获取、安装方法可以参考[这里](https://ontio.github.io/documentation/install_zh.html)。
 
 ### 本体节点介绍
 
@@ -74,8 +74,7 @@
 
 ### 本体网络搭建
 
-现在，可以试着搭建本体网络了。[这篇文档](https://ontio.github.io/documentation/ontology_testnet_zh.html)将详细介绍同步节点如何启动以及如何搭建自己的
-本体私网。
+现在，可以试着搭建本体网络了。[这篇文档](https://ontio.github.io/documentation/testnet_zh.html)将详细介绍同步节点如何启动以及如何搭建自己的本体私网。
 
 ### 本体的特殊功能
 
@@ -92,7 +91,7 @@ Ontology DID（简称：ONT ID）基于W3C的DID规范，是一个去中心化�
 
 ### 本体命令行工具
 
-在搭建本体网络，并启动的时候，你可能使用很多命令行参数。这些参数在[这里](https://ontio.github.io/documentation/ontology_cli_sample_zh.html)有详细的说
+在搭建本体网络，并启动的时候，你可能使用很多命令行参数。这些参数在[这里](https://ontio.github.io/documentation/cli_user_guide_zh.html)有详细的说
 明。这些命令行参数也是通过ontology可执行程序来执行，统称为ontology CLI工具。CLI可以执行、调用本体网络的大部分功能，是本体网络的第一个入口。除了文档之
 外，还能通过执行`./ontology --help`获取命令行参数的简略信息。
 
@@ -110,30 +109,30 @@ Ontology DID（简称：ONT ID）基于W3C的DID规范，是一个去中心化�
 
 对于开发者而言，SDK是直接在程序中调用工具。目前，本体提供了三套SDK供开发者使用，分别是[Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_zh.html)，
 [Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_zh.html)与[Golang SDK](https://github.com/ontio/ontology-go-sdk)。在使用SDK之前，
-建议先阅读SDK的[总体说明](https://ontio.github.io/documentation/overview_of_sdks_zh.html)和本体的[钱包文件规范](https://ontio.github.io/documentation/ontology_wallet_file_specification_zh.html)。
+建议先阅读SDK的[总体说明](https://ontio.github.io/documentation/ontology_overview_sdks_zh.html)和本体的[钱包文件规范](https://ontio.github.io/documentation/Wallet_File_Specification_en.html)。
 
 ## 本体智能合约
 
-智能合约是当前区块链最重要的功能，本体也有自己的智能合约体系，详情请参考[这里](https://ontio.github.io/documentation/smart_contract_tutorial_introduction_zh.html)。
+智能合约是当前区块链最重要的功能，本体也有自己的智能合约体系，详情请参考[这里](https://ontio.github.io/documentation/Introduction_of_Ontology_Smart_Contract_zh.html)。
 
 ### 本体智能合约IDE——Smartx
 
-Smartx是本体推出的一站式智能合约编写工具，集成了编写、编译、部署与调试等功能，极大地提升了智能合约的开发效率。Smartx的使用方法请参考[这篇文档](https://ontio.github.io/documentation/smart_contract_tutorial_smartx_zh.html)。
+Smartx是本体推出的一站式智能合约编写工具，集成了编写、编译、部署与调试等功能，极大地提升了智能合约的开发效率。Smartx的使用方法请参考[这篇文档](https://ontio.github.io/documentation/SmartX_Tutorial_zh.html)。
 
 ### 如何编写智能合约
 
-这里以[Hello World](https://ontio.github.io/documentation/smart_contract_tutorial_helloworld_zh.html)为例给出了一个简单的智能合约的例子。在编写智能合约的过程中，
-会用到许多智能合约API，这些API在[这里]()给出。
+这里以[Hello World](https://ontio.github.io/documentation/The_Hello_World_Contract_zh.html)为例给出了一个简单的智能合约的例子。在编写智能合约的过程中，
+会用到许多智能合约API，这些API在[这里](https://apidoc.ont.io/smartcontract/)给出。
 
 ### 合约的部署与调用
 
-虽然smartx提供了一键式部署调用方法，但是仍有其他方法可以实现合约的部署和调用。部署方法可以参考[这篇文档](https://ontio.github.io/documentation/smart_contract_tutorial_deployment_zh.html)，
-调用方法可以参考[这篇文档](https://ontio.github.io/documentation/smart_contract_tutorial_invocation_zh.html)。
+虽然smartx提供了一键式部署调用方法，但是仍有其他方法可以实现合约的部署和调用。部署方法可以参考[这篇文档](https://ontio.github.io/documentation/Smart_Contract_Deployment_zh.html)，
+调用方法可以参考[这篇文档](https://ontio.github.io/documentation/Smart_Contract_Invocation_zh.html)。
 
 ### 智能合约的权限管理
 
 当前，智能合约的函数可以被任何人调用，这显然不符合现实要求。基于角色的权限管理的基本思想是，每个角色可以调用部分函数，每个实体可以被赋予多种角色（实体是由其ONT ID
-来标识）。[这篇文档](https://ontio.github.io/documentation/smart_contract_tutorial_auth_zh.html)详细介绍了本体智能合约的权限管理方式。
+来标识）。[这篇文档](https://ontio.github.io/documentation/auth_zh.html)详细介绍了本体智能合约的权限管理方式。
 
 ## 使用本体
 
