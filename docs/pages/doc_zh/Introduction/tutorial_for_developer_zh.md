@@ -8,7 +8,7 @@ giturl: https://github.com/ontio/documentation/blob/master/get_started_cn.md
 ---
 
 
-[English](./get_started_en.md) / 中文
+[English](./tutorial_for_developer_en.html) / 中文
 
 <h1 align="center">开发者快速指南</h1> 
 
@@ -53,7 +53,7 @@ giturl: https://github.com/ontio/documentation/blob/master/get_started_cn.md
 
 ### 如何获取本体？
 
-目前本体的所有源码均在GitHub上开源，用户可以自行前往[代码库](https://github.com/ontio/ontology)中下载源码编译安装，你也可以通过命令 `curl  <https://dev.ont.io/ontology_install> | sh `  获取最新的ontology版本。或者直接获取不同版本号的
+目前本体的所有源码均在GitHub上开源，用户可以自行前往[代码库](https://github.com/ontio/ontology)中下载源码编译安装，你也可以通过命令 `curl https://dev.ont.io/ontology_install | sh`  获取最新的ontology版本。或者直接获取不同版本号的
 [release版本](https://github.com/ontio/ontology/releases)。具体的获取、安装方法可以参考[这里](https://ontio.github.io/documentation/install_zh.html)。
 
 ### 本体节点介绍

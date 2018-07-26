@@ -41,7 +41,7 @@ The features of Ontology are outlined in [Ontology Features](https://ontio.githu
 
 ### How to get Ontology
 
-At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it. Users can download latest ontology binary file with ` curl  https://dev.ont.io/ontology_install | sh `.or directly download other vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
+At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it. Users can download latest ontology binary file with `curl  https://dev.ont.io/ontology_install | sh`.or directly download other vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
 
 ### The introduction of Ontology node
 
