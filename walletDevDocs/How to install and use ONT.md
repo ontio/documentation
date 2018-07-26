@@ -52,4 +52,9 @@ Once you have ONT or ONG, you can send it out using the "send" button.
 ![WechatIMG105.jpeg](https://upload-images.jianshu.io/upload_images/150344-4f9bd4e25b9d1d45.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **6. Contact Info**
-Xiao Min: xiaomin@onchain.com
+Name：Mathias
+Surname: Glintborg
+Legal Entity: Ontology Foundation Ltd.
+URL: https://dev.ont.io/dapp/wallet/OWallet_0.7.1.exe
+Email: MathiasGlintborg@ont.io
+Phone number: +86 138 1602 6897
