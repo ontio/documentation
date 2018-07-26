@@ -41,7 +41,7 @@ English | [中文](/zh-CN/README.md)
 - Introductory White Papers<br/>[English](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf) / [Korean](https://ont.io/wp/Ontology-Introductory-White-Paper-KR.pdf) translated by @Sunghwan Kim / [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Introductory%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel / [Spanish](https://github.com/ontio/documentation/blob/master/es-ES/Introductory%20White%20Paper%20-%20Spanish.pdf) translated by @Alejandro Garcia
 - Technical White Papers<br/>[English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf) / [Korean](https://ont.io/wp/Ontology-technology-white-paper-KR.pdf) translated by @Sunghwan Kim / [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Technology%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel
 - Ecosystem White Papers<br/>[English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf) / [Korean](https://ont.io/wp/Ontology-Ecosystem-White-Paper-KR.pdf) translated by @Sunghwan Kim / [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Ecosystem%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel<br><br>
-- [Documentation Center](https://ontio.github.io/documentation/first_open_letter_en.html)
+- [Documentation Center](https://ontio.github.io/documentation/tutorial_for_developer_en.html)
 - [OEPs](https://github.com/ontio/OEPs)
 
 ---
