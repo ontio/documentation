@@ -7,15 +7,15 @@ English / [中文](./ontology_overview_sdks_zh.md)
 
 ## Overview
 
-SDK integrates encryption algorithm, RPC interaction and smart contract functions. It is an important bridge for interaction between application and ontology blockchain.
+SDK integrates encryption algorithms, RPC interaction, and smart contract functions. It is an important bridge for interaction between applications and the Ontology blockchain.
 
-Currently, Ontology has provided a variety of SDK, including [Java SDK](https://github.com/ontio/ontology-java-sdk),[Typescript SDK](https://github.com/ontio/ontology-typescript-sdk) and  [Golang SDK](https://github.com/ontio/ontology-go-sdk)。
+Currently, Ontology has provided a variety of SDK, including [Java SDK](https://github.com/ontio/ontology-java-sdk),[Typescript SDK](https://github.com/ontio/ontology-typescript-sdk), and [Golang SDK](https://github.com/ontio/ontology-go-sdk).
 
-More SDKs that is being developed and is about to start are as follows: C#,C++,Python 。
+More SDKs that are being developed are: C#, C++, Python.
 
-Main functions of SDK are as below：
+SDK main functions are：
 
-* Wallet file managerment
+* Wallet file management
 * Digital identity and verifable claim management
 * Digital assets
 * Smart contract deployment and invocation
@@ -23,4 +23,4 @@ Main functions of SDK are as below：
 
 ## Contributing
 
-We encourage community developers to provide more language versions of SDK for ontology, and ontology will provide SDK design and testing standards to ensure the quality .
+We encourage community developers to provide more SDK language versions for Ontology, and Ontology will provide SDK design and testing standards to ensure the quality.
