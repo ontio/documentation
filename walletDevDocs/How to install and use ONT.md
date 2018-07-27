@@ -55,6 +55,6 @@ Once you have ONT or ONG, you can send it out using the "send" button.
 * Name：Mathias
 * Surname: Glintborg
 * Legal Entity: Ontology Foundation Ltd.
-* URL: https://dev.ont.io/dapp/wallet/OWallet_0.7.1.exe
+* URL: ont.io
 * Email: MathiasGlintborg@ont.io
 * Phone number: +86 138 1602 6897
