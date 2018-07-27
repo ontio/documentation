@@ -20,7 +20,7 @@ If you have a Nano S, it must be [updated to 1.3.1 firmware at least.](https://
 
 
 **3. Open your ONT application**
-* Open the ONT application on your Ledger device, the screen should show "Wake Up, ONT...".
+* Open the ONT application on your Ledger device, the screen should show "Hello, ONT!".
 * You can't interact with this app without a ONT client wallet.
 
 ![WechatIMG106.jpeg](https://upload-images.jianshu.io/upload_images/150344-bc91c3f06b4e89d1.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -35,7 +35,7 @@ If you have a Nano S, it must be [updated to 1.3.1 firmware at least.](https://
 * On your ONT client, click on "Login using the Ledger Nano S"
 * You can use you wallet as shown below.
 
-![11.png](https://s1.ax1x.com/2018/07/27/PUZeOO.jpg)
+![11.png](https://s1.ax1x.com/2018/07/27/PUZltA.jpg)
 
 ![12.png](https://upload-images.jianshu.io/upload_images/150344-db49cd024e190267.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
