@@ -28,6 +28,8 @@ If you have a Nano S, it must be [updated to 1.3.1 firmware at least.](https://
 
 **Download and open your compatible ONT client wallet**
 * Please get the new ONT wallet online
+[OWallet_0.7.1.exe](https://dev.ont.io/dapp/wallet/OWallet_0.7.1.exe)
+[OWallet_0.7.1.dmg](https://dev.ont.io/dapp/wallet/O_Wallet-0.7.0.dmg)
 
 **4. Open your ONT software wallet** 
 * Open your ONT client
