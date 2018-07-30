@@ -90,7 +90,7 @@ Here is an example as below.
 		"isDefault": true,
 		"label": "0f4def16",
 		"lock": false,
-		"ontid": "did:ont:AQibRo1HUY9XQb9xgk714AcpYfUMRZEqCJ"
+		"ontid": "did:ont:AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve"
 	}],
 	"scrypt": {
 		"dkLen": 64,
@@ -126,7 +126,7 @@ ScryptParameters object has the following structure:
 Identity object has the following structure:
 ```
 {
-  "ontid": "did:ont:TQLASLtT6pWbThcSCYU1biVqhMnzhTgLFq",
+  "ontid": "did:ont:AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve",
   "label": "MyIdentity",
   "lock": false,
   "isDefault" : false,
