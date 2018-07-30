@@ -52,49 +52,52 @@ Here is an example as below.
 
 ```
 {
-	"name": "mickey",
-	"defaultOntid": "",
-	"defaultAccountAddress": "",
-	"createTime": "2018-06-30T08:52:01.519Z",
-	"version": "1.0",
-	"scrypt": {
-		"n": 4096,
-		"r": 8,
-		"p": 8,
-		"dkLen": 64
-	},
-	"identities": [{
-		"ontid": "did:ont:ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
-		"label": "mickey",
-		"lock": false,
-		"controls": [{
-			"id": "1",
-			"algorithm": "ECDSA",
-			"parameters": {
-				"curve": "P-256"
-			},
-			"key": "M+PnrYLVDrU0gkSzj0FAsvqCYv+HWEEUMDSyKSJACzJhZVglFU9tkfQKlLby5UCY",
-			"address": "ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
-			"salt": "wwa12j4K0SyDP23+UDJNtA==",
-			"enc-alg": "aes-256-gcm"
-		}]
-	}],
+    "name": "mickey",
+    "createTime": "2018-07-24T12:03:27Z",
+    "defaultAccountAddress": "ATiHVFmvyUh2ULvg7Hr7LtdZC7v7NZGneF",
+    "defaultOntid": "did:ont:AQibRo1HUY9XQb9xgk714AcpYfUMRZEqCJ",
+    "version": "1.0",
 	"accounts": [{
-		"address": "AJQLNWy9X6qdeEFrSH6UzgEjadSsRiYDCS",
-		"label": "mickey",
-		"lock": false,
+		"address": "ATiHVFmvyUh2ULvg7Hr7LtdZC7v7NZGneF",
 		"algorithm": "ECDSA",
+		"enc-alg": "aes-256-gcm",
+		"hash": "sha256",
+		"isDefault": true,
+		"key": "09UafwhKPdpjJY3+YpRxk+Iah67k9Mtld774moPhKCroyD+AENGz/X4B6p43c9KF",
+		"label": "9a9ba80c",
+		"lock": false,
 		"parameters": {
 			"curve": "P-256"
 		},
-		"key": "qFbemAbu7fEjOJzAZZhGkmzp2YNxdSCuK7xyvhBAnUBX/FmAj2Ns84Y7frh6hfQv",
-		"enc-alg": "aes-256-gcm",
-		"salt": "u+SiqpRk17b0vIPesh4xXA==",
-		"isDefault": false,
-		"publicKey": "037fb6dfc9420e1d8275d9133d6d69fe64e8e3567241e7583234b9efa8b2ce7ae1",
+		"publicKey": "02799d9ee00408dc4352222d2dfc0e99964a8d691ea5d6324849dff5b3ee8e606e",
+		"salt": "ZiWM7dQQL4Zz3wrnyt6csw==",
 		"signatureScheme": "SHA256withECDSA"
 	}],
-	"extra": null
+	"identities": [{
+		"controls": [{
+			"address": "AQibRo1HUY9XQb9xgk714AcpYfUMRZEqCJ",
+			"algorithm": "ECDSA",
+			"enc-alg": "aes-256-gcm",
+			"hash": "sha256",
+			"id": "keys-1",
+			"key": "VHFz9sfwarrMF6oUCZzDJNT4rIQHamJCXud8mC1LaUNFKK1FfjSAVWIVqqamngBS",
+			"parameters": {
+				"curve": "secp256r1"
+			},
+			"publicKey": "02580de64f61b3ba6e3513f152110d9f38c5c42cfc558bfdbe9b23a38713ef2389",
+			"salt": "CR3vqQBFOSKniIlxqFWbmA=="
+		}],
+		"isDefault": true,
+		"label": "0f4def16",
+		"lock": false,
+		"ontid": "did:ont:AQibRo1HUY9XQb9xgk714AcpYfUMRZEqCJ"
+	}],
+	"scrypt": {
+		"dkLen": 64,
+		"n": 16384,
+		"p": 8,
+		"r": 8
+	}
 }
 ```
 
@@ -145,25 +148,32 @@ Identity object has the following structure:
 Control object has the following structure:
 ```
 {
-  "algorithm": "ECDSA",
-  "parameters": {},
-  "id": "1",
-  "key": "6PYWB8m1bCnu5bQkRUKAwbZp2BHNvQ3BQRLbpLdTuizpyLkQPSZbtZfoxx",
-  "address": "AQkGLumU1tnyJBGV1ZUmD229iQf9KRTTDL",
-  "salt": "Rv4v3a4U1zFEq28/"
+    "address": "AQibRo1HUY9XQb9xgk714AcpYfUMRZEqCJ",
+    "algorithm": "ECDSA",
+    "enc-alg": "aes-256-gcm",
+    "hash": "sha256",
+    "id": "keys-1",
+    "key": "VHFz9sfwarrMF6oUCZzDJNT4rIQHamJCXud8mC1LaUNFKK1FfjSAVWIVqqamngBS",
+    "parameters": {
+        "curve": "secp256r1"
+    },
+    "publicKey": "02580de64f61b3ba6e3513f152110d9f38c5c42cfc558bfdbe9b23a38713ef2389",
+    "salt": "CR3vqQBFOSKniIlxqFWbmA=="
 }
 ```
 ```algorithm``` is the algorithms used in encryption system.
 
 ```parameters``` is the array of parameter objects used in encryption system.
 
-```id``` is the identify of this control.
+```id``` is the identify index of this control.
 
 ```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only address or non-standard address).
 
 ```address```  address in base58 format.
 
 ```salt``` 16 bytes salt value in base64 format.
+
+```publicKey``` publicKey.
 
 ## Parameter
 
@@ -180,18 +190,19 @@ Parameter object has the following structure:
 Account object has the following structure:
 ```
 {
-    "address": "AadQ5xRwrSsFTGzKfLHc1brzykdnf7phhD",
-    "label": "a6575fd9",
-    "lock": false,
+    "address": "ATiHVFmvyUh2ULvg7Hr7LtdZC7v7NZGneF",
     "algorithm": "ECDSA",
-    "parameters": {
-    	"curve": "P-256"
-     },
-    "key": "NyfxXX+xKDG2agrDy3espqX7N0k3MysTgqx5FxJGI8bkklZQO6+6BSluyBRvEsOx",
     "enc-alg": "aes-256-gcm",
-    "salt": "MHct5XIedi86rQILJFi9lA==",
-    "isDefault": false,
-    "publicKey": "03e897f5a1ea306270e3e1e539c9065b6905e2430aae7f4802e1114f01634d7235",
+    "hash": "sha256",
+    "isDefault": true,
+    "key": "09UafwhKPdpjJY3+YpRxk+Iah67k9Mtld774moPhKCroyD+AENGz/X4B6p43c9KF",
+    "label": "9a9ba80c",
+    "lock": false,
+    "parameters": {
+        "curve": "P-256"
+    },
+    "publicKey": "02799d9ee00408dc4352222d2dfc0e99964a8d691ea5d6324849dff5b3ee8e606e",
+    "salt": "ZiWM7dQQL4Zz3wrnyt6csw==",
     "signatureScheme": "SHA256withECDSA"
 }
 ```
@@ -217,6 +228,7 @@ Account object has the following structure:
 
 ```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only address or non-standard address).
 
+```publicKey``` publicKey.
 
 
 ## QR Code Specification 
