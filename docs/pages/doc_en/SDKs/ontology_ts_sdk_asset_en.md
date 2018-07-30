@@ -20,7 +20,7 @@ giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/asset.md
 
 
 
-Wallet is a data storing file of JSON format. In the terms of Ontology, Wallet could store not only the digital identity but also digital assets.
+Wallet is a data storing file in JSON format. In Ontology, Wallet can store not only the digital identity but also digital assets.
 
 
 
@@ -51,11 +51,11 @@ Wallet is a data storing file of JSON format. In the terms of Ontology, Wallet c
 
 ```defaultAccountAddress``` is the default account address of wallet.
 
-```createTime``` is the creation time of wallet of ISO format, such as "2018-02-06T03:05:12.360Z"
+```createTime``` is the creation time of wallet of ISO format, such as "2018-02-06T03:05:12.360Z".
 
-`version` is set to a constant 1.0. It is provided for the future update.
+`version` is set to a constant 1.0. It is provided for future updates.
 
-`scrypt` is the parameters used in the encryption algorithm, which is used in the encryption of wallet and decryption of private key.
+`scrypt` is the parameter used in the encryption algorithm, which is used in the encryption of wallet and decryption of private key.
 
 `identities` is the array of all digital identity objects in the wallet.
 
@@ -63,14 +63,14 @@ Wallet is a data storing file of JSON format. In the terms of Ontology, Wallet c
 
 ```extra``` is the field used by client developer to store extra informations. It can be null.
 
-More detail about wallet data specification could be found in [Wallet_File_Specification](./Wallet_File_Specification_en.html).
+More details about wallet data specification can be found in [Wallet_File_Specification](./Wallet_File_Specification_en.html).
 
 
-## 1.1 Create An Wallet
+## 1.1 Create a Wallet
 
 Users could create their wallet from scratch.
 
-### 1）Create an empty wallet
+### 1) Create an empty wallet
 
 Users only need to pass the name of their wallets.
 
@@ -83,13 +83,13 @@ var wallet = Wallet.create('my_wallet')
 
 Users need to provide below parameters to create an account:
 
-```privateKey``` A instance of class **PrivateKey**.
+```privateKey``` An instance of class **PrivateKey**.
 
 ```password``` User's password to encrypt the private key.
 
 ```label``` Name of the account.
 
-```params``` Optional params used to encrypt the private key.It has below structure.If it is not given, the default value will used.
+```params``` Optional params used to encrypt the private key. It has below structure. If it is not given, the default value will used.
 
 ```
 interface ScryptParams {
@@ -109,17 +109,18 @@ const DEFAULT_SCRYPT = {
     size: 64
 };
 ```
-> Scrypt params must be same in the encryption and decryption, or the decryption will fail.
+
+Scrypt params must be same in the encryption and decryption, or the decryption will fail.
 
 ### 2.1) Generate PrivateKey
 
-We can generate a random private key with specific keypair algorithm and elliptic curve.There are three kinds of algorithms we support:
+We can generate a random private key with specific keypair algorithm and elliptic curve. There are three kinds of algorithms we support:
 
 * ECDSA
 * SM2
 * EDDSA
 
-ECDSA is the default one.You can check TS SDK Api reference for info.
+ECDSA is the default one. You can check TS SDK API reference for info.
 
 ```typescript
 import { Crypto } from 'ontology-ts-sdk';
@@ -166,13 +167,13 @@ Account is used to manage user's assets.
 }
 ````
 
-```address``` is the account address encoded in base58
+```address``` is the account address encoded in base58.
 
-```label``` is the name of account
+```label``` is the name of account.
 
 `lock` specifies whether the account is locked by user. The client cannot spend assets in a locked account.
 
-`algorithm` is the name of encryption algorithm
+`algorithm` is the name of encryption algorithm.
 
 `parameters` is the parameters used in the keypair generation algorithm.
 
@@ -186,12 +187,12 @@ Account is used to manage user's assets.
 
 `isDefault` decides if it is the default account.
 
-`publicKey` is the public key of the account
+`publicKey` is the public key of the account.
 
 `signatureScheme` is the signature scheme used in signature.
 
 
-###  Create An Account
+###  Create an Account
 
 ````
 import {Account} from 'ontology-ts-sdk'
@@ -202,9 +203,9 @@ import {Account} from 'ontology-ts-sdk'
 var account = Account.create(privateKey, password, label, params)
 ````
 
-### Import An Account
+### Import an Account
 
-Users cuold import an account by the backup data.
+Users can import an account by the backup data.
 
 This method will check the password and the private key, an error will be thrown if they are not match.
 
@@ -230,7 +231,8 @@ try {
 
 ##  Transfer native asset
 There are two kinds of native asset in Ontology: ONT and ONG.
-In order to transfer native asset, We can create the specific transaction and send it to the blockchain.After the transaction has been packaged in the block, the transaction would be succeed.
+
+In order to transfer native asset, we can create the specific transaction and send it to the blockchain. After the transaction has been packaged in the block, the transaction will succeed.
 
 ### Type of native asset
 ````
@@ -241,7 +243,7 @@ TOKEN_TYPE = {
 ````
 
 ## An example of transfer asset
-### Create Transaction
+### Create transaction
 
 First we need to create the transaction for transfer.
 The parameters are as below:
@@ -254,13 +256,13 @@ The parameters are as below:
 
 `amount` Can not be more than the sender's balance.
 
-`gasPrice` The limit is set by blockchain node.Can not be less than the limit.
+`gasPrice` The limit is set by blockchain node. Can not be less than the limit.
 
-`gasLimit` The limit is set by blockchain node.Can not be less than the limit.
+`gasLimit` The limit is set by blockchain node. Can not be less than the limit.
 
-`payer` Payer's address to pay for the gas.If not given, use sender's address as default.
+`payer` Payer's address to pay for the gas. If not given, use sender's address is the default.
 
-> In testnet, we can set `gasPrice` as 0 for test.
+In TestNet, we can set `gasPrice` as 0 for test.
 
 ````typescript
 import {OntAssetTxBuilder} from 'ontology-ts-sdk'
@@ -281,10 +283,10 @@ const payer = from;
 const tx = OntAssetTxBuilder.makeTransferTx(assetType, from, to, amount, gasPrice, gasLimit, payer);
 ````
 
-### Send Transaction
-We can use Restful api, rpc api or websocket api to send transaction. Here we use restful api as example.
+### Send transaction
+We can use RESTful API, RPC API, or WebSocket API to send transaction. Here we use RESTful API as an example.
 
-> Use websocket api can wait for the notify of transaction
+> Use WebSocket API and wait for the transaction notice.
 
 ````typescript
 import {RestClient, CONST, TransactionBuilder} from 'ontology-ts-sdk'
@@ -312,17 +314,18 @@ The result may look like:
   Version: '1.0.0' 
 }
 ```
-> The `Result` of the response is the transaction hash, it can be used to query the event of the transaction
+The `Result` of the response is the transaction hash, it can be used to query the event of the transaction.
+
 > RestClient.getSmartCodeEvent
 
 
-## Inquiry of Digital Asset: getBalance
+## Digital Asset Inquiry: getBalance
 
 ### Link of Balance Inquiry
 
-We can use restful api, rpc api and websocket api to query the balance. Here we use restful api as example.
+We can use RESTful API, RPC API and WebSocket API to query the balance. Here we use RESTful API as example.
 
-### Example：
+### Example:
 
 ````typescript
 const address = new Address('AXpNeebiUZZQxLff6czjpHZ3Tftj8go2TF');
@@ -331,11 +334,11 @@ rest.getBalance(address).then(res -> {
 	console.log(res)
 })
 ````
-> The result contains balance of ONT and ONG.
+The result contains balance of ONT and ONG.
 
 ## Withdraw ONG
-Withdraw generated ONG from user's account address and send to other address.They can be the same address.
-### Create Transaction
+Withdraw generated ONG from user's account address and send to other address. They can be the same address.
+### Create transaction
 
 `from` Sender's address to withdraw ONG.
 
@@ -363,8 +366,8 @@ const payer = account.address;
 const tx = OntAssetTxBuilder.makeWithdrawOngTx(from, to, amount, payer, gasPrice, gasLimit);
 ````
 
-### Send Transaction
-We can use Restful api, rpc api or websocket api to send transaction. Here we use restful api as example.
+### Send transaction
+We can use RESTful API, RPC API, or WebSocket API to send a transaction. Here we use RESTful API as an example.
 
 ````typescript
 //sign transaction before send it
@@ -382,4 +385,4 @@ rest.sendRawTransaction(tx.serialize()).then(res => {
 })
 
 ````
-Then we can query the balance to check if the withdraw succeed.
+Then we can query the balance to check if the withdraw succeeded.

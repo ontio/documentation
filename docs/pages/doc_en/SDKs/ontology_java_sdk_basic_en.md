@@ -27,8 +27,7 @@ wm.setDefaultConnect(wm.getRestful());
 wm.openWalletFile("OntAssetDemo.json");
 ```
 
-
-> Note: setRestful indicates that the connection is established using the restful interface, and setRpc indicates that the connection is established using the rpc interface,setDefaultConnect is used to set default connect method.
+Note: setRestful indicates that the connection is established using the restful interface, and setRpc indicates that the connection is established using the rpc interface,setDefaultConnect is used to set default connect method.
 
 
 ## Basic operation interfaces
@@ -45,7 +44,7 @@ int height = ontSdk.getConnectMgr().getBlockHeight();
 * Get block
 
 
-get block by block height
+Get block by block height
 
 
 ```
@@ -53,7 +52,7 @@ Block block = ontSdk.getConnect().getBlock(9757);
 ```
 
 
-get block by block hash
+Get block by block hash
 
 
 ```
@@ -64,14 +63,14 @@ Block block = ontSdk.getConnect().getBlock(blockhash);
 * Get block json
 
 
-get block by block height
+Get block by block height
 
 ```
 Object block = ontSdk.getConnect().getBlockJson(9757);
 ```
 
 
-get block by block hash
+Get block by block hash
 
 
 ```
@@ -80,7 +79,7 @@ Object block = ontSdk.getConnect().getBlockJson(blockhash);
 
 * Get contarct code
 
-get contract code by contract hash
+Get contract code by contract hash
 
 
 ```
@@ -88,7 +87,7 @@ Object contract =  ontSdk.getConnect().getContract(contractHash)
 ```
 
 
-get contract json  by contract hash
+Get contract json  by contract hash
 
 
 ```
@@ -98,7 +97,7 @@ Object contractJson = ontSdk.getConnect().getContractJson(hash)
 * Get balance
 
 
-query balance by address
+Query balance by address
 
 
 ```
@@ -117,41 +116,41 @@ ontSdk.getConnect().getNodeCount();
 ontSdk.getConnect().getGenerateBlockTime();
 ```
 
-* get block height
+* Get block height
 
 ```
 int blockheight = ontSdk.getConnect().getBlockHeight()
 ```
 
-* get smartcontract event
+* Get smartcontract event
 
-get smartcontract event by block height
+Get smartcontract event by block height
 
 ```
 Object  event = ontSdk.getConnect().getSmartCodeEvent(height)
 ```
 
-get smartcontract event by transaction hash
+Get smartcontract event by transaction hash
 
 ```
 Object  event = ontSdk.getConnect().getSmartCodeEvent(hash)
 ```
 
-* get block height by transaction hash
+* Get block height by transaction hash
 
 ```
 int blockheight = ontSdk.getConnect().getBlockHeightByTxHash(txhash)
 ```
 
-* get data stored in smart contract by key
+* Get data stored in smart contract by key
 
 ```
 String value = ontSdk.getConnect().getStorage(codehash,key)
 ```
 
-* get merkle proof
+* Get merkle proof
 
-get merkle proof by transaction hash
+Get merkle proof by transaction hash
 
 ```
 Object proof =  ontSdk.getConnect().getMerkleProof(String hash)
@@ -164,7 +163,7 @@ Object proof =  ontSdk.getConnect().getMerkleProof(String hash)
 Transaction info = ontSdk.getConnect().getTransaction(hash);
 ```
 
-get transaction json by transaction hash
+Get transaction json by transaction hash
 
 ```
 Object info = ontSdk.getConnect().getTransactionJson(txhash);
@@ -182,68 +181,68 @@ InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnect().getTransac
 
 | Field     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    version|   int|  version  |
-|    prevBlockHash|   UInt256|  scripthash of the previous block|
-|    transactionsRoot|   UInt256|  merkel root of all the transactions in the block|
-|    blockRoot|   UInt256| block root|
-|    timestamp|   int| block time stamp, unix time stamp|
-|    height|   int|  block height |
-|    consensusData|   long |  consensus data |
-|    consensusPayload|   byte[] |  consensus payload |
-|    nextBookKeeper|   UInt160 |  bookkeeping contract scripthash of the next block |
-|    sigData|   array|  signature |
-|    bookKeepers|   array|  bookkeepers |
-|    hash|   UInt256 |  hash value of the block |
-|    transactions|   Transaction[] |  transaction list in the block |
+|    version|   int|  Version  |
+|    prevBlockHash|   UInt256|  Scripthash of the previous block|
+|    transactionsRoot|   UInt256|  Merkel root of all the transactions in the block|
+|    blockRoot|   UInt256| Block root|
+|    timestamp|   int| Block time stamp, unix time stamp|
+|    height|   int|  Block height |
+|    consensusData|   long |  Consensus data |
+|    consensusPayload|   byte[] |  Consensus payload |
+|    nextBookKeeper|   UInt160 |  Bookkeeping contract scripthash of the next block |
+|    sigData|   array|  Signature |
+|    bookKeepers|   array|  Bookkeepers |
+|    hash|   UInt256 |  Hash value of the block |
+|    transactions|   Transaction[] |  Transaction list in the block |
 
 
 * Transaction
 
 | Field     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    version|   int|  version  |
-|    txType|   TransactionType|transaction type|
-|    nonce|   int |  random number|
-|    attributes|   Attribute[]|  transaction attribute list |
-| gasPrice|  long |  gas price|
-| gasLimit|  long |  gas limit|
-|    payer|   Address |  account used to pay fee|
-|    sigs|   Sign[]|   signature array  |
-|    payload| Payload |  payload  |
+|    version|   int|  Version  |
+|    txType|   TransactionType|Transaction type|
+|    nonce|   int |  Random number|
+|    attributes|   Attribute[]|  Transaction attribute list |
+| gasPrice|  long |  Gas price|
+| gasLimit|  long |  Gas limit|
+|    payer|   Address |  Account used to pay fee|
+|    sigs|   Sign[]|   Signature array  |
+|    payload| Payload |  Payload  |
 
 
-* TransactionType
+* Transaction type
 
 | Value     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    208|   int |  smart contract deployment |
-|    209|   int | smart contract invocation |
+|    208|   int |  Smart contract deployment |
+|    209|   int | Smart contract invocation |
 |      0|   int |        Bookkeeping  |
 |      4|   int |     Enrollment       |
 |      5|   int |     Vote |
 
-* Signature Area
+* Signature area
 
 | Field     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    pubKeys|   array |  public key array|
+|    pubKeys|   array |  Public key array|
 |    M|   int | M |
-|    sigData|   array | signature value array |
+|    sigData|   array | Signature value array |
 
 
 * Fee
 
 | Field     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    amount|   long|  amount|
-|    payer|   UInt160 | payer |
+|    amount|   long|  Amount|
+|    payer|   UInt160 | Payer |
 
 * Attribute
 
 | Field    |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    usage |   AttributeUsage |  usage|
-|    data|   byte[] | attribute value |
+|    usage |   AttributeUsage |  Usage|
+|    data|   byte[] | Attribute value |
 
 
 * TransactionAttributeUsage

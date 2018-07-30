@@ -472,7 +472,7 @@ ontSdk.addSign(txRx,acct0);
 
 **SDK与签名机交互**：
 
-[例子](https://github.com/ontio/ontology-java-sdk/blob/dev/src/main/java/demo/SignServerDemo.java)
+[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/SignServerDemo.java)
 
 ```
 节点启动时打开签名机服务：

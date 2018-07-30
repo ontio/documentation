@@ -71,7 +71,7 @@ ontology的运行支持以下4种方式
 
 多机环境下，根据VBFT共识算法的要求，最少需要7个节点（共识节点）完成部署。
 
-我们可以通过修改配置文件[`config-vbft.json`](https://github.com/ontio/ontology/blob/master/docs/specifications/config-vbft.json)进行快速部署，配置文件的说明请点击[这里](./config_zh.html)。
+我们可以通过修改配置文件[`https://github.com/ontio/ontology/blob/master/docs/specifications/config-vbft.json`](config-vbft.json)进行快速部署，配置文件的说明请点击[这里](./config_zh.html)。
 
 1. 生成七个钱包文件，每个钱包文件包含一个账户，共七个账户，分别作为每个节点的记账人。生成账户和钱包的命令为：
 	```
@@ -110,7 +110,7 @@ ontology的运行支持以下4种方式
 ##### DBFT部署方法
 
 多机环境下，最少需要4个节点（共识节点）完成部署。
-我们可以通过修改默认的配置文件[`config-dbft.json`](https://github.com/ontio/ontology/blob/master/docs/specifications/config-dbft.json)进行快速部署，配置文件的说明请点击[这里](./config_zh.html)。
+我们可以通过修改默认的配置文件[`https://github.com/ontio/ontology/blob/master/docs/specifications/config-dbft.json`](config-dbft.json)进行快速部署，配置文件的说明请点击[这里](./config_zh.html)。
 
 1. 将相关文件复制到目标主机，包括：
     - 配置文件`config-dbft.json`
