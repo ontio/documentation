@@ -20,7 +20,7 @@
   - [NEO smart contract deployment and invocation](#neo-smart-contract-deployment-and-invocation)
   - [Native smart contract invocation](#native-smart-contract-invocation)
   - [Auth manager contract](#auth-manager-contract)
-  - [Make transaction](#make-transaction)
+  - [Make a transaction](#make-transaction)
   - [Governance contract](#governance-contract)
 
 ## Introduction
