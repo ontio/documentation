@@ -187,6 +187,8 @@ Create account successfully.
 
 ####  Generate deposit address
 
+**Note: ONT and ONG address is case-sensitive**
+
 A wallet can store multiple addresses, and the exchange needs to generate a deposit address for each user.
 
 There are two ways to generate deposit addresses:
