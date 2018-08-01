@@ -72,5 +72,19 @@ Before 2018.10.1 ,please
 
 3. When withdraw ongs, the same processing fee will be consumed for each extraction operation, so it is not recommended to extract frequently.
 
+## Q: What's the ONG unbounding rule
+withdrawable ONG amount = [unbounded ong amount per second] × [holding time of ONT] × [holding ONT amount] / [ONT total supply]
+[unbounded ong amount per second] will reduced by  [5, 4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]  every year.
 
+[holding time of ONT] :current time - last ONT account changed time
+
+[ONT total supply]:1000000000
+
+For Example:Account A holding 100 ONTs on day 1,200 ONTs on day 2, 300 ONTs on day 3, so he can withdraw ONGs:
+
+（24×60×60)×5×100/1000000000 + （24×60×60)×5×200/1000000000
+
+The other 300 ONTs will calculated on next account ONTs changed.
+
+The first account ONT changed time is Ontology mainnet launched time on 2018/6/30.
 
