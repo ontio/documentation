@@ -74,6 +74,7 @@ Before 2018.10.1 ,please
 
 ## Q: What's the ONG unbounding rule
 withdrawable ONG amount = [unbounded ong amount per second] × [holding time of ONT] × [holding ONT amount] / [ONT total supply]
+
 [unbounded ong amount per second] will reduced by  [5, 4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]  every year.
 
 [holding time of ONT] :current time - last ONT account changed time
