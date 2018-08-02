@@ -31,10 +31,6 @@ entries:
       url: /install_zh.html
       output: web, pdf
 
-    - title: TestNet搭建
-      url: /testnet_zh.html
-      output: web, pdf
-
     - title: 配置文件
       url: /config_zh.html
       output: web, pdf

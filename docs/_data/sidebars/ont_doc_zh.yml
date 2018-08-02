@@ -48,10 +48,6 @@ entries:
       url: /ontology_install_zh.html
       output: web, pdf
 
-    - title: TestNet搭建
-      url: /ontology_testnet_zh.html
-      output: web, pdf
-
     - title: Cli使用说明
       url: /ontology_cli_sample_zh.html
       output: web, pdf

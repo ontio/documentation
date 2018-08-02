@@ -74,7 +74,7 @@
 
 ### 本体网络搭建
 
-现在，可以试着搭建本体网络了。[这篇文档](https://ontio.github.io/documentation/testnet_zh.html)将详细介绍同步节点如何启动以及如何搭建自己的本体私网。
+现在，可以试着连接到本体网络了。[这里](https://github.com/ontio/ontology/blob/master/README_CN.md#运行ontology)详细介绍了如何连接到本体网络以及如何启动ontology的测试模式。
 
 ### 本体的特殊功能
 
