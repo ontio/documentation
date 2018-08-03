@@ -14,7 +14,7 @@ Ontology is a new generation high-performance public blockchain. After its MainN
         - [Synchronization node](#synchronization-node)
         - [Consensus node](#consensus-node)
     - [Ontology consensus mechanism](#ontology-consensus-mechanism)
-    - [Ontology network setup](#ontology-network-setup)
+    - [Connect to ontology](#connect-to-ontology)
     - [Ontology special features](#ontology-special-features)
         - [Ontology DID](#ontology-did)
         - [Distributed data transaction](#distributed-data-transaction)
@@ -69,7 +69,7 @@ After understanding the type of Ontology network node, we will introduce the con
 
 [VBFT Introduction](https://ontio.github.io/documentation/vbft_intro_en.html) is an introduction to the VBFT consensus network. For more detailed information, please refer to the source code repository of Ontology.
 
-### Ontology network setup
+### Connect to ontology
 
 Now, we can try to connect to Ontology network. [Run ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology) will introduce how to connect ontology network and how to start ontology in test mode.
 

@@ -25,7 +25,7 @@ giturl: https://github.com/ontio/documentation/blob/master/get_started_cn.md
         * [同步节点](#同步节点)
         * [共识节点](#共识节点)
      * [本体的共识机制](#本体的共识机制)
-     * [本体网络搭建](#本体网络搭建)
+     * [连接到本体网络](#连接到本体网络)
      * [本体的特殊功能](#本体的特殊功能)
         * [本体DID](#本体did)
         * [分布式数据交易](#分布式数据交易)
@@ -81,7 +81,7 @@ giturl: https://github.com/ontio/documentation/blob/master/get_started_cn.md
 了解完本体网络节点类型之后，将介绍本体网络的共识机制。本体已支持DBFT与VBFT共识，目前主网与测试网均使用VBFT共识，
 [这里](https://ontio.github.io/documentation/vbft_intro_zh.html)有VBFT共识网络的介绍，更详细的信息请参照本体的源码库。
 
-### 本体网络搭建
+### 连接到本体网络
 
 现在，可以试着连接到本体网络了。[这里](https://github.com/ontio/ontology/blob/master/README_CN.md#运行ontology)详细介绍了如何连接到本体网络以及如何启动ontology的测试模式。
 
