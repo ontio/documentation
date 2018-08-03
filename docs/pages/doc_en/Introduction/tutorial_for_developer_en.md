@@ -8,7 +8,6 @@ giturl: https://github.com/ontio/documentation/blob/master/get_started_en.md
 ---
 
 
-
 English / [中文](./tutorial_for_developer_zh.html)
 
 <h1 align="center">Ontology Developer Guide</h1>

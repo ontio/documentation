@@ -117,9 +117,9 @@ account,sdk.DEFAULT_GAS_LIMIT,0);
 
 Ontology合约示例：
 ```
-using Ont.SmartContract.Framework;
-using Ont.SmartContract.Framework.Services.Ont;
-using Ont.SmartContract.Framework.Services.System;
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Services.System;
 using System;
 using System.ComponentModel;
 using System.Numerics;
@@ -229,7 +229,7 @@ Java-SDK已经封装好权限合约的调用接口，可以通过Java-SDK进行�
     |参数说明|字段|描述|
     ||adminOntId|合约管理员ontid|
     ||password|合约管理员密码|
-    ||slat |私钥解密参数|
+    ||salt |私钥解密参数|
     ||contractAddr|合约地址|
     ||newAdminOntID|新的管理员|
     ||keyNo|合约管理员的公钥编号|

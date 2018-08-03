@@ -24,7 +24,7 @@ supported VBFT and DBFT, they have different config method. It is mainly embodie
 
 ## DBFT Configuration
 
-DBFT configure file is [`config-dbft.json`](https://github.com/ontio/ontology/blob/master/docs/specifications/config-dbft.json)，as follows:
+DBFT configure file is [`https://github.com/ontio/ontology/blob/master/docs/specifications/config-dbft.json`](config-dbft.json)，as follows:
 
 ```json
 {
@@ -61,7 +61,7 @@ DBFT: DBFT consensus configuration，as follows：
 
 ## VBFT Configuration
 
-VBFTis the default consensus mechanism for ontology at present, with [`config-vbft.json`](https://github.com/ontio/ontology/blob/master/docs/specifications/config-vbft.json) configuration files, as follows:
+VBFTis the default consensus mechanism for ontology at present, with [`https://github.com/ontio/ontology/blob/master/docs/specifications/config-vbft.json`](config-vbft.json) configuration files, as follows:
 
 ```json
 {

@@ -40,15 +40,15 @@ A wallet file in JSON format has the following basic structure:
 
 ```defaultAccountAddress``` indicates the default digital assert account's address in this wallet.
 
-```createTime``` is the createTime of this wallet,in UTC format.
+```createTime``` is the createTime of this wallet, in UTC format.
 
-```identities``` is an array of Identity objects which describe the details of each Identity in the wallet.
+```identities``` is an array of identity objects which describe the details of each identity in the wallet.
 
-```accounts``` is an array of Account objects which describe the details of each account in the wallet.
+```accounts``` is an array of account objects which describe the details of each account in the wallet.
 
 ```extra``` is an object that is defined by the implementor of the client for storing extra data. This field can be null.
 
-Here is an example as below.
+Here is an example as below:
 
 ```
 {
@@ -119,7 +119,7 @@ ScryptParameters object has the following structure:
 
 ```p``` is a tuning parameter (parallelization parameter). A large value of p can increase computational cost of SCrypt without increasing the memory usage.
 
-```dkLen``` Intended output length in octets of the derived key.
+```dkLen``` is intended output length in octets of the derived key.
 
 ## Identity
 
@@ -141,39 +141,32 @@ Identity object has the following structure:
 
 ```isDefault``` indicates whether the identity is default.
 
-```controls``` is an array of Controller objects which describe the details of each controller in the identity.
+```controls``` is an array of Controller objects which describes the details of each controller in the identity.
 
 ## Control
 
 Control object has the following structure:
 ```
 {
-    "address": "AQibRo1HUY9XQb9xgk714AcpYfUMRZEqCJ",
-    "algorithm": "ECDSA",
-    "enc-alg": "aes-256-gcm",
-    "hash": "sha256",
-    "id": "keys-1",
-    "key": "VHFz9sfwarrMF6oUCZzDJNT4rIQHamJCXud8mC1LaUNFKK1FfjSAVWIVqqamngBS",
-    "parameters": {
-        "curve": "secp256r1"
-    },
-    "publicKey": "02580de64f61b3ba6e3513f152110d9f38c5c42cfc558bfdbe9b23a38713ef2389",
-    "salt": "CR3vqQBFOSKniIlxqFWbmA=="
+  "algorithm": "ECDSA",
+  "parameters": {},
+  "id": "1",
+  "key": "6PYWB8m1bCnu5bQkRUKAwbZp2BHNvQ3BQRLbpLdTuizpyLkQPSZbtZfoxx",
+  "address": "AQkGLumU1tnyJBGV1ZUmD229iQf9KRTTDL",
+  "salt": "Rv4v3a4U1zFEq28/"
 }
 ```
-```algorithm``` is the algorithms used in encryption system.
+```algorithm``` is the algorithm used in the encryption system.
 
-```parameters``` is the array of parameter objects used in encryption system.
+```parameters``` is the array of parameter objects used in the encryption system.
 
-```id``` is the identify index of this control.
+```id``` is the identify of this control.
 
-```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only address or non-standard address).
+```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
 
 ```address```  address in base58 format.
 
 ```salt``` 16 bytes salt value in base64 format.
-
-```publicKey``` publicKey.
 
 ## Parameter
 
@@ -190,31 +183,30 @@ Parameter object has the following structure:
 Account object has the following structure:
 ```
 {
-    "address": "ATiHVFmvyUh2ULvg7Hr7LtdZC7v7NZGneF",
-    "algorithm": "ECDSA",
-    "enc-alg": "aes-256-gcm",
-    "hash": "sha256",
-    "isDefault": true,
-    "key": "09UafwhKPdpjJY3+YpRxk+Iah67k9Mtld774moPhKCroyD+AENGz/X4B6p43c9KF",
-    "label": "9a9ba80c",
+    "address": "AadQ5xRwrSsFTGzKfLHc1brzykdnf7phhD",
+    "label": "a6575fd9",
     "lock": false,
+    "algorithm": "ECDSA",
     "parameters": {
-        "curve": "P-256"
-    },
-    "publicKey": "02799d9ee00408dc4352222d2dfc0e99964a8d691ea5d6324849dff5b3ee8e606e",
-    "salt": "ZiWM7dQQL4Zz3wrnyt6csw==",
+    	"curve": "P-256"
+     },
+    "key": "NyfxXX+xKDG2agrDy3espqX7N0k3MysTgqx5FxJGI8bkklZQO6+6BSluyBRvEsOx",
+    "enc-alg": "aes-256-gcm",
+    "salt": "MHct5XIedi86rQILJFi9lA==",
+    "isDefault": false,
+    "publicKey": "03e897f5a1ea306270e3e1e539c9065b6905e2430aae7f4802e1114f01634d7235",
     "signatureScheme": "SHA256withECDSA"
 }
 ```
 ```address``` is the base58 encoded address of the account.
 
-```enc-alg``` the algorithm to encrypt private key.
+```enc-alg``` is the algorithm to encrypt the private key.
 
-```salt``` salt value for decryption.
+```salt``` is salt value for decryption.
 
-```publicKey``` the public key.
+```publicKey``` is the public key.
 
-```signatureScheme``` the signatureScheme used in signature.
+```signatureScheme``` is the signatureScheme used in signature.
 
 ```isDefault``` indicates whether the account is default.
 
@@ -226,14 +218,13 @@ Account object has the following structure:
 
 ```parameters``` is the array of parameter objects used in encryption system.
 
-```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only address or non-standard address).
+```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
 
-```publicKey``` publicKey.
 
 
 ## QR Code Specification 
 
-This is QR Code Specification for both identity and account. 
+This is QR Code Specification is for both identity and account. 
 
 ```
 {
@@ -255,19 +246,19 @@ This is QR Code Specification for both identity and account.
 }
 ```
 
-```type``` used to distinguish between identity or account, **I** indicates this is an identity , **A** indicates this is an account.
+```type``` is used to distinguish between identity or account, **I** indicates this is an identity , **A** indicates this is an account.
 
-```label``` the lable of identity or account
+```label``` is the label of identity or account.
 
-```algorithm``` the algorithm for key pair generation
+```algorithm``` is the algorithm for key pair generation.
 
-```parameters``` the parameters of the key pair generation algorithm
+```parameters``` is the parameters of the key pair generation algorithm.
 
-```scrypt``` the parameters for scrypt.
+```scrypt``` is the parameters for scrypt.
 
-```key``` the encrypted private key
+```key``` is the encrypted private key.
 
-```address```  address in base58 format.
+```address```  is the address in base58 format.
 
-```salt``` 16 bytes salt in base64 format.
+```salt``` is 16 bytes salt in base64 format.
 

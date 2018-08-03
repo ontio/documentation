@@ -9,36 +9,31 @@ giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/smart_contr
 
 [中文](./ontology_ts_sdk_smartcontract_zh.html) | English
 
-<h1 align="center">Deploy & invoke smart contract</h1>
+<h1 align="center">Deploy and Invoke Smart Contract</h1>
 <h4 align="center">Version V0.9.0 </h4>
-<h1 align="center">Deploy and invoke smart contract</h1>
-
-<p align="center" class="version">Version 1.0.0 </p>
-
-
 
 ## 1. Deploy smart contract
 
-This process needs to construct related transaction and send it to the blockchain.
+This process needs to construct related transactions and send it to the blockchain.
 
 Users should offer the contract's content in hex string and some configuration parameters to construct the transaction.
 
 
 The configuration parameters are as follow:
 
-```code``` Avm code of contract's content，hex encoded string。
+```code``` Avm code of contract's content, hex encoded string.
 
-```name ``` name of the contract, optional string value.
+```name ``` Name of the contract, optional string value.
 
-```codeVersion``` version of  the contract, optional string value.
+```codeVersion``` Version of the contract, optional string value.
 
-```author``` author of the contract, optional string value.
+```author``` Author of the contract, optional string value.
 
-```email``` email of the contract's author, optional string value.
+```email``` Email of the contract's author, optional string value.
 
-```desp``` description of the contract, optional string value.
+```desp``` Description of the contract, optional string value.
 
-```needStorage``` the contract needs storage or not. Default as true.
+```needStorage``` Whether contract needs storage or not. Default is true.
 
 ```typescript
 import {TransactionBuilder, RestClient} from 'ontology-ts-sdk';
@@ -74,13 +69,13 @@ rest.sendRawTransaction(tx.serialize()).then(res => {
 ```
 
 ## 2. Invoke smart contract
-Invoking contract needs to construct related transaction and send it to the blockchain.
+Invoking contract needs to construct related transactions and send it to the blockchain.
 
-### 2.1 Construct transaction with abi file
+### 2.1 Construct transaction with ABI file
 
-```.abi```file is in JSON format that describes the methods and parameters of the smart contract. We can construct the transaction to invoke contract easily with abi files. Some transactions may need to be signed with user's privatekey.
+```.abi```file is in JSON format that describes the methods and parameters of the smart contract. We can construct the transaction to invoke contract easily with ABI files. Some transactions may need to be signed with the user's privatekey.
 
-There are some class related to abi in TS SDK.
+There are some class related to ABI in TS SDK.
 
 ```
 class AbiInfo {
@@ -90,11 +85,11 @@ class AbiInfo {
 }
 ```
 
-```hash``` hash value of the contract. Also called contract address. It can be used to distinguish each contract.
+```hash``` Hash value of the contract. Also called contract address. It can be used to distinguish each contract.
 
-```entrypoint``` the entry function name of the contract.
+```entrypoint``` Entry function name of the contract.
 
-```functions```  the set of functions that the contract contains.
+```functions```  Set of functions that the contract contains.
 
 ```
 class AbiFunction {
@@ -104,11 +99,11 @@ class AbiFunction {
 }
 ```
 
-```name``` name of the function.
+```name``` Name of the function.
 
-```returntype``` the return type of the function.
+```returntype``` Return type of the function.
 
-```parameters``` the parameters of the function.
+```parameters``` Parameters of the function.
 
 ```
 class Parameter {
@@ -118,29 +113,29 @@ class Parameter {
 }
 ```
 
-```name``` name of the parameter.
+```name``` Name of the parameter.
 
-```type```  type of the parameter.
+```type```  Type of the parameter.
 
-```value```  value of the parameter.
+```value```  Value of the parameter.
 
-The function that constructs transaction to invoke contract needs parameters as follow:
+The function that constructs transactions to invoke the contract needs parameters as follows:
 
 ````
 function makeInvokeTransaction(funcName : string, parameters : Array<Parameter>, contractHash : string, vmType : VmType = VmType.NEOVM, fees : Array<Fee> = [])
 ````
 
-```funcName``` the function to be called in the contract.
+```funcName``` Function to be called in the contract.
 
-```parameters``` the parameters of the function.
+```parameters``` Parameters of the function.
 
-```contractHash``` the hash of the contract.
+```contractHash``` Hash of the contract.
 
-```vmType``` the virtual machine type.
+```vmType``` Virtual machine type.
 
-```fees``` the fees required to send transaction.
+```fees``` Fees required to send transaction.
 
-Here is a example about invoking a smart contract for attest claim record to the blockchain.
+Here is an example about invoking a smart contract for attest claim record to the blockchain.
 
 ```
 //read abi file. Here the file exports a JSON object.

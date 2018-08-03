@@ -22,7 +22,7 @@ This is a comprehensive Java library for the Ontology blockchain,which is releas
 - [Getting Started](./ontology_java_sdk_get_start_en.html)
 - [interface](./ontology_java_sdk_interface_en.html)
 - [Basic operation of blockchain nodes](./ontology_java_sdk_basic_en.html)
-- [Wallet file specification](./Wallet_File_Specification_en.html)
+- [Wallet file specification](https://github.com/ontio/documentation/blob/master/docs/pages/doc_en/SDKs/Wallet_File_Specification_en.md)
 - [Digital identity and verifable claim management](./ontology_java_sdk_identity_claim_en.html)
 - [Digital assets](./ontology_java_sdk_asset_en.html)
 - [Digital Attest](./ontology_java_sdk_attest_en.html)

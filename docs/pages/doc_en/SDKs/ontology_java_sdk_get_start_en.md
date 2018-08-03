@@ -463,7 +463,7 @@ ontSdk.addSign(txRx,acct0);
 
 **Interaction between SDK and signature server**：
 
-[Example](https://github.com/ontio/ontology-java-sdk/blob/dev/src/main/java/demo/SignServerDemo.java)
+[Example](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/SignServerDemo.java)
 
 ```
 //Start the signature server service when nodes start：
