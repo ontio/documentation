@@ -38,9 +38,7 @@
 
 ### 什么是本体？
 
-本体的特性在[这里](https://ontio.github.io/documentation/features_zh.html)有大致的介绍。同时，
-又以[公开信](https://ontio.github.io/documentation/first_open_letter_zh.html)的形式，介绍了本体的各个组成部分，并且对广大技术人员发出了邀请，希望大家
-能积极加入本体技术社区，共建本体开发者生态。
+本体的特性在[这里](https://ontio.github.io/documentation/features_zh.html)有大致的介绍。
 
 ### 如何获取本体？
 

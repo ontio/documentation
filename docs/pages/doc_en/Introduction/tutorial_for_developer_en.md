@@ -46,7 +46,7 @@ Ontology is a new generation high-performance public blockchain. After its MainN
 
 ### What is Ontology
 
-The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/features_en.html). Simultaneously, we released an [Open Letter](https://ontio.github.io/documentation/first_open_letter_zh.html) to introduce each part of Ontology and invite developers to join Ontology technical community and build an Ontology developer ecosystem.
+The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/features_en.html). 
 
 ### How to get Ontology
 

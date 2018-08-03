@@ -23,11 +23,6 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: 给社区开发者的公开信
-      url: /first_open_letter_zh.html
-      output: web, pdf
-      type: homepage
-
     - title: 开发者新手指南
       url: /tutorial_for_developer_zh.html
       output: web, pdf
