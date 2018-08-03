@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Introduction_zh
 permalink: wp_download_zh.html
 folder: doc_zh/Introduction
-giturl: https://github.com/ontio/documentation/blob/master/get_started_en.md
+giturl: https://github.com/ontio/documentation/blob/master/zh-CN/README.md#本体文档
 ---
 
 

@@ -4,7 +4,7 @@ keywords: sample homepage
 sidebar: Introduction_en
 permalink: wp_download_en.html
 folder: doc_en/Introduction
-giturl: https://github.com/ontio/documentation/blob/master/zh-CN/README.md#本体文档
+giturl: https://github.com/ontio/documentation/blob/master/README.md#ontology-documents-and-resources
 ---
 
 <h1 align="center">Ontology White Papers</h1>
