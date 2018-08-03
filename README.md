@@ -29,6 +29,7 @@ English | [中文](/zh-CN/README.md)
 - [Ontology Java SDK](#Ontology-java-sdk) :hatched_chick:
 - [Ontology TS SDK](#Ontology-ts-sdk) :hatched_chick:
 - [Ontology Go SDK](#Ontology-go-sdk) :hatched_chick:
+- [Ontology Python SDK](#Ontology-python-sdk) :hatching_chick:
 
 ## Ontology Applications
 - [ONTO](#onto) :hatching_chick:
@@ -91,6 +92,9 @@ English | [中文](/zh-CN/README.md)
 > The project is a comprehensive Go library for the Ontology blockchain. Currently, it supports local wallet management, digital asset management, deployment and envoke for Smart Contract . The future will also support more rich functions and applications.
 - [Ontology GO SDK](https://github.com/ontio/ontology-go-sdk) - main repository
 
+### <a name="Ontology-python-sdk"></a>Ontology Python SDK <sup>[top⇈](#ontology-infrastructure)</sup>
+> Ontology Python SDK function consists of four parts, RPC interface, wallet, asset, and identity. For RPC interface, it is responsible to interact with the Ontology blockchain, including querying and sending transactions. For wallet, it manages wallet file and store the encrypted private key of the asset account and identity. The function of asset can transfer ONT/ONG, check account balance, withdraw ONT/ONG and so on. The function of identity can send request to register ONT ID and get DDO object. In addition to these four parts, SDK also support constructing, deploying, and invoking a smart contract.
+- [Ontology Python SDK](https://github.com/ontio/ontology-python-sdk) - main repository
 
 ### <a name="onto"></a>ONTO <sup>[top⇈](#ontology-infrastructure)</sup>
 > ONTO is a comprehensive decentralized client product, and gives users self-sovereign of their digital identities, digital assets, etc.
