@@ -40,9 +40,26 @@ English | [中文](/zh-CN/README.md)
 ## Ontology Documents and Resources
 
 
-- Introductory White Papers<br/>[English](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf) / [Korean](https://ont.io/wp/Ontology-Introductory-White-Paper-KR.pdf) translated by @Sunghwan Kim / [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Introductory%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel / [Japanese](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Introductory%20White%20Paper%20JP.pdf) translated by @Miho Nakauchi / [Spanish](https://github.com/ontio/documentation/blob/master/es-ES/Introductory%20White%20Paper%20-%20Spanish.pdf) translated by @Alejandro Garcia / [Turkish](https://github.com/ontio/documentation/blob/master/tr_TR/Introductory%20White%20Paper%20-%20Turkish.pdf) translated by @Hakan
-- Technical White Papers<br/>[English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf) / [Korean](https://ont.io/wp/Ontology-technology-white-paper-KR.pdf) translated by @Sunghwan Kim / [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Technology%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel / [Japanese](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Technology%20White%20Paper%20JP.pdf) translated by @Miho Nakauchi
-- Ecosystem White Papers<br/>[English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf) / [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf) / [Korean](https://ont.io/wp/Ontology-Ecosystem-White-Paper-KR.pdf) translated by @Sunghwan Kim / [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Ecosystem%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel / [Japanese](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Ecosystem%20White%20Paper-JP.pdf) translated by @Miho Nakauchi<br><br>
+- Introductory White Papers
+    - [English](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf)
+    - [Chinese](https://ont.io/wp/Ontology-Introductory-White-Paper-ZH.pdf)
+    - [Korean](https://ont.io/wp/Ontology-Introductory-White-Paper-KR.pdf) translated by @Sunghwan Kim
+    - [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Introductory%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel
+    - [Japanese](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Introductory%20White%20Paper%20JP.pdf) translated by @Miho Nakauchi
+    - [Spanish](https://github.com/ontio/documentation/blob/master/es-ES/Introductory%20White%20Paper%20-%20Spanish.pdf) translated by @Alejandro Garcia
+    - [Turkish](https://github.com/ontio/documentation/blob/master/tr_TR/Introductory%20White%20Paper%20-%20Turkish.pdf) translated by @Hakan
+- Technical White Papers
+    - [English](https://github.com/ontio/Documentation/blob/master/Ontology-technology-white-paper-EN.pdf)
+    - [Chinese](https://ont.io/wp/Ontology-technology-white-paper-ZH.pdf)
+    - [Korean](https://ont.io/wp/Ontology-technology-white-paper-KR.pdf) translated by @Sunghwan Kim
+    - [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Technology%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel
+    - [Japanese](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Technology%20White%20Paper%20JP.pdf) translated by @Miho Nakauchi
+- Ecosystem White Papers
+    - [English](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf)
+    - [Chinese](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)
+    - [Korean](https://ont.io/wp/Ontology-Ecosystem-White-Paper-KR.pdf) translated by @Sunghwan Kim
+    - [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Ecosystem%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel
+    - [Japanese](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Ecosystem%20White%20Paper-JP.pdf) translated by @Miho Nakauchi
 - [Documentation Center](https://ontio.github.io/documentation/tutorial_for_developer_en.html)
 - [OEPs](https://github.com/ontio/OEPs)
 
