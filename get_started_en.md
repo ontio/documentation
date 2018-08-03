@@ -71,7 +71,7 @@ After understanding the type of Ontology network node, we will introduce the con
 
 ### Ontology network setup
 
-Now, we can build an Ontology network. [Ontology TestNet Build](https://ontio.github.io/documentation/testnet_en.html) will introduce how the synchronization node starts and how to build Ontology private network.
+Now, we can try to connect to Ontology network. [Run ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology) will introduce how to connect ontology network and how to start ontology in test mode.
 
 ### Ontology special features
 

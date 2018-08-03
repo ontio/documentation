@@ -31,10 +31,6 @@ entries:
       url: /install_en.html
       output: web, pdf
 
-    - title: Testnet
-      url: /testnet_en.html
-      output: web, pdf
-
     - title: Configuration
       url: /config_en.html
       output: web, pdf

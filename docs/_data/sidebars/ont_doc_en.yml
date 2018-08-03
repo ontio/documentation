@@ -48,10 +48,6 @@ entries:
       url: /ontology_install_en.html
       output: web, pdf
 
-    - title: Testnet
-      url: /ontology_testnet_en.html
-      output: web, pdf
-
     - title: Cli User Guide
       url: /ontology_cli_sample_en.html
       output: web, pdf
