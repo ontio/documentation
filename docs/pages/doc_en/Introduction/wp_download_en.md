@@ -4,12 +4,13 @@ keywords: sample homepage
 sidebar: Introduction_en
 permalink: wp_download_en.html
 folder: doc_en/Introduction
+giturl: https://github.com/ontio/documentation/blob/master/zh-CN/README.md#本体文档
 ---
-
-
 
 <h1 align="center">Ontology White Papers</h1>
 <p align="center" class="version">Version 1.0.0 </p>
+
+English/[中文](./wp_download_zh.html)
 
 - Introductory White Papers
     - [English](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf)

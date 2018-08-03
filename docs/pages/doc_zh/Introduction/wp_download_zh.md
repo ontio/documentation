@@ -4,11 +4,14 @@ keywords: sample homepage
 sidebar: Introduction_zh
 permalink: wp_download_zh.html
 folder: doc_zh/Introduction
+giturl: https://github.com/ontio/documentation/blob/master/get_started_en.md
 ---
 
 
 <h1 align="center">Ontology 白皮书</h1>
 <p align="center" class="version">Version 1.0.0 </p>
+
+[English](./wp_download_en.html)/中文
 
 - 白皮书概览
     - [英语](https://ont.io/wp/Ontology-Introductory-White-Paper-EN.pdf) 
