@@ -44,7 +44,7 @@ Install the Ontology app on your Ledger device to manage ONT and ONG tokens with
 ![](https://upload-images.jianshu.io/upload_images/10231651-018e8b8b2dd60202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 ![](https://upload-images.jianshu.io/upload_images/10231651-86210abceb284ef2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 
-### **4. Use the ONT wallet **
+### **4. Use the ONT wallet**
 
 * You address is display on the ONT wallet. You can use it to receive ONT and ONG.
 * To send tokens, enter the amount and receiving address, then click **Send**.
@@ -62,7 +62,7 @@ Install the Ontology app on your Ledger device to manage ONT and ONG tokens with
 
 ![WechatIMG105.jpeg](https://upload-images.jianshu.io/upload_images/150344-4f9bd4e25b9d1d45.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-### **6. Contact Info**
+### **5. Contact Info**
 
 * Name：Mathias
 * Surname: Glintborg
