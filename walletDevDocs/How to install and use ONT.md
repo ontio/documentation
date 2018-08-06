@@ -19,52 +19,46 @@ Install the Ontology app on your Ledger device to manage ONT and ONG tokens with
 3. Find **Ontology** in the app catalog.
 4. Click the **Install** button of the app.
    * An installation window appears.
-   * Your device will display **Processing…** 
+   * Your device will display **Processing…**
    * The app installation is confirmed.
 
 ![WechatIMG107.jpeg](https://upload-images.jianshu.io/upload_images/150344-1d336f0e3789c8fd.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### **3. Connect device to ONT wallet**
 
-* Open the ONT application on your Ledger device, the screen should show "Hello ONT!".
-* You can't interact with this app without a ONT client wallet.
+* Open the ONT application on your Ledger device, the screen will display "Hello ONT!".
 
 ![WechatIMG106.jpeg](https://s1.ax1x.com/2018/07/27/PUeeCn.png)
 
-
-**Download and open your compatible ONT client wallet**
-* Please get the new ONT wallet online
+* Download ONT wallet for Mac or Windows
 
 [OWallet_0.7.1.exe](https://dev.ont.io/dapp/wallet/O_Wallet-Setup-0.7.1.exe)
 
 [OWallet_0.7.1.dmg](https://dev.ont.io/dapp/wallet/O_Wallet-0.7.1.dmg)
 
-### **4. Open your ONT software wallet** 
-
-* Open your ONT client
-* Open your nano S ONT app, the screen should show "Hello ONT!"
-* On your ONT client, click on "Login using the Ledger"
-* You can use you wallet as shown below.
+* Install the ONT wallet by opening the file you just downloaded.
+* Launch the ONT wallet.
+* Click on "Login". 
+* You can now access the ONT wallet.
 
 ![](https://upload-images.jianshu.io/upload_images/10231651-018e8b8b2dd60202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 ![](https://upload-images.jianshu.io/upload_images/10231651-86210abceb284ef2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 
-### **5. HOW DOES IT WORK ON THE LEDGER DEVICE**
+### **4. Use the ONT wallet **
 
-You can find your public address in your ONT wallet and can send ONT and ONG to that address.
-Once you have ONT or ONG, you can send it out using the "send" button.You can also redeem the ong of the address.
-
-**Both these functions require you to click the buttons on the ledger device to authorize the transaction.**              
-
-* Click both buttons on the ledger device to sign a transaction :
+* You address is display on the ONT wallet. You can use it to receive ONT and ONG.
+* To send tokens, enter the amount and receiving address, then click **Send**.
+* Verify and confirm all transaction details on your device display.
+* Click both buttons to sign the transaction.            
 
 ![WechatIMG104.jpeg](https://upload-images.jianshu.io/upload_images/150344-d978675f70c97a25.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-You can navigate to check the asset number and the receiver's address by click any of the buttons.
+* Click either the left or the right button to navigate to display thetransaction details.
 
 ![](https://upload-images.jianshu.io/upload_images/10231651-a0bdd8351f3fd29a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 
-* To deny the transaction, click single buttons to navigate to the "Deny TX" screen, then click both buttons at the same time to deny the transaction.
+* Click either the left or the right button to navigate to the Deny TX screen to cancel the transaction.
+* Click both buttons at the same time to deny the transaction.
 
 ![WechatIMG105.jpeg](https://upload-images.jianshu.io/upload_images/150344-4f9bd4e25b9d1d45.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -76,3 +70,4 @@ You can navigate to check the asset number and the receiver's address by click a
 * URL: ont.io
 * Email: MathiasGlintborg@ont.io
 * Phone number: +86 138 1602 6897
+
