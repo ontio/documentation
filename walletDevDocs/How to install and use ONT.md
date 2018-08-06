@@ -19,7 +19,7 @@ Install the Ontology app on your Ledger device to manage ONT and ONG tokens with
 3. Find **Ontology** in the app catalog.
 4. Click the **Install** button of the app.
    * An installation window appears.
-   * Your device will display **Processing… **
+   * Your device will display **Processing…** 
    * The app installation is confirmed.
 
 ![WechatIMG107.jpeg](https://upload-images.jianshu.io/upload_images/150344-1d336f0e3789c8fd.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
