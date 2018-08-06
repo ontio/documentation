@@ -66,11 +66,11 @@ The synchronization nodes synchronize the latest block and do not participate in
 
 #### Synchronization node
 
-The synchronization node can be connected to the MainNet, or the public testing network or the private network built by yourself. When connecting to a different network, the node will synchronize the information and create two folders in the current directory: Chain and Log. The Chain folder will store the synchronized block data, including all transaction data, account data, etc.; Log will store the log information generated when the data is synchronized.
+The synchronization node can be connected to the MainNet, or the public testing network. When connecting to a different network, the node will synchronize the information and create two folders in the current directory: Chain and Log. The Chain folder will store the synchronized block data, including all transaction data, account data, etc.; Log will store the log information generated when the data is synchronized.
 
 #### Consensus node
 
-The consensus node is similar to the synchronization node and can run on the MainNet, the testing network, and the private network. The Chain and Log folders will be generated in the running. The difference is that the consensus node itself will package the transaction information to generate the block, which is impossible for the synchronization node.
+The consensus node is similar to the synchronization node and can run on the MainNet, the testing network. The Chain and Log folders will be generated in the running. The difference is that the consensus node itself will package the transaction information to generate the block, which is impossible for the synchronization node.
 
 ### Ontology consensus mechanism
 
@@ -146,9 +146,9 @@ After a full understanding of Ontology, a simple example is introduced to descri
 
 ### Environmental deployment
 
-A. Set up your own test network as described in [Ontology network setup](#ontology-network-setup). If there are not enough resources to run multiple nodes, it is recommended to use testing private network. Of course, you can also choose to connect to the Ontology's public testing network called Polaris.
+A. Set up your own test network as described in [Connect to ontology](#connect-to-ontology). You can run ontology in test mode. Of course, you can also choose to connect to the Ontology's public testing network called Polaris.
 
-The next step will take the solo mode as an example.
+The next step will take the test mode as an example.
 
 B. Use the command `./ontology --rest --ws --localrpc --gaslimit 20000 --gasprice 0 --testmode --networkid 3` to start the testing network and enter the wallet account password.
 

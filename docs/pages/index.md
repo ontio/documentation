@@ -7,7 +7,6 @@ folder: doc_en/Introduction
 giturl: https://github.com/ontio/documentation/blob/master/get_started_en.md
 ---
 
-
 English / [中文](./tutorial_for_developer_zh.html)
 
 <h1 align="center">Ontology Developer Guide</h1>
@@ -16,41 +15,41 @@ English / [中文](./tutorial_for_developer_zh.html)
 
 Ontology is a new generation high-performance public blockchain. After its MainNet release, many excellent developers have joined the Ontology technical community. For developers, these documents are an entry to the Ontology ecosystem, therefore, a perfect documentation system can greatly improve the development efficiency. Through the documentation, developers will have a clear understanding of Ontology's technology and ecosystem. This document is an overview of the Ontology Documentation Center and provides an introduction of each section, which help developers familiarize with Ontology quickly.
 
-* [Ontology](#ontology)
-     * [What is Ontology](#what-is-the-ontology)
-     * [How to get Ontology](#how-to-get-the-ontology)
-     * [The introduction of Ontology node](#the-introduction-of-ontology-node)
-        * [Synchronization node](#synchronization-node)
-        * [Consensus node](#consensus-node)
-     * [Ontology consensus mechanism](#ontology-consensus-mechanism)
-     * [Ontology network setup](#ontology-network-setup)
-     * [Ontology special features](#ontology-special-features)
-        * [Ontology DID](#ontology-did)
-        * [Distributed data transaction](#distributed-data-transaction)
-* [How to interact with Ontology](#how-to-interact-with-the-ontology)
-     * [Ontology command line tool](#ontology-command-line-tool)
-     * [Ontology signature server](#ontology-signature-server)
-     * [Ontology API](#ontology-api)
-     * [Ontology SDK](#ontology-sdk)
-* [Ontology smart contract](#ontology-smart-contract)
-     * [Ontology smart contract IDE--Smartx](#ontology-smart-contract-ide--smartx)
-     * [How to write a smart contract](#how-to-write-a-smart-contract)
-     * [Contract deployment and invocation](#contract-deployment-and-invocation)
-     * [Authority management of smart contract](#authority-management-of-smart-contract)
-* [Use Ontology](#use-ontology)
-    * [Environmental deployment](#environmental-deployment)
-    * [Contract writing deployment and invocation](#contract-writing-deployment-and-invocation)
-  
-  
+- [Ontology](#ontology)
+    - [What is Ontology](#what-is-ontology)
+    - [How to get Ontology](#how-to-get-ontology)
+    - [The introduction of Ontology node](#the-introduction-of-ontology-node)
+        - [Synchronization node](#synchronization-node)
+        - [Consensus node](#consensus-node)
+    - [Ontology consensus mechanism](#ontology-consensus-mechanism)
+    - [Connect to ontology](#connect-to-ontology)
+    - [Ontology special features](#ontology-special-features)
+        - [Ontology DID](#ontology-did)
+        - [Distributed data transaction](#distributed-data-transaction)
+- [How to interact with Ontology](#how-to-interact-with-ontology)
+    - [Ontology command line tool](#ontology-command-line-tool)
+    - [Ontology signature server](#ontology-signature-server)
+    - [Ontology API](#ontology-api)
+    - [Ontology SDK](#ontology-sdk)
+- [Ontology smart contract](#ontology-smart-contract)
+    - [Ontology smart contract IDE--SmartX](#ontology-smart-contract-ide--smartx)
+    - [How to write a smart contract](#how-to-write-a-smart-contract)
+    - [Contract deployment and invocation](#contract-deployment-and-invocation)
+    - [Authority management of smart contract](#authority-management-of-smart-contract)
+- [Use Ontology](#use-ontology)
+    - [Environmental deployment](#environmental-deployment)
+    - [Contract writing, deployment and invocation](#contract-writing-deployment-and-invocation)
+
+
 ## Ontology
 
 ### What is Ontology
 
-The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/ontology_features_en.html). Simultaneously, we released an [Open Letter](https://ontio.github.io/documentation/first_open_letter_en.html) to introduce each part of Ontology and invite developers to join Ontology technical community and build an Ontology developer ecosystem.
+The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/features_en.html). 
 
 ### How to get Ontology
 
-At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it，or directly obtain the [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/ontology_install_en.html).
+At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it. Users can download latest ontology binary file with `curl  https://dev.ont.io/ontology_install | sh`.or directly download other vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
 
 ### The introduction of Ontology node
 
@@ -59,18 +58,18 @@ After installing Ontology, you can run Ontology locally and connect it to the On
 Before that, you need to know the node types in the current Ontology network.
 
 The network nodes of Ontology are currently divided into two categories: consensus nodes and synchronization nodes.
-  
+
 The consensus nodes participate in the consensus, package the transaction and generate the block;
-  
+
 The synchronization nodes synchronize the latest block and do not participate in the consensus.
 
 #### Synchronization node
 
-The synchronization node can be connected to the MainNet, or the public testing network or the private network built by yourself. When connecting to a different network, the node will synchronize the information and create two folders in the current directory: Chain and Log. The Chain folder will store the synchronized block data, including all transaction data, account data, etc.; Log will store the log information generated when the data is synchronized.
+The synchronization node can be connected to the MainNet, or the public testing network. When connecting to a different network, the node will synchronize the information and create two folders in the current directory: Chain and Log. The Chain folder will store the synchronized block data, including all transaction data, account data, etc.; Log will store the log information generated when the data is synchronized.
 
 #### Consensus node
 
-The consensus node is similar to the synchronization node and can run on the MainNet, the testing network, and the private network. The Chain and Log folders will be generated in the running. The difference is that the consensus node itself will package the transaction information to generate the block, which is impossible for the synchronization node.
+The consensus node is similar to the synchronization node and can run on the MainNet, the testing network. The Chain and Log folders will be generated in the running. The difference is that the consensus node itself will package the transaction information to generate the block, which is impossible for the synchronization node.
 
 ### Ontology consensus mechanism
 
@@ -78,7 +77,7 @@ After understanding the type of Ontology network node, we will introduce the con
 
 [VBFT Introduction](https://ontio.github.io/documentation/vbft_intro_en.html) is an introduction to the VBFT consensus network. For more detailed information, please refer to the source code repository of Ontology.
 
-### Ontology network setup
+### Connect to ontology
 
 Now, we can try to connect to Ontology network. [Run ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology) will introduce how to connect ontology network and how to start ontology in test mode.
 
@@ -97,7 +96,7 @@ In view of the pain points of the current centralized data exchange such as data
 
 ### Ontology command line tool
 
-You may use a lot of command line parameters when building an Ontology network. For more detailed information about these parameters, please refer to [Ontology CLI User Guide](https://ontio.github.io/documentation/ontology_cli_sample_en.html). These command line parameters are also executed through the Ontology CLI tool. The CLI can execute and invoke most of the functions of the ontology network, which is the first entry of the Ontology network. In addition to the documentation, you can get a brief description of the command line parameters by executing `./ontology --help`.
+You may use a lot of command line parameters when building an Ontology network. For more detailed information about these parameters, please refer to [Ontology CLI User Guide](https://ontio.github.io/documentation/cli_user_guide_en.html). These command line parameters are also executed through the Ontology CLI tool. The CLI can execute and invoke most of the functions of the ontology network, which is the first entry of the Ontology network. In addition to the documentation, you can get a brief description of the command line parameters by executing `./ontology --help`.
 
 ### Ontology signature server
 
@@ -105,8 +104,8 @@ In order to adapt to more needs, Ontology provides a service called a signature 
 
 ### Ontology API
 
-In addition to the command line, Ontology provides a more convenient blockchain interaction interface. These interfaces are provided in the form of APIs. The current Ontology API contains: [RPC API](https://ontio.github.io/documentation/ontrpcapi_en.html), 
-[Restful API](https://ontio.github.io/documentation/restfulapi_en.html), [Websocket API](https://ontio.github.io/documentation/websocket_en.html).
+In addition to the command line, Ontology provides a more convenient blockchain interaction interface. These interfaces are provided in the form of APIs. The current Ontology API contains: [RPC API](https://ontio.github.io/documentation/rpc_api_en.html), 
+[Restful API](https://ontio.github.io/documentation/restful_api_en.html), [Websocket API](https://ontio.github.io/documentation/websocket_api_en.html).
 
 By these APIs, developers can easily send transactions and query data through the Ontology network.
 
@@ -114,30 +113,30 @@ By these APIs, developers can easily send transactions and query data through th
 
 For developers, the SDK is a tool invoked directly in the program. Currently, Ontology provides three sets of SDKs for developers to use, [Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_en.html), [Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_en.html), and [Golang SDK](https://github.com/ontio/ontology-go-sdk). 
 
-Before using the SDK, it is recommended to read the [Overview of the SDK](https://ontio.github.io/documentation/overview_of_sdks_en.html) and the [Wallet File Specification](https://ontio.github.io/documentation/ontology_wallet_file_specification_en.html ).
+Before using the SDK, it is recommended to read the [Overview of the SDK](https://ontio.github.io/documentation/ontology_overview_sdks_en.html) and the [Wallet File Specification](https://ontio.github.io/documentation/Wallet_File_Specification_en.html).
 
 
 ## Ontology smart contract
 
-Smart contract are the most important function of the current blockchain, and Ontology also has its own smart contract system. For details, please refer to [Introduction of Ontology Smart Contract](https://ontio.github.io/documentation/smart_contract_tutorial_introduction_en.html).
+Smart contract are the most important function of the current blockchain, and Ontology also has its own smart contract system. For details, please refer to [Introduction of Ontology Smart Contract](https://ontio.github.io/documentation/Introduction_of_Ontology_Smart_Contract_en.html).
 
 ### Ontology smart contract IDE--SmartX
 
-SmartX is a one-stop smart contract writing tool launched by Ontology. It integrates functions such as writing, compiling, deploying and debugging, which greatly improve the development efficiency of smart contract. Please refer to [SmartX Tutorial](https://ontio.github.io/documentation/smart_contract_tutorial_smartx_en.html) for how to use SmartX.
+SmartX is a one-stop smart contract writing tool launched by Ontology. It integrates functions such as writing, compiling, deploying and debugging, which greatly improve the development efficiency of smart contract. Please refer to [SmartX Tutorial](https://ontio.github.io/documentation/SmartX_Tutorial_en.html) for how to use SmartX.
 
 ### How to write a smart contract
 
-Here is an example of a simple smart contract - [Hello World](https://ontio.github.io/documentation/smart_contract_tutorial_helloworld_en.html)
+Here is an example of a simple smart contract - [Hello World](https://ontio.github.io/documentation/The_Hello_World_Contract_en.html)
 
 In the process of writing a smart contract, many smart contract APIs should be invoked. For introductions of APIs, please refer to [API of Smart Contract](https://apidoc.ont.io/smartcontract/).
 
 ### Contract deployment and invocation
 
-Although SmartX provides a one-click deployment and invocation method, there are other ways to implement contract deployment and invocation. The deployment method can be referred to [Smart Contract Deployment](https://ontio.github.io/documentation/smart_contract_tutorial_deployment_en.html). The invocation method can be referred to [Smart Contract Invocation](https://ontio.github.io/documentation/smart_contract_tutorial_invocation_en.html).
+Although SmartX provides a one-click deployment and invocation method, there are other ways to implement contract deployment and invocation. The deployment method can be referred to [Smart Contract Deployment](https://ontio.github.io/documentation/Smart_Contract_Deployment_en.html). The invocation method can be referred to [Smart Contract Invocation](https://ontio.github.io/documentation/Smart_Contract_Invocation_en.html).
 
 ### Authority management of smart contract
 
-Currently, the functions of a smart contract can be invoked by anyone, which obviously does not meet the actual requirements. The basic idea of ​​role-based authority management is that each role can call a partial function, and each entity can be assigned multiple roles (the entity is identified by its ONT ID). [Ontology Java SDK User Guide](https://ontio.github.io/documentation/smart_contract_tutorial_auth_en.html) introduces authority management methods for Ontology smart contracts.
+Currently, the functions of a smart contract can be invoked by anyone, which obviously does not meet the actual requirements. The basic idea of ​​role-based authority management is that each role can call a partial function, and each entity can be assigned multiple roles (the entity is identified by its ONT ID). [Ontology Authority manager](https://ontio.github.io/documentation/auth_en.html) introduces authority management methods for Ontology smart contracts.
 
 
 ## Use Ontology
@@ -146,9 +145,9 @@ After a full understanding of Ontology, a simple example is introduced to descri
 
 ### Environmental deployment
 
-A. Set up your own test network as described in [Ontology network setup](#ontology-network-setup). If there are not enough resources to run multiple nodes, it is recommended to use testing private network. Of course, you can also choose to connect to the Ontology's public testing network called Polaris.
+A. Set up your own test network as described in [Connect to ontology](#connect-to-ontology). You can run ontology in test mode. Of course, you can also choose to connect to the Ontology's public testing network called Polaris.
 
-The next step will take the solo mode as an example.
+The next step will take the test mode as an example.
 
 B. Use the command `./ontology --rest --ws --localrpc --gaslimit 20000 --gasprice 0 --testmode --networkid 3` to start the testing network and enter the wallet account password.
 
@@ -234,15 +233,15 @@ ONG:5242930
 
 ### Contract writing, deployment and invocation
 
-A. Open [Ontology smart contract IDE--SmartX](#Ontology-smart-contract-IDE--Smartx), and write a Hello World smart contract according to [How to Write a Smart Contract](#how-to-write-a-smart-contract). For the convenience of calling, we change the contract code to the following form and then compile it into AVM bytecode, download the AVM bytecode and name it `hello.avm`:
+A. Open [Ontology smart contract IDE--SmartX](#ontology-smart-contract-ide--smartx), and write a Hello World smart contract according to [How to Write a Smart Contract](#how-to-write-a-smart-contract). For the convenience of calling, we change the contract code to the following form and then compile it into AVM bytecode, download the AVM bytecode and name it `hello.avm`:
 
 ```
-using Ont.SmartContract.Framework.Services.Ont;
-using Ont.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework;
 using System;
 using System.ComponentModel;
 
-namespace Ont.SmartContract
+namespace Neo.SmartContract
 {
 public class HelloWorld : Framework.SmartContract
 {
@@ -266,7 +265,7 @@ Runtime.Notify(msg);
 ```
 
 > Description: In the Hello method, Runtime.Notify will make a notification on the chain for the passed parameters.
-  
+
 
 B. Use the command `./ontology contract deploy --code hello.avm --name 'Hello' --version '1.0' --author 'ester' --email 'tester@test.com' --desc 'helloworld' --account 1 --gaslimit 100000000` to deploy the contract on the network. The contract deployment command can be obtained using `./ontology contract deploy -h`;
 
