@@ -12,9 +12,8 @@ Install the Ontology app on your Ledger device to manage ONT and ONG tokens with
 
 ### 2. Install the Ontology App
 
-**Open the Manager in Ledger Live.**
-
-1. Connect and unlock your Ledger Nano S.
+1. Open the Manager in Ledger Live.
+2. Connect and unlock your Ledger Nano S.
 2. If asked, allow the manager on your device by pressing the right button.
 3. Find **Ontology** in the app catalog.
 4. Click the **Install** button of the app.
