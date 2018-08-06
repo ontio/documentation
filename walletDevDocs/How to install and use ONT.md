@@ -1,36 +1,31 @@
-# How to install and use ONT ?
+# Connect Ledger Nano S to ONT wallet
 
-### **1. Ensure you can use the Ledger ONT Wallet**
-
-The [Ledger Nano S](https://www.ledgerwallet.com/products/ledger-nano-s) manages ONT and ONG tokens. It works on Windows (7+), Mac (10.8+), Linux or Chrome OS. It requires Google Chrome or Chromium, and one USB port to plug your Ledger Nano S. Note that it doesn't work on Android and iOS.
-
-If you have a Nano S, it must be [updated to 1.3.1 firmware at least.](https://support.ledgerwallet.com/hc/en-us/articles/115005165409-How-can-I-update-my-Nano-S-)
+Install the Ontology app on your Ledger device to manage ONT and ONG tokens with the Ontology desktop wallet. The Ontology app is developed and supported by the [Ontology core team](https://ont.io).
 
 ![Screen Shot 2018-06-20 at 3.14.55 PM.png](https://upload-images.jianshu.io/upload_images/150344-27a5d7fb9d561131.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-### 2. Install the ONT application on your device via the [Ledger Manager](https://www.ledgerwallet.com/apps/manager)
-
-**Before you start**
+### 1. Before you start
 
 * You've [initialized](https://support.ledgerwallet.com/hc/en-us/articles/360000613793) your Ledger Nano S.
-*  The latest firmware is [installed](https://support.ledgerwallet.com/hc/en-us/articles/360002731113).
-*  Ledger Live is [ready to use](https://support.ledgerwallet.com/hc/en-us/articles/360006395233).
+* The latest firmware is [installed](https://support.ledgerwallet.com/hc/en-us/articles/360002731113).
+* Ledger Live is [ready to use](https://support.ledgerwallet.com/hc/en-us/articles/360006395233).
 
-**Install the Ontology app**
+### 2. Install the Ontology App
 
-*   Launch the [Ledger Manager (click to see how to install and use it if you don't have it installed yet)](https://support.ledgerwallet.com/hc/en-us/articles/115005173209)
-*   Connect your Nano S, enter your PIN, and stay on the dashboard.
-*   If asked, allow the manager on your device by pressing the right button.
-*   Find Ontology in the app catalog.
-*   Click on the green botton arrow icon near the ONT logo
-* Confirm the installation if required on your device
-* Quit the Ledger Manager
-* If you read "Unable to install application" error message it can be displayed for several issues described [here](https://support.ledgerwallet.com/hc/en-us/articles/115005171425-Unable-to-install-application).
+**Open the Manager in Ledger Live.**
+
+1. Connect and unlock your Ledger Nano S.
+2. If asked, allow the manager on your device by pressing the right button.
+3. Find **Ontology** in the app catalog.
+4. Click the **Install** button of the app.
+   * An installation window appears.
+   * Your device will display **Processing… **
+   * The app installation is confirmed.
 
 ![WechatIMG107.jpeg](https://upload-images.jianshu.io/upload_images/150344-1d336f0e3789c8fd.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+### **3. Connect device to ONT wallet**
 
-**3. Open your ONT hardware application**
 * Open the ONT application on your Ledger device, the screen should show "Hello ONT!".
 * You can't interact with this app without a ONT client wallet.
 
@@ -44,7 +39,8 @@ If you have a Nano S, it must be [updated to 1.3.1 firmware at least.](https://
 
 [OWallet_0.7.1.dmg](https://dev.ont.io/dapp/wallet/O_Wallet-0.7.1.dmg)
 
-**4. Open your ONT software wallet** 
+### **4. Open your ONT software wallet** 
+
 * Open your ONT client
 * Open your nano S ONT app, the screen should show "Hello ONT!"
 * On your ONT client, click on "Login using the Ledger"
@@ -53,7 +49,8 @@ If you have a Nano S, it must be [updated to 1.3.1 firmware at least.](https://
 ![](https://upload-images.jianshu.io/upload_images/10231651-018e8b8b2dd60202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 ![](https://upload-images.jianshu.io/upload_images/10231651-86210abceb284ef2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 
-**5. HOW DOES IT WORK ON THE LEDGER DEVICE**
+### **5. HOW DOES IT WORK ON THE LEDGER DEVICE**
+
 You can find your public address in your ONT wallet and can send ONT and ONG to that address.
 Once you have ONT or ONG, you can send it out using the "send" button.You can also redeem the ong of the address.
 
@@ -71,7 +68,8 @@ You can navigate to check the asset number and the receiver's address by click a
 
 ![WechatIMG105.jpeg](https://upload-images.jianshu.io/upload_images/150344-4f9bd4e25b9d1d45.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**6. Contact Info**
+### **6. Contact Info**
+
 * Name：Mathias
 * Surname: Glintborg
 * Legal Entity: Ontology Foundation Ltd.
