@@ -53,6 +53,7 @@ Install the Ontology app on your Ledger device to manage ONT and ONG tokens with
 ![WechatIMG104.jpeg](https://upload-images.jianshu.io/upload_images/150344-d978675f70c97a25.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 * Click either the left or the right button to navigate to display thetransaction details.
+> The number for ong transfer will be the amount multiplied 1e9 to keep precision.
 
 ![](https://upload-images.jianshu.io/upload_images/10231651-a0bdd8351f3fd29a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 
