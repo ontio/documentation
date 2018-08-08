@@ -23,16 +23,12 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: 功能和特点介绍
-      url: /features_zh.html
-      output: web, pdf
-
     - title: 安装
       url: /install_zh.html
       output: web, pdf
-
-    - title: 配置文件
-      url: /config_zh.html
+      
+    - title: Hello World
+      url: /The_Hello_World_Ontology_zh.html
       output: web, pdf
 
     - title: Cli使用说明
