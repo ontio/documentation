@@ -29,24 +29,24 @@ Install the Ontology app on your Ledger device to manage ONT and ONG tokens with
 
 ![WechatIMG106.jpeg](https://s1.ax1x.com/2018/07/27/PUeeCn.png)
 
-- Download the Ontology desktop wallet (O Wallet) for Mac or Windows.
+- Download the latest Ontology desktop wallet (OWallet) for Mac or Windows.
 
-[OWallet_0.7.1.exe](https://dev.ont.io/dapp/wallet/O_Wallet-Setup-0.7.1.exe)
+[For Windows](https://github.com/ontio/OWallet/releases)
 
-[OWallet_0.7.1.dmg](https://dev.ont.io/dapp/wallet/O_Wallet-0.7.1.dmg)
+[For Mac](https://github.com/ontio/OWallet/releases)
 
-- Install the ONT wallet by opening the file you just downloaded.
-- Launch the ONT wallet.
-- Press on "Login". 
-- You can now access the ONT wallet.
+- Install the Ontology desktop wallet by opening the file you just downloaded.
+- Launch the Ontology desktop wallet.
+- Choose '"Ledger Wallet"  and Press on "Login". 
+- You can now access the ONT wallet details.
 
 ![](https://upload-images.jianshu.io/upload_images/10231651-018e8b8b2dd60202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
-![](https://upload-images.jianshu.io/upload_images/10231651-86210abceb284ef2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+![](https://upload-images.jianshu.io/upload_images/10231651-3bf6860f7d805e99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 
 ### **4. Use the ONT wallet**
 
 - Your address is displayed on the ONT wallet. You can use it to receive ONT and ONG.
-- To send tokens, enter the amount and receiving address, then press **Send**.
+- To send tokens,  press **Send**, then enter the amount and receiving address.
 - Verify and confirm all transaction details on your device display.
 - Press both buttons to sign the transaction.            
 
