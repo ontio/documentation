@@ -1,12 +1,7 @@
-from boa.interop.Neo.Runtime import Log, GetTrigger, CheckWitness
+from boa.interop.System.Runtime import Log, GetTrigger, CheckWitness
 from boa.interop.System.ExecutionEngine import GetScriptContainer, GetExecutingScriptHash
-from boa.interop.Neo.Transaction import *
-from boa.interop.Neo.Blockchain import GetHeight, GetHeader
-from boa.interop.Neo.Action import *
-from boa.interop.Neo.Output import GetScriptHash, GetValue, GetAssetId
-from boa.interop.Neo.Storage import GetContext, Get, Put, Delete
-from boa.interop.Neo.Header import GetTimestamp, GetNextConsensus
-
+from boa.interop.System.Blockchain import GetHeight, GetHeader
+from boa.interop.System.Storage import GetContext, Get, Put, Delete
 
 Push = RegisterAction('event', 'operation', 'msg')
 
