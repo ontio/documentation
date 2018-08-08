@@ -23,16 +23,8 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: Features
-      url: /features_en.html
-      output: web, pdf
-
     - title: Install
       url: /install_en.html
-      output: web, pdf
-
-    - title: Configuration
-      url: /config_en.html
       output: web, pdf
 
     - title: Cli User Guide
