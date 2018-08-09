@@ -1,9 +1,8 @@
-from boa.interop.System.Runtime import Log, GetTrigger, CheckWitness
+from boa.interop.System.Runtime import Log, GetTrigger, CheckWitness, Notify
 from boa.interop.System.ExecutionEngine import GetScriptContainer, GetExecutingScriptHash
 from boa.interop.System.Blockchain import GetHeight, GetHeader
 from boa.interop.System.Storage import GetContext, Get, Put, Delete
 
-Push = RegisterAction('event', 'operation', 'msg')
 
 def Main(operation, args):
     if operation == 'Query':
@@ -31,7 +30,7 @@ def Query(domain):
     context = GetContext()
     owner = Get(context, domain);
 
-    Push('query', domain)
+    Notify('query', domain)
     if owner != None:
         return False
 
@@ -43,7 +42,8 @@ def Register(domain, owner):
     if occupy != None:
         return False;
     Put(context, domain, owner)
-    Push('Register', domain, owner)
+    Notify('Register', domain, owner)
+
     return True
 
 def  Transfer(domain, to):
@@ -63,16 +63,17 @@ def  Transfer(domain, to):
         return False
 
     Put(context, domain, to)
-    Push('Transfer', domain)
+    Notify('Transfer', domain)
 
     return True
 
 def  Delete(domain):
     context = GetContext()
     occupy = Get(context, domain);
-    if occupy != None:
+    if occupy == None:
         return False;
-    # Put(context, domain, owner)
-    Push('Delete', domain)
+
+    Delete(context, domain)
+    Notify('Delete', domain)
 
     return True
