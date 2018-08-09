@@ -42,29 +42,28 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface
 ```
 
       |                     Main   Function                      |           Description            
- -----|----------------------------------------------------------|---------------------------------------------
-    1 | ontSdk.getConnect().getGenerateBlockTime()               |  查询DBFT出块时间       
-    2 | ontSdk.getConnect().getNodeCount()                       |  查询节点数量
-    3 | ontSdk.getConnect().getBlock(15)                         |  查询块
-    4 | ontSdk.getConnect().getBlockJson(15)                     |  查询块    
-    5 | ontSdk.getConnect().getBlockJson("txhash")               |  查询块    
-    6 | ontSdk.getConnect().getBlock("txhash")                   |  查询块     
-    7 | ontSdk.getConnect().getBlockHeight()                     |  查询当前块高
-    8 | ontSdk.getConnect().getTransaction("txhash")             |  查询交易                                     
-    9 | ontSdk.getConnect().getStorage("contractaddress", key)   |  查询智能合约存储
-   10 | ontSdk.getConnect().getBalance("address")                |  查询余额
-   11 | ontSdk.getConnect().getContractJson("contractaddress")   |  查询智能合约          
-   12 | ontSdk.getConnect().getSmartCodeEvent(59)                |  查询智能合约事件
-   13 | ontSdk.getConnect().getSmartCodeEvent("txhash")          |  查询智能合约事件
-   14 | ontSdk.getConnect().getBlockHeightByTxHash("txhash")     |  查询交易所在高度
-   15 | ontSdk.getConnect().getMerkleProof("txhash")             |  获取merkle证明
-   16 | ontSdk.getConnect().sendRawTransaction("txhexString")    |  发送交易
-   17 | ontSdk.getConnect().sendRawTransaction(Transaction)      |  发送交易
-   18 | ontSdk.getConnect().sendRawTransactionPreExec()          |  发送预执行交易
-   19 | ontSdk.getConnect().getAllowance("ont","from","to")      |  查询允许使用值
-   20 | ontSdk.getConnect().getMemPoolTxCount()                  |  查询交易池中交易总量
-   21 | ontSdk.getConnect().getMemPoolTxState()                  |  查询交易池中交易状态
-   22 | ontSdk.getConnect().syncSendRawTransaction("data")       |  同步发送交易
+ -----|----------------------------------------------------------|---------------------------------------------   
+    1 | ontSdk.getConnect().getNodeCount()                       |  查询节点数量
+    2 | ontSdk.getConnect().getBlock(15)                         |  查询块
+    3 | ontSdk.getConnect().getBlockJson(15)                     |  查询块    
+    4 | ontSdk.getConnect().getBlockJson("txhash")               |  查询块    
+    5 | ontSdk.getConnect().getBlock("txhash")                   |  查询块     
+    6 | ontSdk.getConnect().getBlockHeight()                     |  查询当前块高
+    7 | ontSdk.getConnect().getTransaction("txhash")             |  查询交易                                     
+    8 | ontSdk.getConnect().getStorage("contractaddress", key)   |  查询智能合约存储
+    9 | ontSdk.getConnect().getBalance("address")                |  查询余额
+   10 | ontSdk.getConnect().getContractJson("contractaddress")   |  查询智能合约          
+   11 | ontSdk.getConnect().getSmartCodeEvent(59)                |  查询智能合约事件
+   12 | ontSdk.getConnect().getSmartCodeEvent("txhash")          |  查询智能合约事件
+   13 | ontSdk.getConnect().getBlockHeightByTxHash("txhash")     |  查询交易所在高度
+   14 | ontSdk.getConnect().getMerkleProof("txhash")             |  获取merkle证明
+   15 | ontSdk.getConnect().sendRawTransaction("txhexString")    |  发送交易
+   16 | ontSdk.getConnect().sendRawTransaction(Transaction)      |  发送交易
+   17 | ontSdk.getConnect().sendRawTransactionPreExec()          |  发送预执行交易
+   18 | ontSdk.getConnect().getAllowance("ont","from","to")      |  查询允许使用值
+   19 | ontSdk.getConnect().getMemPoolTxCount()                  |  查询交易池中交易总量
+   20 | ontSdk.getConnect().getMemPoolTxState()                  |  查询交易池中交易状态
+   21 | ontSdk.getConnect().syncSendRawTransaction("data")       |  同步发送交易
 ```  
 
 ### 钱包管理接口：

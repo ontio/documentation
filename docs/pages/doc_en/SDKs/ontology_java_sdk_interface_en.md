@@ -46,28 +46,27 @@ Including opening wallet files and setting how to interact with the chain
 
  |     | Main   Function | Description |           
  |:-----|:--------|:-----------------------|
- |    1 | getGenerateBlockTime()               |  query  GenerateBlockTime     |
- |    2 | getNodeCount()                       |  query  node count |
- |    3 | getBlock(15)                         |  query  block |
- |    4 | getBlockJson(15)                     |  query   block    |
- |    5 | getBlockJson("txhash")               |  query  block     |
- |    6 | getBlock("txhash")                   |  query block      |
- |    7 | getBlockHeight()                     |  query height |
- |    8 | getTransaction("txhash")             |  query transaction        |                              
- |    9 | getStorage("contractaddress", key)   |  query storage |
- |   10 | getBalance("address")                |  query balance |
- |   11 | getContractJson("contractaddress")   |  query contract           |
- |   12 | getSmartCodeEvent(59)                |  query contract event |
- |   13 | getSmartCodeEvent("txhash")          |  query contract event |
- |   14 | getBlockHeightByTxHash("txhash")     |  query transaction block height |
- |   15 | getMerkleProof("txhash")             |  get merkle proof |
- |   16 | sendRawTransaction("txhexString")    |  send transaction |
- |   17 | sendRawTransaction(Transaction)      |  send transaction |
- |   18 | sendRawTransactionPreExec()          |  send prepare execution transaction |
- |   19 | getAllowance("ont","from","to")      |  query allowance |
- |   20 | getMemPoolTxCount()                  |  query memory pool transaction count |
- |   21 | getMemPoolTxState()                  |  query memory pool transaction state |
- |   22 | syncSendRawTransaction("data")       |  sync Send RawTransaction |
+ |    1 | getNodeCount()                       |  query  node count |
+ |    2 | getBlock(15)                         |  query  block |
+ |    3 | getBlockJson(15)                     |  query   block    |
+ |    4 | getBlockJson("txhash")               |  query  block     |
+ |    5 | getBlock("txhash")                   |  query block      |
+ |    6 | getBlockHeight()                     |  query height |
+ |    7 | getTransaction("txhash")             |  query transaction        |                              
+ |    8 | getStorage("contractaddress", key)   |  query storage |
+ |    9 | getBalance("address")                |  query balance |
+ |   10 | getContractJson("contractaddress")   |  query contract           |
+ |   11 | getSmartCodeEvent(59)                |  query contract event |
+ |   12 | getSmartCodeEvent("txhash")          |  query contract event |
+ |   13 | getBlockHeightByTxHash("txhash")     |  query transaction block height |
+ |   14 | getMerkleProof("txhash")             |  get merkle proof |
+ |   15 | sendRawTransaction("txhexString")    |  send transaction |
+ |   16 | sendRawTransaction(Transaction)      |  send transaction |
+ |   17 | sendRawTransactionPreExec()          |  send prepare execution transaction |
+ |   18 | getAllowance("ont","from","to")      |  query allowance |
+ |   19 | getMemPoolTxCount()                  |  query memory pool transaction count |
+ |   20 | getMemPoolTxState()                  |  query memory pool transaction state |
+ |   21 | syncSendRawTransaction("data")       |  sync Send RawTransaction |
 
 
 ### wallet manager：

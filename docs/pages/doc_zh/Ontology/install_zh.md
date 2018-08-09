@@ -4,12 +4,12 @@ keywords: sample homepage
 sidebar: Ontology_zh
 permalink: install_zh.html
 folder: doc_zh/Ontology
-giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/install_CN.md
+giturl: https://github.com/ontio/ontology/blob/master/README_CN.md
 ---
 
 
 <h1 align="center">Ontology </h1>
-<p align="center" class="version">Version 1.0.0 </p>
+<h4 align="center">Version 1.0 </h4>
 
 
 
@@ -69,7 +69,7 @@ Ontology致力于创建一个组件化、可自由配置、跨链支持、高性
 ## 获取ontology
 
 ### 从release获取
-- 你可以通过命令 ` curl https://dev.ont.io/ontology_install | sh ` 获取最新的ontology版本
+- 你可以通过命令 ` curl https://dev.ont.io/ontology_install | sh ` 获取最新的ontology版本
 - 你也可以从[下载页面](https://github.com/ontio/ontology/releases)获取.
 
 ### 从源码获取
@@ -99,7 +99,7 @@ $ make all
 成功编译后会生成两个可以执行程序
 
 * `ontology`: 节点程序/以命令行方式提供的节点控制程序
-* `tools/sigsvr`: (可选)签名服务 - sigsvr是一个签名服务的server以满足一些特殊的需求。详细的文档可以在[这里](./docs/specifications/sigsvr_CN.md)参考
+* `tools/sigsvr`: (可选)签名服务 - sigsvr是一个签名服务的server以满足一些特殊的需求。详细的文档可以在[这里](./sigsvr_zh.html)参考
 
 ## 运行ontology
 
@@ -156,7 +156,7 @@ $ make all
     - 如果需要保留镜像每次运行时的数据，可以参考docker的数据持久化功能（例如 valume）；
 
     - 如果需要使用ontology参数，则在`docker run ontio/ontology`后面直接加参数即可，例如`docker run ontio/ontology --networkid 2`，具体的ontology命令
-    行参数可以参考[这里](./docs/specifications/cli_user_guide_CN.md)。
+    行参数可以参考[这里](./cli_user_guide_zh.html)。
 
 ## 使用示例
 

@@ -33,12 +33,13 @@ The outline of this document is as follows:
 			* [ Query whether the transaction is in the transaction pool](#query-whether-the-transaction-is-in-the-transaction-pool)
 			* [ Query whether the transaction is successful](#query-whether-the-transaction-is-successful)
 			* [ The list of chain interaction interface](#the-list-of-chain-interaction-interface)
-		* [2.3 ONT transfer](#23-ont-transfer)
+		* [2.3 Transaction deserialization](#23-transaction-deserialization)	
+		* [2.4 ONT transfer](#24-ont-transfer)
 			* [ Construct transfer transaction and send](#construct-transfer-transaction-and-send)
 			* [ Multiple signatures](#multiple-signatures)
 			* [ One to multiple or multiple to multiple](#one-to-multiple-or-multiple-to-multiple)
 			* [Use signature server to sign](#use-signature-server-to-sign)
-		* [2.4 ONG transfer](#24-ong-transfer)
+		* [2.5 ONG transfer](#25-ong-transfer)
 			* [ ONG transfer](#ong transfer)
 			* [ Withdraw ONG](#Withdraw-ong)
 	* [3. NEP5 Transfer](#3-nep5-transfer)
@@ -316,27 +317,26 @@ com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc
 
 | No   |                    Main   Function                     |     Description      |
 | ---- | :----------------------------------------------------: | :------------------: |
-| 1    |       ontSdk.getConnect().getGenerateBlockTime()       |   Query VBFT block-out time   |
-| 2    |           ontSdk.getConnect().getNodeCount()           |     Query the number of nodes     |
-| 3    |            ontSdk.getConnect().getBlock(15)            |        Query block info        |
-| 4    |          ontSdk.getConnect().getBlockJson(15)          |        Query block info        |
-| 5    |       ontSdk.getConnect().getBlockJson("txhash")       |        Query block info        |
-| 6    |         ontSdk.getConnect().getBlock("txhash")         |        Query block info        |
-| 7    |          ontSdk.getConnect().getBlockHeight()          |     Query current block height     |
-| 8    |      ontSdk.getConnect().getTransaction("txhash")      |       Query transaction       |
-| 9    | ontSdk.getConnect().getStorage("contractaddress", key) |   Query smart contract storage   |
-| 10   |       ontSdk.getConnect().getBalance("address")        |       Query balance       |
-| 11   | ontSdk.getConnect().getContractJson("contractaddress") |     Query smart contract     |
-| 12   |       ontSdk.getConnect().getSmartCodeEvent(59)        |   Query the event in the smart contract   |
-| 13   |    ontSdk.getConnect().getSmartCodeEvent("txhash")     |   Query the event in the smart contract   |
-| 14   |  ontSdk.getConnect().getBlockHeightByTxHash("txhash")  |   Query the block height by transaction hash   |
-| 15   |      ontSdk.getConnect().getMerkleProof("txhash")      |    Get merkle proof    |
-| 16   | ontSdk.getConnect().sendRawTransaction("txhexString")  |       Send transaction       |
-| 17   |  ontSdk.getConnect().sendRawTransaction(Transaction)   |       Send transaction       |
-| 18   |    ontSdk.getConnect().sendRawTransactionPreExec()     |    Send a pre-execution transaction    |
-| 19   |  ontSdk.getConnect().getAllowance("ont","from","to")   |    Query Allowed Values    |
-| 20   |        ontSdk.getConnect().getMemPoolTxCount()         | Query total transaction volumn in the transaction pool  |
-| 21   |        ontSdk.getConnect().getMemPoolTxState()         | Query transaction status in the transaction pool |
+| 1    |           ontSdk.getConnect().getNodeCount()           |     Query the number of nodes     |
+| 2    |            ontSdk.getConnect().getBlock(15)            |        Query block info        |
+| 3    |          ontSdk.getConnect().getBlockJson(15)          |        Query block info        |
+| 4    |       ontSdk.getConnect().getBlockJson("txhash")       |        Query block info        |
+| 5    |         ontSdk.getConnect().getBlock("txhash")         |        Query block info        |
+| 6    |          ontSdk.getConnect().getBlockHeight()          |     Query current block height     |
+| 7    |      ontSdk.getConnect().getTransaction("txhash")      |       Query transaction       |
+| 8    | ontSdk.getConnect().getStorage("contractaddress", key) |   Query smart contract storage   |
+| 9   |       ontSdk.getConnect().getBalance("address")        |       Query balance       |
+| 10   | ontSdk.getConnect().getContractJson("contractaddress") |     Query smart contract     |
+| 11   |       ontSdk.getConnect().getSmartCodeEvent(59)        |   Query the event in the smart contract   |
+| 12   |    ontSdk.getConnect().getSmartCodeEvent("txhash")     |   Query the event in the smart contract   |
+| 13   |  ontSdk.getConnect().getBlockHeightByTxHash("txhash")  |   Query the block height by transaction hash   |
+| 14   |      ontSdk.getConnect().getMerkleProof("txhash")      |    Get merkle proof    |
+| 15   | ontSdk.getConnect().sendRawTransaction("txhexString")  |       Send transaction       |
+| 16   |  ontSdk.getConnect().sendRawTransaction(Transaction)   |       Send transaction       |
+| 17   |    ontSdk.getConnect().sendRawTransactionPreExec()     |    Send a pre-execution transaction    |
+| 18   |  ontSdk.getConnect().getAllowance("ont","from","to")   |    Query Allowed Values    |
+| 19   |        ontSdk.getConnect().getMemPoolTxCount()         | Query total transaction volumn in the transaction pool  |
+| 20   |        ontSdk.getConnect().getMemPoolTxState()         | Query transaction status in the transaction pool |
 
 
 ### 2.3 ONT transfer
@@ -507,6 +507,79 @@ byte[] signature = ontSdk.signatureData(acct, data);
 System.out.println(ontSdk.verifySignature(acct.serializePublicKey(), data, signature));
 
 ```
+
+
+### 2.3 Transaction deserialization
+
+get transaction in json
+```  
+http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d?raw=0
+
+{
+    "Action": "gettransaction",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": {
+        "Version": 0,
+        "Nonce": 391455426,
+        "GasPrice": 500,
+        "GasLimit": 20000,
+        "Payer": "ASyx6be9APCR6BzcM81615FgBU26gqr1JL",
+        "TxType": 209,
+        "Payload": {
+            "Code": "00c66b147af216ff3da82b999b26f5efe165de5f944ac5496a7cc814d2c124dd088190f709b684e0bc676d70c41b37766a7cc80800ca9a3b000000006a7cc86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65"
+        },
+        "Attributes": [],
+        "Sigs": [
+            {
+                "PubKeys": [
+                    "0369d1e9a5a1d83fa1798bbd162e8d8d8ef8e4e1a0e03aa2753b472943e235e219"
+                ],
+                "M": 1,
+                "SigData": [
+                    "017b80d5f0826b52b2037ee564be55f0ada1d0cb714a80967deb2d04b49a59f6c4358c57d06ee8f7666aec3fc570c5251c30be1cd134acb791775de9e11cacd22c"
+                ]
+            }
+        ],
+        "Hash": "8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d",
+        "Height": 95796
+    },
+    "Version": "1.0.0"
+}
+
+```  
+
+get transaction in raw
+```  
+http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d?raw=1
+
+
+{
+    "Action": "gettransaction",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": "00d1c2225517f401000000000000204e0000000000007af216ff3da82b999b26f5efe165de5f944ac5497900c66b147af216ff3da82b999b26f5efe165de5f944ac5496a7cc814d2c124dd088190f709b684e0bc676d70c41b37766a7cc80800ca9a3b000000006a7cc86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b6500014241017b80d5f0826b52b2037ee564be55f0ada1d0cb714a80967deb2d04b49a59f6c4358c57d06ee8f7666aec3fc570c5251c30be1cd134acb791775de9e11cacd22c23210369d1e9a5a1d83fa1798bbd162e8d8d8ef8e4e1a0e03aa2753b472943e235e219ac",
+    "Version": "1.0.0"
+}
+
+``` 
+
+Transaction deserialization
+``` 
+//version   tx type  nonce   gasprice    gaslimit                payer              payload 
+(version(1) type(1) nonce(4) gasprice(8) gaslimit(8))22 bytes + (payer)21 bytes + payload code bytes( any bytes)
+
+claim ong 
+//             claim address                                                 ont contract address                         to   address                                 amount                       "transferFrom"                           ong                   SYSCALL         "Ontology.Native.Invoke"
+//00 c66b 14bb2d5b718efeac060ac825338ca440216da4d8dc 6a7cc8 140000000000000000000000000000000000000001 6a7cc8 14bb2d5b718efeac060ac825338ca440216da4d8dc 6a7cc8 08 806a735501000000 6a7cc8 6c 0c7472616e7366657246726f6d 140000000000000000000000000000000000000002 0068 164f6e746f6c6f67792e4e61746976652e496e766f6b65
+ont and ong transfer
+//                     from                                           to                                        amount                                 "transfer"                                                                       ont or ong                SYSCALL           "Ontology.Native.Invoke"
+//00 c66b 147af216ff3da82b999b26f5efe165de5f944ac549 6a7cc8 14d2c124dd088190f709b684e0bc676d70c41b3776 6a7cc8 08 00ca9a3b00000000 6a7cc8 6c 51c1 087472616e73666572                                                      140000000000000000000000000000000000000001 0068 164f6e746f6c6f67792e4e61746976652e496e766f6b65
+
+For amount ：   1-16  is  0x51-0x60  .     >=16 is  long,  08 is the total amount bytes .  
+Example: 1000 is  0xe803000000000000 -> 0x00000000000003e8   change from little endian to big endian if print.
+
+```  
 
 
 

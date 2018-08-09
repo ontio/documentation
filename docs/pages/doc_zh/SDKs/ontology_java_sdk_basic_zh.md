@@ -89,12 +89,6 @@ Object  balance = ontSdk.getConnect().getBalance(address)
 int count = ontSdk.getConnect().getNodeCount();
 ```
 
-* 获取出块时间
-
-```
-int time = ontSdk.getConnect().getGenerateBlockTime();
-```
-
 * 获得区块高度
 
 ```

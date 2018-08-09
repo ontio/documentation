@@ -34,12 +34,13 @@ sdk文档：[sdk文档](https://github.com/ontio/ontology-java-sdk/tree/master/d
 			* [ 查询交易是否调用成功](#查询交易是否调用成功)
 			* [ 同步查询智能合约event](#同步查询智能合约event)
 			* [其他与链交互接口列表：](#其他与链交互接口列表)
-		* [2.3 ont转账](#23-ont转账)
+		* [2.3 交易反序](#23-交易反序)	
+		* [2.4 ont转账](#24-ont转账)
 			* [ 构造转账交易并发送](#构造转账交易并发送)
 			* [ 多次签名](#多次签名)
 			* [ 一转多或多转多](#一转多或多转多)
 			* [使用签名机签名](#使用签名机签名)
-		* [2.4 ong转账](#24-ong转账)
+		* [2.5 ong转账](#25-ong转账)
 			* [ ong转账](#ong转账)
 			* [ 提取ong](#提取ong)
 	* [3. NEP5转账](#3-nep5转账)
@@ -319,30 +320,101 @@ com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc
 
       |                     Main   Function                      |           Description            
  -----|----------------------------------------------------------|---------------------------------------------
-    1 | ontSdk.getConnect().getGenerateBlockTime()               |  查询DBFT出块时间       
-    2 | ontSdk.getConnect().getNodeCount()                       |  查询节点数量
-    3 | ontSdk.getConnect().getBlock(15)                         |  查询块
-    4 | ontSdk.getConnect().getBlockJson(15)                     |  查询块    
-    5 | ontSdk.getConnect().getBlockJson("txhash")               |  查询块    
-    6 | ontSdk.getConnect().getBlock("txhash")                   |  查询块     
-    7 | ontSdk.getConnect().getBlockHeight()                     |  查询当前块高
-    8 | ontSdk.getConnect().getTransaction("txhash")             |  查询交易                                     
-    9 | ontSdk.getConnect().getStorage("contractaddress", key)   |  查询智能合约存储
-   10 | ontSdk.getConnect().getBalance("address")                |  查询余额
-   11 | ontSdk.getConnect().getContractJson("contractaddress")   |  查询智能合约          
-   12 | ontSdk.getConnect().getSmartCodeEvent(59)                |  查询智能合约事件
-   13 | ontSdk.getConnect().getSmartCodeEvent("txhash")          |  查询智能合约事件
-   14 | ontSdk.getConnect().getBlockHeightByTxHash("txhash")     |  查询交易所在高度
-   15 | ontSdk.getConnect().getMerkleProof("txhash")             |  获取merkle证明
-   16 | ontSdk.getConnect().sendRawTransaction("txhexString")    |  发送交易
-   17 | ontSdk.getConnect().sendRawTransaction(Transaction)      |  发送交易
-   18 | ontSdk.getConnect().sendRawTransactionPreExec()          |  发送预执行交易
-   19 | ontSdk.getConnect().getAllowance("ont","from","to")      |  查询允许使用值
-   20 | ontSdk.getConnect().getMemPoolTxCount()                  |  查询交易池中交易总量
-   21 | ontSdk.getConnect().getMemPoolTxState()                  |  查询交易池中交易状态
+    1 | ontSdk.getConnect().getNodeCount()                       |  查询节点数量
+    2 | ontSdk.getConnect().getBlock(15)                         |  查询块
+    3 | ontSdk.getConnect().getBlockJson(15)                     |  查询块    
+    4 | ontSdk.getConnect().getBlockJson("txhash")               |  查询块    
+    5 | ontSdk.getConnect().getBlock("txhash")                   |  查询块     
+    6 | ontSdk.getConnect().getBlockHeight()                     |  查询当前块高
+    7 | ontSdk.getConnect().getTransaction("txhash")             |  查询交易                                     
+    8 | ontSdk.getConnect().getStorage("contractaddress", key)   |  查询智能合约存储
+    9 | ontSdk.getConnect().getBalance("address")                |  查询余额
+   10 | ontSdk.getConnect().getContractJson("contractaddress")   |  查询智能合约          
+   11 | ontSdk.getConnect().getSmartCodeEvent(59)                |  查询智能合约事件
+   12 | ontSdk.getConnect().getSmartCodeEvent("txhash")          |  查询智能合约事件
+   13 | ontSdk.getConnect().getBlockHeightByTxHash("txhash")     |  查询交易所在高度
+   14 | ontSdk.getConnect().getMerkleProof("txhash")             |  获取merkle证明
+   15 | ontSdk.getConnect().sendRawTransaction("txhexString")    |  发送交易
+   16 | ontSdk.getConnect().sendRawTransaction(Transaction)      |  发送交易
+   17 | ontSdk.getConnect().sendRawTransactionPreExec()          |  发送预执行交易
+   18 | ontSdk.getConnect().getAllowance("ont","from","to")      |  查询允许使用值
+   19 | ontSdk.getConnect().getMemPoolTxCount()                  |  查询交易池中交易总量
+   20 | ontSdk.getConnect().getMemPoolTxState()                  |  查询交易池中交易状态
 ```  
 
-### 2.3 ont转账
+### 2.3 交易反序
+
+获取交易
+```  
+http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d?raw=0
+
+{
+    "Action": "gettransaction",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": {
+        "Version": 0,
+        "Nonce": 391455426,
+        "GasPrice": 500,
+        "GasLimit": 20000,
+        "Payer": "ASyx6be9APCR6BzcM81615FgBU26gqr1JL",
+        "TxType": 209,
+        "Payload": {
+            "Code": "00c66b147af216ff3da82b999b26f5efe165de5f944ac5496a7cc814d2c124dd088190f709b684e0bc676d70c41b37766a7cc80800ca9a3b000000006a7cc86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65"
+        },
+        "Attributes": [],
+        "Sigs": [
+            {
+                "PubKeys": [
+                    "0369d1e9a5a1d83fa1798bbd162e8d8d8ef8e4e1a0e03aa2753b472943e235e219"
+                ],
+                "M": 1,
+                "SigData": [
+                    "017b80d5f0826b52b2037ee564be55f0ada1d0cb714a80967deb2d04b49a59f6c4358c57d06ee8f7666aec3fc570c5251c30be1cd134acb791775de9e11cacd22c"
+                ]
+            }
+        ],
+        "Hash": "8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d",
+        "Height": 95796
+    },
+    "Version": "1.0.0"
+}
+
+```  
+
+获取交易
+```  
+http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d?raw=1
+
+
+{
+    "Action": "gettransaction",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": "00d1c2225517f401000000000000204e0000000000007af216ff3da82b999b26f5efe165de5f944ac5497900c66b147af216ff3da82b999b26f5efe165de5f944ac5496a7cc814d2c124dd088190f709b684e0bc676d70c41b37766a7cc80800ca9a3b000000006a7cc86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b6500014241017b80d5f0826b52b2037ee564be55f0ada1d0cb714a80967deb2d04b49a59f6c4358c57d06ee8f7666aec3fc570c5251c30be1cd134acb791775de9e11cacd22c23210369d1e9a5a1d83fa1798bbd162e8d8d8ef8e4e1a0e03aa2753b472943e235e219ac",
+    "Version": "1.0.0"
+}
+
+``` 
+
+反序列化交易
+``` 
+//版本号    交易类型  随机数   gasprice    gaslimit              网络费付款人       交易数据 
+(version(1) type(1) nonce(4) gasprice(8) gaslimit(8))22 bytes + (payer)21 bytes + payload code bytes( any bytes)
+
+claim ong 
+//             claim address                                                 ont contract address                         to   address                                 amount                       "transferFrom"                           ong                   SYSCALL         "Ontology.Native.Invoke"
+//00 c66b 14bb2d5b718efeac060ac825338ca440216da4d8dc 6a7cc8 140000000000000000000000000000000000000001 6a7cc8 14bb2d5b718efeac060ac825338ca440216da4d8dc 6a7cc8 08 806a735501000000 6a7cc8 6c 0c7472616e7366657246726f6d 140000000000000000000000000000000000000002 0068 164f6e746f6c6f67792e4e61746976652e496e766f6b65
+ont and ong transfer
+//                     from                                           to                                        amount                                 "transfer"                                                                       ont or ong                SYSCALL           "Ontology.Native.Invoke"
+//00 c66b 147af216ff3da82b999b26f5efe165de5f944ac549 6a7cc8 14d2c124dd088190f709b684e0bc676d70c41b3776 6a7cc8 08 00ca9a3b00000000 6a7cc8 6c 51c1 087472616e73666572                                                      140000000000000000000000000000000000000001 0068 164f6e746f6c6f67792e4e61746976652e496e766f6b65
+
+For amount ：   1-16  is  0x51-0x60  .     >=16 is  long,  08 is the total amount bytes .  
+Example: 1000 is  0xe803000000000000 -> 0x00000000000003e8   change from little endian to big endian if print.
+
+```  
+
+### 2.4 ont转账
 
 
 
@@ -519,7 +591,7 @@ System.out.println(ontSdk.verifySignature(acct.serializePublicKey(), data, signa
 
 
 
-### 2.4 ong转账
+### 2.5 ong转账
 
 
 ####  **ong转账**

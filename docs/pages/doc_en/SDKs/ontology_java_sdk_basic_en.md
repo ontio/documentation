@@ -110,12 +110,6 @@ Object  balance = ontSdk.getConnect().getBalance(address)
 ontSdk.getConnect().getNodeCount();
 ```
 
-* Get block time
-
-```
-ontSdk.getConnect().getGenerateBlockTime();
-```
-
 * Get block height
 
 ```

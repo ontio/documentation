@@ -7,7 +7,6 @@ folder: doc_zh/Introduction
 giturl: https://github.com/ontio/documentation/blob/master/get_started_cn.md
 ---
 
-
 [English](./tutorial_for_developer_en.html) / 中文
 
 <h1 align="center">开发者快速指南</h1> 
@@ -47,7 +46,7 @@ giturl: https://github.com/ontio/documentation/blob/master/get_started_cn.md
 
 ### 什么是本体？
 
-本体的特性在[这里](https://ontio.github.io/documentation/features_zh.html)有大致的介绍。
+本体的特性在[这里](https://github.com/ontio/ontology/blob/master/docs/specifications/features_CN.md)有大致的介绍。
 
 ### 如何获取本体？
 
