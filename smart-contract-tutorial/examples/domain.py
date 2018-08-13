@@ -32,9 +32,9 @@ def Query(domain):
 
     Notify('query', domain)
     if owner != None:
-        return False
+        return owner
 
-    return owner
+    return False
 
 def Register(domain, owner):
     context = GetContext()
@@ -69,8 +69,9 @@ def  Transfer(domain, to):
 
 def  Delete(domain):
     context = GetContext()
-    occupy = Get(context, domain);
-    if occupy == None:
+    owner = Get(context, domain);
+    is_owner = CheckWitness(owner)
+    if not is_owner:
         return False;
 
     Delete(context, domain)
