@@ -2,12 +2,13 @@
 
 ## Q：How does the Ontology node connect to the polaris TestNet?
 
-A: Add parameter when starting: ```--networkid 2``` . For details, please refer to ```./ontology --help```
+A: Add parameter when starting up node: ```--networkid 2``` . 
+More details, please refer to ```./ontology --help```
 
 
-## Q: What is the transfer fee?
+## Q: What is the transaction fee?
 
-A: The Ontology network needs to consume ONG (gas) every transfer transaction, and only transactions with gasprice greater than 500 will be packaged on the MainNet.
+A: The Ontology network needs to consume ONG (gas) every transaction, and only transactions with gasprice greater than 500 will be packaged on the MainNet.
 
 ```gasprice * gaslimit = ong  cost```
 
@@ -15,13 +16,13 @@ A: The Ontology network needs to consume ONG (gas) every transfer transaction, a
 The lowest value of gaslimit is 20000, and the lowest value of gasprice is 500. So in general situations, the lowest transaction cost is 0.01 ONG. If the contract is too complicated, the value of gaslimit may exceed the minimum value - 20,000. The gasprice is set by the user and it should be greater than the lowest value.
 
 
-## Q: How does ONT gradually unlock ONG?
+## Q: How does ONT gradually unbound ONG?
 
-A: At initialization, all ONG will be sent to a ONT contract address, and the ONG will be gradually unlocked over time. The address of the unlocked ONG is fixed and unique.
+A: At initialization, all ONG will be sent to a ONT system contract address, and the ONG will be gradually unbound over time. The address of the unbound ONG is fixed and unique.
 
-## Q: The issue about the precision of ONT and ONG
+## Q: The issue about the Quantity Decimal of ONT and ONG
 
-A: The ONT has a precision of 1, which is indivisible. The ONG has a precision of 9, which is separable. A transaction fee is paid by ONG.
+A: The quantity decimal of ONT is 0, which is indivisible. The ONG has a decimal of 9, which is separable. A transaction fee is paid by ONG.
 
 
 ## Q: If a transaction generates transaction cost, the transaction fee will also correspond to a transfer transaction. How to identify this transfer transaction? Is the destination address for the transfer a fixed address?
