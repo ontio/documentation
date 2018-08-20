@@ -69,5 +69,5 @@ Install the Ontology app on your Ledger device to manage ONT and ONG tokens with
 - Surname: Glintborg
 - Legal Entity: Ontology Foundation Ltd.
 - URL: ont.io
-- Email: MathiasGlintborg@ont.io
 - Phone number: +86 138 1602 6897
+- Support: Go to the #owallet channel in our Discord: https://discord.gg/4TQujHj
