@@ -7,7 +7,7 @@ folder: doc_en/SDKs
 giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/Wallet_File_Specification.md
 ---
 
-<h1 align="center">Wallet File Specification</h1>
+<h1 align="center">Wallet Specification</h1>
 
 <p align="center" class="version">Version 1.0.0 </p>
 
@@ -259,3 +259,23 @@ This is QR Code Specification is for both identity and account.
 
 ```salt``` is 16 bytes salt in base64 format.
 
+## Mnemonic Code Specification 
+
+A mnemonic code or sentence is superior for human interaction compared to the handling of raw binary or hexadecimal representations of a wallet seed. The sentence could be written on paper or spoken over the telephone
+
+Generate mnemonic. For more info see the [BIP39 spec](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
+
+java sdk example:
+
+```
+String code = MnemonicCode.generateMnemonicCodesStr();
+
+unusual range ginger patrol license popular copper lecture pledge still green index
+
+```
+Get private key from mnemonic code. java sdk example:
+
+```
+byte[] prikey = MnemonicCode.getPrikeyFromMnemonicCodesStrBip44(code);
+
+```
