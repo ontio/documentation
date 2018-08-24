@@ -15,7 +15,7 @@ giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr
 
 [English|[中文](./sigsvr_zh.html)]
 
-Ontology Signature Server - sigsvr is a rpc server for signing transactions. The signature server is bound to the 127.0.0.1 address and only supports signature requests sent by the local machine.
+Ontology Signature Server - sigsvr is a rpc server for signing transactions.
 
 * [Ontology Signature Server Tutorials](#ontology-signature-server-tutorials)
 	* [1. Signature Service Startup](#1-signature-service-startup)
@@ -38,7 +38,7 @@ Ontology Signature Server - sigsvr is a rpc server for signing transactions. The
 ### 1.1 The Parameters of Signature Service Startup
 
 --loglevel
-The loglevel parameter is used to set the log level for the sigsvr output. Sigsvr supports 7 different log levels - 0:Debug 1:Info 2:Warn 3:Error 4:Fatal 5:Trace 6:MaxLevel. The log level is from low to high, and the output log volume is from high to low. The default value is 1, which means that only output logs at the info level or higher level.
+The loglevel parameter is used to set the log level for the sigsvr output. Sigsvr supports 7 different log levels - 0:Trace 1:Debug 2:Info 3:Warn 4:Error 5:Fatal 6:MaxLevel. The log level is from low to high, and the output log volume is from high to low. The default value is 2, which means that only output logs at the info level or higher level.
 
 --walletdir
 walletdir parameter specifies the directory for wallet data. The default value is "./wallet_data".

@@ -15,7 +15,7 @@ giturl: https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr
 
 [[English](./sigsvr_en.html)|中文]
 
-Ontology签名服务器sigsvr是一个用于对交易进行签名的rpc服务器。签名服务器绑定在127.0.0.1地址上，只支持本机发送的签名请求。
+Ontology签名服务器sigsvr是一个用于对交易进行签名的rpc服务器。
 
 * [Ontology 签名服务器使用说明](#ontology-签名服务器使用说明)
 	* [1、签名服务启动](#1-签名服务启动)
@@ -31,14 +31,14 @@ Ontology签名服务器sigsvr是一个用于对交易进行签名的rpc服务器
 		* [2.7 NeoVM合约调用签名](#27-neovm合约调用签名)
 		* [2.8 NeoVM合约ABI调用签名](#28-neovm合约abi调用签名)
 		* [2.9 创建账户命令](#29-创建账户)
-		* [2.10 导出钱包账户命令](#210-导出钱包账户)
+		* [2.10 导出钱包账户命令]()
 
 ## 1、签名服务启动
 
 ### 1.1 签名服务启动参数：
 
 --loglevel
-loglevel 参数用于设置sigsvr输出的日志级别。sigsvr支持从0:Debug 1:Info 2:Warn 3:Error 4:Fatal 5:Trace 6:MaxLevel 的7级日志，日志等级由低到高，输出的日志量由多到少。默认值是1，即只输出info级及其之上级别的日志。
+loglevel 参数用于设置sigsvr输出的日志级别。sigsvr支持从0:Trace 1:Debug 2:Info 3:Warn 4:Error 5:Fatal 6:MaxLevel 的7级日志，日志等级由低到高，输出的日志量由多到少。默认值是2，即只输出info级及其之上级别的日志。
 
 --walletdir
 walletdir 参数用于设置钱包数据存储目录。默认值为:"./wallet_data"。
