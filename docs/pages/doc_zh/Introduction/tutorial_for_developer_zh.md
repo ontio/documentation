@@ -41,12 +41,14 @@ giturl: https://github.com/ontio/documentation/blob/master/get_started_cn.md
 * [使用本体](#使用本体)
      * [环境部署](#环境部署)
      * [合约编写、部署与调用](#合约编写部署与调用)
+     * [DAPP开发指南](#DAPP开发指南)
+     * [钱包集成指南](#钱包集成指南)
 
 ## 本体
 
 ### 什么是本体？
 
-本体的特性在[这里](https://github.com/ontio/ontology/blob/master/docs/specifications/features_CN.md)有大致的介绍。
+本体的特性在[这里](https://ontio.github.io/documentation/install_zh.html#特性)有大致的介绍。
 
 ### 如何获取本体？
 
@@ -321,3 +323,12 @@ Smartx是本体推出的一站式智能合约编写工具，集成了编写、�
     ```
 
 6. 返回的结果中，States即为调用合约通知的msg信息，返回的是一个十六进制字符串，使用编码转换器转化后，得到的结果正是`tester`，即我们在第四步中传入的第二个参数。
+
+
+### DAPP开发指南
+
+这个教程将会告诉你如何开发第一个DAPP。[教程](https://ontio.github.io/documentation/ontology_dapp_dev_tutorial_en.html)
+
+### 钱包集成指南
+
+这个教程将会告诉你如何在钱包中集成ONT和ONG。[安卓](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html)和[苹果](https://ontio.github.io/documentation/ontology_wallet_dev_js_en.html)
