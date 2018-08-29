@@ -39,7 +39,7 @@
 
 ### 什么是本体？
 
-本体的特性在[这里](https://github.com/ontio/ontology/blob/master/docs/specifications/features_CN.md)有大致的介绍。
+本体的特性在[这里](https://ontio.github.io/documentation/install_zh.html#特性)有大致的介绍。
 
 ### 如何获取本体？
 
