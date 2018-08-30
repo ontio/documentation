@@ -29,7 +29,7 @@ The outline of this document is as follows:
 
 
 
-The wallet function includes digit asset account ant digital identity. [wallet Specification]()
+The wallet function includes digit asset account ant digital identity. [wallet Specification](./Wallet_File_Specification_en.html)
 
 Wallet function list:
 
@@ -71,7 +71,7 @@ Python SDK ：[Python SDK](https://github.com/ontio/ontology-python-sdk)
 
 Wallet is a data storing file in JSON format. In Ontology, Wallet can store not only the digital identity but also digital assets.
 
-[Wallet Specification](Wallet_Specification_en.md)
+[Wallet Specification](./Wallet_File_Specification_en.html)
 
 
 ## 1.1 Create a Wallet
@@ -208,7 +208,7 @@ const account = Account.create(privateKey, password, name, params);
 
 ## 2.5 Import and export keystore
 
-Keystore is  a data structure to backup user's account.And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification](Wallet_Specification_en.md) to see more info.
+Keystore is  a data structure to backup user's account.And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification](./Wallet_File_Specification_en.html) to see more info.
 
 #### Export keystore
 

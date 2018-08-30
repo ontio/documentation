@@ -59,7 +59,7 @@ The outline of this document is as follows:
 
 
 
-The wallet function includes digit asset account ant digital identity. [Wallet Specification]()
+The wallet function includes digit asset account ant digital identity. [Wallet Specification](./Wallet_File_Specification_en.html)
 
 Wallet function list:
 
@@ -381,7 +381,7 @@ com.github.ontio.sdk.wallet.Account acct = ontSdk.getWalletMgr().createAccountFr
 
 ```
 
-Keystore is  a data structure to backup user's account.And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification](Wallet_Specification_en.md) to see more info.
+Keystore is  a data structure to backup user's account.And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification](./Wallet_File_Specification_en.html) to see more info.
 
 ```
 //get keystore
