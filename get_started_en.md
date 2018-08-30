@@ -320,4 +320,4 @@ This tutorial will take you through the process of building your first dapp.[Tut
 
 ### Wallet intergration tutorial
 
-This tutorial will take you through the process of intergration ONT/ONG in your wallet.[Android](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html) and [IOS](https://ontio.github.io/documentation/ontology_wallet_dev_js_en.html)
+This tutorial will take you through the process of intergration ONT/ONG in your wallet.[Android](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html) and [IOS](https://ontio.github.io/documentation/ontology_wallet_dev_ts_sdk_en.html)
