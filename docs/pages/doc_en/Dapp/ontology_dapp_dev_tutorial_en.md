@@ -7,17 +7,8 @@ folder: doc_en/Dapp
 giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_dapp_dev_tutorial_en.md
 ---
 
-
 <h1 align="center">Ontology dapp development tutorial</h1>
-
 <p align="center" class="version">Version 1.0.0 </p>
-
-
-<h1 align="center">Ontology dapp development tutorial</h1>
-
-
-
-
 
 This tutorial will take you through the process of building your first dapp.
 
@@ -40,29 +31,33 @@ In this tutorial we will be covering:
 
 ## 1. Setting up the development environment
 
-[Node.js v6+ LTS and npm](https://nodejs.org/en/)
+* [Node.js v6+ LTS and npm](https://nodejs.org/en/)
 
-[Git](https://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 
 ## 2. Creating a project
 
-download dapi package
+Download dapi package and to use [dAPI](https://github.com/OntologyCommunityDevelopers/ontology-dapi)
 
 ```
 npm i ontology-dapi
 ```
 
-[DAPP Demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
+You also can run demo: [DAPP Demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
 
-Once we have those installed, we only need one command to run Demo:
+This will build the project and start web server.:
 
 ```
+git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+
 npm install
+
 npm run start
 
 ```
 
+You will get the demo served at http://localhost:3000
 
 ## 3. Writing the smart contract
 
@@ -73,7 +68,7 @@ We'll start our dapp by writing the smart contract that acts as the back-end log
 [smartx](http://smartx.ont.io/)
 
 
-![smartx login](https://github.com/xizho10/OntWalletIntergration/blob/master/images/smartx.png)
+![smartx login](./lib/images/smartx.png)
 
 
 ## 4. Compiling and deploy/invoke the smart contract
@@ -88,7 +83,7 @@ Now that we have written our smart contract, the next steps are to compile and d
 
 [Request testnet ONG in Discord](https://discordapp.com/channels/400884201773334540/453499298097922068)
 
-![smart contract deploy and invoke](https://github.com/xizho10/OntWalletIntergration/blob/master/images/smartx-deploy.png)
+![smart contract deploy and invoke](./lib/images/smartx-deploy.png)
 
 ### 4.3 Migration smart contract
 
@@ -114,7 +109,7 @@ Now we're ready to use our dapp!
 ### Installing and configuring Cyano Wallet
 
 
-![Cyano Wallet](https://github.com/xizho10/OntWalletIntergration/blob/master/images/cyano-wallet.png)
+![Cyano Wallet](./lib/images/cyano-wallet.png)
 
 The easiest way to interact with our dapp in a browser is through Cyano Wallet, a browser extension for Chrome.
 
@@ -140,7 +135,7 @@ To use the dapp, click the button.
 
 You'll be automatically prompted to approve the transaction by Cyano Wallet. Click Confirm to approve the transaction.
 
-![Cyano Wallet Confirm](https://github.com/xizho10/OntWalletIntergration/blob/master/images/demo.png)
+![Cyano Wallet Confirm](./lib/images/demo.png)
 
 ### 7.4 check transaction
 
