@@ -29,7 +29,7 @@ In this tutorial we will be covering:
 
 ## 2. Creating a project
 
-Download dapi package and to use [dAPI](https://github.com/OntologyCommunityDevelopers/ontology-dapi)
+Download dapi package and to use [dAPI](https://github.com/ontio/ontology-dapi)
 
 ```
 npm i ontology-dapi
