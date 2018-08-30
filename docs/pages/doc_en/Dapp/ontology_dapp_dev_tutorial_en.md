@@ -38,7 +38,7 @@ In this tutorial we will be covering:
 
 ## 2. Creating a project
 
-Download dapi package and to use [dAPI](https://github.com/OntologyCommunityDevelopers/ontology-dapi)
+Download dapi package and to use [dAPI](https://github.com/ontio/ontology-dapi)
 
 ```
 npm i ontology-dapi
@@ -54,7 +54,6 @@ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
 npm install
 
 npm run start
-
 ```
 
 You will get the demo served at http://localhost:3000
@@ -85,11 +84,8 @@ Now that we have written our smart contract, the next steps are to compile and d
 
 ![smart contract deploy and invoke](./lib/images/smartx-deploy.png)
 
-### 4.3 Migration smart contract
 
-Migration smart contract of smart contract
-
-### 5. Testing the smart contract
+## 5. Testing the smart contract
 
 Smart contract automated testing framework.
 [Testing framework](https://github.com/lucas7788/pythontest)
