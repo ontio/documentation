@@ -64,7 +64,7 @@ entries:
           output: web
     - title: 钱包集成
       output: web, pdf
-      subfolderitems:
+      folderitems:
       - title: Android SDK
         url: /ontology_wallet_dev_android_en.html
         output: web, pdf
