@@ -26,7 +26,12 @@ entries:
     - title: 总体说明
       url: /ontology_overview_sdks_zh.html
       output: web, pdf
-
+    - title: Wallet 钱包集成(java)
+      url: /ontology_wallet_dev_android_en.html
+      output: web, pdf
+    - title: 钱包集成(ts)
+      url: /ontology_wallet_dev_ts_sdk_en.html
+      output: web, pdf
       subfolders:
       - title: Java SDK
         output: web
