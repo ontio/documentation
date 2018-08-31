@@ -19,34 +19,43 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: Smart Contract
+  - title: DAPP
     output: web, pdf
     folderitems:
 
-    - title: Introduction
-      url: /Introduction_of_Ontology_Smart_Contract_en.html
+    - title: Tutorial
+      url: /ontology_dapp_dev_tutorial_en.html
       output: web, pdf
+      subfolders:
 
-    - title: SmartX Tutorial
-      url: /SmartX_Tutorial_en.html
-      output: web, pdf
+      - title: Smart Contract
+        output: web, pdf
+        subfolderitems:
 
-    - title: Hello world
-      url: /The_Hello_World_Contract_en.html
-      output: web, pdf
+        - title: Introduction
+          url: /Introduction_of_Ontology_Smart_Contract_en.html
+          output: web, pdf
 
-    - title: Smart Contract Deployment
-      url: /Smart_Contract_Deployment_en.html
-      output: web, pdf
+        - title: SmartX Tutorial
+          url: /SmartX_Tutorial_en.html
+          output: web, pdf
 
-    - title: Smart Contract Invocation
-      url: /Smart_Contract_Invocation_en.html
-      output: web, pdf
+        - title: Hello world
+          url: /The_Hello_World_Contract_en.html
+          output: web, pdf
 
-    - title: Permission Control
-      url: /auth_en.html
-      output: web, pdf
+        - title: Smart Contract Deployment
+          url: /Smart_Contract_Deployment_en.html
+          output: web, pdf
 
-    - title: API reference
-      external_url: https://apidoc.ont.io/smartcontract/
-      output: web
+        - title: Smart Contract Invocation
+          url: /Smart_Contract_Invocation_en.html
+          output: web, pdf
+
+        - title: Permission Control
+          url: /auth_en.html
+          output: web, pdf
+
+        - title: API reference
+          external_url: https://apidoc.ont.io/smartcontract/
+          output: web, pdf

@@ -19,37 +19,46 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: 智能合约
+  - title: DAPP
     output: web, pdf
     folderitems:
 
-    - title: 总体介绍
-      url: /Introduction_of_Ontology_Smart_Contract_zh.html
+    - title: 教程
+      url: /ontology_dapp_dev_tutorial_en.html
       output: web, pdf
+      subfolders:
 
-    - title: Ontology CLI 与智能合约交互
-      url: /Ontology_CLI_interact_with_smart_contract_zh.html
-      output: web, pdf
-    - title: SmartX 教程
-      url: /SmartX_Tutorial_zh.html
-      output: web, pdf
+      - title: 智能合约
+        output: web, pdf
+        folderitems:
 
-    - title: Hello World 合约
-      url: /The_Hello_World_Contract_zh.html
-      output: web, pdf
+        - title: 总体介绍
+          url: /Introduction_of_Ontology_Smart_Contract_zh.html
+          output: web, pdf
 
-    - title: 智能合约部署
-      url: /Smart_Contract_Deployment_zh.html
-      output: web, pdf
+        - title: Ontology CLI 与智能合约交互
+          url: /Ontology_CLI_interact_with_smart_contract_zh.html
+          output: web, pdf
+        - title: SmartX 教程
+          url: /SmartX_Tutorial_zh.html
+          output: web, pdf
 
-    - title: 智能合约调用
-      url: /Smart_Contract_Invocation_zh.html
-      output: web, pdf
+        - title: Hello World 合约
+          url: /The_Hello_World_Contract_zh.html
+          output: web, pdf
 
-    - title: 权限管理
-      url: /auth_zh.html
-      output: web, pdf
+        - title: 智能合约部署
+          url: /Smart_Contract_Deployment_zh.html
+          output: web, pdf
 
-    - title: API 文档
-      external_url: https://apidoc.ont.io/smartcontract/
-      output: web
+        - title: 智能合约调用
+          url: /Smart_Contract_Invocation_zh.html
+          output: web, pdf
+
+        - title: 权限管理
+          url: /auth_zh.html
+          output: web, pdf
+
+        - title: API 文档
+          external_url: https://apidoc.ont.io/smartcontract/
+          output: web
