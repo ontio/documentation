@@ -74,7 +74,9 @@ We'll start our dapp by writing the smart contract that acts as the back-end log
 
 ### 4.1 Compiling smart contract
 
-Use Smartx to Compiling smart contract
+Use Smartx to Compiling smart contract.
+
+![smart contract deploy and invoke](./lib/images/smartx-deploy.png)
 
 ### 4.2 Deploy/invoke smart contract
 
@@ -82,13 +84,10 @@ Now that we have written our smart contract, the next steps are to compile and d
 
 [Request testnet ONG in Discord](https://discordapp.com/channels/400884201773334540/453499298097922068)
 
-![smart contract deploy and invoke](./lib/images/smartx-deploy.png)
-
 
 ## 5. Testing the smart contract
 
-Smart contract automated testing framework.
-[Testing framework](https://github.com/lucas7788/pythontest)
+Smart contract automated testing framework.[Testing framework](https://github.com/lucas7788/pythontest)
 
 if you want run private chain,download Ontology and run node in testmode. [Ontology](https://github.com/ontio/ontology/releases)
 
@@ -107,7 +106,7 @@ Now we're ready to use our dapp!
 
 ![Cyano Wallet](./lib/images/cyano-wallet.png)
 
-The easiest way to interact with our dapp in a browser is through Cyano Wallet, a browser extension for Chrome.
+The easiest way to interact with our dapp in a browser is through Cyano Wallet, a browser extension for Chrome.[Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
 
 
 ## 7. Using the dapp
@@ -116,7 +115,7 @@ The easiest way to interact with our dapp in a browser is through Cyano Wallet, 
 ### 7.1 Start the local web server of demo:
 
 ```
-npm run dev
+npm run start
 
 ```
 
@@ -125,7 +124,7 @@ The dev server will launch and automatically open a new browser tab containing y
 
 ### 7.2 transfer or invoke smartcontract
 
-To use the dapp, click the button.
+To use the dapp, click the ```make``` button.
 
 ### 7.3 approve the transaction on Cyano Wallet
 

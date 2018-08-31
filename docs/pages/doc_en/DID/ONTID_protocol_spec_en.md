@@ -152,7 +152,8 @@ Parameters:
 - oldRecovery：Existing restorer
 	
 #### e. Attribute management
-The addition, deletion, and modification of the user’s attributes must be authorized by the user.
+The addition, deletion, and modification of the user’s attributes must be authorized by the user. An attribute consists of three parts, namely, the attribute's name, the type of the attribute's value, and the value itself. In current version of this spec, the type of attribute's value must either be described using [protocol buffers](https://developers.google.com/protocol-buffers/) or binary. For the first case, `type` must be a serialized `.proto` file. For the second case `type` must be `"binary"`. 
+
 ```json
 bool AddAttribute(byte[] ontId, byte[] path, byte[] type, byte[] value, byte[] publicKey);
 
@@ -225,6 +226,5 @@ The recovery account can implement a variety of access control logic, such as (m
 - `OR` control account
   
    This is equivalent to (1, n) threshold control account.
-
 
 
