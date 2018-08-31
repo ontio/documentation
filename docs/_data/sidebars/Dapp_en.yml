@@ -59,9 +59,12 @@ entries:
         - title: API reference
           external_url: https://apidoc.ont.io/smartcontract/
           output: web, pdf
-    - title: Wallet Intergration(java)
-      url: /ontology_wallet_dev_android_en.html
+    - title: Wallet Intergration
       output: web, pdf
-    - title: Wallet Intergration(ts)
-      url: /ontology_wallet_dev_ts_sdk_en.html
-      output: web, pdf
+      subfolderitems:
+      - title: Android SDK
+        url: /ontology_wallet_dev_android_en.html
+        output: web, pdf
+      - title: TypeScript SDK
+        url: /ontology_wallet_dev_ts_sdk_en.html
+        output: web, pdf
