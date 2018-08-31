@@ -26,7 +26,12 @@ entries:
     - title: Overview
       url: /ontology_overview_sdks_en.html
       output: web, pdf
-
+    - title: Wallet Intergration(java)
+      url: /ontology_wallet_dev_android_en.html
+      output: web, pdf
+    - title: Wallet Intergration(ts)
+      url: /ontology_wallet_dev_ts_sdk_en.html
+      output: web, pdf
     - title: Wallet File Specification
       url: /Wallet_File_Specification_en.html
       output: web, pdf
