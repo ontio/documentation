@@ -30,7 +30,7 @@ entries:
 
       - title: 智能合约
         output: web, pdf
-        folderitems:
+        subfolderitems:
 
         - title: 总体介绍
           url: /Introduction_of_Ontology_Smart_Contract_zh.html
@@ -64,10 +64,12 @@ entries:
           output: web
     - title: 钱包集成
       output: web, pdf
-      folderitems:
+      subfolderitems:
+
       - title: Android SDK
         url: /ontology_wallet_dev_android_en.html
         output: web, pdf
+
       - title: TypeScript SDK
         url: /ontology_wallet_dev_ts_sdk_en.html
         output: web, pdf

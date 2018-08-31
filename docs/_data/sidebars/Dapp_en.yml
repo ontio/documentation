@@ -61,10 +61,12 @@ entries:
           output: web, pdf
     - title: Wallet Intergration
       output: web, pdf
-      folderitems:
+      subfolderitems:
+
       - title: Android SDK
         url: /ontology_wallet_dev_android_en.html
         output: web, pdf
+        
       - title: TypeScript SDK
         url: /ontology_wallet_dev_ts_sdk_en.html
         output: web, pdf
