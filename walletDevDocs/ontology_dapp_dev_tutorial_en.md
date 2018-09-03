@@ -65,6 +65,8 @@ We'll start our dapp by writing the smart contract that acts as the back-end log
 
 ## 4. Compiling and deploy/invoke the smart contract
 
+SmartX uses Cyano Wallet to help with deploying and invoking the smart contract.Please make sure you have installed the Chrome extension - Cyano wallet and created the account in it.
+
 ### 4.1 Compiling smart contract
 
 Use Smartx to Compiling smart contract.
@@ -77,6 +79,13 @@ Now that we have written our smart contract, the next steps are to compile and d
 
 [Request testnet ONG in Discord](https://discordapp.com/channels/400884201773334540/453499298097922068)
 
+Deploy smart contract with SmartX
+
+![Deploy](https://s1.ax1x.com/2018/09/03/PzhTCd.png)
+
+Invoke smart contract with SmartX
+
+![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png)
 
 ## 5. Testing the smart contract
 
