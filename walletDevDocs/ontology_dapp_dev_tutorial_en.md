@@ -13,7 +13,7 @@ In this tutorial we will be covering:
 
 3. Writing the smart contract
 
-4. Compiling and migrating the smart contract
+4. Compiling and deploy/invoke the smart contract
 
 5. Testing the smart contract
 
