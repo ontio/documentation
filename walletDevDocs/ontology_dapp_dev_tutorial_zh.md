@@ -3,7 +3,6 @@
 <h1 align="center">Ontology DAPP开发教材</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-这个教材将指导你如何开发第一个.
 
 这个教程是给对开发DAPP的初学者，包含以下几个部分：
 
