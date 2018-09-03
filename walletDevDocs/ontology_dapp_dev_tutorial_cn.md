@@ -1,4 +1,4 @@
-[English](./ontology_dapp_dev_tutorial_cn.md) / 中文
+[English](./ontology_dapp_dev_tutorial_cn.html) / 中文
 
 <h1 align="center">Ontology DAPP开发教材</h1>
 <p align="center" class="version">Version 1.0.0 </p>
