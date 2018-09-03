@@ -70,6 +70,8 @@ npm run start
 
 ## 4. 编译、部署、调用智能合约
 
+SmartX 使用Cyano Wallet支持部署和调用合约。请确保你的浏览器上已经安装了Chrome扩展程序——Cyano Wallet, 并且创建好了钱包账户。
+
 ### 4.1 编译智能合约
 
 在smartx中编译智能合约
@@ -82,6 +84,13 @@ npm run start
 
 [申请测试网ONG](https://discordapp.com/channels/400884201773334540/453499298097922068)
 
+使用SmartX部署合约。
+
+![Deploy](https://s1.ax1x.com/2018/09/03/PzhTCd.png)
+
+使用SmartX调用合约。
+
+![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png)
 
 ## 5. 测试智能合约
 
