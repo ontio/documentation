@@ -12,7 +12,6 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 <h1 align="center">Ontology DAPP开发教材</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-这个教材将指导你如何开发第一个.
 
 这个教程是给对开发DAPP的初学者，包含以下几个部分：
 
@@ -66,7 +65,7 @@ npm run start
 打开并注册[smartx](http://smartx.ont.io/)
 
 
-![smartx login](../docs/lib/images/smartx.png)
+![smartx login](./lib/images/smartx.png)
 
 
 ## 4. 编译、部署、调用智能合约
@@ -75,7 +74,7 @@ npm run start
 
 在smartx中编译智能合约
 
-![smart contract deploy and invoke](../docs/lib/images/smartx-deploy.png)
+![smart contract deploy and invoke](./lib/images/smartx-deploy.png)
 
 ### 4.2 Deploy/invoke smart contract
 
@@ -103,7 +102,7 @@ npm run start
 ### 按照和配置Cyano Wallet
 
 
-![Cyano Wallet](../docs/lib/images/cyano-wallet.png)
+![Cyano Wallet](./lib/images/cyano-wallet.png)
 
 Cyano钱包是Chrome/firebox的扩展程序.[Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
 
@@ -129,7 +128,7 @@ npm run start
 
 点击Cyano Wallet上的确认按钮，授权并发送交易。
 
-![Cyano Wallet Confirm](../docs/lib/images/demo.png)
+![Cyano Wallet Confirm](./lib/images/demo.png)
 
 ### 7.4 检查交易
 
