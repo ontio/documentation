@@ -7,6 +7,8 @@ folder: doc_en/Dapp
 giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_dapp_dev_tutorial_en.md
 ---
 
+English / [中文](./ontology_dapp_dev_tutorial_zh.html)
+
 <h1 align="center">Ontology dapp development tutorial</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
@@ -22,7 +24,7 @@ In this tutorial we will be covering:
 
 3. Writing the smart contract
 
-4. Compiling and migrating the smart contract
+4. Compiling and deploy/invoke the smart contract
 
 5. Testing the smart contract
 
