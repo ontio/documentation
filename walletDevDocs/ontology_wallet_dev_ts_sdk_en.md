@@ -299,7 +299,7 @@ method：GET
 We can use the explorer api to fetch the transaction history of an address with pagination.
 
 ````
-url：/api/v1/explorer/address/{address}/{pagesize}/{pagenumber}
+url：/api/v1/explorer/address/{address}/{pagesize}/{pagenumber} or /api/v1/explorer/address/{address}/{assetname}/{pagesize}/{pagenumber}
 method：GET
 successResponse：
 {
