@@ -30,7 +30,7 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 
 ## 1. 搭建开发环境
 
-软件安装：
+开始前我们需要安装软件：
 
 * [Node.js v6+ LTS and npm](https://nodejs.org/en/)
 
@@ -39,13 +39,53 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 
 ## 2. Creating a project
 
-下载 dapi 包 [dAPI](https://github.com/ontio/ontology-dapi)
+### 2.1 dAPI
+
+dAPI是前端开发sdk，下载 dapi 包并使用 [dAPI](https://github.com/ontio/ontology-dapi)
 
 ```
 npm i ontology-dapi
 ```
 
-下载DAPP例子: [DAPP Demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
+查看 provider 是否存在.
+
+```
+const result = await client.api.provider.getProvider();
+
+```
+
+与链交互接口
+```
+const network = await client.api.network.getNetwork();
+const height = await client.api.network.getBlockHeight();
+const block = await client.api.network.getBlock({ block: 1 });
+const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
+const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
+
+```
+
+请求 provider 确认交易
+
+```
+import { client } from 'ontology-dapi';
+
+//makeTransfer
+const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
+
+//invoke
+const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
+
+//prepare execution
+const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
+
+//deploy
+const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
+
+```
+
+### 2.2 dAPI Demo
+
+下载DAPP例子: [dAPI Demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
 
 下载并启动例子:
 
@@ -61,16 +101,24 @@ npm run start
 
 ## 3. 写智能合约
 
+智能合约可以用来写后端逻辑和数据存储。我们可以使用SmartX编写智能合约。
 
-打开并注册[smartx](http://smartx.ont.io/)
+打开SmartX并注册[SmartX](http://smartx.ont.io/)
 
 
-![smartx login](./lib/images/smartx.png)
+![SmartX Login](../docs/lib/images/smartx.png)
 
 
 ## 4. 编译、部署、调用智能合约
 
 SmartX 使用Cyano Wallet支持部署和调用合约。请确保你的浏览器上已经安装了Chrome扩展程序——Cyano Wallet, 并且创建好了钱包账户。
+
+### 按照和配置Cyano Wallet
+
+
+![Cyano Wallet](./lib/images/cyano-wallet.png)
+
+Cyano钱包是Chrome/firebox的扩展程序.[Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
 
 ### 4.1 编译智能合约
 
@@ -104,41 +152,27 @@ SmartX 使用Cyano Wallet支持部署和调用合约。请确保你的浏览器�
 ```
 
 
-## 6. DAPP集成
-
-现在开始集成DAPP
-
-### 按照和配置Cyano Wallet
+## 6. 开始使用DAPP
 
 
-![Cyano Wallet](./lib/images/cyano-wallet.png)
+### 6.1 启动程序:
 
-Cyano钱包是Chrome/firebox的扩展程序.[Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
-
-
-## 7. 开始使用DAPP
-
-
-### 7.1 启动例子程序:
-
+启动dAPI Demo
 ```
 npm run start
 
 ```
 
-启动例子程序，
-
-
-### 7.2 转账或调用智能合约
+### 6.2 转账或调用智能合约
 
 点击 ```make``` 按钮.会自动弹出Cyano Wallet。
 
-### 7.3 Cyano Wallet中授权并发送交易
+### 6.3 Cyano Wallet中授权并发送交易
 
 点击Cyano Wallet上的确认按钮，授权并发送交易。
 
 ![Cyano Wallet Confirm](./lib/images/demo.png)
 
-### 7.4 检查交易
+### 6.4 检查交易
 
 在Cyano Wallet查看交易列表是否有该交易

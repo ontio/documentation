@@ -33,6 +33,8 @@ In this tutorial we will be covering:
 
 ## 1. Setting up the development environment
 
+There are a few technical requirements before we start. Please install the following:
+
 * [Node.js v6+ LTS and npm](https://nodejs.org/en/)
 
 * [Git](https://git-scm.com/)
@@ -40,11 +42,50 @@ In this tutorial we will be covering:
 
 ## 2. Creating a project
 
-Download dapi package and to use [dAPI](https://github.com/ontio/ontology-dapi)
+### 2.1 dAPI
+dAPI is front-end development sdk,Download dapi package and to use [dAPI](https://github.com/ontio/ontology-dapi)
 
 ```
 npm i ontology-dapi
 ```
+
+Check provider exist.
+
+```
+const result = await client.api.provider.getProvider();
+
+```
+
+Get blockchain information
+```
+const network = await client.api.network.getNetwork();
+const height = await client.api.network.getBlockHeight();
+const block = await client.api.network.getBlock({ block: 1 });
+const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
+const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
+
+```
+
+Request provider to confirm.
+
+```
+import { client } from 'ontology-dapi';
+
+//makeTransfer
+const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
+
+//invoke
+const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
+
+//prepare execution
+const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
+
+//deploy
+const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
+
+```
+
+### 2.2 dAPI Demo
 
 You also can run demo: [DAPP Demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
 
@@ -63,13 +104,10 @@ You will get the demo served at http://localhost:3000
 ## 3. Writing the smart contract
 
 
-We'll start our dapp by writing the smart contract that acts as the back-end logic and storage.
+We'll start our dapp by writing the smart contract that acts as the back-end logic and storage.We use SmartX to write the smart contract.[SmartX](http://smartx.ont.io/)
 
 
-[smartx](http://smartx.ont.io/)
-
-
-![smartx login](./lib/images/smartx.png)
+![SmartX Login](../docs/lib/images/smartx.png)
 
 
 ## 4. Compiling and deploy/invoke the smart contract

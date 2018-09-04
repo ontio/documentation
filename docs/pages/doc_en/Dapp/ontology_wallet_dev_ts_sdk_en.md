@@ -312,41 +312,70 @@ method：GET
 We can use the explorer api to fetch the transaction history of an address with pagination.
 
 ````
-url：/api/v1/explorer/address/{address}/{assetname}/{pagesize}/{pagenumber}
+url：/api/v1/explorer/address/{address}/{pagesize}/{pagenumber} or /api/v1/explorer/address/{address}/{assetname}/{pagesize}/{pagenumber}
 method：GET
 successResponse：
 {
-    "Action":"QueryAddressInfo",
-    "Version":"1.0",
-    "Error":0,
-    "Desc":"SUCCESS",
-    "Result":{
-        "AssetBalance":[
+    "Action": "QueryAddressInfo",
+    "Error": 0,
+    "Desc": "SUCCESS",
+    "Version": "1.0",
+    "Result": {
+        "AssetBalance": [
             {
-                "AssetName":"ont",
-                "Balance":"123.200000000"
+                "Balance": "1.93199363",
+                "AssetName": "ong"
+            },
+            {
+                "Balance": "0.0020775",
+                "AssetName": "waitboundong"
+            },
+            {
+                "Balance": "0.0019375",
+                "AssetName": "unboundong"
+            },
+            {
+                "Balance": "1500",
+                "AssetName": "ont"
             }
         ],
-        "TxnTotal":20,
-        "TxnList":[
+        "TxnList": [
             {
-                "TxnHash":"09e599ecde6eec18608bdecd0cf0a54b02bc9d55239e1b1bd291558e5a6ef3fa",
-                "ConfirmFlag":1,
-                "TxnType":208,
-                "TxnTime":1522207168,
-                "Height":11,
-                "Fee":"0.010000000",
-                "BlockIndex":1,
+                "TxnTime": 1535894950,
+                "TxnType": 209,
+                "ConfirmFlag": 1,
+                "Fee": "0.010000000",
+                "TxnHash": "a8a75e3d44e5aff5de6dabcbee1492c89da1561e244da47327f178956b7c0015",
+                "Height": 261617,
+                "BlockIndex": 1,
                 "TransferList": [
                     {
-                        "Amount": "100.000000000",
-                        "FromAddress": "AA5NzM9iE3VT9X8SGk5h3dii6GPFQh2vme",
-                        "ToAddress":"AA8fwY3wWhit3bnsAKRdoiCsKqp2qr4VBx",
-                        "AssetName":"ont"
+                        "FromAddress": "AUmzW4MYCtDakB59hFybV7aGFZVi2S7FLc",
+                        "Amount": "1.000000000",
+                        "ToAddress": "AUmzW4MYCtDakB59hFybV7aGFZVi2S7FLc",
+                        "AssetName": "ont"
+                    }
+                ]
+            },
+            {
+                "TxnTime": 1535310138,
+                "TxnType": 209,
+                "ConfirmFlag": 1,
+                "Fee": "0.010000000",
+                "TxnHash": "819a67b5c7c29fd234178ba9b901c6ed5af0734bafc76ffba6d1380cf2e07e8e",
+                "Height": 218711,
+                "BlockIndex": 1,
+                "TransferList": [
+                    {
+                        "FromAddress": "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+                        "Amount": "1.627527000",
+                        "ToAddress": "AUmzW4MYCtDakB59hFybV7aGFZVi2S7FLc",
+                        "AssetName": "ong"
                     }
                 ]
             }
-        ]
+        ],
+        "TxnTotal": 33
     }
 }
 ````
