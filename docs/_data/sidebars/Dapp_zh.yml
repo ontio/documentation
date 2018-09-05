@@ -24,7 +24,7 @@ entries:
     folderitems:
 
     - title: 教程
-      url: /ontology_dapp_dev_tutorial_cn.html
+      url: /ontology_dapp_dev_tutorial_zh.html
       output: web, pdf
       subfolders:
 
