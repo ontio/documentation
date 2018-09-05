@@ -11,7 +11,7 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/auth.md
 
 <p align="center" class="version">Version 1.0.0 </p>
 
-[English](./auth_en.html) / 中文
+[English](./ontology_java_sdk_auth_en.html) / 中文
 
 
 当前，智能合约的函数可以被任何人调用，这显然不符合现实要求。基于角色的权限管理的基本思想是，每个角色可以调用部分函数，每个实体可以被赋予多种角色（实体是由其ONT ID来标识）。

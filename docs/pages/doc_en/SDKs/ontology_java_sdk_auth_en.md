@@ -11,7 +11,7 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/auth.md
 
 <p align="center" class="version">Version 1.0.0 </p>
 
-English / [中文](./auth_zh.html)
+English / [中文](./ontology_java_sdk_auth_zh.html)
 
 
 At present, smart contracts can be called on by anyone, but this does not conform to the real requirements. The basic idea of the role-based authority management is that each role can call on certain functions and each entity can be given multiple roles (entities are identified by ONT ID).
