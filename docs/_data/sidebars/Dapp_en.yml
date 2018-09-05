@@ -53,7 +53,7 @@ entries:
           output: web, pdf
 
         - title: Permission Control
-          url: /auth_en.html
+          url: /ontology_java_sdk_auth_en.html
           output: web, pdf
 
         - title: API reference

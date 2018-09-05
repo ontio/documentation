@@ -56,7 +56,7 @@ entries:
           output: web, pdf
 
         - title: 权限管理
-          url: /auth_zh.html
+          url: /ontology_java_sdk_auth_zh.html
           output: web, pdf
 
         - title: API 文档
