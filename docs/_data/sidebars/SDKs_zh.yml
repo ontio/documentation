@@ -74,6 +74,9 @@ entries:
         - title: 错误码
           url: /ontology_java_sdk_errorcode_en.html
           output: web
+        - title: API 文档
+          external_url: https://apidoc.ont.io/javasdk/
+          output: web
 
       - title: TS SDK
         output: web
