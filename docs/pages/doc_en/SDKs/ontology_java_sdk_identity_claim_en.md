@@ -7,7 +7,7 @@ folder: doc_en/SDKs
 giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/identity_claim.md
 ---
 
-<h1 align="center"> Digital Identity and Verifable Claim Management</h1>
+<h1 align="center"> Digital Identity</h1>
 
 <p align="center" class="version">Version 1.0.0 </p>
 
@@ -34,9 +34,9 @@ Note: Only a wallet file in the operating file format is currently supported, wi
 
 
 
-## Digital ID account management
+## Digital ID management
 
-* 1. Data structure
+**Data structure**
 
 `ontid` A user’s identity.
 `label` The name of a user ID.
@@ -80,7 +80,7 @@ public class Control {
 ```
 
 
-* 2. Create a digital identity
+### 1. Register a digital identity
 
 Digital identity creation refers to generation of a digital identity with identity data structure and writing it to a wallet file.
 
@@ -91,24 +91,20 @@ ontSdk.getWalletMgr().writeWallet();
 ```
 
 
-- 3. Register blockchain-based identity
+**Register blockchain-based identity**
 
 Only after successfully registering an identity with the blockchain can the identity be truly used.
 
 There are two ways to register your identity with the chain:
 
-**Method one**
-
-Registrant specifies the account address for payment of transaction fees.
+* Registrant specifies the account address for payment of transaction fees.
 
 ```
 Identity identity = ontSdk.getWalletMgr().createIdentity(password);
 ontSdk.nativevm().ontId().sendRegister(identity,password,payer,payerpwd,gaslimit,gasprice);
 ```
 
-**Method two**
-
-Send the constructed transaction to the server and let the server sign the transaction fee account.
+* Send the constructed transaction to the server and let the server sign the transaction fee account.
 
 ```
 Identity identity = ontSdk.getWalletMgr().createIdentity(password);
@@ -120,8 +116,9 @@ ontSdk.getConnect().sendRawTransaction(tx);
 Upon successful registration, the corresponding DDO of the ONT ID will be stored in Ontology blockchain. Detailed information about DDO can be found in [ONT ID identity protocol and smart contract implementation]
 https://github.com/ontio/ontology-DID/blob/master/README.md
 
+### 2. Identity management
 
-* 4. Import account or identity
+* Import account or identity
 
 Users who have already created a digital identity or account may import it into a wallet file from the SDK.
 
@@ -140,7 +137,25 @@ password: Password used to encrypt the private key.
 salt: Private key decryption parameters.
 address: Account address.
 
-* 5. Query blockchain-based identity
+* Remove identity
+
+
+```
+ontSdk.getWalletMgr().getWallet().removeIdentity(ontid);
+//wrote to wallet
+ontSdk.getWalletMgr().writeWallet();
+```
+
+
+* Set default account or identity
+
+
+```
+ontSdk.getWalletMgr().getWallet().setDefaultIdentity(index);
+ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
+```
+
+### 3. Query blockchain-based identity
 
 DDO of blockchain-based identity can be queried by entering ONT ID.
 
@@ -172,29 +187,12 @@ String ddo = ontSdk.nativevm().ontId().sendGetDDO(ontid);
 }
 ```
 
-* 6. Remove identity
 
+### 4. Ontid attribute
 
-```
-ontSdk.getWalletMgr().getWallet().removeIdentity(ontid);
-//wrote to wallet
-ontSdk.getWalletMgr().writeWallet();
-```
+**Update blockchain-based DDO attribute**
 
-
-* 7. Set default account or identity
-
-
-```
-ontSdk.getWalletMgr().getWallet().setDefaultIdentity(index);
-ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
-```
-
-* 8. Update blockchain-based DDO attribute
-
-**Method one**
-
-Specifies the account address for payment of transaction fees.
+* Specifies the account address for payment of transaction fees.
 
 ```
 //update an attribute
@@ -214,9 +212,8 @@ String sendAddAttributes(String ontid, String password,byte[] salt, Attribute[] 
 | Output param | txhash   | String  | Transaction hash | 64-bit string |
 
 
-**Method two**
+* Send the constructed transaction to the server and let the server sign the transaction fee account.
 
-Send the constructed transaction to the server and let the server sign the transaction fee account.
 ```
 Transaction makeAddAttributes(String ontid, String password,byte[] salt, Attribute[] attributes,String payer,long gaslimit,long gasprice)
 ```
@@ -228,9 +225,9 @@ ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-* 9. Remove blockchain-based DDO attribute
+**Remove blockchain-based DDO attribute**
 
-**Method one**
+* remove attribute
 
 ```
 String sendRemoveAttribute(String ontid,String password,salt,String path,Account payerAcct,long gaslimit,long gasprice)
@@ -247,9 +244,7 @@ String sendRemoveAttribute(String ontid,String password,salt,String path,Account
 |   | gasprice      | long | Gas price    | Required |
 | Output param | txhash   | String  | transaction hash | 64-bit string |
 
-**Method two**
-
-Send the constructed transaction to the server and let the server sign the transaction fee account.
+* Send the constructed transaction to the server and let the server sign the transaction fee account.
 ```
 Transaction makeRemoveAttribute(String ontid,String password,byte[] salt,String path,String payer,long gaslimit,long gasprice)
 ```
@@ -262,10 +257,11 @@ ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
+### 5. Ontid publicKey
+
+**Add publicKey**
 
 * Add publicKey
-
-**Method one**
 
 ```
 String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
@@ -283,9 +279,7 @@ String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
 
-**Method two**
-
-Send the constructed transaction to the server and let the server sign the transaction fee account.
+* Send the constructed transaction to the server and let the server sign the transaction fee account.
 ```
 Transaction makeAddPubKey(String ontid,String password,String newpubkey,String payer,long gaslimit,long gasprice)
 ```
@@ -297,7 +291,7 @@ ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-**Method three (recovery)**
+* by recovery
 
 ```
 String sendAddPubKey(String ontid,String recoveryAddr, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
@@ -317,7 +311,7 @@ String sendAddPubKey(String ontid,String recoveryAddr, String password,byte[] sa
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
 
-**Method four (recovery)**
+* no salt
 ```
 Transaction makeAddPubKey(String ontid,String recoveryAddr,String password,String newpubkey,String payer,long gaslimit,long gasprice)
 ```
@@ -325,9 +319,9 @@ Transaction makeAddPubKey(String ontid,String recoveryAddr,String password,Strin
 Parameter description, please refer to method three (recovery)
 
 
-* Remove publicKey
+**Remove publicKey**
 
-**Method one**
+* remove publicKey
 
 ```
 String sendRemovePubKey(String ontid, String password,,byte[] salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
@@ -346,9 +340,7 @@ String sendRemovePubKey(String ontid, String password,,byte[] salt, String remov
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
 
-**Method two**
-
-Send the constructed transaction to the server and let the server sign the transaction fee account.
+* Send the constructed transaction to the server and let the server sign the transaction fee account.
 
 ```
 Transaction tx = ontSdk.nativevm().ontId().makeRemovePubKey(ontid,password,salt,removePubkey,payer,gas);
@@ -356,7 +348,7 @@ ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-**Method three (recovery)**
+* By recovery
 
 ```
 String sendRemovePubKey(String ontid, String recoveryAddr,String password,salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
@@ -375,7 +367,7 @@ String sendRemovePubKey(String ontid, String recoveryAddr,String password,salt, 
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
 
-**Method four (recovery)**
+* No salt
 
 ```
 Transaction makeRemovePubKey(String ontid,String recoveryAddr, String password,salt, String removePubkey,String payer,long gaslimit,long gasprice)
@@ -383,9 +375,11 @@ Transaction makeRemovePubKey(String ontid,String recoveryAddr, String password,s
 
 Parameter description, please refer to method four (recovery)
 
-* Add recovery
+### 6. Ontid recovery
 
-**Method one**
+**Add recovery**
+
+* add recovery
 
 ```
 String sendAddRecovery(String ontid, String password,byte[] salt, String recoveryAddr,Account payerAcct,long gaslimit,long gasprice)
@@ -404,9 +398,7 @@ String sendAddRecovery(String ontid, String password,byte[] salt, String recover
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
 
-**Method two**
-
-Send the constructed transaction to the server and let the server sign the transaction fee account.
+* Send the constructed transaction to the server and let the server sign the transaction fee account.
 
 ```
 Transaction makeAddRecovery(String ontid, String password,salt, String recoveryAddr,String payer,long gaslimit,long gasprice)
@@ -439,150 +431,4 @@ String sendChangeRecovery(String ontid, String newRecovery, String oldRecovery, 
 
 
 
-## Verifiable claim
 
-### 1. Data structure specification
-
-* Claim has the following data structure:
-
-```
-class Claim{
-  header : Header
-  payload : Payload
-  signature : byte[]
-}
-```
-
-
-```
-class Header {
-    public String Alg = "ONT-ES256";
-    public String Typ = "JWT-X";
-    public String Kid;
-    }
-```
-
-`alg` attribute specifies the signature scheme to use. A list of supported values can be found here.
-`typ` attribute can take one of the two values:
-
-    * JWT: This corresponds to the case that blockchain proof is not contained in the claim.
-    * JWT-X: This corresponds to the case that blockchain proof is a part of the claim.
-
-`kid`  attribute refers to the public key used for signature verification. It has the form <ontID>#keys-<id> as defined in ONT ID specification.
-
-
-```
-class Payload {
-    public String Ver;
-    public String Iss;
-    public String Sub;
-    public long Iat;
-    public long Exp;
-    public String Jti;
-    @JSONField(name = "@context")
-    public String Context;
-    public Map<String, Object> ClmMap = new HashMap<String, Object>();
-    public Map<String, Object> ClmRevMap = new HashMap<String, Object>();
-    }
-```
-
-`ver` attribute specifies the version of the claim spec it follows.
-
-`iss` attribute refers to the ONT ID of the issuer.
-
-`sub` attribute refers to the ONT ID of the recipient.
-
-`iat` attribute marks the time the claim was created and has the format of unix timestamp.
-
-`exp` attribute marks the expiration time of the claim and has the format of unix timestamp.
-
-`jti` attribute specifies the unique identifier of the verifiable claim.
-
-`@context` attribute specifies the uri of claim content definition document which defines the meaning of each field and the type of the value.
-
-`clm` attribute is an object which contains the claim content.
-
-`clm-rev` attribute is an object which defines the revocation mechanism the claim use.
-
-
-
-### 2. Interface list
-
-1. createOntIdClaim (String signerOntid, String password,byte[] salt, String context, Map<String, Object> claimMap, Map metaData,Map clmRevMap,long expire)
-
-     Function description: Create claim
-
-    | Parameter      | Field   | Type  | Description |            Remarks |
-    | ----- | ------- | ------ | ------------- | ----------- |
-    | Input parameter | signerOntid| String | ONT ID | Required |
-    |        | password    | String | ONT ID password   | Required |
-    |        | salt        | byte[] | Private key decryption parameters |Required|
-    |        | context| String  |Attribute specifies the URI of claim content definition document which defines the meaning of each field and the type of the value | Required|
-    |        | claimMap| Map  |Content of claim | Required|
-    |        | metaData   | Map | Claim issuer and subject's ONT ID | Required |
-    |        | clmRevMap   | Map | Attribute is an object which defines the revocation mechanism the claim use | Required |
-    |        | expire   | long | Attribute marks the expiration time of the claim and has the format of unix timestamp     | required |
-    | Output parameter| claim   | String  |   |  |
-
-    Refer to: https://github.com/kunxian-xia/ontology-DID/blob/master/docs/en/claim_spec.md
-
-2. boolean verifyOntIdClaim (string claim)
-
-    Function description: Verify claim
-
-    | Parameter      | Field   | Type  | Description |            Remarks |
-    | ----- | ------- | ------ | ------------- | ----------- |
-    | Input parameter | claim| String | Trusted claim | Required |
-    | Output parameter | true or false   | boolean  |   |  |
-
-
-### 3. Sign and issue verifiable claim
-Verifiable claim is constructed based on user input, which contains signed data.
-
-```
-Map<String, Object> map = new HashMap<String, Object>();
-map.put("Issuer", dids.get(0).ontid);
-map.put("Subject", dids.get(1).ontid);
-Map clmRevMap = new HashMap();
-clmRevMap.put("typ","AttestContract");
-clmRevMap.put("addr",dids.get(1).ontid.replace(Common.didont,""));
-String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,password,salt, "claim:context", map, map,clmRevMap,System.currentTimeMillis()/1000 +100000);
-```
-> Note: The issuer may have multiple public keys. The parameter ontid of createOntIdClaim specifies which public key to use.
-
-### 3. Verify verifiable claim
-
-```
-boolean b = ontSdk.nativevm().ontId().verifyOntIdClaim(claim);
-```
-
-
-### 4. Use cases
-
-
-```
-Identity identity = ontSdk.getWalletMgr().createIdentity(password);
-ontSdk.nativevm().ontId().sendRegister(identity2,password,salt,payerAcc,ontSdk.DEFAULT_GAS_LIMIT,0);
-String ontid = ident.ontid;
-Map recordMap = new HashMap();
-recordMap.put("key0", "world0");
-recordMap.put("keyNum", 1234589);
-recordMap.put("key2", false);
-String hash = ontSdk.nativevm().ontId().sendAddAttributes(dids.get(0).ontid,password,salt,attributes,payerAcc,ontSdk.DEFAULT_GAS_LIMIT,0);
-```
-Note: When the attribute does not exist, calling the sendUpdateAttribute method will increase the corresponding attribute. When the attribute exists, the corresponding attribute will be updated. Attri represents the attribute name, "Json" is the attribute value data type, and recordMap represents the attribute value.
-
-Claim issuance and verification:
-
-```
-Map<String, Object> map = new HashMap<String, Object>();
-map.put("Issuer", dids.get(0).ontid);
-map.put("Subject", dids.get(1).ontid);
-
-Map clmRevMap = new HashMap();
-clmRevMap.put("typ","AttestContract");
-clmRevMap.put("addr",dids.get(1).ontid.replace(Common.didont,""));
-
-String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,password,salt, "claim:context", map, map,clmRevMap,System.currentTimeMillis()/1000 +100000);
-boolean b = ontSdk.nativevm().ontId().verifyOntIdClaim(claim);
-```

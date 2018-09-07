@@ -7,7 +7,7 @@ folder: doc_zh/SDKs
 giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/identity_claim.md
 ---
 
-<h1 align="center"> 数字身份及可信声明管理 </h1>
+<h1 align="center"> 数字身份 </h1>
 
 <p align="center" class="version">Version 1.0.0 </p>
 
@@ -34,7 +34,7 @@ wm.openWalletFile("Demo3.json");
 
 ## 数字身份账户管理
 
-* 1 数据结构说明
+**Identity数据结构说明**
 
 `ontid` 是代表身份的唯一的id
 `label` 是用户给身份所取的名称。
@@ -74,7 +74,7 @@ public class Control {
 }
 ```
 
-* 2 创建数字身份
+### 1. 注册身份
 
 创建数字身份指的是产生一个Identity数据结构的身份信息，并写入到到钱包文件中。
 
@@ -84,15 +84,13 @@ Identity identity = ontSdk.getConnect().createIdentity("passwordtest");
 ontSdk.getWalletMgr().writeWallet();
 ```
 
-* 3 向链上注册身份
+**向链上注册身份**
 
 只有向区块链链成功注册身份之后，该身份才可以真正使用。
 
 有两种方法实现向链上注册身份
 
-方法一
-
-注册者指定支付交易费用的账户地址
+方法一，注册者指定支付交易费用的账户地址
 
 ```
 Identity identity = ontSdk.getWalletMgr().createIdentity(password);
@@ -100,9 +98,7 @@ ontSdk.nativevm().ontId().sendRegister(identity2,password,payerAcct,gaslimit,gas
 ```
 
 
-方法二
-
-将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
+方法二，将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
 
 
 ```
@@ -112,11 +108,14 @@ ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
-链上注册成功后，对应此ONT ID的身份描述对象DDO将被存储在本体区块链上。关于DDO的信息可以从[ONT ID 身份标识协议及智能合约实现说明]
-https://github.com/ontio/ontology-DID/blob/master/README_cn.md
+链上注册成功后，对应此ONT ID的身份描述对象DDO将被存储在本体区块链上。
+
+关于DDO的信息可以从[ONT ID 身份标识协议](https://github.com/ontio/ontology-DID/blob/master/README_cn.md)
 
 
-* 4 导入账号或身份
+### 2. 身份管理
+
+**导入身份**
 
 当用户已经拥有了一个数字身份或者数字账户，SDK支持将其导入到钱包文件中。
 
@@ -136,7 +135,25 @@ password： 加密私钥使用的密码
 salt: 解密私钥用的参数
 address: 账户地址base58编码
 
-* 5 查询链上身份
+**移除身份**
+
+```
+ontSdk.getWalletMgr().getWallet().removeIdentity(ontid);
+//写入钱包
+ontSdk.getWalletMgr().writeWallet();
+```
+
+**设置默认账号或身份**
+
+```
+//根据账户地址设置默认账户
+ontSdk.getWalletMgr().getWallet().setDefaultAccount(address);
+//根据identity索引设置默认identity
+ontSdk.getWalletMgr().getWallet().setDefaultIdentity(index);
+ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
+```
+
+### 3. 查询链上身份信息
 
 链上身份DDO信息，可以通过ONT ID进行查询。
 
@@ -168,29 +185,12 @@ String ddo = ontSdk.nativevm().ontId().sendGetDDO(ontid);
 
 ```
 
-* 6 移除身份
 
-```
-ontSdk.getWalletMgr().getWallet().removeIdentity(ontid);
-//写入钱包
-ontSdk.getWalletMgr().writeWallet();
-```
 
-* 7 设置默认账号或身份
+### 4. 身份属性
 
-```
-//根据账户地址设置默认账户
-ontSdk.getWalletMgr().getWallet().setDefaultAccount(address);
-//根据identity索引设置默认identity
-ontSdk.getWalletMgr().getWallet().setDefaultIdentity(index);
-ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
-```
-
-* 8 更新链上DDO属性
-
-方法一
-
-指定支付交易费用的账户
+#### 4.1 更新链上DDO属性
+方法一，指定支付交易费用的账户
 
 ```
 //添加或者更新属性
@@ -211,9 +211,7 @@ String sendAddAttributes(String ontid, String password,byte[] salt， Attribute[
 
 
 
-方法二
-
-将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
+方法二，将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
 ```
 Transaction makeAddAttributes(String ontid, String password, byte[] salt,Attribute[] attributes,String payer,
                                           long gaslimit,long gasprice)
@@ -226,7 +224,7 @@ ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
-* 9 移除链上DDO属性
+#### 4.2 移除链上DDO属性
 
 方法一
 
@@ -261,7 +259,10 @@ ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
-* 添加公钥
+### 5. 身份公钥
+
+
+#### 5.1 添加公钥
 
 方法一
 
@@ -282,9 +283,7 @@ String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey
 | 输出参数 | txhash   | String  | 交易hash  | 交易hash是64位字符串 |
 
 
-方法二
-
-将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
+方法二，将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
 
 ```
 Transaction makeAddPubKey(String ontid,String password,byte[] salt,String newpubkey,String payer,long gaslimit,long gasprice)
@@ -298,7 +297,7 @@ ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
-方法三（recovery机制）
+方法三，recovery机制
 recovery可以为ontid添加公钥
 ```
 String sendAddPubKey(String ontid,String recoveryAddr, String password, byte[] salt,String newpubkey,Account payerAcct,long gaslimit,long gasprice)
@@ -328,9 +327,9 @@ Transaction makeAddPubKey(String ontid,String recoveryAddr,String password,byte[
 参数说明请参考方法三
 
 
-* 删除公钥
+#### 5.2 删除公钥
 
-方法一
+方法一，删除公钥
 
 ```
 String sendRemovePubKey(String ontid, String password,byte[] salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
@@ -349,9 +348,7 @@ String sendRemovePubKey(String ontid, String password,byte[] salt, String remove
 | 输出参数 | txhash   | String  | 交易hash  | 交易hash是64位字符串 |
 
 
-方法二
-
-将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
+方法二，将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
 
 ```
 Transaction tx = ontSdk.nativevm().ontId().makeRemovePubKey(ontid,password,salt,removePubkey,payer,gas);
@@ -359,7 +356,7 @@ ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password,salt);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
-方法三（recovery机制）
+方法三，恢复人机制
 ```
 String sendRemovePubKey(String ontid, String recoveryAddr,String password, byte[] salt,String removePubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
@@ -385,7 +382,9 @@ Transaction makeRemovePubKey(String ontid,String recoveryAddr, String password,b
 
 参数说明请参考方法三
 
-* 添加recovery
+### 6. 身份恢复人
+
+#### 6.1 添加恢复人
 
 方法一
 
@@ -419,7 +418,7 @@ ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password,salt);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
-* 修改recovery
+#### 6.2 修改recovery
 
 方法一
 ```
@@ -446,159 +445,6 @@ Transaction makeChangeRecovery(String ontid, String newRecovery, String oldRecov
 
 参数说明请参考上面的方法一
 
-## 可信声明
-
-### 1 数据结构和规范
-
-具体标准请参考https://github.com/kunxian-xia/ontology-DID/blob/master/docs/en/claim_spec.md
-
-java-sdk采用JSON Web Token的格式表示claim以便于在声明发行者和申请者之间进行传递，jwt格式包含三部分header,payload,signature.
-
-* Claim 具有以下数据结构
-
-```
-class Claim{
-  header : Header
-  payload : Payload
-  signature : byte[]
-}
-```
 
 
-```
-class Header {
-    public String Alg = "ONT-ES256";
-    public String Typ = "JWT-X";
-    public String Kid;
-    }
-```
 
-字段说明
-`alg` 使用的签名框架
-`typ` 可以是下面两个值中的一个
-     JWT: 表示区块链证明不包含在claim中
-     JWT-X: 表示区块链证明是claim中的一部分
-`kid` 用于签名的公钥
-
-```
-class Payload {
-    public String Ver;
-    public String Iss;
-    public String Sub;
-    public long Iat;
-    public long Exp;
-    public String Jti;
-    @JSONField(name = "@context")
-    public String Context;
-    public Map<String, Object> ClmMap = new HashMap<String, Object>();
-    public Map<String, Object> ClmRevMap = new HashMap<String, Object>();
-    }
-```
-
-`ver` Claim版本号
-`iss` 发行方的ontid
-`sub` 申请方的ontid
-`iat` 创建时间
-`exp` 超期时间
-`jti` claim的唯一标志
-`@context` 指定声明内容定义文档URI，其定义了每个字段的含义和值得类型
-`clm` 包含claim内容的对象
-`clm-rev` 定义个claim 的撤销机制，
-
-### 2 可信声明接口列表
-
-1. createOntIdClaim(String signerOntid, String password,byte[] salt, String context, Map<String, Object> claimMap, Map metaData,Map clmRevMap,long expire)
-
-     功能说明： 创建可信声明
-
-    | 参数      | 字段   | 类型  | 描述 |             说明 |
-    | ----- | ------- | ------ | ------------- | ----------- |
-    | 输入参数 | signerOntid| String | 签名者ontid | 必选 |
-    |        | password    | String | 签名者密码   | 必选 |
-    |        | salt        | byte[] | 解密需要的参数|必选|
-    |        | context| String  |指定声明内容定义文档URI，其定义了每个字段的含义和值得类型 | 必选|
-    |        | claimMap| Map  |声明的内容 | 必选|
-    |        | metaData   | Map | 声明发行者和申请者ontid | 必选 |
-    |        | clmRevMap   | Map | claim的撤回机制 | 必选 |
-    |        | expire   | long | 声明过期时间     | 必选 |
-    | 输出参数 | claim   | String  | 可信声明  |  |
-
-    具体参数说明请参考https://github.com/kunxian-xia/ontology-DID/blob/master/docs/en/claim_spec.md
-
-2. boolean verifyOntIdClaim(String claim)
-
-    功能说明： 验证可信声明
-
-    | 参数      | 字段   | 类型  | 描述 |             说明 |
-    | ----- | ------- | ------ | ------------- | ----------- |
-    | 输入参数 | claim| String | 可信声明 | 必选 |
-    | 输出参数 | true或false   | boolean  |   |  |
-
-
-### 3 签发可信声明
-根据用户输入内容构造声明对象，该声明对象里包含了签名后的数据。
-创建claim：
-* 1.查询链上是否存在Issuer的DDO
-* 2.签名者的公钥必须在DDO的Owners中存在
-* 3.claimId 是对claim中删除Signature、Id、Proof的数据转byte数组，做一次sha256，再转hexstring
-* 4.对要签名的json数据转成Map对key做排序。
-* 5.Signature中Value值：claim 删除Signature、Proof后转byte数组, 做两次sha256得到的byte数组。
-
-```
-Map<String, Object> map = new HashMap<String, Object>();
-map.put("Issuer", dids.get(0).ontid);
-map.put("Subject", dids.get(1).ontid);
-Map clmRevMap = new HashMap();
-clmRevMap.put("typ","AttestContract");
-clmRevMap.put("addr",dids.get(1).ontid.replace(Common.didont,""));
-String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,password,salt, "claim:context", map, map,clmRevMap,System.currentTimeMillis()/1000 +100000);
-```
-
-
-> Note: Issuer可能有多把公钥，createOntIdClaim的参数ontid指定使用哪一把公钥。
-
-
-### 4 验证可信声明
-验证cliam：
-* 1.查询链上是否存在Metadata中Issuer的DDO
-* 2.Owner是否存在SIgnature中的PublicKeyId
-* 3.对要验签的json数据转成Map对key做排序。
-* 4.删除Signature做验签（根据PublicKeyId的id值查找到公钥,签名是Signature中Value做base64解码）
-
-```
-boolean b = ontSdk.nativevm().ontId().verifyOntIdClaim(claim);
-```
-
-### 5 实例说明
-
-
-```
-//注册ontid
-Identity identity = ontSdk.getWalletMgr().createIdentity(password);
-ontSdk.nativevm().ontId().sendRegister(identity2,password,salt,payerAcc,ontSdk.DEFAULT_GAS_LIMIT,0);
-String ontid = ident.ontid;
-//更新属性
-Map recordMap = new HashMap();
-recordMap.put("key0", "world0");
-recordMap.put("keyNum", 1234589);
-recordMap.put("key2", false);
-String hash = ontSdk.nativevm().ontId().sendAddAttributes(dids.get(0).ontid,password,attributes,payerAcc,ontSdk.DEFAULT_GAS_LIMIT,0);
-```
-
-> Note: 当不存在该属性时，调用sendAddAttributes方法，会增加相应的属性，当属性存在时，会更新相应属性。
-
-Claim签发和验证：
-
-```
-Map<String, Object> map = new HashMap<String, Object>();
-map.put("Issuer", dids.get(0).ontid);
-map.put("Subject", dids.get(1).ontid);
-
-Map clmRevMap = new HashMap();
-clmRevMap.put("typ","AttestContract");
-clmRevMap.put("addr",dids.get(1).ontid.replace(Common.didont,""));
-
-//密码是签发人的秘密，钱包文件ontid中必须要有该签发人。
-String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,password, "claim:context", map, map,clmRevMap,System.currentTimeMillis()/1000 +100000);
-boolean b = ontSdk.nativevm().ontId().verifyOntIdClaim(claim);
-```
