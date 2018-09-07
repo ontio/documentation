@@ -37,12 +37,12 @@ This article mainly covers creating wallet and account, motinoring deposits and 
 
 
 
-## 1. Prepation to run ontology and synchronize ontology node 
+## 1 Prepation to run ontology and synchronize ontology node 
 
 To run ontology, you can get it from [the source](https://github.com/ontio/ontology/blob/master/README.md)
 Or, get it from [the release page](https://github.com/ontio/ontology/releases).
 
-## 2. Server Side
+## 2 Server Side
 
 ### 2.1 Create Wallet through Cli
 
