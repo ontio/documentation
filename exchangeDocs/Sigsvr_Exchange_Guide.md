@@ -1,7 +1,7 @@
-#rpc + sigsvr for exchanges
+# Rpc + Sigsvr for exchanges
 This article mainly covers creating wallet and account, motinoring deposits and signing for withdrawal through sigsvr and rpc.
-* [1. Prepation to run ontology and synchronize ontology node](#1-Prepation-to-run-ontology-and-synchronize-ontology-node)
-* [2. Server Side](#2-Server-Side)
+* [1 Prepation to run ontology and synchronize ontology node](#1-Prepation-to-run-ontology-and-synchronize-ontology-node)
+* [2 Server Side](#2-Server-Side)
     * [2.1 Create Wallet through Cli]
         * [2.1.1 Notes about Cli]
     * [2.2 Create account and export walle file through Sigsvr]
@@ -68,8 +68,6 @@ Use ontology Cli to Create Wallet and add account based on your need. For more i
 }
 
 #### 2.1.1 Notes about Cli
-
-=>
 
 The exchange needs to create online wallet to manage the users' account. The wallet file contains info about account (including public key and private key), contract hash script and so on. It's most important for exchanges to validate their users. Please make sure the wallet file and password are safe and confidential. The exchange can use one wallet file to store all the users account info, or use the hard wallet (offline wallet) to make it safer.
 
