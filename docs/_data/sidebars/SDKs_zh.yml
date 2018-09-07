@@ -39,11 +39,7 @@ entries:
           url: /ontology_java_sdk_get_start_en.html
           output: web
 
-        - title:  接口基本信息
-          url: /ontology_java_sdk_interface_en.html
-          output: web
-
-        - title: 节点控制
+        - title: 区块链交互接口
           url: /ontology_java_sdk_basic_zh.html
           output: web
 
@@ -55,25 +51,26 @@ entries:
           url: /ontology_java_sdk_asset_zh.html
           output: web
 
-        - title: 数字存证
-          url: /ontology_java_sdk_attest_zh.html
-          output: web
-
         - title: 权限管理
           url: /ontology_java_sdk_auth_zh.html
           output: web
 
-        - title: 智能合约部署和调用
+        - title: 智能合约
           url: /ontology_java_sdk_smartcontract_zh.html
           output: web
 
-        - title: 存证
+        - title: 可信申明和存证
           url: /ontology_java_sdk_attest_zh.html
+          output: web
+
+        - title:  接口列表
+          url: /ontology_java_sdk_interface_en.html
           output: web
 
         - title: 错误码
           url: /ontology_java_sdk_errorcode_en.html
           output: web
+
         - title: API 文档
           external_url: https://apidoc.ont.io/javasdk/
           output: web
