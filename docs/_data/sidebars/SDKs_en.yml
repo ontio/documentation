@@ -100,3 +100,14 @@ entries:
         - title: API reference
           external_url: https://apidoc.ont.io/tssdk/
           output: web
+
+      - title: Python SDK
+        output: web
+        subfolderitems:
+
+        - title:  Introduction
+          url: /ontology_python_sdk_en.html
+          output: web
+        - title: API reference
+          external_url: https://apidoc.ont.io/pythonsdk/
+          output: web

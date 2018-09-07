@@ -98,3 +98,15 @@ entries:
         - title: API 文档
           external_url: https://apidoc.ont.io/tssdk/
           output: web
+
+      - title: Python SDK
+        output: web
+        subfolderitems:
+
+        - title:  Introduction
+          url: /ontology_python_sdk_zh.html
+          output: web
+
+        - title: API 文档
+          external_url: https://apidoc.ont.io/pythonsdk/
+          output: web
