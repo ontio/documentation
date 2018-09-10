@@ -149,13 +149,10 @@ Scrypt数据结构:
 
 ```controls``` 控制人.
 
-**Control**
-
-数据结构:
+**Control** 数据结构
 
 
 ```
-
 {
   "algorithm": "ECDSA",
   "parameters": {},
@@ -164,7 +161,6 @@ Scrypt数据结构:
   "address": "AQkGLumU1tnyJBGV1ZUmD229iQf9KRTTDL",
   "salt": "Rv4v3a4U1zFEq28/"
 }
-
 ```
 参数描述：
 
@@ -181,9 +177,7 @@ Scrypt数据结构:
 ```salt``` 16字节的盐，以base64格式存储.
 
 
-**Parameter**
-
-数据结构:
+**Parameter** 数据结构
 
 
 ```
@@ -191,7 +185,6 @@ Scrypt数据结构:
   "curve":"P-256"
 }
 ```
-
 参数描述：
 
 ```curve``` is the name of the elliptic curve.
