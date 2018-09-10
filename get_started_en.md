@@ -11,8 +11,8 @@ This documentation is an entry to the Ontology ecosystem for new Ontology develo
 
 - [Ontology](#ontology)
     - [What is Ontology](#what-is-ontology)
-    - [How to get Ontology](#how-to-get-ontology)
-    - [The introduction of Ontology node](#the-introduction-of-ontology-node)
+    - [How to get and install Ontology](#how-to-get-and-install-ontology)
+    - [Introduction of the Ontology nodes](#introduction-of-the-ontology-nodes)
         - [Synchronization node](#synchronization-node)
         - [Consensus node](#consensus-node)
     - [Ontology consensus mechanism](#ontology-consensus-mechanism)
@@ -50,21 +50,13 @@ With Ontology organizations, people, objects and communities can engange with ea
 
 The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/install_en.html#features). 
 
-### How to get Ontology
+### How to get and install Ontology
 
-At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it. Users can download latest ontology binary file with `curl  https://dev.ont.io/ontology_install | sh`.or directly download other vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
+Ontology's source code is open-source on our [GitHub Repository](https://github.com/ontio/ontology), free to download and compile. You can download the latest oOtology binary file with `curl  https://dev.ont.io/ontology_install | sh`, or directly download the latest vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
 
-### The introduction of Ontology node
+### Introduction of the Ontology nodes
 
-After installing Ontology, you can run Ontology locally and connect it to the Ontology network. 
-
-Before that, you need to know the node types in the current Ontology network.
-
-The network nodes of Ontology are currently divided into two categories: consensus nodes and synchronization nodes.
-
-The consensus nodes participate in the consensus, package the transaction and generate the block;
-
-The synchronization nodes synchronize the latest block and do not participate in the consensus.
+After installing Ontology, you can run Ontology locally and connect it to the Ontology network. Before that, you need to identify the node types which run in the Ontology network. Currently, the network nodes are divided into two categories: consensus nodes and synchronization nodes. The consensus nodes participate in the consensus, package the transaction and generate the block. The synchronization nodes synchronize the latest block and do not participate in the consensus itself.
 
 #### Synchronization node
 
