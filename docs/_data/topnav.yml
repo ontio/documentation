@@ -5,9 +5,9 @@ topnav:
   items:
     - title: Introduction
       url: /tutorial_for_developer_en.html
-    - title: Ontology Blockchain
+    - title: Blockchain
       url: /install_en.html
-    - title: Ontology DID
+    - title: OntID
       url: /ontology_DID_en.html
     - title: SDKs
       url: /ontology_overview_sdks_en.html

@@ -149,7 +149,7 @@ Scrypt数据结构:
 
 ```controls``` 控制人.
 
-**Control** 数据结构
+#### Control数据结构
 
 
 ```
@@ -177,7 +177,7 @@ Scrypt数据结构:
 ```salt``` 16字节的盐，以base64格式存储.
 
 
-**Parameter** 数据结构
+#### Parameter数据结构
 
 
 ```
