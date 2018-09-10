@@ -1,4 +1,4 @@
-# Rpc + Sigsvr for exchanges111111111111
+# Rpc + Sigsvr for exchanges
 This article mainly covers creating wallet and account, motinoring deposits and signing for withdrawal through sigsvr and rpc.
 - [Rpc + Sigsvr for exchanges](#rpc--sigsvr-for-exchanges)
     - [1 Prepation to run ontology and synchronize ontology node](#1-prepation-to-run-ontology-and-synchronize-ontology-node)
