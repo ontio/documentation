@@ -14,12 +14,14 @@ English / [中文](./tutorial_for_developer_zh.html)
 
 <p align="center" class="version">Version 1.0.0 </p> 
 
-Ontology is a new generation high-performance public blockchain. After its MainNet release, many excellent developers have joined the Ontology technical community. For developers, these documents are an entry to the Ontology ecosystem, therefore, a perfect documentation system can greatly improve the development efficiency. Through the documentation, developers will have a clear understanding of Ontology's technology and ecosystem. This document is an overview of the Ontology Documentation Center and provides an introduction of each section, which help developers familiarize with Ontology quickly.
+Ontology is a new generation of high-performance public blockchains. The infrastructure is scalable, stable and allow low level customization for different business requirements. After Ontology MainNet release, we have welcomed many new developers to the Ontology technical community and launched our [Developer Center ](https://bounty.ont.io/index.php/index/developer) 
+
+This documentation is an entry to the Ontology ecosystem for new Ontology developers as well as experienced. The Ontology community and Ontology core team maintain the documentation - we welcome you to help us with this! The documentation serves the purpose of providing a a clear understanding of Ontology's technology and ecosystem. This document is an overview of the Ontology documentation center and provides an introduction of each section, which help developers familiarize themselves with Ontology quickly.
 
 - [Ontology](#ontology)
     - [What is Ontology](#what-is-ontology)
-    - [How to get Ontology](#how-to-get-ontology)
-    - [The introduction of Ontology node](#the-introduction-of-ontology-node)
+    - [How to get and install Ontology](#how-to-get-and-install-ontology)
+    - [Introduction of the Ontology nodes](#introduction-of-the-ontology-nodes)
         - [Synchronization node](#synchronization-node)
         - [Consensus node](#consensus-node)
     - [Ontology consensus mechanism](#ontology-consensus-mechanism)
@@ -47,41 +49,43 @@ Ontology is a new generation high-performance public blockchain. After its MainN
 
 ### What is Ontology
 
+Ontology is an infrastructure that integrates the fragmented indusitres in order to build a true and complete trust system. It's a platform that birdge the digital worl with the real world. From a highlevel perspective we can Ontology understand form two views:
+
+<p align="center">Public blockchains with a new architecture (Infratructure)</p>
+Ontology is a new generation of a public chain infrastructure with high-performance (+5000 TPS for Ontology 1.0, 8000-10000 TPS for Ontology 2.0). The open-source framwork allow low level customization so that different business requirements and scenarios can be implemented. 
+
+<p align="center">A distributed trust collaboration platform</p>
+With Ontology organizations, people, objects and communities can engange with each other in a trustful way. The platform links the digital economy with the real economy and support scenarios for e.g. distributed identity services, distributed data exchange and reputation. 
+
 The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/install_en.html#features). 
 
-### How to get Ontology
+### How to get and install Ontology
 
-At present, all of Ontology's source code are open source on GitHub. Users can go to the [GitHub Repository](https://github.com/ontio/ontology) to download the source code and compile it. Users can download latest ontology binary file with `curl  https://dev.ont.io/ontology_install | sh`.or directly download other vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
+Ontology's source code is open-source on our [GitHub Repository](https://github.com/ontio/ontology), free to download and compile. You can download the latest oOtology binary file with `curl  https://dev.ont.io/ontology_install | sh`, or directly download the latest vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
 
-### The introduction of Ontology node
+### Introduction of the Ontology nodes
 
-After installing Ontology, you can run Ontology locally and connect it to the Ontology network. 
-
-Before that, you need to know the node types in the current Ontology network.
-
-The network nodes of Ontology are currently divided into two categories: consensus nodes and synchronization nodes.
-
-The consensus nodes participate in the consensus, package the transaction and generate the block;
-
-The synchronization nodes synchronize the latest block and do not participate in the consensus.
+After installing Ontology, you can run Ontology locally and connect it to the Ontology network. Before that, you need to identify the node types which run in the Ontology network. Currently, the network nodes are divided into two categories: synchronization nodes and consensus nodes. The consensus nodes participate in the consensus, package the transaction and generate the block. The synchronization nodes synchronize the latest block and do not participate in the consensus itself.
 
 #### Synchronization node
 
-The synchronization node can be connected to the MainNet, or the public testing network. When connecting to a different network, the node will synchronize the information and create two folders in the current directory: Chain and Log. The Chain folder will store the synchronized block data, including all transaction data, account data, etc.; Log will store the log information generated when the data is synchronized.
+The synchronization node can connect to MainNet or TestNet. When connecting to a different network, the node will synchronize the information and create two folders in the current directory: Chain and Log. The Chain folder will store the synchronized block data, including all transaction data, account data, etc. The Log will store the log information generated when the data is synchronized.
 
 #### Consensus node
 
-The consensus node is similar to the synchronization node and can run on the MainNet, the testing network. The Chain and Log folders will be generated in the running. The difference is that the consensus node itself will package the transaction information to generate the block, which is impossible for the synchronization node.
+The consensus node is similar to the synchronization node and can run on MainNet and TestNet. The Chain and Log folders will be generated while running the node. The difference is that the consensus node itself will package the transaction information to generate the block, which is not an option for the synchronization node.
 
 ### Ontology consensus mechanism
 
-After understanding the type of Ontology network node, we will introduce the consensus mechanism of the Ontology network next. Ontology has already supported the DBFT and VBFT consensus. Now, both the MainNet and the testing network use the VBFT consensus.
+Now that you understand the different types of Ontology network nodes, we will introduce the Ontology network's consensus mechanism VBFT, which is running on MainNet and TestNet. 
 
-[VBFT Introduction](https://ontio.github.io/documentation/vbft_intro_en.html) is an introduction to the VBFT consensus network. For more detailed information, please refer to the source code repository of Ontology.
+VBFT is a new consensus algorithm that combines PoS, VRF (Verifiable Random Function), and BFT. It is the core consensus algorithm of OCE (Ontology Consensus Engine). VBFT can support scalability of consensus groups, through VRF guarantee the randomness and fairness of the consensus population generation, and ensure that state finality can be reached quickly. For further introduction please read [VBFT Introduction](https://ontio.github.io/documentation/vbft_intro_en.html)
+
+For more detailed information, please refer to the source code repository of [Ontology VBFT](https://github.com/ontio/ontology/tree/master/consensus/vbft)
 
 ### Connect to ontology
 
-Now, we can try to connect to Ontology network. [Run ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology) will introduce how to connect ontology network and how to start ontology in test mode.
+Next, you can try to connect to the Ontology network. [Run ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology) will introduce you to how to connect and how to start Ontology in test mode.
 
 ### Ontology special features
 
