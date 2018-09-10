@@ -3,13 +3,13 @@ This article mainly covers creating wallet and account, motinoring deposits and 
 * [1 Prepation to run ontology and synchronize ontology node](#1-Prepation-to-run-ontology-and-synchronize-ontology-node)
 * [2 Server Side](#2-Server-Side)
     * [2.1 Create Wallet through Cli](#21-create-wallet-through-cli)
-        * [2.1.1 Notes about Cli]
-    * [2.2 Create account and export walle file through Sigsvr]
-        * [2.2.1 Postman]
-        *[2.2.2 Start Sigsvr]
-        * [2.2.3 Post Through Postman]
-        * [2.2.4 Export wallet file]
-        * [2.2.5 Signature server method introduction]
+        * [2.1.1 Notes about Cli](#211-notes-about-cli)
+    * [2.2 Create account and export wallet file through Sigsvr](#22-create-account-and-export-wallet-file-through-sigsvr)
+        * [2.2.1 Postman](#221-postman)
+        * [2.2.2 Start Sigsvr](#222-start-sigsvr)
+        * [2.2.3 Post Through Postman])(#223-post-through-postman)
+        * [2.2.4 Export wallet file](#224-export-wallet-file)
+        * [2.2.5 Signature server method introduction](#225-signature-server-method-introduction)
 * [3. Start ontology node]
 * [4. Process the asset transaction]
     * [4.1 Sign for withdrawal]
