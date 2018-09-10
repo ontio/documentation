@@ -1,12 +1,51 @@
-Here we test sigsvr in testmode (local node)
-1. Prepation to run ontology and synchronize ontology node 
+# Rpc + Sigsvr for exchanges
+This article mainly covers creating wallet and account, motinoring deposits and signing for withdrawal through sigsvr and rpc.
+- [Rpc + Sigsvr for exchanges](#rpc--sigsvr-for-exchanges)
+    - [1 Prepation to run ontology and synchronize ontology node](#1-prepation-to-run-ontology-and-synchronize-ontology-node)
+    - [2 Server Side](#2-server-side)
+        - [2.1 Create Wallet through Cli](#21-create-wallet-through-cli)
+            - [2.1.1 Notes about Cli](#211-notes-about-cli)
+        - [2.2 Create account and export wallet file through Sigsvr](#22-create-account-and-export-wallet-file-through-sigsvr)
+            - [2.2.1 Postman](#221-postman)
+            - [2.2.2 Start Sigsvr](#222-start-sigsvr)
+        - [2.2.3 Post Through Postman](#223-post-through-postman)
+        - [2.2.4 Export wallet file](#224-export-wallet-file)
+        - [2.2.5 Signature server method introduction](#225-signature-server-method-introduction)
+- [3. Start ontology node](#3-start-ontology-node)
+    - [4. Process the asset transaction](#4-process-the-asset-transaction)
+        - [4.1 Sign for withdrawal](#41-sign-for-withdrawal)
+            - [4.1.1 Construct transaction through Post method 1](#411-construct-transaction-through-post-method-1)
+            - [4.1.2 Construct transaction through Post method 2](#412-construct-transaction-through-post-method-2)
+            - [4.1.3 asset option](#413-asset-option)
+        - [4.2 Monitor the deposition](#42-monitor-the-deposition)
+            - [4.2.1 Get current block height](#421-get-current-block-height)
+                - [4.2.1.1 Through Cli](#4211-through-cli)
+                - [4.2.1.2 getblockcount through Post](#4212-getblockcount-through-post)
+            - [4.2.2 Monitor block info](#422-monitor-block-info)
+                - [4.2.2.1 Through Cli](#4221-through-cli)
+                - [4.2.2.2 getblock through Post](#4222-getblock-through-post)
+            - [4.2.3 Get the transaction execution info](#423-get-the-transaction-execution-info)
+                - [4.2.3.1 Through Cli](#4231-through-cli)
+                - [4.2.3.2 getrawtransaction through Post](#4232-getrawtransaction-through-post)
+    - [5. unbound Ong and withdraw](#5-unbound-ong-and-withdraw)
+        - [5.1 check unbound ong](#51-check-unbound-ong)
+            - [5.1.1 Through Cli](#511-through-cli)
+            - [5.1.2 getunboundong through Post](#512-getunboundong-through-post)
+        - [5.2 withdraw ong](#52-withdraw-ong)
+            - [5.2.1 Through Cli](#521-through-cli)
+            - [5.2.2 Withdrawong through Post](#522-withdrawong-through-post)
+
+
+
+
+## 1 Prepation to run ontology and synchronize ontology node 
 
 To run ontology, you can get it from [the source](https://github.com/ontio/ontology/blob/master/README.md)
 Or, get it from [the release page](https://github.com/ontio/ontology/releases).
 
-2. Server Side
+## 2 Server Side
 
-2.1 Create Wallet through Cli
+### 2.1 Create Wallet through Cli
 
 Use ontology Cli to Create Wallet and add account based on your need. For more info about how to use ontology cli, please go to [Cli Instruction](https://github.com/ontio/ontology/blob/master/docs/specifications/cli_user_guide.md).
 
@@ -29,7 +68,8 @@ Use ontology Cli to Create Wallet and add account based on your need. For more i
 	ontology account add --default
 }
 
-Notes about Cli =>
+#### 2.1.1 Notes about Cli
+
 The exchange needs to create online wallet to manage the users' account. The wallet file contains info about account (including public key and private key), contract hash script and so on. It's most important for exchanges to validate their users. Please make sure the wallet file and password are safe and confidential. The exchange can use one wallet file to store all the users account info, or use the hard wallet (offline wallet) to make it safer.
 
 There are two methods to create the accounts.
@@ -42,28 +82,33 @@ Another way is to create plenty of ONT address (accounts), then allocate one add
 For example
 ontology account add -n 10 -d -w wat.dat
 
-2.2 Create account and export walle file through Sigsvr
+### 2.2 Create account and export wallet file through Sigsvr
 
-2.2.1 Prepare [Postman], and install it.
+#### 2.2.1 Postman
+Prepare [Postman](https://www.getpostman.com), and install it.
+Set the method as "POST", set the url as "http://127.0.0.1:20000/cli"
 
-2.2.2 Start Sigsvr
+#### 2.2.2 Start Sigsvr
 
 ./sigsvr
 
-2.2.3 Configure postman, Set the method as "POST", set the url as "http://127.0.0.1:20000/cli"
+### 2.2.3 Post Through Postman
 
-2.2.4 Through Postman post:
 {
 	"qid":"t",
 	"method":"createaccount",
 	"pwd":"XXXX",     //the password of the newly created account
 	"params":{}
 }
+
 Then you can see the account was created
+
 2018/09/07 11:37:30.774727 [INFO ] GID 38, [CreateAccount]{"address":"AJdh41doGw1Ty79baVG9Xdari34zkP2FCS","enc-alg":"aes-256-gcm","key":"JCvluLJ8J/SOChZtM3GvWFvyyNS37Yo3X7wV4lFIAQmimjAhC+2TEuflrVI7zR+e","algorithm":"ECDSA","salt":"jj99HOalCPW8T9nOTOQdcA==","parameters":{"curve":"P-256"},"label":"","publicKey":"0356aa6706c089eb045a9d0b123f581a5ccebbf61e85c462d57a2952b34c7a84be","signatureScheme":"SHA256withECDSA","isDefault":false,"lock":false}
 2018/09/07 11:37:30.776665 [INFO ] GID 38, [CliRpcResponse]{"qid":"t","method":"createaccount","result":{"account":"AJdh41doGw1Ty79baVG9Xdari34zkP2FCS"},"error_code":0,"error_info":""}
 
-2.2.5 Export wallet file, through Postman post: 
+### 2.2.4 Export wallet file
+
+Through Postman post: 
 {
 	"qid":"t",
 	"method":"exportaccount",
@@ -73,7 +118,8 @@ Then you can see the account was created
 }
 Then the wallet file will be exported.
 
-2.2.6 Signature server method introduction
+### 2.2.5 Signature server method introduction
+
 Currently, Sigsvr supports signing for data, normal transaction, multiSig transaction, construction of Native contract invoking, construction of NeoVM contract invoking.
 
 Signature server is one json formatted rpc server. It can be used by posting messages. 
@@ -101,7 +147,7 @@ The answer structure is
 }
 
 
-3. Start ongoloy node
+# 3. Start ontology node
 Here we start in testmode, for testnet or mainnet, refer to [run-ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology)
 {
 	C:\Go_WorkSpace\src\github.com\ontio\ontology (master -> origin)
@@ -109,9 +155,12 @@ Here we start in testmode, for testnet or mainnet, refer to [run-ontology](https
 }
 
 
-4. Process the asset transaction
-4.1 Sign for withdrawal 
-4.1.1 Construct transaction through Post method 1:
+## 4. Process the asset transaction
+
+### 4.1 Sign for withdrawal 
+
+#### 4.1.1 Construct transaction through Post method 1
+
 In "sigtransfertx" method, the transaction payer account is the signing account by default. If it's needed to designate other account as payer, you can use "payer" parameter. Note that if you designate the payer account, "sigrawtx" will be used to sign the result of posting "sigtransfertx" method. We will give the details in 3.1.2
 
 {
@@ -144,7 +193,7 @@ Then, in ontology cli, run ./ontology sendtx "signed_tx"
 The transaction will be broadcast.
 
 
-4.1.2 Construct transaction through Post method 2
+#### 4.1.2 Construct transaction through Post method 2
 We set the "payer" not equal to "from".
 {
     "qid":"t",
@@ -193,21 +242,28 @@ Then Post to get the tx signed by account "AdXadq2bYykdbopzHNqYymtvw2eQmnoMRs".
 }
 Then go to ontology cli, and run ./ontology sendtx "signed_tx"
 
-4.1.3 You can set the "asset" parameters as "ont" or "ong"
+#### 4.1.3 asset option
+
+You can set the "asset" parameters as "ont" or "ong"
 
 
-4.2 Monitor the deposition
+### 4.2 Monitor the deposition
+
 Set the postman url as http://127.0.0.1:20336.
 
-4.2.1 Get current block height
+#### 4.2.1 Get current block height
 
-4.2.1.1 In ontology cli, run ./ontology info curblockheight.
+##### 4.2.1.1 Through Cli
+
+In ontology cli, run ./ontology info curblockheight.
 
 C:\Go_WorkSpace\src\github.com\ontio\ontology (master -> origin)
 λ ontology info curblockheight
 CurrentBlockHeight:1972
 
-4.2.1.2 method: "getblockcount", params: null, return: blockheight
+##### 4.2.1.2 getblockcount through Post
+
+method: "getblockcount", params: null, return: blockheight
 
 Post 
 {
@@ -225,9 +281,12 @@ You will get
     "result": 1972
 }
 
-4.2.2 monitor block info
+#### 4.2.2 Monitor block info
 
-4.2.2.1 In ontology cli, run ./ontology info block <block number | block hash>
+##### 4.2.2.1 Through Cli
+
+In ontology cli, run ./ontology info block <block number | block hash>
+
 	C:\Go_WorkSpace\src\github.com\ontio\ontology (master -> origin)
 	λ ontology info block 1972
 	{
@@ -281,7 +340,10 @@ You will get
 	   ]
 	}
 
-4.2.2.2 method: "getblock", params: hash/height, return: block info.
+##### 4.2.2.2 getblock through Post
+
+method: "getblock", params: hash/height, return: block info.
+
 {
   "jsonrpc": "2.0",
   "method": "getblock",
@@ -354,9 +416,11 @@ You will get
     }
 }
 
-4.2.3 Get the transaction execution info
+#### 4.2.3 Get the transaction execution info
 
-4.2.3.1 In cli, run ./ontology info status <TxHash>
+##### 4.2.3.1 Through Cli
+
+In cli, run ./ontology info status <TxHash>
 
 C:\Go_WorkSpace\src\github.com\ontio\ontology (master -> origin)
 λ ontology info status 34fd01ebfcd21d2b805149a225f319ccffdfc0489c28da23638522fcff651567
@@ -377,7 +441,9 @@ Transaction states:
       }
    ]
 }
-Explanation: 
+
+Explanation:
+
 "TxHash": the transaction hash.
 "State" = 1: Success, "State" = 0: Failure.
 "GasConsumed": the consumed gas for this transaction.
@@ -392,7 +458,10 @@ Notify:
 		4th element: amount (for Ont, it's integer, for ont, it's [ong amount to be transferred]X10^9 )
 What you need to do is to filter the "to address". When it's detected that "to address" is one of your users account address, then it can be recorded that that user has deposited some ong/ont to his account.
 
-4.2.3.2 method:"getrawtransaction", params: txhash, return: transaction detailed info. 
+##### 4.2.3.2 getrawtransaction through Post
+
+method:"getrawtransaction", params: txhash, return: transaction detailed info. 
+
 Post
 {
   "jsonrpc": "2.0",
@@ -411,10 +480,18 @@ You will get
 
 
 
-5. unbound Ong and withdarw
-5.1 check unbound ong
-5.1.1 In cli, ./ontology asset unboundong <address|index|label> 
-5.1.2 method: "getunboundong", params: address, return: 
+## 5. unbound Ong and withdraw
+
+### 5.1 check unbound ong
+
+#### 5.1.1 Through Cli
+
+In cli, ./ontology asset unboundong <address|index|label> 
+
+#### 5.1.2 getunboundong through Post
+
+method: "getunboundong", params: address, return: 
+
 {
   "jsonrpc": "2.0",
   "method": "getunboundong",
@@ -429,9 +506,15 @@ You will get
     "jsonrpc": "2.0",
     "result": "50429999676900"
 }
-5.2 withdraw ong
-5.2.1 In cli, ./ontology asset withdrawong <address|index|label>
-5.2.2 method: "withdrawOng", params:address, return:
+
+### 5.2 withdraw ong
+
+#### 5.2.1 Through Cli
+
+In cli, ./ontology asset withdrawong <address|index|label>
+
+#### 5.2.2  Withdrawong through Post
+
 {
     "Qid":"t",
     "Method":"signativeinvoketx",
