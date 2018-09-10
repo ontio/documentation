@@ -174,7 +174,7 @@ C:\Go_WorkSpace\src\github.com\ontio\ontology (master -> origin)
 
 #### 4.1.1 Construct transaction through post method 1
 
-In "sigtransfertx" method, the transaction payer account is the signing account by default. If it's needed to designate other account as payer, you can use "payer" parameter. Note that if you designate the payer account, "sigrawtx" will be used to sign the result of posting "sigtransfertx" method. We will give the details in 3.1.2
+In "sigtransfertx" method, the transaction payer account is the signing account by default. If it's needed to designate other account as payer, you can use "payer" parameter. Note that if you designate the payer account, "sigrawtx" will be used to sign the result of posting "sigtransfertx" method. We will give the details in 4.1.2
 ```
 {
     "qid":"t",
