@@ -5,7 +5,7 @@ English / [中文](./get_started_cn.md)
 
 <p align="center" class="version">Version 1.0.0 </p> 
 
-Ontology is a new generation high-performance public blockchain. After its MainNet release, many excellent developers have joined the Ontology technical community. For developers, these documents are an entry to the Ontology ecosystem, therefore, a perfect documentation system can greatly improve the development efficiency. Through the documentation, developers will have a clear understanding of Ontology's technology and ecosystem. This document is an overview of the Ontology Documentation Center and provides an introduction of each section, which help developers familiarize with Ontology quickly.
+Ontology is a new generation of high-performance public blockchains. The infrastructure is scalable, stable and allow low level customization for different business requirements. After Ontology MainNet release, many excellent developers have joined the Ontology technical community. For developers, these documents are an entry to the Ontology ecosystem, therefore, a perfect documentation system can greatly improve the development efficiency. Through the documentation, developers will have a clear understanding of Ontology's technology and ecosystem. This document is an overview of the Ontology Documentation Center and provides an introduction of each section, which help developers familiarize with Ontology quickly.
 
 - [Ontology](#ontology)
     - [What is Ontology](#what-is-ontology)
