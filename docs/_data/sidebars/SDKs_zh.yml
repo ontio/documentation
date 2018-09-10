@@ -26,6 +26,9 @@ entries:
     - title: 总体说明
       url: /ontology_overview_sdks_zh.html
       output: web, pdf
+    - title: 钱包规范
+      url: /Wallet_File_Specification_cn.html
+      output: web, pdf
       subfolders:
       - title: Java SDK
         output: web
@@ -39,28 +42,28 @@ entries:
           url: /ontology_java_sdk_get_start_en.html
           output: web
 
-        - title: 区块链交互接口
-          url: /ontology_java_sdk_basic_zh.html
+        - title: 数字资产管理
+          url: /ontology_java_sdk_asset_zh.html
           output: web
 
         - title: 数字身份管理
           url: /ontology_java_sdk_identity_claim_zh.html
           output: web
 
-        - title: 数字资产管理
-          url: /ontology_java_sdk_asset_zh.html
+        - title: 智能合约
+          url: /ontology_java_sdk_smartcontract_zh.html
           output: web
 
         - title: 权限管理
           url: /ontology_java_sdk_auth_zh.html
           output: web
 
-        - title: 智能合约
-          url: /ontology_java_sdk_smartcontract_zh.html
-          output: web
-
         - title: 可信申明和存证
           url: /ontology_java_sdk_attest_zh.html
+          output: web
+
+        - title: 区块链交互接口
+          url: /ontology_java_sdk_basic_zh.html
           output: web
 
         - title:  接口列表

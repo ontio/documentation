@@ -42,28 +42,28 @@ entries:
           url: /ontology_java_sdk_get_start_en.html
           output: web
 
-        - title: BlockChain Interaction
-          url: /ontology_java_sdk_basic_en.html
+        - title: Digital Asset
+          url: /ontology_java_sdk_asset_en.html
           output: web
 
         - title: Digital Identity
           url: /ontology_java_sdk_identity_claim_en.html
           output: web
 
-        - title: Digital Asset
-          url: /ontology_java_sdk_asset_en.html
+        - title: Smart Contract
+          url: /ontology_java_sdk_smartcontract_en.html
           output: web
 
         - title: Authority Management
           url: /ontology_java_sdk_auth_en.html
           output: web
 
-        - title: How to use Smart Contract
-          url: /ontology_java_sdk_smartcontract_en.html
-          output: web
-
         - title: Claim and Attestation
           url: /ontology_java_sdk_attest_en.html
+          output: web
+
+        - title: BlockChain Interaction
+          url: /ontology_java_sdk_basic_en.html
           output: web
 
         - title:  Interfaces
