@@ -134,7 +134,8 @@ Currently, Sigsvr supports signing for data, normal transaction, multiSig transa
 Signature server is one json formatted rpc server. It can be used by posting messages. 
 
 The posted server path should be set as 
-http://localhost:20000/cli
+http://localhost:20000/cli.
+
 The post structure should be
 ```
 {
