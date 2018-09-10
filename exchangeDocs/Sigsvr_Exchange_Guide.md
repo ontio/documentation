@@ -1,6 +1,6 @@
-# Rpc + Sigsvr for exchanges
+# Sigsvr plus rpc for exchanges
 This article mainly covers creating wallet and account, motinoring deposits and signing for withdrawal through sigsvr and rpc.
-- [Rpc + Sigsvr for exchanges](#rpc--sigsvr-for-exchanges)
+- [Sigsvr plus rpc for exchanges](#sigsvr-plus-rpc-for-exchanges)
     - [1. Prepation to run ontology and synchronize ontology node](#1-prepation-to-run-ontology-and-synchronize-ontology-node)
     - [2. Server Side](#2-server-side)
         - [2.1 Create Wallet through Cli](#21-create-wallet-through-cli)
@@ -17,7 +17,7 @@ This article mainly covers creating wallet and account, motinoring deposits and 
             - [4.1.1 Construct transaction through post method 1](#411-construct-transaction-through-post-method-1)
             - [4.1.2 Construct transaction through post method 2](#412-construct-transaction-through-post-method-2)
             - [4.1.3 Asset option](#413-asset-option)
-        - [4.2 Monitor the deposition](#42-monitor-the-deposition)
+        - [4.2 Monitor the deposit](#42-monitor-the-deposit)
             - [4.2.1 Get current block height](#421-get-current-block-height)
                 - [4.2.1.1 Through Cli](#4211-through-cli)
                 - [4.2.1.2 Getblockcount through Post](#4212-getblockcount-through-post)
@@ -273,7 +273,7 @@ Then go to ontology cli, and run the following. Note that signed_tx should be th
 You can set the "asset" parameters as "ont" or "ong"
 
 
-### 4.2 Monitor the deposition
+### 4.2 Monitor the deposit
 
 Set the postman url as http://127.0.0.1:20336.
 
