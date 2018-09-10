@@ -56,25 +56,27 @@ Ontology's source code is open-source on our [GitHub Repository](https://github.
 
 ### Introduction of the Ontology nodes
 
-After installing Ontology, you can run Ontology locally and connect it to the Ontology network. Before that, you need to identify the node types which run in the Ontology network. Currently, the network nodes are divided into two categories: consensus nodes and synchronization nodes. The consensus nodes participate in the consensus, package the transaction and generate the block. The synchronization nodes synchronize the latest block and do not participate in the consensus itself.
+After installing Ontology, you can run Ontology locally and connect it to the Ontology network. Before that, you need to identify the node types which run in the Ontology network. Currently, the network nodes are divided into two categories: synchronization nodes and consensus nodes. The consensus nodes participate in the consensus, package the transaction and generate the block. The synchronization nodes synchronize the latest block and do not participate in the consensus itself.
 
 #### Synchronization node
 
-The synchronization node can be connected to the MainNet, or the public testing network. When connecting to a different network, the node will synchronize the information and create two folders in the current directory: Chain and Log. The Chain folder will store the synchronized block data, including all transaction data, account data, etc.; Log will store the log information generated when the data is synchronized.
+The synchronization node can connect to MainNet or TestNet. When connecting to a different network, the node will synchronize the information and create two folders in the current directory: Chain and Log. The Chain folder will store the synchronized block data, including all transaction data, account data, etc. The Log will store the log information generated when the data is synchronized.
 
 #### Consensus node
 
-The consensus node is similar to the synchronization node and can run on the MainNet, the testing network. The Chain and Log folders will be generated in the running. The difference is that the consensus node itself will package the transaction information to generate the block, which is impossible for the synchronization node.
+The consensus node is similar to the synchronization node and can run on MainNet and TestNet. The Chain and Log folders will be generated while running the node. The difference is that the consensus node itself will package the transaction information to generate the block, which is not an option for the synchronization node.
 
 ### Ontology consensus mechanism
 
-After understanding the type of Ontology network node, we will introduce the consensus mechanism of the Ontology network next. Ontology has already supported the DBFT and VBFT consensus. Now, both the MainNet and the testing network use the VBFT consensus.
+Now that you understand the different types of Ontology network nodes, we will introduce the Ontology network's consensus mechanism VBFT, which is running on MainNet and TestNet. 
 
-[VBFT Introduction](https://ontio.github.io/documentation/vbft_intro_en.html) is an introduction to the VBFT consensus network. For more detailed information, please refer to the source code repository of Ontology.
+VBFT is a new consensus algorithm that combines PoS, VRF (Verifiable Random Function), and BFT. It is the core consensus algorithm of OCE (Ontology Consensus Engine). VBFT can support scalability of consensus groups, through VRF guarantee the randomness and fairness of the consensus population generation, and ensure that state finality can be reached quickly. For further introduction please read [VBFT Introduction](https://ontio.github.io/documentation/vbft_intro_en.html)
+
+For more detailed information, please refer to the source code repository of [Ontology VBFT](https://github.com/ontio/ontology/tree/master/consensus/vbft)
 
 ### Connect to ontology
 
-Now, we can try to connect to Ontology network. [Run ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology) will introduce how to connect ontology network and how to start ontology in test mode.
+Next, you can try to connect to the Ontology network. [Run ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology) will introduce you to how to connect and how to start Ontology in test mode.
 
 ### Ontology special features
 
