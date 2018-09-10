@@ -40,6 +40,14 @@ This documentation is an entry to the Ontology ecosystem for new Ontology develo
 
 ### What is Ontology
 
+Ontology is an infrastructure that integrates the fragmented indusitres in order to build a true and complete trust system. It's a platform that birdge the digital worl with the real world. From a highlevel perspective we can Ontology understand form two views:
+
+<p align="center">Public blockchains with a new architecture (Infratructure)</p>
+Ontology is a new generation of a public chain infrastructure with high-performance (+5000 TPS for Ontology 1.0, 8000-10000 TPS for Ontology 2.0). The open-source framwork allow low level customization so that different business requirements and scenarios can be implemented. 
+
+<p align="center">A distributed trust collaboration platform</p>
+With Ontology organizations, people, objects and communities can engange with each other in a trustful way. The platform links the digital economy with the real economy and support scenarios for e.g. distributed identity services, distributed data exchange and reputation. 
+
 The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/install_en.html#features). 
 
 ### How to get Ontology
