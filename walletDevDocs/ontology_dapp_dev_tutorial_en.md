@@ -1,143 +1,120 @@
 English / [中文](./ontology_dapp_dev_tutorial_zh.html)
 
-<h1 align="center">Ontology dapp development tutorial</h1>
+<h1 align="center">Ontology dApp development tutorial</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-This tutorial will take you through the process of building your first dapp.
-
-This tutorial is meant for those with a basic knowledge of Ontology and smart contracts, who have some knowledge of HTML and JavaScript, but who are new to dapps.
+This tutorial will guide you through the process of building your first dApp and is meant for those with a basic knowledge of the Ontology ecosystem, smart contracts and HTML/JavaScript, but who are new to building dApps.<p>
 
 In this tutorial we will be covering:
 
-1. Setting up the development environment
+[Setting up the development environment](#setup-dev)
 
-2. Creating a project
+[Creating a project](#create-proj)
 
-3. Writing the smart contract
+[Writing the smart contract](#write-SC)
 
-4. Compiling and deploy/invoke the smart contract
+[Compiling and deploying/invoking the smart contract](#deploy-SC)
 
-5. Testing the smart contract
+[Testing the smart contract](#test-SC)
 
-7. Interacting with the dapp in a browser
+[Interacting with the dapp in a browser](#interact-dapp) <p>
 
 
-## 1. Setting up the development environment
 
-There are a few technical requirements before we start. Please install the following:
+### Setting up the development environment
+
+There are a few technical requirements before we start. Please ensure you have the following installed and configured for use in your development environment.
 
 * [Node.js v6+ LTS and npm](https://nodejs.org/en/)
 
-* [Git](https://git-scm.com/)
+* [Git](https://git-scm.com/)<p>
 
 
-## 2. Creating a project
+### Creating a project
 
-### 2.1 dAPI
-dAPI is front-end development sdk,Download dapi package and to use [dAPI](https://github.com/ontio/ontology-dapi)
-
-```
-npm i ontology-dapi
-```
-
-Check provider exist.
+#### dAPI Installation
+Next, download the Ontology dAPI SDK [here](https://github.com/ontio/ontology-dapi) and install using:
 
 ```
-const result = await client.api.provider.getProvider();
-
+npm install ontology-dapi
 ```
 
-Get blockchain information
+#### dAPI Import and registration
+
+Import and register the dAPI using:
+```
+import { client } from 'ontology-dapi';
+
+client.registerClient({});
+```
+
+
+
+#### Example dAPI methods
+Once imported and registered, use the provided dAPI methods in your dApp (see below).
+##### Example blockchain methods
 ```
 const network = await client.api.network.getNetwork();
 const height = await client.api.network.getBlockHeight();
 const block = await client.api.network.getBlock({ block: 1 });
 const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
 const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
-
-```
-
-Request provider to confirm.
-
-```
-import { client } from 'ontology-dapi';
-
-//makeTransfer
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
+```
 
-//invoke
+##### Example Smart Contract methods
+```
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
-
-//prepare execution
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
-
-//deploy
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
-
 ```
 
-### 2.2 dAPI Demo
-
-You also can run demo: [DAPP Demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
-
-This will build the project and start web server.:
-
-```
-git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
-
-npm install
-
-npm run start
-```
-
-You will get the demo served at http://localhost:3000
-
-## 3. Writing the smart contract
+A full list of methods can be found in the [OEP-6 document](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) and an example is located in the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
+<p><br>
 
 
-We'll start our dapp by writing the smart contract that acts as the back-end logic and storage.We use SmartX to write the smart contract.[SmartX](http://smartx.ont.io/)
+
+### Writing a smart contract for your dApp
+
+
+To support our dApp we will write a smart contract that acts as the back-end logic and storage. We use Ontology's [SmartX](http://smartx.ont.io/) tool for this. 
 
 
 ![SmartX Login](../docs/lib/images/smartx.png)
 
 
-## 4. Compiling and deploy/invoke the smart contract
+#### Compiling and deploying/invoking the smart contract
 
-SmartX uses Cyano Wallet to help with deploying and invoking the smart contract.Please make sure you have installed the Chrome extension - Cyano wallet and created the account in it.
+SmartX uses [Cyano Wallet]( https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm) to help with compiling, deploying and invoking the smart contract. Please make sure you have installed Cyano and created an account in it.
 
-### 4.1 Compiling smart contract
+#### Compiling the smart contract
 
 Use Smartx to Compiling smart contract.
 
 ![smart contract deploy and invoke](../docs/lib/images/smartx-deploy.png)
 
-### 4.2 Deploy/invoke smart contract
+#### Deploy/invoke smart contract
 
-Now that we have written our smart contract, the next steps are to compile and deploy it. Request testnet ONG in Discard if you not have.
+Now that we have written our smart contract, the next steps are to deploy and invoke it. Deploying and Invoking requires Testnet ONG.  If you dont have any already, please [request testnet ONG in Discord](https://discordapp.com/channels/400884201773334540/453499298097922068)
 
-[Request testnet ONG in Discord](https://discordapp.com/channels/400884201773334540/453499298097922068)
 
-Deploy smart contract with SmartX
 
 ![Deploy](https://s1.ax1x.com/2018/09/03/PzhTCd.png)
 
-Invoke smart contract with SmartX
+<p>
 
-![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png)
+![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png) <p>
 
-## 5. Testing the smart contract
+### Testing the smart contract
 
-Smart contract automated testing framework.[Testing framework](https://github.com/lucas7788/pythontest)
-
-if you want run private chain,download Ontology and run node in testmode. [Ontology](https://github.com/ontio/ontology/releases)
-
+In order to test the smart contract, you can use the [smart contract automated testing framework](https://github.com/lucas7788/pythontest) or deploy your own Ontology privatenet running in testmode by downloading the latest [Ontology release](https://github.com/ontio/ontology/releases) and starting it as below.
 ```
 ./ontology --testmode --gasprice 0
 
 ```
 
 
-## 6. Interacting with the dapp in a browser
+### Interacting with the dApp in a browser
 
 Now we're ready to use our dapp!
 
