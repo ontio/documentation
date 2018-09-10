@@ -32,6 +32,8 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/Wallet_Fi
   "extra": null
 }
 ```
+参数描述：
+
 ```name``` 钱包名.
 
 ```version``` 钱包版本号.
@@ -112,13 +114,16 @@ Scrypt数据结构:
   "dkLen" : 64
 }
 ```
-```n``` is a parameter that defines the CPU/memory cost. Must be a value 2^N.
 
-```r``` is a tuning parameter.
+参数描述：
 
-```p``` is a tuning parameter (parallelization parameter). A large value of p can increase computational cost of SCrypt without increasing the memory usage.
+```n``` 内存消耗，必须是 2^N.
 
-```dkLen``` is intended output length in octets of the derived key.
+```r``` 参数.
+
+```p``` SCrypt算法的并行参数.
+
+```dkLen``` 派生key的长度.
 
 ### 1.2 数字身份
 
@@ -132,6 +137,8 @@ Scrypt数据结构:
   "controls": []
 }
 ```
+参数描述：
+
 ```ontid``` 身份id.
 
 ```label``` 昵称.
@@ -145,6 +152,8 @@ Scrypt数据结构:
 #### 1.2.1 Control
 
 ```Control```数据结构:
+
+
 ```
 {
   "algorithm": "ECDSA",
@@ -155,6 +164,8 @@ Scrypt数据结构:
   "salt": "Rv4v3a4U1zFEq28/"
 }
 ```
+参数描述：
+
 ```algorithm``` 签名算法名称.
 
 ```parameters``` 曲线参数.
@@ -170,16 +181,22 @@ Scrypt数据结构:
 #### 1.2.2 Parameter
 
 ```Parameter``` 数据结构:
+
+
 ```
 {
   "curve":"P-256"
 }
 ```
+参数描述：
+
 ```curve``` is the name of the elliptic curve.
 
 ### 1.3 Account
 
 ```Account``` 数据结构:
+
+
 ```
 {
     "address": "AadQ5xRwrSsFTGzKfLHc1brzykdnf7phhD",
@@ -197,6 +214,8 @@ Scrypt数据结构:
     "signatureScheme": "SHA256withECDSA"
 }
 ```
+参数描述：
+
 ```address``` base58 地址.
 
 ```enc-alg``` 私钥加密算法名称.
@@ -244,6 +263,7 @@ Scrypt数据结构:
 	}
 }
 ```
+参数描述：
 
 ```type``` 类型, **I** 代表身份 , **A** 代表账号.
 
