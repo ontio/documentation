@@ -231,33 +231,33 @@ ONG:5242930
 
 A. Open [Ontology smart contract IDE--SmartX](#ontology-smart-contract-ide--smartx), and write a Hello World smart contract according to [How to Write a Smart Contract](#how-to-write-a-smart-contract). For the convenience of calling, we change the contract code to the following form and then compile it into AVM bytecode, download the AVM bytecode and name it `hello.avm`:
 
-```
-using Neo.SmartContract.Framework.Services.Neo;
-using Neo.SmartContract.Framework;
-using System;
-using System.ComponentModel;
-
-namespace Neo.SmartContract
-{
-public class HelloWorld : Framework.SmartContract
-{
-public static object Main(string operation, params object[] args)
-{
-switch (operation)
-{
-case "Hello":
-Hello((string)args[0]);
-return true;
-default:
-return false;
-}
-}
-public static void Hello(string msg)
-{
-Runtime.Notify(msg);
-}
-}
-}
+```csharp
+    using Neo.SmartContract.Framework.Services.Neo;
+    using Neo.SmartContract.Framework;
+    using System;
+    using System.ComponentModel;
+    
+    namespace Neo.SmartContract
+    {
+        public class HelloWorld : Framework.SmartContract
+        {
+            public static object Main(string operation, params object[] args)
+            {
+                switch (operation)
+                {
+                    case "Hello":
+                        Hello((string)args[0]);
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+            public static void Hello(string msg)
+            {
+                Runtime.Notify(msg);
+            }
+        }
+    }
 ```
 
 > Description: In the Hello method, Runtime.Notify will make a notification on the chain for the passed parameters.
