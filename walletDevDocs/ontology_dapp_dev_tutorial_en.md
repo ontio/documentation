@@ -12,7 +12,7 @@ In this tutorial we will be covering:
 [Ontology dAPI Overview](#ontology-dAPI-overview)
 + [dAPI Installation](#dapi-installation)
 + [dAPI Instantiation](#dapi-instantiation)
-+ [Example dAPI methods](#example-dAPI-methods)
++ [Example dAPI methods](#example-dapi-methods)
 	+ [Example blockchain methods](#example-blockchain-methods)
 	+ [Example Smart Contract methods](#example-smart-contract-methods)
 
@@ -95,12 +95,12 @@ This will start the demo which can be accessed using the Google Chrome browser a
 
 Accessing this, select provider and then get provider.
 
-![dApp Demo Provider](../docs/lib/images/dAppDemoFirstScreen.png)
-![dApp Demo Get Provider](../docs/lib/images/dAppDemoRegisterProvider.png)
+![dApp Demo Provider](../docs/lib/images/dappdemofirstscreen.png)
+![dApp Demo Get Provider](../docs/lib/images/dappdemoregisterprovider.png)
 
 This will allow us to communicate with the Ontology Blockchain and make API calls.  For example, selecting Network->Get Block results in the following:
 
-![dApp Demo getBlock](../docs/lib/images/dAppDemoNetworkBlock.png)
+![dApp Demo getBlock](../docs/lib/images/dappdemonetworkblock.png)
 
 
 ### Writing a smart contract for your dApp
