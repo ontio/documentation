@@ -3,7 +3,7 @@
 English / [中文](./ontology_overview_sdks_zh.md)
 
 <h1 align="center">Overview of Ontology SDKs</h1>
-<p align="center" class="version">Version 1.0.0 </p>
+<p align="center" class="version">Version 1.0.1 </p>
 
 ## Overview
 
