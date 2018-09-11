@@ -23,23 +23,37 @@ In this tutorial we will be covering:
 
 ### Setting up the development environment
 
-There are a few technical requirements before we start. Please ensure you have the following installed and configured for use in your development environment.
+Please ensure you have the following installed and configured for use in your development environment.
 
-* [Node.js v6+ LTS and npm](https://nodejs.org/en/)
+* [Node.js v6+ LTS with npm](https://nodejs.org/en/)
+
+* [Cyano Wallet]( https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm)
 
 * [Git](https://git-scm.com/)<p>
 
 
-### Creating a project
+### Creating the demo project
+
+Clone the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) which we will use to demonstrate functionality.
+
+```
+git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+
+npm install
+
+npm run start
+```
+
+This will start the demo which can be accessed at http://localhost:3000
 
 #### dAPI Installation
-Next, download the Ontology dAPI SDK [here](https://github.com/ontio/ontology-dapi) and install using:
+Next, download the Ontology [dAPI SDK](https://github.com/ontio/ontology-dapi) and install using:
 
 ```
 npm install ontology-dapi
 ```
 
-#### dAPI Import and registration
+#### dAPI Instantiation
 
 Import and register the dAPI using:
 ```
@@ -69,8 +83,9 @@ const result = await client.api.smartContract.invokeRead({ contract, method, par
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
 
-A full list of methods can be found in the [OEP-6 document](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) and an example is located in the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
-<p><br>
+A full list of methods can be found in the [dAPI Specification document](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <p><br> 
+
+### dAPI Demo
 
 
 
@@ -85,7 +100,7 @@ To support our dApp we will write a smart contract that acts as the back-end log
 
 #### Compiling and deploying/invoking the smart contract
 
-SmartX uses [Cyano Wallet]( https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm) to help with compiling, deploying and invoking the smart contract. Please make sure you have installed Cyano and created an account in it.
+SmartX uses Cyano Wallet to help with compiling, deploying and invoking the smart contract. Please make sure you have installed Cyano and created an account in it.
 
 #### Compiling the smart contract
 
