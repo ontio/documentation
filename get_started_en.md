@@ -155,7 +155,7 @@ C. Use the REST interface to query the balance of the initial account (the bille
 
 D. Almost all operations at the Ontology network will consume ONG (Ontology gas), a.k.a gas (Utility token). In this example, the `--gasprice 0` parameter is set to 0 at startup so subsequent operations do not consume any gas, however you can still pay for gas. Following steps will demonstrate how to extract ONG from your account.
 
-* ONG is the associated fuel of ONT, which is gradually released with ONT, but it needs to be manually extracted into your own account;
+* ONG is the associated gas of ONT, which is gradually released from ONT, but it needs to be manually extracted into your own account;
 
 * Use `./ontology asset unboundong 1` to query the number of ONGs that can be extracted. You can use `./ontology asset --help`to learn more details.
 
@@ -165,7 +165,7 @@ Account:APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh
 ONG:0
 ```
 
- * The reason why the number of ONGs that can be extracted at this time is zero is the account has not activated the release of ONG. You can use transfer method to activate it;
+ * The reason why the number of ONGs that can be extracted at this time is zero is because the account has not activated the release of ONG. You can use below transfer method to activate it;
 
 * Use `./ontology account add -d`  to create another Ontology account. The address is `AGrJQhb7bZsy57MoQk6YDt3hDP7zRioHia`. Use `./ontology account list`  to query the account status of the default wallet;
 
