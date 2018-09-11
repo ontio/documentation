@@ -231,7 +231,7 @@ Smartx是本体推出的一站式智能合约编写工具，集成了编写、�
 1. 打开[smartx](#本体智能合约idesmartx)，按照[HelloWorld示例](#如何编写智能合约)编写一个Hello World智能合约，为方便调用，我们将合约代码改成如下形式，然后编译成AVM字节码，
 将AVM字节码下载下来，命名为`hello.avm`：
 
-    ```
+    ```csharp
     using Neo.SmartContract.Framework.Services.Neo;
     using Neo.SmartContract.Framework;
     using System;
