@@ -3,13 +3,20 @@ English / [中文](./ontology_dapp_dev_tutorial_zh.html)
 <h1 align="center">Ontology dApp development tutorial</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-This tutorial will guide you through the process of building your first dApp and is meant for those with a basic knowledge of the Ontology ecosystem, smart contracts and HTML/JavaScript, but who are new to building dApps.<p>
+This tutorial will guide you through the process of building your first dApp and is meant for those with a basic knowledge of the Ontology ecosystem, smart contracts and HTML/JavaScript, but who are new to building dApps.
 
 In this tutorial we will be covering:
 
-[Setting up the development environment](#setup-dev)
+[Setting up the development environment](#setting-up-the-development-environment)
 
-[Creating a project](#create-proj)
+[Ontology dAPI Overview](#ontology-dAPI-overview)
++ [dAPI Installation](#dapi-installation)
++ [dAPI Instantiation](#dapi-instantiation)
++ [Example dAPI methods](#example-dAPI-methods)
+	+ [Example blockchain methods](#example-blockchain-methods)
+	+ [Example Smart Contract methods](#example-smart-contract-methods)
+
+[Running the demo project](#running-the-demo-project)
 
 [Writing the smart contract](#write-SC)
 
@@ -25,29 +32,16 @@ In this tutorial we will be covering:
 
 Please ensure you have the following installed and configured for use in your development environment.
 
-* [Node.js v6+ LTS with npm](https://nodejs.org/en/)
+- [Node.js v6+ LTS with npm](https://nodejs.org/en/)
 
-* [Cyano Wallet]( https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm)
+- [Cyano Wallet]( https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm)
 
-* [Git](https://git-scm.com/)<p>
+- [Git](https://git-scm.com/)<p>
 
 
-### Creating the demo project
-
-Clone the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) which we will use to demonstrate functionality.
-
-```
-git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
-
-npm install
-
-npm run start
-```
-
-This will start the demo which can be accessed at http://localhost:3000
-
+### Ontology dAPI Overview
 #### dAPI Installation
-Next, download the Ontology [dAPI SDK](https://github.com/ontio/ontology-dapi) and install using:
+The Ontology dAPI is the core API used to interface with the Ontology blockhain when creating a dApp and the repository can be found [here](https://github.com/ontio/ontology-dapi). First you must install the npm package using: 
 
 ```
 npm install ontology-dapi
@@ -55,14 +49,13 @@ npm install ontology-dapi
 
 #### dAPI Instantiation
 
+To use the dAPI in your project, you need to import the library and then register as a client.
 Import and register the dAPI using:
 ```
 import { client } from 'ontology-dapi';
 
 client.registerClient({});
 ```
-
-
 
 #### Example dAPI methods
 Once imported and registered, use the provided dAPI methods in your dApp (see below).
@@ -85,8 +78,29 @@ const result = await client.api.smartContract.deploy({code,name,version,author,e
 
 A full list of methods can be found in the [dAPI Specification document](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <p><br> 
 
-### dAPI Demo
 
+### Running the demo project
+
+Clone the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) which we will use to demonstrate functionality.
+
+```
+git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+
+npm install
+
+npm run start
+```
+
+This will start the demo which can be accessed using the Google Chrome browser at http://localhost:3000
+
+Accessing this, select provider and then get provider.
+
+![dApp Demo Provider](../docs/lib/images/dAppDemoFirstScreen.png)
+![dApp Demo Get Provider](../docs/lib/images/dAppDemoRegisterProvider.png)
+
+This will allow us to communicate with the Ontology Blockchain and make API calls.  For example, selecting Network->Get Block results in the following:
+
+![dApp Demo getBlock](../docs/lib/images/dAppDemoNetworkBlock.png)
 
 
 ### Writing a smart contract for your dApp
