@@ -3,9 +3,9 @@ English / [中文](./ontology_dapp_dev_tutorial_zh.html)
 <h1 align="center">Ontology dApp development tutorial</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-This tutorial will guide you through the process of building your first dApp and is meant for those with a basic knowledge of the Ontology ecosystem, smart contracts and HTML/JavaScript, but who are new to building dApps.
+This tutorial is designed to give you an overview of creating a dApp using the Ontology dApp API (dAPI) and including the information on the tools required and shoulds en example dApp.
 
-In this tutorial we will be covering:
+The document is broken down into the following sections:
 
 [Setting up the development environment](#setting-up-the-development-environment)
 
@@ -18,12 +18,10 @@ In this tutorial we will be covering:
 
 [Running the demo project](#running-the-demo-project)
 
-[Writing a smart contract for your dApp](#writing-a-smart-contract-for-your-dApp)
+[Writing a smart contract for your dApp](#writing-a-smart-contract-for-your-dapp)
 + [Compiling your smart contract](#compiling-your-smart-contract)
 + [Deploying your smart contract](#deploying-your-smart-contract)
 + [Testing your smart contract](#testing-your-smart-contract)
-
-[Interacting with the dapp in a browser](#interact-dapp) <p>
 
 
 
@@ -109,7 +107,7 @@ You can also initiate a transfer by selecting Asset->Make Transfer where you'll 
 ### Writing a smart contract for your dApp
 
 
-To support your dApp you will likely want to write a smart contract that acts as the back-end logic and storage. We use Ontology's [SmartX](http://smartx.ont.io/) tool for this. 
+To support your dApp you will likely want to write a smart contract that acts as the back-end logic and storage. We use Ontology's [SmartX](http://smartx.ont.io/) tool for this. SmartX includes several template Smart Contracts to assist in development and further information can be found in the [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
 
 
 ![SmartX Login](../docs/lib/images/smartx.png)
