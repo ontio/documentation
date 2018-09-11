@@ -31,7 +31,7 @@ This documentation is an entry to the Ontology ecosystem for new Ontology develo
     - [Contract deployment and invocation](#contract-deployment-and-invocation)
     - [Authority management of smart contract](#authority-management-of-smart-contract)
 - [Use Ontology](#use-ontology)
-    - [Environmental deployment](#environmental-deployment)
+    - [Environment setup](#environment-setup)
     - [Contract writing, deployment and invocation](#contract-writing-deployment-and-invocation)
     - [Development DAPP tutorial](#development-dapp-tutorial)
     - [Wallet intergration tutorial](#wallet-intergration-tutorial)
@@ -137,23 +137,23 @@ By default, functions of a smart contract can be invoked by anyone, which obviou
 
 ## Use Ontology
 
-After a full understanding of Ontology, a simple example is introduced to describe how to develop on the Ontology network.
+Now that you have a better understanding of Ontology we can move on to a simple example to explore development on the Ontology network.
 
-### Environmental deployment
+### Environment setup
 
-A. Set up your own test network as described in [Connect to ontology](#connect-to-ontology). You can run ontology in test mode. Of course, you can also choose to connect to the Ontology's public testing network called Polaris.
+A. Set up your own test network as described in [Connect to ontology](#connect-to-ontology). You can run ontology in test mode or connect to Ontology's public test network called Polaris (TestNet).
 
-The next step will take the test mode as an example.
+The remaining part of this example is performed in test mode!
 
 B. Use the command `./ontology --rest --ws --localrpc --gaslimit 20000 --gasprice 0 --testmode --networkid 3` to start the testing network and enter the wallet account password.
 
-C. Use the rest interface to query the balance of the initial account (the biller in solo mode).
+C. Use the REST interface to query the balance of the initial account (the biller in solo mode).
 
-* Enter `http://localhost:20334/api/v1/balance/APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh` in your browser. `localhost` is the IP address of node，`20334` is the default rest port，and this port can also be specified by yourself, the command is `--rest --restport 20339`；`api/v1/balance/` is the URL path of the rest interface and `APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh` is the address of the initial biller. This entire URL constitutes the rest interface call method for the balance query.
+* Enter `http://localhost:20334/api/v1/balance/APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh` in your browser. `localhost` is the IP address of node，`20334` is the default rest port. This port can also be specified by yourself with this command `--rest --restport 20339`, `api/v1/balance/` is the URL path of the rest interface and `APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh` is the address of the initial biller. This entire URL constitutes the rest interface call method for the balance query.
 
-* The browser returns a response `{"Action":"getbalance","Desc":"SUCCESS","Error":0,"Result":{"ont":"1000000000","ong":"0"},"Version":"1.0.0"}`，which is a response string in json format. You can see there are 1000000000 ONT and 0 ONG.
+* The browser returns a response `{"Action":"getbalance","Desc":"SUCCESS","Error":0,"Result":{"ont":"1000000000","ong":"0"},"Version":"1.0.0"}`，which is a response string in JSON format. You can see there are 1000000000 ONT and 0 ONG.
 
-D. In the Ontology network, almost all operations need to consume gas, ie ong. In this example, the `--gasprice 0` parameter is set to be 0 at startup, so subsequent operations do not consume any gas. But you can still pay for gas. This step will demonstrate how to extract ONG from your account.
+D. Almost all operations at the Ontology network will consume ONG (Ontology gas), a.k.a gas (Utility token). In this example, the `--gasprice 0` parameter is set to 0 at startup so subsequent operations do not consume any gas, however you can still pay for gas. Following steps will demonstrate how to extract ONG from your account.
 
 * ONG is the associated fuel of ONT, which is gradually released with ONT, but it needs to be manually extracted into your own account;
 
