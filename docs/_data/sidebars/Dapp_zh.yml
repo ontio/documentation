@@ -26,8 +26,10 @@ entries:
     - title: 教程
       url: /ontology_dapp_dev_tutorial_zh.html
       output: web, pdf
+    - title: API 文档
+      external_url: https://apidoc.ont.io/dapi/
+      output: web, pdf
       subfolders:
-
       - title: 智能合约
         output: web, pdf
         subfolderitems:

@@ -26,6 +26,9 @@ entries:
     - title: Tutorial
       url: /ontology_dapp_dev_tutorial_en.html
       output: web, pdf
+    - title: API reference
+      external_url: https://apidoc.ont.io/dapi/
+      output: web, pdf
       subfolders:
 
       - title: Smart Contract
