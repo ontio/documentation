@@ -40,19 +40,19 @@ This documentation is an entry to the Ontology ecosystem for new Ontology develo
 
 ### What is Ontology
 
-Ontology is an infrastructure that integrates the fragmented indusitres in order to build a true and complete trust system. It's a platform that birdge the digital worl with the real world. From a highlevel perspective we can Ontology understand form two views:
+Ontology is an infrastructure that integrates the fragmented industries in order to build a true and complete trust system. It's a platform that bridge the digital world with the real world. From a high-level perspective we can Ontology understand form two views:
 
-<p align="center">Public blockchains with a new architecture (Infratructure)</p>
-Ontology is a new generation of a public chain infrastructure with high-performance (+5000 TPS for Ontology 1.0, 8000-10000 TPS for Ontology 2.0). The open-source framwork allow low level customization so that different business requirements and scenarios can be implemented. 
+<p align="center">Public blockchains with a new architecture (Infrastructure)</p>
+Ontology is a new generation of a public chain infrastructure with high-performance (+5000 TPS for Ontology 1.0, 8000-10000 TPS for Ontology 2.0). The open-source framework allow low level customization so that different business requirements and scenarios can be implemented.
 
 <p align="center">A distributed trust collaboration platform</p>
-With Ontology organizations, people, objects and communities can engange with each other in a trustful way. The platform links the digital economy with the real economy and support scenarios for e.g. distributed identity services, distributed data exchange and reputation. 
+With Ontology organizations, people, objects and communities can engage with each other in a trustful way. The platform links the digital economy with the real economy and support scenarios for e.g. distributed identity services, distributed data exchange and reputation. 
 
 The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/install_en.html#features). 
 
 ### How to get and install Ontology
 
-Ontology's source code is open-source on our [GitHub Repository](https://github.com/ontio/ontology), free to download and compile. You can download the latest oOtology binary file with `curl  https://dev.ont.io/ontology_install | sh`, or directly download the latest vesion at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
+Ontology's source code is open-source on our [GitHub Repository](https://github.com/ontio/ontology), free to download and compile. You can download the latest Ontology binary file with `curl  https://dev.ont.io/ontology_install | sh`, or directly download the latest version at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
 
 ### Introduction of the Ontology nodes
 
@@ -86,7 +86,7 @@ Ontology DID（also called ONT ID) is a decentralized identity identification pr
 
 #### Distributed data transaction
 
-The idea of centralized data exchanges face many challanges such as data cache, privacy data usage without user authorization, and data copyright protection. To cope with these challanges Ontology proposes ONT DATA, a distributed data management protocol. Based on ONT DATA, Ontology has launched a decentralized data transaction framework DDXF. For more details, please refer to [Distributed Data Exchange Framework](https://ontio.github.io/documentation/DDXF_en.html).
+The idea of centralized data exchanges face many challenges such as data cache, privacy data usage without user authorization, and data copyright protection. To cope with these challenges Ontology proposes ONT DATA, a distributed data management protocol. Based on ONT DATA, Ontology has launched a decentralized data transaction framework DDXF. For more details, please refer to [Distributed Data Exchange Framework](https://ontio.github.io/documentation/DDXF_en.html).
 
 ## How to interact with Ontology
 
@@ -122,7 +122,7 @@ SmartX is a one-stop smart contract tool developed by Ontology. It integrates fu
 
 ### How to write a smart contract
 
-For a better understand of our smart contract framework we reccomend you to try our [Hello World smart contract](https://ontio.github.io/documentation/The_Hello_World_Contract_en.html)
+For a better understand of our smart contract framework we recommend you to try our [Hello World smart contract](https://ontio.github.io/documentation/The_Hello_World_Contract_en.html)
 
 When developing smart contracts, there is a lot of smart contract APIs that must be invoked. For introduction to these APIs, please refer to [API of Smart Contract](https://apidoc.ont.io/smartcontract/).
 
