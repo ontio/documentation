@@ -9,7 +9,7 @@ The document is broken down into the following sections:
 
 [Setting up the development environment](#setting-up-the-development-environment)
 
-[Ontology dAPI Overview](#ontology-dAPI-overview)
+[Ontology dAPI Overview](#ontology-dapi-overview)
 + [dAPI Installation](#dapi-installation)
 + [dAPI Instantiation](#dapi-instantiation)
 + [Example dAPI methods](#example-dapi-methods)
