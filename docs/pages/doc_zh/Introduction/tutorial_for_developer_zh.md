@@ -140,7 +140,7 @@ Smartx是本体推出的一站式智能合约编写工具，集成了编写、�
 ### 智能合约的权限管理
 
 当前，智能合约的函数可以被任何人调用，这显然不符合现实要求。基于角色的权限管理的基本思想是，每个角色可以调用部分函数，每个实体可以被赋予多种角色（实体是由其ONT ID
-来标识）。[这篇文档](https://ontio.github.io/documentation/auth_zh.html)详细介绍了本体智能合约的权限管理方式。
+来标识）。[这篇文档](https://ontio.github.io/documentation/ontology_java_sdk_auth_zh.html)详细介绍了本体智能合约的权限管理方式。
 
 ## 使用本体
 
@@ -240,7 +240,7 @@ Smartx是本体推出的一站式智能合约编写工具，集成了编写、�
 1. 打开[smartx](#本体智能合约idesmartx)，按照[HelloWorld示例](#如何编写智能合约)编写一个Hello World智能合约，为方便调用，我们将合约代码改成如下形式，然后编译成AVM字节码，
 将AVM字节码下载下来，命名为`hello.avm`：
 
-    ```
+    ```csharp
     using Neo.SmartContract.Framework.Services.Neo;
     using Neo.SmartContract.Framework;
     using System;

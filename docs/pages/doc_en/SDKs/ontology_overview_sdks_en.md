@@ -22,7 +22,7 @@ Currently, Ontology has provided a variety of SDK, including [Java SDK](https://
 
 More SDKs that are being developed are: C#, C++, Swift.
 
-SDK main functions are：
+The main functions of Ontology SDK are:
 
 * Wallet file management
 * Digital identity and verifable claim management
