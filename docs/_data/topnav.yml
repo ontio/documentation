@@ -13,5 +13,7 @@ topnav:
       url: /ontology_overview_sdks_en.html
     - title: dApp
       url: /ontology_dapp_dev_tutorial_en.html
+    - title: Wallet
+      url: /ontology_wallet_dev_overview_en.html
 #Topnav dropdowns
 topnav_dropdowns:

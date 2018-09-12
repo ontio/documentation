@@ -13,8 +13,8 @@
 + [dAPI 安装](#dapi-安装)
 + [dAPI 实例](#dapi-实例)
 + [dAPI 方法](#dapi-方法)
-	+ [区块链](#example-blockchain-methods)
-	+ [智能合约](#example-smart-contract-methods)
+	+ [与链交互方法](#example-blockchain-methods)
+	+ [智能合约方法](#example-smart-contract-methods)
 
 [运行例子](#运行例子)
 
@@ -33,7 +33,7 @@
 
 - [Cyano Wallet]( https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm)
 
-- [Git](https://git-scm.com/)<p>
+- [Git](https://git-scm.com/)
 
 
 ### Ontology dAPI
@@ -56,7 +56,7 @@ client.registerClient({});
 
 #### dAPI 方法
 创建dAPI 实例成功后, 就可以在你的dApp中调用 dAPI 方法.
-##### 与链交互方法例子
+##### 与链交互方法
 ```typescript
 const network = await client.api.network.getNetwork();
 const height = await client.api.network.getBlockHeight();
@@ -66,14 +66,14 @@ const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBML
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
 ```
 
-##### 智能合约方法例子
+##### 智能合约方法
 ```typescript
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
 
-所有方法列表可以在文档中找到 [dAPI 规范](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <p><br> 
+所有方法列表可以在文档中找到 [dAPI 规范](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <br> 
 
 
 ### 运行例子
@@ -127,9 +127,9 @@ dApp后端逻辑和存储需要使用智能合约，可以通过**SmartX**编辑
 
 ![Deploy](https://s1.ax1x.com/2018/09/03/PzhTCd.png)
 
-<p>
 
-![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png) <p>
+
+![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png) 
 
 ### 测试你的智能合约
 
