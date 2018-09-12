@@ -11,11 +11,13 @@ English / [中文](./ontology_wallet_dev_overview_zh.html)
 
 
 
+<h1 align="center">Wallet Integration</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 The outline of this document is as follows:
 * [Wallet Integration](#wallet-integration)
-
+* [Native contract address](#native-contract-address)
+ 
 <h1 align="center">Wallet Integration</h1>
 
 
@@ -60,3 +62,16 @@ Golang SDK ：[Go SDK](https://github.com/ontio/ontology-go-sdk)
 
 Python SDK ：[Python SDK](https://github.com/ontio/ontology-python-sdk)
 
+
+# Native contract address
+
+contract | contract u160 address | Address
+---|---|---
+ONT Token | 0100000000000000000000000000000000000000| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
+ONG Token | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
+ONT ID | 0300000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
+Global Params | 0400000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
+Oracle | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
+Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
+Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
+DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
