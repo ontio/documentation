@@ -167,14 +167,14 @@ ONG:0
 
  * The reason why the number of ONGs that can be extracted at this time is zero is because the account has not activated the release of ONG. You can use below transfer method to activate it;
 
-* Use `./ontology account add -d`  to create another Ontology account. The address is `AGrJQhb7bZsy57MoQk6YDt3hDP7zRioHia`. Use `./ontology account list`  to query the account status of the default wallet;
+* Use `./ontology account add -d`  to create another Ontology account. The address is `AGrJQhb7bZsy57MoQk6YDt3hDP7zRioHia`. Use `./ontology account list` to query the account status of the default wallet;
 
 ```
 Index:1    Address:APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh  Label: (default)
 Index:2    Address:AGrJQhb7bZsy57MoQk6YDt3hDP7zRioHia  Label:
 ```
 
-* Use `./ontology asset transfer --from 1 --to 2 --amount 100000000` command to transfer 100 million ONT from Account 1 to Account 2. After entering the Password 1, the transfer is successful;
+* Use `./ontology asset transfer --from 1 --to 2 --amount 100000000` command to transfer 100 million ONT from Account 1 to Account 2. After entering Password 1, the transfer is successful;
 
 ```
 Transfer ONT
@@ -187,7 +187,7 @@ Tip:
 Using './ontology info status 73a3d24b7dfd0d96b23f93fd38afe4638b70f921c278202443d0dd29a036236f' to query transaction status
 ```
 
-* Check the balance of Account 1 and Account 2 by the command line that is `./ontology asset balance 1` and `./ontology asset balance 2`：
+* Check the balance of Account 1 and Account 2 by the command line `./ontology asset balance 1` and `./ontology asset balance 2`：
 
 ```
 BalanceOf:APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh
@@ -229,7 +229,7 @@ ONG:5242930
 
 ### Contract writing, deployment and invocation
 
-A. Open [Ontology smart contract IDE--SmartX](#ontology-smart-contract-ide--smartx), and write a Hello World smart contract according to [How to Write a Smart Contract](#how-to-write-a-smart-contract). For the convenience of calling, we change the contract code to the following form and then compile it into AVM bytecode, download the AVM bytecode and name it `hello.avm`:
+A. Open [Ontology smart contract IDE--SmartX](#ontology-smart-contract-IDE--SmartX) and use the Hello World smart contract according to [How to Write a Smart Contract](#how-to-write-a-smart-contract). For convenient calling functions of the contract, we change the Hello World contract code to following form and then compile it into AVM bytecode. You can download the AVM bytecode and name it `hello.avm`:
 
 ```csharp
     using Neo.SmartContract.Framework.Services.Neo;
