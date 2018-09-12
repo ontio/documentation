@@ -19,7 +19,7 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: DAPP
+  - title: Wallet
     output: web, pdf
     folderitems:
 

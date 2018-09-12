@@ -19,7 +19,7 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: DAPP
+  - title: 钱包集成
     output: web, pdf
     folderitems:
 
