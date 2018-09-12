@@ -1,14 +1,14 @@
 [English](./ontology_wallet_dev_overview_zh.html) / 中文
 
 
-
+<h1 align="center">钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 内容:
 * [钱包集成](#钱包集成)
 * [Native 合约地址](#native-合约地址)
 
-# 钱包集成
+## 钱包集成
 
 钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范](Wallet_Specification_cn.md)
 
@@ -49,7 +49,7 @@ Golang SDK ：[Go SDK](https://github.com/ontio/ontology-go-sdk)
 Python SDK ：[Python SDK](https://github.com/ontio/ontology-python-sdk)
 
 
-# Native 合约地址
+## Native 合约地址
 
 contract | contract u160 address | Address
 ---|---|---

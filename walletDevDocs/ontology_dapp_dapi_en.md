@@ -1,10 +1,10 @@
 English / [中文](./ontology_dapp_dapi_zh.html)
 
-
+<h1 align="center">Ontology dAPI</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 
-# Abstract
+## Abstract
 
 This proposal has two major parts:
 
@@ -12,7 +12,7 @@ This proposal has two major parts:
 
 * A Communication protocol is proposed for dAPI provider development. This allows multiple Wallet implementators to offer the same unified service to users of dApps and prevent fragmentation of dApp development.
 
-# Motivation
+## Motivation
 
 Currently a dApp will use one of the SDKs (Typescript, Java, Python, ...) to communicate with Ontology network. This setup has three main disadvantages:
 
@@ -22,7 +22,7 @@ Currently a dApp will use one of the SDKs (Typescript, Java, Python, ...) to com
 
 3. Hard to implement integration to external signing mechanism (e.g.: Ledger, Trezor)
 
-# Specification
+## Specification
 
 This proposal makes use of the following functions and definitions:
 
@@ -38,6 +38,6 @@ This proposal makes use of the following functions and definitions:
 
 * **NEOVM**, a lightweight virtual machine for execution of Neo/Ontology smart contracts.
 
-# Implementation
+## Implementation
 
 https://apidoc.ont.io/dapi/

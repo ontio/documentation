@@ -1,23 +1,24 @@
 ---
 title:
 keywords: sample homepage
-sidebar: Wallet_en
-permalink: ontology_dapp_dapi_en.html
-folder: doc_en/Wallet
-giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_dapp_dapi_en.md
+sidebar: Dapp_zh
+permalink: ontology_dapp_dapi_zh.html
+folder: doc_zh/Dapp
+giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_dapp_dapi_zh.md
 ---
 
-English / [中文](./ontology_dapp_dapi_zh.html)
+[English](./ontology_dapp_dapi_en.html) / 中文
 
 
 <p align="center" class="version">Version 1.0.0 </p>
 
-
-<h1 align="center">Abstract</h1>
-
+<h1 align="center">Ontology dAPI</h1>
 
 
 
+
+
+# Abstract
 
 This proposal has two major parts:
 
