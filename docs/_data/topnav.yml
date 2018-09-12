@@ -11,7 +11,7 @@ topnav:
       url: /ontology_DID_en.html
     - title: SDKs
       url: /ontology_overview_sdks_en.html
-    - title: dAPPs
+    - title: dApp
       url: /ontology_dapp_dev_tutorial_en.html
 #Topnav dropdowns
 topnav_dropdowns:

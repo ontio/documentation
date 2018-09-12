@@ -1,9 +1,9 @@
 ---
 title:
 keywords: sample homepage
-sidebar: Dapp_en
+sidebar: Dapp_zh
 permalink: ontology_dapp_dev_tutorial_zh.html
-folder: doc_en/Dapp
+folder: doc_zh/Dapp
 giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_dapp_dev_tutorial_zh.md
 ---
 

@@ -101,12 +101,12 @@ This will start the demo which can be accessed using the Google Chrome browser a
 
 Accessing this, select Provider->GetProvider.
 
-![dApp Demo Provider](../docs/lib/images/dappdemofirstscreen.png)
-![dApp Demo Get Provider](../docs/lib/images/dappdemoregisterprovider.png)
+![dApp Demo Provider](./lib/images/dappdemofirstscreen.png)
+![dApp Demo Get Provider](./lib/images/dappdemoregisterprovider.png)
 
 This will allow us to communicate with the Ontology Blockchain and make API calls.  For example, selecting Network->Get Block results in the following:
 
-![dApp Demo getBlock](../docs/lib/images/dappdemonetworkblock.png)
+![dApp Demo getBlock](./lib/images/dappdemonetworkblock.png)
 
 You can also initiate a transfer by selecting Asset->Make Transfer where you'll be automatically prompted to approve the transaction by Cyano Wallet. Click Confirm to approve the transaction.
 
@@ -119,7 +119,7 @@ You can also initiate a transfer by selecting Asset->Make Transfer where you'll 
 To support your dApp you will likely want to write a smart contract that acts as the back-end logic and storage. We use Ontology's [SmartX](http://smartx.ont.io/) tool for this. SmartX includes several template Smart Contracts to assist in development and further information can be found in the [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
 
 
-![SmartX Login](../docs/lib/images/smartx.png)
+![SmartX Login](./lib/images/smartx.png)
 
 
 #### Compiling and deploying your smart contract
