@@ -24,11 +24,7 @@ The outline of this document is as follows:
 * [Native contract address](#native-contract-address)
 
 
-<h1 align="center">1 Wallet</h1>
-
-
-
-
+## 1 Wallet
 
 Wallet is a data storing file in JSON format. In Ontology, Wallet can store not only the digital identity but also digital assets.
 
@@ -55,7 +51,11 @@ wallet.addAccount(account)
 
 ````
 
-# 2 Account
+<h1 align="center">2 Account</h1>
+
+
+
+
 Account is used to manage user's assets.
 
 
