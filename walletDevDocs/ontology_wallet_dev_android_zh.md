@@ -1,56 +1,56 @@
 
 
 
-<h1 align="center">Ontology Wallet Integration</h1>
+<h1 align="center">Android 钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-The outline of this document is as follows:
+内容:
 
-* [Wallet Integration](#wallet-integration)
-* [Java Sdk Tutorial](#java-sdk-tutorial)
-    * [1. Blockchain](#1-blockchain)
-        * [1.1 Initial](#11-initial)
-        * [1.2 Query](#12-query)
-            * [Query Unbound ong](#Query-unbound-ong)
-            * [Query Transaction history](#query-transaction-history)
-        * [1.3 Other interface：](#13-other-interface)
-            * [Query ONT/ONG balance](#query-ont/ong-balance)
-            * [Query transaction in transaction pool](#query-transaction-in-transaction-pool)
-            * [Query transaction success](#Query-transaction-success)
-    * [2. Account](#2-account)
-        * [2.1 Mnemonic code and keystore](#21-Mnemonic-code-and-keystore)
-        * [2.2 Random create account](#22-random-create-account)
-        * [2.3 Create account by privatekey](#23-create-account-by-privatekey)
-        * [2.4 Create account by WIF](#24-create-account-by-wif)
-        * [2.5 Address](#25-address)
-    * [3. Native asset](#3-native-asset)
-        * [3.1 ONT transfer](#31-ont-transfer)
-        * [3.2 ONG transfer](#32-ong-transfer)
-        * [3.3 Withdraw ONG](#withdraw-ong)
-        * [3.4 Make transfer by yourself](#33-make-transfer-by-yourself)
-            * [Transfer](#transfer)
-            * [Signature](#signature)
-            * [Multi-state signature](#multi-state-signature)
-    * [4. Digital identity](#4-digital-identity)
-        * [4.1 Registry](#41-registry)
-        * [4.2 Query identity](#42-query-identity)
-        * [4.3 Identity keystore](#43-identity-keystore)
-    * [5. Node Stake](#5-node-stake)
-        * [5.1 Register Candidate Node](#51-register-candidate-node)
-        * [5.2 Unregister Candidate](#52-unregister-candidate)
-        * [5.3 Withdraw](#53-withdraw)
-        * [5.4 Quit Node](#54-quit-node)
-* [Native contract address](#native-contract-address)		
+* [钱包集成](#钱包集成)
+* [Java Sdk 教程](#java-sdk-教程)
+    * [1. 与链交互](#1-与链交互)
+        * [1.1 初始化](#11-初始化)
+        * [1.2 查询](#12-查询)
+            * [查询 Unbound ong](#查询-unbound-ong)
+            * [查询交易历史](#查询交易历史)
+        * [1.3 其他接口](#13-其他接口)
+            * [查询 ONT/ONG 余额](#查询-ont/ong-余额)
+            * [查询交易是否在交易池中](#查询交易是否在交易池中)
+            * [查询交易是否成功](#查询交易是否成功)
+    * [2. 账号](#2-账号)
+        * [2.1 助记词 和 keystore](#21-助记词和keystore)
+        * [2.2 随机创建账号](#22-随机创建账号)
+        * [2.3 通过私钥创建账号](#23-通过私钥创建账号)
+        * [2.4 通过WIF创建账号](#24-通过WIF创建账号)
+        * [2.5 地址](#25-地址)
+    * [3. Native 资产](#3-native-资产)
+        * [3.1 ONT 转账](#31-ont-转账)
+        * [3.2 ONG 转账](#32-ong-转账)
+        * [3.3 提取 ONG](#提取-ong)
+        * [3.4 构造转账](#33-构造转账)
+            * [转账](#转账)
+            * [签名](#签名)
+            * [一转多多转多](#一转多多转多)
+    * [4. 数字身份](#4-数字身份)
+        * [4.1 注册](#41-注册)
+        * [4.2 查询身份](#42-查询身份)
+        * [4.3 身份keystore](#43-身份keystore)
+    * [5. 节点质押](#5-节点质押)
+        * [5.1 注册候选节点](#51-注册候选节点)
+        * [5.2 取消注册](#52-取消注册)
+        * [5.3 提取](#53-提取)
+        * [5.4 退出](#54-退出)
+* [Native 合约地址](#native-合约地址)		
 
 
 ​
-# Wallet Integration
+# 钱包集成
 
-The wallet function includes digit asset account ant digital identity. [Wallet Specification](Wallet_Specification_en.md)
+钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范](Wallet_Specification_cn.md)
 
-Wallet function list:
+钱包集成需要完成如下功能:
 
-| Module                |                    Sub Module                    |     Test case      |
+| 模块                |                    子模块                    |     测试用例     |
 | ------------------    | :----------------------------------------------: | :------------------: |
 | Wallet management    |           create                                 |     Use the mnemonic words when creating wallet(Based on BIP39 and BIP44 specifications)   |
 |                       |          export                                 |    Export keystore      |
@@ -72,7 +72,7 @@ Wallet function list:
 
 
 
-These sdk implementations wallet specification Currently:
+这些SDK已经完成了钱包规范:
 
 Java SDK ：[Java SDK](https://github.com/ontio/ontology-java-sdk/blob/master/docs) 
 
@@ -85,13 +85,13 @@ Golang SDK ：[Go SDK](https://github.com/ontio/ontology-go-sdk)
 Python SDK ：[Python SDK](https://github.com/ontio/ontology-python-sdk)
 
 
-# Java Sdk Tutorial
+# Java Sdk 教程
 
 The example below is in Java, android sdk the same with java sdk.
 
-## 1. BlockChain
+## 1. 与链交互
 
-### 1.1 Initial
+### 1.1 初始化
 
 ```
 String ip = "http://polaris1.ont.io"; //test net
@@ -103,17 +103,15 @@ ontSdk.setDefaultConnect(ontSdk.getRpc());
 
 ```
 
-### 1.2 Query
+### 1.2 查询
 
-#### Query Unbound ong
+#### 查询 Unbound ong
 
-There is one useful api from our explorer that can be used to query all the balance of an address.It includes
+通过地址查询余额，ONT, ONG, claimable ONG and unbound ONG.
 
-ONT, ONG, claimable ONG and unbound ONG.
+测试网服务器  https://polarisexplorer.ont.io
 
-For testnet, api host is  https://polarisexplorer.ont.io
-
-For mainnet, dapi host is https://explorer.ont.io
+主网服务器 https://explorer.ont.io
 
 ````
 /api/v1/explorer/address/balance/{address}
@@ -144,7 +142,7 @@ method：GET
 }
 ````
 
-#### Query Transaction history
+#### 查询交易历史
 
 We can use the explorer api to fetch the transaction history of an address with pagination.
 
@@ -218,7 +216,7 @@ successResponse：
 ````
 
 
-### 1.3 Other interface：
+### 1.3 其他接口
 
 
 | No   |                    Main   Function                     |     Description      |
@@ -245,7 +243,7 @@ successResponse：
 | 20   |        ontSdk.getConnect().getMemPoolTxState("")         | getMemPoolTxState |
 
 
-#### Query ONT/ONG balance
+#### 查询 ONT/ONG 余额
 
 ```
 ontSdk.getConnect().getBalance("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2");
@@ -266,7 +264,7 @@ System.out.println(ontSdk.nativevm().ong().queryTotalSupply());
 
 ```
 
-#### Query transaction in transaction pool
+#### 查询交易是否在交易池中
 
 ```
 ontSdk.getConnect().getMemPoolTxState("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
@@ -307,9 +305,9 @@ or not in pool
 
 ```
 
-#### Query transaction success
+#### 查询交易是否成功
 
-query smartcontract event: 
+查询智能合约事件: 
 
 ```
 ontSdk.getConnect().getSmartCodeEvent("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
@@ -341,7 +339,7 @@ response:
 
 ```
 
-query smartcontract event by block height
+通过块高查询智能合约
 
 ```
 ontSdk.getConnect().getSmartCodeEvent(10)
@@ -373,12 +371,12 @@ response:
 ```
 
 
-## 2. Account
+## 2. 账号
 
 
 
 
-### 2.1 Mnemonic code and keystore
+### 2.1 助记词和keystore
 
 Users can use the menmonic code to create an account. The BIP44 path Ontology uses is "m/44'/1024'/0'/0/0".
 
@@ -424,7 +422,7 @@ String prikey2 = WalletQR.getPriKeyFromQrCode(JSON.toJSONString(keystore),"passw
 
  ```
 
-### 2.2 Random create account
+### 2.2 随机创建账号
 
 
 ```
@@ -441,7 +439,7 @@ ontSdk.getWalletMgr().writeWallet();
 
 ```
 
-### 2.3 Create account by privatekey
+### 2.3 通过私钥创建账号
 
 
 ```
@@ -449,7 +447,7 @@ com.github.ontio.sdk.wallet.Account acct = ontSdk.getWalletMgr().createAccountFr
 ontSdk.getWalletMgr().writeWallet();
 ```
 
-### 2.4 Create account by WIF
+### 2.4 通过WIF创建账号
 
 ```
 
@@ -461,9 +459,9 @@ ontSdk.getWalletMgr().writeWallet();
 
 
 
-### 2.5 Address
+### 2.5 地址
 
-single signature address and multi-signature address
+单签地址和多签地址
 
 ```
 
@@ -487,17 +485,17 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 
 ```
 
-| Function                  | Params                      | Desc                       |
+| 方法                  | 参数                      | 描述                       |
 | :---------------------- | :------------------------ | :----------------------------- |
 | addressFromMultiPubkeys | int m,byte\[\]... pubkeys | M,pubkey |
 
 
 
-## 3. Native asset
+## 3. Native 资产
 
 
 
-### 3.1 ONT tansfer
+### 3.1 ONT 转账
 
 example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/OntDemo.java)
 
@@ -505,29 +503,29 @@ example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main
 String hash = ontSdk.nativevm().ont().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ4PA2m4pyJt2d",200,payerAcct,20000,500);
 
 ```
-| Function       | Params                                                     | Desc                       |
+| 方法       | 参数                                                     | 描述                       |
 | :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | sendTransfer | String sendTransfer(Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice) | sendAcct,recvAddr,amount,payer,gaslimit,gasprice |
 
 
 
-### 3.2 ONG transfer
+### 3.2 ONG 转账
 
-example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/OngDemo.java)
+参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/OngDemo.java)
 
 
 
-same to ONT：
+ONG 转账：
 
 ```
 String hash = ontSdk.nativevm().ong().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ4PA2m4pyJt2d",200,payerAcct,20000,500);
 
 ```
 
-### 3.3 Withdraw ONG
+### 3.3 提取 ONG
 
-1. query unboundOng
-2. withdrawOng
+1. 查询 unboundOng
+2. 提取 ONG
 
 ```
 query unboundOng:
@@ -540,18 +538,18 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 ```
 
-| Function      | Params                      | Desc                       |
+| 函数      | 参数                      | 描述                       |
 | :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | withdrawOng | String claimer,String to,long amount,String payer,long gaslimit,long gasprice | from,to,amount,payer,gaslimit,gasprice |
 
 
 
 
-## 3.4 Make transfer by yourself
+## 3.4 构造转账
 
-example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
+参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
-#### Transfer
+#### 转账
 
 ```
 
@@ -576,14 +574,14 @@ ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 
 
 
-| Function      | Params                      | Desc                       |
+| 函数      | 参数                      | 描述                       |
 | :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | makeTransfer | String sender，String recvAddr,long amount,String payer,long gaslimit,long gasprice | sender,to,amount,payer,gaslimit,gasprice |
 | makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice    | multi state                                   |
 
-#### Signature
+#### 签名
 
-if sender is different with payer, both of them need signature transaction.
+如果转出方和网络费付款人不是统一个人，两则都需要签名.
 
 ```
 1.add Sign
@@ -596,10 +594,10 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct0,acct1});
 
 
 
-#### Multi-state transfer
+#### 一转多多转多
 
-1. contruct multi state
-2. signature
+1. 构造多个state
+2. 签名
 
 ```
 Address sender1 = acct0.getAddressU160();
@@ -619,11 +617,11 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct1, acct2});
 
 
 
-## 4. Digital identity
+## 4. 数字身份
 
-#### 4.1 Registry
+#### 4.1 注册
 
-example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
+参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
 
 ```
 
@@ -632,9 +630,9 @@ ontSdk.nativevm().ontId().sendRegister(identity,password,payerAcct,ontSdk.DEFAUL
  
 ```
 
-#### 4.2 Query identity
+#### 4.2 查询身份
 
-example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
+参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
 
 ```
 
@@ -642,9 +640,9 @@ String ddo2 = ontSdk.nativevm().ontId().sendGetDDO(identity.ontid);
  
 ```
 
-#### 4.3 Identity keystore
+#### 4.3 身份keystore
 
-export keystore
+导出助记词
 
 ```
 //export keystore
@@ -656,7 +654,7 @@ System.out.println(JSON.toJSONString(keystore));
 
  ```
 
-import keystore
+导入助记词
 
  ```
  
@@ -665,11 +663,11 @@ String prikey2 = WalletQR.getPriKeyFromQrCode(JSON.toJSONString(keystore),"passw
  ```
 
 
-## 5. Node Stake
+## 5. 节点质押
 
-### 5.1 Register Candidate Node
+### 5.1 注册候选节点
 
-Make transaction to register candidate node.
+注册候选节点.
 
 ````
 
@@ -684,9 +682,9 @@ String txhash = sdk.nativevm().governance().registerCandidate(account,peerPubkey
 
 ````
 
-### 5.2 Unregister Candidate
+### 5.2 取消注册
 
-Make transaction to cancel the register.
+取消注册.
 
 ```
 String peerPubkey = Helper.toHexString(account8.serializePublicKey());
@@ -694,9 +692,9 @@ String txhash = sdk.nativevm().governance().unRegisterCandidate(account,peerPubk
 
 ```
 
-### 5.3 Withdraw 
+### 5.3 提取 
 
-Make transaction to withdraw the paied ONT.
+提取 ONT.
 
 ```
 
@@ -705,9 +703,9 @@ String txhash = sdk.nativevm().governance().withdraw(account,peerPubkeys,new lon
 
 ```
 
-### 5.4 Quit Node
+### 5.4 退出
 
-Make transaction to quit node.
+退出.
 
 ```
 String[] peerPubkeys = new String[]{"03e1e09221c9f513df76273f3cec0d033ee6056b159300d7b1072fc7020eadccbb"};
@@ -717,7 +715,7 @@ String txhash = sdk.nativevm().governance().quitNode(account,peerPubkey,payerAcc
 
 
 
-# Native contract address
+# Native 合约地址
 
 contract | contract u160 address | Address
 ---|---|---
