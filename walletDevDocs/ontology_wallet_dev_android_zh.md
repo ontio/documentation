@@ -1,7 +1,7 @@
+[English](./ontology_wallet_dev_android_en.html) / 中文
 
 
 
-<h1 align="center">Android 钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 内容:
