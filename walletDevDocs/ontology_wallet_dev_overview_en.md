@@ -2,12 +2,13 @@ English / [中文](./ontology_wallet_dev_overview_zh.html)
 
 
 
-<h1 align="center">Wallet Integration</h1>
+
 <p align="center" class="version">Version 1.0.0 </p>
 
 The outline of this document is as follows:
 * [Wallet Integration](#wallet-integration)
 * [Native contract address](#native-contract-address)
+
  
 # Wallet Integration
 

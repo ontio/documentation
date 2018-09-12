@@ -1,7 +1,8 @@
 English / [中文](./ontology_dapp_dapi_zh.html)
 
-<h1 align="center">Ontology dAPI</h1>
+
 <p align="center" class="version">Version 1.0.0 </p>
+
 
 # Abstract
 
