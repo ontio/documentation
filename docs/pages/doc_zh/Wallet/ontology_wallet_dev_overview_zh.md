@@ -1,32 +1,32 @@
 ---
 title:
 keywords: sample homepage
-sidebar: Dapp_en
-permalink: ontology_wallet_dev_overview_en.html
-folder: doc_en/Dapp
-giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_overview_en.md
+sidebar: Wallet_zh
+permalink: ontology_wallet_dev_overview_zh.html
+folder: doc_zh/Wallet
+giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_overview_zh.md
 ---
 
 
 
 
-<h1 align="center">Wallet Integration</h1>
+<h1 align="center">钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-The outline of this document is as follows:
-* [Wallet Integration](#wallet-integration)
+内容:
+* [钱包集成](#wallet-integration)
 
-<h1 align="center">Wallet Integration</h1>
-
-
+<h1 align="center">钱包集成</h1>
 
 
 
-The wallet function includes digit asset account ant digital identity. [wallet Specification](./Wallet_File_Specification_en.html)
 
-Wallet function list:
 
-| Module                |                    Sub Module                    |     Test case      |
+钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范](Wallet_Specification_cn.md)
+
+钱包集成需要完成如下功能:
+
+| 模块                |                    子模块                    |     测试用例     |
 | ------------------    | :----------------------------------------------: | :------------------: |
 | Wallet management    |           create                                 |     Use the mnemonic words when creating wallet(Based on BIP39 and BIP44 specifications)   |
 |                       |          export                                 |    Export keystore      |
@@ -48,7 +48,7 @@ Wallet function list:
 
 
 
-These sdk implementations wallet specification Currently:
+这些SDK已经完成了钱包规范:
 
 Java SDK ：[Java SDK](https://github.com/ontio/ontology-java-sdk/blob/master/docs) 
 

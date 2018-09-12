@@ -1,9 +1,9 @@
 ---
 title:
 keywords: sample homepage
-sidebar: Dapp_en
+sidebar: Wallet_en
 permalink: ontology_wallet_dev_android_en.html
-folder: doc_en/Dapp
+folder: doc_en/Wallet
 giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_android_en.md
 ---
 
@@ -43,7 +43,7 @@ The outline of this document is as follows:
     * [4. Digital identity](#4-digital-identity)
         * [4.1 Registry](#41-registry)
         * [4.2 Query identity](#42-query-identity)
-        * [4.3 Identity keystore](#identity-keystore)
+        * [4.3 Identity keystore](#43-identity-keystore)
     * [5. Node Stake](#5-node-stake)
         * [5.1 Register Candidate Node](#51-register-candidate-node)
         * [5.2 Unregister Candidate](#52-unregister-candidate)
@@ -734,14 +734,14 @@ String txhash = sdk.nativevm().governance().quitNode(account,peerPubkey,payerAcc
 
 contract | contract u160 address | Address
 ---|---|---
-ONT Token | 0000000000000000000000000000000000000001| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
-ONG Token | 0000000000000000000000000000000000000002 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
-ONT ID | 0000000000000000000000000000000000000003 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
-Global Params | 0000000000000000000000000000000000000004 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
-Oracle | 0000000000000000000000000000000000000005 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
-Authorization Manager(Auth) | 0000000000000000000000000000000000000006 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
-Governance | 0000000000000000000000000000000000000007 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
-DDXF(Decentralized Exchange) | 0000000000000000000000000000000000000008 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
+ONT Token | 0100000000000000000000000000000000000000| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
+ONG Token | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
+ONT ID | 0300000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
+Global Params | 0400000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
+Oracle | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
+Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
+Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
+DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
 
 
 

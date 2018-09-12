@@ -1,39 +1,39 @@
 ---
 title:
 keywords: sample homepage
-sidebar: Dapp_en
-permalink: ontology_wallet_dev_ts_sdk_en.html
-folder: doc_en/Dapp
-giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_ts_sdk_en.md
+sidebar: Wallet_zh
+permalink: ontology_wallet_dev_ts_sdk_zh.html
+folder: doc_zh/Wallet
+giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_ts_sdk_zh.md
 ---
 
 
 
 
-<h1 align="center">Ontology Wallet Integration</h1>
+<h1 align="center">钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-The outline of this document is as follows:
-* [Wallet Integration](#wallet-integration)
-* [Typescript Sdk Tutorial](#typescript-sdk-tutorial)
-  * [1. Wallet](#1-wallet)
-  * [2. Account](#2-account)
-  * [3. Native Asset](#3-native-asset)
-  * [4. Blockchain](#4-blockchain)
-  * [5. Node Stake](#4-node-stake)
-* [Native contract address](#native-contract-address)
+内容:
+* [钱包集成](#钱包集成)
+* [Typescript Sdk 教程](#typescript-sdk-教程)
+  * [1. 钱包](#1-钱包)
+  * [2. 资产账户](#2-资产账户)
+  * [3. Native 资产](#3-native-资产)
+  * [4. 与链交互](#4-与链交互)
+  * [5. 节点质押](#4-节点质押)
+* [Native 合约地址](#native-合约地址)
 
-<h1 align="center">Wallet Integration</h1>
-
-
+<h1 align="center">钱包集成</h1>
 
 
 
-The wallet function includes digit asset account ant digital identity. [wallet Specification](./Wallet_File_Specification_en.html)
 
-Wallet function list:
 
-| Module                |                    Sub Module                    |     Test case      |
+钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范](Wallet_Specification_cn.md)
+
+钱包集成需要完成如下功能:
+
+| 模块                |                    子模块                    |     测试用例     |
 | ------------------    | :----------------------------------------------: | :------------------: |
 | Wallet management    |           create                                 |     Use the mnemonic words when creating wallet(Based on BIP39 and BIP44 specifications)   |
 |                       |          export                                 |    Export keystore      |
@@ -55,7 +55,7 @@ Wallet function list:
 
 
 
-These sdk implementations wallet specification Currently:
+这些SDK已经完成了钱包规范:
 
 Java SDK ：[Java SDK](https://github.com/ontio/ontology-java-sdk/blob/master/docs) 
 
@@ -67,14 +67,14 @@ Golang SDK ：[Go SDK](https://github.com/ontio/ontology-go-sdk)
 
 Python SDK ：[Python SDK](https://github.com/ontio/ontology-python-sdk)
 
-# 1 Wallet
+# 1 钱包
 
 Wallet is a data storing file in JSON format. In Ontology, Wallet can store not only the digital identity but also digital assets.
 
-[Wallet Specification](./Wallet_File_Specification_en.html)
+[Wallet Specification]()
 
 
-## 1.1 Create a Wallet
+## 1.1 创建钱包
 
 Users could create their wallet from scratch.
 
@@ -85,30 +85,28 @@ import {Wallet} from 'ontology-ts-sdk';
 var wallet = Wallet.create('my_wallet')
 ````
 
-## 1.2 Manager Wallet
+## 1.2 钱包管理
 
- add account
+添加资产账户
 
 ````
 wallet.addAccount(account)
 
 ````
 
-# 2 Account
-Account is used to manage user's assets.
+# 2 资产账户
 
 
-## 2.1 Create a random account
+## 2.1 创建随机账户
 
-We can generate a random private key with specific keypair algorithm and elliptic curve. There are three kinds of algorithms we support:
+根据不同算法随机创建账户:
 
 * ECDSA
 * SM2
 * EDDSA
 
-ECDSA is the default one. You can check TS SDK API reference for more info.
+ 默认使用ECDSA。
 
-Then we can create the account and add it to the wallet.
 
 ````
 import {Account, Crypto} from 'ontology-ts-sdk';
@@ -135,11 +133,9 @@ wallet.addAccount(account)
 |   params   | Parameters used to encrypt the privatekey. |
 
 
-## 2.2 Import an Account
+## 2.2 导入账户
 
-Users can import an account by the backup data.
-
-This method will check the password and the private key, an error will be thrown if they are not match.
+导入账户.
 
 ````
 import { Account } from 'ontology-ts-sdk'
@@ -157,9 +153,9 @@ try {
 }
 ````
 
-## 2.3 Create an account from mnemonic code
+## 2.3 通过助记词创建账户
 
-Users can use the menmonic code to create an account. The BIP44 path Ontology uses is "m/44'/1024'/0'/0/0".
+通过助记词创建账户. BIP44 path ： "m/44'/1024'/0'/0/0".
 
 ````
 import { Account } from 'ontology-ts-sdk';
@@ -175,7 +171,7 @@ try {
 }
 ````
 
-### How to generate mnemonic?
+### 如何产生助记词?
 
 ```
 import { utils } from 'ontology-ts-sdk'
@@ -183,7 +179,7 @@ import { utils } from 'ontology-ts-sdk'
 const mnemonic = utils.generateMnemonic(size);
 ```
 
-### Genera private key from mnemonic?
+### 如果从助记词获取到私钥?
 
 ```
 import {Crypto} from 'ontology-ts-sdk'
@@ -192,7 +188,7 @@ import {Crypto} from 'ontology-ts-sdk'
 const privateKey = Crypto.PrivateKey.generateFromMnemonic(mnemonic, derivePath)
 ```
 
-## 2.4 Create an account from WIF 
+## 2.4 通过WIF创建账号 
 
 ````
 import {Crypto, Account} from 'ontology-ts-sdk';
@@ -206,11 +202,11 @@ const privateKey = Crypto.PrivateKey.deserializeWIF(wif);
 const account = Account.create(privateKey, password, name, params);
 ````
 
-## 2.5 Import and export keystore
+## 2.5 导入导出 keystore
 
-Keystore is  a data structure to backup user's account.And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification](./Wallet_File_Specification_en.html) to see more info.
+请参考Keystore数据结构，  [Wallet Specification](Wallet_Specification_en.md)
 
-#### Export keystore
+#### 导出 keystore
 
 ````
 //Suppose we have an account object
@@ -235,17 +231,14 @@ const keystore = {
 
 ````
 
-#### Import keystore
+#### 导入 keystore
 
-The process is the same as **2.2 Import An Account**
+请参考 **2.2 Import An Account**
 
-# 3 Native Asset
+# 3 Native 资产
 
-There are two kinds of native asset in Ontology: ONT and ONG.
+Native 资产包括: ONT 和 ONG.
 
-In order to transfer native asset, we can create the specific transaction and send it to the blockchain. After the transaction has been packaged in the block, the transaction will succeed.
-
-Type of native asset:
 ````
 TOKEN_TYPE = {
   ONT : 'ONT',  //Ontology Token
@@ -253,11 +246,11 @@ TOKEN_TYPE = {
 }
 ````
 
-## 3.1 Query 
+## 3.1 查询 
 
-We can use RESTful API, RPC API and WebSocket API to query the balance. Here we use RESTful API as example. And we have explorer apis that are more easy to use.
+包括多种方式查询
 
-### 3.1.1 Query Balance
+### 3.1.1 查询余额
 ````typescript
 const address = new Address('AXpNeebiUZZQxLff6czjpHZ3Tftj8go2TF');
 const nodeUrl = 'http://polaris1.ont.io:20334' // Testnet
@@ -266,17 +259,15 @@ rest.getBalance(address).then(res => {
 	console.log(res)
 })
 ````
-The result contains balance of ONT and ONG.
 
-### 3.1.2 Query Unbound ong
 
-There is one useful api from our explorer that can be used to query all the balance of an address.It includes
+### 3.1.2 查询 Unbound ong
 
-ONT, ONG, claimable ONG and unbound ONG.
+通过地址查询余额，ONT, ONG, claimable ONG and unbound ONG.
 
-For testnet, api host is  https://polarisexplorer.ont.io
+测试网服务器  https://polarisexplorer.ont.io
 
-For mainnet, dapi host is https://explorer.ont.io
+主网服务器 https://explorer.ont.io
 
 ````
 /api/v1/explorer/address/balance/{address}
@@ -307,7 +298,7 @@ method：GET
 }
 ````
 
-### 3.1.3 Query Transaction history
+### 3.1.3 查询交易历史
 
 We can use the explorer api to fetch the transaction history of an address with pagination.
 
@@ -380,11 +371,11 @@ successResponse：
 }
 ````
 
-## 3.2 Transfer asset
+## 3.2 资产转账
 
-### Create transfer transaction
+### 创建转账交易
 
-First we need to create the transaction for transfer. 
+创建转账交易. 
 
 ````typescript
 import {OntAssetTxBuilder} from 'ontology-ts-sdk'
@@ -405,7 +396,7 @@ const payer = from;
 const tx = OntAssetTxBuilder.makeTransferTx(assetType, from, to, amount, gasPrice, gasLimit, payer);
 ````
 
-|  Param    | Desc  |
+|  参数    | 描述  |
 |:--------    |:--   |
 |   assetType      | ONT or ONG.|
 |   from      | Sender's address to withdraw ONG.|
@@ -416,11 +407,11 @@ const tx = OntAssetTxBuilder.makeTransferTx(assetType, from, to, amount, gasPric
 |   payer | Payer's address to pay for the transaction gas.|
 
 
-## 3.3 Withdraw ong
+## 3.3 提取 ong
 
-### Create withdraw transaction
+### 创建 withdraw 交易
 
-Withdraw generated ONG from user's account address and send to other address. They can be the same address. Users can only withdraw the claimable ONG.
+.
 
 ````typescript
 import {OntAssetTxBuilder} from 'ontology-ts-sdk'
@@ -435,7 +426,7 @@ const payer = account.address;
 const tx = OntAssetTxBuilder.makeWithdrawOngTx(from, to, amount, payer, gasPrice, gasLimit);
 ````
 
-|  Param    | Desc  |
+|  参数    | 描述  |
 |:--------    |:--   |
 |   from      | Sender's address to withdraw ONG.|
 |   to       |  Receiver's address to receive ONG.|
@@ -444,11 +435,9 @@ const tx = OntAssetTxBuilder.makeWithdrawOngTx(from, to, amount, payer, gasPrice
 |   gasLimit | Gas limit.|
 |   payer | Payer's address to pay for the transaction gas.|
 
-## 3.4 Sign and Send transaction
+## 3.4 签名和发送交易
 
-We use private key to sign transaction.
-
-We can use RESTful API, RPC API, or WebSocket API to send a transaction. Here we use RESTful API as an example.
+通过私钥做签名
 
 
 > RestClient.getSmartCodeEvent
@@ -474,7 +463,7 @@ rest.sendRawTransaction(tx.serialize()).then(res => {
 
 > Use WebSocket API and wait for the transaction notice.
 
-The result may look like:
+响应:
 
 ```
 { 
@@ -486,13 +475,11 @@ The result may look like:
 }
 ```
 
-The `Result` of the response is the transaction hash, it can be used to query the event of the transaction.
 
-Then we can query the balance to check if the transaction succeeded.
 
-## 4 Blockchain 
+## 4 与链交互 
 
-Users can use restful api, rpc api or websocket api to access info from the blockchain.Here we use restful api for example.The result is promise.
+可以通过restful，rpc，websocket与链交互。
 
 ```
 import {RestClient} from 'ontology-ts-sdk'
@@ -523,11 +510,11 @@ rest.getBalance(address: Address)
 rest.getAllowance(asset: string, from: Address, to: Address)
 ```
 
-## 5 Node Stake
+## 5 节点质押
 
-### 5.1 Register Candidate Node
+### 5.1 注册候选节点
 
-Make transaction to register candidate node.
+注册候选节点.
 
 ````
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
@@ -543,9 +530,9 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 const tx = GovernanceTxBuilder.makeRegisterCandidate(ontid, peerPubkey, keyNo, userAddr, initPos, payer, gasPrice, gasLimit)
 ````
 
-### 5.2 Unregister Candidate
+### 5.2 取消注册
 
-Make transaction to cancel the register.
+取消注册.
 
 ```
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
@@ -558,9 +545,9 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 const tx = GovernanceTxBuilder.makeUnregisterCandidateTx(userAddr, peerPubkey, payer, gasPrice, gasLimit)
 ```
 
-### 5.3 Withdraw 
+### 5.3 提取 
 
-Make transaction to withdraw the paied ONT.
+提取 ONT.
 
 ```
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
@@ -574,9 +561,9 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 const tx = GovernanceTxBuilder.makeWithdrawTx(userAddr, peerPubkeys, withdrawList, payer, gasPrice, gasLimit)
 ```
 
-### 5.4 Quit Node
+### 5.4 退出
 
-Make transaction to quit node.
+退出.
 
 ```
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
@@ -589,15 +576,15 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 const tx = GovernanceTxBuilder.makeQuitNodeTx(userAddr, peerPubkey, payer, gasPrice, gasLimit)
 ```
 
-# Native contract address
+# Native 智能合约
 
 contract | contract u160 address | Address
 ---|---|---
-ONT Token | 0000000000000000000000000000000000000001| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
-ONG Token | 0000000000000000000000000000000000000002 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
-ONT ID | 0000000000000000000000000000000000000003 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
-Global Params | 0000000000000000000000000000000000000004 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
-Oracle | 0000000000000000000000000000000000000005 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
-Authorization Manager(Auth) | 0000000000000000000000000000000000000006 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
-Governance | 0000000000000000000000000000000000000007 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
-DDXF(Decentralized Exchange) | 0000000000000000000000000000000000000008 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
+ONT Token | 0100000000000000000000000000000000000000| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
+ONG Token | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
+ONT ID | 0300000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
+Global Params | 0400000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
+Oracle | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
+Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
+Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
+DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
