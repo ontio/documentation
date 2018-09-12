@@ -11,7 +11,7 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 
 
 
-<h1 align="center">苹果手机钱包集成</h1>
+<h1 align="center">iOS手机钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 内容:
