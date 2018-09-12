@@ -46,7 +46,6 @@
 
 ​
 
-# Java Sdk 教程
 
 The example below is in Java, android sdk the same with java sdk.
 

@@ -44,7 +44,6 @@ The outline of this document is as follows:
 
 
 
-# Java Sdk Tutorial
 
 The example below is in Java, android sdk the same with java sdk.
 
