@@ -35,7 +35,6 @@
         	* [注册身份](#注册身份)
         	* [查询身份](#查询身份)
 	* [部署Ontology同步节点](#部署ontology同步节点)
-    * [附 native 合约地址](#附-native-合约地址)		
 
 
 ​
@@ -524,18 +523,6 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct1, acct2});
 
 
 
-## 附 native 合约地址
-
-合约名称 | 合约地址 | Address
----|---|---
-ONT Token | 0100000000000000000000000000000000000000| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
-ONG Token | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
-ONT ID | 0300000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
-Global Params | 0400000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
-Oracle | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
-Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
-Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
-DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
 
 
 
