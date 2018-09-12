@@ -64,14 +64,3 @@ entries:
         - title: API 文档
           external_url: https://apidoc.ont.io/smartcontract/
           output: web
-      - title: 钱包集成
-        output: web, pdf
-        subfolderitems:
-
-        - title: Android SDK
-          url: /ontology_wallet_dev_android_en.html
-          output: web, pdf
-
-        - title: TypeScript SDK
-          url: /ontology_wallet_dev_ts_sdk_en.html
-          output: web, pdf
