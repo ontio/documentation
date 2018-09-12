@@ -275,7 +275,7 @@ Tip:
 Using './ontology info status c49865b16009177ed4b06add97f7be1b0b1c246e4d4575c367e918da294d3287' to query transaction status
 ```
 
-C. Enter `http://localhost:20334/api/v1/contract/362cb5608b3eca61d4846591ebb49688900fedd0`  in the browser and call the rest interface to query the contract information:
+C. Enter `http://localhost:20334/api/v1/contract/362cb5608b3eca61d4846591ebb49688900fedd0` in the browser and call the rest interface to query the contract information:
 
 ```
 {"Action":"getcontract","Desc":"SUCCESS","Error":0,"Result":{"Code":"54c56b6c7...","NeedStorage":false,"Name":"Hello","CodeVersion":"1.0","Author":"ester","Email":
