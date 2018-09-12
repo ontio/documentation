@@ -55,11 +55,6 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 
 ​
 
-<h1 align="center">Java Sdk 教程</h1>
-
-
-
-
 
 The example below is in Java, android sdk the same with java sdk.
 

@@ -7,7 +7,7 @@ folder: doc_zh/Wallet
 giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_overview_zh.md
 ---
 
-[English](./ontology_wallet_dev_overview_zh.html) / 中文
+[English](./ontology_wallet_dev_overview_en.html) / 中文
 
 
 <h1 align="center">钱包集成</h1>

@@ -53,11 +53,6 @@ The outline of this document is as follows:
 
 
 
-<h1 align="center">Java Sdk Tutorial</h1>
-
-
-
-
 
 The example below is in Java, android sdk the same with java sdk.
 
