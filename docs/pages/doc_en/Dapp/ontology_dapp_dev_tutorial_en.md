@@ -42,7 +42,7 @@ Please ensure you have the following installed and configured for use in your de
 
 - [Cyano Wallet]( https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm)
 
-- [Git](https://git-scm.com/)<p>
+- [Git](https://git-scm.com/)
 
 
 ### Ontology dAPI Overview
@@ -138,9 +138,9 @@ Now that we have written our smart contract, the next steps are to deploy and in
 
 ![Deploy](https://s1.ax1x.com/2018/09/03/PzhTCd.png)
 
-<p>
 
-![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png) <p>
+
+![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png) 
 
 ### Testing your smart contract
 

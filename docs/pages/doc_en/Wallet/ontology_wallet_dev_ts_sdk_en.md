@@ -7,10 +7,10 @@ folder: doc_en/Wallet
 giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_ts_sdk_en.md
 ---
 
+English / [中文](./ontology_wallet_dev_ts_sdk_zh.html)
 
 
 
-<h1 align="center">Ontology Wallet Integration</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 The outline of this document is as follows:

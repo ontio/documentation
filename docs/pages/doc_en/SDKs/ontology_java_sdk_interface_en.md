@@ -279,15 +279,20 @@ ong:
 
  
   #### Governance contract
-  
- |     | Main   Function |         
- |:-----|:--------|
- |      1 | String registerCandidate(Account account, String peerPubkey, long initPos, String ontid,String ontidpwd,byte[] salt,  long keyNo, Account payerAcct, long gaslimit, long gasprice)                |
-|       2 | String unRegisterCandidate(Account account, String peerPubkey,Account payerAcct, long gaslimit, long gasprice)   |
-|       3 | String withdrawOng(Account account,Account payerAcct,long gaslimit,long gasprice)    |
-|       4 | String getPeerInfo(String peerPubkey) |
-|       5 | String getPeerInfoAll()       |
-|       6 | VoteInfo getVoteInfo(String peerPubkey,Address addr)       |
-|       7 | String withdraw(Account account,String peerPubkey[],long[] withdrawList,Account payerAcct,long gaslimit,long gasprice)|
-|       8 | String quitNode(Account account,String peerPubkey,Account payerAcct,long gaslimit,long gasprice)|
 
+ |    | Main   Function |                                                                                                                                                                             |   Description|
+ -----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ |   1 | String registerCandidate(Account account, String peerPubkey, long initPos, String ontid,String ontidpwd,byte[] salt,  long keyNo, Account payerAcct, long gaslimit, long gasprice) | Mortgage a certain ONT, consume a certain amount of additional ONG, apply to become a candidate node |
+ |   2 | String unRegisterCandidate(Account account, String peerPubkey,Account payerAcct, long gaslimit, long gasprice)                  | Cancel the application to become a candidate node, unfreeze the mortgaged ONT|
+ |   3 | String withdrawOng(Account account,Account payerAcct,long gaslimit,long gasprice)                                               | Extract untied ong|
+ |   4 | String getPeerInfo(String peerPubkey)                                                                                           | Query node information|
+ |   5 | String getPeerInfoAll()                                                                                                         | Query all nodes|
+ |   6 | String getAuthorizeInfo(String peerPubkey,Address addr)                                                                         | Query the authorization information of a certain address to a node|
+ |   7 | String withdraw(Account account,String peerPubkey[],long[] withdrawList,Account payerAcct,long gaslimit,long gasprice)          | Take out the mortgage ONT in an unfrozen state|
+ |   8 | String quitNode(Account account,String peerPubkey,Account payerAcct,long gaslimit,long gasprice)                                | Exit node|
+ |   9 | String addInitPos(Account account,String peerPubkey,int pos,Account payerAcct,long gaslimit,long gasprice)                      | The node adds the initPos interface, which can only be called by the node owner.|
+ |   10| String reduceInitPos(Account account,String peerPubkey,int pos,Account payerAcct,long gaslimit,long gasprice)                   | The node reduces the initPos interface and can only be called by the node owner. The initPos cannot be lower than the promised value, and cannot be lower than 1/10 of the accepted number of licenses.|
+ |   11| String setPeerCost(Account account,String peerPubkey,int peerCost,Account payerAcct,long gaslimit,long gasprice)                | The node sets the proportion of its own exclusive incentives|
+ |   12| String changeMaxAuthorization(Account account,String peerPubkey,int maxAuthorize,Account payerAcct,long gaslimit,long gasprice) | The node modifies the maximum number of authorized ONTs it accepts.|
+ |   13| String getPeerAttributes(String peerPubkey)                                                                                     | Query node attribute information|
+ |   14| String getSplitFeeAddress(String address)                                                                                       | Query the incentives for an address|

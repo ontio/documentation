@@ -7,10 +7,10 @@ folder: doc_zh/Wallet
 giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_ts_sdk_zh.md
 ---
 
+[English](./ontology_wallet_dev_ts_sdk_en.html) / 中文
 
 
 
-<h1 align="center">钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 内容:
@@ -29,7 +29,7 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 
 
 
-钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范](Wallet_Specification_cn.md)
+钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范]()
 
 钱包集成需要完成如下功能:
 
@@ -204,7 +204,7 @@ const account = Account.create(privateKey, password, name, params);
 
 ## 2.5 导入导出 keystore
 
-请参考Keystore数据结构，  [Wallet Specification](Wallet_Specification_en.md)
+请参考Keystore数据结构，  [Wallet Specification]()
 
 #### 导出 keystore
 

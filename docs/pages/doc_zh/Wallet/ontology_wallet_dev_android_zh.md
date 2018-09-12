@@ -7,10 +7,10 @@ folder: doc_zh/Wallet
 giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_android_zh.md
 ---
 
+[English](./ontology_wallet_dev_android_en.html) / 中文
 
 
 
-<h1 align="center">Android 钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 内容:
@@ -59,7 +59,7 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 
 
 
-钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范](Wallet_Specification_cn.md)
+钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范]()
 
 钱包集成需要完成如下功能:
 
@@ -408,7 +408,7 @@ com.github.ontio.sdk.wallet.Account acct = ontSdk.getWalletMgr().createAccountFr
 
 ```
 
-Keystore is  a data structure to backup user's account.And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification](Wallet_Specification_en.md) to see more info.
+Keystore is  a data structure to backup user's account.And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification]() to see more info.
 
 ```
 //get keystore
