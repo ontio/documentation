@@ -27,7 +27,7 @@ entries:
       url: /ontology_dapp_dev_tutorial_zh.html
       output: web, pdf
     - title: dAPI
-      external_url: /ontology_dapp_dapi_zh.html
+      url: /ontology_dapp_dapi_zh.html
       output: web, pdf
       subfolders:
       - title: 智能合约

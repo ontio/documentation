@@ -27,7 +27,7 @@ entries:
       url: /ontology_dapp_dev_tutorial_en.html
       output: web, pdf
     - title: dAPI
-      external_url: /ontology_dapp_dapi_en.html
+      url: /ontology_dapp_dapi_en.html
       output: web, pdf
       subfolders:
 

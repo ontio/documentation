@@ -15,7 +15,7 @@ The outline of this document is as follows:
 * [Native contract address](#native-contract-address)
 
 
-# 1 Wallet
+## 1 Wallet
 
 Wallet is a data storing file in JSON format. In Ontology, Wallet can store not only the digital identity but also digital assets.
 

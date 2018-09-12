@@ -2,7 +2,7 @@
 
 
 
-<h1 align="center">iOS手机钱包集成</h1>
+<h1 align="center">iOS钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 内容:
@@ -16,7 +16,7 @@
 * [Native 合约地址](#native-合约地址)
 
 
-# 1 钱包
+## 1 钱包
 
 Wallet is a data storing file in JSON format. In Ontology, Wallet can store not only the digital identity but also digital assets.
 
