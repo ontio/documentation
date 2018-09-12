@@ -2,7 +2,7 @@
 
 
 
-<h1 align="center">Android手机钱包集成</h1>
+<h1 align="center">Android钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 内容:

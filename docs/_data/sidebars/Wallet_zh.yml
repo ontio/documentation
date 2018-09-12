@@ -31,10 +31,10 @@ entries:
         output: web, pdf
         subfolderitems:
 
-        - title: Android SDK
+        - title: Android钱包集成
           url: /ontology_wallet_dev_android_en.html
           output: web, pdf
 
-        - title: TypeScript SDK
+        - title: iOS钱包集成
           url: /ontology_wallet_dev_ts_sdk_en.html
           output: web, pdf
