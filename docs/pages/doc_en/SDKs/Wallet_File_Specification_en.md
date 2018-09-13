@@ -4,12 +4,17 @@ keywords: sample homepage
 sidebar: SDKs_en
 permalink: Wallet_File_Specification_en.html
 folder: doc_en/SDKs
-giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/Wallet_File_Specification.md
+giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/Wallet_File_Specification_en.md
 ---
 
-<h1 align="center">Wallet File Specification</h1>
+English / [中文](./Wallet_File_Specification_cn.html)
+
+
+<h1 align="center">Wallet File Specification </h1>
 
 <p align="center" class="version">Version 1.0.0 </p>
+
+
 
 
 
