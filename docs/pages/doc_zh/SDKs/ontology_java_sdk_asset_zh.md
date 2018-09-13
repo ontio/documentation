@@ -86,64 +86,48 @@ ont和ong资产接口列表
 
     参数说明：
 
-    sendAcct： 发送方账户
-
-    recvAddr ： 接收方地址
-
-    amount ： 转移的资产数量
-
-    payerAcct：支付交易费用的账户
-
-    gaslimit：用于计算gas,gaslimit * gasprice = gas
-
-    gasprice ： gas价格
-
-    返回值：交易hash
-
+| 参数      | 字段   | 类型  | 描述 |             说明 |
+| ----- | ------- | ------ | ------------- | ----------- |
+| 输入参数 | sendAcct| Account | 发送方账户 | 必选 |
+|        | recvAddr    | Account | 接收方地址   | 必选 |
+|        | amount        | long | 转移的资产数量|必选|
+|        | payerAcct| Account  |支付交易费用的账户 | 必选|
+|        | gaslimit   | long | 声明发行者和申请者ontid | 必选 |
+|        | gasprice   | long | gas价格 | 必选 |
+| 输出参数 | 交易hash   | String  | 交易hash  |  |
 
 2. String sendApprove(Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)
 
        功能说明： sendAddr账户允许recvAddr转移amount数量的资产
 
        参数说明：
-
-       sendAcct： 发送方账户
-
-       recvAddr： 接收方地址
-
-       amount： 转移的资产数量
-
-       payerAcct：支付交易费用的账号
-
-       gaslimit：用于计算gas,gaslimit * gasprice = gas
-
-       gasprice ： gas价格
-
-       返回值：交易hash
+       
+| 参数      | 字段   | 类型  | 描述 |             说明 |
+| ----- | ------- | ------ | ------------- | ----------- |
+| 输入参数 | sendAcct| Account | 发送方账户 | 必选 |
+|        | recvAddr    | Account | 接收方地址   | 必选 |
+|        | amount        | long | 授权的资产数量|必选|
+|        | payerAcct| Account  |支付交易费用的账户 | 必选|
+|        | gaslimit   | long | 声明发行者和申请者ontid | 必选 |
+|        | gasprice   | long | gas价格 | 必选 |
+| 输出参数 | 交易hash   | String  | 交易hash  |  |
 
 3. String sendTransferFrom(Account sendAcct, String fromAddr, String toAddr, long amount, Account payerAcct, long gaslimit, long gasprice)
 
         功能说明： sendAcct账户从fromAddr账户转移amount数量的资产到toAddr账户
 
-        参数说明：
-
-        sendAcct： 发送方账户
-
-        password： 发送方密码
-
-        fromAddr： 资产转出方地址
-
-        toAddr： 资产转入方地址
-
-        amount： 转移的资产数量
-
-        payerAcct：支付交易费用的账号
-
-        gaslimit：用于计算gas,gaslimit * gasprice = gas
-
-        gasprice ： gas价格
-
-        返回值：交易hash
+        参数说明：     
+        
+| 参数      | 字段   | 类型  | 描述 |             说明 |
+| ----- | ------- | ------ | ------------- | ----------- |
+| 输入参数 | sendAcct| Account | 发送方账户 | 必选 |
+|        | fromAddr    | Account | 资产转出方地址   | 必选 |
+|        | toAddr    | Account | 资产转入方地址   | 必选 |
+|        | amount        | long | 转移的资产数量|必选|
+|        | payerAcct| Account  |支付交易费用的账户 | 必选|
+|        | gaslimit   | long | 声明发行者和申请者ontid | 必选 |
+|        | gasprice   | long | gas价格 | 必选 |
+| 输出参数 | 交易hash   | String  | 交易hash  |  |
 
 4. long queryBalanceOf(String address)
 
@@ -151,7 +135,7 @@ ont和ong资产接口列表
 
          参数说明：
 
-         address： 账户地址
+         ```address```： 账户地址
 
          返回值：账户余额
 
@@ -161,9 +145,9 @@ ont和ong资产接口列表
 
          参数说明：
 
-         fromAddr: 授权转出方的账户地址
+         ```fromAddr```: 授权转出方的账户地址
 
-         toAddr: 允许转入方的账户地址
+         ```toAddr```: 允许转入方的账户地址
 
          返回值：授权转移的数量
 
@@ -339,57 +323,5 @@ namespace Nep5Template
 }
 ```
 
-部署合约：
-```
-  InputStream is = new FileInputStream("C:\\smartcontract.avm");//
-  byte[] bys = new byte[is.available()];
-  is.read(bys);
-  is.close();
-  String code = Helper.toHexString(bys);
-  System.out.println("Code:" + Helper.toHexString(bys));
-  System.out.println("CodeAddress:" + Helper.getCodeAddress(code, VmType.NEOVM.value()));
 
-  ontSdk.setCodeAddress(Helper.getCodeAddress(code, VmType.NEOVM.value()));
-  Transaction tx = ontSdk.getSmartcodeTx().makeDeployCodeTransaction(code, true, "name", "v1.0", "author", "email", "desc", VmType.NEOVM.value());
-```
-调用合约：
-
-```
-  AbiInfo abiinfo = JSON.parseObject(nep5abi, AbiInfo.class);
-  //选个智能合约方法
-  AbiFunction func = abiinfo.getFunction("Transfer");
-  func.name = func.name.toLowerCase();
-  //设置方法的参数
-  func.setParamsValue(Address.decodeBase58(sendAddr).toArray(),Address.decodeBase58(recvAddr).toArray(),amount);
-  Transaction tx = sdk.getSmartcodeTx().invokeTransaction(sendAddr,password,func,VmType.NEOVM.value());
-  //签名
-  sdk.signTx(tx, sendAddr, password);
-  boolean b = sdk.getConnectMgr().sendRawTransaction(tx.toHexString());
-```
-
-## 说明
-
-* codeAddress是什么？
-
-```
-是智能合约的唯一标识。在这里代表资产合约的codeAddress。
-```
-
-* invoke时为什么要传入账号和密码？
-
-```
-调用智能合约时需要用户签名，钱包中保存的是加密后的用户私钥，需要密码才能解密获取私钥。
-```
-
-* 查询资产操作时，智能合约预执行是怎么回事，如何使用？
-
-```
-如智能合约get相关操作，从智能合约存储空间里读取数据，无需走节点共识，只在该节点执行即可返回结果。
-发送交易时调用预执行接口
-Object result =  sdk.getConnect().sendRawTransactionPreExec(txHex);
-```
-
-* 想查看转账时的推送结果？
-
-
-请查看智能合约采用websocket连接调用合约方法，详见[smartcontract](./ontology_java_sdk_smartcontract_zh.html)。
+查看如何部署和调用智能合约，详见[smartcontract](./ontology_java_sdk_smartcontract_zh.html)。

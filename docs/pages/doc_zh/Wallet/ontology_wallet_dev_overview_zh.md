@@ -19,7 +19,7 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 
 ## 钱包集成
 
-钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范](./Wallet_File_Specification_cn.html)
+钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范](https://ontio.github.io/documentation/Wallet_File_Specification_cn.html)
 
 钱包集成需要完成如下功能:
 

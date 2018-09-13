@@ -50,7 +50,7 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
         * [5.2 取消注册](#52-取消注册)
         * [5.3 提取](#53-提取)
         * [5.4 退出](#54-退出)
-* [Native 合约地址](#native-合约地址)		
+
 
 
 ​
@@ -672,9 +672,9 @@ String txhash = sdk.nativevm().governance().withdraw(account,peerPubkeys,new lon
 
 ```
 
-### 5.4 退出
+### 5.4 退出质押
 
-退出.
+退出质押.
 
 ```
 String[] peerPubkeys = new String[]{"03e1e09221c9f513df76273f3cec0d033ee6056b159300d7b1072fc7020eadccbb"};

@@ -7,11 +7,11 @@ folder: doc_zh/SDKs
 giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/Wallet_File_Specification_cn.md
 ---
 
-<h1 align="center">钱包规范</h1>
+<h1 align="center"> 钱包规范 </h1>
 
 <p align="center" class="version">Version 1.0.0 </p>
 
-
+[English](../en/Wallet_File_Specification_en.md) / 中文
 
 钱包规范描述了钱包数据结构及导出数字身份或资产账号二维码的数据结构。
 

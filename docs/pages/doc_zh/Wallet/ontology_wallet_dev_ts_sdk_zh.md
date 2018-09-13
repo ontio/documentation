@@ -22,7 +22,6 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
   * [3. Native 资产](#3-native-资产)
   * [4. 与链交互](#4-与链交互)
   * [5. 节点质押](#4-节点质押)
-* [Native 合约地址](#native-合约地址)
 
 
 ## 1 钱包
@@ -523,9 +522,9 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 const tx = GovernanceTxBuilder.makeWithdrawTx(userAddr, peerPubkeys, withdrawList, payer, gasPrice, gasLimit)
 ```
 
-### 5.4 退出
+### 5.4 退出质押
 
-退出.
+退出质押.
 
 ```
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
@@ -538,15 +537,3 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 const tx = GovernanceTxBuilder.makeQuitNodeTx(userAddr, peerPubkey, payer, gasPrice, gasLimit)
 ```
 
-# Native 智能合约
-
-contract | contract u160 address | Address
----|---|---
-ONT Token | 0100000000000000000000000000000000000000| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
-ONG Token | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
-ONT ID | 0300000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
-Global Params | 0400000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
-Oracle | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
-Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
-Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
-DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK

@@ -21,9 +21,9 @@ The outline of this document is as follows:
  
 ## Wallet Integration
 
-The wallet function includes digit asset account ant digital identity. [wallet Specification](./Wallet_File_Specification_en.html)
+The wallet function includes giving an account for digit asset and digital identity. [wallet Specification](https://ontio.github.io/documentation/Wallet_File_Specification_en.html)
 
-Wallet function list:
+Wallet function lists:
 
 | Module                |                    Sub Module                    |     Test case      |
 | ------------------    | :----------------------------------------------: | :------------------: |
@@ -39,7 +39,7 @@ Wallet function list:
 |                      |                                                  |  Query unclaim ONT&ONG   |
 |    Transfer Assets   |          Transfer                                |    ONT/ONG transfer        |
 |                      |                                                  |      ONG Claim              |
-|   ONT ID management  |         Create                                   |   Create a new ONT ID and write onto blockchain   |
+|   ONT ID management  |         Create                                   |   Create a new ONT ID and write it in blockchain   |
 |                      |        Import                                    |     Import keystore of ONT ID |
 |                      |        Export                                    |     Export keystore of ONT ID |
 |                      |       Information service                        |    Query ONT ID events , create, delete,etc.    |
@@ -47,7 +47,7 @@ Wallet function list:
 
 
 
-These sdk implementations wallet specification Currently:
+The specifications of sdk implementations wallet are Currently:
 
 Java SDK ：[Java SDK](https://github.com/ontio/ontology-java-sdk/blob/master/docs) 
 

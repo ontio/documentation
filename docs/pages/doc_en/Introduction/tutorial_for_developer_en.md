@@ -309,17 +309,15 @@ E. Use the command`./ontology info status 2cc94de8c26fce3be233bef007ec3492043ffc
 ```
 Transaction states:
 {
-"TxHash": "2cc94de8c26fce3be233bef007ec3492043ffc304b79a02d9b612df96e950186",
-"State": 1,
-"GasConsumed": 0,
-"Notify": [
-{
-"ContractAddress": "362cb5608b3eca61d4846591ebb49688900fedd0",
-"States": [
-"746573746572"
-]
-}
-]
+	"TxHash": "2cc94de8c26fce3be233bef007ec3492043ffc304b79a02d9b612df96e950186",
+	"State": 1,
+	"GasConsumed": 0,
+	"Notify": [{
+		"ContractAddress": "362cb5608b3eca61d4846591ebb49688900fedd0",
+		"States": [
+			"746573746572"
+		]
+	}]
 }
 ```
 

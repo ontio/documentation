@@ -22,8 +22,9 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 + [dAPI 安装](#dapi-安装)
 + [dAPI 实例](#dapi-实例)
 + [dAPI 方法](#dapi-方法)
-	+ [与链交互方法](#example-blockchain-methods)
-	+ [智能合约方法](#example-smart-contract-methods)
+	+ [与链交互方法](#与链交互方法)
+	+ [转账方法](#转账方法)
+	+ [智能合约方法](#智能合约方法)
 
 [运行例子](#运行例子)
 
@@ -50,7 +51,7 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 创建dApp时，Ontology dAPI是与Ontology链交互的核心API之一，可以从这里下载源码。 [这里](https://github.com/ontio/ontology-dapi). 通过 ```npm``` 安装```ontology-dapi``` : 
 
 ```
-npm install ontology-dapi
+$ npm install ontology-dapi
 ```
 
 #### dAPI 实例
@@ -72,9 +73,11 @@ const height = await client.api.network.getBlockHeight();
 const block = await client.api.network.getBlock({ block: 1 });
 const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
 const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
+```
+##### 转账方法
+```
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
 ```
-
 ##### 智能合约方法
 ```typescript
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
@@ -90,11 +93,11 @@ const result = await client.api.smartContract.deploy({code,name,version,author,e
 拷贝 [dAPI 例子](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) ，可以测试dAPI提供了哪些功能.
 
 ```
-git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
 
-npm install
+$ npm install
 
-npm run start
+$ npm run start
 ```
 
 启动成功后，在浏览器打开页面 http://localhost:3000
@@ -144,6 +147,6 @@ dApp后端逻辑和存储需要使用智能合约，可以通过**SmartX**编辑
 
 可以使用测试框架测试你的智能合约 [smart contract automated testing framework](https://github.com/lucas7788/pythontest)， 如果需要部署到私链，请下载最新版Ontology并启动， [Ontology release](https://github.com/ontio/ontology/releases).
 ```
-./ontology --testmode --gasprice 0
+$ ./ontology --testmode --gasprice 0
 
 ```

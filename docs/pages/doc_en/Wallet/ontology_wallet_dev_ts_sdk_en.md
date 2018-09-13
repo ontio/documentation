@@ -21,7 +21,6 @@ The outline of this document is as follows:
   * [3. Native Asset](#3-native-asset)
   * [4. Blockchain](#4-blockchain)
   * [5. Node Stake](#4-node-stake)
-* [Native contract address](#native-contract-address)
 
 
 ## 1 Wallet
