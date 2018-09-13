@@ -30,7 +30,7 @@ Wallet function list:
 |                      |                                                  |  Query unclaim ONT&ONG   |
 |    Transfer Assets   |          Transfer                                |    ONT/ONG transfer        |
 |                      |                                                  |      ONG Claim              |
-|   ONT ID management  |         Create                                   |   Create a new ONT ID and write onto blockchain   |
+|   ONT ID management  |         Create                                   |   Create a new ONT ID and write it in blockchain   |
 |                      |        Import                                    |     Import keystore of ONT ID |
 |                      |        Export                                    |     Export keystore of ONT ID |
 |                      |       Information service                        |    Query ONT ID events , create, delete,etc.    |
@@ -38,7 +38,7 @@ Wallet function list:
 
 
 
-These sdk implementations wallet specification Currently:
+The specifications of sdk implementations wallet are Currently:
 
 Java SDK ：[Java SDK](https://github.com/ontio/ontology-java-sdk/blob/master/docs) 
 
