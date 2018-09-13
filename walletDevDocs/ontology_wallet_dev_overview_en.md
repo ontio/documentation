@@ -12,7 +12,7 @@ The outline of this document is as follows:
  
 ## Wallet Integration
 
-The wallet function includes giving an account for digit asset and digital identity. [wallet Specification](Wallet_Specification_en.md)
+The wallet function includes giving an account for digit asset and digital identity. [wallet Specification](https://ontio.github.io/documentation/Wallet_File_Specification_en.html)
 
 Wallet function lists:
 

@@ -40,7 +40,6 @@ The outline of this document is as follows:
         * [5.2 Unregister Candidate](#52-unregister-candidate)
         * [5.3 Withdraw](#53-withdraw)
         * [5.4 Quit Node](#54-quit-node)
-* [Native Contract Address](#native-contract-address)		
 
 
 

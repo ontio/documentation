@@ -41,7 +41,7 @@ Please ensure you have the following installed and configured for use in your de
 The Ontology dAPI is the core API used to interface with the Ontology blockhain when creating a dApp and the repository can be found [here](https://github.com/ontio/ontology-dapi). First you must install the npm package using: 
 
 ```
-npm install ontology-dapi
+$ npm install ontology-dapi
 ```
 
 #### dAPI Instantiation
@@ -81,11 +81,11 @@ A full list of methods can be found in the [dAPI Specification document](https:/
 Clone the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) which we will use to demonstrate functionality.
 
 ```
-git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
 
-npm install
+$ npm install
 
-npm run start
+$ npm run start
 ```
 
 This will start the demo which can be accessed using the Google Chrome browser at http://localhost:3000
@@ -137,6 +137,6 @@ Now that we have written our smart contract, the next steps are to deploy and in
 
 In order to test the smart contract, you can use the [smart contract automated testing framework](https://github.com/lucas7788/pythontest) or deploy your own Ontology privatenet running in testmode by downloading the latest [Ontology release](https://github.com/ontio/ontology/releases) and starting it as below.
 ```
-./ontology --testmode --gasprice 0
+$ ./ontology --testmode --gasprice 0
 
 ```
