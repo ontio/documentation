@@ -8,7 +8,8 @@ giturl: https://github.com/ontio/documentation/blob/master/ontology-API/ontology
 ---
 
 
-English / [中文](./ontology_overview_sdks_zh.md)
+
+English / [中文](./ontology_overview_sdks_zh.html)
 
 <h1 align="center">Overview of Ontology SDKs</h1>
 <p align="center" class="version">Version 1.0.0 </p>

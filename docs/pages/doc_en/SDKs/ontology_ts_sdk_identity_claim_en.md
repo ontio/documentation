@@ -100,6 +100,7 @@ Sending ONT IDs to the blockchain needs to send specific transactions. The trans
 
 ````typescript
 import {OntidContract} from 'ontology-ts-sdk';
+import {TransactionBuilder} from 'ontology-ts-sdk'
 
 //suppose we already got a identity
 const did = identity.ontid;
@@ -108,27 +109,32 @@ const pk = privateKey.getPublicKey();
 const gasPrice = '0';
 const gasLimit = '20000;
 const tx = OntidContract.buildRegisterOntidTx(did, pk, gasPrice, gasLimit);
+Transaction.signTransaction(tx, privateKey);
 
 ````
-### Sign Transaction
+### Sign Transaction With Payer
+The transaction also needs signatures from the payer.
+
 ```typescript
 import {TransactionBuilder} from 'ontology-ts-sdk'
 //we also need an account to pay for the gas
 //supporse we have an account and the privateKey
 tx.payer = account.address
 //Then sign the transaction with payer's account
-//we already got transaction created before
-TransactionBuilder.signTransaction(tx, privateKeyOfAccount)
+//we already got transaction created before,add the signature.
+TransactionBuilder.addSign(tx, privateKeyOfAccount)
 ```
 
 ### Send Transaction
 We can use RESTful API, RPC API and WebSocket API to send transaction to the blockchain.
+We can set the url of the node that we want to send transaction to. You can set as the testnet or the mainnet, even local node. It will use testnet as default is no url passed.
 
 We can wait for a notice when we use the WebSocket API.
 
 ```typescript
-import {RestClient} from 'ontology-ts-sdk'
-const rest = new RestClient();
+import {RestClient, CONST} from 'ontology-ts-sdk'
+
+const rest = new RestClient(CONST.TEST_ONT_URL.REST_URL);
 rest.sendRawTransaction(tx.serialize()).then(res => {
 	console.log(res)
 })
@@ -165,7 +171,7 @@ rest.sendRawTransaction(tx, true).then(res => {
 })
 ```
 
-RestClient.sendRawTransaction(hexData, preExec). The second parameter decides if it is a pre-execute transaction, which will be executed on the blockchain node and won't have to wait for the consensus. For more info please check the ts SDK API reference.
+RestClient.sendRawTransaction(hexData, preExec). The second parameter decides if it is a pre-execute transaction, which will be executed on the blockchain node and won't have to wait for the consensus.We use pre-execute transaction to query data. For more info please check the ts SDK API reference.
 
 The response is like:
 
@@ -183,7 +189,7 @@ The response is like:
 Now the ONT ID is registered to the blockchain successfully.
 
 
-## Issuing a verifiable claim
+## 2 Issuing a verifiable claim
 
 Users can have several types of identities. For example, users with an ID card issued by the China Ministry of Public Security all have the identity "Chinese National". Users can present their ID cards in certain scenarios to declare their identity; the ID card is the Ministry of Public Security's citizenship certification.
 
@@ -197,118 +203,122 @@ We use a digital diploma issued by China's Fudan University as an example to ill
 
 Suppose Alice is a student at Fudan University and applies to the school for a digital graduation certificate. After the school verifies Alice's identity, it invokes the SDK's API to generate a trusted statement that contains Alice's graduation information and the signature of the school, which was made with the school's private key.
 
-````
-var claim = SDK.signClaim(context, claimData, issuer, subject, privateKey)
-````
-
-This  method is described as follows:
-
-**context** marks a claim template.
-
-**claimData** is the specific content of the user claim, the value is a JSON object. Here is the information on Alice's graduation certificate:
+### 2.1 Construct a claim
 
 ````
-{
-    "degree" : "bachelor",
-    "year" : "2017",
-    ......
-}
+import {Claim} from 'ontology-ts-sdk';
+
+const signature = null;
+const useProof = false;
+const claim = new Claim({
+	messageId: '1',
+	issuer: 'did:ont:AJTMXN8LQEFv3yg8cYKWGWPbkz9KEB36EM',
+	subject: 'did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz',
+	issueAt: 1525800823
+}, signature, useProof);
+
+claim.version = '0.7.0';
+claim.context = 'https://example.com/template/v1';
+claim.content = {
+	Name: 'Alice',
+	Age: '22',
+	......
+};
+
 ````
 
-**issuer** is the ONT ID of the issuer of the claim (in this case Fudan University).
+This attributes of claim are described as follows:
 
-**subject** the ONT ID of the claim recipient (in this case Alice).
+**signature** The signature of the claim. It can be null or undefiend at beginning.
 
-**privateKey** is the issuer's private key.
+**useProof** Decides if the claim will use proof.
 
-The claim object returned by this method looks like this:
+**messageId** String value.
 
-````
-{
-    .....
-}
-````
+**issuer** Issuser's ONT ID.
+
+**subject** Subject's ONT ID.
+
+**issueAt** Timestamp of when the claim is created.
+
+**version** Version of the claim.
+
+**context** The online location of the claim template.
+
+**content** The content of the claim.
+
 
 For claim object specification, see [claim specifications]().
 
-The next step is to send to the blockchain for attestation. After successful recording to the blockchain a claim will be sent. The claim format is:
-[claim complete certification]().
+### 2.2 Attest Claim
+Then the issuer shuld attest the claim the the blockchain.
 
-First you need to construct the transaction to send. The parameters needed are:
+The parameters are as below:
 
-**path** is the key name where the claim information is stored on the blockchain. The value is the ID in the claim object. This is the hash of serialization of a claim object.
+**url** Websocket endpoint of Ontology node
 
-**value** is the claim information that needs to be stored to the chain. The value is the following JSON structure:
+**privateKey** Private key to sign the transaction
 
-````
-{
-    Context : string, //Definition of the Claim template
-    Ontid : string //Signer’s ONT ID
-}
-````
+**gasPrice** gasPrice
 
-**ontid** is the transaction sender's ONT ID and the ONT ID of the claim issuer.
+**gasLimit** gasLimit
 
-**privateKey** is the transaction sender's private key and the private key of the claim issuer.
+**payer** payer
 
 ````
-var param = SDK.buildClaimTx(path, value, ontid, privateKey)
+const url = 'http://polaris1.ont.io:20335';
+const gasPrice = '500';
+const gasLimit = '20000';
+const payer = new Address('AMLn5W7rz1sYd1hGpuQUfsnmUuUco22pM8');
+const privateKey = new PrivateKey('44fd06de5a6529f3563aad874fb6c8240....')
+const result = await claim.attest(url, gasPrice, gasLimit, payer, privateKey);
 ````
+The result is promised boolean value. If it's true then the claim has been attested successfully.
 
-Next, build a tool to send transactions and a recall method for monitoring information.
+### 2.3 Revoke Claim
+The issuer can also issuer the claim.
 
-To recall information, after the claim is recorded to the blockchain the claim complete certification will be recalled. This complete certification will be added to the previously constructed claim object and users receive a complete third-party certification statement object. After this, users can provide the statement in a scenario where needed.
+The parameters are as below:
 
-````
-//connect to a fullnode of the ONTology testnet
-var txSender = new TxSender(ONT_NETWORK.TEST)
-const callback = function(res, socket) {
-    let res 
-    if(typeof event.data === 'string') {
-    res = JSON.parse(event.data)
-    //parse the event message returned by a full node
-    //test if the tx is committed in the blockchain by checking the blockchain's height 
-    if(res.Result.BlockHeight) {
-      socket.close()
-    }
-}
-txSender.sendTxWithSocket(param, callback)
-````
+**url** Websocket endpoint of Ontology node
 
-The certification is like the following:
+**privateKey** Private key to sign the transaction
+
+**gasPrice** gasPrice
+
+**gasLimit** gasLimit
+
+**payer** payer
 
 ````
-{
-    "Proof" : {
-        "Type" : "MerkleProof",
-        "TxnHash" : "aaa",
-        "BlockHeight" : "1000",
-        "MerkleRoot" : "aaaaaaa",
-        "Nodes" : [
-            {"Direction" : "Right", "TargetHash" : "aaaa"},
-            {"Direction" : "Left", "TargetHash" : "bbbbb"}
-        ]
-    }
-}
+const url = 'http://polaris1.ont.io:20335';
+const gasPrice = '500';
+const gasLimit = '20000';
+const payer = new Address('AMLn5W7rz1sYd1hGpuQUfsnmUuUco22pM8');
+const privateKey = new PrivateKey('44fd06de5a6529f3563aad874fb6c8240....')
+const result = await claim.revoke(url, gasPrice, gasLimit, payer, privateKey);
 ````
+The result is promised boolean value. If it's true then the claim has been revoked successfully.
 
-## Verifiable claim verification
+
+### 2.4 Verifiable claim verification
 
 In the above section we illustrated how to obtain an identity claim granted by a third party which can presented when needed. At the same time, these statements can be verified through an SDK to verify their authenticity and that they have not been tampered with.
 
 The process of verifying a verifiable claim is illustrated with the example of Alice seeking employment.
 
-When Alice applies for company B she provides a digital diploma certificate issued by Fudan University. The certificate is a JSON file that conforms to the claim format. Company B can verify the statement by calling on the ONT SDK. The method logic is to first obtain the DDO information of the issuer through the issuer field in the claim, obtain the issuer's public key from the DDO information, then remove the signature of the claim to access the content, and verify the signature value with the public key and signature.
+When Alice applies for company B she provides a digital diploma certificate issued by Fudan University. The certificate is a JSON file that conforms to the claim format. Company B can verify the statement by calling on the ONT SDK. Anyone who wants to verify the claim can query the status of the claim from blockchain.
 
-The input parameter for this method is the claim JSON string, and the result is Promise. In recalling Promise verification results are processed.
+The parameters are as below:
+
+**url** Restful endpoint of Ontology node.
 
 ````
-Core.verifyClaim(claim).then((result) => {
-    //result contains whether the verification passed
-    if(result){
-        //verification passed
-    } else {
-        //verification failed to pass
-    }
-})
+const url = 'http://polaris1.ont.io:20335';
+const result = await claim.getStatus(url);
+
 ````
+If the claim is attested and the issuer is right, the returned result will true.
+
+
+

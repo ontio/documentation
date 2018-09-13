@@ -26,22 +26,22 @@ Wallet is a data storing file in JSON format. In Ontology, Wallet can store not 
 
 ## Wallet Data Specification
 
-````
+````JSON
 {
 	name: string;
-    defaultOntid: string;
-    defaultAccountAddress: string;
-    createTime: string;
-    version: string;
-    scrypt: {
-        "n": number;
-        "r": number;
-        "p": number;
-        "dkLen": number;
-    };
-    identities: Array<Identity>;
-    accounts: Array<Account>;
-    extra: null;
+	defaultOntid: string;
+	defaultAccountAddress: string;
+	createTime: string;
+	version: string;
+	scrypt: {
+	    "n": number;
+	    "r": number;
+	    "p": number;
+	    "dkLen": number;
+	};
+	identities: Array<Identity>;
+	accounts: Array<Account>;
+	extra: null;
 }
 ````
 
@@ -110,7 +110,7 @@ const DEFAULT_SCRYPT = {
 };
 ```
 
-Scrypt params must be same in the encryption and decryption, or the decryption will fail.
+> Scrypt params must be same in the encryption and decryption, or the decryption will fail.
 
 ### 2.1) Generate PrivateKey
 
