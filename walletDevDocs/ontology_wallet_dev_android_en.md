@@ -23,15 +23,15 @@ The outline of this document is as follows:
         * [2.3 Create account by privatekey](#23-create-account-by-privatekey)
         * [2.4 Create account by WIF](#24-create-account-by-wif)
         * [2.5 Address](#25-address)
-    * [3. Native asset](#3-native-asset)
+    * [3. Native Asset](#3-native-asset)
         * [3.1 ONT transfer](#31-ont-transfer)
         * [3.2 ONG transfer](#32-ong-transfer)
         * [3.3 Withdraw ONG](#withdraw-ong)
-        * [3.4 Make transfer by yourself](#33-make-transfer-by-yourself)
+        * [3.4 Make your own transfer](#33-make-transfer-by-yourself)
             * [Transfer](#transfer)
             * [Signature](#signature)
             * [Multi-state signature](#multi-state-signature)
-    * [4. Digital identity](#4-digital-identity)
+    * [4. Digital Identity](#4-digital-identity)
         * [4.1 Registry](#41-registry)
         * [4.2 Query identity](#42-query-identity)
         * [4.3 Identity keystore](#43-identity-keystore)
@@ -40,12 +40,12 @@ The outline of this document is as follows:
         * [5.2 Unregister Candidate](#52-unregister-candidate)
         * [5.3 Withdraw](#53-withdraw)
         * [5.4 Quit Node](#54-quit-node)
-* [Native contract address](#native-contract-address)		
+* [Native Contract Address](#native-contract-address)		
 
 
 
 
-The example below is in Java, android sdk the same with java sdk.
+The example below is in Java, Andriod sdk works the same as Java sdk.
 
 ## 1. BlockChain
 
@@ -65,13 +65,13 @@ ontSdk.setDefaultConnect(ontSdk.getRpc());
 
 #### Query Unbound ong
 
-There is one useful api from our explorer that can be used to query all the balance of an address.It includes
+There is one useful api from our explorer that can be used to query all the balance of an address. It includes
 
 ONT, ONG, claimable ONG and unbound ONG.
 
-For testnet, api host is  https://polarisexplorer.ont.io
+For testnet, address of the api host is  https://polarisexplorer.ont.io
 
-For mainnet, dapi host is https://explorer.ont.io
+For mainnet, address of the dapi host is https://explorer.ont.io
 
 ````
 /api/v1/explorer/address/balance/{address}
@@ -267,7 +267,7 @@ or not in pool
 
 #### Query transaction success
 
-query smartcontract event: 
+Query smart contract event: 
 
 ```
 ontSdk.getConnect().getSmartCodeEvent("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
@@ -299,7 +299,7 @@ response:
 
 ```
 
-query smartcontract event by block height
+Query smart contract event by block height
 
 ```
 ontSdk.getConnect().getSmartCodeEvent(10)
@@ -355,7 +355,7 @@ com.github.ontio.sdk.wallet.Account acct = ontSdk.getWalletMgr().createAccountFr
 
 ```
 
-Keystore is  a data structure to backup user's account.And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification](Wallet_Specification_en.md) to see more info.
+Keystore is  a data structure to backup user's account. And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification](Wallet_Specification_en.md) for more info.
 
 ```
 //get keystore
@@ -374,7 +374,7 @@ String prikey2 = WalletQR.getPriKeyFromQrCode(JSON.toJSONString(keystore),"passw
 Account acct2 = new Account(prikey2,SignatureScheme.SHA256WITHECDSA);
  ```
 
-import keystore
+Import keystore
 
  ```
  
@@ -390,7 +390,7 @@ com.github.ontio.sdk.wallet.Account acct = ontSdk.getWalletMgr().createAccount("
 ontSdk.getWalletMgr().writeWallet();
 ```
 
-remove account from wallet:
+Remove account from wallet:
 
 ```
 
@@ -399,7 +399,7 @@ ontSdk.getWalletMgr().writeWallet();
 
 ```
 
-### 2.3 Create account by privatekey
+### 2.3 Create account by private key
 
 
 ```
@@ -421,7 +421,7 @@ ontSdk.getWalletMgr().writeWallet();
 
 ### 2.5 Address
 
-single signature address and multi-signature address
+Single signature address and multi-signature address
 
 ```
 
@@ -457,7 +457,7 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 
 ### 3.1 ONT tansfer
 
-example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/OntDemo.java)
+Example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/OntDemo.java)
 
 ```
 String hash = ontSdk.nativevm().ont().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ4PA2m4pyJt2d",200,payerAcct,20000,500);
@@ -471,11 +471,11 @@ String hash = ontSdk.nativevm().ont().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ
 
 ### 3.2 ONG transfer
 
-example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/OngDemo.java)
+Example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/OngDemo.java)
 
 
 
-same to ONT：
+Same to ONT：
 
 ```
 String hash = ontSdk.nativevm().ong().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ4PA2m4pyJt2d",200,payerAcct,20000,500);
@@ -505,9 +505,9 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 
 
-## 3.4 Make transfer by yourself
+## 3.4 Make your own transfer
 
-example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
+Example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
 #### Transfer
 
@@ -541,7 +541,7 @@ ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 
 #### Signature
 
-if sender is different with payer, both of them need signature transaction.
+Both the sender and the payer need to do the signature, if they are not the same one.
 
 ```
 1.add Sign
@@ -556,8 +556,8 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct0,acct1});
 
 #### Multi-state transfer
 
-1. contruct multi state
-2. signature
+1. Construct multi state
+2. Signature
 
 ```
 Address sender1 = acct0.getAddressU160();
@@ -581,7 +581,7 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct1, acct2});
 
 #### 4.1 Registry
 
-example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
+Example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
 
 ```
 
@@ -592,7 +592,7 @@ ontSdk.nativevm().ontId().sendRegister(identity,password,payerAcct,ontSdk.DEFAUL
 
 #### 4.2 Query identity
 
-example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
+Example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/NativeOntIdDemo.java)
 
 ```
 
@@ -602,7 +602,7 @@ String ddo2 = ontSdk.nativevm().ontId().sendGetDDO(identity.ontid);
 
 #### 4.3 Identity keystore
 
-export keystore
+Export keystore
 
 ```
 //export keystore
@@ -614,7 +614,7 @@ System.out.println(JSON.toJSONString(keystore));
 
  ```
 
-import keystore
+Import keystore
 
  ```
  
@@ -654,7 +654,7 @@ String txhash = sdk.nativevm().governance().unRegisterCandidate(account,peerPubk
 
 ### 5.3 Withdraw 
 
-Make transaction to withdraw the paied ONT.
+Make transaction to withdraw the paid ONT.
 
 ```
 
