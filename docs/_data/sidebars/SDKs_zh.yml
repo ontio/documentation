@@ -67,11 +67,11 @@ entries:
           output: web
 
         - title:  接口列表
-          url: /ontology_java_sdk_interface_en.html
+          url: /ontology_java_sdk_interface_zh.html
           output: web
 
         - title: 错误码
-          url: /ontology_java_sdk_errorcode_en.html
+          url: /ontology_java_sdk_errorcode_zh.html
           output: web
 
         - title: API 文档
@@ -106,7 +106,7 @@ entries:
         output: web
         subfolderitems:
 
-        - title:  Introduction
+        - title:  介绍
           url: /ontology_python_sdk_en.html
           output: web
 

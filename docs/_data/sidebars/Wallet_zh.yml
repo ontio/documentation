@@ -24,7 +24,7 @@ entries:
     folderitems:
 
     - title: 钱包集成
-      url: /ontology_wallet_dev_overview_en.html
+      url: /ontology_wallet_dev_overview_zh.html
       output: web, pdf
       subfolders:
       - title: 教程
@@ -32,9 +32,9 @@ entries:
         subfolderitems:
 
         - title: Android钱包集成
-          url: /ontology_wallet_dev_android_en.html
+          url: /ontology_wallet_dev_android_zh.html
           output: web, pdf
 
         - title: iOS钱包集成
-          url: /ontology_wallet_dev_ts_sdk_en.html
+          url: /ontology_wallet_dev_ts_sdk_zh.html
           output: web, pdf
