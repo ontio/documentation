@@ -12,9 +12,9 @@ The outline of this document is as follows:
  
 ## Wallet Integration
 
-The wallet function includes digit asset account ant digital identity. [wallet Specification](Wallet_Specification_en.md)
+The wallet function includes giving an account for digit asset and digital identity. [wallet Specification](Wallet_Specification_en.md)
 
-Wallet function list:
+Wallet function lists:
 
 | Module                |                    Sub Module                    |     Test case      |
 | ------------------    | :----------------------------------------------: | :------------------: |
