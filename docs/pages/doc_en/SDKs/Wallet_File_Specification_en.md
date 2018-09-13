@@ -35,7 +35,7 @@ A wallet file in JSON format has the following basic structure:
   "extra": null
 }
 ```
-```name``` is a label that the user has made to the wallet file.
+```name``` is a label that the user has given to the wallet file.
 
 ```version``` is currently fixed at 1.0 and will be used for functional upgrades in the future.
 
@@ -43,9 +43,9 @@ A wallet file in JSON format has the following basic structure:
 
 ```defaultOntid``` indicates the default identity in this wallet.
 
-```defaultAccountAddress``` indicates the default digital assert account's address in this wallet.
+```defaultAccountAddress``` indicates the default digital asset account's address in this wallet.
 
-```createTime``` is the createTime of this wallet, in UTC format.
+```createTime``` is the time this wallet was created, in UTC format.
 
 ```identities``` is an array of identity objects which describe the details of each identity in the wallet.
 
@@ -137,13 +137,13 @@ Identity object has the following structure:
 ```
 ```ontid``` is the ontid of the identity.
 
-```label``` is a label that the user has made to the identity.
+```label``` is a label that the user has given to the identity.
 
-```lock``` indicates whether the identity is locked by user. The client shouldn't update the infomation in a locked identity.
+```lock``` indicates whether the identity is locked by the user - the client shouldn't update the infomation in a locked identity.
 
-```isDefault``` indicates whether the identity is default.
+```isDefault``` indicates whether the identity is the default identity.
 
-```controls``` is an array of Controller objects which describes the details of each controller in the identity.
+```controls``` is an array of Control objects which describes the details of each controller in the identity.
 
 ## Control
 
@@ -160,15 +160,15 @@ Control object has the following structure:
 ```
 ```algorithm``` is the algorithm used in the encryption system.
 
-```parameters``` is the array of parameter objects used in the encryption system.
+```parameters``` is an array of parameter objects used in the encryption system.
 
-```id``` is the identify of this control.
+```id``` is the identity of this control.
 
 ```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
 
 ```address```  address in base58 format.
 
-```salt``` 16 bytes salt value in base64 format.
+```salt``` 16 byte salt value in base64 format.
 
 ## Parameter
 
@@ -202,23 +202,23 @@ Account object has the following structure:
 ```
 ```address``` is the base58 encoded address of the account.
 
-```enc-alg``` is the algorithm to encrypt the private key.
+```enc-alg``` is the algorithm used to encrypt the private key.
 
-```salt``` is salt value for decryption.
+```salt``` is the salt value for decryption.
 
 ```publicKey``` is the public key.
 
 ```signatureScheme``` is the signatureScheme used in signature.
 
-```isDefault``` indicates whether the account is default.
+```isDefault``` indicates whether the account is the default account.
 
-```label``` is a label that the user has made to the account.
+```label``` is a label that the user has given to the account.
 
-```lock``` indicates whether the account is locked by user. The client shouldn't spend the funds in a locked account.
+```lock``` indicates whether the account is locked by the user - the client shouldn't spend the funds in a locked account.
 
-```algorithm``` is the algorithms used in encryption system.
+```algorithm``` is the algorithms used in the encryption system.
 
-```parameters``` is the array of parameter objects used in encryption system.
+```parameters``` is an array of parameter objects used in encryption system.
 
 ```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
 
@@ -226,7 +226,7 @@ Account object has the following structure:
 
 ## QR Code Specification 
 
-This is QR Code Specification is for both identity and account. 
+This QR Code Specification is for both identities and accounts. 
 
 ```
 {
@@ -250,17 +250,17 @@ This is QR Code Specification is for both identity and account.
 
 ```type``` is used to distinguish between identity or account, **I** indicates this is an identity , **A** indicates this is an account.
 
-```label``` is the label of identity or account.
+```label``` is the label for the  identity or account.
 
-```algorithm``` is the algorithm for key pair generation.
+```algorithm``` is the algorithm used for key/pair generation.
 
-```parameters``` is the parameters of the key pair generation algorithm.
+```parameters``` is the parameters of the key/pair generation algorithm.
 
-```scrypt``` is the parameters for scrypt.
+```scrypt``` is an ScryptParameters object which describes the parameters of the SCrypt algorithm used for encrypting and decrypting the private keys in the wallet.
 
 ```key``` is the encrypted private key.
 
 ```address```  is the address in base58 format.
 
-```salt``` is 16 bytes salt in base64 format.
+```salt``` 16 byte salt in base64 format.
 
