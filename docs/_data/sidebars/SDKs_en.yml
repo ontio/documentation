@@ -70,7 +70,7 @@ entries:
           url: /ontology_java_sdk_interface_en.html
           output: web
 
-        - title: Error Code
+        - title: Error Codes
           url: /ontology_java_sdk_errorcode_en.html
           output: web
         - title: API reference
@@ -93,7 +93,7 @@ entries:
           url: /ontology_ts_sdk_asset_en.html
           output: web
 
-        - title: Error Code
+        - title: Error Codes
           url: /ontology_ts_sdk_errorcode_en.html
           output: web
 
