@@ -61,7 +61,7 @@ Download URL：
 ### Build
 
 ```
-mvn clean install
+$ mvn clean install
 ```
 
 ### Preparations

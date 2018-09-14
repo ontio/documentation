@@ -23,17 +23,17 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/README.md
 
 ## 主要功能
 
-- [Getting Started](./ontology_java_sdk_get_start_zh.html)
+- [介绍](sdk_get_start.md)
 - [接口基本信息](./ontology_java_sdk_interface_zh.html)
 - [区块链节点基本操作](./ontology_java_sdk_basic_zh.html)
-- [钱包文件及规范](./Wallet_File_Specification_en.html)
+- [钱包文件及规范](Wallet_File_Specification_cn.md)
 - [数字身份及可信声明管理](./ontology_java_sdk_identity_claim_zh.html)
 - [数字资产](./ontology_java_sdk_asset_zh.html)
 - [数字存证](./ontology_java_sdk_attest_zh.html)
 - [权限管理](./ontology_java_sdk_auth_zh.html)
 - [智能合约部署和调用](./ontology_java_sdk_smartcontract_zh.html)
 - [错误码](./ontology_java_sdk_errorcode_zh.html)
-
+- [API 文档](https://apidoc.ont.io/javasdk/)
 
 ## 代码结构说明：
 
@@ -44,7 +44,9 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/README.md
 * io：io操作
 * network：restful\rpc\websocket与链通信接口
 * sdk：对SDK底层做封装、Info信息、通信管理、Claim管理、钱包管理、异常类。
-* ontsdk类：提供管理器和交易实例，管理器包括：walletMgr、connManager。walletMgr钱包管理器主要管理数字身份及数字资产账户，用户向链上发送交易需要私钥做签名。 connManager与链上通信管理。任何发送交易和查询都需要通过连接管理器。
+* ontsdk类：提供管理器和交易实例，管理器包括：walletMgr、connManager。
+    * walletMgr钱包管理器主要管理数字身份及数字资产账户，用户向链上发送交易需要私钥做签名。 
+    * connManager与链上通信管理。任何发送交易和查询都需要通过连接管理器。
 
 ## 安装说明
 
@@ -65,4 +67,4 @@ $ mvn clean install
 
 ### 预准备
 
-* 启动[Ontology节点](https://github.com/ontio/ontology/releases)，确保rpc端口已经打开，并且确保SDK可以连接RPC服务器。
+* 启动[Ontology节点](https://github.com/ontio/ontology/releases)，无论是主网、测试网、私网都可以。确保rpc端口可以访问，并且确保SDK可以连接RPC服务器。

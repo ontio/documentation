@@ -185,9 +185,11 @@ struct TransferPair
 
 Java-SDK 调用Transfer函数的方法
 
+分析：合约中的Transfer方法需要三个参数，前两个参数都是字节数组类型的参数，最后一个参数是对象数组，数组中的每个元素的结构可以通过TransferPair知道各个属性数据类型。
+
 ```java
 String functionName = "Transfer";
-//构造参数  请参考
+//构造Transfer方法需要的param 数组
 List list = new ArrayList();
 List list2 = new ArrayList();
 list2.add("Atoken");
@@ -197,21 +199,9 @@ List list3 = new ArrayList();
 list3.add("Btoken");
 list3.add(100);
 list.add(list3);
-
-List list1 = new ArrayList();
-list1.add(account.getAddressU160().toArray());//发送方
-list1.add(Address.decodeBase58("AacHGsQVbTtbvSWkqZfvdKePLS6K659dgp").toArray());//接收方
-list1.add(list);
-
-List listF = new ArrayList<Object>();
-listF.add(functionName.getBytes());
-listF.add(list1);
-byte[] params = BuildParams.createCodeParamsScript(listF);
-Transaction tx = ontSdk.vm().makeInvokeCodeTransaction(Helper.reverse(contractHash),null,params,account3.getAddressU160().toBase58(),20000,0);
-ontSdk.signTx(tx,new Account[][]{{account999}});
-ontSdk.addSign(tx,account3);
-System.out.println(tx.hash().toHexString());
-ontSdk.getConnect().sendRawTransaction(tx);
+//设置函数需要的参数
+func.setParamsValue(account999.getAddressU160().toArray(),Address.decodeBase58("AacHGsQVbTtbvSWkqZfvdKePLS6K659dgp").toArray(),list);
+String txhash = ontSdk.neovm().sendTransaction(Helper.reverse("44f1f4ee6940b4f162d857411842f2d533892084"),acct,acct,20000,500,func,false);
 Thread.sleep(6000);
 System.out.println(ontSdk.getConnect().getSmartCodeEvent(tx.hash().toHexString()));
 ```
