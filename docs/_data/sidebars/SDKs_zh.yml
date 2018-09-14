@@ -39,7 +39,7 @@ entries:
           output: web
 
         - title:  开始使用
-          url: /ontology_java_sdk_get_start_en.html
+          url: /ontology_java_sdk_get_start_zh.html
           output: web
 
         - title: 数字资产管理
@@ -78,7 +78,7 @@ entries:
           external_url: https://apidoc.ont.io/javasdk/
           output: web
 
-      - title: Typescript SDK
+      - title: TypeScript SDK
         output: web
         subfolderitems:
 

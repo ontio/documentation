@@ -77,7 +77,7 @@ entries:
           external_url: https://apidoc.ont.io/javasdk/
           output: web
 
-      - title: Typescript SDK
+      - title: TypeScript SDK
         output: web
         subfolderitems:
 

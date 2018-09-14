@@ -40,7 +40,7 @@
 
 Java SDK ：[Java SDK](https://github.com/ontio/ontology-java-sdk/blob/master/docs) 
 
-Typescript SDK ：[Ts SDK](https://github.com/ontio/ontology-ts-sdk/tree/master/docs) 
+TypeScript SDK ：[Ts SDK](https://github.com/ontio/ontology-ts-sdk/tree/master/docs) 
 
 Android SDK ：[Android SDK](https://github.com/ontio-community/ontology-andriod-sdk)
 

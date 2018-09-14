@@ -104,7 +104,7 @@ method：GET
 
 #### 查询交易历史
 
-We can use the explorer api to fetch the transaction history of an address with pagination.
+查询交易历史.
 
 ````
 url：/api/v1/explorer/address/{address}/{pagesize}/{pagenumber} or /api/v1/explorer/address/{address}/{assetname}/{pagesize}/{pagenumber}

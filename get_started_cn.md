@@ -318,8 +318,8 @@ Smartx是本体推出的一站式智能合约编写工具，集成了编写、�
 
 ### DAPP开发指南
 
-这个教程将会告诉你如何开发第一个DAPP。[教程](https://ontio.github.io/documentation/ontology_dapp_dev_tutorial_en.html)
+这个教程将会告诉你如何开发第一个DAPP。[教程](https://ontio.github.io/documentation/ontology_dapp_dev_tutorial_zh.html)
 
 ### 钱包集成指南
 
-这个教程将会告诉你如何在钱包中集成ONT和ONG。[安卓](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html)和[苹果](https://ontio.github.io/documentation/ontology_wallet_dev_js_en.html)
+这个教程将会告诉你如何在钱包中集成ONT和ONG。[安卓](https://ontio.github.io/documentation/ontology_wallet_dev_android_zh.html)和[苹果](https://ontio.github.io/documentation/ontology_wallet_dev_js_zh.html)
