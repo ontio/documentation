@@ -70,14 +70,14 @@ entries:
           url: /ontology_java_sdk_interface_en.html
           output: web
 
-        - title: Errorcode
+        - title: Error Code
           url: /ontology_java_sdk_errorcode_en.html
           output: web
         - title: API reference
           external_url: https://apidoc.ont.io/javasdk/
           output: web
 
-      - title: TS SDK
+      - title: Typescript SDK
         output: web
         subfolderitems:
 
@@ -93,7 +93,7 @@ entries:
           url: /ontology_ts_sdk_asset_en.html
           output: web
 
-        - title: Errorcode
+        - title: Error Code
           url: /ontology_ts_sdk_errorcode_en.html
           output: web
 
