@@ -24,15 +24,16 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/identity_
 为了创建数字身份，您首先需要创建/打开一个钱包文件。
 
 
-```
+```java
 //如果不存在钱包文件，会自动创建钱包文件。
-wm.openWalletFile("Demo3.json");
+OntSdk ontSdk = OntSdk.getInstance();
+ontSdk.openWalletFile("Demo3.json");
 ```
-> 注：wm表示OntSdk实例，目前仅支持操作文件形式钱包文件，也可以扩展支持数据库或其他存储方式。
+> 注：目前仅支持文件形式钱包文件，也可以扩展支持数据库或其他存储方式。
 
 
 
-## 数字身份账户管理
+## 数字身份数据结构
 
 **Identity数据结构说明**
 
@@ -73,6 +74,9 @@ public class Control {
     public String address = "";
 }
 ```
+
+##  数字身份接口
+
 
 ### 1. 注册身份
 
@@ -122,7 +126,7 @@ ontSdk.getConnect().sendRawTransaction(tx);
 > Note: 建议导入一个数字身份之前，建议查询链上身份，如果链上身份DDO不存在，表示此数字身份未在链上注册，请使用上面注册数字身份的方法把身份注册到链上。
 
 
-```
+```java
 Identity identity = ontSdk.getWalletMgr().importIdentity(encriptPrivateKey,password,salt,address);
 //写入钱包      
 ontSdk.getWalletMgr().writeWallet();
@@ -137,7 +141,7 @@ address: 账户地址base58编码
 
 **移除身份**
 
-```
+```java
 ontSdk.getWalletMgr().getWallet().removeIdentity(ontid);
 //写入钱包
 ontSdk.getWalletMgr().writeWallet();
@@ -145,7 +149,7 @@ ontSdk.getWalletMgr().writeWallet();
 
 **设置默认账号或身份**
 
-```
+```java
 //根据账户地址设置默认账户
 ontSdk.getWalletMgr().getWallet().setDefaultAccount(address);
 //根据identity索引设置默认identity
@@ -157,7 +161,7 @@ ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
 
 链上身份DDO信息，可以通过ONT ID进行查询。
 
-```
+```json
 //通过ONT ID获取DDO
 String ddo = ontSdk.nativevm().ontId().sendGetDDO(ontid);
 
@@ -192,7 +196,7 @@ String ddo = ontSdk.nativevm().ontId().sendGetDDO(ontid);
 #### 4.1 更新链上DDO属性
 方法一，指定支付交易费用的账户
 
-```
+```java
 //添加或者更新属性
 String sendAddAttributes(String ontid, String password,byte[] salt， Attribute[] attributes,Account payerAcct,long gaslimit,long gasprice)
 ```
@@ -212,13 +216,13 @@ String sendAddAttributes(String ontid, String password,byte[] salt， Attribute[
 
 
 方法二，将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
-```
+```java
 Transaction makeAddAttributes(String ontid, String password, byte[] salt,Attribute[] attributes,String payer,
                                           long gaslimit,long gasprice)
 ```
 
 示例代码
-```
+```java
 Transaction tx = ontSdk.nativevm().ontId().makeAddAttributes(ontid,password,salt,attributes,payer,gaslimit,0);
 ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnect().sendRawTransaction(tx);
@@ -245,9 +249,7 @@ String sendRemoveAttribute(String ontid,String password,byte[] salt,String path,
 | 输出参数 | txhash   | String  | 交易hash  | 交易hash是64位字符串 |
 
 
-方法二
-
-将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
+方法二，将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
 ```
 Transaction makeRemoveAttribute(String ontid,String password,salt,String path,String payer,long gaslimit,long gasprice)
 ```
@@ -261,12 +263,12 @@ ontSdk.getConnect().sendRawTransaction(tx);
 
 ### 5. 身份公钥
 
-
+一个身份可以有多个控制人，身份中的公钥是控制人的公钥列表。
 #### 5.1 添加公钥
 
 方法一
 
-```
+```java
 String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
 
@@ -285,13 +287,13 @@ String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey
 
 方法二，将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
 
-```
+```java
 Transaction makeAddPubKey(String ontid,String password,byte[] salt,String newpubkey,String payer,long gaslimit,long gasprice)
 ```
 参数说明请参考方法一sendAddPubKey
 
 示例代码
-```
+```java
 Transaction tx = ontSdk.nativevm().ontId().makeAddPubKey(ontid,password,byte[] salt,newpubkey,payer,gaslimit,gasprice);
 ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnect().sendRawTransaction(tx);
@@ -299,7 +301,7 @@ ontSdk.getConnect().sendRawTransaction(tx);
 
 方法三，recovery机制
 recovery可以为ontid添加公钥
-```
+```java
 String sendAddPubKey(String ontid,String recoveryAddr, String password, byte[] salt,String newpubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
 
@@ -319,7 +321,7 @@ String sendAddPubKey(String ontid,String recoveryAddr, String password, byte[] s
 
 方法四（recovery机制）
 
-```
+```java
 Transaction makeAddPubKey(String ontid,String recoveryAddr,String password,byte[] salt,String newpubkey,
                                           String payer,long gaslimit,long gasprice)
 ```
@@ -331,7 +333,7 @@ Transaction makeAddPubKey(String ontid,String recoveryAddr,String password,byte[
 
 方法一，删除公钥
 
-```
+```java
 String sendRemovePubKey(String ontid, String password,byte[] salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
 
@@ -350,14 +352,14 @@ String sendRemovePubKey(String ontid, String password,byte[] salt, String remove
 
 方法二，将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
 
-```
+```java
 Transaction tx = ontSdk.nativevm().ontId().makeRemovePubKey(ontid,password,salt,removePubkey,payer,gas);
 ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password,salt);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
 方法三，恢复人机制
-```
+```java
 String sendRemovePubKey(String ontid, String recoveryAddr,String password, byte[] salt,String removePubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
 
@@ -375,7 +377,7 @@ String sendRemovePubKey(String ontid, String recoveryAddr,String password, byte[
 
 
 方法四（recovery机制）
-```
+```java
 Transaction makeRemovePubKey(String ontid,String recoveryAddr, String password,byte[] salt, String removePubkey,String payer,
                                           long gaslimit,long gasprice)
 ```
@@ -384,11 +386,12 @@ Transaction makeRemovePubKey(String ontid,String recoveryAddr, String password,b
 
 ### 6. 身份恢复人
 
+当ontid中控制人私钥丢失时，身份恢复人可以设置新的控制人。
 #### 6.1 添加恢复人
 
 方法一
 
-```
+```java
 String sendAddRecovery(String ontid, String password,byte[] salt, String recoveryAddr,Account payerAcct,long gaslimit,long gasprice)
 ```
 
@@ -404,9 +407,7 @@ String sendAddRecovery(String ontid, String password,byte[] salt, String recover
 | 输出参数 | txhash   | String  | 交易hash  | 交易hash是64位字符串 |
 
 
-方法二
-
-将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
+方法二，将构造好的交易发送给服务器，让服务器进行交易费用账号的签名操作。
 ```
 Transaction makeAddRecovery(String ontid, String password,byte[] salt, String recoveryAddr,String payer,long gaslimit,long gasprice)
 ```

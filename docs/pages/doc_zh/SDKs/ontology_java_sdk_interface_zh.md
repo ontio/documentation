@@ -13,7 +13,9 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface
 
 [English](./ontology_java_sdk_interface_en.html) / 中文
 
-## 包括如下接口：
+## SDK接口列表：
+
+SDK接口按如下几类区分：
 
 * 初始化接口
 * 与链交互接口

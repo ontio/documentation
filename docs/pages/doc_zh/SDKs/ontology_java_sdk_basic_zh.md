@@ -18,7 +18,7 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md
 
 用Java SDK之前，请使用以下方式初始化OntSDK实例。
 
-```
+```java
 OntSdk ontSdk = OntSdk.getInstance();
 ontSdk.setRpc(rpcUrl);
 ontSdk.setRestful(restUrl);
@@ -28,50 +28,50 @@ ontSdk.openWalletFile("OntAssetDemo.json");
 > Note: setRestful表示采用restful接口建立连接，setRpc表示采用rpc接口建立连接,setDefaultConnect表示设置默认的链接方式。
 
 
-## 基本操作接口
+## 与链交互接口
 
 
 * 获取当前区块高度
-```
+```java
 int height = ontSdk.getConnect().getBlockHeight();
 ```
 
 * 获取区块
 
 根据高度获取区块
-```
+```java
 Block block = ontSdk.getConnect().getBlock(9757);
 ```
 
 根据区块hash获得区块
 
-```
+```java
 Block block = ontSdk.getConnect().getBlock(blockhash);
 ```
 
 * 获得block json数据
 
 根据高度获取区块json
-```
+```java
 Object block = ontSdk.getConnect().getBlockJson(9757);
 ```
 
 根据区块hash获得区块json
 
-```
+```java
 Object block = ontSdk.getConnect().getBlockJson(blockhash);
 ```
 * 获得合约代码
 
 根据合约hash获得合约代码
 
-```
+```java
 Object contract =  ontSdk.getConnect().getContract(contractHash)
 ```
 
 根据合约hash获得合约代码json数据
 
-```
+```java
 Object contractJson = ontSdk.getConnect().getContractJson(hash)
 ```
 
@@ -79,19 +79,19 @@ Object contractJson = ontSdk.getConnect().getContractJson(hash)
 
 根据账户地址查询余额
 
-```
+```java
 Object  balance = ontSdk.getConnect().getBalance(address)
 ```
 
 * 获取区块链节点数
 
-```
+```java
 int count = ontSdk.getConnect().getNodeCount();
 ```
 
 * 获得区块高度
 
-```
+```java
 int blockheight = ontSdk.getConnect().getBlockHeight()
 ```
 
@@ -99,25 +99,25 @@ int blockheight = ontSdk.getConnect().getBlockHeight()
 
 根据高度获得智能合约事件
 
-```
+```java
 Object  event = ontSdk.getConnect().getSmartCodeEvent(height)
 ```
 
 根据交易hash获得智能合约事件
 
-```
+```java
 Object  event = ontSdk.getConnect().getSmartCodeEvent(hash)
 ```
 
 * 根据交易hash获得区块高度
 
-```
+```java
 int blockheight = ontSdk.getConnect().getBlockHeightByTxHash(txhash)
 ```
 
 * 获得智能合约存储的数据
 
-```
+```java
 String value = ontSdk.getConnect().getStorage(codehash,key)
 ```
 
@@ -125,26 +125,26 @@ String value = ontSdk.getConnect().getStorage(codehash,key)
 
 根据交易hash获得merkle证明
 
-```
+```java
 Object proof =  ontSdk.getConnect().getMerkleProof(String hash)
 ```
 
 * 从区块链中获取交易
 
 根据交易hash获得交易对象
-```
+```java
 Transaction info = ontSdk.getConnect().getTransaction(txhash);
 ```
 
 根据交易hash获得交易json数据
 
-```
+```java
 Object info = ontSdk.getConnect().getTransactionJson(txhash);
 ```
 
 * 从区块链中获取InvokeCodeTransaction
 
-```
+```java
 InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnect().getTransaction(txhash);
 ```
 ## 数据结构说明

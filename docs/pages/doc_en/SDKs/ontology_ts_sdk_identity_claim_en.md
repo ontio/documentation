@@ -17,7 +17,7 @@ giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/identity_cl
 
 
 
-Identity has following structure:
+Identity has the following structure:
 
 ```
 {
@@ -63,19 +63,19 @@ Identity has following structure:
 
 ## 1.1 Generate identity
 
-ONT ID is a decentralized identity that managed users' various digital identity authentications. Identity is one of the core classes exposed from ONT SDK, which contains the ONT ID which represents identity.
+ONT ID is a decentralized identity that manages various digital identity authentications of a user. Identity is one of the core categories exposed from ONT SDK containing the ONT ID, which represents identity.
 
 > For more information, see [ONT TS SDK]().
 
-You can use SDK to create a digital identity. During the process, SDK will generate a ONT ID base on user's private key.
+You can use SDK to create a digital identity. During the process, SDK will generate an ONT ID base on a user's private key.
 
 > For ONT ID specifications, see [ONT ID Generation Specifications](./ONTID_protocol_spec_en.html).
 
-The method needs parameters as follows:
+The method needs the following parameters:
 
-**privateKey** User's private key. Can use the SDK to generate the private key safely.
+**privateKey** User's private key, using the SDK to generate the private key safely.
 
-**password** The password to encrypt and decrypt the private key.
+**password** The password is used for encrypting and decrypting the private key.
 
 **label** Name of the identity.
 
@@ -92,9 +92,9 @@ console.log(identity.ontid)
 
 ## 1.2 Register ONT ID to the blockchain
 
-After the identity is created the user needs to send the ONT ID to the blockchain to make it a truly decentralized identity.
+After the identity is created, the user needs to send the ONT ID to the blockchain to make it a truly decentralized identity.
 
-Sending ONT IDs to the blockchain needs to send specific transactions. The transaction object can be constructed by calling the methods provided by the SDK.
+Sending ONT IDs to the blockchain requires sending specific transactions. The transaction object can be done by calling the methods provided by the SDK.
 
 ### Create Transaction
 
@@ -126,10 +126,10 @@ TransactionBuilder.addSign(tx, privateKeyOfAccount)
 ```
 
 ### Send Transaction
-We can use RESTful API, RPC API and WebSocket API to send transaction to the blockchain.
-We can set the url of the node that we want to send transaction to. You can set as the testnet or the mainnet, even local node. It will use testnet as default is no url passed.
+We can use RESTful API, RPC API and WebSocket API to send transactions to the blockchain.
+We can set the URL of the node that we want to send transaction to. You can run in testnet, mainnet, or even as a local node. It will in testnet by default.
 
-We can wait for a notice when we use the WebSocket API.
+A notice will pop up when we use the WebSocket API.
 
 ```typescript
 import {RestClient, CONST} from 'ontology-ts-sdk'
@@ -139,7 +139,7 @@ rest.sendRawTransaction(tx.serialize()).then(res => {
 	console.log(res)
 })
 ```
-The response is like: 
+The response will look like: 
 
 ````
 { Action: 'sendrawtransaction',
@@ -148,7 +148,7 @@ The response is like:
   Result: 'dfc598649e0f3d9ff94486a80020a2775e1d474b843255f8680a3ac862c58741',
   Version: '1.0.0' }
 ````
-Now the transaction is sent to the blockchain.Then we can check if the ONT ID is registered on the chain by querying the DDO( Description object of ONT ID). It is some info which is stored on the chain.
+Now the transaction is sent to the blockchain. Then we can check if the ONT ID is registered on the chain by querying the DDO( Description object of ONT ID). This info is stored on the chain.
 
 ## 1.3 Query DDO
 We also send the specific transaction to query the DDO.
@@ -161,7 +161,7 @@ const tx = OntidContract.buildGetDDOTx(identity.ontid)
 
 ```
 ### Send transaction
-There is no need to pay transaction gas if the transaction is for a query, and there is no need to sign this kind of transaction - we can send it directly.
+There is no need to pay transaction gas if the transaction is a query, and there is no need to sign this kind of transaction - we can send it directly.
 
 ```typescript
 import {RestClient} from 'ontology-ts-sdk';
@@ -171,9 +171,9 @@ rest.sendRawTransaction(tx, true).then(res => {
 })
 ```
 
-RestClient.sendRawTransaction(hexData, preExec). The second parameter decides if it is a pre-execute transaction, which will be executed on the blockchain node and won't have to wait for the consensus.We use pre-execute transaction to query data. For more info please check the ts SDK API reference.
+RestClient.sendRawTransaction(hexData, preExec). The second parameter decides if it is a pre-execute transaction, which will be executed on the blockchain node and do not have to wait for the consensus. We use pre-execute transaction to query the data. For more info please check the TS SDK API as a reference.
 
-The response is like:
+The response will look like:
 
 ```
 { Action: 'sendrawtransaction',
@@ -191,17 +191,17 @@ Now the ONT ID is registered to the blockchain successfully.
 
 ## 2 Issuing a verifiable claim
 
-Users can have several types of identities. For example, users with an ID card issued by the China Ministry of Public Security all have the identity "Chinese National". Users can present their ID cards in certain scenarios to declare their identity; the ID card is the Ministry of Public Security's citizenship certification.
+A user can have several types of identities. For example, a user with an ID card issued by the China Ministry of Public Security will all have the identity as "Chinese National". A user can present his ID card in certain scenarios to declare his identity; the ID card is the Ministry of Public Security's citizenship certification.
 
-For example, a student who graduates from a university can obtain the status of a graduate of the university. This status can be proved by a diploma issued by the school to students. Now there is a new way to authenticate the identity of this university graduate through blockchain technology, by binding a verifiable claim (a trusted statement) to the user's ONT ID. Similarly, users can obtain different verifiable claims from multiple different organizations and/or platforms.
+For example, a student who graduates from a university wants to obtain the status of the diploma from the university. This status can be received by issuing the diploma issued from the school to the student. Now there is a new way to authenticate the identity of this university graduate through blockchain technology, by binding a verifiable claim (a trusted statement) to the user's ONT ID. Similarly, users can obtain different verifiable claims from multiple different organizations and/or platforms.
 
-The owner of an ONT ID can issue a verifiable claim to himself or others.
+Owner of an ONT ID can issue a verifiable claim to himself or others.
 
-Government agencies, universities, banks, third-party authentication service agencies (such as CA), biometrics technology companies, etc., can serve as trusted institutions and be added to the Ontology ecosystem as partners. If you think you could be a certification service partner, please see the [Certification Service Partner Assessment Standard](./verification_provider_specification_en.html).
+Government agencies, universities, banks, third-party authentication service agencies (such as CA), biometrics technology companies and etc., can serve as trusted institutions and join the Ontology ecosystem as partners. If you think you could be a certification service partner, please visit [Certification Service Partner Assessment Standard](./verification_provider_specification_en.html).
 
 We use a digital diploma issued by China's Fudan University as an example to illustrate how users can obtain a third-party claim.
 
-Suppose Alice is a student at Fudan University and applies to the school for a digital graduation certificate. After the school verifies Alice's identity, it invokes the SDK's API to generate a trusted statement that contains Alice's graduation information and the signature of the school, which was made with the school's private key.
+Suppose Alice is a student from Fudan University and wants to apply a digital graduation certificate from the school. After the school verifies Alice's identity, it invokes the SDK's API to generate a trusted statement that contains Alice's graduation information with the signature by using school's private key.
 
 ### 2.1 Construct a claim
 
@@ -227,11 +227,11 @@ claim.content = {
 
 ````
 
-This attributes of claim are described as follows:
+These attributes of claim are described as follows:
 
-**signature** The signature of the claim. It can be null or undefiend at beginning.
+**signature** The signature of the claim. It can be null or undefiend at the beginning.
 
-**useProof** Decides if the claim will use proof.
+**useProof** Decides if the claim will be used as a proof.
 
 **messageId** String value.
 
@@ -251,7 +251,7 @@ This attributes of claim are described as follows:
 For claim object specification, see [claim specifications]().
 
 ### 2.2 Attest Claim
-Then the issuer shuld attest the claim the the blockchain.
+The issuer should attest the claim the the blockchain.
 
 The parameters are as below:
 
@@ -273,7 +273,7 @@ const payer = new Address('AMLn5W7rz1sYd1hGpuQUfsnmUuUco22pM8');
 const privateKey = new PrivateKey('44fd06de5a6529f3563aad874fb6c8240....')
 const result = await claim.attest(url, gasPrice, gasLimit, payer, privateKey);
 ````
-The result is promised boolean value. If it's true then the claim has been attested successfully.
+The result is a promised boolean value. If it's true then the claim has been attested successfully.
 
 ### 2.3 Revoke Claim
 The issuer can also issuer the claim.
@@ -303,11 +303,11 @@ The result is promised boolean value. If it's true then the claim has been revok
 
 ### 2.4 Verifiable claim verification
 
-In the above section we illustrated how to obtain an identity claim granted by a third party which can presented when needed. At the same time, these statements can be verified through an SDK to verify their authenticity and that they have not been tampered with.
+In the above section we illustrated how to obtain an identity claim granted by a third party which can be presented when needed. At the same time, these statements can be verified through an SDK to verify the authenticity.
 
 The process of verifying a verifiable claim is illustrated with the example of Alice seeking employment.
 
-When Alice applies for company B she provides a digital diploma certificate issued by Fudan University. The certificate is a JSON file that conforms to the claim format. Company B can verify the statement by calling on the ONT SDK. Anyone who wants to verify the claim can query the status of the claim from blockchain.
+When Alice applies for company B she provides a digital diploma certificate issued by Fudan University. The certificate is a JSON file that match to the claim format. Company B can verify the statement by calling on the ONT SDK. Anyone who wants to verify the claim can query the status of the claim from blockchain.
 
 The parameters are as below:
 
@@ -318,7 +318,7 @@ const url = 'http://polaris1.ont.io:20335';
 const result = await claim.getStatus(url);
 
 ````
-If the claim is attested and the issuer is right, the returned result will true.
+If the claim is attested and the issuer is correct, the returned result will be true.
 
 
 

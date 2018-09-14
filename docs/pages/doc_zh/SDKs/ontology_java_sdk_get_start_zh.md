@@ -20,13 +20,13 @@ sdk文档：[sdk文档](https://github.com/ontio/ontology-java-sdk/tree/master/d
 本文大纲如下：
 * [Java sdk 使用说明](#java-sdk-使用说明)
 	* [1. 公私钥和地址](#1-公私钥和地址)
-		* [1.1 创建公私钥](#11-创建公私钥)
-			* [1.1.1 不使用钱包管理：](#111-不使用钱包管理)
+		* [1.1 公私钥存储](#11-公私钥存储)
+			* [1.1.1 自己存储：](#111-自己存储)
 				* [随机创建账号：](#随机创建账号)
 				* [根据私钥创建账号](#根据私钥创建账号)
-			* [1.1.2 使用钱包管理：](#112-使用钱包管理)
-		* [1.2 地址生成](#12-地址生成)
-	* [2. 原生资产ont和ong转账](#2-原生资产ont和ong转账)
+			* [1.1.2 按钱包规范存储：](#112-按钱包规范存储)
+		* [1.2 地址](#12-地址)
+	* [2. 原生资产转账](#2-原生资产转账)
 		* [2.1 初始化](#21-初始化)
 		* [2.2 查询](#22-查询)
 			* [ 查询ont，ong余额](#查询ontong余额)
@@ -35,13 +35,13 @@ sdk文档：[sdk文档](https://github.com/ontio/ontology-java-sdk/tree/master/d
 			* [ 同步查询智能合约event](#同步查询智能合约event)
 			* [其他与链交互接口列表：](#其他与链交互接口列表)
 		* [2.3 交易反序](#23-交易反序)	
-		* [2.4 ont转账](#24-ont转账)
+		* [2.4 ONT转账](#24-ONT转账)
 			* [ 构造转账交易并发送](#构造转账交易并发送)
 			* [ 多次签名](#多次签名)
 			* [ 一转多或多转多](#一转多或多转多)
 			* [使用签名机签名](#使用签名机签名)
-		* [2.5 ong转账](#25-ong转账)
-			* [ ong转账](#ong转账)
+		* [2.5 ONG转账](#25-ONG转账)
+			* [ ONG转账](#ONG转账)
 			* [ 提取ong](#提取ong)
 	* [3. NEP5转账](#3-nep5转账)
 		* [3.1 查询](#31-查询)
@@ -49,31 +49,41 @@ sdk文档：[sdk文档](https://github.com/ontio/ontology-java-sdk/tree/master/d
 
 ## 1. 公私钥和地址
 
-###  1.1 **创建公私钥**
+账户是基于公私钥创建的，地址是公钥转换而来。
 
-#### 1.1.1 不使用钱包管理：
+###  1.1 **公私钥存储**
+
+公私钥存储可以存储在数据库中，也可以根据钱包规范存储在文件中。
+
+#### 1.1.1 自己存储：
+
+自己存储，是指账户信息保存在用户数据库或其他地方，而不存储在遵循钱包规范的文件中。
 #####  随机创建账号：
-```
+```java
 com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
 acct.serializePrivateKey();//私钥
 acct.serializePublicKey();//公钥
 acct.getAddressU160().toBase58();//base58地址
 ```            
 ##### 根据私钥创建账号            
-```          
+```java     
 com.github.ontio.account.Account acct0 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey0), ontSdk.defaultSignScheme);
 com.github.ontio.account.Account acct1 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey1), ontSdk.defaultSignScheme);
 com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey2), ontSdk.defaultSignScheme);
 
 ```
 
-#### 1.1.2 使用钱包管理：
-[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/WalletDemo.java) 
+#### 1.1.2 按钱包规范存储：
 
-```
+账户和身份信息保持在遵循钱包规范的文件中。[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/WalletDemo.java) 
+
+
 
 
 #### 在钱包中批量创建账号:
+
+一个创建多个账号的方法。
+```java
 ontSdk.getWalletMgr().createAccounts(10, "passwordtest");
 ontSdk.getWalletMgr().writeWallet();
 
@@ -91,13 +101,14 @@ com.github.ontio.account.Account acct0 = ontSdk.getWalletMgr().getAccount(info.a
 
 
 
-###  1.2 **地址生成**
+###  1.2 **地址**
 
 
 包括单签地址和多签地址,生成方式与NEO地址相同。
 
+签地址是由一个公钥转换而来，多签地址是由多个公钥转换而来。
 
-```
+```java
 单签地址生成：
 String privatekey0 = "c19f16785b8f3543bbaf5e1dbb5d398dfa6c85aaad54fc9d71203ce83e505c07";
 String privatekey1 = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
@@ -121,15 +132,16 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 | :--- | :--- | :--- |
 | addressFromMultiPubkeys | int m,byte\[\]... pubkeys | 最小验签个数(<=公钥个数)，公钥 |
 
-## 2. 原生资产ont和ong转账
+## 2. 原生资产转账
 
 参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
 
 ### 2.1 初始化
 
+转账之前需要创建SDK实例，配置节点IP。
 
-```
+```java
 
 String ip = "http://polaris1.ont.io";
 String rpcUrl = ip + ":" + "20336";
@@ -152,10 +164,11 @@ ontSdk.setDefaultConnect(wm.getWebSocket());
 
 ### 2.2 查询
 
+当发完交易之后可能需要查询交易是否已经落账，还可能需要查询账户余额。
 
 ####  **查询ont，ong余额**
 
-```
+```java
 ontSdk.getConnect().getBalance("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2");
 ontSdk.nativevm().ont().queryBalanceOf("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2")
 ontSdk.nativevm().ong().queryBalanceOf("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2")
@@ -178,8 +191,8 @@ System.out.println(ontSdk.nativevm().ong().queryTotalSupply());
 
 #### **查询交易是否在交易池中**
 
-
-```
+通过接口查询交易是否在交易池中
+```json
 
 ontSdk.getConnect().getMemPoolTxState("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
 
@@ -222,9 +235,9 @@ response 交易池存在此交易:
 
 #### **查询交易是否调用成功**
 
-查询智能合约推送内容
+查询智能合约推送内容，代表交易执行成功，如果没有成功```States```中不会有```transfer```的事件。
 
-```
+```json
 ontSdk.getConnect().getSmartCodeEvent("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
 
 
@@ -257,7 +270,7 @@ response:
 根据块高查询智能合约事件，返回有事件的交易hash
 
 
-```
+```json
 
 ontSdk.getConnect().getSmartCodeEvent(10)
 
@@ -300,14 +313,21 @@ response:
 
 #### **同步查询智能合约event**
 
-```
+发完交易后，直到查到交易才返回。
+
+```json
 //发完交易每隔3秒请求一次，最长等待60秒
 
 Object object = ontSdk.getConnect().waitResult(tx.hash().toString());
 System.out.println(object);
 
 response success:
-{"GasConsumed":0,"Notify":[],"TxHash":"cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890","State":1}
+{
+	"GasConsumed": 0,
+	"Notify": [],
+	"TxHash": "cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890",
+	"State": 1
+}
 
 response fail,reject by txpool:
 com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc":"UNKNOWN TRANSACTION","Error":44001,"Result":"","Version":"1.0.0"}
@@ -316,6 +336,7 @@ com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc
 
 #### 其他与链交互接口列表：
 
+与链交互还有如下接口。
 ```
 
       |                     Main   Function                      |           Description            
@@ -344,8 +365,9 @@ com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc
 
 ### 2.3 交易反序
 
-获取交易
-```  
+获取json格式的交易数据
+
+```json  
 http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d?raw=0
 
 {
@@ -382,8 +404,8 @@ http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749b
 
 ```  
 
-获取交易
-```  
+获取hex格式的交易数据
+```json  
 http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d?raw=1
 
 
@@ -397,7 +419,7 @@ http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749b
 
 ``` 
 
-反序列化交易
+要理解交易中的数据内容，需要反序列化交易数据，才能推断出是什么类型的交易和具体信息。
 ``` 
 //版本号    交易类型  随机数   gasprice    gaslimit              网络费付款人       交易数据 
 (version(1) type(1) nonce(4) gasprice(8) gaslimit(8))22 bytes + (payer)21 bytes + payload code bytes( any bytes)
@@ -414,13 +436,13 @@ Example: 1000 is  0xe803000000000000 -> 0x00000000000003e8   change from little 
 
 ```  
 
-### 2.4 ont转账
+### 2.4 ONT转账
 
-
+ONT和ONG转账可以一对一，也可以一对多，多对多，多对一。
 
 #### **构造转账交易并发送**
 
-```
+```java
 转出方与收款方地址：
 Address sender = acct0.getAddressU160();
 Address recvAddr = acct1;
@@ -456,7 +478,12 @@ ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 Object obj = ontSdk.getConnect().syncSendRawTransaction(tx.toHexString());
 
 response success:
-{"GasConsumed":0,"Notify":[],"TxHash":"cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890","State":1}
+{
+	"GasConsumed": 0,
+	"Notify": [],
+	"TxHash": "cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890",
+	"State": 1
+}
 
 response fail,reject by txpool:
 com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc":"UNKNOWN TRANSACTION","Error":44001,"Result":"","Version":"1.0.0"}
@@ -475,7 +502,7 @@ com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc
 
 如果转出方与网络费付款人不是同一个地址，需要添加网络费付款人的签名
 
-```
+```java
 
 1.添加单签签名
 ontSdk.addSign(tx,acct0);
@@ -502,7 +529,7 @@ ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializeP
 3. 一笔交易上限为1024笔转账
 
 
-```
+```java
 
 Address sender1 = acct0.getAddressU160();
 Address sender2 = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey(), acct2.serializePublicKey());
@@ -527,7 +554,7 @@ ontSdk.addMultiSign(tx,2,new byte[][]{acct1.serializePublicKey(),acct2.serialize
 2. 签名机接收到交易，反序列化，检查交易，添加签名
 3. 发送交易
 
-```
+```java
 
 序列化交易发送给签名机：
 Transaction tx = ontSdk.nativevm().ont().makeTransfer(sender.toBase58(),recvAddr.toBase58(), amount,sender.toBase58(),30000,0);
@@ -546,7 +573,7 @@ ontSdk.addSign(txRx,acct0);
 
 [例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/SignServerDemo.java)
 
-```
+```java
 节点启动时打开签名机服务：
 go run SigSvr.go
 
@@ -575,11 +602,10 @@ ontSdk.getSignServer().sendSigTransferTx("ont","TU5exRFVqjRi5wnMVzNoWKBq9WFncLXE
 
  **对数据做签名**
 
+SDK提供直接对数据做签名的接口。[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/SignatureDemo.java) 
 
-[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/SignatureDemo.java) 
 
-
-```
+```java
 com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
 
 byte[] data = "12345".getBytes();
@@ -591,15 +617,14 @@ System.out.println(ontSdk.verifySignature(acct.serializePublicKey(), data, signa
 
 
 
-### 2.5 ong转账
+### 2.5 ONG转账
+
+ONG转账方法与ONT转账类似，但ONG的精度是9。
+####  **ONG转账**
 
 
-####  **ong转账**
-
-接口与ont类似：
-
-```
-ontSdk.nativevm().ong().makeTransfer...
+```json
+ontSdk.nativevm().ong().makeTransfer(sender.toBase58(),recvAddr.toBase58(), amount,sender.toBase58(),30000,0);
 ```
 
 ####  **提取ong**
@@ -607,7 +632,7 @@ ontSdk.nativevm().ong().makeTransfer...
 1. 查询是否有ong可以提取
 2. 发送提取ong交易
 
-```
+```json
 查询未提取ong:
 String addr = acct0.getAddressU160().toBase58();
 String ong = sdk.nativevm().ong().unboundOng(addr);
@@ -626,7 +651,7 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 ### 3.1 查询
 
-```
+```json
 String balance = ontSdk.neovm().nep5().queryBalanceOf(acct.address);
 System.out.println(new BigInteger(Helper.reverse(Helper.hexToBytes(balance))).longValue());
 
@@ -647,7 +672,7 @@ System.out.println(Address.decodeBase58(acct.address).toHexString());
 
 ### 3.2 转账
 
-```
+```json
 ontSdk.neovm().nep5().sendTransfer(acct,"AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2",46440000L,acct,gasLimit,0);
 ```
 

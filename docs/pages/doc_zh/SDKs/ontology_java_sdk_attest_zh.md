@@ -33,7 +33,7 @@ java-sdk采用JSON Web Token的格式表示claim以便于在声明发行者和�
 
 * Claim 具有以下数据结构
 
-```
+```java
 class Claim{
   header : Header
   payload : Payload
@@ -42,7 +42,7 @@ class Claim{
 ```
 
 
-```
+```java
 class Header {
     public String Alg = "ONT-ES256";
     public String Typ = "JWT-X";
@@ -57,7 +57,7 @@ class Header {
      JWT-X: 表示区块链证明是claim中的一部分
 `kid` 用于签名的公钥
 
-```
+```java
 class Payload {
     public String Ver;
     public String Iss;
@@ -92,7 +92,7 @@ class Payload {
 * 4.对要签名的json数据转成Map对key做排序。
 * 5.Signature中Value值：claim 删除Signature、Proof后转byte数组, 做两次sha256得到的byte数组。
 
-```
+```java
 Map<String, Object> map = new HashMap<String, Object>();
 map.put("Issuer", dids.get(0).ontid);
 map.put("Subject", dids.get(1).ontid);
@@ -104,7 +104,7 @@ String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,pass
 
 **createOntIdClaim**
 
-```
+```java
 String createOntIdClaim(String signerOntid, String password,byte[] salt, String context, Map<String, Object> claimMap, Map metaData,Map clmRevMap,long expire)
 ```
 
@@ -132,13 +132,13 @@ String createOntIdClaim(String signerOntid, String password,byte[] salt, String 
 * 2.Owner是否存在Sgnature中的PublicKeyId
 * 3.对要验签的json数据转成Map对key做排序。
 * 4.删除Signature做验签（根据PublicKeyId的id值查找到公钥,签名是Signature中Value做base64解码）
-```
+```java
 boolean b = ontSdk.nativevm().ontId().verifyOntIdClaim(claim);
 ```
 
 **verifyOntIdClaim**
 
-```
+```java
 boolean verifyOntIdClaim(String claim)
 ```
 
@@ -160,7 +160,7 @@ boolean verifyOntIdClaim(String claim)
 
 使用存证合约之前先初始化，并设置合约地址。
 
-```
+```java
 String ip = "http://127.0.0.1";
 String restUrl = ip + ":" + "20334";
 String rpcUrl = ip + ":" + "20336";
@@ -181,7 +181,7 @@ wm.setCodeAddress("803ca638069742da4b6871fe3d7f78718eeee78a");
 
 **sendCommit**
 
-```
+```java
 String sendCommit(String issuerOntid, String password,byte[] salt, String subjectOntid, String claimId, Account payerAcct, long gaslimit, long gasprice)
 ```
 
@@ -204,7 +204,7 @@ String sendCommit(String issuerOntid, String password,byte[] salt, String subjec
 
 示例代码
 
-```
+```java
 String[] claims = claim.split("\\.");
 JSONObject payload = JSONObject.parseObject(new String(Base64.getDecoder().decode(claims[1].getBytes())));
 String commitHash = ontSdk.neovm().claimRecord().sendCommit(dids.get(0).ontid,password,dids.get(1).ontid,payload.getString("jti"),account1,ontSdk.DEFAULT_GAS_LIMIT,0)
@@ -230,7 +230,7 @@ String sendGetStatus(String claimId)
 
 示例代码
 
-```
+```java
 String getstatusRes2 = ontSdk.neovm().claimRecord().sendGetStatus(payload.getString("jti"));
 ```
 
@@ -240,7 +240,7 @@ String getstatusRes2 = ontSdk.neovm().claimRecord().sendGetStatus(payload.getStr
 
 **sendRevoke**
 
-```
+```java
 String sendRevoke(String issuerOntid,String password,byte[] salt,String claimId,Account payerAcct,long gaslimit,long gas)
 ```
 
@@ -261,6 +261,6 @@ String sendRevoke(String issuerOntid,String password,byte[] salt,String claimId,
 
 示例代码
 
-```
+```java
 String revokeHash = ontSdk.neovm().claimRecord().sendRevoke(dids.get(0).ontid,password,salt,payload.getString("jti"),account1,ontSdk.DEFAULT_GAS_LIMIT,0);
 ```

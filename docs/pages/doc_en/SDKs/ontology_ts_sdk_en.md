@@ -15,7 +15,7 @@ giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/en/README.md
 
 ## Overview
 
-The Ontology official TypeScript SDK is a comprehensive SDK which also supports JavaScript. Currently, it supports local wallet management, digital identity management, digital asset management, deployment and envoke for smart contract, and communication with the Ontology blockchain. The future will also support more functions and applications.
+The Ontology official TypeScript SDK is a comprehensive SDK which also supports JavaScript. Currently, it supports local wallet management, digital identity management, digital asset management, deploying and invoking smart contract as well as communicating with the Ontology blockchain. The TS SDK will also support more functions and applications in the future.
 
 ## Main Content
 
