@@ -13,22 +13,40 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/asset.md
 
 English / [中文](./ontology_java_sdk_asset_zh.html)
 
-## Data structure
-`address`   Base58 encoded account address.  
-`label` Name of account.  
-`isDefault`Indicates whether the account is a default one, whose default value is set as "false".  
-`lock`  Indicates whether the account is locked by client users, who cannot spend in locked account.  
-`algorithm` Name of encryption algorithm.  
-`parameters` Encryption parameters.  
-`curve` Elliptic curve.  
-`key` NEP-2 private key, whose value can be null (in case of read-only or non-standard address).  
-`contract` Smart contract, whose value can be null (in case of read-only address).  
-`encAlg` Private key encryption algorithm name, fixed at aes-256-ctr.  
-`salt` Private key decryption parameters.  
-`extra` Extra information stored by client developer, whose value can be null.  
-`signatureScheme` `signatureScheme` Signature scheme used for transaction signatures.  
-`hash` Hash algorithm for derived privateKey.
+The storing of Digital Assets such as ONT and ONG is handled by the Java SDK using the Account structure, which is outlined below.
 
+## Data structure
+
+`address` Base58 encoded account address
+
+`label` Name of account
+
+`isDefault`Indicates whether the account is the default
+
+`lock`  Indicates whether the account is locked by the client user - Locked accounts can't spend
+
+`algorithm` Name of the encryption algorithm used
+
+`parameters` Encryption parameters
+
+`curve` Elliptic curve used
+
+`key` NEP-2 private key - whose value can be null in case of read-only or non-standard addresses
+
+`contract` Smart contract hash - whose value can be null in case of read-only addresses
+
+`encAlg` Private key encryption algorithm name - fixed at aes-256-ctr
+
+`salt` Private key decryption salt  
+
+`extra` Extra information stored by client developer - value can be null
+
+`signatureScheme` `signatureScheme` Signature scheme used for transaction signatures
+
+`hash` Hash algorithm for derived privateKey
+<p><br>
+
+##### Example Account class:
 ```
 public class Account {
     public String label = "";
@@ -50,12 +68,13 @@ public class Account {
 
 ## Digital asset account management
 
+The following code shows some common digital asset functions:
 * Create digital asset account
 
 ```
 OntSdk ontSdk = OntSdk.getInstance();
 Account acct = ontSdk.getWalletMgr().createAccount("password");
-//any account or identity, once created, are stored in the memory only. A write api should be invoked when writing to a wallet file.
+//any account or identity, once created is stored in memory only. A write api should be invoked to write to a wallet file.
 ontSdk.getWalletMgr().writeWallet();
 ```
 
@@ -78,139 +97,117 @@ Note:
 > address: The account with such address is set as the default account.
 ----
 
-## Native digital asset (token)
+## Native digital asset methods
 
-ONT and ONG asset list
+Methods apply to both ONT and ONG assets.
 
- 1. String sendTransfer (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)
+**String sendTransfer (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)**
 
     Function description: Transfer a certain amount of assets from the sender to the receiver's account.
 
-    Parameter description：
+    Parameters:
+			sendAcct: Sender account
+			recvAddr: Receiver address
+			amount: Asset amount
+			payerAcct: Payment transaction account
+			gaslimit: Gas limit
+			gasprice: Gas price
 
-    sendAcct: Sender account
+	return value: Transaction hash
 
-    recvAddr: Receiver address
+**String sendApprove (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)**
 
-    amount: Asset amount
+Function description: SendAcct account allows recvAddr to transfer amount of assets.
 
-    payerAcct: Payment transaction account
+    Parameters:
+			sendAcct: Sender account
+			recvAddr: Receive address
+			amount: Asset amount
+			payerAcct: Payment transaction account
+			gaslimit: Gas limit
+			gasprice: Gas price
 
-    gaslimit: Gas limit
+	return value: Transaction hash
 
-    gasprice: Gas price
+ **String sendTransferFrom (Account sendAcct, String fromAddr, String toAddr, long amount, Account payerAcct, long gaslimit, long gasprice)**
 
-    return value: Transaction hash
+Function description: The sendAcct account transfers the amount of assets from the fromAddr account to the toAddr account.
 
- 2. String sendApprove (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)
+    Parameters:
+			sendAcct: Sender account
+			fromAddr: From address
+			toAddr: Receive address
+			amount: Asset amount
+			payerAcct: Payment transaction account
+			gaslimit: Gas limit
+			gasprice: Gas price
 
-       Function description: SendAcct account allows recvAddr to transfer amount of assets.
+	return value: Transaction hash
 
-       Parameter description：
+**long queryBalanceOf (String address)**
 
-       sendAcct: Sender account
+Function description: Query the asset balance of the account address.
 
-       recvAddr: Receive address
+    Parameters:
+			address：Account address
 
-       amount: Asset amount
-
-       payerAcct: Payment transaction account
-
-       gaslimit: Gas limit
-
-       gasprice: Gas price
-
-       return value: Transaction hash
-
- 3. String sendTransferFrom (Account sendAcct, String fromAddr, String toAddr, long amount, Account payerAcct, long gaslimit, long gasprice)
-
-        Function description: The sendAcct account transfers the amount of assets from the fromAddr account to the toAddr account.
-
-        Parameter description：
-
-        sendAcct: Sender account
-
-        fromAddr: From address
-
-        toAddr: Receive address
-
-        amount: Asset amount
-
-        payerAcct: Payment transaction account
-
-        gaslimit: Gas limit
-
-        gasprice: Gas price
-
-        return value: Transaction hash
-
- 4. long queryBalanceOf (String address)
-
-         Function description: Query the asset balance of the account address.
-
-         Parameter description：
-
-         address：Account address
-
-         return value： Balance of address
-
- 5. long queryAllowance (String fromAddr,String toAddr)
-
-         Function description: Query balance of the account address.
-
-         fromAddr: From address
-
-         toAddr: To address
-
-         return value: Asset amount
-
- 6. String queryName()
-
-          Function description: Query  asset name information.
-
-          Parameter description：
-
-          return value: Asset name detail information
-
- 7. String querySymbol()
-
-           Function description: Query  asset symbol Information.
-
-           Parameter description：
-
-           return value：Symbol information
-
- 8. long queryDecimals()
-
-            Function description: Query the accuracy of assets
-
-            Parameter description：
-
-            return value：decimal
-
- 9. long queryTotalSupply()
-
-             Function description： Query the total supply of  assets
-
-             Parameter description：
-
-             return value：total Supply
+    return value： Balance of address
 
 
-Example:
+**long queryAllowance (String fromAddr,String toAddr)**
+
+Function description: Query balance of the account address.
+
+    Parameters:
+			fromAddr: From address
+			toAddr: To address
+
+    return value: Asset amount
+
+	
+**String queryName()**
+
+Function description: Query asset name information.
+
+    
+    return value: Asset name detail information
+
+	
+**String querySymbol()**
+
+Function description: Query asset symbol information.
+
+    return value：Symbol information
+
+ 
+ **long queryDecimals()**
+
+Function description: Query the accuracy of assets
+
+    return value：decimal
+
+
+**long queryTotalSupply()**
+
+Function description： Query the total supply of  assets
+
+    return value：total Supply
+
+
+##### Example:
 
 ```
-//step1:get sdk instance
+//get sdk instance
 OntSdk sdk = OntSdk.getInstance();
 sdk.setRpc(url);
 sdk.openWalletFile("OntAssetDemo.json");
-//step2:get ontAssetTx instance
+//get ontAssetTx instance
 ont = sdk.nativevm().ont()
-//step3:transfer
+//transfer
 com.github.ontio.account.Account account1 = new com.github.ontio.account.Account(privateKey,SignatureScheme.SHA256WITHECDSA);
 ont.sendTransfer(account1,"TA4pCAb4zUifHyxSx32dZRjTrnXtxEWKZr",10000,account1,ontSdk.DEFAULT_GAS_LIMIT,0);
 ```
-
+----
 ## NEP-5 smart contract digital assets
 
 NEP-5 document：
@@ -220,8 +217,8 @@ Digital assets template:
 >https://github.com/neo-project/examples/tree/master/ICO_Template
 
 
-|Function|Params|Return value|Description|
-|:--|:--|:--|:--|
+| Function |Params | Returns | Description |
+|:---|:---|:---|:---|
 |sendInit    |boolean preExec|String|If true, it indicates that the pre-execution is to test whether it has been initialized. If it is false, the contract parameters are initialized.|
 |sendTransfer|String sendAddr, String password, String recvAddr, int amount|String|Transfer assets|
 |sendBalanceOf|String addr|String|Get account balance|
@@ -231,9 +228,8 @@ Digital assets template:
 |sendSymbol||String|Query token abbreviation|
 
 
-NEP-5 smartc ontract template:
 
-
+### NEP-5 smart contract template
 ```
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
@@ -336,25 +332,3 @@ namespace Nep5Template
     }
 }
 ```
-
-
-## Instruction
-
-
-* What is codeaddress?
-
-codeaddress is the unique identifier of smart contract.
-
-* Why do we need to pass the account and its password when invoking?
-
-User's signature, which is generated by the private key, is neccesary in the process of invoking a smart contract. The private key is encrypted and stored in the wallet, which needs the password to decrypt.
-
-* What is the pre-execution of smart contract when querying the assert and how to use it?
-
-Operations of smart contract, such as get, do not need to go through any consensus node. They read data directly from the storage of smart contract, execute at current node, and return the result.
-We can call the pre-execution interface while sending transactions.
-String result = (String) sdk.getConnectMgr().sendRawTransactionPreExec(txHex);
-
-* How to view the push results when transferring funds？
-
-See smart contract using WebSocket connection call contract method, more details: [smartcontract](./ontology_java_sdk_smartcontract_en.html).

@@ -15,37 +15,26 @@ English / [中文](./ontology_java_sdk_identity_claim_zh.html)
 
 ## Introduction
 
-Relevant descriptions of digital ID can be found in [ONT ID Protocol and Trust Framework](https://github.com/ontio/ontology-DID).
+A description of an Ontology Digital ID can be found in our [ONT ID Protocol and Trust Framework](https://github.com/ontio/ontology-DID) document.
 
-## Wallet file specification
-
-A wallet file is a JSON data storage file that stores multiple digital identities and digital asset accounts.
-You may refer to [Wallet File Specification](./Wallet_File_Specification_en.html) for detailed information.
-
-You need to create/open a wallet file to create a digital identity.
-
-
-```
-//If the wallet file does not exist, a wallet file will be auto-generated.
-wm.openWalletFile("Demo3.json");
-```
-
-Note: Only a wallet file in the operating file format is currently supported, with extended support of database or other storage methods.
-
-
+<p><br>
 
 ## Digital ID management
 
-**Data structure**
+**Identity data structure**
 
-`ontid` A user’s identity.
-`label` The name of a user ID.
-`lock` Indicates whether the user’s ID is locked, whose default value is false. Locked ID info cannot get updated in the client.  
-`controls` The array of identity ControlData.
-`extra` The field that client developer stores extra information, whose value may be null.
+`ontid` The unique ID for this identity
 
+`label` The name given to the identity by the user
+
+`lock` ndicates whether the account is locked by the client user - Locked identities should not be updated by the client
+
+`controls` An array of identity control Data
+
+`extra` Extra information stored by client developer - value can be null
+
+##### Example Identity data structure
 ```
-//Identity data structure
 public class Identity {
 	public String label = "";
 	public String ontid = "";
@@ -55,16 +44,24 @@ public class Identity {
 }
 ```
 
+**Control data structure**
 
-`algorithm` Encryption algorithm.
-`parameters` The parameters used in the encryption algorithm.
-`curve` Elliptic curve.
-`id` The single identifier of control.
-`key` NEP-2 private key.
-`salt` Salt.
-`hash` Hash algorithm.
+`algorithm` Name of the encryption algorithm used
+
+`parameters` Encryption parameters
+
+`curve` Elliptic curve used
+
+`id` The control identifier
+
+`key` NEP-2 private key
+
+`salt` Private key decryption salt
+
+`hash` Hash algorithm for derived privateKey
 
 
+##### Example Control data structure
 ```
 public class Control {
     public String algorithm = "ECDSA";
@@ -80,20 +77,21 @@ public class Control {
 ```
 
 
-### 1. Register a digital identity
+### Registering a digital identity
 
-Digital identity creation refers to generation of a digital identity with identity data structure and writing it to a wallet file.
+Digital identity creation refers to the generation of an Ontology digital identity with an appropriate identity data structure which would then be written to a wallet file.
 
+##### Java SDK method to register a digital identity
 ```
 Identity identity = ontSdk.getWalletMgr().createIdentity("password");
-//The account or identity created is stored in the memory only and a write api is required to write it to the wallet file.
+//any identity, once created is stored in memory only. A write api should be invoked to write to a wallet file.
 ontSdk.getWalletMgr().writeWallet();
 ```
 
 
-**Register blockchain-based identity**
+**Registering a blockchain-based digital identity**
 
-Only after successfully registering an identity with the blockchain can the identity be truly used.
+Only after successfully registering a digital identity with the blockchain can the identity be truly used.
 
 There are two ways to register your identity with the chain:
 
@@ -113,53 +111,56 @@ ontSdk.signTx(tx,identity.ontid,password,salt);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
-Upon successful registration, the corresponding DDO of the ONT ID will be stored in Ontology blockchain. Detailed information about DDO can be found in [ONT ID identity protocol and smart contract implementation]
+Upon successful registration, the corresponding DDO of the ONT ID will be stored on the Ontology blockchain. Detailed information about DDO can be found in [ONT ID identity protocol and smart contract implementation]
 https://github.com/ontio/ontology-DID/blob/master/README.md
 
-### 2. Identity management
+-----
 
-* Import account or identity
+## Identity management
 
-Users who have already created a digital identity or account may import it into a wallet file from the SDK.
+**Import identity**
+
+Users who have already created a digital identity may import it into a wallet file via the SDK.
 
 **Note:** It is advised to check if an identity already exists on the blockchain before you import one. If DDO does not exist, it means that no such identity has been registered on the blockchain. Then you may need to use ontSdk.getOntIdTx().sendRegister(identity,"passwordtest") for registration.
 
+###### Example to import digital identity
 ```
 Identity identity = ontSdk.getWalletMgr().importIdentity(encriptPrivateKey,password,salt,address);
 //write to wallet     
 ontSdk.getWalletMgr().writeWallet();
 ```
 
-Parameter Descriptions:
+	Parameter Descriptions:
+				encriptPrivateKey: Encrypted private key
+				password: Password used to encrypt the private key
+				salt: Private key decryption salt
+				address: Account address
+	
+**Remove identity**
 
-encriptPrivateKey: Encrypted private key.
-password: Password used to encrypt the private key.
-salt: Private key decryption parameters.
-address: Account address.
-
-* Remove identity
-
-
+###### Example to remove digital identity
 ```
 ontSdk.getWalletMgr().getWallet().removeIdentity(ontid);
-//wrote to wallet
+//write to wallet
 ontSdk.getWalletMgr().writeWallet();
 ```
 
 
-* Set default account or identity
+**Set default identity**
 
-
+###### Example to set default digital identity
 ```
 ontSdk.getWalletMgr().getWallet().setDefaultIdentity(index);
 ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
 ```
 
-### 3. Query blockchain-based identity
+----
+## Query blockchain based digital identity
 
-DDO of blockchain-based identity can be queried by entering ONT ID.
+The DDO of a blockchain based digital identity can be queried by using the ONT ID.
 
-
+###### Example to query blockhain for digital identity
 ```
 //get DDO by entering ONT ID
 String ddo = ontSdk.nativevm().ontId().sendGetDDO(ontid);
@@ -187,18 +188,10 @@ String ddo = ontSdk.nativevm().ontId().sendGetDDO(ontid);
 }
 ```
 
-
-### 4. Ontid attribute
+----
+## Ontid attributes
 
 **Update blockchain-based DDO attribute**
-
-* Specifies the account address for payment of transaction fees.
-
-```
-//update an attribute
-String sendAddAttributes(String ontid, String password,byte[] salt, Attribute[] attributes,Account payerAcct,long gaslimit,long gasprice)
-```
-
 
 | Param   | Field   | Type  | Description |      Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
@@ -212,26 +205,25 @@ String sendAddAttributes(String ontid, String password,byte[] salt, Attribute[] 
 | Output param | txhash   | String  | Transaction hash | 64-bit string |
 
 
-* Send the constructed transaction to the server and let the server sign the transaction fee account.
+###### Example to update an ontid attribute by specifying payer address for transaction fees
+```
+String sendAddAttributes(String ontid, String password,byte[] salt, Attribute[] attributes,Account payerAcct,long gaslimit,long gasprice)
+Transaction tx = ontSdk.nativevm().ontId().sendAddAttributes(ontid,password,salt,attributes,payer,gaslimit,0);
+ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password);
+ontSdk.getConnectMgr().sendRawTransaction(tx);
+
+```
+
+###### Example to update an ontid attribute by specifying that the node should sign
 
 ```
 Transaction makeAddAttributes(String ontid, String password,byte[] salt, Attribute[] attributes,String payer,long gaslimit,long gasprice)
-```
-
-Example:
-```
 Transaction tx = ontSdk.nativevm().ontId().makeAddAttributes(ontid,password,salt,attributes,payer,gaslimit,0);
 ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
 **Remove blockchain-based DDO attribute**
-
-* remove attribute
-
-```
-String sendRemoveAttribute(String ontid,String password,salt,String path,Account payerAcct,long gaslimit,long gasprice)
-```
 
 | Param        | Field   | Type   | Description  |       Remarks       |
 | -----        | ------- | ------ | ------------- | ------------------- |
@@ -244,28 +236,26 @@ String sendRemoveAttribute(String ontid,String password,salt,String path,Account
 |   | gasprice      | long | Gas price    | Required |
 | Output param | txhash   | String  | transaction hash | 64-bit string |
 
-* Send the constructed transaction to the server and let the server sign the transaction fee account.
+
+###### Example to remove an ontid attribute by specifying payer address for transaction fees
+```
+String sendRemoveAttribute(String ontid,String password,salt,String path,Account payerAcct,long gaslimit,long gasprice)
+Transaction tx = ontSdk.nativevm().ontId().sendRemoveAttribute(ontid,password,salt,path,payer,gaslimit,0);
+ontSdk.signTx(tx,identity.ontid,password);
+ontSdk.getConnectMgr().sendRawTransaction(tx);
+
+```
+
+###### Example to remove an ontid attribute by specifying that the node should sign
 ```
 Transaction makeRemoveAttribute(String ontid,String password,byte[] salt,String path,String payer,long gaslimit,long gasprice)
-```
-
-
-Example:
-```
 Transaction tx = ontSdk.nativevm().ontId().makeRemoveAttribute(ontid,password,salt,path,payer,gaslimit,0);
 ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-### 5. Ontid publicKey
-
-**Add publicKey**
-
-* Add publicKey
-
-```
-String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
-```
+----
+## Ontid publicKey
 
 | Param      | Field   | Type  | Description |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
@@ -278,26 +268,25 @@ String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey
 |        | gasprice      | long | Gas price    | Required |
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
-
-* Send the constructed transaction to the server and let the server sign the transaction fee account.
+**Add/update an ontid publicKey**
+###### Example to add/update an ointid publicKey by specifying payer address for transaction fees
 ```
-Transaction makeAddPubKey(String ontid,String password,String newpubkey,String payer,long gaslimit,long gasprice)
-```
-
-Example:
-```
-Transaction tx = ontSdk.nativevm().ontId().makeAddPubKey(ontid,password,salt,newpubkey,payer,gas);
+String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
+Transaction tx = ontSdk.nativevm().ontId().sendAddPubKey(ontid,password,salt,newpubkey,payer,gas,0);
 ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-* by recovery
-
+###### Example to add/update an ointid publicKey by specifying that the node should sign
 ```
-String sendAddPubKey(String ontid,String recoveryAddr, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
+Transaction makeAddPubKey(String ontid,String password,String newpubkey,String payer,long gaslimit,long gasprice)
+Transaction tx = ontSdk.nativevm().ontId().makeAddPubKey(ontid,password,salt,newpubkey,payer,gas,0);
+ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password);
+ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
 
+##### Example to add/update an ointid publicKey using a recovery address
 | Param      | Field   | Type  | Description |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | Input param|ontid|String | Identity ID   | Required，identity ID |
@@ -310,23 +299,19 @@ String sendAddPubKey(String ontid,String recoveryAddr, String password,byte[] sa
 |        | gasprice      | long | Gas price    | Required |
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
+```
+String sendAddPubKey(String ontid,String recoveryAddr, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
+```
 
-* no salt
+##### Example to add/update an ointid publicKey using a recovery address without salt
 ```
 Transaction makeAddPubKey(String ontid,String recoveryAddr,String password,String newpubkey,String payer,long gaslimit,long gasprice)
 ```
 
-Parameter description, please refer to method three (recovery)
+Parameter descriptions - please refer to recovery method above
 
 
 **Remove publicKey**
-
-* remove publicKey
-
-```
-String sendRemovePubKey(String ontid, String password,,byte[] salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
-```
-
 
 | Param      | Field   | Type  | Description |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
@@ -340,20 +325,23 @@ String sendRemovePubKey(String ontid, String password,,byte[] salt, String remov
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
 
-* Send the constructed transaction to the server and let the server sign the transaction fee account.
-
+###### Example to remove an ointid publicKey by specifying payer address for transaction fees
 ```
-Transaction tx = ontSdk.nativevm().ontId().makeRemovePubKey(ontid,password,salt,removePubkey,payer,gas);
+String sendRemovePubKey(String ontid, String password,byte[] salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
+Transaction tx = ontSdk.nativevm().ontId().sendRemovePubKey(ontid,password,salt,removePubkey,payer,gas,0);
 ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-* By recovery
-
+###### Example to remove an ointid publicKey by specifying that the node should sign
 ```
-String sendRemovePubKey(String ontid, String recoveryAddr,String password,salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
+String makeRemovePubKey(String ontid, String recoveryAddr,String password,salt, String removePubkey,String payer,long gaslimit,long gasprice)
+Transaction tx = ontSdk.nativevm().ontId().makeRemovePubKey(ontid,password,salt,removePubkey,payer,gas,0);
+ontSdk.signTx(tx,identity.ontid,password);
+ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
+##### Example to remove an ointid publicKey using a recovery address
 | Param      | Field   | Type  | Description |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | Input param | ontid    | String | Identity ID   | Required, identity ID |
@@ -365,25 +353,23 @@ String sendRemovePubKey(String ontid, String recoveryAddr,String password,salt, 
 |   | gaslimit      | long | Gas limit     | Required |
 |   | gasprice      | long | Gas price    | Required |
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
+```
+String sendRemovePubKey(String ontid, String recoveryAddr,String password,salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
+```
 
 
-* No salt
 
+
+##### Example to remove an ointid publicKey using a recovery address without salt
 ```
 Transaction makeRemovePubKey(String ontid,String recoveryAddr, String password,salt, String removePubkey,String payer,long gaslimit,long gasprice)
 ```
 
-Parameter description, please refer to method four (recovery)
+Parameter descriptions - please refer to recovery method above
 
-### 6. Ontid recovery
+----
 
-**Add recovery**
-
-* add recovery
-
-```
-String sendAddRecovery(String ontid, String password,byte[] salt, String recoveryAddr,Account payerAcct,long gaslimit,long gasprice)
-```
+## Ontid recovery
 
 | Param      | Field   | Type  | Description |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
@@ -397,26 +383,25 @@ String sendAddRecovery(String ontid, String password,byte[] salt, String recover
 |   | gasprice      | long | Gas price    | Required |
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
+**Add recovery address**
 
-* Send the constructed transaction to the server and let the server sign the transaction fee account.
-
+##### Example to add a recovery address to an ointid by specifying payer address for transaction fees
 ```
-Transaction makeAddRecovery(String ontid, String password,salt, String recoveryAddr,String payer,long gaslimit,long gasprice)
-```
-
-Example:
-```
-Transaction tx = ontSdk.nativevm().ontId().makeAddRecovery(ontid,password,salt,recovery,payer,gas);
+String sendAddRecovery(String ontid, String password,byte[] salt, String recoveryAddr,Account payerAcct,long gaslimit,long gasprice)
+Transaction tx = ontSdk.nativevm().ontId().sendAddRecovery(ontid,password,salt,recovery,payer,gas,0);
 ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-* Recovery
-
-
+##### Example to add a recovery address to an ointid by specifying that the node should sign
 ```
-String sendChangeRecovery(String ontid, String newRecovery, String oldRecovery, String password,salt,long gaslimit,long gasprice)
+Transaction makeAddRecovery(String ontid, String password,salt, String recoveryAddr,String payer,long gaslimit,long gasprice)
+Transaction tx = ontSdk.nativevm().ontId().makeAddRecovery(ontid,password,salt,recovery,payer,gas,0);
+ontSdk.signTx(tx,identity.ontid,password);
+ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
+
+**Change recovery address**
 
 | Param      | Field   | Type  | Description |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
@@ -429,6 +414,9 @@ String sendChangeRecovery(String ontid, String newRecovery, String oldRecovery, 
 |   | gasprice      | long | Gas price    | Required |
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
-
-
-
+##### Example to change the recovery address
+```
+String sendChangeRecovery(String ontid, String newRecovery, String oldRecovery, String password,salt,long gaslimit,long gasprice)
+Transaction tx = ontSdk.nativevm().ontId().makeAddRecovery(ontid,newrecoveryaddress,oldrecoveryaddress,password,salt,gas,0);
+ontSdk.signTx(tx,identity.ontid,password);
+ontSdk.getConnectMgr().sendRawTransaction(tx);
