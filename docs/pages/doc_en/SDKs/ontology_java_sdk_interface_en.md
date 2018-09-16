@@ -13,22 +13,22 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/interface
 
 English / [中文](./ontology_java_sdk_interface_zh.html)
 
-## Overview
+## Introduction
 
-include：
+This document provides a list of interfaces and their methods used in the Java SDK.
 
-* init 
-* communication with block chain interface
-* wallet manager 
-* digit asset
-* digit identity
-* neo smart constract deploy and incoke
-* Native smart constract invoke
+They are:
 
-### init ：
+* Init 
+* Communication with block chain interface
+* Wallet manager 
+* Digit asset
+* Digit identity
+* Neo smart contract deploy and invoke
+* Native smart contract invoke
 
-Including opening wallet files and setting how to interact with the chain
- 
+----
+### Init
 
  |     | Main   Function | Description |           
  |:-----|:--------|:-----------------------|
@@ -39,10 +39,7 @@ Including opening wallet files and setting how to interact with the chain
 |   5 | wm.openWalletFile("OntAssetDemo.json");       |   open wallet|
 
 
-### communication with block chain interface：
-
-* Interactive interface list：
-
+### Communication with block chain interface
 
  |     | Main   Function | Description |           
  |:-----|:--------|:-----------------------|
@@ -68,12 +65,9 @@ Including opening wallet files and setting how to interact with the chain
  |   20 | getMemPoolTxState()                  |  query memory pool transaction state |
  |   21 | syncSendRawTransaction("data")       |  sync Send RawTransaction |
 
-
-### wallet manager：
-
-Including digital assets and digital identity management
- 
-* Digital asset account：
+----
+### Wallet manager
+**Digital assets**
 
  |     | Main   Function | Description |           
  |:-----|:--------|:-----------------------|
@@ -87,8 +81,7 @@ Including digital assets and digital identity management
 |   8 | Account getAccount(String address)                                         |   get account|
 |   9 | Account getDefaultAccount()                                                |   get default account|
 
-
-* Digital identity：
+**Digital identity**
 
  |     | Main   Function |       
  |:-----|:--------|
@@ -101,10 +94,10 @@ Including digital assets and digital identity management
  |  7 | List<Identity> getIdentitys()                                              |    
  |  8 | Identity getIdentity(String ontid)                                         |    
 |   9 | Identity getDefaultIdentity()                                              |   
-|  10 | Identity addOntIdController(String ontid, String key, String id)           |    
-   
+|  10 | Identity addOntIdController(String ontid, String key, String id)           |  
 
-Mnemonic and keystore interface：
+
+**Mnemonic and keystore**
 
  |     | Main   Function |           
  |:-----|:--------|
@@ -117,16 +110,9 @@ Mnemonic and keystore interface：
 |   7 | String encryptMnemonicCodesStr(String mnemonicCodesStr, String password, String address)    |    
 |   8 | decryptMnemonicCodesStr(String encryptedMnemonicCodesStr, String password,String address)     |    
    
-
-### digit asset：
-
-1.native digit asset
-
-2.Nep-5 smartconstract digit asset
-
-* native digit asset：
-ont:
-
+----
+### Digital assets：
+** Native digit assets - ONT**
 
  |     | Main   Function | Description |           
  |:-----|:--------|:-----------------------|
@@ -141,8 +127,7 @@ ont:
  |   9 | long queryTotalSupply()                                                                     |  query TotalSupply|
       
       
-ong:
-
+** Native digit assets - ONG**
 
  |     | Main   Function | Description |           
  |:-----|:--------|:-----------------------|
@@ -160,7 +145,7 @@ ong:
       
       
 
-* Nep-5 digit asset:
+**NEO Nep-5 digit assets**
 
  |     | Main   Function | Description |           
  |:-----|:--------|:-----------------------|
@@ -175,16 +160,9 @@ ong:
 |    9 | String queryDecimals()                                                                        |  query decimals|
 |   10 | String querySymbol()                                                                          |  query Symbol|
 
-
-### digit identity：
-
-1.Register, AddPubKey,AddAttribute,AddRecovery
-
-2.claim create and verify
-
-3.claim record
-
-* ontid：
+----
+### Digital Identity
+**ontid**
 
  |     | Main   Function | Description |           
  |:-----|:--------|:-----------------------|
@@ -206,7 +184,8 @@ ong:
 |   16 | String sendGetDDO(String ontid)  |  get DDO|
    
 
-* make tansaction：
+   
+**Make**
 
  |     | Main   Function |           
  |:-----|:--------|
@@ -221,7 +200,7 @@ ong:
 |   9 | Transaction makeAddRecovery(String ontid, String password,byte[] salt, String recoveryAddr,String payer,long gaslimit,long gasprice)                     |
 
   
-* Claim：
+**Claim**
   
  |     | Main   Function |           
  |:-----|:--------|
@@ -232,7 +211,7 @@ ong:
   
 
  
-* Claim record：
+**Claim record**
   
  |     | Main   Function |          
  |:-----|:--------|
@@ -240,10 +219,10 @@ ong:
 |   2 | String sendRevoke(String issuerOntid,String password,byte[] salt,String claimId,Account payerAcct,long gaslimit,long gasprice)                 |
 |   3 | String sendGetStatus(String claimId) |   
   
+----
+ ### Neo smart contract deploy and invoke
  
- ### neo smart contract deploy and invoke
- 
- deploy and invoke
+ **Deploy and invoke**
   
  |     | Main   Function | Description |          
  |:-----|:--------|:-----------------------|
@@ -254,9 +233,9 @@ ong:
 
  ### Native smart contract invoke
 
- #### auth manager contract
+ #### Authority manager contract
 
-* auth manager：
+**Authority manager**
 
  |     | Main   Function |       
  |:-----|:--------|
@@ -267,7 +246,7 @@ ong:
 |     5 | String withdraw(String initiatorOntid,String password,byte[] salt,String contractAddr,String delegate, String role,int key,Account payerAcct, long gaslimit,long gasprice)          |
 
 
- * make transaction：
+**Make**
 
  |     | Main   Function |      
  |:-----|:--------|
@@ -278,7 +257,7 @@ ong:
 |     5 | Transaction makeWithDraw(String ontid,String contractAddr,String delegate, String role,int key,String payer,long gaslimit,long gasprice)                  |   
 
  
-  #### Governance contract
+ #### Governance contract
 
  |    | Main   Function |                                                                                                                                                                             |   Description|
  -----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

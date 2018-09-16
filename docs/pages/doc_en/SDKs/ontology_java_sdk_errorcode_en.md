@@ -7,12 +7,11 @@ folder: doc_en/SDKs
 giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/errorcode.md
 ---
 
-<h1 align="center"> Error code </h1>
+<h1 align="center"> Java SDK Error code list </h1>
 
 <p align="center" class="version">Version 1.0.0 </p>
 
 English / [中文](./ontology_java_sdk_errorcode_zh.html)
-
 
 | Return code | Description                   | Explanation                                     |
 | :----------:|:-----------------------------:|:------------------------------------------------:|

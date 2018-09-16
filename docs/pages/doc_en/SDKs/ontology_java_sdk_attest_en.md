@@ -7,7 +7,7 @@ folder: doc_en/SDKs
 giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/attest.md
 ---
 
-<h1 align="center">Claim and Attest Attestation </h1>
+<h1 align="center">Claim and Attestation </h1>
 
 <p align="center" class="version">Version 1.0.0 </p>
 
@@ -16,11 +16,9 @@ English / [中文](./ontology_java_sdk_attest_zh.html)
 
 
 
-## 1. Verifiable claim
+## Verifiable claim
 
-### 1.1 Data structure specification
-
-* Claim has the following data structure:
+### Data structure specification
 
 ```
 class Claim{
@@ -30,7 +28,6 @@ class Claim{
 }
 ```
 
-
 ```
 class Header {
     public String Alg = "ONT-ES256";
@@ -39,11 +36,11 @@ class Header {
     }
 ```
 
-`alg` attribute specifies the signature scheme to use. A list of supported values can be found here.
+`alg` attribute specifies the signature scheme to use
 `typ` attribute can take one of the two values:
 
-    * JWT: This corresponds to the case that blockchain proof is not contained in the claim.
-    * JWT-X: This corresponds to the case that blockchain proof is a part of the claim.
+    * JWT: This corresponds to the case that blockchain proof is not contained in the claim
+    * JWT-X: This corresponds to the case that blockchain proof is a part of the claim
 
 `kid`  attribute refers to the public key used for signature verification. It has the form <ontID>#keys-<id> as defined in ONT ID specification.
 
@@ -63,34 +60,30 @@ class Payload {
     }
 ```
 
-`ver` attribute specifies the version of the claim spec it follows.
+`ver` attribute specifies the version of the claim specification it follows
 
-`iss` attribute refers to the ONT ID of the issuer.
+`iss` attribute refers to the ONT ID of the issuer
 
-`sub` attribute refers to the ONT ID of the recipient.
+`sub` attribute refers to the ONT ID of the recipient
 
-`iat` attribute marks the time the claim was created and has the format of unix timestamp.
+`iat` attribute marks the time the claim was created and has the unix timestamp format
 
-`exp` attribute marks the expiration time of the claim and has the format of unix timestamp.
+`exp` attribute marks the expiration time of the claim and has the the unix timestamp format
 
-`jti` attribute specifies the unique identifier of the verifiable claim.
+`jti` attribute specifies the unique identifier of the verifiable claim
 
-`@context` attribute specifies the uri of claim content definition document which defines the meaning of each field and the type of the value.
+`@context` attribute specifies the uri of the claim content definition document which defines the meaning of each field and the type of the value
 
-`clm` attribute is an object which contains the claim content.
+`clm` attribute is an object which contains the claim content
 
-`clm-rev` attribute is an object which defines the revocation mechanism the claim use.
+`clm-rev` attribute is an object which defines the revocation mechanism the claim uses <p><br>
 
 
-### 1.2 Sign and issue verifiable claim
-Verifiable claim is constructed based on user input, which contains signed data.
+
+### Sign and issue verifiable claim
+A verifiable claim is constructed based on user input, which contains signed data.
 
 **createOntIdClaim**
-```
-String createOntIdClaim (String signerOntid, String password,byte[] salt, String context, Map<String, Object> claimMap, Map metaData,Map clmRevMap,long expire)
-```
-
- Function description: Create claim
 
 | Parameter      | Field   | Type  | Description |            Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
@@ -105,7 +98,12 @@ String createOntIdClaim (String signerOntid, String password,byte[] salt, String
 | Output parameter| claim   | String  |   |  |
 
 Refer to: https://github.com/kunxian-xia/ontology-DID/blob/master/docs/en/claim_spec.md
-    
+
+##### Example of creating an onit claim    
+```
+String createOntIdClaim (String signerOntid, String password,byte[] salt, String context, Map<String, Object> claimMap, Map metaData,Map clmRevMap,long expire)
+```
+
 ```
 Map<String, Object> map = new HashMap<String, Object>();
 map.put("Issuer", dids.get(0).ontid);
@@ -115,27 +113,29 @@ clmRevMap.put("typ","AttestContract");
 clmRevMap.put("addr",dids.get(1).ontid.replace(Common.didont,""));
 String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,password,salt, "claim:context", map, map,clmRevMap,System.currentTimeMillis()/1000 +100000);
 ```
-> Note: The issuer may have multiple public keys. The parameter ontid of createOntIdClaim specifies which public key to use.
+Note: The issuer may have multiple public keys. The parameter ontid of createOntIdClaim specifies which public key to use. <p> <br>
 
-### 1.3 Verify verifiable claim
+
+### Verify verifiable claim
 
 **verifyOntIdClaim**
-```
-boolean verifyOntIdClaim (string claim)
-```
-
-Function description: Verify claim
 
 | Parameter      | Field   | Type  | Description |            Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | Input parameter | claim| String | Trusted claim | Required |
 | Output parameter | true or false   | boolean  |   |  |
-    
+  
+ 
+```
+boolean verifyOntIdClaim (string claim)
+```
+
+##### Example of verifying an ontid claim
 ```
 boolean b = ontSdk.nativevm().ontId().verifyOntIdClaim(claim);
 ```
 
-Claim issuance and verification:
+##### Example of claim issuance and verification:
 
 ```
 Map<String, Object> map = new HashMap<String, Object>();
@@ -150,12 +150,14 @@ String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,pass
 boolean b = ontSdk.nativevm().ontId().verifyOntIdClaim(claim);
 ```
 
-## 2. Attest Attestation
+----
 
-The attest contract of verifiable claim provides the attest service and the records availability information, that is, whether it has been revoked.
+## Attestation Example
+
+The attest contract of a verifiable claim provides the attest service and records availability information, that is, whether it has been revoked.
 
 
-### 2.1 SDK init
+#### SDK init
 
 
 ```
@@ -168,12 +170,11 @@ wm.setRpc(rpcUrl);
 wm.setRestful(restUrl);
 wm.setDefaultConnect(wm.getRestful());
 wm.openWalletFile("RecordTxDemo.json");
-
 ```
 
 Note: codeAddress is the address of the record contract.
 
-### 2.2 Create claim
+#### Create claim
 
 ```
 Map<String, Object> map = new HashMap<String, Object>();
@@ -188,40 +189,33 @@ String claim = ontSdk.nativevm().ontId().createOntIdClaim(dids.get(0).ontid,pass
 clmRevMap,System.currentTimeMillis()/1000 +100000);
 ```
 
-> Note: createOntIdClaim interface details please see the digital identity ontid document https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/identity_claim.md
+Note: For createOntIdClaim interface details please see the digital identity ontid document https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/identity_claim.md
 
 
 The specification of the following interface document is: https://github.com/kunxian-xia/ontology-DID/blob/master/docs/en/claim_spec.md.
 
+<p><br>
 
-### 2.3 Storage Claim
+#### Storage Claim
 
 **sendCommit**
 ```
 String sendCommit (String issuerOntid, String password,byte[] salt, String subjectOntid, String claimId, Account payerAcct, long gaslimit, long gasprice)
 ```
-Function description: Save data to the chain
+	Function description: Save data to the chain
 
-Parameter description：
-
-```issuerOntid```：Issuer ONT ID
-
-```subjectOntid```: Subject ONT ID
-
-```password```: Identity password
-
-```claimId```: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
-
-```payerAcct```: Payment transaction account
-
-```gaslimit```: Gas limit
-
-```gasprice```: Gas price
-
-return value: Transaction hash
+	Parameters:
+			issuerOntid:  Issuer ONT ID
+			subjectOntid:  Subject ONT ID
+			password: Identity password
+			claimId: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
+			payerAcct: Payment transaction account
+			gaslimit: Gas limit
+			gasprice: Gas price
+	return value: Transaction hash
 
 
-Example
+##### Example
 
 ```
 String[] claims = claim.split("\\.");
@@ -230,46 +224,41 @@ ontSdk.neovm().claimRecord().sendCommit(ontid,password,payload.getString("jti"),
 ```
 
 
-### 2.4 Get Status
+### Get Status
 
 **sendGetStatus**
 ```
  String sendGetStatus(String claimId)
 ```
-Function description: Query status of trusted claim
+	Function description: Query status of trusted claim
 
-Parameter description:
+	Parameters:
+			claimId: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
+	
+	return value： 
+			Part 1: Status of the claim: "Not attested", "Attested", "Attest has been revoked"
+			Part 2: The certificate's ONT ID.
 
-```claimId```: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
-
-return value：There are two parts: In the first part, the status of the claim: "Not attested", "Attested", "Attest has been revoked"; the second part is the certificate's ONT ID.
-
-Example
+##### Example
 ```
 String getstatusRes2 = ontSdk.neovm().claimRecord().sendGetStatus(payload.getString("jti"));
 ```
 
 
-### 2.5 Revoke
+### Revoke
 
 **sendRevoke**
 ```
 String sendRevoke(String issuerOntid,String password,byte[] salt,String claimId,Account payerAcct,long gaslimit,long gas)
 ```
-Function description:Repeal of a trust claim
+	Function description:Repeal of a trust claim
 
-Parameter description:
-
-```issuerOntid```: Issuer ONT ID
-
-```password```: Attester's ONT ID password
-
-```claimId```: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
-
-```payerAcct```: Payment transaction account
-
-```gaslimit```: Gas limit
-
-```gasprice```: Gas price
-
-return value：This function will return true if and only if the claim is attested, and the revokerOntId is equal to the attester's ONT identity; Otherwise, it will return false.
+	Parameters:
+			issuerOntid: Issuer ONT ID
+			password: Attester's ONT ID password
+			claimId: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
+			payerAcct: Payment transaction account
+			gaslimit: Gas limit
+			gasprice: Gas price
+	
+	return value： This function will return true if and only if the claim is attested, and the revokerOntId is equal to the attester's ONT identity; Otherwise, it will return false.

@@ -7,16 +7,16 @@ folder: doc_en/SDKs
 giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/basic.md
 ---
 
-<h1 align="center"> Basic blockchain interop </h1>
+<h1 align="center"> Blockhain Interaction </h1>
 
 <p align="center" class="version">Version 1.0.0 </p>
 
 English / [中文](./ontology_java_sdk_basic_zh.html)
 
 
-The following describes basic blockchain interop function of SDK and defines relevant data structure.
+The following describes the basic blockchain interaction functions of the Java SDK and defines relevant data structures.
 
-Please use the following methods to initialize OntSDK use case before launching JAVA SDK.
+Please use the following methods to initialize OntSDK before launching JAVA SDK.
 
 
 ```
@@ -27,151 +27,116 @@ wm.setDefaultConnect(wm.getRestful());
 wm.openWalletFile("OntAssetDemo.json");
 ```
 
-Note: setRestful indicates that the connection is established using the restful interface, and setRpc indicates that the connection is established using the rpc interface,setDefaultConnect is used to set default connect method.
+Note: setRestful indicates that the connection is established using the restful interface, and setRpc indicates that the connection is established using the rpc interface. setDefaultConnect is used to set this as the default connection method.
 
 
 ## Basic operation interfaces
 
 
-* Get the current block height
-
-
+**Get the current block height**
 ```
 int height = ontSdk.getConnectMgr().getBlockHeight();
 ```
 
+**Get block**
 
-* Get block
-
-
-Get block by block height
-
-
+***Get block by block height***
 ```
 Block block = ontSdk.getConnect().getBlock(9757);
 ```
 
-
-Get block by block hash
-
-
+***Get block by block hash***
 ```
 Block block = ontSdk.getConnect().getBlock(blockhash);
 ```
 
+**Get block json**
 
-* Get block json
 
-
-Get block by block height
-
+***Get block by block height***
 ```
 Object block = ontSdk.getConnect().getBlockJson(9757);
 ```
 
-
-Get block by block hash
-
+***Get block by block hash***
 
 ```
 Object block = ontSdk.getConnect().getBlockJson(blockhash);
 ```
 
-* Get contarct code
+**Get contract code**
 
-Get contract code by contract hash
-
-
+***Get contract code by contract hash***
 ```
 Object contract =  ontSdk.getConnect().getContract(contractHash)
 ```
 
-
-Get contract json  by contract hash
-
-
+***Get contract json  by contract hash***
 ```
 Object contractJson = ontSdk.getConnect().getContractJson(hash)
 ```
 
-* Get balance
-
-
-Query balance by address
-
-
+**Get balance**
 ```
 Object  balance = ontSdk.getConnect().getBalance(address)
 ```
 
-* Get blockchain node count
-
+**Get blockchain node count**
 ```
 ontSdk.getConnect().getNodeCount();
 ```
 
-* Get block height
+**Get block height**
 
 ```
 int blockheight = ontSdk.getConnect().getBlockHeight()
 ```
 
-* Get smartcontract event
+**Get smartcontract event**
 
-Get smartcontract event by block height
-
+***Get smartcontract event by block height***
 ```
 Object  event = ontSdk.getConnect().getSmartCodeEvent(height)
 ```
 
-Get smartcontract event by transaction hash
-
+***Get smartcontract event by transaction hash***
 ```
 Object  event = ontSdk.getConnect().getSmartCodeEvent(hash)
 ```
 
-* Get block height by transaction hash
-
+**Get block height by transaction hash**
 ```
 int blockheight = ontSdk.getConnect().getBlockHeightByTxHash(txhash)
 ```
 
-* Get data stored in smart contract by key
-
+**Get data stored in smart contract by key**
 ```
 String value = ontSdk.getConnect().getStorage(codehash,key)
 ```
 
-* Get merkle proof
-
-Get merkle proof by transaction hash
-
+**Get merkle proof**
 ```
 Object proof =  ontSdk.getConnect().getMerkleProof(String hash)
 ```
 
-
-* Get blockchain-based transaction
-
+**Get transaction**
 ```
 Transaction info = ontSdk.getConnect().getTransaction(hash);
 ```
 
-Get transaction json by transaction hash
-
+**Get transaction json by transaction hash**
 ```
 Object info = ontSdk.getConnect().getTransactionJson(txhash);
 ```
 
-* Get InvokeTransaction
-
+**Get InvokeTransaction**
 ```
 InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnect().getTransaction(hash);
 ```
 
 ## Data structure
 
-* Block
+**Block**
 
 | Field     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
@@ -190,7 +155,7 @@ InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnect().getTransac
 |    transactions|   Transaction[] |  Transaction list in the block |
 
 
-* Transaction
+**Transaction**
 
 | Field     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
@@ -205,7 +170,7 @@ InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnect().getTransac
 |    payload| Payload |  Payload  |
 
 
-* Transaction type
+**Transaction type**
 
 | Value     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
@@ -215,7 +180,7 @@ InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnect().getTransac
 |      4|   int |     Enrollment       |
 |      5|   int |     Vote |
 
-* Signature area
+**Signature area**
 
 | Field     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
@@ -224,14 +189,14 @@ InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnect().getTransac
 |    sigData|   array | Signature value array |
 
 
-* Fee
+**Fee**
 
 | Field     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    amount|   long|  Amount|
 |    payer|   UInt160 | Payer |
 
-* Attribute
+**Attribute**
 
 | Field    |     Type |   Description   |
 | :--------------: | :--------:| :------: |
@@ -239,7 +204,7 @@ InvokeCodeTransaction t = (InvokeCodeTransaction) ontSdk.getConnect().getTransac
 |    data|   byte[] | Attribute value |
 
 
-* TransactionAttributeUsage
+**TransactionAttributeUsage**
 
 | Value     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
