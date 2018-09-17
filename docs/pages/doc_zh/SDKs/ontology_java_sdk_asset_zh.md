@@ -15,7 +15,7 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/asset.md
 
 ## 钱包文件及规范
 
-钱包文件是一个Json格式的数据存储文件，可同时存储多个数字身份和多个数字资产账户。具体参考[钱包文件规范]()。
+钱包文件是一个Json格式的数据存储文件，可同时存储多个数字身份和多个数字资产账户。具体参考[钱包文件规范](../en/Wallet_File_Specification.md)。
 
 为了管理数字资产，您首先需要创建/打开一个钱包文件。
 
