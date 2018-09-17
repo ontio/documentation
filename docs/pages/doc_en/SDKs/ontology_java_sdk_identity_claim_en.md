@@ -123,7 +123,7 @@ Users who have already created a digital identity may import it into a wallet fi
 
 **Note:** It is advised to check if an identity already exists on the blockchain before you import one. If DDO does not exist, it means that no such identity has been registered on the blockchain. Then you may need to use ```ontSdk.getOntIdTx().sendRegister(identity,"passwordtest")``` for registration.
 
-###### Example to import digital identity
+##### Example to import digital identity
 ```
 Identity identity = ontSdk.getWalletMgr().importIdentity(encriptPrivateKey,password,salt,address);
 //write to wallet     
@@ -142,7 +142,7 @@ Parameter Descriptions:
 	
 **Remove identity**
 
-###### Example to remove digital identity
+##### Example to remove digital identity
 ```
 ontSdk.getWalletMgr().getWallet().removeIdentity(ontid);
 //write to wallet
@@ -152,7 +152,7 @@ ontSdk.getWalletMgr().writeWallet();
 
 **Set default identity**
 
-###### Example to set default digital identity
+##### Example to set default digital identity
 ```
 ontSdk.getWalletMgr().getWallet().setDefaultIdentity(index);
 ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
@@ -163,7 +163,7 @@ ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
 
 The DDO of a blockchain based digital identity can be queried by using the ONT ID.
 
-###### Example to query blockhain for digital identity
+##### Example to query blockhain for digital identity
 ```
 //get DDO by entering ONT ID
 String ddo = ontSdk.nativevm().ontId().sendGetDDO(ontid);
@@ -208,7 +208,7 @@ String ddo = ontSdk.nativevm().ontId().sendGetDDO(ontid);
 | Output param | txhash   | String  | Transaction hash | 64-bit string |
 
 
-###### Example to update an ontid attribute by specifying payer address for transaction fees
+##### Example to update an ontid attribute by specifying payer address for transaction fees
 ```
 String sendAddAttributes(String ontid, String password,byte[] salt, Attribute[] attributes,Account payerAcct,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().sendAddAttributes(ontid,password,salt,attributes,payer,gaslimit,0);
@@ -217,7 +217,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 
 ```
 
-###### Example to update an ontid attribute by specifying that the node should sign
+##### Example to update an ontid attribute by specifying that the node should sign
 
 ```
 Transaction makeAddAttributes(String ontid, String password,byte[] salt, Attribute[] attributes,String payer,long gaslimit,long gasprice)
@@ -240,7 +240,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 | Output param | txhash   | String  | transaction hash | 64-bit string |
 
 
-###### Example to remove an ontid attribute by specifying payer address for transaction fees
+##### Example to remove an ontid attribute by specifying payer address for transaction fees
 
 ```
 String sendRemoveAttribute(String ontid,String password,salt,String path,Account payerAcct,long gaslimit,long gasprice)
@@ -250,7 +250,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 
 ```
 
-###### Example to remove an ontid attribute by specifying that the node should sign
+##### Example to remove an ontid attribute by specifying that the node should sign
 
 ```
 Transaction makeRemoveAttribute(String ontid,String password,byte[] salt,String path,String payer,long gaslimit,long gasprice)
@@ -275,7 +275,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 
 **Add/update an ontid publicKey**
 
-###### Example to add/update an ointid publicKey by specifying payer address for transaction fees
+##### Example to add/update an ointid publicKey by specifying payer address for transaction fees
 
 ```
 String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
@@ -284,7 +284,7 @@ ontSdk.signTx(tx,identity.ontid.replace(Common.didont,""),password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-###### Example to add/update an ointid publicKey by specifying that the node should sign
+##### Example to add/update an ointid publicKey by specifying that the node should sign
 
 ```
 Transaction makeAddPubKey(String ontid,String password,String newpubkey,String payer,long gaslimit,long gasprice)
@@ -335,7 +335,7 @@ Parameter descriptions - please refer to recovery method above
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
 
-###### Example to remove an ointid publicKey by specifying payer address for transaction fees
+##### Example to remove an ointid publicKey by specifying payer address for transaction fees
 
 ```
 String sendRemovePubKey(String ontid, String password,byte[] salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
@@ -344,7 +344,7 @@ ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-###### Example to remove an ointid publicKey by specifying that the node should sign
+##### Example to remove an ointid publicKey by specifying that the node should sign
 
 ```
 String makeRemovePubKey(String ontid, String recoveryAddr,String password,salt, String removePubkey,String payer,long gaslimit,long gasprice)
