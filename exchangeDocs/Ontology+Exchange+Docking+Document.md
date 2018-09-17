@@ -90,7 +90,7 @@ An executable program will be generated after a successful compilation
 
 ### Server deployment
 
-1. #### Create wallet
+1. #### Create wallet(not mandatory for sync node)
 
    - Create the wallet file - wallet.dat that is required for nodes running through the CLI
 
