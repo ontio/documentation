@@ -132,13 +132,13 @@ ontSdk.getWalletMgr().writeWallet();
 
 Parameter Descriptions:
 
-            ```encriptPrivateKey```: Encrypted private key
-            
-            ```password```: Password used to encrypt the private key
-            
-            ```salt```: Private key decryption salt
-            
-            ```address```: Account address
+```encriptPrivateKey```: Encrypted private key
+
+```password```: Password used to encrypt the private key
+
+```salt```: Private key decryption salt
+
+```address```: Account address
 	
 **Remove identity**
 
@@ -241,6 +241,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 
 
 ###### Example to remove an ontid attribute by specifying payer address for transaction fees
+
 ```
 String sendRemoveAttribute(String ontid,String password,salt,String path,Account payerAcct,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().sendRemoveAttribute(ontid,password,salt,path,payer,gaslimit,0);
@@ -250,6 +251,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
 ###### Example to remove an ontid attribute by specifying that the node should sign
+
 ```
 Transaction makeRemoveAttribute(String ontid,String password,byte[] salt,String path,String payer,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().makeRemoveAttribute(ontid,password,salt,path,payer,gaslimit,0);
@@ -272,7 +274,9 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
 **Add/update an ontid publicKey**
+
 ###### Example to add/update an ointid publicKey by specifying payer address for transaction fees
+
 ```
 String sendAddPubKey(String ontid, String password,byte[] salt, String newpubkey,Account payerAcct,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().sendAddPubKey(ontid,password,salt,newpubkey,payer,gas,0);
@@ -281,6 +285,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
 ###### Example to add/update an ointid publicKey by specifying that the node should sign
+
 ```
 Transaction makeAddPubKey(String ontid,String password,String newpubkey,String payer,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().makeAddPubKey(ontid,password,salt,newpubkey,payer,gas,0);
@@ -308,6 +313,7 @@ String sendAddPubKey(String ontid,String recoveryAddr, String password,byte[] sa
 ```
 
 ##### Example to add/update an ointid publicKey using a recovery address without salt
+
 ```
 Transaction makeAddPubKey(String ontid,String recoveryAddr,String password,String newpubkey,String payer,long gaslimit,long gasprice)
 ```
@@ -330,6 +336,7 @@ Parameter descriptions - please refer to recovery method above
 
 
 ###### Example to remove an ointid publicKey by specifying payer address for transaction fees
+
 ```
 String sendRemovePubKey(String ontid, String password,byte[] salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().sendRemovePubKey(ontid,password,salt,removePubkey,payer,gas,0);
@@ -338,6 +345,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
 ###### Example to remove an ointid publicKey by specifying that the node should sign
+
 ```
 String makeRemovePubKey(String ontid, String recoveryAddr,String password,salt, String removePubkey,String payer,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().makeRemovePubKey(ontid,password,salt,removePubkey,payer,gas,0);
@@ -358,6 +366,8 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 |   | gaslimit      | long | Gas limit     | Required |
 |   | gasprice      | long | Gas price    | Required |
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
+
+
 ```
 String sendRemovePubKey(String ontid, String recoveryAddr,String password,salt, String removePubkey,Account payerAcct,long gaslimit,long gasprice)
 ```
@@ -391,6 +401,7 @@ Parameter descriptions - please refer to recovery method above
 **Add recovery address**
 
 ##### Example to add a recovery address to an ointid by specifying payer address for transaction fees
+
 ```
 String sendAddRecovery(String ontid, String password,byte[] salt, String recoveryAddr,Account payerAcct,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().sendAddRecovery(ontid,password,salt,recovery,payer,gas,0);
@@ -399,6 +410,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
 ##### Example to add a recovery address to an ointid by specifying that the node should sign
+
 ```
 Transaction makeAddRecovery(String ontid, String password,salt, String recoveryAddr,String payer,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().makeAddRecovery(ontid,password,salt,recovery,payer,gas,0);
@@ -420,6 +432,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 | Output param | txhash   | String  | Transaction hash  | Transaction hash |
 
 ##### Example to change the recovery address
+
 ```
 String sendChangeRecovery(String ontid, String newRecovery, String oldRecovery, String password,salt,long gaslimit,long gasprice)
 Transaction tx = ontSdk.nativevm().ontId().makeAddRecovery(ontid,newrecoveryaddress,oldrecoveryaddress,password,salt,gas,0);

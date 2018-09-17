@@ -193,7 +193,7 @@ ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 
 ##### Example to create a WebSocket thread and analyze the push notification.
 
-1. Set WebSocket link.
+* Set WebSocket link.
 
 ```
 //lock global variable, synchronization lock
@@ -209,14 +209,14 @@ wm.openWalletFile("OntAssetDemo.json");
 ```
 
 
-2. Start WebSocket thread.
+* Start WebSocket thread.
 
 ```
 //false means not printing callback function information
 ontSdk.getWebSocket().startWebsocketThread(false);
 ```
 
-3. Start result processing thread.
+* Start result processing thread.
 
 ```
 Thread thread = new Thread(
@@ -252,7 +252,7 @@ Thread thread = new Thread(
 ```
 
 
-4. Send a heartbeat every 6 seconds to maintain the socket link.
+* Send a heartbeat every 6 seconds to maintain the socket link.
 
 ```
 for (;;){
@@ -272,10 +272,10 @@ for (;;){
 ```
 
 
-5. Push result case details<br>
+* Push result case details
 
 
-##### Deposit certificate example
+**Deposit certificate example**
 
 The certificate abi.json document is as follows.
 

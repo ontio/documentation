@@ -109,17 +109,17 @@ Function description: Transfer a certain amount of assets from the sender to the
 
 Parameters:
 
-        ```sendAcct```: Sender account
-        
-        ```recvAddr```: Receiver address
-        
-        ```amount```: Asset amount
-        
-        ```payerAcct```: Payment transaction account
-        
-        ```gaslimit```: Gas limit
-        
-        ```gasprice```: Gas price
+```sendAcct```: Sender account
+
+```recvAddr```: Receiver address
+
+```amount```: Asset amount
+
+```payerAcct```: Payment transaction account
+
+```gaslimit```: Gas limit
+
+```gasprice```: Gas price
 
 return value: Transaction hash
 
@@ -131,17 +131,17 @@ Function description: SendAcct account allows recvAddr to transfer amount of ass
 
 Parameters:
 
-        ```sendAcct```: Sender account
-        
-        ```recvAddr```: Receive address
-        
-        ```amount```: Asset amount
-        
-        ```payerAcct```: Payment transaction account
-        
-        ```gaslimit```: Gas limit
-        
-        ```gasprice```: Gas price
+```sendAcct```: Sender account
+
+```recvAddr```: Receive address
+
+```amount```: Asset amount
+
+```payerAcct```: Payment transaction account
+
+```gaslimit```: Gas limit
+
+```gasprice```: Gas price
 
 return value: Transaction hash
 
@@ -153,19 +153,19 @@ Function description: The sendAcct account transfers the amount of assets from t
 
 Parameters:
 
-        ```sendAcct```: Sender account
-        
-        ```fromAddr```: From address
-        
-        ```toAddr```: Receive address
-        
-        ```amount```: Asset amount
-        
-        ```payerAcct```: Payment transaction account
-        
-        ```gaslimit```: Gas limit
-        
-        ```gasprice```: Gas price
+```sendAcct```: Sender account
+
+```fromAddr```: From address
+
+```toAddr```: Receive address
+
+```amount```: Asset amount
+
+```payerAcct```: Payment transaction account
+
+```gaslimit```: Gas limit
+
+```gasprice```: Gas price
 
 return value: Transaction hash
 
@@ -176,7 +176,7 @@ return value: Transaction hash
 Function description: Query the asset balance of the account address.
 
 Parameters:
-        ```address```：Account address
+```address```：Account address
 
 return value： Balance of address
 
@@ -189,9 +189,9 @@ Function description: Query balance of the account address.
 
 Parameters:
 
-        ```fromAddr```: From address
-        
-        ```toAddr```: To address
+```fromAddr```: From address
+
+```toAddr```: To address
 
 return value: Asset amount
 
