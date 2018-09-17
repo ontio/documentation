@@ -120,11 +120,11 @@ The asset includes native digit asset and Nep-5 smart constract digit asset. Nep
 
  |      | Main   Function                                                                                                                         |
  | :--- | :-------------------------------------------------------------------------------------------------------------------------------------- |
- | 1    | new_registry_ontid_transaction(ont_id: str, pubkey: str, payer: str, gas_limit: int, gas_price: int)                                    |
+ | 1    | new_registry_ont_id_transaction(ont_id: str, pubkey: str, payer: str, gas_limit: int, gas_price: int)                                    |
  | 2    | new_add_attribute_transaction(ont_id: str, pubkey: str, attris: list, payer: str, gas_limit: int, gas_price: int)                       |
  | 3    | new_remove_attribute_transaction(ont_id: str, pubkey: bytearray, path: str, payer: str, gas_limit: int, gas_price: int)                 |
- | 4    | new_add_pubkey_transaction(ont_id: str, pubkey_or_recovery: bytes, new_pubkey: bytes, payer: str,gas_limit: int, gas_price: int)        |
- | 5    | new_remove_pubkey_transaction(ont_id: str, pubkey_or_recovery: bytes, remove_pubkey: bytes, payer: str, gas_limit: int, gas_price: int) |
+ | 4    | new_add_public_key_transaction(ont_id: str, pubkey_or_recovery: bytes, new_pubkey: bytes, payer: str,gas_limit: int, gas_price: int)        |
+ | 5    | new_remove_public_key_transaction(ont_id: str, pubkey_or_recovery: bytes, remove_pubkey: bytes, payer: str, gas_limit: int, gas_price: int) |
  | 6    | new_add_recovery_transaction(ont_id: str, pubkey: bytes, recovery: str, payer: str, gas_limit: int,gas_price: int)                      |
  | 7    | new_get_ddo_transaction(ont_id: str)                                                                                                    |
  | 8    | parse_ddo(ont_id: str, ddo: str)                                                                                                        |

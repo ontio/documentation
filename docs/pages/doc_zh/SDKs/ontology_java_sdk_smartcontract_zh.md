@@ -13,6 +13,9 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/smartcont
 
 [English](./ontology_java_sdk_smartcontract_en.html) / 中文
 
+## 介绍
+
+这个章节介绍如何通过Java SDK使用智能合约。
 
 ## 智能合约部署、调用、事件推送
 
