@@ -101,51 +101,78 @@ Note:
 
 Methods apply to both ONT and ONG assets.
 
-**String sendTransfer (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)**
-
+**sendTransfer**
+```
+String sendTransfer (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)
+```
 Function description: Transfer a certain amount of assets from the sender to the receiver's account.
 
 Parameters:
+
         ```sendAcct```: Sender account
+        
         ```recvAddr```: Receiver address
+        
         ```amount```: Asset amount
+        
         ```payerAcct```: Payment transaction account
+        
         ```gaslimit```: Gas limit
+        
         ```gasprice```: Gas price
 
 return value: Transaction hash
 
-**String sendApprove (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)**
-
+**sendApprove**
+```
+String sendApprove (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)
+```
 Function description: SendAcct account allows recvAddr to transfer amount of assets.
 
 Parameters:
+
         ```sendAcct```: Sender account
+        
         ```recvAddr```: Receive address
+        
         ```amount```: Asset amount
+        
         ```payerAcct```: Payment transaction account
+        
         ```gaslimit```: Gas limit
+        
         ```gasprice```: Gas price
 
 return value: Transaction hash
 
- **String sendTransferFrom (Account sendAcct, String fromAddr, String toAddr, long amount, Account payerAcct, long gaslimit, long gasprice)**
-
+ **sendTransferFrom**
+ ```
+ String sendTransferFrom (Account sendAcct, String fromAddr, String toAddr, long amount, Account payerAcct, long gaslimit, long gasprice)
+```
 Function description: The sendAcct account transfers the amount of assets from the fromAddr account to the toAddr account.
 
 Parameters:
+
         ```sendAcct```: Sender account
+        
         ```fromAddr```: From address
+        
         ```toAddr```: Receive address
+        
         ```amount```: Asset amount
+        
         ```payerAcct```: Payment transaction account
+        
         ```gaslimit```: Gas limit
+        
         ```gasprice```: Gas price
 
 return value: Transaction hash
 
-**long queryBalanceOf (String address)**
-
+**queryBalanceOf**
+ ```
+ long queryBalanceOf (String address)
+ ```
 Function description: Query the asset balance of the account address.
 
 Parameters:
@@ -154,41 +181,53 @@ Parameters:
 return value： Balance of address
 
 
-**long queryAllowance (String fromAddr,String toAddr)**
-
+**queryAllowance**
+ ```
+long queryAllowance (String fromAddr,String toAddr)
+ ```
 Function description: Query balance of the account address.
 
 Parameters:
+
         ```fromAddr```: From address
+        
         ```toAddr```: To address
 
 return value: Asset amount
 
 	
-**String queryName()**
-
+**queryName**
+ ```
+String queryName()
+ ```
 Function description: Query asset name information.
 
     
 return value: Asset name detail information
 
 	
-**String querySymbol()**
-
+**querySymbol**
+ ```
+String querySymbol
+ ```
 Function description: Query asset symbol information.
 
 return value：Symbol information
 
  
- **long queryDecimals()**
-
+ **queryDecimals**
+  ```
+  long queryDecimals()
+ ```
 Function description: Query the accuracy of assets
 
 return value：decimal
 
 
-**long queryTotalSupply()**
-
+**queryTotalSupply**
+ ```
+long queryTotalSupply()
+ ```
 Function description： Query the total supply of  assets
 
 return value：total Supply
@@ -207,7 +246,7 @@ ont = sdk.nativevm().ont()
 com.github.ontio.account.Account account1 = new com.github.ontio.account.Account(privateKey,SignatureScheme.SHA256WITHECDSA);
 ont.sendTransfer(account1,"TA4pCAb4zUifHyxSx32dZRjTrnXtxEWKZr",10000,account1,ontSdk.DEFAULT_GAS_LIMIT,0);
 ```
-----
+
 ## NEP-5 smart contract digital assets
 
 NEP-5 document：
@@ -218,14 +257,14 @@ Digital assets template:
 
 
 | Function |Params | Returns | Description |
-|:---|:---|:---|:---|
+| --- | --- | --- | ---|
 |sendInit    |boolean preExec|String|If true, it indicates that the pre-execution is to test whether it has been initialized. If it is false, the contract parameters are initialized.|
 |sendTransfer|String sendAddr, String password, String recvAddr, int amount|String|Transfer assets|
 |sendBalanceOf|String addr|String|Get account balance|
-|sendTotalSupply||String|Get total supply|
-|sendName||String|Get name|
-|sendDecimals||String|Get accuracy|
-|sendSymbol||String|Query token abbreviation|
+|sendTotalSupply| |String|Get total supply|
+|sendName| |String|Get name|
+|sendDecimals| |String|Get accuracy|
+|sendSymbol| |String|Query token abbreviation|
 
 
 

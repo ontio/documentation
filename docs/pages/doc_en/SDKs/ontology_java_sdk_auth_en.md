@@ -15,7 +15,7 @@ English / [中文](./ontology_java_sdk_auth_zh.html)
 
 
 At present, smart contracts can be called on by anyone, but this does not conform to real requirements. The basic idea of the role-based authority management is that each role can call on certain functions and each entity can be given multiple roles (entities are identified by ONT ID).
-If a smart contract needs to add an authority management function, then information such as roles allocated in the contract, callable functions and which entity does the role belong to etc. must be recorded. This can be a very elaborate process and can be managed by a system contract. <p><br>
+If a smart contract needs to add an authority management function, then information such as roles allocated in the contract, callable functions and which entity does the role belong to etc. must be recorded. This can be a very elaborate process and can be managed by a system contract. <br>
 
 
 ## Authority Contract Management
@@ -222,7 +222,7 @@ The Ontology Java SDK provides methods for authority management.
 String sendTransfer(String adminOntId, String password, byte[] salt, String contractAddr, String newAdminOntID, long keyNo, Account payerAcct, long gaslimit, long gasprice)
 ```
 
-<br><p>
+<br>
 
 |Instruction||Description|
 |:--|:--|:--|
@@ -245,7 +245,7 @@ String sendTransfer(String adminOntId, String password, byte[] salt, String cont
 String assignFuncsToRole(String adminOntID,String password,byte[] salt,String contractAddr,String role,String[] funcName,long keyNo,Account payerAcct,long gaslimit,long gasprice)
 ```
 
-<br><p>
+<br>
 
 |Instruction||Description|
 |:--|:--|:--|

@@ -111,8 +111,7 @@ ontSdk.signTx(tx,identity.ontid,password,salt);
 ontSdk.getConnect().sendRawTransaction(tx);
 ```
 
-Upon successful registration, the corresponding DDO of the ONT ID will be stored on the Ontology blockchain. Detailed information about DDO can be found in [ONT ID identity protocol and smart contract implementation]
-https://github.com/ontio/ontology-DID/blob/master/README.md
+Upon successful registration, the corresponding DDO of the ONT ID will be stored on the Ontology blockchain. Detailed information about DDO can be found in [ONT ID identity protocol and smart contract implementation](https://github.com/ontio/ontology-DID/blob/master/README.md)
 
 
 
@@ -122,7 +121,7 @@ https://github.com/ontio/ontology-DID/blob/master/README.md
 
 Users who have already created a digital identity may import it into a wallet file via the SDK.
 
-**Note:** It is advised to check if an identity already exists on the blockchain before you import one. If DDO does not exist, it means that no such identity has been registered on the blockchain. Then you may need to use ontSdk.getOntIdTx().sendRegister(identity,"passwordtest") for registration.
+**Note:** It is advised to check if an identity already exists on the blockchain before you import one. If DDO does not exist, it means that no such identity has been registered on the blockchain. Then you may need to use ```ontSdk.getOntIdTx().sendRegister(identity,"passwordtest")``` for registration.
 
 ###### Example to import digital identity
 ```
@@ -131,11 +130,15 @@ Identity identity = ontSdk.getWalletMgr().importIdentity(encriptPrivateKey,passw
 ontSdk.getWalletMgr().writeWallet();
 ```
 
-	Parameter Descriptions:
-				encriptPrivateKey: Encrypted private key
-				password: Password used to encrypt the private key
-				salt: Private key decryption salt
-				address: Account address
+Parameter Descriptions:
+
+            ```encriptPrivateKey```: Encrypted private key
+            
+            ```password```: Password used to encrypt the private key
+            
+            ```salt```: Private key decryption salt
+            
+            ```address```: Account address
 	
 **Remove identity**
 
@@ -287,6 +290,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 
 
 ##### Example to add/update an ointid publicKey using a recovery address
+
 | Param      | Field   | Type  | Description |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | Input param|ontid|String | Identity ID   | Required，identity ID |
@@ -342,6 +346,7 @@ ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
 ##### Example to remove an ointid publicKey using a recovery address
+
 | Param      | Field   | Type  | Description |             Remarks |
 | ----- | ------- | ------ | ------------- | ----------- |
 | Input param | ontid    | String | Identity ID   | Required, identity ID |
@@ -420,3 +425,4 @@ String sendChangeRecovery(String ontid, String newRecovery, String oldRecovery, 
 Transaction tx = ontSdk.nativevm().ontId().makeAddRecovery(ontid,newrecoveryaddress,oldrecoveryaddress,password,salt,gas,0);
 ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
+```
