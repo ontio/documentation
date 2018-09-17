@@ -194,7 +194,7 @@ Note: For createOntIdClaim interface details please see the digital identity ont
 
 The specification of the following interface document is: https://github.com/kunxian-xia/ontology-DID/blob/master/docs/en/claim_spec.md.
 
-<p><br>
+<br>
 
 #### Storage Claim
 
@@ -202,17 +202,17 @@ The specification of the following interface document is: https://github.com/kun
 ```
 String sendCommit (String issuerOntid, String password,byte[] salt, String subjectOntid, String claimId, Account payerAcct, long gaslimit, long gasprice)
 ```
-	Function description: Save data to the chain
+Function description: Save data to the chain
 
-	Parameters:
-			issuerOntid:  Issuer ONT ID
-			subjectOntid:  Subject ONT ID
-			password: Identity password
-			claimId: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
-			payerAcct: Payment transaction account
-			gaslimit: Gas limit
-			gasprice: Gas price
-	return value: Transaction hash
+Parameters:
+        ```issuerOntid```:  Issuer ONT ID
+        ```subjectOntid```:  Subject ONT ID
+        ```password```: Identity password
+        ```claimId```: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
+        ```payerAcct```: Payment transaction account
+        ```gaslimit```: Gas limit
+        ```gasprice```: Gas price
+return value: Transaction hash
 
 
 ##### Example
@@ -230,14 +230,14 @@ ontSdk.neovm().claimRecord().sendCommit(ontid,password,payload.getString("jti"),
 ```
  String sendGetStatus(String claimId)
 ```
-	Function description: Query status of trusted claim
+Function description: Query status of trusted claim
 
-	Parameters:
-			claimId: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
-	
-	return value： 
-			Part 1: Status of the claim: "Not attested", "Attested", "Attest has been revoked"
-			Part 2: The certificate's ONT ID.
+Parameters:
+        ```claimId```: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
+
+return value： 
+        Part 1: Status of the claim: "Not attested", "Attested", "Attest has been revoked"
+        Part 2: The certificate's ONT ID.
 
 ##### Example
 ```
@@ -251,14 +251,14 @@ String getstatusRes2 = ontSdk.neovm().claimRecord().sendGetStatus(payload.getStr
 ```
 String sendRevoke(String issuerOntid,String password,byte[] salt,String claimId,Account payerAcct,long gaslimit,long gas)
 ```
-	Function description:Repeal of a trust claim
+Function description:Repeal of a trust claim
 
-	Parameters:
-			issuerOntid: Issuer ONT ID
-			password: Attester's ONT ID password
-			claimId: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
-			payerAcct: Payment transaction account
-			gaslimit: Gas limit
-			gasprice: Gas price
-	
-	return value： This function will return true if and only if the claim is attested, and the revokerOntId is equal to the attester's ONT identity; Otherwise, it will return false.
+Parameters:
+        ```issuerOntid```: Issuer ONT ID
+        ```password```: Attester's ONT ID password
+        ```claimId```: Trusted claims claim uniqueness mark, i.e. Jti field in Claim
+        ```payerAcct```: Payment transaction account
+        ```gaslimit```: Gas limit
+        ```gasprice```: Gas price
+
+return value： This function will return true if and only if the claim is attested, and the revokerOntId is equal to the attester's ONT identity; Otherwise, it will return false.

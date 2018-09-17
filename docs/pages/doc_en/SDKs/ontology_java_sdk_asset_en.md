@@ -44,7 +44,7 @@ The storing of Digital Assets such as ONT and ONG is handled by the Java SDK usi
 `signatureScheme` `signatureScheme` Signature scheme used for transaction signatures
 
 `hash` Hash algorithm for derived privateKey
-<p><br>
+<br>
 
 ##### Example Account class:
 ```
@@ -103,66 +103,66 @@ Methods apply to both ONT and ONG assets.
 
 **String sendTransfer (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)**
 
-    Function description: Transfer a certain amount of assets from the sender to the receiver's account.
+Function description: Transfer a certain amount of assets from the sender to the receiver's account.
 
-    Parameters:
-			sendAcct: Sender account
-			recvAddr: Receiver address
-			amount: Asset amount
-			payerAcct: Payment transaction account
-			gaslimit: Gas limit
-			gasprice: Gas price
+Parameters:
+        ```sendAcct```: Sender account
+        ```recvAddr```: Receiver address
+        ```amount```: Asset amount
+        ```payerAcct```: Payment transaction account
+        ```gaslimit```: Gas limit
+        ```gasprice```: Gas price
 
-	return value: Transaction hash
+return value: Transaction hash
 
 **String sendApprove (Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)**
 
 Function description: SendAcct account allows recvAddr to transfer amount of assets.
 
-    Parameters:
-			sendAcct: Sender account
-			recvAddr: Receive address
-			amount: Asset amount
-			payerAcct: Payment transaction account
-			gaslimit: Gas limit
-			gasprice: Gas price
+Parameters:
+        ```sendAcct```: Sender account
+        ```recvAddr```: Receive address
+        ```amount```: Asset amount
+        ```payerAcct```: Payment transaction account
+        ```gaslimit```: Gas limit
+        ```gasprice```: Gas price
 
-	return value: Transaction hash
+return value: Transaction hash
 
  **String sendTransferFrom (Account sendAcct, String fromAddr, String toAddr, long amount, Account payerAcct, long gaslimit, long gasprice)**
 
 Function description: The sendAcct account transfers the amount of assets from the fromAddr account to the toAddr account.
 
-    Parameters:
-			sendAcct: Sender account
-			fromAddr: From address
-			toAddr: Receive address
-			amount: Asset amount
-			payerAcct: Payment transaction account
-			gaslimit: Gas limit
-			gasprice: Gas price
+Parameters:
+        ```sendAcct```: Sender account
+        ```fromAddr```: From address
+        ```toAddr```: Receive address
+        ```amount```: Asset amount
+        ```payerAcct```: Payment transaction account
+        ```gaslimit```: Gas limit
+        ```gasprice```: Gas price
 
-	return value: Transaction hash
+return value: Transaction hash
 
 **long queryBalanceOf (String address)**
 
 Function description: Query the asset balance of the account address.
 
-    Parameters:
-			address：Account address
+Parameters:
+        ```address```：Account address
 
-    return value： Balance of address
+return value： Balance of address
 
 
 **long queryAllowance (String fromAddr,String toAddr)**
 
 Function description: Query balance of the account address.
 
-    Parameters:
-			fromAddr: From address
-			toAddr: To address
+Parameters:
+        ```fromAddr```: From address
+        ```toAddr```: To address
 
-    return value: Asset amount
+return value: Asset amount
 
 	
 **String queryName()**
@@ -170,28 +170,28 @@ Function description: Query balance of the account address.
 Function description: Query asset name information.
 
     
-    return value: Asset name detail information
+return value: Asset name detail information
 
 	
 **String querySymbol()**
 
 Function description: Query asset symbol information.
 
-    return value：Symbol information
+return value：Symbol information
 
  
  **long queryDecimals()**
 
 Function description: Query the accuracy of assets
 
-    return value：decimal
+return value：decimal
 
 
 **long queryTotalSupply()**
 
 Function description： Query the total supply of  assets
 
-    return value：total Supply
+return value：total Supply
 
 
 ##### Example:

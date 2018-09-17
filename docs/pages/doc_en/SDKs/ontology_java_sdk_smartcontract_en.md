@@ -98,7 +98,7 @@ Thread.sleep(6000);
 DeployCodeTransaction t = (DeployCodeTransaction) ontSdk.getConnect().getTransaction(txhash);
 ```
 
-----
+
 
 ## Invocation of a smart contract
 
@@ -187,84 +187,84 @@ Transaction tx = ontSdk.vm().makeInvokeCodeTransaction(ontSdk.getSmartcodeTx().g
 ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 
 ```
-----
+
 ## Process smart contract push notifications
 
 ##### Example to create a WebSocket thread and analyze the push notification.
 
 1. Set WebSocket link.
-	```
-	//lock global variable, synchronization lock
-	public static Object lock = new Object();
+```
+//lock global variable, synchronization lock
+public static Object lock = new Object();
 
-	//Get ont instance
-	String ip = "http://127.0.0.1";
-	String wsUrl = ip + ":" + "20335";
-	OntSdk wm = OntSdk.getInstance();
-	wm.setWesocket(wsUrl, lock);
-	wm.setDefaultConnect(wm.getWebSocket());
-	wm.openWalletFile("OntAssetDemo.json");
-	```
+//Get ont instance
+String ip = "http://127.0.0.1";
+String wsUrl = ip + ":" + "20335";
+OntSdk wm = OntSdk.getInstance();
+wm.setWesocket(wsUrl, lock);
+wm.setDefaultConnect(wm.getWebSocket());
+wm.openWalletFile("OntAssetDemo.json");
+```
 
 
 2. Start WebSocket thread.
-	```
-	//false means not printing callback function information
-	ontSdk.getWebSocket().startWebsocketThread(false);
-	```
+```
+//false means not printing callback function information
+ontSdk.getWebSocket().startWebsocketThread(false);
+```
 
 3. Start result processing thread.
-	```
-	Thread thread = new Thread(
-                    new Runnable() {
-                        @Override
-                        public void run() {
-                            waitResult(lock);
-                        }
-                    });
-            thread.start();
-            //Take out the data in the MsgQueue print
-            public static void waitResult(Object lock) {
-                    try {
-                        synchronized (lock) {
-                            while (true) {
-                                lock.wait();
-                                for (String e : MsgQueue.getResultSet()) {
-                                    System.out.println("RECV: " + e);
-                                    Result rt = JSON.parseObject(e, Result.class);
-                                    //TODO
-                                    MsgQueue.removeResult(e);
-                                    if (rt.Action.equals("getblockbyheight")) {
-                                        Block bb = Serializable.from(Helper.hexToBytes((String) rt.Result), Block.class);
-                                        //System.out.println(bb.json());
-                                    }
+```
+Thread thread = new Thread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        waitResult(lock);
+                    }
+                });
+        thread.start();
+        //Take out the data in the MsgQueue print
+        public static void waitResult(Object lock) {
+                try {
+                    synchronized (lock) {
+                        while (true) {
+                            lock.wait();
+                            for (String e : MsgQueue.getResultSet()) {
+                                System.out.println("RECV: " + e);
+                                Result rt = JSON.parseObject(e, Result.class);
+                                //TODO
+                                MsgQueue.removeResult(e);
+                                if (rt.Action.equals("getblockbyheight")) {
+                                    Block bb = Serializable.from(Helper.hexToBytes((String) rt.Result), Block.class);
+                                    //System.out.println(bb.json());
                                 }
                             }
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-	```
+            }
+```
 
 
 4. Send a heartbeat every 6 seconds to maintain the socket link.
-	```
-	for (;;){
-                    Map map = new HashMap();
-                    if(i >0) {
-                        map.put("SubscribeEvent", true);
-                        map.put("SubscribeRawBlock", false);
-                    }else{
-                        map.put("SubscribeJsonBlock", false);
-                        map.put("SubscribeRawBlock", true);
-                    }
-                    //System.out.println(map);
-                    ontSdk.getWebSocket().setReqId(i);
-                    ontSdk.getWebSocket().sendSubscribe(map);     
-                Thread.sleep(6000);
-            }
-	```
+```
+for (;;){
+                Map map = new HashMap();
+                if(i >0) {
+                    map.put("SubscribeEvent", true);
+                    map.put("SubscribeRawBlock", false);
+                }else{
+                    map.put("SubscribeJsonBlock", false);
+                    map.put("SubscribeRawBlock", true);
+                }
+                //System.out.println(map);
+                ontSdk.getWebSocket().setReqId(i);
+                ontSdk.getWebSocket().sendSubscribe(map);     
+            Thread.sleep(6000);
+        }
+```
 
 
 5. Push result case details<br>

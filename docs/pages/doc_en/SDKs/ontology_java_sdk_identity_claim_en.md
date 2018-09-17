@@ -17,7 +17,7 @@ English / [中文](./ontology_java_sdk_identity_claim_zh.html)
 
 A description of an Ontology Digital ID can be found in our [ONT ID Protocol and Trust Framework](https://github.com/ontio/ontology-DID) document.
 
-<p><br>
+<br>
 
 ## Digital ID management
 
@@ -114,7 +114,7 @@ ontSdk.getConnect().sendRawTransaction(tx);
 Upon successful registration, the corresponding DDO of the ONT ID will be stored on the Ontology blockchain. Detailed information about DDO can be found in [ONT ID identity protocol and smart contract implementation]
 https://github.com/ontio/ontology-DID/blob/master/README.md
 
------
+
 
 ## Identity management
 
@@ -155,7 +155,7 @@ ontSdk.getWalletMgr().getWallet().setDefaultIdentity(index);
 ontSdk.getWalletMgr().getWallet().setDefaultIdentity(ontid);
 ```
 
-----
+
 ## Query blockchain based digital identity
 
 The DDO of a blockchain based digital identity can be queried by using the ONT ID.
@@ -188,7 +188,7 @@ String ddo = ontSdk.nativevm().ontId().sendGetDDO(ontid);
 }
 ```
 
-----
+
 ## Ontid attributes
 
 **Update blockchain-based DDO attribute**
@@ -254,7 +254,7 @@ ontSdk.signTx(tx,identity.ontid,password);
 ontSdk.getConnectMgr().sendRawTransaction(tx);
 ```
 
-----
+
 ## Ontid publicKey
 
 | Param      | Field   | Type  | Description |             Remarks |
@@ -367,7 +367,7 @@ Transaction makeRemovePubKey(String ontid,String recoveryAddr, String password,s
 
 Parameter descriptions - please refer to recovery method above
 
-----
+
 
 ## Ontid recovery
 

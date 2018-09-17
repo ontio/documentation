@@ -50,7 +50,7 @@ The outline of this document is as follows:
 	* [Query content of a smart contract](#query-content-of-a-smart-contract)
 	* [Synchronize query smartcontract event](#synchronize-query-smartcontract-event)
 		
-<p><br>
+<br>
 
 ## List of chain interaction methods
 
@@ -77,7 +77,7 @@ The outline of this document is as follows:
 | 19   |        ontSdk.getConnect().getMemPoolTxCount()         | Query total transaction volumn in the transaction pool  |
 | 20   |        ontSdk.getConnect().getMemPoolTxState()         | Query transaction status in the transaction pool |
 
-----
+
 
 ## Public and private keys and addresses
 
@@ -119,7 +119,7 @@ com.github.ontio.account.Account acct0 = ontSdk.getWalletMgr().getAccount(info.a
 [Full example](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/WalletDemo.java) 
 
 
-<p><br>
+<br>
 
 ###  Address generation
 
@@ -147,7 +147,7 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 | :--- | :--- | :--- |
 | addressFromMultiPubkeys | int m,byte\[\]... pubkeys | The minimum number of signatures (<=the number of public keys)，public key |
 
-----
+
 ## ONT and ONG transfer
 
 [Full example](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
@@ -260,10 +260,15 @@ Object obj = ontSdk.getConnect().sendRawTransactionPreExec(tx.toHexString());
 System.out.println(obj);
 ```
 ##### Success result
+```
 {"State":1,"Gas":30000,"Result":"01"}
+```
 
 ##### Failed result
+```
 com.github.ontio.network.exception.RestfulException: {"Action":"sendrawtransaction","Desc":"SMARTCODE EXEC ERROR","Error":47001,"Result":"","Version":"1.0.0"}
+```
+
 ```
 // Send a transaction
 ontSdk.getConnect().sendRawTransaction(tx.toHexString());
@@ -272,18 +277,21 @@ ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 Object obj = ontSdk.getConnect().syncSendRawTransaction(tx.toHexString());
 ```
 ##### Success result
-{"GasConsumed":0,"Notify":[],"TxHash":"cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890","State":1}
-
-##### Failed result
-com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc":"UNKNOWN TRANSACTION","Error":44001,"Result":"","Version":"1.0.0"}
 ```
+{"GasConsumed":0,"Notify":[],"TxHash":"cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890","State":1}
+```
+##### Failed result
+
+```
+com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc":"UNKNOWN TRANSACTION","Error":44001,"Result":"","Version":"1.0.0"}
+
 ```
 | Method Name  | Parameter  | Parameter Description |
 | :--- | :--- | :--- |
 | makeTransfer | String sender，String recvAddr,long amount,String payer,long gaslimit,long gasprice | sender address, receiver address, amount, network fee payer address, gaslimit, gasprice |
 | makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice | A transaction contains multiple transfers |
 
-<p><br>
+<br>
 
 #### Multiple signatures
 If the addresses of the transferee and the payer who pay the network fee are different, the payer’s signature needs to be added.
@@ -299,7 +307,7 @@ ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializeP
 ```
 
 
-// Multiple signatures split
+#### Multiple signatures split
 ##### Account 0 signature
 ```
 ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct);
@@ -497,7 +505,6 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 ```
 
-----
 
 ## NEP5 Transfer
 
@@ -530,7 +537,6 @@ System.out.println(Address.decodeBase58(acct.address).toHexString());
 ontSdk.neovm().nep5().sendTransfer(acct,"AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2",46440000L,acct,gasLimit,0);
 ```
 
-----
 ## Smart contracts
 
 #### Query content of a smart contract
