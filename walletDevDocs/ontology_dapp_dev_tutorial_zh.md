@@ -75,6 +75,17 @@ const result = await client.api.smartContract.invoke({contract,method,parameters
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
+##### 数据签名
+
+```
+const message: string = values.message;
+const signature: Signature = {
+  data,
+  publicKey
+};
+const result = await client.api.message.signMessage({ message });
+const result = await client.api.message.verifyMessage({ message, signature });
+```
 
 所有方法列表可以在文档中找到 [dAPI 规范](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <br> 
 

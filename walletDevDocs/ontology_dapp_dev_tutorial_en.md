@@ -63,6 +63,10 @@ const height = await client.api.network.getBlockHeight();
 const block = await client.api.network.getBlock({ block: 1 });
 const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
 const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
+```
+##### Example asset methods
+
+```
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
 ```
 
@@ -75,6 +79,17 @@ const result = await client.api.smartContract.deploy({code,name,version,author,e
 
 A full list of methods can be found in the [dAPI Specification document](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <p><br> 
 
+##### Example Message methods
+
+```
+const message: string = values.message;
+const signature: Signature = {
+  data,
+  publicKey
+};
+const result = await client.api.message.signMessage({ message });
+const result = await client.api.message.verifyMessage({ message, signature });
+```
 
 ### Running the demo project
 
