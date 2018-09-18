@@ -1,9 +1,9 @@
 English / [中文](./ontology_dapp_dev_tutorial_zh.html)
 
-<h1 align="center">Ontology dApp development tutorial</h1>
+<h1 align="center">Ontology dApp Development Tutorial</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-This tutorial is designed to give you an overview of creating a dApp using the Ontology dApp API (dAPI) and including the information on the tools required and shoulds en example dApp.
+This tutorial is designed to demonstrate an overview of creating dApps by using the Ontology dApp API (dAPI). It also contains the information on the tools required and as well as an example dApp.
 
 The document is broken down into the following sections:
 
@@ -27,9 +27,9 @@ The document is broken down into the following sections:
 
 
 
-### Setting up the development environment
+### Setting up the Development Environment
 
-Please ensure you have the following installed and configured for use in your development environment.
+Please ensure you have the following installed and configured in order to setup the development environment.
 
 - [Node.js v6+ LTS with npm](https://nodejs.org/en/)
 
@@ -72,14 +72,14 @@ const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBML
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
 ```
 
-##### Example Smart Contract methods
+##### Example Smart Contract Methods
 
 ```
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
-##### Example Message methods
+##### Example Message Methods
 
 ```
 const message: string = values.message;
@@ -94,7 +94,7 @@ const result = await client.api.message.verifyMessage({ message, signature });
 A full list of methods can be found in the [dAPI Specification document](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <p><br> 
 
 
-### Running the demo project
+### Running the Demo Project
 
 Clone the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) which we will use to demonstrate functionality.
 
@@ -142,13 +142,13 @@ SmartX uses Cyano Wallet to help with compiling, deploying and invoking the smar
 
 #### Compiling your smart contract
 
-Use Smartx to Compile the smart contract.
+Use Smartx to compile the smart contract.
 
 ![smart contract deploy and invoke](../docs/lib/images/smartx-deploy.png)
 
-#### Deploying your smart contract
+#### Deploying your Smart Contract
 
-Now that we have written our smart contract, the next steps are to deploy and invoke it. Deploying and Invoking requires Testnet ONG.  If you dont have any already, please [request testnet ONG in Discord](https://discordapp.com/channels/400884201773334540/453499298097922068)
+Now that we have written our smart contract, the next steps are to deploy and invoke it. Deploying and invoking requires Testnet ONG.  If you dont have any at the moment, please [request testnet ONG in Discord](https://discordapp.com/channels/400884201773334540/453499298097922068)
 
 ![Deploy](https://s1.ax1x.com/2018/09/03/PzhTCd.png)
 
@@ -156,7 +156,7 @@ Now that we have written our smart contract, the next steps are to deploy and in
 
 ![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png) 
 
-### Testing your smart contract
+### Testing Smart Contract
 
 In order to test the smart contract, you can use the [smart contract automated testing framework](https://github.com/ontio-community/ontology-sctf) or deploy your own Ontology privatenet running in testmode by downloading the latest [Ontology release](https://github.com/ontio/ontology/releases) and starting it as below.
 ```
