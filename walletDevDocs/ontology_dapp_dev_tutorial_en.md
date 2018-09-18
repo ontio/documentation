@@ -73,14 +73,12 @@ const result = await client.api.asset.makeTransfer({ recipient, asset, amount })
 ```
 
 ##### Example Smart Contract methods
+
 ```
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
-
-A full list of methods can be found in the [dAPI Specification document](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <p><br> 
-
 ##### Example Message methods
 
 ```
@@ -92,6 +90,9 @@ const signature: Signature = {
 const result = await client.api.message.signMessage({ message });
 const result = await client.api.message.verifyMessage({ message, signature });
 ```
+
+A full list of methods can be found in the [dAPI Specification document](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <p><br> 
+
 
 ### Running the demo project
 
