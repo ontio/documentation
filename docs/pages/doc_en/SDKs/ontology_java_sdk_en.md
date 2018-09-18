@@ -20,13 +20,13 @@ This official Ontology Java SDK is a comprehensive Java library for the Ontology
 ## Main functions
 
 - [Getting Started](./ontology_java_sdk_get_start_en.html)
-- [Interface](interface.md)
+- [Interface](./ontology_java_sdk_interface_en.html)
 - [Basic operation of blockchain nodes](./ontology_java_sdk_basic_en.html)
 - [Wallet file specification](https://github.com/ontio/documentation/blob/master/docs/pages/doc_en/SDKs/Wallet_File_Specification_en.md)
 - [Digital identity and verifable claim management](./ontology_java_sdk_identity_claim_en.html)
 - [Digital assets](./ontology_java_sdk_asset_en.html)
-- [Digital Attestment](attest.md)
-- [Authorization management](auth.md)
+- [Digital Attestment](./ontology_java_sdk_attest_en.html)
+- [Authorization management](./ontology_java_sdk_auth_en.html)
 - [Smart contract deployment and invocation](./ontology_java_sdk_smartcontract_en.html)
 - [Error codes](errorcode.md)
 - [API reference](https://apidoc.ont.io/javasdk/)

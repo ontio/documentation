@@ -23,10 +23,10 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/README.md
 
 ## 主要功能
 
-- [介绍](sdk_get_start.md)
+- [介绍](./ontology_java_sdk_get_start_zh.html)
 - [接口基本信息](./ontology_java_sdk_interface_zh.html)
 - [区块链节点基本操作](./ontology_java_sdk_basic_zh.html)
-- [钱包文件及规范](Wallet_File_Specification_cn.md)
+- [钱包文件及规范](./Wallet_File_Specification_cn.html)
 - [数字身份及可信声明管理](./ontology_java_sdk_identity_claim_zh.html)
 - [数字资产](./ontology_java_sdk_asset_zh.html)
 - [数字存证](./ontology_java_sdk_attest_zh.html)

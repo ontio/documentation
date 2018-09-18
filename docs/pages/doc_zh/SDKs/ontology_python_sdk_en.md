@@ -9,20 +9,23 @@ giturl: https://github.com/ontio/ontology-python-sdk/blob/master/README.md
 
 <h1 align="center">Python SDK For Ontology</h1>
 
-<p align="center" class="version">Version 0.1.2</p>
+<p align="center" class="version">Version 0.1.3</p>
 
 <!-- TOC -->
 
 - [Introduction](#introduction)
 - [Preparations](#preparations)
-- [RPC interface function list](#rpc-interface-function-list)
-- [Wallet function list](#wallet-function-list)
-  - [Digit account](#digit-account)
-  - [Digit identity](#digit-identity)
-- [Asset function list](#asset-function-list)
-  - [Native digit asset](#native-digit-asset)
-- [Identity function list](#identity-function-list)
-  - [ONT ID](#ont-id)
+- [Interface](#interface)
+  - [Network](#network)
+  - [Wallet](#wallet)
+  - [Account](#account)
+  - [Identity](#identity)
+  - [AccountManager](#accountmanager)
+  - [IdentityManager](#identitymanager)
+  - [Asset](#asset)
+  - [ABI](#abi)
+  - [OEP4](#oep4)
+  - [Utils](#utils)
 - [Contribution](#contribution)
 - [Naming](#naming)
   - [Overview](#overview)
@@ -34,9 +37,11 @@ giturl: https://github.com/ontio/ontology-python-sdk/blob/master/README.md
 
 <!-- /TOC -->
 
+English | [中文](README_CN.md)
 
 ## Introduction
-Ontology Python SDK function consists of four parts, RPC interface, wallet, asset, and identity. For RPC interface, it is responsible to interact with the Ontology blockchain, including querying and sending transactions. For wallet, it manages wallet file and store the encrypted private key of the asset account and identity. The function of asset can transfer ONT/ONG, check account balance, withdraw ONT/ONG and so on. The function of identity can send request to register ONT ID and get DDO object. In addition to these four parts, SDK also support constructing, deploying, and invoking a smart contract. 
+
+The Ontology official Python SDK is a comprehensive SDK which is based on `Python3.7`. Currently, it supports local wallet management, digital identity management, digital asset management, deployment and invoke for smart contract, the calling of OEP4, and communication with the Ontology blockchain. The future will also support more functions and applications.
 
 ## Preparations
 
@@ -46,88 +51,188 @@ Installation requires a Python 3.7 or later environment.
 pip install ontology-python-sdk
 ```
 
-## RPC interface function list
+## Interface
 
+Read more in the [ontology-python-sdk API document](https://apidoc.ont.io/pythonsdk/).
 
- |      | Main   Function                                        |
- | :--- | :----------------------------------------------------- |
- | 1    | get_version()                                          |
- | 2    | get_block_by_hash (block_hash)                         |
- | 3    | get_block_by_height (block_height)                     |
- | 4    | get_block_count ()                                     |
- | 5    | get_current_block_hash ()                              |
- | 6    | get_block_hash_by_height (block_height)                |
- | 7    | get_balance (account_address)                          |
- | 8    | get_allowance (account_address)                        |
- | 9    | get_storage (contract_address, key)                    |
- | 10   | get_smart_contract_event_by_tx_hash (transaction_hash) |
- | 11   | get_smart_contract_event_by_height (block_height)      |
- | 12   | get_raw_transaction (transaction_hash)                 |
- | 13   | get_smart_contract (contract_address)                  |
- | 14   | get_merkle_proof (transaction_hash)                    |
- | 15   | send_raw_transaction (transaction)                     |
- | 16   | send_raw_transaction_pre_exec (transaction)            |
- | 17   | get_node_count ()                                      |
- | 18   | get_gas_price ()                                       |
+### Network
 
-## Wallet function list
+This is an API set that allows you to interact with an Ontology nodes.
 
-The wallet function includes three parts, digit account, digit identity, and mnemonics and kestore interface. Mnemonics and kestore interface will be supported in the future.
+|       | Main Function                         |
+| :---: | :------------------------------------ |
+| 1     | get_version()                         |
+| 2     | get_balance()                         |
+| 3     | get_allowance()                       |
+| 4     | get_gas_price()                       |
+| 5     | get_network_id()                      |
+| 6     | get_node_count()                      |
+| 7     | get_block_count()                     |
+| 8     | get_block_by_hash()                   |
+| 9     | get_block_by_height()                 |
+| 10    | get_current_block_hash()              |
+| 11    | get_block_hash_by_height()            |
+| 12    | get_storage()                         |
+| 13    | get_smart_contract()                  |
+| 14    | get_smart_contract_event_by_tx_hash() |
+| 15    | get_smart_contract_event_by_height()  |
 
-### Digit account
+### Wallet
 
- |      | Main   Function                                                                           |
- | :--- | :---------------------------------------------------------------------------------------- |
- | 1    | import_account(label: str, encrypted_pri_key: str, pwd: str, base58_addr: str, salt: str) |
- | 2    | create_account(label: str, pwd: str, salt: str, priv_key: bytes, account_flag: bool)      |
- | 3    | create_account_from_private_key(label: str, pwd: str, private_key: bytes)                 |
- | 4    | get_account(address: str, pwd: str)                                                       |
- | 5    | get_accounts()                                                                            |
- | 6    | get_default_account()                                                                     |
- | 7    | set_default_account_by_address(b58_address: str)                                          |
- | 8    | set_default_account_by_index(index: int)                                                  |
- | 9    | get_default_account_address()                                                             |
+This is an API set that allows you to handle with wallet account in the form of `AccountData`.
 
-### Digit identity
+|       | Main Function    |
+| :---: | :--------------- |
+| 1     | add_account()    |
+| 2     | remove_account() |
 
- |      | Main   Function                                                                        |
- | :--- | :------------------------------------------------------------------------------------- |
- | 1    | import_identity(label: str, encrypted_pri_key: str, pwd: str, salt: str, address: str) |
- | 2    | create_identity(label: str, pwd: str, salt: str, private_key: bytes)                   |
- | 3    | create_identity_from_private_key(label: str, pwd: str, private_key: bytes)             |
+**Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
 
-## Asset function list
+### Account
 
-The asset includes native digit asset and Nep-5 smart constract digit asset. Nep-5 smart constract will be supported in the future.
+This is an API set that allows you to generate Ontology accounts and sign transactions and data.
 
-### Native digit asset
+|       | Main Function                      |
+| :---: | :--------------------------------- |
+| 1     | export_wif()                       |
+| 2     | get_signature_scheme()             |
+| 3     | serialize_public_key()             |
+| 4     | serialize_private_key()            |
+| 5     | get_public_key_hex()               |
+| 6     | get_public_key_bytes()             |
+| 7     | get_private_key_from_wif()         |
+| 8     | get_gcm_decoded_private_key()      |
+| 9     | export_gcm_encrypted_private_key() |
+| 10    | get_address_hex()                  |
+| 11    | get_address_hex_reverse()          |
+| 12    | get_address_base58()               |
+| 13    | generate_signature()               |
 
- |      | Main   Function                                                                                                                                |
- | :--- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
- | 1    | new_transfer_transaction(asset: str, from_address: str, to_address: str, amount: int, payer: str, gas_limit: int, gas_price: int)              |
- | 2    | query_balance(asset: str, addr: str)                                                                                                           |
- | 3    | query_allowance(asset: str, b58_from_address: str, b58_to_address: str)                                                                        |
- | 4    | query_name(asset: str)                                                                                                                         |
- | 5    | query_symbol(asset: str)                                                                                                                       |
- | 6    | query_decimals(asset: str)                                                                                                                     |
- | 7    | send_withdraw_ong_transaction(claimer: Account, recv_addr: str, amount: int, payer: Account, gas_limit: int, gas_price: int)                   |
- | 8    | send_approve(asset: str, sender: Account, recv_addr: str, amount: int, payer: Account, gas_limit: int, gas_price: int)                         |
- | 9    | send_transfer_from(asset: str, sender: Account, from_address: str, recv_addr: str, amount: int,payer: Account, gas_limit: int, gas_price: int) |
+**Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
 
-## Identity function list 
+### Identity
 
-### ONT ID
+This is an API set that allows you to generate **Ontology Digital Identity.**
 
- |      | Main   Function                                                                                                                         |
- | :--- | :-------------------------------------------------------------------------------------------------------------------------------------- |
- | 1    | new_registry_ont_id_transaction(ont_id: str, pubkey: str, payer: str, gas_limit: int, gas_price: int)                                    |
- | 2    | new_add_attribute_transaction(ont_id: str, pubkey: str, attris: list, payer: str, gas_limit: int, gas_price: int)                       |
- | 3    | new_remove_attribute_transaction(ont_id: str, pubkey: bytearray, path: str, payer: str, gas_limit: int, gas_price: int)                 |
- | 4    | new_add_public_key_transaction(ont_id: str, pubkey_or_recovery: bytes, new_pubkey: bytes, payer: str,gas_limit: int, gas_price: int)        |
- | 5    | new_remove_public_key_transaction(ont_id: str, pubkey_or_recovery: bytes, remove_pubkey: bytes, payer: str, gas_limit: int, gas_price: int) |
- | 6    | new_add_recovery_transaction(ont_id: str, pubkey: bytes, recovery: str, payer: str, gas_limit: int,gas_price: int)                      |
- | 7    | new_get_ddo_transaction(ont_id: str)                                                                                                    |
- | 8    | parse_ddo(ont_id: str, ddo: str)                                                                                                        |
+|       | Main Function                        |
+| :---: | :----------------------------------- |
+| 1     | parse_ddo()                          |
+| 2     | send_get_ddo()                       |
+| 3     | new_get_ddo_transaction()            |
+| 4     | new_add_recovery_transaction()       |
+| 5     | new_add_attribute_transaction()      |
+| 6     | new_add_public_key_transaction()     |
+| 7     | new_remove_public_key_transaction()  |
+| 8     | new_registry_ont_id_transaction()    |
+| 9     | new_remove_attribute_transaction()   |
+| 10    | send_add_recovery_transaction()      |
+| 11    | send_add_attribute_transaction()     |
+| 12    | send_add_public_key_transaction()    |
+| 13    | send_registry_ont_id_transaction()   |
+| 14    | send_remove_public_key_transaction() |
+| 15    | send_remove_attribute_transaction()  |
+| 16    | send_add_public_key_by_recovery()    |
+| 17    | sign_transaction()                   |
+| 18    | add_sign_transaction()               |
+| 19    | add_multi_sign_transaction()         |
+| 20    | get_merkle_proof()                   |
+| 21    | get_raw_transaction()                |
+| 22    | send_raw_transaction()               |
+| 23    | send_raw_transaction_pre_exec()      |
+
+**Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
+
+### AccountManager
+
+This is an API set that allows you to manage your multiple account in an wallet file.
+
+|       | Main Function                     |
+| :---: | :-------------------------------- |
+| 1     | import_account()                  |
+| 2     | create_account()                  |
+| 3     | create_account_from_private_key() |
+| 4     | get_account()                     |
+| 5     | get_accounts()                    |
+| 6     | get_default_account()             |
+| 7     | get_default_account_address()     |
+| 8     | set_default_account_by_index()    |
+| 9     | set_default_account_by_address()  |
+
+**Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
+
+### IdentityManager
+
+This is an API set that allows you to manage your multiple identity in an wallet file.
+
+|       | Main Function                      |
+| :---: | :--------------------------------- |
+| 1     | create_identity()                  |
+| 2     | import_identity()                  |
+| 3     | create_identity_from_private_key() |
+
+**Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
+
+### Asset
+
+The `Asset` package allows you to interact with Ontology Native Digital Asset(ONT, ONG) easily.
+
+|       | Main Function                   |
+| :---: | :------------------------------ |
+| 1     | query_name()                    |
+| 2     | query_symbol()                  |
+| 3     | query_balance()                 |
+| 4     | query_decimals()                |
+| 5     | query_allowance()               |
+| 6     | query_unbound_ong()             |
+| 7     | get_asset_address()             |
+| 8     | new_approve_transaction()       |
+| 9     | new_transfer_transaction()      |
+| 10    | new_transfer_from_transaction() |
+| 11    | new_withdraw_ong_transaction()  |
+| 12    | send_transfer()                 |
+| 13    | send_approve()                  |
+| 14    | send_transfer_from()            |
+| 15    | send_withdraw_ong_transaction() |
+
+### ABI
+
+The `ABI` package allows you to interact with a deployed smart contract easily.
+
+|       | Main Function      |
+| :---: | :----------------- |
+| 1     | get_function]()    |
+| 2     | get_parameter()    |
+| 3     | set_params_value() |
+
+### OEP4
+
+The `OEP4` package allows you to interact with an deployed Ontology OEP4 smart contract easily.
+
+|       | Main Function      |
+| :---: | :----------------- |
+| 1     | init()             |
+| 2     | get_name()         |
+| 3     | get_symbol()       |
+| 4     | get_decimal()      |
+| 5     | get_total_supply() |
+| 6     | approve()          |
+| 7     | allowance()        |
+| 8     | balance_of()       |
+| 9     | transfer()         |
+| 10    | transfer_multi()   |
+| 11    | transfer_from()    |
+
+**Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
+
+### Utils
+
+The `Utils` package provides utility functions for `Ontology Dapps` and other `Ontology-Python-Sdk` packages.
+
+|       | Main Function       |
+| :---: | :------------------ |
+| 1     | get_random_str()    |
+| 2     | get_asset_address() |
+| 3     | get_random_bytes()  |
 
 ## Contribution
 
@@ -173,7 +278,7 @@ If you want to contribute, we strongly recommend you to read the [Google Python 
 
 Function names, variable names, and filenames should be descriptive; eschew abbreviation. In particular, do not use abbreviations that are ambiguous or unfamiliar to readers outside your project, and do not abbreviate by deleting letters within a word.
 
-Always use a `.py` filename extension. Never use dashe
+Always use a `.py` filename extension. Never use dashes.
 
 ### Names to Avoid
 
@@ -195,83 +300,19 @@ Always use a `.py` filename extension. Never use dashe
 
 ### Guidelines derived from Guido's Recommendations
 
-<table rules="all" border="1" summary="Guidelines from Guido's Recommendations"
-       cellspacing="2" cellpadding="2">
-
-  <tr>
-    <th>Type</th>
-    <th>Public</th>
-    <th>Internal</th>
-  </tr>
-
-  <tr>
-    <td>Packages</td>
-    <td><code>lower_with_under</code></td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Modules</td>
-    <td><code>lower_with_under</code></td>
-    <td><code>_lower_with_under</code></td>
-  </tr>
-
-  <tr>
-    <td>Classes</td>
-    <td><code>CapWords</code></td>
-    <td><code>_CapWords</code></td>
-  </tr>
-
-  <tr>
-    <td>Exceptions</td>
-    <td><code>CapWords</code></td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Functions</td>
-    <td><code>lower_with_under()</code></td>
-    <td><code>_lower_with_under()</code></td>
-  </tr>
-
-  <tr>
-    <td>Global/Class Constants</td>
-    <td><code>CAPS_WITH_UNDER</code></td>
-    <td><code>_CAPS_WITH_UNDER</code></td>
-  </tr>
-
-  <tr>
-    <td>Global/Class Variables</td>
-    <td><code>lower_with_under</code></td>
-    <td><code>_lower_with_under</code></td>
-  </tr>
-
-  <tr>
-    <td>Instance Variables</td>
-    <td><code>lower_with_under</code></td>
-    <td><code>_lower_with_under</code> (protected)</td>
-  </tr>
-
-  <tr>
-    <td>Method Names</td>
-    <td><code>lower_with_under()</code></td>
-    <td><code>_lower_with_under()</code> (protected)</td>
-  </tr>
-
-  <tr>
-    <td>Function/Method Parameters</td>
-    <td><code>lower_with_under</code></td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Local Variables</td>
-    <td><code>lower_with_under</code></td>
-    <td></td>
-  </tr>
-
-</table>
-
+| Type                       | Public               | Internal                          |
+| :------------------------: | :------------------: | :-------------------------------: |
+| Packages                   | `lower_with_under`   |                                   |
+| Modules                    | `lower_with_under`   | _lower_with_under                 |
+| Classes                    | `CapWords`           | `_CapWords`                       |
+| Exceptions                 | `CapWords`           |                                   |
+| Functions                  | `lower_with_under()` | `_lower_with_under()`             |
+| Global/Class Constants     | `CAPS_WITH_UNDER`    | `_CAPS_WITH_UNDER`                |
+| Global/Class Variables     | `lower_with_under`   | `_lower_with_under`               |
+| Instance Variables         | `lower_with_under`   | `_lower_with_under` (protected)   |
+| Method Names               | `lower_with_under()` | `_lower_with_under()` (protected) |
+| Function/Method Parameters | `lower_with_under`   |                                   |
+| Local Variables            | `lower_with_under`   |                                   |
 
 ## Site
 

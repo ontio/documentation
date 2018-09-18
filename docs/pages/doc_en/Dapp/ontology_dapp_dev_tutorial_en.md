@@ -74,7 +74,6 @@ const height = await client.api.network.getBlockHeight();
 const block = await client.api.network.getBlock({ block: 1 });
 const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
 const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
-
 ```
 ##### Example asset methods
 
@@ -83,12 +82,12 @@ const result = await client.api.asset.makeTransfer({ recipient, asset, amount })
 ```
 
 ##### Example Smart Contract methods
+
 ```
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
-
 ##### Example Message methods
 
 ```
@@ -163,7 +162,7 @@ Now that we have written our smart contract, the next steps are to deploy and in
 
 ### Testing your smart contract
 
-In order to test the smart contract, you can use the [smart contract automated testing framework](https://github.com/lucas7788/pythontest) or deploy your own Ontology privatenet running in testmode by downloading the latest [Ontology release](https://github.com/ontio/ontology/releases) and starting it as below.
+In order to test the smart contract, you can use the [smart contract automated testing framework](https://github.com/ontio-community/ontology-sctf) or deploy your own Ontology privatenet running in testmode by downloading the latest [Ontology release](https://github.com/ontio/ontology/releases) and starting it as below.
 ```
 $ ./ontology --testmode --gasprice 0
 
