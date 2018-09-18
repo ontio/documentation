@@ -47,6 +47,10 @@ This proposal makes use of the following functions and definitions:
 
 * **NEOVM**, a lightweight virtual machine for execution of Neo/Ontology smart contracts.
 
+## OEP-6
+
+https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki
+
 ## Implementation
 
 https://apidoc.ont.io/dapi/
