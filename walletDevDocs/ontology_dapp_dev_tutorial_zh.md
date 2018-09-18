@@ -148,7 +148,7 @@ dApp后端逻辑和存储需要使用智能合约，可以通过**SmartX**编辑
 
 ### 测试你的智能合约
 
-可以使用测试框架测试你的智能合约 [smart contract automated testing framework](https://github.com/lucas7788/pythontest)， 如果需要部署到私链，请下载最新版Ontology并启动， [Ontology release](https://github.com/ontio/ontology/releases).
+可以使用测试框架测试你的智能合约 [smart contract automated testing framework](https://github.com/ontio-community/ontology-sctf)， 如果需要部署到私链，请下载最新版Ontology并启动， [Ontology release](https://github.com/ontio/ontology/releases).
 ```
 $ ./ontology --testmode --gasprice 0
 

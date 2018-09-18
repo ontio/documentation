@@ -153,7 +153,7 @@ Now that we have written our smart contract, the next steps are to deploy and in
 
 ### Testing your smart contract
 
-In order to test the smart contract, you can use the [smart contract automated testing framework](https://github.com/lucas7788/pythontest) or deploy your own Ontology privatenet running in testmode by downloading the latest [Ontology release](https://github.com/ontio/ontology/releases) and starting it as below.
+In order to test the smart contract, you can use the [smart contract automated testing framework](https://github.com/ontio-community/ontology-sctf) or deploy your own Ontology privatenet running in testmode by downloading the latest [Ontology release](https://github.com/ontio/ontology/releases) and starting it as below.
 ```
 $ ./ontology --testmode --gasprice 0
 
