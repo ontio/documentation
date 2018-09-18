@@ -25,6 +25,7 @@ giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontolog
 	+ [与链交互方法](#与链交互方法)
 	+ [转账方法](#转账方法)
 	+ [智能合约方法](#智能合约方法)
+	+ [数据签名](#数据签名)
 
 [运行例子](#运行例子)
 

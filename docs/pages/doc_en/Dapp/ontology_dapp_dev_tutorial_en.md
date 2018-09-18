@@ -23,7 +23,9 @@ The document is broken down into the following sections:
 + [dAPI Instantiation](#dapi-instantiation)
 + [Example dAPI methods](#example-dapi-methods)
 	+ [Example blockchain methods](#example-blockchain-methods)
+	+ [Example asset methods](example-asset-methods)
 	+ [Example Smart Contract methods](#example-smart-contract-methods)
+	+ [Example Message methods](example-message-methods)
 
 [Running the demo project](#running-the-demo-project)
 
