@@ -7,14 +7,6 @@ folder: doc_en/SDKs
 giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/Wallet_File_Specification_en.md
 ---
 
----
-title:
-keywords: sample homepage
-sidebar: SDKs_en
-permalink: Wallet_File_Specification_en.html
-folder: doc_en/SDKs
-giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/Wallet_File_Specification_en.md
----
 
 English / [中文](./Wallet_File_Specification_cn.html)
 

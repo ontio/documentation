@@ -7,7 +7,7 @@ folder: doc_zh/SDKs
 giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/Wallet_File_Specification_cn.md
 ---
 
-[English](./Wallet_File_Specification_cn.html) / 中文
+[English](./Wallet_File_Specification_en.html) / 中文
 
 <h1 align="center"> 钱包规范 </h1>
 
