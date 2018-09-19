@@ -37,7 +37,7 @@ giturl: https://github.com/ontio/ontology-python-sdk/blob/master/README.md
 
 <!-- /TOC -->
 
-English | [中文](README_CN.md)
+English | [中文]()
 
 ## Introduction
 

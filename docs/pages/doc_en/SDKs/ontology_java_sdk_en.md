@@ -28,7 +28,7 @@ This official Ontology Java SDK is a comprehensive Java library for the Ontology
 - [Digital Attestment](./ontology_java_sdk_attest_en.html)
 - [Authorization management](./ontology_java_sdk_auth_en.html)
 - [Smart contract deployment and invocation](./ontology_java_sdk_smartcontract_en.html)
-- [Error codes](errorcode.md)
+- [Error codes]()
 - [API reference](https://apidoc.ont.io/javasdk/)
 
 

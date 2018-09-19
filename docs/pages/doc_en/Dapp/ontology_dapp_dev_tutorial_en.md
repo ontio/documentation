@@ -130,6 +130,11 @@ You can also initiate a transfer by selecting Asset->Make Transfer where you'll 
 
 ![Cyano Wallet Confirm](./lib/images/demo.png)
 
+#### How to set gaslimit and gasprice
+
+Each transaction contains a gas limit and a gas price. Gasprice will affect the time it takes for the transaction to be packaged. Currently, the minimum value of the main network and test network is 500.
+
+The gaslimit is based on the complexity of the contract execution and can be queried by pre-execution.  The Native contract calls gaslimit by default is 20000. The deployment contract is based on the contract, and the gaslimit is generally more than 20000000.
 
 ### Writing a smart contract for your dApp
 

@@ -60,7 +60,7 @@ According to different scenarios, decentralized data exchanging are divided into
 
 In Point to Point Model, Decentralized Marketplace does not need to participate or participate lightly, for example, the exchange of credit reporting between credit reporting enterprises. This mode is more suitable for the scenarios in which the relationship between the buyer and the buyer is clear, exchange procedure is relatively simple, or exchange standard has been established. To use it, the transaction participants need to integrate or use SDK to implement the transaction process.
 
-![](http://on-img.com/chart_image/5a54d944e4b01acda595f66d.png)
+![]()
 
 
 * Preparations

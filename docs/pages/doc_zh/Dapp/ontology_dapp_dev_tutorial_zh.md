@@ -127,6 +127,12 @@ $ npm run start
 
 ![Cyano Wallet Confirm](./lib/images/demo.png)
 
+#### 如何填写gaslimit和gasprice
+
+每笔交易都包含gas limit和gas price。gasprice 会影响到该笔交易被打包所需等待的时间，目前主网和测试网最小值都是500。
+
+gaslimit根据合约执行复杂性而定，可以通过预执行查询该调用需要的最小gaslimit值。Native合约调用gaslimit默认是20000。部署合约根据合约而定，gaslimit一般是20000000以上。
+
 
 ### 为你的dApp写智能合约
 
@@ -159,6 +165,6 @@ dApp后端逻辑和存储需要使用智能合约，可以通过**SmartX**编辑
 
 可以使用测试框架测试你的智能合约 [smart contract automated testing framework](https://github.com/ontio-community/ontology-sctf)， 如果需要部署到私链，请下载最新版Ontology并启动， [Ontology release](https://github.com/ontio/ontology/releases).
 ```
-$ ./ontology --testmode --gasprice 0
+$ ./ontology --testmode 
 
 ```
