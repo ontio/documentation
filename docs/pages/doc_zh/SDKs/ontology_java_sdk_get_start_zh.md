@@ -49,6 +49,7 @@ sdk文档：[sdk文档](https://github.com/ontio/ontology-java-sdk/tree/master/d
 	* [4. 批量交易](#4-批量交易)
 		* [4.1 批量构造交易](#41-批量构造交易)
 		* [4.2 批量发送交易](#42-批量发送交易)
+		* [4.3 在钱包中创建Ontid](#43-在钱包中创建Ontid)
 ## 1. 公私钥和地址
 
 账户是基于公私钥创建的，地址是公钥转换而来。
@@ -747,4 +748,14 @@ while ((txHex=bf.readLine())!=null){
 }
 
 
+```
+
+
+### 4.3 在钱包中创建Ontid
+
+如果需要把Ontid保存到钱包，根据4.1中保存的私钥，在钱包中创建Ontid即可。
+
+```
+Identity identity = ontSdk.getWalletMgr().createIdentityFromPriKey(password,privatekey0);
+ontSdk.getWalletMgr().writeWallet();
 ```
