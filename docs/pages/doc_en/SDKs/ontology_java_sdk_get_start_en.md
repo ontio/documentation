@@ -49,10 +49,10 @@ The outline of this document is as follows:
 * [Smart Contracts](#smart-contracts)
 	* [Query content of a smart contract](#query-content-of-a-smart-contract)
 	* [Synchronize query smartcontract event](#synchronize-query-smartcontract-event)
-* [批量交易](#批量交易)
-    * [批量构造交易](#批量构造交易)
-    * [批量发送交易](#批量发送交易)
-    * [在钱包中创建Ontid](#在钱包中创建Ontid)	
+* [Batch Transaction](#Batch Transaction)
+    * [Constructure Batch Transaction](#批量构造交易)
+    * [Send Batch Transaction](#批量发送交易)
+    * [Create Ontid in Wallet](#在钱包中创建Ontid)	
     	
 <br>
 
@@ -639,19 +639,20 @@ com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc
 ```
 
 
-## 批量交易
+## Batch Transaction
 
 SDK发送注册Ontid和转账等交易时，根据钱包中账户和身份信息解密出私钥再做签名，这个过程大概需要1-2秒时间。为了节省发交易时间，可以多线程或多机器事先创建交易，再批量发送。
+When SDK sends OntID registration or other exchange transaction, the whole process takes 1-2 seconds since user will extract the private key information from the wallet before doing the signature. To be more efficient, we can constructure the transaction in advance by multi-line or multi-machine before pushing transaction
 
-实现步骤如下，[例子](https://github.com/ontio/ontology-java-sdk/tree/master/src/main/java/demo/CreateManyTx.java)
+Detail example as below，[Example](https://github.com/ontio/ontology-java-sdk/tree/master/src/main/java/demo/CreateManyTx.java)
 
-### 批量构造交易
+### 批量构造交易 Construct Batch Transaction
 
-1. 打开文件
-2. 构造交易，下面以构造注册Ontid交易为例。
-3. 写入交易
+1. 打开文件 Open the file
+2. 构造交易，下面以构造注册Ontid交易为例。 Construct the transaction, we will use create OntID as an example down below
+3. 写入交易 Save the transaction
 
-> 构造交易时，如果新创建账户，需要用户自己保存账户私钥。
+> 构造交易时，如果新创建账户，需要用户自己保存账户私钥。When creating new transaction, user will need to protect their own private key if they are a new user
 
 ```
 //open file, make registry ontid transaction, save tx to file.
@@ -678,10 +679,11 @@ for (int i = 0; i < 3; i++) {
 
 ```
 文件中数据格式：
+Data Format
 
 ```
-交易，交易hash
-交易，交易hash
+Transaction，Transaction hash
+Transaction，Transaction hash
 
 00d1df24a313f401000000000000204e000000000000aa6e06c79f864152ab7f3139074aad822ffea8559800c66b2a6469643a6f6e743a414774577a7933693148453654516e31633265636b78527841516d524662467333686a7cc821036391476eed630fc1cffb1317545d9390f22d68cdc7092095dc1b78e4baeef27c6a7cc86c127265674944576974685075626c69634b65791400000000000000000000000000000000000000030068164f6e746f6c6f67792e4e61746976652e496e766f6b6500024241011928500aa1ac40d908e92c9db7c16be4063dda2cdabe9908206747c6303635578fde0be66032f586596e91c80f490a085e612be28b95da0edb319cb60f774e472321036391476eed630fc1cffb1317545d9390f22d68cdc7092095dc1b78e4baeef27cac424101bb1df17b91cd709ce38b4ec40db10c2dfd5e9ca7219dd5ca1c6200eaf60d8ccf1be9b85b9b22398204c6366ac20e8bb7797f21ebc17e7db540627b99d5a8bb41232102df6f28e327352a44720f2b384e55034c1a7f54ba31785aa3a338f613a5b7cc26ac,b7e2c99f449cb3403619bc5c5887c52f44993180c61c9fae85d5e772ce3d7fda
 00d1039e89c7f401000000000000204e000000000000aa6e06c79f864152ab7f3139074aad822ffea8559800c66b2a6469643a6f6e743a416446335547344867515864515a5577714a53756536744a6f534e564237644d32596a7cc82102a1f44af3d81c6cb0aaa5e1d597b891c436b0c724ae446b5d9cb9039e09b9938c6a7cc86c127265674944576974685075626c69634b65791400000000000000000000000000000000000000030068164f6e746f6c6f67792e4e61746976652e496e766f6b65000242410168436b2f5da6db0b2b4260b587ba7bce3dba1597a400dec52d0f00a4aa77f37c9979d10c31a80888edd6a41da4c89596033ab9ee634886f26850b32e83681f4e232102a1f44af3d81c6cb0aaa5e1d597b891c436b0c724ae446b5d9cb9039e09b9938cac4241019ba8633b42d3427ab202cafcb1c50a65de30c65120a96d958f985aff7205fcc6230e64842ea5cdf4e6b2d0b8bef1b19c795bf392a0c1cc8a93bc9ec9bebc9a35232102df6f28e327352a44720f2b384e55034c1a7f54ba31785aa3a338f613a5b7cc26ac,a8bd8258c8819f0ecf0652bb1d8c08860a5b75d16e194f3d6cd395f5c2a9f7fe
@@ -689,11 +691,11 @@ for (int i = 0; i < 3; i++) {
 
 ```
 
-### 批量发送交易
+### 批量发送交易 Send Batch Transaction
 
-1. 打开文件
-2. 读取一行数据
-3. 提取交易数据，发送交易数据
+1. 打开文件 Open the file
+2. 读取一行数据 Read a line of data
+3. 提取交易数据，发送交易数据 Extract the data and send the transaction data
 
 ```
 //read transaction from file, send transaction to node
@@ -710,9 +712,10 @@ while ((txHex=bf.readLine())!=null){
 ```
 
 
-### 在钱包中创建Ontid
+### 在钱包中创建Ontid Create OntID in Wallet
 
 如果需要把Ontid保存到钱包，根据4.1中保存的私钥，在钱包中创建Ontid即可。
+OntID can be easily created by the wallet. You can refer to the private hey from section 4.1
 
 ```
 Identity identity = ontSdk.getWalletMgr().createIdentityFromPriKey(password,privatekey0);
