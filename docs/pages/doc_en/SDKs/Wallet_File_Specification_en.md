@@ -58,49 +58,53 @@ Here is an example as below:
 
 ```
 {
-	"name": "mickey",
-	"defaultOntid": "",
-	"defaultAccountAddress": "",
-	"createTime": "2018-06-30T08:52:01.519Z",
-	"version": "1.0",
+        "name": "com.github.ontio",
 	"scrypt": {
-		"n": 4096,
-		"r": 8,
+		"dkLen": 64,
+		"n": 16384,
 		"p": 8,
-		"dkLen": 64
+		"r": 8
 	},
-	"identities": [{
-		"ontid": "did:ont:ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
-		"label": "mickey",
-		"lock": false,
-		"controls": [{
-			"id": "1",
-			"algorithm": "ECDSA",
-			"parameters": {
-				"curve": "P-256"
-			},
-			"key": "M+PnrYLVDrU0gkSzj0FAsvqCYv+HWEEUMDSyKSJACzJhZVglFU9tkfQKlLby5UCY",
-			"address": "ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
-			"salt": "wwa12j4K0SyDP23+UDJNtA==",
-			"enc-alg": "aes-256-gcm"
-		}]
-	}],
+	"version": "1.0"，
+	"createTime": "2018-09-26T18:02:26Z",
+	"defaultAccountAddress": "APyT9ZrjDsvq6cRWPaVq3Fu3zFjP33FUq4",
+	"defaultOntid": "did:ont:AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6",
 	"accounts": [{
-		"address": "AJQLNWy9X6qdeEFrSH6UzgEjadSsRiYDCS",
-		"label": "mickey",
-		"lock": false,
+		"address": "APyT9ZrjDsvq6cRWPaVq3Fu3zFjP33FUq4",
 		"algorithm": "ECDSA",
+		"enc-alg": "aes-256-gcm",
+		"hash": "sha256",
+		"isDefault": true,
+		"key": "w29DODefaYPg2LKT9FW6/QziPAmVH7Q/NX9nobO3tteRRq2Tg3Hm72gNkyvJlg97",
+		"label": "abaed057",
+		"lock": false,
 		"parameters": {
 			"curve": "P-256"
 		},
-		"key": "qFbemAbu7fEjOJzAZZhGkmzp2YNxdSCuK7xyvhBAnUBX/FmAj2Ns84Y7frh6hfQv",
-		"enc-alg": "aes-256-gcm",
-		"salt": "u+SiqpRk17b0vIPesh4xXA==",
-		"isDefault": false,
-		"publicKey": "037fb6dfc9420e1d8275d9133d6d69fe64e8e3567241e7583234b9efa8b2ce7ae1",
+		"publicKey": "025a61aced9838fed2ffe0267ddcdd62159f51fcbc4fce7eb162d30d43da6fecc9",
+		"salt": "dQ3ubLtvOQ4VEzN1l1aq8Q==",
 		"signatureScheme": "SHA256withECDSA"
 	}],
-	"extra": null
+	"identities": [{
+		"controls": [{
+			"address": "AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6",
+			"algorithm": "ECDSA",
+			"enc-alg": "aes-256-gcm",
+			"hash": "sha256",
+			"id": "keys-1",
+			"key": "oZ8kkH0MhKYNAIPA5WACsK93ghHqnTQU3oeC3bqPQ4KYRVXHOUwiLhgiWV+BIB9D",
+			"parameters": {
+				"curve": "secp256r1"
+			},
+			"publicKey": "02f866847298a7847c714c457dcc63122b946bd014b32e7c365a7bc89fefc2bdd8",
+			"salt": "/OwXiTC9k3tzDN8bTigXew=="
+		}],
+		"isDefault": true,
+		"label": "d6a5b3b3",
+		"lock": false,
+		"ontid": "did:ont:AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6"
+	}]
+	
 }
 ```
 
