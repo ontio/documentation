@@ -537,7 +537,7 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 const tx = GovernanceTxBuilder.makeQuitNodeTx(userAddr, peerPubkey, payer, gasPrice, gasLimit)
 ```
 
-## 6.Stake Authorization
+## 6. Stake Authorization
 
 ### 6.1 Query nodes that allow stake authorization
 
