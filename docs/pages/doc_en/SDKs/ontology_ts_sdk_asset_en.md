@@ -127,7 +127,7 @@ import { Crypto } from 'ontology-ts-sdk';
 
 cont keyType = Crypto.KeyType.ECDSA;
 
-const keyParameters = new Crypto.KeyParameters(Crypto.CurveLabel.SECP256r1);
+const keyParameters = new Crypto.KeyParameters(Crypto.CurveLabel.SECP256R1);
 
 const privateKey = Crypto.PrivateKey.random(keyType, keyParameters)
 ```

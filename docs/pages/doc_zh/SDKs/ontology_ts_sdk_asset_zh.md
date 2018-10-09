@@ -66,85 +66,170 @@ giturl: https://github.com/ontio/ontology-ts-sdk/blob/master/docs/cn/asset.md
 
 ````
 import {Wallet} from 'Ont'
+//@param name {string} Name of the wallet
 var wallet = Wallet.create( name )
 ````
 
 #### 2) 创建账户并添加到钱包中
 
-用户需要提供**私钥，密码，账户名称**来创建新的账户，其中**私钥**可以使用SDK提供的方法生成。。也可以指定创建账户所需的算法对象。算法对象的结构如下：
+需要提供以下参数来创建账户：
+
+```privateKey``` **PrivateKey** 实例。
+
+```password``` 用户的密码，用来加密私钥。
+
+```label``` 账户名称。
+
+```params``` 额外的参数用来加密解密私钥。它具有以下结构，如果不传，SDK会使用默认值创建账户。
 
 ```
-{
-  algorithm: string // 算法名称
-  parameters: {}    // 算法的参数
+interface ScryptParams {
+    cost: number;
+    blockSize: number;
+    parallel: number;
+    size: number;
 }
 ```
+默认值如下：
 
-如果不传，SDK会使用默认的算法创建账户。
+```
+const DEFAULT_SCRYPT = {
+    cost: 4096,
+    blockSize: 8,
+    parallel: 8,
+    size: 64
+};
+```
 
-创建好账户后添加到钱包中。
+> 该参数在加密和解密时必须使用一致的值，否则解密会失败。
+
+### 2.1) 生成私钥
+
+我们可以使用相应的算法和曲线生成随机的私钥。SDK支持以下三种公私钥生成算法：
+
+* ECDSA
+* SM2
+* EDDSA
+
+ECDSA 是默认的算法. SECP256R1是默认的曲线。
+
+```typescript
+import { Crypto } from 'ontology-ts-sdk';
+
+cont keyType = Crypto.KeyType.ECDSA;
+
+const keyParameters = new Crypto.KeyParameters(Crypto.CurveLabel.SECP256R1);
+
+const privateKey = Crypto.PrivateKey.random(keyType, keyParameters)
+
+const privateKey2 = Crypto.PrivateKey.random() // Use default params
+```
+
+### 2.2) 创建账户
+然后我们可以创建账户并添加到钱包中。
 
 ````
-import {Account, Core} from 'Ont'
-var account = Account.create( privateKey, password, name )
-var privateKey = Core.generatePrivateKeyStr()
+import {Account, Crypto} from 'ontology-ts-sdk';
+
+var account = Account.create( privateKey, password, name ); //Use the default scrypt params
+
 wallet.addAccount(account)
+
 ````
 
-### Account 数据结构。
+<h1 align="center">账户</h1>
+
+
+
+
+
+账户用来管理用户的资产。
+
+## 账户的数据结构
 
 ````
 {
-  address : string,
-  label : string,
-  lock : boolean,
-  algorithm : string,
-  parameters : {},
-  key : string,
-  extra : null
+	"address": "AJQLNWy9X6qdeEFrSH6UzgEjadSsRiYDCS",
+	"label": "mickey",
+	"lock": false,
+	"algorithm": "ECDSA",
+	"parameters": {
+	    "curve": "P-256"
+	},
+	"key": "qFbemAbu7fEjOJzAZZhGkmzp2YNxdSCuK7xyvhBAnUBX/FmAj2Ns84Y7frh6hfQv",
+	"enc-alg": "aes-256-gcm",
+	"salt": "u+SiqpRk17b0vIPesh4xXA==",
+	"isDefault": false,
+	"publicKey": "037fb6dfc9420e1d8275d9133d6d69fe64e8e3567241e7583234b9efa8b2ce7ae1",
+	"signatureScheme": "SHA256withECDSA"
 }
 ````
 
-```address``` 是base58编码的账户地址。
+```address``` 账户地址。base58格式。
 
-```label``` 是账户的名称。
+```label``` 账户名称。
 
-`lock` 表明账户是否是被用户锁住的。客户端不能消费掉被锁的账户中的资金。
+`lock` 声明账户是否锁定。
 
-`algorithm` 是加密算法名称。
+`algorithm` 公私钥生成算法名称。
 
-`parameters` 是加密算法所需参数。
+`parameters`算法的参数
 
-`key` 是NEP-2格式的私钥。该字段可以为null（对于只读地址或非标准地址）。
+`curve` 算法使用的曲线.
 
-`extra` 是客户端存储额外信息的字段。该字段可以为null。
+`key` 加密后私钥。
+
+`enc-alg` 加密私钥的算法.
+
+`salt` 加密算法的盐值。base64格式.
+
+`isDefault` 声明是否是默认账户.
+
+`publicKey` 账户的公钥.
+
+`signatureScheme` 签名算法.
+
 
 ###  创建账户
 
 ````
-import {Account, Core} from 'Ont'
-var privateKey = Core.generatePrivateKeyStr()
-//@param {string} privateKey 用户的私钥
-//@param {string} password 密码
-//@param {string} label 账户的名称
-//@param {object} algorithmObj 可选参数，加密算法对象
-var account = Account.create(privateKey, password, label, algorithmObj)
+import {Account} from 'ontology-ts-sdk'
+//@param {PrivateKey} The user's private key
+//@param {string} The user's password
+//@param {string} Optional. Name of the account
+//@param {object} Optional parameter. The encryption algorithm object.
+var account = Account.create(privateKey, password, label, params)
+
 ````
 
-###  导入账户
+##  导入账户
 
 可以通过备份的数据导入账户。
+
+### 导入keystore
 
 导入账户的过程中会验证密码和加密后的私钥，如果不正确会抛出相应错误码。
 
 ````
-import { Account } from 'Ont'
-//@param {label} 账户的名称
-//@param {encryptedPrivateKey} 加密后的私钥
-//@param {password} 用来加密私钥的密码
+import { Account, Crypto } from 'ontology-ts-sdk'
+
+//@param label {srint} Name of the account
+//@param encryptedPrivateKey {PrivateKey} The encrypted private key
+//@param password {string} The password used to decrypt private key
+//@param address {Address} The address of the account
+//@param salt {string} The salt in base64 format
+//@param params {ScryptParams} Optional scrypt params to decrypt private key
+
 var account;
+const encryptedPrivateKey = new Crypto.PrivateKey(key);//key is the encrypted private key
 try {
-    account = Account.importAccount(label, encryptedPrivateKey, password)
+    account = Account.importAccount(
+    	label, 
+    	encryptedPrivateKey
+    	password,
+	    address,
+	    salt,
+	    params)
 } catch(error) {
     //密码或私钥不正确
 }
