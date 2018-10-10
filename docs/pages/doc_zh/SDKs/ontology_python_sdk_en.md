@@ -230,7 +230,7 @@ The `Utils` package provides utility functions for `Ontology Dapps` and other `O
 
 |       | Main Function       |
 | :---: | :------------------ |
-| 1     | get_random_str()    |
+| 1     | get_random_hex_str()    |
 | 2     | get_asset_address() |
 | 3     | get_random_bytes()  |
 
