@@ -4,53 +4,117 @@ keywords: sample homepage
 sidebar: Dapp_zh
 permalink: ontology_dapp_dapi_zh.html
 folder: doc_zh/Dapp
-giturl: https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_dapp_dapi_zh.md
+giturl: https://github.com/ontio/ontology-dapi/blob/master/README.md
 ---
 
-[English](./ontology_dapp_dapi_en.html) / 中文
+<h1 align="center">ontology-dapi</h1>
 
-<h1 align="center">Ontology dAPI</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
 
-## Abstract
 
-This proposal has two major parts:
+API for dApps on Ontology blockchain. This is an implementation of dAPI from [OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) communication protocol.
 
-* A Javascript API is proposed for dApps development. This dAPI allows dApps to communicate with Ontology blockchain and make requests for transfers, ONT ID registration and others, without requiring users to trust the dApp itself. The issue of trust is shifted to the dAPI provider.
+It is necessary to have installed suitable **dAPI provider** . Reference implementation is [Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
 
-* A Communication protocol is proposed for dAPI provider development. This allows multiple Wallet implementators to offer the same unified service to users of dApps and prevent fragmentation of dApp development.
+The library is written in TypeScript, so all the methods and objects are typed. It is therefore usable in TypeScript projects as well as vanilla JavaScript projects.
 
-## Motivation
+## How to use 
+ontology-dapi can be used as CommonJS/ES6 module or directly referencing in web page html. 
 
-Currently a dApp will use one of the SDKs (Typescript, Java, Python, ...) to communicate with Ontology network. This setup has three main disadvantages:
+### Install CommonJS/ES module
+```
+npm install ontology-dapi
+```
 
-1. User of the dApp will have to trust the dApp developer with his private keys and that information about transfers mediated through the dApp are legitimate.
+### Import CommonJS
+```
+var client = require('ontology-dapi').client;
+```
 
-2. Although the SDKs are very powerful, they are hard to use. A more streamlined API will allow developers to focus on the application itself.
+### Import ES6 module
+```
+import { client } from 'ontology-dapi';
+```
 
-3. Hard to implement integration to external signing mechanism (e.g.: Ledger, Trezor)
+### Web require
+The browser.js file under the '/lib' folder needs to be referenced from the page:
+```
+<script src="./lib/browser.js"></script>
+```
 
-## Specification
+The use of the code is required under the global namespace of Ont.
+```
+var client = dApi.client;
+```
 
-This proposal makes use of the following functions and definitions:
+### Initialisation
+dApp needs to register itself as a client with the ontology-dapi library to enable the communication.
 
-* **SDK**, a software development kit implementing low level communication with the network and providing high level interface for dApps.
+```
+import { client } from 'ontology-dapi';
 
-* **dApp**, an application with decentralised characteristics running in web environment. The application uses Ontology network for value transfers, contracts enforcing and identification between participants.
+client.registerClient({});
+```
 
-* **dAPI**, the API for dApps this OEP is proposing.
+## Usage
 
-* **dAPI provider**, an implementation of the dAPI in the form of web browser plugin or other means, where a user interaction with the provider can be injected into api call workflow (e.g.: confirming transfer).
+Examples of usage can be found in [](EXAMPLES.md) or in a [demo app](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
 
-* **Notify event**, an event broadcasted from smart contract execution.
+# Documentation
 
-* **NEOVM**, a lightweight virtual machine for execution of Neo/Ontology smart contracts.
+All the methods of dAPI from OEP-6 are organised into smaller units: **asset**, **identity**, **message**, **network**, **provider**, **smartContract** and **utils**.
+The definitions of the methods can be found directly in the [OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki).
 
-## OEP-6
+# Build
 
-https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki
+### Required Tools and Dependencies
 
-## Implementation
+* Node
+* Npm
 
-https://apidoc.ont.io/dapi/
+### Developing
+
+Execute these commands in the project's root directory:
+
+#### Download
+```
+git clone 'https://github.com/OntologyCommunityDevelopers/ontology-dapi.git'
+cd ontology-dapi
+```
+
+#### Install
+
+```
+npm install
+```
+
+#### Development build
+This will build the project with minimum polyfilling for better debug experience.
+
+````
+npm run build:dev
+````
+
+You will get the packaged code under '/lib'.
+
+#### Production build 
+
+````
+npm run build:prod
+````
+
+You will get the packaged code under '/lib'
+
+## Built With
+
+* [TypeScript](https://www.typescriptlang.org/) - Used language
+* [Node.js](https://nodejs.org) - JavaScript runtime for building
+
+## Authors
+
+* **Matus Zamborsky** - *Initial work* - [Backslash47](https://github.com/backslash47)
+
+## License
+
+This project is licensed under the ISC License - see the [](LICENSE.md) file for details
