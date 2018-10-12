@@ -117,4 +117,4 @@ You will get the packaged code under '/lib'
 
 ## License
 
-This project is licensed under the ISC License - see the [](LICENSE.md) file for details
+This project is licensed under the ISC License - see the [LICENSE.md](LICENSE.md) file for details
