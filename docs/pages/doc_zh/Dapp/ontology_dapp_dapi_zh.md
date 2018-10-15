@@ -9,7 +9,7 @@ giturl: https://github.com/ontio/ontology-dapi/blob/master/README_cn.md
 
 <h1 align="center"> ontology dApi </h1>
 
-[English]() / 中文
+[English](./ontology_dapp_dapi_zh.html) / 中文
 
 <h1 align="center">ontology-dapi</h1>
 
