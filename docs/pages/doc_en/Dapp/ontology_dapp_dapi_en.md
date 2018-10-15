@@ -9,7 +9,7 @@ giturl: https://github.com/ontio/ontology-dapi/blob/master/README.md
 
 <h1 align="center"> ontology dApi </h1>
 
-English / [中文](./ontology_dapp_dapi_en.html)
+English / [中文](./ontology_dapp_dapi_zh.html)
 
 <h1 align="center">ontology-dapi</h1>
 
@@ -121,4 +121,4 @@ You will get the packaged code under '/lib'
 
 ## License
 
-This project is licensed under the ISC License - see the [](LICENSE.md) file for details
+This project is licensed under the ISC License - see the [LICENSE.md](LICENSE.md) file for details
