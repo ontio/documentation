@@ -4,8 +4,12 @@ keywords: sample homepage
 sidebar: Dapp_zh
 permalink: ontology_dapp_dapi_zh.html
 folder: doc_zh/Dapp
-giturl: https://github.com/ontio/ontology-dapi/blob/master/README.md
+giturl: https://github.com/ontio/ontology-dapi/blob/master/README_cn.md
 ---
+
+<h1 align="center"> ontology dApi </h1>
+
+[English]() / 中文
 
 <h1 align="center">ontology-dapi</h1>
 
@@ -13,43 +17,43 @@ giturl: https://github.com/ontio/ontology-dapi/blob/master/README.md
 
 
 
-API for dApps on Ontology blockchain. This is an implementation of dAPI from [OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) communication protocol.
+基于Ontology blockchain开发dApp的轻量级去中心化API。是根据OEP-6实现的dAPI ，[OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) communication protocol.
 
-It is necessary to have installed suitable **dAPI provider** . Reference implementation is [Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
+使用前请先安装 **dAPI provider** . 比如 [Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
 
-The library is written in TypeScript, so all the methods and objects are typed. It is therefore usable in TypeScript projects as well as vanilla JavaScript projects.
+dAPI使用TypeScript实现, 同时也支持在JavaScript工程中使用.
 
-## How to use 
-ontology-dapi can be used as CommonJS/ES6 module or directly referencing in web page html. 
+## 如何使用 
+ontology-dapi 可以作为 CommonJS/ES6 模块或在网页中直接使用. 
 
-### Install CommonJS/ES module
+### 安装 CommonJS/ES 模块
 ```
 npm install ontology-dapi
 ```
 
-### Import CommonJS
+### 导入 CommonJS
 ```
 var client = require('ontology-dapi').client;
 ```
 
-### Import ES6 module
+### 导入 ES6 模块
 ```
 import { client } from 'ontology-dapi';
 ```
 
 ### Web require
-The browser.js file under the '/lib' folder needs to be referenced from the page:
+导入 '/lib' 文件夹下的 browser.js 文件:
 ```
 <script src="./lib/browser.js"></script>
 ```
 
-The use of the code is required under the global namespace of Ont.
+使用方法.
 ```
 var client = dApi.client;
 ```
 
-### Initialisation
-dApp needs to register itself as a client with the ontology-dapi library to enable the communication.
+### 初始化
+dApp 先注册 **dAPI provider**的客户端.
 
 ```
 import { client } from 'ontology-dapi';
@@ -57,46 +61,44 @@ import { client } from 'ontology-dapi';
 client.registerClient({});
 ```
 
-## Usage
+## 使用例子
 
-Examples of usage can be found in [EXAMPLES.md](EXAMPLES.md) or in a [demo app](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
+请参考例子， [](EXAMPLES.md) 或 [demo app](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
 
-# Documentation
+# 文档
 
-All the methods of dAPI from OEP-6 are organised into smaller units: **asset**, **identity**, **message**, **network**, **provider**, **smartContract** and **utils**.
-The definitions of the methods can be found directly in the [OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki).
+所有dAPI方法分成这几个模块: **asset**, **identity**, **message**, **network**, **provider**, **smartContract** and **utils**.
+方法定义请参考 [OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki).
 
 # Build
 
-### Required Tools and Dependencies
+### 安装工具与依赖
 
 * Node
 * Npm
 
-### Developing
+### 开发
 
-Execute these commands in the project's root directory:
+执行如下命令:
 
-#### Download
+#### 下载
 ```
 git clone 'https://github.com/OntologyCommunityDevelopers/ontology-dapi.git'
 cd ontology-dapi
 ```
 
-#### Install
+#### 安装
 
 ```
 npm install
 ```
 
 #### Development build
-This will build the project with minimum polyfilling for better debug experience.
 
 ````
 npm run build:dev
 ````
 
-You will get the packaged code under '/lib'.
 
 #### Production build 
 
@@ -104,14 +106,13 @@ You will get the packaged code under '/lib'.
 npm run build:prod
 ````
 
-You will get the packaged code under '/lib'
 
 ## Built With
 
 * [TypeScript](https://www.typescriptlang.org/) - Used language
 * [Node.js](https://nodejs.org) - JavaScript runtime for building
 
-## Authors
+## 作者
 
 * **Matus Zamborsky** - *Initial work* - [Backslash47](https://github.com/backslash47)
 
