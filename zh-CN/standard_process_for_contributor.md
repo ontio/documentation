@@ -4,7 +4,7 @@
 
 <p align="center" class="version">Version 1.0.0 </p> 
 
-#### 一、个人或小组技术贡献者===
+#### 一、个人或小组技术贡献者
 
 ##### 1、Proposal
 
