@@ -34,7 +34,11 @@ entries:
     - title: 可信申明协议规范
       url: /claim_spec_zh.html
       output: web, pdf
-
+      
+    - title: 应用产品及服务介绍
+      url: /products_cn.html
+      output: web, pdf
+      
     - title: 信任锚接入标准
       url: /verification_provider_specification_zh.html
       output: web, pdf
