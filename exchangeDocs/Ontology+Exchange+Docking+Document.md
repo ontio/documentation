@@ -387,9 +387,9 @@ Transaction states:
 
 Parse the "Notify" array:
 
-​     ContractAddress: Contract address：	```0000000000000000000000000000000000000001```  is for ONT
+​     ContractAddress: Contract address：	```0100000000000000000000000000000000000000```  is for ONT
 
-​						        ```0000000000000000000000000000000000000002``` is for ONG
+​						        ```0200000000000000000000000000000000000000``` is for ONG
 
 ​     States：array
 
