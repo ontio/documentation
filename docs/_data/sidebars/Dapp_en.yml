@@ -55,7 +55,7 @@ entries:
           url: /Smart_Contract_Invocation_en.html
           output: web, pdf
 
-        - title: Permission Control
+        - title: Authority management
           url: /ontology_java_sdk_auth_en.html
           output: web, pdf
 
