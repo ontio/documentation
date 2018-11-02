@@ -16,22 +16,22 @@ giturl: https://github.com/ontio/ontology-python-sdk/blob/master/README.md
 - [Introduction](#introduction)
 - [Preparations](#preparations)
 - [Interface](#interface)
-  - [Network](#network)
-  - [Wallet](#wallet)
-  - [Account](#account)
-  - [Identity](#identity)
-  - [AccountManager](#accountmanager)
-  - [IdentityManager](#identitymanager)
-  - [Asset](#asset)
-  - [ABI](#abi)
-  - [OEP4](#oep4)
-  - [Utils](#utils)
+    - [Network](#network)
+    - [Wallet](#wallet)
+    - [Account](#account)
+    - [Identity](#identity)
+    - [AccountManager](#accountmanager)
+    - [IdentityManager](#identitymanager)
+    - [Asset](#asset)
+    - [ABI](#abi)
+    - [OEP4](#oep4)
+    - [Utils](#utils)
 - [Contribution](#contribution)
 - [Naming](#naming)
-  - [Overview](#overview)
-  - [Names to Avoid](#names-to-avoid)
-  - [Naming Convention](#naming-convention)
-  - [Guidelines derived from Guido's Recommendations](#guidelines-derived-from-guidos-recommendations)
+    - [Overview](#overview)
+    - [Names to Avoid](#names-to-avoid)
+    - [Naming Convention](#naming-convention)
+    - [Guidelines derived from Guido's Recommendations](#guidelines-derived-from-guidos-recommendations)
 - [Site](#site)
 - [License](#license)
 
@@ -45,7 +45,7 @@ The Ontology official Python SDK is a comprehensive SDK which is based on `Pytho
 
 ## Preparations
 
-Installation requires a Python 3.7 or later environment.
+Installation requires a Python 3.6 or later environment.
 
 ```bash
 pip install ontology-python-sdk
