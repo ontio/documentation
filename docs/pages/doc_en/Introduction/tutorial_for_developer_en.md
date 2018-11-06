@@ -14,9 +14,9 @@ English / [中文](./tutorial_for_developer_zh.html)
 
 <p align="center" class="version">Version 1.0.0 </p> 
 
-Ontology is a new generation of high-performance public blockchains. The infrastructure is scalable, stable and allow low level customization for different business requirements. After Ontology MainNet release, we have welcomed many new developers to the Ontology technical community and launched our [Developer Center ](https://bounty.ont.io/index.php/index/developer) 
+Ontology is a new generation of high-performance public blockchains. The infrastructure is scalable, stable, and allows low-level customization for different business requirements. After the Ontology MainNet release, we have welcomed many new developers to the Ontology technical community and launched our [Developer Center ](https://bounty.ont.io/index.php/index/developer).
 
-This documentation is an entry to the Ontology ecosystem for new Ontology developers as well as experienced. The Ontology community and Ontology core team maintain the documentation - we welcome you to help us with this! The documentation serves the purpose of providing a a clear understanding of Ontology's technology and ecosystem. This document is an overview of the Ontology documentation center and provides an introduction of each section, which help developers familiarize themselves with Ontology quickly.
+This documentation is an entry to the Ontology ecosystem for new Ontology developers, as well as experienced ones. The Ontology community and Ontology core team maintain the documentation - we welcome you to help us with this! The documentation serves the purpose of providing a clear understanding of Ontology's technology and ecosystem. This document is an overview of the Ontology documentation center and provides an introduction of each section, which help developers familiarize themselves with Ontology quickly.
 
 - [Ontology](#ontology)
     - [What is Ontology](#what-is-ontology)
@@ -47,25 +47,25 @@ This documentation is an entry to the Ontology ecosystem for new Ontology develo
 
 ## Ontology
 
-### What is Ontology
+### What is Ontology?
 
-Ontology is an infrastructure that integrates the fragmented industries in order to build a true and complete trust system. It's a platform that bridge the digital world with the real world. From a high-level perspective we can Ontology understand form two views:
+Ontology is an infrastructure that integrates fragmented industries in order to build a true and complete trust system. It's a platform that bridges the digital world with the real world. From a high-level perspective we can Ontology understand from two views:
 
 <p align="center">Public blockchains with a new architecture (Infrastructure)</p>
-Ontology is a new generation of a public chain infrastructure with high-performance (+5000 TPS for Ontology 1.0, 8000-10000 TPS for Ontology 2.0). The open-source framework allow low level customization so that different business requirements and scenarios can be implemented.
-
+Ontology is a new generation of a public chain infrastructure with high-performance (+5,000 TPS for Ontology 1.0, 8,000-10,000 TPS for Ontology 2.0). The open-source framework allows for low-level customization so that different business requirements and scenarios can be implemented.
+</br>
 <p align="center">A distributed trust collaboration platform</p>
-With Ontology organizations, people, objects and communities can engage with each other in a trustful way. The platform links the digital economy with the real economy and support scenarios for e.g. distributed identity services, distributed data exchange and reputation. 
-
+With Ontology organizations, people, objects, and communities can engage with each other in a trustful way. The platform links the digital economy with the real economy and support scenarios for exmPLE distributed identity services, distributed data exchange, and reputation. 
+</br>
 The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/install_en.html#features). 
 
 ### How to get and install Ontology
 
 Ontology's source code is open-source on our [GitHub Repository](https://github.com/ontio/ontology), free to download and compile. You can download the latest Ontology binary file with `curl  https://dev.ont.io/ontology_install | sh`, or directly download the latest version at  [Release Version](https://github.com/ontio/ontology/releases). For detailed download and installation instructions, please refer to [Ontology Installation Instructions](https://ontio.github.io/documentation/install_en.html).
 
-### Introduction of the Ontology nodes
+### Ontology nodes introduction
 
-After installing Ontology, you can run Ontology locally and connect it to the Ontology network. Before that, you need to identify the node types which run in the Ontology network. Currently, the network nodes are divided into two categories: synchronization nodes and consensus nodes. The consensus nodes participate in the consensus, package the transaction and generate the block. The synchronization nodes synchronize the latest block and do not participate in the consensus itself.
+After installing Ontology, you can run Ontology locally and connect it to the Ontology network. Before that, you need to identify the node types which run in the Ontology network. Currently, the network nodes are divided into two categories: synchronization nodes and consensus nodes. The consensus nodes participate in the consensus, package the transaction, and generate the block. The synchronization nodes synchronize the latest block and do not participate in the consensus itself.
 
 #### Synchronization node
 
@@ -81,17 +81,17 @@ Now that you understand the different types of Ontology network nodes, we will i
 
 VBFT is a new consensus algorithm that combines PoS, VRF (Verifiable Random Function), and BFT. It is the core consensus algorithm of OCE (Ontology Consensus Engine). VBFT can support scalability of consensus groups, through VRF guarantee the randomness and fairness of the consensus population generation, and ensure that state finality can be reached quickly. For further introduction please read [VBFT Introduction](https://ontio.github.io/documentation/vbft_intro_en.html)
 
-For more detailed information, please refer to the source code repository of [Ontology VBFT](https://github.com/ontio/ontology/tree/master/consensus/vbft)
+For more detailed information, please refer to the source code repository of [Ontology VBFT](https://github.com/ontio/ontology/tree/master/consensus/vbft).
 
-### Connect to ontology
+### Connect to Ontology
 
-Next, you can try to connect to the Ontology network. [Run ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology) will introduce you to how to connect and how to start Ontology in test mode.
+Next, you can try to connect to the Ontology network. [Run Ontology](https://github.com/ontio/ontology/blob/master/README.md#run-ontology) will introduce you to how to connect and how to start Ontology in test mode.
 
 ### Ontology special features
 
 #### Ontology DID
 
-Ontology DID（also called ONT ID) is a decentralized identity identification protocol based on W3C DID specifications. Please find a detailed introduction here [Ontology Distributed Identity Framework (ONTID)](https://ontio.github.io/documentation/ontology_DID_en.html).
+Ontology DID (also called ONT ID) is a decentralized identity identification protocol based on W3C DID specifications. Please find a detailed introduction here [Ontology Distributed Identity Framework (ONTID)](https://ontio.github.io/documentation/ontology_DID_en.html).
 
 #### Distributed data transaction
 
@@ -101,7 +101,7 @@ The idea of centralized data exchanges face many challenges such as data cache, 
 
 ### Ontology command line tool
 
-Developing on Ontology often includes a lot of command line parameters. For detailed information about these parameters, please refer to [Ontology CLI User Guide](https://ontio.github.io/documentation/cli_user_guide_en.html). These command line parameters are also executed through the Ontology CLI tool. The CLI can execute and invoke most of the functions of the ontology network, which is the first entry of the Ontology network. In addition to the documentation, you can get a brief description of the command line parameters by executing `./ontology --help`.
+Developing on Ontology often includes a lot of command line parameters. For detailed information about these parameters, please refer to [Ontology CLI User Guide](https://ontio.github.io/documentation/cli_user_guide_en.html). These command line parameters are also executed through the Ontology CLI tool. The CLI can execute and invoke most of the functions of the Ontology network, which is the first entry of the Ontology network. In addition to the documentation, you can get a brief description of the command line parameters by executing `./ontology --help`.
 
 ### Ontology signature server
 
@@ -127,19 +127,19 @@ Smart contract is a very important function of the blockchain and Ontology also 
 
 ### Ontology smart contract IDE--SmartX
 
-SmartX is a one-stop smart contract tool developed by Ontology. It integrates functions such as writing, compiling, deploying and debugging, which improve the efficiency of smart contract development. Please refer to [SmartX Tutorial](https://ontio.github.io/documentation/SmartX_Tutorial_en.html).
+SmartX is a one-stop smart contract tool developed by Ontology. It integrates functions such as writing, compiling, deploying, and debugging, which improve the efficiency of smart contract development. Please refer to the [SmartX Tutorial](https://ontio.github.io/documentation/SmartX_Tutorial_en.html) for more.
 
 ### How to write a smart contract
 
-For a better understand of our smart contract framework we recommend you to try our [Hello World smart contract](https://ontio.github.io/documentation/The_Hello_World_Contract_en.html)
+For a better understand of our smart contract framework, we recommend you to try our [Hello World smart contract](https://ontio.github.io/documentation/The_Hello_World_Contract_en.html).
 
-When developing smart contracts, there is a lot of smart contract APIs that must be invoked. For introduction to these APIs, please refer to [API of Smart Contract](https://apidoc.ont.io/smartcontract/).
+When developing smart contracts, there are a lot of smart contract APIs that must be invoked. For introduction to these APIs, please refer to [API of Smart Contract](https://apidoc.ont.io/smartcontract/).
 
 ### Contract deployment and invocation
 
 Although SmartX provides a one-click deployment and invocation method, there are other ways to implement contract deployment and invocation. For deployment method please refer to [Smart Contract Deployment](https://ontio.github.io/documentation/Smart_Contract_Deployment_en.html). For invocation method please refer to [Smart Contract Invocation](https://ontio.github.io/documentation/Smart_Contract_Invocation_en.html).
 
-### Authority management of smart contract
+### Authority management of smart contracts
 
 By default, functions of a smart contract can be invoked by anyone, which obviously does not meet the requirements in all cases. The idea of ​​role-based authority management is that each role can call a particular function, and each entity can be assigned multiple roles (the entity is identified by its ONT ID). [Ontology Authority manager](https://ontio.github.io/documentation/auth_en.html) introduces authority management methods for Ontology smart contracts.
 
@@ -150,7 +150,7 @@ Now that you have a better understanding of Ontology we can move on to a simple 
 
 ### Environment setup
 
-A. Set up your own test network as described in [Connect to ontology](#connect-to-ontology). You can run ontology in test mode or connect to Ontology's public test network called Polaris (TestNet).
+A. Set up your own test network as described in [Connect to ontology](#connect-to-ontology). You can run Ontology in test mode or connect to Ontology's public test network called Polaris (TestNet).
 
 The remaining part of this example is performed in test mode!
 
@@ -160,9 +160,9 @@ C. Use the REST interface to query the balance of the initial account (the bille
 
 * Enter `http://localhost:20334/api/v1/balance/APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh` in your browser. `localhost` is the IP address of node，`20334` is the default rest port. This port can also be specified by yourself with this command `--rest --restport 20339`, `api/v1/balance/` is the URL path of the rest interface and `APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh` is the address of the initial biller. This entire URL constitutes the rest interface call method for the balance query.
 
-* The browser returns a response `{"Action":"getbalance","Desc":"SUCCESS","Error":0,"Result":{"ont":"1000000000","ong":"0"},"Version":"1.0.0"}`，which is a response string in JSON format. You can see there are 1000000000 ONT and 0 ONG.
+* The browser returns a response `{"Action":"getbalance","Desc":"SUCCESS","Error":0,"Result":{"ont":"1000000000","ong":"0"},"Version":"1.0.0"}`, which is a response string in JSON format. You can see there are 1000000000 ONT and 0 ONG.
 
-D. Almost all operations at the Ontology network will consume ONG (Ontology gas), a.k.a gas (Utility token). In this example, the `--gasprice 0` parameter is set to 0 at startup so subsequent operations do not consume any gas, however you can still pay for gas. Following steps will demonstrate how to extract ONG from your account.
+D. Almost all operations at the Ontology network will consume ONG (Ontology gas), a.k.a. gas (the utility token). In this example, the `--gasprice 0` parameter is set to 0 at startup so subsequent operations do not consume any gas, however you can still pay for gas. Following steps will demonstrate how to extract ONG from your account.
 
 * ONG is the associated gas of ONT, which is gradually released from ONT, but it needs to be manually extracted into your own account;
 
@@ -196,7 +196,7 @@ Tip:
 Using './ontology info status 73a3d24b7dfd0d96b23f93fd38afe4638b70f921c278202443d0dd29a036236f' to query transaction status
 ```
 
-* Check the balance of Account 1 and Account 2 by the command line `./ontology asset balance 1` and `./ontology asset balance 2`：
+* Check the balance of Account 1 and Account 2 by the command line `./ontology asset balance 1` and `./ontology asset balance 2`:
 
 ```
 BalanceOf:APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh
@@ -208,7 +208,7 @@ ONT:100000000
 ONG:0
 ```
 
-* Use `./ontology asset unboundong 1`  again to query the number of ONGs that can be extracted by Account 1. You can find that the number of extractable ONG is greater than 0 (in actual execution, this amount is affected by the block height and the amount transferred out):
+* Use `./ontology asset unboundong 1`  again to query the amount of ONG that can be extracted by Account 1. You can find that the number of extractable ONG is greater than 0 (in actual execution, this amount is affected by the block height and the amount transferred out):
 
 ```
 Unbound ONG:
@@ -228,7 +228,7 @@ Tip:
 Using './ontology info status 6e10592e52cb7a3645eecd987c0161a8811f25ed5e183614d0e9cd9c58ab8a33' to query transaction status
 ```
 
-* Use the command line to check the balance of Account 1, and you can see that there are ONGs in the account:
+* Use the command line to check the balance of Account 1, and you can see that there is ONG in the account:
 
 ```
 BalanceOf:APrkensMwPiaqg5rfz54Qa62hDWwtFAnkh
@@ -236,7 +236,7 @@ ONT:900000000
 ONG:5242930
 ```
 
-### Contract writing, deployment and invocation
+### Contract writing, deployment, and invocation
 
 A. Open [Ontology smart contract IDE--SmartX](https://smartx.ont.io/#/) and use the Hello World smart contract according to [How to Write a Smart Contract](#how-to-write-a-smart-contract). For convenient calling functions of the contract, we change the Hello World contract code to following form and then compile it into AVM bytecode. You can download the AVM bytecode and name it `hello.avm`:
 
@@ -324,10 +324,10 @@ Transaction states:
 F. In the returned result, States is the message information of the call contract notification. The returned value is a hexadecimal string. After conversion by the transcoder, the result is `tester`.
 
 
-### Development DAPP tutorial
+### dApp development tutorial
 
-This tutorial will take you through the process of building your first dapp.[Tutorial](https://ontio.github.io/documentation/ontology_dapp_dev_tutorial_en.html)
+This tutorial will take you through the process of building your first dApp: [dApp Development Tutorial](https://ontio.github.io/documentation/ontology_dapp_dev_tutorial_en.html).
 
 ### Wallet intergration tutorial
 
-This tutorial will take you through the process of intergration ONT/ONG in your wallet.[Android](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html) and [IOS](https://ontio.github.io/documentation/ontology_wallet_dev_ts_sdk_en.html)
+These tutorials will take you through the process of intergrating ONT/ONG into your wallet: [Android](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html) and [iOS](https://ontio.github.io/documentation/ontology_wallet_dev_ts_sdk_en.html).
