@@ -78,7 +78,7 @@ struct State{
 | Name                     | Parameters                           | Returns | Description                                                  |
 | ------------------------ | ------------------------------------ | ------- | ------------------------------------------------------------ |
 | ONT_Runtime_CheckWitness | char * address                       | int     | check the witness of the given address. 0:  failed; 1:passed |
-| ONT_Runtime_Notify       | char * message                       | void    | add notification                                             |
+| ONT_Runtime_Notify       | char ** message                       | void    | add notifications                                             |
 | ONT_Runtime_CheckSig     | char * pubkey,char * data,char * sig | int     | check signature. 0 :failed,1 :passed                         |
 | ONT_Runtime_GetTime      |                                      | int     | get runtime  time                                            |
 | ONT_Runtime_Log          | char * message                       | void    | add log                                                      |
