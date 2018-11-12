@@ -1,14 +1,14 @@
 
-### Download 
+### 下载 
 
-Plugin is currently distributed in Chrome web store at https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm . 
+Chrome web store 下载 https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm . 
 
 
-### Manual build
+### 手动创建
 
 To build manually see the steps below. Or you can download pre-build plugin for Chrome from Release page.
 
-### Required Tools and Dependencies
+### 依赖工具
 
 * Node
 * Yarn (https://yarnpkg.com/lang/en/docs/install/)

@@ -23,14 +23,13 @@
       - [Getting Started](docs-en/Punica/solo-chain/02-getting-started.md)
       - [Contributing](docs-en/Punica/solo-chain/03-contributing.md)
 - SmartX
-  - [Overview](docs-en/SmartX/overview.md)
-  - [Getting Started](docs-en/SmartX/getting-started.md)
+  - [Overview](docs-en/SmartX/00-overview.md)
+  - [Getting Started](docs-en/SmartX/01-getting-started.md)
 
 - Cyano Wallet
   - [Overview](docs-en/Cyano/00-overview.md)
   - [Installation](docs-en/Cyano/01-installation.md)
   - [Getting Started](docs-en/Cyano/02-getting-started.md)
-
 - SDKs
   - [Overview](docs-en/SDKs/00-overview.md)
   - [Wallet File](docs-en/SDKs/01-wallet-file-specification.md)
