@@ -16,8 +16,8 @@
   - [Learning SC Video](docs-en/Tutorials/05-learning-sc-video.md)
 - Punica
   - [Overview](docs-en/Punica/punica.md)
-  - [Punica-Cli](docs-en/Punica/punica-cli.md)
-  - [Punica-Box](docs-en/Punica/punica-box.md)
+  - [Punica Cli](docs-en/Punica/punica-cli.md)
+  - [Punica Box](docs-en/Punica/punica-box.md)
   - [Solo Chain](docs-en/Punica/solo-chain/00-overview.md)
       - [Installation](docs-en/Punica/solo-chain/01-installation.md)
       - [Getting Started](docs-en/Punica/solo-chain/02-getting-started.md)
@@ -32,9 +32,9 @@
   - [Getting Started](docs-en/Cyano/02-getting-started.md)
 
 - SDKs
-  - [Overview](docs-en/SDKs/overview.md)
-  - [Wallet File](docs-en/SDKs/wallet-file-specification.md)
-  - [Wallet Integration](docs-en/SDKs/wallet-intergration.md)
+  - [Overview](docs-en/SDKs/00-overview.md)
+  - [Wallet File](docs-en/SDKs/01-wallet-file-specification.md)
+  - [Wallet Integration](docs-en/SDKs/02-wallet-intergration.md)
       - [iOS](docs-en/SDKs/ontology_wallet_dev_ts_sdk_en.md)
       - [Android](docs-en/SDKs/ontology_wallet_dev_android_en.md)
 - DAPI
