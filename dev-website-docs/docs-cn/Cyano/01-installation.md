@@ -19,14 +19,14 @@ Execute these commands in the project's root directory:
 
 Setup:
 
-#### Install yarn
+#### 安装 yarn
 For faster building process and development experience install Yarn
 
 ```
 npm install --global yarn
 ```
 
-#### Download
+#### 下载
 ```
 git clone 'https://github.com/backslash47/ontology-plugin-wallet.git'
 ```
@@ -38,7 +38,7 @@ This will watch for file changes and build the distribution every time something
 yarn watch
 ````
 
-#### Build extension
+#### Build
 This will build the extension for installation into browsers. 
 
 ````

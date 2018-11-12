@@ -107,16 +107,16 @@ This will start the demo which can be accessed using the Google Chrome browser a
 
 Accessing this, select Provider->GetProvider.
 
-![dApp Demo Provider](../docs/lib/images/dappdemofirstscreen.png)
-![dApp Demo Get Provider](../docs/lib/images/dappdemoregisterprovider.png)
+![dApp Demo Provider](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemofirstscreen.png)
+![dApp Demo Get Provider](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemoregisterprovider.png)
 
 This will allow us to communicate with the Ontology Blockchain and make API calls.  For example, selecting Network->Get Block results in the following:
 
-![dApp Demo getBlock](../docs/lib/images/dappdemonetworkblock.png)
+![dApp Demo getBlock](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemonetworkblock.png)
 
 You can also initiate a transfer by selecting Asset->Make Transfer where you'll be automatically prompted to approve the transaction by Cyano Wallet. Click Confirm to approve the transaction.
 
-![Cyano Wallet Confirm](../docs/lib/images/demo.png)
+![Cyano Wallet Confirm](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/demo.png)
 
 #### How to set gaslimit and gasprice
 
@@ -130,7 +130,7 @@ The gaslimit is based on the complexity of the contract execution and can be que
 To support your dApp you will likely want to write a smart contract that acts as the back-end logic and storage. We use Ontology's [SmartX](http://smartx.ont.io/) tool for this. SmartX includes several template Smart Contracts to assist in development and further information can be found in the [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
 
 
-![SmartX Login](../docs/lib/images/smartx.png)
+![SmartX Login](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/smartx.png)
 
 
 #### Compiling and deploying your smart contract
@@ -141,7 +141,7 @@ SmartX uses Cyano Wallet to help with compiling, deploying and invoking the smar
 
 Use Smartx to compile the smart contract.
 
-![smart contract deploy and invoke](../docs/lib/images/smartx-deploy.png)
+![smart contract deploy and invoke](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/smartx-deploy.png)
 
 #### Deploying your Smart Contract
 

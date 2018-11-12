@@ -20,11 +20,3 @@ Features:
 * Ontology dAPI support
 * NEO and ONT address support for normal and Ledger accounts
 
-
-## Built With
-
-* [TypeScript](https://www.typescriptlang.org/) - Used language
-* [Node.js](https://nodejs.org) - JavaScript runtime for building and ingest
-* [React](https://reactjs.org/) - The web framework used
-* [Semantic UI](https://react.semantic-ui.com/introduction) - The web framework used
-* [Ontology TypeScript SDK](https://github.com/ontio/ontology-ts-sdk) - The framework used

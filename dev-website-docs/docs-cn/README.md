@@ -10,7 +10,7 @@
 ### 你将通过文档学到：
 
 * 启动 **Ontology** 节点
-* 写/编译/部署/调用/测试/Debug 智能合约
+* 编写/编译/部署/调用/测试/Debug 智能合约
 * 如何使用 SDK and dApi
 * 如何集成 Ontology 钱包
 * 创建 dApp

@@ -21,10 +21,3 @@ Cyano 是一个Chrome插件钱包.
 * NEO/ONT 地址和Ledger地址支持
 
 
-## 所使用的开发工具
-
-* [TypeScript](https://www.typescriptlang.org/) 
-* [Node.js](https://nodejs.org) 
-* [React](https://reactjs.org/) 
-* [Semantic UI](https://react.semantic-ui.com/introduction)
-* [Ontology TypeScript SDK](https://github.com/ontio/ontology-ts-sdk) 
