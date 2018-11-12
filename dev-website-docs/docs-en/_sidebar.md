@@ -11,8 +11,9 @@
   - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  
   - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)
   - [Smart Contract](docs-en/Tutorials/02-smartcontract-template.md)
-  - [Docs collection](docs-en/Tutorials/03-docs-collect.md)
-  - [Learning video](docs-en/Tutorials/04-learning-video.md)
+  - [Docs Collection](docs-en/Tutorials/03-docs-collect.md)
+  - [Learning dApp Video](docs-en/Tutorials/04-learning-dapp-video.md)
+  - [Learning SC Video](docs-en/Tutorials/05-learning-sc-video.md)
 - Punica
   - [Overview](docs-en/Punica/punica.md)
   - [Punica-Cli](docs-en/Punica/punica-cli.md)
