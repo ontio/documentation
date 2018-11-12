@@ -49,7 +49,7 @@
   - [Overview](docs-en/SignServer/00-overview.md)
   - [Installation](docs-en/SignServer/01-installation.md)
   - [Getting Started](docs-en/SignServer/02-getting-started.md)
-      - [API Usage](docs-en/SignServer/03-api-usage.md)
+  - [API Usage](docs-en/SignServer/03-api-usage.md)
       - [Account](docs-en/SignServer/04-api-account-methods.md)
       - [Signing Methods](docs-en/SignServer/05-api-signing-methods.md)
       - [Convenience Methods](docs-en/SignServer/06-api-signing-convinience-methods.md)
