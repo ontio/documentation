@@ -3,9 +3,9 @@
   <img width="300px" src="https://raw.githubusercontent.com/OntologyCommunityDevelopers/cyano-wallet/master/wallet2.png">
 </p>
 
-Cyano 是一个Chrome插件钱包.
+Cyano 是一个Chrome插件钱包.不仅实现了钱包功能，还实现了DAPI协议，例如SmartX部署和调用合约时通过Cyano与链交互。
 
-特点:
+Cyano特点:
 
 * 通过助记词创建钱包
 * 加密私钥
