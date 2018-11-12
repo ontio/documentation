@@ -1,18 +1,18 @@
 - Developer Guide
-  - [Developer Guide](docs-en/DeveloperGuide/developer-guide.md)
-  - [Installation](docs-en/DeveloperGuide/installation.md)
-  - [Consensus VBFT](docs-en/DeveloperGuide/VBFT-introduction.md)
-  - [Protocol](docs-en/DeveloperGuide/protocol.md)
-      - [ONTID](docs-en/DeveloperGuide/ontid.md)
-      - [DDXF](docs-en/DeveloperGuide/ddxf.md)
-  - [White-papers](docs-en/DeveloperGuide/white-papers.md)
-  - [Contribution Guide](docs-en/DeveloperGuide/contributions-guide.md)
+  - [Developer Guide](docs-en/DeveloperGuide/00-developer-guide.md)
+  - [Installation](docs-en/DeveloperGuide/01-installation.md)
+  - [Consensus VBFT](docs-en/DeveloperGuide/02-VBFT-introduction.md)
+  - [Protocol](docs-en/DeveloperGuide/03-protocol.md)
+      - [ONTID](docs-en/DeveloperGuide/04-ontid.md)
+      - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
+  - [White-papers](docs-en/DeveloperGuide/06-white-papers.md)
+  - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Tutorials
-  - [DAPP Development](docs-en/Tutorials/dapp_development.md)  
-  - [Debug Smart Contract](docs-en/Tutorials/debug-a-Smart-Contract.md)
-  - [Smart Contract](docs-en/Tutorials/smartcontract-template.md)
-  - [Docs collection](docs-en/Tutorials/docs-collect.md)
-  - [Learning video](docs-en/Tutorials/learning-video.md)
+  - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  
+  - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)
+  - [Smart Contract](docs-en/Tutorials/02-smartcontract-template.md)
+  - [Docs collection](docs-en/Tutorials/03-docs-collect.md)
+  - [Learning video](docs-en/Tutorials/04-learning-video.md)
 - Punica
   - [Overview](docs-en/Punica/punica.md)
   - [Punica-Cli](docs-en/Punica/punica-cli.md)
@@ -26,15 +26,16 @@
   - [Getting Started](docs-en/SmartX/getting-started.md)
 
 - Cyano Wallet
-  - [Overview](docs-en/Cyano/overview.md)
-  - [Installation](docs-en/Cyano/installation.md)
-  - [Getting Started](docs-en/Cyano/getting-started.md)
+  - [Overview](docs-en/Cyano/00-overview.md)
+  - [Installation](docs-en/Cyano/01-installation.md)
+  - [Getting Started](docs-en/Cyano/02-getting-started.md)
 
 - SDKs
   - [Overview](docs-en/SDKs/overview.md)
   - [Wallet File](docs-en/SDKs/wallet-file-specification.md)
   - [Wallet Integration](docs-en/SDKs/wallet-intergration.md)
-
+      - [iOS](https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_ts_sdk_en.md)
+      - [Android](https://github.com/ontio/documentation/blob/master/walletDevDocs/ontology_wallet_dev_android_en.md)
 - DAPI
   - [Overview](docs-en/dApi/overview.md)
   - [Quick Start](docs-en/dApi/quickstart.md)
@@ -55,7 +56,7 @@
       - [Convenience Methods](docs-en/SignServer/06-api-signing-convinience-methods.md)
   
 - Ontology-API
-  - [Overview](docs-en/API/overview.md)
-  - [Rpc API](docs-en/API/rpc_api.md)
-  - [Restful API](docs-en/API/restful_api.md)
-  - [Websocket API](docs-en/API/websocket_api.md)
+  - [Overview](docs-en/API/00-overview.md)
+  - [Rpc API](docs-en/API/01-rpc_api.md)
+  - [Restful API](docs-en/API/02-restful_api.md)
+  - [Websocket API](docs-en/API/03-websocket_api.md)
