@@ -2,16 +2,15 @@
   - [Developer Guide](docs-en/DeveloperGuide/00-developer-guide.md)
   - [Installation](docs-en/DeveloperGuide/01-installation.md)
   - [Consensus VBFT](docs-en/DeveloperGuide/02-VBFT-introduction.md)
-  - [Protocol](docs-en/DeveloperGuide/03-protocol.md)
-      - [ONTID](docs-en/DeveloperGuide/04-ontid.md)
-      - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
+  - [ONTID](docs-en/DeveloperGuide/04-ontid.md)
+  - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
   - [White-papers](docs-en/DeveloperGuide/06-white-papers.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Tutorials
   - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  
   - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)
   - [Smart Contract](docs-en/Tutorials/02-smartcontract-template.md)
-  - [Docs Collection](docs-en/Tutorials/03-docs-collect.md)
+  - [Learning Collection](docs-en/Tutorials/03-docs-collect.md)
   - [Learning dApp Video](docs-en/Tutorials/04-learning-dapp-video.md)
   - [Learning SC Video](docs-en/Tutorials/05-learning-sc-video.md)
 - Punica
@@ -37,9 +36,9 @@
       - [iOS](docs-en/SDKs/ontology_wallet_dev_ts_sdk_en.md)
       - [Android](docs-en/SDKs/ontology_wallet_dev_android_en.md)
 - DAPI
-  - [Overview](docs-en/dApi/overview.md)
-  - [Quick Start](docs-en/dApi/quickstart.md)
-  - [Getting Started](docs-en/dApi/getting-started.md)
+  - [Overview](docs-en/dApi/00-overview.md)
+  - [Quick Start](docs-en/dApi/01-quickstart.md)
+  - [Getting Started](docs-en/dApi/02-getting-started.md)
 
 - Ontology-Cli
   - [Overview](docs-en/OntologyCli/overview.md)

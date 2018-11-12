@@ -2,17 +2,15 @@
   - [开发指导](docs-cn/DeveloperGuide/developer-guide.md)
   - [介绍](docs-cn/DeveloperGuide/installation.md)
   - [VBFT共识](docs-cn/DeveloperGuide/VBFT-introduction.md)
-  - [协议](docs-cn/DeveloperGuide/protocol.md)
-     - [ONTID](docs-cn/DeveloperGuide/ontid.md)
-     - [DDXF](docs-cn/DeveloperGuide/ddxf.md)
   - [ONTID](docs-cn/DeveloperGuide/ontid.md)
+  - [DDXF](docs-cn/DeveloperGuide/ddxf.md)
   - [白皮书](docs-cn/DeveloperGuide/white-papers.md)
   - [社区贡献](docs-cn/DeveloperGuide/contributions-guide.md)
 - 教程
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
   - [Debug智能合约](docs-cn/Tutorials/01-debug-a-Smart-Contract.md)
   - [智能合约](docs-cn/Tutorials/02-smartcontract-template.md)
-  - [文档集合](docs-cn/Tutorials/03-docs-collect.md)
+  - [开发资料集合](docs-cn/Tutorials/03-docs-collect.md)
   - [dApp开发视频](docs-cn/Tutorials/04-learning-dapp-video.md)
   - [智能合约视频](docs-cn/Tutorials/05-learning-sc-video.md)
 - Punica
@@ -40,9 +38,9 @@
       - [iOS](docs-cn/SDKs/ontology_wallet_dev_ts_sdk_zh.md)
       - [Android](docs-cn/SDKs/ontology_wallet_dev_android_zh.md)
 - DAPI
-  - [概述](docs-cn/dApi/overview.md)
-  - [快速使用](docs-cn/dApi/quickstart.md)
-  - [开始使用](docs-cn/dApi/getting-started.md)
+  - [概述](docs-cn/dApi/00-overview.md)
+  - [快速使用](docs-cn/dApi/01-quickstart.md)
+  - [开始使用](docs-cn/dApi/02-getting-started.md)
 
 - Ontology-Cli
   - [概述](docs-cn/OntologyCli/overview.md)
