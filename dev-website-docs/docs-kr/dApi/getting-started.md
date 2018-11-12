@@ -1,32 +1,37 @@
 
 
-This tutorial is designed to demonstrate an overview of creating dApps by using the Ontology dApp API (dAPI). It also contains the information on the tools required and as well as an example dApp.
+<h1 align="center">온톨로지 DAPP 개발 가이드</h1>
+<p align="center" class="version">Version 1.0.0 </p>
 
-The document is broken down into the following sections:
+이 강좌는 Ontology dApp API (dAPI)를 사용하여 dApp을 개발하는 방법입니다. 
 
-[Setting up the development environment](#setting-up-the-development-environment)
+요강:
 
-[Ontology dAPI Overview](#ontology-dapi-overview)
-+ [dAPI Installation](#dapi-installation)
-+ [dAPI Instantiation](#dapi-instantiation)
-+ [Example dAPI methods](#example-dapi-methods)
-	+ [Example blockchain methods](#example-blockchain-methods)
-	+ [Example asset methods](#example-asset-methods)
-	+ [Example Smart Contract methods](#example-smart-contract-methods)
-	+ [Example Message methods](#example-message-methods)
+[개발환경 설치] (#개발환경 설치)
 
-[Running the demo project](#running-the-demo-project)
-
-[Writing a smart contract for your dApp](#writing-a-smart-contract-for-your-dapp)
-+ [Compiling your smart contract](#compiling-your-smart-contract)
-+ [Deploying your smart contract](#deploying-your-smart-contract)
-+ [Testing your smart contract](#testing-your-smart-contract)
+[Ontology dAPI](#ontology-dapi)
++[dAPI 설치](#dapi-설치)
++ [dAPI 사례](#dapi-사례)
++ [dAPI 방법](#dapi-방법)
+	+ [체인과 연동방법](#체인과 연동방법)
+	+ [이체방법](#이체방법)
+	+ [스마트 컨트랙트방법](# 스마트 컨트랙트방법)
+	+ [데이터서명](#데이터서명)
 
 
+[실행예시](#실행예시)
 
-### Setting up the Development Environment
+[귀하의dApp위해 스마트 컨트랙트쓰기](#귀하의dApp위해 스마트 컨트랙트쓰기)
++ [스마트 컨트랙트 컴파일하기](#스마트 컨트랙트 컴파일하기)
++ [스마트 컨트랙트 설치하기](#스마트 컨트랙트 설치하기)
++ [스마트 컨트랙트 테스트하기](#스마트 컨트랙트 테스트하기)
 
-Please ensure you have the following installed and configured in order to setup the development environment.
+
+
+### 개발환경 설치
+
+하기 소프트웨어가 설치되어 있는지 확인하십시오.
+
 
 - [Node.js v6+ LTS with npm](https://nodejs.org/en/)
 
@@ -35,48 +40,46 @@ Please ensure you have the following installed and configured in order to setup 
 - [Git](https://git-scm.com/)
 
 
-### Ontology dAPI Overview
-#### dAPI Installation
-The Ontology dAPI is the core API used to interface with the Ontology blockhain when creating a dApp and the repository can be found [here](https://github.com/ontio/ontology-dapi). First you must install the npm package using: 
+### Ontology dAPI
+#### dAPI 설치
+dApp생성 시 Ontology dAPI는 Ontology체인과 호환하는 핵심 API 중 하나이며 이곳에서 소스코드를 다운로드 할 수 있습니다. [이곳](https://github.com/ontio/ontology-dapi). ```npm``` 을 통해 ```ontology-dapi```를 설치합니다. 
+
 
 ```
 $ npm install ontology-dapi
 ```
 
-#### dAPI Instantiation
+#### dAPI 예시
 
-To use the dAPI in your project, you need to import the library and then register as a client.
-Import and register the dAPI using:
-```
+dAPI예시를 생성할 때 먼저 ontology-dapi를 불러오고 클라이언트단을 등록해야 합니다
+
+```typescript
 import { client } from 'ontology-dapi';
 
 client.registerClient({});
 ```
 
-#### Example dAPI methods
-Once imported and registered, use the provided dAPI methods in your dApp (see below).
-##### Example blockchain methods
-```
+#### dAPI방법
+dAPI예시 생성 완료 후 귀하의 dApp에서 dAPI방법을 호출할 수 있습니다. 
+#####체인과 호환방법
+```typescript
 const network = await client.api.network.getNetwork();
 const height = await client.api.network.getBlockHeight();
 const block = await client.api.network.getBlock({ block: 1 });
 const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
 const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
 ```
-##### Example asset methods
-
+##### 이체방법
 ```
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
 ```
-
-##### Example Smart Contract Methods
-
-```
+##### 스마트 컨트랙트 방법
+```typescript
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
-##### Example Message Methods
+##### 데이터서명
 
 ```
 const message: string = values.message;
@@ -88,12 +91,13 @@ const result = await client.api.message.signMessage({ message });
 const result = await client.api.message.verifyMessage({ message, signature });
 ```
 
-A full list of methods can be found in the [dAPI Specification document](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <p><br> 
+모든 방법리스트는 문서에서 찾을 수 있습니다. [dAPI 규정](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki). <br> 
 
 
-### Running the Demo Project
 
-Clone the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) which we will use to demonstrate functionality.
+### 실행예시
+
+카피 [dAPI 예시](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) ，dAPI가 어떠한 기능을 제공하는지 테스트할 수 있습니다. 
 
 ```
 $ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
@@ -103,49 +107,44 @@ $ npm install
 $ npm run start
 ```
 
-This will start the demo which can be accessed using the Google Chrome browser at http://localhost:3000
+실행에 성공하면 브라우저에서 사이트를 여세요.http://localhost:3000 
 
-Accessing this, select Provider->GetProvider.
+사이트를 연 후 Provider->GetProvider를 클릭하세요. 
 
-![dApp Demo Provider](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemofirstscreen.png)
-![dApp Demo Get Provider](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemoregisterprovider.png)
+![dApp Demo Provider](./lib/images/dappdemofirstscreen.png)
+![dApp Demo Get Provider](./lib/images/dappdemoregisterprovider.png)
 
-This will allow us to communicate with the Ontology Blockchain and make API calls.  For example, selecting Network->Get Block results in the following:
+API호출을 통해 체인이 호환되었습니다. 예를 들어 Network->Get Block를 클릭하면 결과는 다음과 같습니다. 
 
-![dApp Demo getBlock](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemonetworkblock.png)
+![dApp Demo getBlock](./lib/images/dappdemonetworkblock.png)
 
-You can also initiate a transfer by selecting Asset->Make Transfer where you'll be automatically prompted to approve the transaction by Cyano Wallet. Click Confirm to approve the transaction.
+이체 실행 예시는 Asset->Make Transfer를 클릭하면 Cyano Wallet가 확인창을 표시합니다. ```Confirm```를 클릭하여 트랜젝션을 확인합니다. 
 
-![Cyano Wallet Confirm](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/demo.png)
-
-#### How to set gaslimit and gasprice
-
-Each transaction contains a gas limit and a gas price. Gasprice will affect the time it takes for the transaction to be packaged. Currently, the minimum value of the main network and test network is 500.
-
-The gaslimit is based on the complexity of the contract execution and can be queried by pre-execution.  The Native contract calls gaslimit by default is 20000. The deployment contract is based on the contract, and the gaslimit is generally more than 20000000.
-
-### Writing a smart contract for your dApp
+![Cyano Wallet Confirm](./lib/images/demo.png)
 
 
-To support your dApp you will likely want to write a smart contract that acts as the back-end logic and storage. We use Ontology's [SmartX](http://smartx.ont.io/) tool for this. SmartX includes several template Smart Contracts to assist in development and further information can be found in the [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
+### dApp를 위해 스마트 컨트랙트 쓰기
+
+dApp백그라운드의 로직과 스토리지는 스마트 컨트랙트을 사용해야 하며 **SmartX**를 통해 스마트 컨트랙트을 편집하거나 디버깅할 수 있습니다.[SmartX](http://smartx.ont.io/)，[Smart Contract 강좌](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
+
+![SmartX Login](./lib/images/smartx.png)
 
 
-![SmartX Login](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/smartx.png)
+#### 스마트 컨트랙트 컴파일 및 설치하기
 
+**SmartX**는 Cyano Wallet을 사용하여 계약의 설치와 호출을 지원합니다. Cyano에 따라 테스트넷 계정을 생성했는지 확인하십시오.  
 
-#### Compiling and deploying your smart contract
+#### 스마트 컨트랙트 컴파일하기
 
-SmartX uses Cyano Wallet to help with compiling, deploying and invoking the smart contract. Please make sure you have installed Cyano and created a Testnet account in it.
+**SmartX**을 이용한 계약 컴파일
 
-#### Compiling your smart contract
+![smart contract deploy and invoke](./lib/images/smartx-deploy.png)
 
-Use Smartx to compile the smart contract.
+#### 스마트 컨트랙트 설치하기
 
-![smart contract deploy and invoke](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/smartx-deploy.png)
+스마트 컨트랙트을 작성하고 컴파일 완료 후 스마트 컨트랙트을 설치하고 호출합니다. 만약 테스트넷 ONG가 없다면 
+[테스트넷 ONG in Discord 신청이 필요합니다.](https://discordapp.com/channels/400884201773334540/453499298097922068)가 필요합니다. 
 
-#### Deploying your Smart Contract
-
-Now that we have written our smart contract, the next steps are to deploy and invoke it. Deploying and invoking requires Testnet ONG.  If you dont have any at the moment, please [request testnet ONG in Discord](https://discordapp.com/channels/400884201773334540/453499298097922068)
 
 ![Deploy](https://s1.ax1x.com/2018/09/03/PzhTCd.png)
 
@@ -153,9 +152,10 @@ Now that we have written our smart contract, the next steps are to deploy and in
 
 ![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png) 
 
-### Testing Smart Contract
+### 스마트 컨트랙트 테스트하기
 
-In order to test the smart contract, you can use the [smart contract automated testing framework](https://github.com/ontio-community/ontology-sctf) or deploy your own Ontology privatenet running in testmode by downloading the latest [Ontology release](https://github.com/ontio/ontology/releases) and starting it as below.
+테스트 프레임을 이용하여 스마트 컨트랙트을 테스트할 수 있습니다. 
+[smart contract automated testing framework](https://github.com/lucas7788/pythontest)， 만약 프라이빗 체인에 설치해야 하면 최신버전의 Ontology를 다운로드 받아 실행하세요.    (https://github.com/ontio/ontology/releases).
 ```
 $ ./ontology --testmode --gasprice 0
 
