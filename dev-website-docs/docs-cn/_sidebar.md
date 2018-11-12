@@ -8,7 +8,7 @@
   - [社区贡献](docs-cn/DeveloperGuide/contributions-guide.md)
 - 教程
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
-  - [DAPI 使用](docs-en/Tutorials/06-dapi-useage.md)  
+  - [DAPI 使用](docs-cn/Tutorials/06-dapi-useage.md)  
   - [Debug智能合约](docs-cn/Tutorials/01-debug-a-Smart-Contract.md)
   - [智能合约模板](docs-cn/Tutorials/02-smartcontract-template.md)
   - [开发资料集合](docs-cn/Tutorials/03-docs-collect.md)

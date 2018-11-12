@@ -10,15 +10,15 @@
 
 | # | Smart contract                             | Link         |        Language      |   Description   |
 | -----| ---------------------------------------- | ----------- | ---------------- | ---------------- |
-| 1| Oep4                                   | [Here](https://github.com/tonyclarking/python-template/blob/master/OEP4Sample/OEP4Sample.py)        |    Python     |      |
-| 2| Oep5                               | [Here](https://github.com/tonyclarking/python-template/blob/master/OEP5Sample/OEP5Sample.py)        |  Python   |     |
+| 1| Oep4                                   | [Here](https://github.com/tonyclarking/python-template/blob/master/OEP4Sample/OEP4Sample.py)        |    Python     |    Oep4  |
+| 2| Oep5                               | [Here](https://github.com/tonyclarking/python-template/blob/master/OEP5Sample/OEP5Sample.py)        |  Python   |  Oep5   |
 | 3| Invoke Oep4       | [Here](https://github.com/tonyclarking/python-template/blob/master/Static_Call_Oep4/static_call_Oep4.py)         |  Python  |  Invoke Oep4 method in SC   |
-| 4| Storage example            | [Here](https://github.com/tonyclarking/python-template/blob/master/Storage_Example/storage_example.py)   |   Python  |     |
-| 5| Struct example            | [Here](https://github.com/tonyclarking/python-template/blob/master/Struct_Example/struct_example.py)      |   Python  |     |
-| 6| Invoke native in sc         | [Here](https://github.com/tonyclarking/python-template/blob/master/NativeAssetInvoke/native_asset_invoke.py)        | Python |     |
-| 7| Migrate Contract         | [Here](https://github.com/tonyclarking/python-template/blob/master/MigrateDestruct/migrate_destroyWithinContract.py)        | Python |     |
-| 8| Event test        | [Here](https://github.com/tonyclarking/python-template/blob/master/EventTest/event_test.py)        | Python|     |
-| 9| Smart contract  libs         | [Here](https://github.com/tonyclarking/python-template/tree/master/libs)        | Python|     |
+| 4| Storage example            | [Here](https://github.com/tonyclarking/python-template/blob/master/Storage_Example/storage_example.py)   |   Python  |   Storage example  |
+| 5| Struct example            | [Here](https://github.com/tonyclarking/python-template/blob/master/Struct_Example/struct_example.py)      |   Python  |   Struct example  |
+| 6| Invoke native in sc         | [Here](https://github.com/tonyclarking/python-template/blob/master/NativeAssetInvoke/native_asset_invoke.py)        | Python | Invoke native in sc    |
+| 7| Migrate Contract         | [Here](https://github.com/tonyclarking/python-template/blob/master/MigrateDestruct/migrate_destroyWithinContract.py)        | Python |    Migrate Contract   |
+| 8| Event test        | [Here](https://github.com/tonyclarking/python-template/blob/master/EventTest/event_test.py)        | Python|   Event test  |
+| 9| Smart contract libs         | [Here](https://github.com/tonyclarking/python-template/tree/master/libs)        | Python|  Smart contract libs    |
 
 ## Project
 
