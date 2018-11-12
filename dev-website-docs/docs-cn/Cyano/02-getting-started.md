@@ -32,6 +32,4 @@
 
 请参考DAPI的使用方法。
 
-<p>
-  <img width="300px" src="https://s1.ax1x.com/2018/09/03/Pz5JO0.png">
-</p>
+![Invoke](https://s1.ax1x.com/2018/09/03/Pz5JO0.png) 
