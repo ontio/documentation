@@ -77,7 +77,31 @@
           '/docs-kr/': 'Search'
         },
         depth:3
-      }
+      },
+      plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
+            var url
+            console.log("####"+JSON.stringify(vm.route));
+            if (/githubusercontent\.com/.test(vm.route.path+".md")) {
+              url = vm.route.file
+                .replace('raw.githubusercontent.com', 'github.com')
+                .replace(/\/master/, '/blob/master/dev-website-docs')
+            } else {
+              if(vm.route.path.indexOf("/docs-") > -1 && vm.route.path.substr(-1,1) == "/"){
+                vm.route.path = vm.route.path + "README";
+              }else if(vm.route.path == "/"){
+                vm.route.path = vm.route.path + "docs-en/README";
+              }
+              url = 'https://github.com/ontio/documentation/blob/master/dev-website-docs' + vm.route.path+".md"
+              console.log("####"+url);
+            }
+            var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            return editHtml
+              + html
+          })
+        }
+      ]
     }
 
   </script>
