@@ -1,7 +1,7 @@
 # Getting started
 Upon opening the application, you will be presented with the first look at your private Ontology network.
 
-<div align="center">ontio/documentation/tree/master/dev-website-docs
+<div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/00-home.png" ><br><br>
 </div>
 

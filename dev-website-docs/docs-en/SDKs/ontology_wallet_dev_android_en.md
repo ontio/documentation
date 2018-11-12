@@ -1,5 +1,3 @@
-English / [中文](./ontology_wallet_dev_android_zh.html)
-
 
 
 <h1 align="center">Android Wallet Integration</h1>
