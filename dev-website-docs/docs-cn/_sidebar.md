@@ -50,6 +50,16 @@
   - [开始使用](docs-cn/OntologyCli/getting-started.md)
 
 - Sign-Server
-  - [大纲](docs-cn/SignServer/overview.md)
-  - [安装](docs-cn/SignServer/installation.md)
-  - [开始使用](docs-cn/SignServer/getting-started.md)
+  - [大纲](docs-en/SignServer/00-overview.md)
+  - [安装](docs-en/SignServer/01-installation.md)
+  - [开始使用](docs-en/SignServer/02-getting-started.md)
+  - [API 使用](docs-en/SignServer/03-api-usage.md)
+      - [账号](docs-en/SignServer/04-api-account-methods.md)
+      - [签名方法](docs-en/SignServer/05-api-signing-methods.md)
+      - [简便的签名方法](docs-en/SignServer/06-api-signing-convinience-methods.md)
+      
+- Ontology-API
+  - [Overview](docs-en/API/00-overview.md)
+  - [Rpc API](docs-en/API/01-rpc_api.md)
+  - [Restful API](docs-en/API/02-restful_api.md)
+  - [Websocket API](docs-en/API/03-websocket_api.md)
