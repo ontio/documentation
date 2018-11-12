@@ -23,7 +23,7 @@
 * [DDXF](https://github.com/ontio/ontology-ddxf)
 * [Ontology test](https://github.com/ontio/ontology-test)
 
-## Smart Contract
+## 智能合约
 
 * [Tutorial](https://ontio.github.io/documentation/Introduction_of_Ontology_Smart_Contract_en.html)
 * [Smart contract](https://github.com/ontio/ontology-smartcontract)
@@ -47,7 +47,7 @@
 * [Android wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html)
 
 
-## Tools
+## 工具
 
 * [ONTO](https://github.com/punica-box/)
 * [OWallet](https://github.com/ontio/OWallet)
@@ -56,7 +56,7 @@
 * [punica box](https://github.com/punica-box/)
 
 
-## Decentralized Storage
+## 去中心化存储
 
 * [IPFS](https://github.com/ChainBook/IPFS-For-Chinese)
 * [IPFS python sdk](https://github.com/lucas7788/workingdata/tree/master/ipfs)

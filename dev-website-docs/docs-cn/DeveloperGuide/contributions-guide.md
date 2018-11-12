@@ -1,108 +1,39 @@
 
-
-<h1 align="center">Guidelines for Technical Community Contributions</h1>
+<h1 align="center">社区贡献标准流程</h1>
 
 <p align="center" class="version">Version 1.0.0 </p> 
 
-## Introduction
+#### 一、个人或小组技术贡献者
 
-Dear Contributors,
+##### 1、Proposal
 
-We are excited to see the enthusiasm around Ontology and appreciate your participation in the community. This is a guide to help you understand how to make technical contributions for Ontology.
+登录GITHUB的[OEPs](https://github.com/ontio/OEPs)，查看现有的proposal，也欢迎提出新的proposal，对于新提出的proposal要求必须作出原型实现，本体技术委员会通过评估提出的proposal对本体的贡献度以及原型实现的结果，之后立项并提交本体理事会报备。对于现有的proposal还没有代码实现的，也欢迎提出开发申请（pull request），本体技术委员会根据开发申请评估是否立项并提交本体理事会报备。如果部分proposal对本体有非常大的贡献或有深远影响，本体理事会将酌情考虑给予一定的激励。
 
-Please note that these guidelines focus on technical contributions e.g. code contribution and dApps. Guidelines for facilitating events, community management and translation are not included.
+##### 2、代码贡献
 
-From the Ontology side we wish to build a highly engaged, quality community and believe that this is best achieved by teamwork. We encourage the community to form independent groups so that we, the Ontology core team, can engage on a strategic level for support and compensation. It’s important for us that the community takes responsibility for their own development and management.
+立项之后就可以开始开发，请遵照[GITHUB标准流程](https://help.github.com/)提交pull request，由本体技术委员会进行评估同时提交本体理事会报备，之后根据评审结果给予激励。
 
-<h4 align="center">We believe that projects are best executed in teams and encourage contributors to form independent groups.</h4>
+##### 3、BUG FIX
 
-How you chose to structure groups or function as an individual contributor is entirely up to yourself. However, for groups, we would like you to identify a single point of contact so that we can engage with someone who's carrying out the interests of the group as a whole.
+如果发现BUG，请遵照GITHUB标准流程提交pull request，由本体技术委员会进行评估并提交本体理事会报备，之后根据评审结果给予激励。
 
-## Technical contributions
+##### 4、技术委员会
 
-Ideas come from various sources and in many shapes and sizes. We encourage contributors to bring their own ideas to the table, but also get inspired by other ideas from the community.
-To get an overview of potential and ongoing projects, we are working on an index. This will be a space built and maintained by the community – dedicated to index Ontology activities so that it is more digestible for contributors and investors. For community contributors this index will include a section of projects and ideas, and you can:
+欢迎社区人才加入到本体技术委员会，如有意向请在[Discord开发者社区](https://discord.gg/4TQujHj)提出申请。
 
-- List your own ideas
--	See other community member ideas
--	See ideas from the Ontology Technical Committee
+#### 二、机构技术贡献者
 
-Generally, we divide development ideas into three categories
+本体理事会欢迎机构来沟通和洽谈（[机构合作](https://info.ont.io/cooperation/en)），请注明GITHUB技术社区合作。本体理事会根据机构的proposal（含原型实现）、代码贡献和BUG FIX等，同步以周报的形式报备给本体理事会进行review（后续会使用JIRA来进行管理），定期将社区激励发放给合作机构。特别卓越的机构经过认可后本体可以考虑做一定的投资。
 
-- Ontology enhancement proposals (OEP)
-  - E.g. major proposals for design, network, architecture, protocols, or modules
-- Code contribution
-  - E.g. SDK development or bug fixing
-- dApps
-  - E.g. wallets
-
-Each category has its own subcategories and scope. OEPs are related to our foundational technology, such as network architecture. OEPs are considered to have a large scope and a high level of complexity. Code contributions include projects which aim to build tools for the Ontology ecosystem and its users. The dApps category represent apps developed on the distributed network e.g. wallets or games.
-
-### Standard process for community contributions
-
-Individual or group technical contributions
-
-##### 1. OEP
-
-Login to GitHub [OEPs](https://github.com/ontio/OEPs) to view existing proposals and make new proposals. New proposals must be prototyped. The Ontology Technical Committee evaluates proposals and their prototype results, then submits projects to the Ontology Council. Pull requests are also welcome for existing proposals with no code implementation. The Ontology Technical Committee evaluates whether to accept the project based on the development application and sends it to the Ontology Council. The Ontology Council will consider giving appropriate compensation if the proposal is a large contribution to Ontology or will have a large impact.
-
-##### 2. Code contribution
-
-After starting the project you can start development. Please submit a pull request according to the [GitHub Standard Processes](https://help.github.com/). The Ontology Technical Committee will make an assessment and submit the report to the Ontology Council. It will then provide compensation based on the results of the assessment.
-
-If you identify a bug in any of the Ontology Github repositories, submit a pull request according to the GitHub standard processes, which is evaluated by the Ontology Technical Committee and submitted to the Ontology Council. After that, compensation is given based on the evaluation result.
-
-##### 3. dApps
-
-Ontology welcomes the community to build dApps in the ecosystem. If you have general inquiries regarding support, please refer to our [Organizational Cooperation](https://info.ont.io/cooperation/en) portal.
-
-Ontology has its own ecosystem accelerator program, which aims to incubate new dApps. The program invites technology and product experts across fields to collaborate in entrepreneurship and build new distributed business applications based on Ontology’s next-generation public chain infrastructure to build an open-source, open-minded, and collaborative distributed trust ecosystem. The Ontology Olympus Accelerator program will provide complete technical, marketing, funding, talent, and legal compliance support. For more information please visit [Ontology Olympus Accelerator](https://medium.com/ontologynetwork/ontology-launches-ecosystem-accelerator-program-ontology-olympus-accelerator-ooa-a2ad9229de83).
-
-### Compensation
-
-Compensation for qualified contributions are made according to the standard process for community contributions. They will be based on case-by-case evaluation conducted by the Ontology Technical Committee and approved by the Ontology Council. Compensation is distributed upon project completion and evaluation.  
-
-Note: Assessment of contributions for compensation is a detailed process and can take some time.
-
-##### How we measure compensation
-
-Our first approach will be based on case-by-case evaluation, hence as the community grows we will gain experience and be able to build a comprehensive framework. In general, when assessing compensation we will look at three factors:
-
-- Effort
-  - Number of people/teams involved and their technical expertise
-  - Total amount of manhours
-  - Project duration
-  - Involvement of community/Ontology Technical Committee
-- Projects degree of difficulty
-  - Technology
-  - Design and architecture
-  - Requirements
-  - Scope
-- Overall risk severity
-  - Impact
-  - Likelihood
-
-### Technical committee
-
-We welcome community talent to join the Ontology Technical Community. If you are interested, please apply in the [developer community on Discord](https://discord.gg/4TQujHj).
-
-### Developer community organizational cooperation
-
-The Ontology Council welcomes organizations to discuss [cooperation](https://info.ont.io/cooperation/en). Please indicate that you are requesting technical community cooperation when you apply. The Ontology Council will carry out reviews based on the proposal, code contributions, and weekly reviews (JIRA will be used for management). Incentives will be distributed to partner institutions on a regular basis. Particularly excellent organizations can be considered for investment from Ontology.
-
-
-
-
-
-Ontology Technical Committee：
+<br><br>
+本体技术委员会：
 
 | **Group**                                     | **Name**     | **Discord**              | **GitHub**   | **Gitter**   |
 | --------------------------------------------- | ------------ | ------------------------ | ------------ | ------------ |
-| [Ontology](https://github.com/ontio/ontology) | Weng Junjie  | luodanwg                 | luodanwg     | luodanwg     |
+| [ontology](https://github.com/ontio/ontology) | Weng Junjie  | luodanwg                 | luodanwg     | luodanwg     |
 |                                               | Zhou Yan     | harry.zy                 | harryzy      | harryzy      |
 |                                               | Tan Yuan     | tanyuan                  | tanZiWen     | tanZiWen     |
 | [OEPs](https://github.com/ontio/OEPs)         | Hu Ning      | dcjojo                   | javajoker    | javajoker    |
 |                                               | Cong Honglei | Honglei                  | Honglei-Cong | Honglei-Cong |
 | [dApps](https://github.com/ontio/ONTO)        | Xiao Min     | xiaomin-trouble shooting | xiaomin49    | xiaomin49    |
 |                                               | Ding Wenbing | dwb1991                  | dwb19911025  | dwb19911025  |
-|  Community Mgmt.                              | Mathias G    | Fluid_DK                 | Fluid_DK     | Fluid_DK     |

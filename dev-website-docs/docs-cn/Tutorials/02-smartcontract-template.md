@@ -1,12 +1,13 @@
 
+##  智能合约教程
 
-[smart contract tutorial](https://github.com/ontio/ontology-smartcontract/tree/master/smart-contract-tutorial)
+[智能合约教程](https://github.com/ontio/ontology-smartcontract/tree/master/smart-contract-tutorial)
 
-##  Smart contract api
+##  智能合约 api
 
 [API(python) doc](https://apidoc.ont.io/smartcontract/)
 
-## Template
+## 智能合约模板
 
 | # | Smart contract                             | Link         |        Language      |   Description   |
 | -----| ---------------------------------------- | ----------- | ---------------- | ---------------- |
@@ -20,7 +21,7 @@
 | 8| Event test        | [Here](https://github.com/tonyclarking/python-template/blob/master/EventTest/event_test.py)        | Python|     |
 | 9| Smart contract  libs         | [Here](https://github.com/tonyclarking/python-template/tree/master/libs)        | Python|     |
 
-## Project
+## 案例
 
 | # | Smart contract                             | Link         |        Language      |   Description   |
 | -----| ---------------------------------------- | ----------- | ---------------- | ---------------- |
@@ -30,13 +31,13 @@
 
 
 
-## Native Contract API
+## Native合约API
 
 [Native Contract API](https://github.com/ontio/ontology/blob/master/docs/specifications/native_contract/paramapi.md).
 
 [Native Contract Spec](https://github.com/ontio/ontology-smartcontract/tree/master/smartcontract/native)
 
-### Native contract address
+### Native合约地址
 
 contract | contract u160 address | Address
 ---|---|---

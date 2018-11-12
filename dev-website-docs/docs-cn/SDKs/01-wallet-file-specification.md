@@ -1,16 +1,15 @@
 
-
-<h1 align="center">Wallet File Specification </h1>
+<h1 align="center"> 钱包文件规范 </h1>
 
 <p align="center" class="version">Version 1.0.0 </p>
 
 
 
+钱包规范描述了钱包数据结构及导出数字身份或资产账号二维码的数据结构。
 
+## 1. 钱包文件结构
 
-## Wallet
-
-A wallet file in JSON format has the following basic structure:
+钱包文件数据以json格式存储，文件名后缀并无要求，钱包文件数据结构如下:
 
 ```
 {
@@ -25,83 +24,81 @@ A wallet file in JSON format has the following basic structure:
   "extra": null
 }
 ```
-```name``` is a label that the user has given to the wallet file.
+参数描述：
 
-```version``` is currently fixed at 1.0 and will be used for functional upgrades in the future.
+```name``` 钱包名.
 
-```scrypt``` is a ScryptParameters object which describe the parameters of SCrypt algorithm used for encrypting and decrypting the private keys in the wallet.
+```version``` 钱包版本号.
 
-```defaultOntid``` indicates the default identity in this wallet.
+```scrypt``` SCrypt算法参数.
 
-```defaultAccountAddress``` indicates the default digital asset account's address in this wallet.
+```defaultOntid``` 钱包中的默认Ontid.
 
-```createTime``` is the time this wallet was created, in UTC format.
+```defaultAccountAddress``` 钱包中默认账户地址.
 
-```identities``` is an array of identity objects which describe the details of each identity in the wallet.
+```createTime``` 钱包创建时间.
 
-```accounts``` is an array of account objects which describe the details of each account in the wallet.
+```identities``` 身份列表.
 
-```extra``` is an object that is defined by the implementor of the client for storing extra data. This field can be null.
+```accounts``` 账户列表.
 
-Here is an example as below:
+```extra``` 备用参数.
 
-```
+一个真实的钱包数据如下:
+
+```json
 {
-        "name": "com.github.ontio",
+	"name": "mickey",
+	"defaultOntid": "",
+	"defaultAccountAddress": "",
+	"createTime": "2018-06-30T08:52:01.519Z",
+	"version": "1.0",
 	"scrypt": {
-		"dkLen": 64,
-		"n": 16384,
+		"n": 4096,
+		"r": 8,
 		"p": 8,
-		"r": 8
+		"dkLen": 64
 	},
-	"version": "1.0"，
-	"createTime": "2018-09-26T18:02:26Z",
-	"defaultAccountAddress": "APyT9ZrjDsvq6cRWPaVq3Fu3zFjP33FUq4",
-	"defaultOntid": "did:ont:AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6",
-	"accounts": [{
-		"address": "APyT9ZrjDsvq6cRWPaVq3Fu3zFjP33FUq4",
-		"algorithm": "ECDSA",
-		"enc-alg": "aes-256-gcm",
-		"hash": "sha256",
-		"isDefault": true,
-		"key": "w29DODefaYPg2LKT9FW6/QziPAmVH7Q/NX9nobO3tteRRq2Tg3Hm72gNkyvJlg97",
-		"label": "abaed057",
+	"identities": [{
+		"ontid": "did:ont:ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
+		"label": "mickey",
 		"lock": false,
+		"controls": [{
+			"id": "1",
+			"algorithm": "ECDSA",
+			"parameters": {
+				"curve": "P-256"
+			},
+			"key": "M+PnrYLVDrU0gkSzj0FAsvqCYv+HWEEUMDSyKSJACzJhZVglFU9tkfQKlLby5UCY",
+			"address": "ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
+			"salt": "wwa12j4K0SyDP23+UDJNtA==",
+			"enc-alg": "aes-256-gcm"
+		}]
+	}],
+	"accounts": [{
+		"address": "AJQLNWy9X6qdeEFrSH6UzgEjadSsRiYDCS",
+		"label": "mickey",
+		"lock": false,
+		"algorithm": "ECDSA",
 		"parameters": {
 			"curve": "P-256"
 		},
-		"publicKey": "025a61aced9838fed2ffe0267ddcdd62159f51fcbc4fce7eb162d30d43da6fecc9",
-		"salt": "dQ3ubLtvOQ4VEzN1l1aq8Q==",
+		"key": "qFbemAbu7fEjOJzAZZhGkmzp2YNxdSCuK7xyvhBAnUBX/FmAj2Ns84Y7frh6hfQv",
+		"enc-alg": "aes-256-gcm",
+		"salt": "u+SiqpRk17b0vIPesh4xXA==",
+		"isDefault": false,
+		"publicKey": "037fb6dfc9420e1d8275d9133d6d69fe64e8e3567241e7583234b9efa8b2ce7ae1",
 		"signatureScheme": "SHA256withECDSA"
 	}],
-	"identities": [{
-		"controls": [{
-			"address": "AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6",
-			"algorithm": "ECDSA",
-			"enc-alg": "aes-256-gcm",
-			"hash": "sha256",
-			"id": "keys-1",
-			"key": "oZ8kkH0MhKYNAIPA5WACsK93ghHqnTQU3oeC3bqPQ4KYRVXHOUwiLhgiWV+BIB9D",
-			"parameters": {
-				"curve": "secp256r1"
-			},
-			"publicKey": "02f866847298a7847c714c457dcc63122b946bd014b32e7c365a7bc89fefc2bdd8",
-			"salt": "/OwXiTC9k3tzDN8bTigXew=="
-		}],
-		"isDefault": true,
-		"label": "d6a5b3b3",
-		"lock": false,
-		"ontid": "did:ont:AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6"
-	}]
-	
+	"extra": null
 }
 ```
 
-## ScryptParameters
+### 1.1 Scrypt参数
 
-ScryptParameters object has the following structure:
+SCrypt算法参数，Scrypt数据结构:
 
-```
+```json
 {
   "n": 16384,
   "r": 8,
@@ -109,18 +106,21 @@ ScryptParameters object has the following structure:
   "dkLen" : 64
 }
 ```
-```n``` is a parameter that defines the CPU/memory cost. Must be a value 2^N.
 
-```r``` is a tuning parameter.
+参数描述：
 
-```p``` is a tuning parameter (parallelization parameter). A large value of p can increase computational cost of SCrypt without increasing the memory usage.
+```n``` 内存消耗，必须是 2^N.
 
-```dkLen``` is intended output length in octets of the derived key.
+```r``` 参数.
 
-## Identity
+```p``` SCrypt算法的并行参数.
 
-Identity object has the following structure:
-```
+```dkLen``` 派生key的长度.
+
+### 1.2 数字身份
+
+数字身份数据结构:
+```json
 {
   "ontid": "did:ont:TQLASLtT6pWbThcSCYU1biVqhMnzhTgLFq",
   "label": "MyIdentity",
@@ -129,20 +129,23 @@ Identity object has the following structure:
   "controls": []
 }
 ```
-```ontid``` is the ontid of the identity.
+参数描述：
 
-```label``` is a label that the user has given to the identity.
+```ontid``` 身份id.
 
-```lock``` indicates whether the identity is locked by the user - the client shouldn't update the infomation in a locked identity.
+```label``` 昵称.
 
-```isDefault``` indicates whether the identity is the default identity.
+```lock``` 是否锁住该身份.
 
-```controls``` is an array of Control objects which describes the details of each controller in the identity.
+```isDefault``` 是否是默认使用的身份.
 
-## Control
+```controls``` 控制人.
 
-Control object has the following structure:
-```
+#### Control数据结构
+
+Control是数字身份的控制人，里面包含控制人的加密后算法名，私钥，公钥，地址，salt等。
+
+```json
 {
   "algorithm": "ECDSA",
   "parameters": {},
@@ -152,32 +155,40 @@ Control object has the following structure:
   "salt": "Rv4v3a4U1zFEq28/"
 }
 ```
-```algorithm``` is the algorithm used in the encryption system.
+参数描述：
 
-```parameters``` is an array of parameter objects used in the encryption system.
+```algorithm``` 签名算法名称.
 
-```id``` is the identity of this control.
+```parameters``` 曲线参数.
 
-```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
+```id``` 控制人id.
 
-```address```  address in base58 format.
+```key``` 加密后私钥.
 
-```salt``` 16 byte salt value in base64 format.
+```address```  base58地址.
 
-## Parameter
+```salt``` 16字节的盐，以base64格式存储.
 
-Parameter object has the following structure:
-```
+
+#### Parameter数据结构
+
+签名算法参数数据结构
+```json
 {
   "curve":"P-256"
 }
 ```
+参数描述：
+
 ```curve``` is the name of the elliptic curve.
 
-## Account
+### 1.3 Account
 
-Account object has the following structure:
-```
+
+资产账户信息```Account``` 数据结构:
+
+
+```json
 {
     "address": "AadQ5xRwrSsFTGzKfLHc1brzykdnf7phhD",
     "label": "a6575fd9",
@@ -194,35 +205,37 @@ Account object has the following structure:
     "signatureScheme": "SHA256withECDSA"
 }
 ```
-```address``` is the base58 encoded address of the account.
+参数描述：
 
-```enc-alg``` is the algorithm used to encrypt the private key.
+```address``` base58 地址.
 
-```salt``` is the salt value for decryption.
+```enc-alg``` 私钥加密算法名称.
 
-```publicKey``` is the public key.
+```salt``` 16字节的盐，以base64格式存储.
 
-```signatureScheme``` is the signatureScheme used in signature.
+```publicKey``` 公钥
 
-```isDefault``` indicates whether the account is the default account.
+```signatureScheme``` 签名算法体系.
 
-```label``` is a label that the user has given to the account.
+```isDefault``` 是否是默认账户.
 
-```lock``` indicates whether the account is locked by the user - the client shouldn't spend the funds in a locked account.
+```label``` 昵称.
 
-```algorithm``` is the algorithms used in the encryption system.
+```lock``` 是否加锁.
 
-```parameters``` is an array of parameter objects used in encryption system.
+```algorithm``` 签名算法名称.
 
-```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
+```parameters``` 签名算法参数.
+
+```key``` 加密后私钥.
 
 
 
-## QR Code Specification 
+## 2. 二维码规范 
 
-This QR Code Specification is for both identities and accounts. 
+身份和账号二维码的作用是方便通过扫描导入身份或账号，二维码同时支持数字身份和资产账号规范. 
 
-```
+```json
 {
 	"type":"I",
 	"label": "MyIdentity",
@@ -241,20 +254,21 @@ This QR Code Specification is for both identities and accounts.
 	}
 }
 ```
+参数描述：
 
-```type``` is used to distinguish between identity or account, **I** indicates this is an identity , **A** indicates this is an account.
+```type``` 类型, **I** 代表身份 , **A** 代表账号.
 
-```label``` is the label for the  identity or account.
+```label``` 昵称.
 
-```algorithm``` is the algorithm used for key/pair generation.
+```algorithm``` 签名算法名.
 
-```parameters``` is the parameters of the key/pair generation algorithm.
+```parameters``` 签名算法参数.
 
-```scrypt``` is an ScryptParameters object which describes the parameters of the SCrypt algorithm used for encrypting and decrypting the private keys in the wallet.
+```scrypt``` scrypt参数.
 
-```key``` is the encrypted private key.
+```key``` 加密后私钥.
 
-```address```  is the address in base58 format.
+```address```  地址.
 
-```salt``` 16 byte salt in base64 format.
+```salt``` 16字节的盐，以base64格式存储.
 

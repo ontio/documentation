@@ -1,80 +1,56 @@
+## 登录
 
-## Sign Up
+在注册之后，您已经拥有了ONT ID文件，您仅需要选择这个文件并输入密码来登录您的账户，如下图所示。
 
-[SmartX website](http://smartx.ont.io/#/)
+![登录](https://upload-images.jianshu.io/upload_images/150344-e3848962a4dfe0d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-First you should create a ONT ID to manage your smart contract project. Click the "Sign Up" button in the home page to enter the registration page as figure shows.
+在登录之后，您将进入项目列表页面。您可以选择已存在的项目或者选择创新新项目。
 
-![sign up](http://wx1.sinaimg.cn/mw690/0060lm7Tly1fstiyin8yaj319e0os78v.jpg)
+![创建项目](https://upload-images.jianshu.io/upload_images/150344-17ec830db0f4d948.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-After entering the password twice (the password length should be greater than 6), clicking the "Create a New ONT ID" button to sign up successfully.You need to click the "Download" button to download the ONT ID file and back up the private key.The ONT ID file stores your encrypted ONT ID and private key, and the private key is the only credential for you to recover the ONT ID account and must be properly kept.
+## 第一步 - 编写&编译智能合约 
 
-![ONT ID file](http://wx2.sinaimg.cn/mw690/0060lm7Tly1fstj2bsv5xj30sh0icjtk.jpg)
+* **对于NEO虚拟机**, 我们提供了[SmartX](http://smartx.ont.io) 来帮助您编写，编译，调用智能合约。
 
-![](http://wx4.sinaimg.cn/mw690/0060lm7Tly1fstj32gzk8j30o80iimz7.jpg)
+首先你需要创建一个项目并选择你喜欢的语言，开始编写智能合约。
 
-If you already have the ONT ID, you can click the "Recover your ONT ID" button to recover the ONT ID. After entering the private key and two passwords, click the "Recovery Your ONT ID" button to get your ONT ID successfully.
+![选择语言](https://upload-images.jianshu.io/upload_images/150344-de1bad190b1c6c66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![recovery](http://wx2.sinaimg.cn/mw690/0060lm7Tly1fstj5gqw3xj30np0jdmyy.jpg)
+然后进入项目编辑页面。中间主要部分是合约的编辑器。右侧是操作面板。中间下部打印操作的输出结果。
 
-## Sign In
+![编译](https://upload-images.jianshu.io/upload_images/150344-d100aa119363ec2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-After registration, you already have the ONT ID file. You just need to select this file and enter the password to sign in as shown in the figure.
+### 编写智能合约
 
-![sign in](http://wx1.sinaimg.cn/mw690/0060lm7Tly1fstj6i5no6j30o00lcac9.jpg)
+接下里你可以开始编写你的智能合约。我们提供众多实用的模板供你参考。
 
-After signed in, you will enter the project list page. You can choose to open an existing smart contract project or create a new one.
+[更多具体实例](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial/examples) 
 
-![create project](http://upload-images.jianshu.io/upload_images/150344-a3d3385d889e1dd0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+### 编译智能合约
 
-## Step 1 - Write & Compile  
+在你完成编写合约之后，你可以点击操作面板上的编译按钮，编译你的合约。
 
-we have built the [Smartx](http://smartx.ont.io) to help you with all these things.
-We now support smart contracts that run in **NeoVM**.
+如果你的合约语法正确，将会被编译出相应的ABI文件和AVM文件，并展示在操作面板上。
 
-* **For NeoVM**, please refer [SmartX](http://smartx.ont.io) to write, compile, deploy, and invoke smart contracts. 
 
-First, you create a project and choose a language you are good at to write your smart contract.
+## 第二步 - 部署智能合约
 
-![Select language](http://wx2.sinaimg.cn/mw690/0060lm7Tly1fstjbsyc5uj30jd0dcaai.jpg)
+接下来，你可以将合约部署到区块链上。当选择的网络是测试网时，这一步不需要消耗gas。点击部署按钮来部署合约。部署的结果将会打印在输出框里。你可以拷贝结果里的交易hash到本体的[区块链浏览器](https://explorer.ont.io/)上，进一步确认部署是否成功。
 
-Then you enter the main editor page and the middle area is the contract editor. The bottom area prints the running output and the right area is the operation panel.
+除了SmartX外，你还可以使用本体的SDK来部署合约。更多信息请查阅相关文档。
 
-![Compile contract](https://s1.ax1x.com/2018/04/04/CpIdpR.png)
 
-### Write a smart contract
+![部署智能合约](https://upload-images.jianshu.io/upload_images/150344-d0160bc4a38a804d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-Now, you can enjoy coding your smart contracts and we provide some useful contract templates for you to start writing easily.
 
-You can check more specific [examples](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial/examples) here.
+## 第三步 - 调用智能合约
 
-### Compile a smart contract
+最后，你可以运行合约中的方法。你可以选择想要运行的方法，输入正确的参数值，点击运行按钮，调用智能合约。调用的结果将会打印在输出框里。
 
-After you finish your smart contract, you can click the **Compile** button on the operation panel to compile your code. 
+![调用智能合约](https://upload-images.jianshu.io/upload_images/150344-5229fe6d34a67372.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-If your code is correct, your smart contract will be compiled to the ABI and AVM file, and will be displayed on the operation panel.
+除了Smartx，你还可以使用本体的SDK来调用智能合约。更多信息请查阅相关文档。
 
-## Step 2 - Deploy a smart contract
 
-Next, you can deploy the smart contract on the blockchain by clicking the **Deploy** button. If you choose to deploy the contract on the TestNet, it is free, that is, no gas will be consumed. The result of the deployment will be printed in the output box. You can copy the results of the transaction hash to the Ontology blockchain browser to further confirm the success of the deployment.
 
-In addition to Smartx, you can use the Ontology SDK to deploy a contract. For more information, please refer to related documents.
-
-[>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_en.html)
-
-[>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_en.html)
-
-![Deploy contract](https://s1.ax1x.com/2018/04/04/CpIcAe.png)
-
-## Step 3 - Invoke a smart contract
-
-Last, you can run the method of your contract. You can select the method you want to run, enter the correct parameter value, click the **Run** button, and invoke the smart contract. The result of the invocation will be printed in the output box.
-
-![Invoke smart contract](https://s1.ax1x.com/2018/04/04/CpoCEF.png)
-
-In addition to Smartx, you can use the Ontology SDK to deploy a contract. For more information, please refer to related documents.
-
-[>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_en.html)
-
-[>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_en.html)
 

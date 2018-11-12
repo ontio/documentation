@@ -1,5 +1,5 @@
-[SmartX]((http://smartx.ont.io/#/)) is a one-stop IDE that can be used to compile, deploy, and invoke smart contracts. It provides a range of smart contract templates and a powerful online editor. In the future, smart contract developers will be able to trade smart contracts they write and collaborate with others to develop a smart contract.
 
-In the future, SmartX will work like GitHub to be a distributed software project hosting platform. It will support multiple people to participate in and share a complex contract, and at the time same, implement a set of economic incentives and integrate fair governance policies to reflect the contributions of each participant, which will encourage smart contract writing, transaction, collaboration, community building, and the development of a valuable smart contract ecosystem.
+[SmartX]((http://smartx.ont.io/#/))是一个可用于编译，部署和调用智能合约的一站式IDE。它提供了丰富的智能合约模板以及强大的在线编辑器。基于SmartX这个工具，智能合约的需求方可以参考和使用模板合约，或者委托社区开发人员定制开发所需的合约。未来，智能合约的开发人员可以交易自己编写的智能合约，或者协作多人开发智能合约，利用自己的专业知识获得收益。
 
+下一步，我们将像类似GitHub等分布式软件项目代码托管平台一样，支持多人共同参与、分享一份复杂的合约；并同时实施一套的经济激励措施，融入公正的治理政策，反映每一个参与者的贡献，使智能合约编写、智能合约交易、协作、社区建设等相结合，形成一个良好的智能合约开发生态。
 ![sign in](http://wx1.sinaimg.cn/mw690/0060lm7Tly1fstj6i5no6j30o00lcac9.jpg)

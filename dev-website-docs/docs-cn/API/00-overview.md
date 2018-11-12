@@ -1,3 +1,3 @@
 
 
-The document description RPC/Restful/Websocket specification in Onchain Ontology.
+本文档描述Ontology的 RPC/Restful/Websocket 接口规范.

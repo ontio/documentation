@@ -1,124 +1,126 @@
-<h1 align="center">Distributed Data eXchange Framework</h1>
+
+<h1 align="center">去中心化数据交易应用框架</h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
-The downsides of centralized data exchange include data caching, use of data without user authorization and data copyright protection. Ontology is proposing a Distributed Data Protocol (ONT Data). Based on the protocol , we have come up with distributed data exchange framework(DDXF) which allows to customize data trading marketplaces with secured data and financial security. With DDXF, the developer of the ontology ecosystem can easily develop decentralized data application that meets the needs of various scenarios with various features.
+## 概述
 
-DDXF uses blockchain, a series of smart contracts, transaction SDK and cryptographic components to realized the distributed data exchange transcation. The application itself is convenient for the implementation of copyright protection, data sharing and requirements coming from other scenarios.
+针对目前中心化数据交易所的痛点如：数据缓存、隐私数据未经用户授权、数据版权无法保护等问题，本体提出分布式数据管理协议ONT DATA，并基于此协议推出去中心化数据交易框架DDXF。本体生态应用开发者可以基于DDXF开发满足各种细分场景需求和各具特色的去中心化数据交易应用，并支持数据交易平台之间交易互通。
 
-Main functions of DDXF are as below：
+DDXF基于Ontology BlockChain，通过一致性账本、智能合约、密码学技术完美实现数字资产去中心化交易。DDXF提供一系列智能合约模板、交易组件和密码学组件，上层应用可以非常方便地实现版权控制、契约式数据分享等场景需求。
 
-* DataToken
-* Data eXchange Smart Contract, XSC for short
-* SDKs for Data eXchange
-* a series of cryptographic components ,e.g. digital watermarking technology
+DDXF提供的主要功能包括：
 
-## what is DataToken
+* 数据资产化DataToken
+* 数据交易智能合约eXchange Smart Contract
+* 数据交易SDK
+* 一系列密码学组件（如：数据水印）
 
-DToken (short for DataToken),which is the mapping of any asset or data in the reality to the digital assets of Ontology blockchain.For data or offchain assets to be traded, it is necessary to define Data eXchange smart contracts according to ontology contract asset specification, so as to facilitate chain transactions.
+## 数据资产化
 
-The DataToken includes metadata MetaData,  MetaData is a description of the data structure and constraints of the capitalized data. 
+DataToken 简称DToken，是将现实中的任何资产或者数据映射到本体区块链的合约内数字资产。对于所要交易的数据或链外资产，需要按照本体合约资产接口规范，定义好智能合约，在链上注册，以便于链上交易。
 
-In the process of instantiating DToken, it will be used in combination with cryptographic components, such as digital watermarking, etc., for data transaction traceability and copyright tracking.
+DataToken中包括元数据MetaData，MetaData是对于资产化数据的数据结构和约束的描述。
 
-## Distributed Data management Protocol
+在实例化DataToken过程中，将结合密码学组件，如数据水印等等，用于数据交易的追溯和版权追踪。
 
-Ontology proposes distributed data management protocol (ONT DATA), which defines a set of protocol specifications for data transactions between entities, and supports data collaboration, exchange and more functions among different entities .
+## 分布式数据管理协议
 
-To protect the equity of both parties in the transaction, a middleman acting as a “guarantor” is introduced into the transaction process of the agreement to ensure the settlement process is handled securely and smoothly. The intermediary is responsible for keeping the buyer's funds and transferring the funds to the seller or the buyer based on the final trading result. Since the middleman is responsible for the final settlement of the transaction it is fair and secure. It works on a distributed ledger contract with public and decentralized management features to ensure it can suitably play role of intermediary.
+本体提出分布式数据管理协议ONT DATA，该协议对实体之间的数据交易行为定义了一整套协议规范，支持去中心化的不同主体间的数据协同、交换及功能扩展。
 
-### Roles of Participants
-
-* **Data requester**: Data agencies/businesses/individuals who want to buy data.
-* **Data provider** Data agencies/business/individuals who want to sell data, both raw and processed. The data needs to meet local government laws and regulations.
-* **User Agent**: Responsible for interacting with users to meet user authorization requirements for data transaction. User agents can be diversified (enterprise OA systems, internet platforms, or even simple SMS gateways), but they need to be fully implemented as defined in the application protocol framework's user license protocol.
-* **Data owner**: The data subject, which can be institutions/businesses/individuals.
-* **Decentralized Marketplace**: Decentralized Marketplace does not involve digital assets handling, only as a service institution, the main work includes: 1 run websites for visual data exchanging 2, the development of data exchange standards, for both parties and the transaction participants. There will be a lot of differences in data exchange standards in different industries, so there will be a variety of different stardards and rules of data exchanges.
-
-> Note: In the point to point work mode(describes as following), the Decentralized Marketplace is not a necessary participant.
-
-### Work mode
-
-According to different scenarios, decentralized data exchanging are divided into two patterns ,point to point model and exchange participation model. DAPP developers can understand the following patterns and choose appropriate pattern for design and development.
-
-> Note: In the process,Data requester, Data provider, and Data owner could be multiple participants.
-
-#### Point to Point Model
-
-In Point to Point Model, Decentralized Marketplace does not need to participate or participate lightly, for example, the exchange of credit reporting between credit reporting enterprises. This mode is more suitable for the scenarios in which the relationship between the buyer and the buyer is clear, exchange procedure is relatively simple, or exchange standard has been established. To use it, the transaction participants need to integrate or use SDK to implement the transaction process.
-
-![](images/workflow.png)
+为了保证交易双方的权益，在协议的交易流程中引入一个作为“担保人”的中间方，保证“一手交钱，一手交货”的结算过程。该中间方负责保管买方的资金，并根据最终交易结果将该资金转给卖方或退回给买方。因为中间方负责交易的最终结算，必须具备足够的公正性与安全性。依托于分布式账本运作的智能合约，具有公开且去中心化管理的特点，十分适合承担中间方的角色。
 
 
-* Preparations
+### 参与方角色
 
-    1 All transaction participants register ONT ID.
+* **数据需求方**：需要数据的机构/企业/个人；
+* **数据提供方**：提供数据的机构/企业/个人，数据可以是源数据，也可以是加工数据，数据提供需要完全满足当地政府的法律法规；
+* **用户代理机构**：负责和用户交互，以满足数据交易环节中需要用户的授权，用户代理机构形式可以多样（可以是企业OA系统、互联网平台甚至仅是简单的短信网关），但需要完整实现应用协议框架中定义的用户授权协议；
+* **数据所有者**：即数据主体，可以是机构/企业/个人。
+* **去中心化数据交易所**：去中心化下数据交易所不涉及数字资产或数据资产的搬运，仅作为一个服务机构，主要工作包括：1、运营可视化的数据交易页面或社区 2、制定行业中的数据交易和交换标准，便于买卖双方以及交易参与方高效交易。各行各业数据交换标准会有很大差异性，所以将有各种不同类型的去中心化数据交易所。
 
-    2 Before the transaction request is initiated, the requester first deposits funds to the contract address.
-
-* Transaction request & Locking position
-
-    The requester sends a data transaction request to the provider through Ontology blockchain.The request includes but is not limited to transaction information and ONT ID information.At the same time, funds lock interface of XSC is called to lock the required transaction costs.
-
-* User Authorization
-
-    After receiving the request from the requester, the data provider accesses the User Agent and initiates an authorization request. At this point the User Agent can authenticate the identity of the requester on demand via Ontology, and perform authorization according to the access control policies provided in advance by the Owner. If the Owner does not set an access control policy, the User Agent notifies the Owner for authorization. If the authorization request is rejected, the transaction should be terminated.
- 
-* Uploading data
-
-    The data provider generates a one-time session key according to the symmetric-key algorithm supported by the requester, uses it to encrypt the data and data characteristic values of the transaction, and sends the ciphertext to an intermediate storage system, e.g. IPFS.
-
-* Unlocking position & Profit Distribution
-
-    The data provider called XSC smart contract assets unlock interface, trigger the release of the lock funds for settlement and profit distribution according to the contract rules .DToken is sent to the requester through the event pushing.
-
-* Receiving data 
-
-    After receiving the notification of the smart contract event, The requester then gets the ciphertext from the intermediate storage, decrypts it with the session key, calculates and verifies the characteristics of the plaintext.
-
-Now ,transaction is done!
-
-#### Exchange Participation Model
-
-In many cases, the participation of the marketplace can effectively define the data exchange standard and the interface standard with all the participants, making data transaction participants more convenient and quick. In this mode, the collaboration process is as follows:
+> Note: 根据工作模式的选择，去中心化数据交易所并不是必须的参与方。
 
 
+
+### 工作模式
+
+去中心化数据交易根据不同场景有不同的工作模式，分为点对点模式和交易所参与模式。DAPP开发者可以了解以下工作模式，并选择合适的模式进行设计开发。
+
+> Note: 流程中数据需求方、提供方、数据所有者均可以是多个参与方。
+
+#### 点对点模式
+
+点对点模式无需交易所，该模式比较适用于买卖双方比较明确，数据交换比较简单，或者交换标准已经建立，交易所marketplace无需参与或者轻度参与，比如说征信企业之间征信报告的交换。点对点模式下，交易参与方需要集成或使用SDK来实现交易流程。
+
+![](http://on-img.com/chart_image/5a54d944e4b01acda595f66d.png)
+
+* 准备事项
+
+    1 交易参与方开通ONT ID。
+    2 在交易请求发起之前，需求方首先向数据交易合约地址存入一笔资金。
+
+* 交易请求，智能合约锁仓
+
+    数据需求方通过区块链向提供方发送数据交易请求，该请求包括不限于：交易信息、ONT ID等。同时，调用XSC智能合约资金锁定接口，锁定需求方必需的交易费用。
+
+* 用户授权
+
+    数据提供方收到需求方的请求之后，访问用户代理，发起授权申请。此时，用户代理可以通过本体认证需求方的身份，并根据数据所有者事先提供的访问策略进行授权处理。如果所有者没有设置访问策略，用户代理通知其进行授权操作。如果未能获得的授权，则交易终止。 
+* 上传数据
+
+    数据提供方根据请求方支持的对称加密算法，生成一次性会话密钥，使用会话密钥加密交易的数据和数据特征值，将密文上传到第三方可信存储（比如去中心化存储IPFS）。
+
+* 智能合约解锁和分润
+
+    数据提供方调用XSC智能合约资产解锁接口，释放锁定资金，进行数据资产和资金的交割，同时根据智能合约规则进行多方分润。 数据资产DToken通过事件推送的方式推送给数据接受方。
+
+* 收取数据，交易完成
+
+    数据需求方接收到智能合约事件通知后，获取DToken，通过DToken从第三方可信存储获取数据，交易完成。
+
+
+
+#### 交易所参与模式
+
+很多情况下，交易所的参与能够更好地定义数据交换标准、以及与各参与方的接口标准，使得数据交易参与方更加方便快捷。在该模式下，协作流程如下：
 
 ![](http://on-img.com/chart_image/5a56fe50e4b05a8ff2f8e716.png)
 
 
 
-## Getting Started with DDXF
+## 开始使用DDXF
 
-### 1 Preparations
+### 1 准备工作
 
-* Register ONT ID
+* 注册ONT ID
 
-* Open Digital Asset Account
+    所有参与方需要首先注册ONT ID，我们提供多种SDK进行注册
+
+* 注册数字资产账户
      
-    In most data transactions, entity data or offchain assets will be digitalized into Token, requiring all participants to open digital asset accounts to facilitate transaction and settlement.
+    在大部分数据交易中，实体数据或链外资产都将被数字化成为Token，要求所有参与方也需要开通数字资产账户，以便于进行交易和结算。
 
-We provide a variety of SDK for registration,  here:
+注册入口:
     
 [>> JAVA SDK](https://github.com/ontio/ontology-java-sdk) 
  
-[>> TS SDK](https://github.com/ontio/ontology-ts-sdk)  
+ [>> TS SDK](https://github.com/ontio/ontology-ts-sdk)  
 
-### 2 Register DataToken
+### 2 注册DataToken资产
 
-Ontology official or third party marketplaces will provide standardized intelligent contract template, data requester, data provider or data marketplace itself chooses template to customize.
+本体官方或者第三方数据交易所来提供标准化的智能合约模板，数据需求方、数据提供方或者数据交易所本身选择模板进行定制化。
 
-DataToken deployment, distribution, transfer and other operations, can refer to our smart contract , access to [>> smart contract tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial), to learn how to use smart contract.
+DataToken部署、发行、转移等操作，可以参考我们的智能合约指南，进入[本体智能合约开发指南](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)，了解如何使用智能合约。
     
 
 
-### 3 Develop and Deploy XSC
+### 3 开发和部署数据交易的智能合约XSC
    
-The use of smart contracts as a trust intermediary for data transactions has many advantages, such as transparency, undeniability, and untampering. But the writing of smart contracts requires relatively experienced developers, and even the reviewers are required to participate in the review. Fortunately, officials will define some general intelligent contract templates based on some typical data trading scenarios that can be used directly.
+使用智能合约作为数据交易的数字化信任中介，有很多好处，如透明、无法抵赖、无法篡改等优点。但智能合约的编写需要相对有经验的开发者进行，甚至需要评审者参与评审。幸运的是，官方将根据一些典型的数据交易场景定义了一些通用的智能合约模板，可以直接使用。
 
-XSC contracts need to record user authorization reference, transaction price,distribution rules and so on. This information is generally specified by the marketplace. In a typical data transaction smart contract template, the following parameters and functions need to be explicitly designed and defined.
+智能合约交易XSC需要记录用户授权编号、交易价格、参与方分润等等信息。这些信息一般由数据交易所指定（当然也可以由买方或者多方商定）。在典型的数据交易智能合约模板中，需要明确设计和定义以下参数和函数。
 
-
-**Parameters**
+**参数设置**
 ```json
     {
         "deposit_address": "aefd726ac55f14cc0a4acdf3b1",
@@ -127,28 +129,29 @@ XSC contracts need to record user authorization reference, transaction price,dis
     }
 ```
 
-**Lock position**
+**资金锁定**
 
-This function is called by the data requester, can also be invoked by an marketplace.
+该函数由数据需求方Data requester调用，也可以授权交易所来调用。
 ```
 bool Lock(byte[] serial_no,  byte[33] user_ontid,  byte[33] buyer_ontid, int amount, byte[] buyer_sig);
 ```
 
-**Unlocking position & Profit Distribution**
+**资产交割**
 
-After the function is successful, the asset delivery will be completed. One hand, the locked amount will be settled. On the one hand, the DataToken is also delivered to the requester. This function is usually invoked by the data provider, or by the multiple parties involved in the joint signature determination.
+该函数成功后，将完成资产交割，一方面完成锁定金额的清算，一方面DataToken也同时交付到需求方。该函数一般由数据提供方，或者多参与方共同签名确定后调用。
 
 ```
 bool Confirm(byte[] serial_no, byte[33] buyer, byte[33] user, byte[33] issuer, int seller_bounty, int issuer_bounty, byte[] buyer_sig
 ```
 
-This is a Smart Contract,access to [>> smart contract tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial), to learn how to use smart contract.
+您可以进入[本体智能合约开发指南](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)，了解如何使用智能合约。
 
-At the same time, DDXF has prepared the basic smart contract templates for you to use, click the [>> DXC sample template](./demo/dex-sc-csharp/dex.cs) to get it.
+同时，DDXF已经准备好了基本的智能合约模板供您使用，进入[智能合约示例模板](./demo/dex-sc-csharp/dex.cs)。
 
-### 4 Start Transaction
+### 4 开始数据交易
 
-If the above has been completed, it is now possible to start real data transactions.
+如果以上工作已经完成，现在可以开始真正的数据交易了。
 
-Since the main functions are based on smart contract , SDK can be used to operate smart contract transactions as long as the developer has completed the second and third steps.
+由于主要功能均基于智能合约实现，只要开发者已经完成第二步和第三步，即可使用SDK来操作智能合约交易。
+
 

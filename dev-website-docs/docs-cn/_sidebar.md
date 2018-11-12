@@ -1,4 +1,4 @@
-- Developer Guide
+- 开发者指导
   - [开发指导](docs-cn/DeveloperGuide/developer-guide.md)
   - [介绍](docs-cn/DeveloperGuide/installation.md)
   - [VBFT共识](docs-cn/DeveloperGuide/VBFT-introduction.md)
@@ -8,7 +8,7 @@
   - [ONTID](docs-cn/DeveloperGuide/ontid.md)
   - [白皮书](docs-cn/DeveloperGuide/white-papers.md)
   - [社区贡献指导](docs-cn/DeveloperGuide/contributions-guide.md)
-- Tutorials
+- 教程
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
   - [Debug智能合约](docs-cn/Tutorials/01-debug-a-Smart-Contract.md)
   - [智能合约](docs-cn/Tutorials/02-smartcontract-template.md)
@@ -16,7 +16,7 @@
   - [dApp开发视频](docs-cn/Tutorials/04-learning-dapp-video.md)
   - [智能合约视频](docs-cn/Tutorials/05-learning-sc-video.md)
 - Punica
-  - [大纲](docs-cn/Punica/punica.md)
+  - [总体介绍](docs-cn/Punica/punica.md)
   - [Punica Cli](docs-cn/Punica/punica-cli.md)
   - [Punica Box](docs-cn/Punica/punica-box.md)
   - [Solo Chain](docs-cn/Punica/solo-chain/00-overview.md)
@@ -25,32 +25,32 @@
       - [Contributing](docs-cn/Punica/solo-chain/03-contributing.md)
 
 - SmartX
-  - [大纲](docs-cn/SmartX/overview.md)
+  - [总体介绍](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
 
 - Cyano Wallet
-  - [大纲](docs-cn/Cyano/overview.md)
+  - [总体介绍](docs-cn/Cyano/overview.md)
   - [安装](docs-cn/Cyano/installation.md)
   - [开始使用](docs-cn/Cyano/getting-started.md)
 
 - SDKs
-  - [大纲](docs-cn/SDKs/00-overview.md)
+  - [总体介绍](docs-cn/SDKs/00-overview.md)
   - [钱包文件](docs-cn/SDKs/01-wallet-file-specification.md)
   - [钱包集成](docs-cn/SDKs/02-wallet-intergration.md)
       - [iOS](docs-cn/SDKs/ontology_wallet_dev_ts_sdk_zh.md)
       - [Android](docs-cn/SDKs/ontology_wallet_dev_android_zh.md)
 - DAPI
-  - [大纲](docs-cn/dApi/overview.md)
+  - [总体介绍](docs-cn/dApi/overview.md)
   - [快速使用](docs-cn/dApi/quickstart.md)
   - [开始使用](docs-cn/dApi/getting-started.md)
 
 - Ontology-Cli
-  - [大纲](docs-cn/OntologyCli/overview.md)
+  - [总体介绍](docs-cn/OntologyCli/overview.md)
   - [安装](docs-cn/OntologyCli/installation.md)
   - [开始使用](docs-cn/OntologyCli/getting-started.md)
 
 - Sign-Server
-  - [大纲](docs-en/SignServer/00-overview.md)
+  - [总体介绍](docs-en/SignServer/00-overview.md)
   - [安装](docs-en/SignServer/01-installation.md)
   - [开始使用](docs-en/SignServer/02-getting-started.md)
   - [API 使用](docs-en/SignServer/03-api-usage.md)
@@ -59,7 +59,7 @@
       - [简便的签名方法](docs-en/SignServer/06-api-signing-convinience-methods.md)
       
 - Ontology-API
-  - [Overview](docs-en/API/00-overview.md)
-  - [Rpc API](docs-en/API/01-rpc_api.md)
-  - [Restful API](docs-en/API/02-restful_api.md)
-  - [Websocket API](docs-en/API/03-websocket_api.md)
+  - [总体介绍](docs-en/API/00-overview.md)
+  - [Rpc 接口](docs-en/API/01-rpc_api.md)
+  - [Restful 接口](docs-en/API/02-restful_api.md)
+  - [Websocket 接口](docs-en/API/03-websocket_api.md)

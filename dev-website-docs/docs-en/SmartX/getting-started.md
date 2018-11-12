@@ -60,9 +60,6 @@ Next, you can deploy the smart contract on the blockchain by clicking the **Depl
 
 In addition to Smartx, you can use the Ontology SDK to deploy a contract. For more information, please refer to related documents.
 
-[>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_en.html)
-
-[>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_en.html)
 
 ![Deploy contract](https://s1.ax1x.com/2018/04/04/CpIcAe.png)
 
@@ -74,7 +71,4 @@ Last, you can run the method of your contract. You can select the method you wan
 
 In addition to Smartx, you can use the Ontology SDK to deploy a contract. For more information, please refer to related documents.
 
-[>> Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_smartcontract_en.html)
-
-[>> TS SDK](https://ontio.github.io/documentation/ontology_ts_sdk_smartcontract_en.html)
 
