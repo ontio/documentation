@@ -8,8 +8,9 @@
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Tutorials
   - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  
+  - [DAPI Useage](docs-en/Tutorials/06-dapi-useage.md)  
   - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)
-  - [Smart Contract](docs-en/Tutorials/02-smartcontract-template.md)
+  - [Smart Contract Template](docs-en/Tutorials/02-smartcontract-template.md)
   - [Learning Collection](docs-en/Tutorials/03-docs-collect.md)
   - [Learning dApp Video](docs-en/Tutorials/04-learning-dapp-video.md)
   - [Learning SC Video](docs-en/Tutorials/05-learning-sc-video.md)

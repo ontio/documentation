@@ -6,9 +6,12 @@
 ![Alt text](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/chrome-plugin/cayno-wallet/img/OEP/Dapi/OntologyWebWallet.png)
 
 ### New Account
-![Alt text](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/chrome-plugin/cayno-wallet/img/OEP/Dapi/OntologyWebWallet2.png)
 
-![Alt text](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/chrome-plugin/cayno-wallet/img/OEP/Dapi/OntologyWebWallet3.png)
+<p>
+  <img width="300px" src="https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/chrome-plugin/cayno-wallet/img/OEP/Dapi/OntologyWebWallet2.png">
+  <img width="300px" src="https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/chrome-plugin/cayno-wallet/img/OEP/Dapi/OntologyWebWallet3.png">
+</p>
+
 
 ![Alt text](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/chrome-plugin/cayno-wallet/img/OEP/Dapi/OntologyWebWallet4.png)
 
