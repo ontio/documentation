@@ -2,7 +2,10 @@
   - [Developer Guide](docs-cn/DeveloperGuide/developer-guide.md)
   - [Contribution Guide](docs-cn/DeveloperGuide/contributions-guide.md)
   - [Installation](docs-cn/DeveloperGuide/installation.md)
-  - [VBFT](docs-cn/DeveloperGuide/VBFT-introduction.md)
+  - [Consensus VBFT](docs-cn/DeveloperGuide/VBFT-introduction.md)
+  - [Protocol](docs-cn/DeveloperGuide/protocol.md)
+     - [ONTID](docs-cn/DeveloperGuide/ontid.md)
+     - [DDXF](docs-cn/DeveloperGuide/ddxf.md)
   - [ONTID](docs-cn/DeveloperGuide/ontid.md)
   - [White-papers](docs-cn/DeveloperGuide/white-papers.md)
 - Tutorials

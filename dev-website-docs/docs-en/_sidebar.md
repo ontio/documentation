@@ -1,10 +1,12 @@
 - Developer Guide
   - [Developer Guide](docs-en/DeveloperGuide/developer-guide.md)
-  - [Contribution Guide](docs-en/DeveloperGuide/contributions-guide.md)
   - [Installation](docs-en/DeveloperGuide/installation.md)
-  - [VBFT](docs-en/DeveloperGuide/VBFT-introduction.md)
-  - [ONTID](docs-en/DeveloperGuide/ontid.md)
+  - [Consensus VBFT](docs-en/DeveloperGuide/VBFT-introduction.md)
+  - [Protocol](docs-en/DeveloperGuide/protocol.md)
+      - [ONTID](docs-en/DeveloperGuide/ontid.md)
+      - [DDXF](docs-en/DeveloperGuide/ddxf.md)
   - [White-papers](docs-en/DeveloperGuide/white-papers.md)
+  - [Contribution Guide](docs-en/DeveloperGuide/contributions-guide.md)
 - Tutorials
   - [DAPP Development](docs-en/Tutorials/dapp_development.md)  
   - [Debug Smart Contract](docs-en/Tutorials/debug-a-Smart-Contract.md)

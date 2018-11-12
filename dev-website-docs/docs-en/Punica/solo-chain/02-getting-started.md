@@ -96,7 +96,7 @@ For example, drilling into the details of the following event, we can see it was
 In the `Smart Contracts` tab, you can find a full listing of all contracts that have been deployed to your network. This will be useful for managing your new development contract hash addresses as new versions are deployed.
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/16-smart-contract.png" ><br><br>
+  <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/16-smart-contracts.png" ><br><br>
 </div>
 
 In the `Logs` tab, you can view the full and complete transcript of everything that is happening within your private network behind the scenes.
