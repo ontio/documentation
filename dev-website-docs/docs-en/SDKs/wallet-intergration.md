@@ -5,9 +5,9 @@ The outline of this document is as follows:
 * [Native contract address](#native-contract-address)
 
  
-## Overview
+### Overview
 
-### Ontology SDK
+#### Ontology SDK
 
 SDK is a tool that is invoked directly in the program. Currently. 
 
@@ -49,13 +49,13 @@ Golang SDK ：[Go SDK](https://github.com/ontio/ontology-go-sdk)
 
 Python SDK ：[Python SDK](https://github.com/ontio/ontology-python-sdk)
 
-## Integration Guide
+### Integration Guide
 
 * [iOS wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_ts_sdk_en.html)
 * [Android wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html)
 
 
-## Native contract address
+### Native contract address
 
 contract | contract u160 address | Address
 ---|---|---
