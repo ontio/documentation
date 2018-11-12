@@ -34,8 +34,8 @@
   - [Overview](docs-en/SDKs/overview.md)
   - [Wallet File](docs-en/SDKs/wallet-file-specification.md)
   - [Wallet Integration](docs-en/SDKs/wallet-intergration.md)
-      - [iOS](https://raw.githubusercontent.com/ontio/documentation/master/walletDevDocs/ontology_wallet_dev_ts_sdk_en.md)
-      - [Android](https://raw.githubusercontent.com/ontio/documentation/master/walletDevDocs/ontology_wallet_dev_android_en.md)
+      - [iOS](docs-en/SDKs/ontology_wallet_dev_ts_sdk_en.md)
+      - [Android](docs-en/SDKs/ontology_wallet_dev_android_en.md)
 - DAPI
   - [Overview](docs-en/dApi/overview.md)
   - [Quick Start](docs-en/dApi/quickstart.md)
