@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <style type="text/css">
+       .header { position: fixed; height:60px; width:100%; padding:10px 20px; top:0; left:0;border-bottom:1px solid #dddddd;
+        background: #160033; display: flex; align-items: center; z-index: 1000; }
+        .header img {
+          width:150px;
+        }
+       .sidebar {top:60px; }
+       .footer {
+        height: 60px; border-top: 1px solid #dddddd; background: #ffffff;
+       }
+       .content {position: relative; left:150px;}
+       @media screen and (max-width:600px) {
+         .content {left:0;padding-top: 50px;}
+       }
+       main {height:auto;}
+       .app-nav::after {
+       content: ''; position: absolute; top: 10px; right: -8px; border-left: 8px solid transparent; border-right: 8px solid
+      transparent; border-top: 8px solid #32a4be; }
+      .app-nav {
+        margin-top:15px;
+        color:#ffffff;
+        z-index:1001;
+        position: fixed;
+      }
+      .app-nav a {
+        color: rgb(52,73,94)
+      }
+      .sidebar ul li a {
+       color:#4b85e4;
+      }
+      .app-nav ul li ul {
+        width:100px;
+      }
+  </style>
+</head>
+<body>
+<header class="header">
+  <img src="./assets/logo.png" alt="">
+</header>
+<div id="app"></div>
+<script>
+    window.$docsify = {
+    alias: {
+        '/.*/_navbar.md': '/_navbar.md',
+        '/docs-en/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en/$1',
+        '/docs-cn/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-cn/$1',
+        '/docs-kr/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-kr/$1',
+        '/docs-jp/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-jp/$1'
+      },
+      notFoundPage: '_404.html',
+      auto2top: true,
+      basePath: 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en',
+      executeScript: true,
+      loadNavbar: true,
+      loadSidebar: true,
+      autoHeader: true,
+      coverpage: false,
+      name: 'Ontology Developer',
+      subMaxLevel: 2,
+      mergeNavbar: true,
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      search: {
+        placeholder: {
+          '/':'Search',
+          '/docs-cn/': '搜索',
+          '/docs-en/': 'Search',
+          '/docs-jp': 'Search',
+          '/docs-kr/': 'Search'
+        },
+        depth:3
+      }
+    }
+
+  </script>
+<script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('/lib/sw.js')
+    }
+  </script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+
+<!--<script src="//unpkg.com/docsify"></script>-->
+<!--<script src="/lib/docsify.js"></script>-->
+
+
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+<script src="//unpkg.com/docsify-copy-code"></script>
+<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+
+</body>
+</html>
