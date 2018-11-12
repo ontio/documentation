@@ -20,7 +20,7 @@ Ontology的核心网络主要由两部分组成:
 >
 候选网络中的节点不参与共识，但保持与共识网络的同步状态，实时将最新的共识区块更新到自己维护的账本中。候选网络也对共识网络进行监控，监控共识网络状态，对共识区块进行验证，并协助管理Ontology网络。
 
-![VBFT Network](./images/vbft-network.jpeg)
+![VBFT Network](https://raw.githubusercontent.com/ontio/documentation/master/vbft-intro/images/vbft-network.jpeg)
 
 共识网络的规模通过共识管理合约进行管理。共识网络中的每个节点都由其节点管理人锁定对应的Stake。
 

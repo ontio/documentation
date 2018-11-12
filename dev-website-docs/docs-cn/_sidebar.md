@@ -1,11 +1,11 @@
 - 开发者指导
-  - [开发指导](docs-cn/DeveloperGuide/developer-guide.md)
-  - [介绍](docs-cn/DeveloperGuide/installation.md)
-  - [VBFT共识](docs-cn/DeveloperGuide/VBFT-introduction.md)
-  - [ONTID](docs-cn/DeveloperGuide/ontid.md)
-  - [DDXF](docs-cn/DeveloperGuide/ddxf.md)
-  - [白皮书](docs-cn/DeveloperGuide/white-papers.md)
-  - [社区贡献](docs-cn/DeveloperGuide/contributions-guide.md)
+  - [开发指导](docs-cn/DeveloperGuide/00-developer-guide.md)
+  - [介绍](docs-cn/DeveloperGuide/01-installation.md)
+  - [VBFT共识](docs-cn/DeveloperGuide/02-VBFT-introduction.md)
+  - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
+  - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
+  - [白皮书](docs-cn/DeveloperGuide/06-white-papers.md)
+  - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
 - 教程
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
   - [DAPI 使用](docs-cn/Tutorials/06-dapi-useage.md)  
