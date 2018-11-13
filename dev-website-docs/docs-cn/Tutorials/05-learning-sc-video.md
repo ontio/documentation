@@ -1,5 +1,5 @@
 
-[Docs in Video](https://github.com/punicasuite/smartcontract-tutorials/tree/master/docs-cn)
+[视频文档](https://github.com/punicasuite/smartcontract-tutorials/tree/master/docs-cn)
 
 ### 1. Hello World
 

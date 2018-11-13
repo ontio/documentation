@@ -1,15 +1,18 @@
 
-<h1 align="center">Ontology Developer Guide(中文)</h1>
+<h1 align="center">Ontology开发者指导</h1>
 
 <p align="center" class="version">Version 1.0.0 </p> 
 
-Ontology is a new generation of high-performance public blockchains. The infrastructure is scalable, stable, and allows low-level customization for different business requirements. After the Ontology MainNet release, we have welcomed many new developers to the Ontology technical community and launched our [Developer Center ](https://bounty.ont.io/index.php/index/developer).
+本体是新一代高性能公有式区块链，在主网上线之后，已经有非常多的开发者加入了本体技术社区。文档是开发者加入本体生态的入口，完善的文档体系能大大提高
+开发者的开发效率，通过文档，开发者们将对本体生态、本体技术有清晰的认识。本篇文档是本体文档中心的概览，将会大致介绍文档中心的各个组成本分，这将为
+开发者提供一个快速熟悉本体技术、本体生态的方法。
 
-### What you will learn?
+### 你将通过文档学到：
 
-* Start **Ontology** node
-* Write/Compilation/Deploy/Invoke/Test/Debug smart contract
-* How to use SDK and dApi
-* Integration Ontology Wallet
-* Build dApp
-* Signature Server
+* 启动 **Ontology** 节点
+* 编写/编译/部署/调用/测试/Debug 智能合约
+* 如何使用 SDK and dApi
+* 如何集成 Ontology 钱包
+* 创建 dApp
+* 签名机器使用
+* Ontology 命令行使用

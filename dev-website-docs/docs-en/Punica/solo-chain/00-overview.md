@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://raw.githubusercontent.com/punicasuite/solo-chain/master/image/icon.png" height="200" width="200"><br><br>
+</div>
+
 # Solo Chain Overview
 A self contained one click private network for the Ontology blockchain. This desktop application makes it easy for developers to quickly setup and manage their own private instance of the Ontology blockchain for rapid development. There are no dependencies to install, source code to compile, or even Docker to setup. Solo chain is packaged with Electron, and provides users with an intuitive GUI interface to setup and mange all aspects of their private Ontology blockchain instance.
 
