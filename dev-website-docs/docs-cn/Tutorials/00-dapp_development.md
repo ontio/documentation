@@ -1,48 +1,39 @@
+本教程将指导你完成基于私有链的智能合约创建、部署、测试过程，并最终将其部署到本体主网。
 
+使用的步骤是：
 
+1.在SmartX中创建和编辑智能合约（**不要在此步骤部署**）。
+2.下载并安装solo-chain。
+3.在谷歌浏览器中安装Cynao并将其连接到私链。
+4.在SmartX中部署智能合约，它将调用Cyano将合约部署到solo-chain。
+5.检查智能合约是否已成功部署在solo-chain。
+6.在SmartX中调用智能合约，它将使用Cyano调用solo-chain中的合约。
+7.检查solo-chain中的交易。
+8.使用SmartX和Cyano在主网上进行部署和调用（**仅在完成开发后执行此操作**）
 
-This tutorial will guide you through the process of creating a smart contract, deploying it to your private-net, testing and finally deploying it to the Ontology Mainnet. 
+需要以下工具：
 
-The steps used will be:
+- [SmartX](https://smartx.ont.io/) —— 我们的在线智能合约集成开发环境和调试器。
+- [Solo-chain](https://github.com/punicasuite/solo-chain/releases) —— 一个预先构建的私有链。
+- [Cyano wallet](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon) —— 一个本体的谷歌 Chrome 浏览器插件。
 
-1. Create/edit smartcontract in SmartX (**do not deploy at this step**)
-2. Download and install solo-chain
-3. Install Cynao in Google Chrome and use private-net which will connnect to solo-chain
-4. Deploy smartcontract in SmartX which will use Cyano to deploy to solo-chain
-5. Check the smartcontract has deployed successfully on the solo-chain
-6. Invoke smartcontract in SmartX  which will use Cyano to invoke on solo-chain
-7. Check transction on solo-chain
-8. Deploy/Invoke to Mainnet using SmartX and Cyano (**only do this when you have completed development**)
+## 在SmartX中创建并编译智能合约
 
+我们将使用[SmartX](https://smartx.ont.io/)开发、编译和测试我们的智能合约。如果你不熟悉SmartX，请阅读[SmartX教程](https://ontio.github.io/documentation/SmartX_Tutorial_en.html)，它将指导你完成该工具的使用。
 
-The following tools will be needed:
-
-* [SmartX](https://smartx.ont.io/) - our online smart contract IDE and debugger
-* [Solo-chain](https://github.com/punicasuite/solo-chain/releases) - a prebuilt private-net for development
-* [Cyano wallet](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon) - an Ontology Google Chrome extension wallet
-<p><br>
-
-
-## Create and compile your smart contract in SmartX
-
-We will develop, compile and test our smart contract using the [SmartX](https://smartx.ont.io/) tool. If you are new to SmartX, please read over the [SmartX Tutorial](https://ontio.github.io/documentation/SmartX_Tutorial_en.html) which will guide you thorugh the process of using the tool.
-
-Create a new project in the language of your choice and use one of the templates (we will be using Arith) to work with if you don't have your own smart contract.
-
-Compile your smart contract but **do not deploy it yet**.
+编译你的智能合约但**不要部署它**。
 
 ![Compile](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/SmartX_compile.jpg)
 
-
 <p><br>
 
-## Download and install solo-chain
+## 下载并安装 solo-chain
 
-Solo-chain is a pre-built Ontology private-net which includes a number of tools to interact with and monitor the network.
+Solo-chain 是一个预构建的本体私链，它包含许多与网络交互和监视网络的工具。
 
-Download and install [Solo-chain](https://github.com/punicasuite/solo-chain/releases) and verify it is working as expected.  You can do this by checking that blocks are being generated and/or initiating a transaction.  
+下载安装[Solo-chain](https://github.com/punicasuite/solo-chain/releases)并验证它是否按预期工作。你可以通过检查正在生成的区块和发起交易来执行此操作。
 
-Please make note of the IP address shown in the dashboard for later use.
+请记录下控制面板中显示的IP地址以供日后使用。
 
 ![Solo-chain dashboard](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/solo-chain_interface.jpg)
 
@@ -50,42 +41,42 @@ Please make note of the IP address shown in the dashboard for later use.
 
 ## Install Cyano
 
-Cyano wallet is a Google Chrome extension that is integrated with SmartX and allows developers to deploy/invoke smart contracts either on a private-net or the Ontology mainnet.
+Cyano钱包是与SmartX集成的谷歌 Chrome 扩展程序，允许开发人员在私有链或者本体测试网、主网上部署和调用智能合约。
 
-Install [Cyano wallet](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon) and click on the settings cog in the top right hand corner of the first screen.
+安装 [Cyano 钱包](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon)并点击屏幕右上角的⚙图标。
 
 ![Cyano settings cog](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/Cyano_settings_cog.jpg)
 
-Change the network to **Private-Net** and put the IP address shown in the solo-chain interface in Cyano (typically 127.0.0.1).
+将网络切换至 **Private-Net** 并粘贴 solo-chain 中显示的IP地址到 Cyano 钱包 (一般情况下是 `127.0.0.1`)。
 
 ![Cyano settings page](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/Cyano_settings_page.jpg)
 
-Once Cyano is successfully connected to your private-net, the connection icon in the bottom right hand side of the screen will show a connected icon (as above).
+一旦 Cyano 成功连接到你的私有网络，屏幕右下角的连接图标将显示一个连接图标（如上所示）。
 
-Next, import the private key of the main address from your solo-chain into Cyano.
+接下来，将私钥从 solo-chain 导入到 Cyano 钱包当中。
 
-Finally, initiate a transaction and claim your ONG which will be used to pay for transaction fees during deployment/invocation.
+最后，发起交易并提取用于在部署和调用智能合约期间支付交易费用的 ONG。
 <p><br>
 
 ## Deploy smart contract in SmartX
 
-Once you are satisfied with your smart contract, you can use SmartX to deploy it to your private-net.  SmartX will interact with Cyano wallet in order to deploy and pay the transaction fee(s).
+一旦你对你的智能合约感到满意，就可以使用SmartX将其部署到您的私人网络。SmartX将与Cyano钱包进行交互，以部署合约和支付交易费用。
 
-Select Deploy in SmartX and enter the appropriate details in the information fields (Name, Author, etc).  Once this has been done, select deploy.
+选择在SmartX中部署，然后在信息字段（名称、作者等）中输入相应的详细信息。完成此操作后，选择 `deploy`。
 
 ![SmartX deploy](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/SmartX_deploy.jpg)
-
 <p>
-Cyano wallet will be launched and the smart contract deploy screen will be shown.  Ensure the details are correct and select confirm.  
+
+启动 Cyano 钱包，显示智能合约部署窗口，确保细节正确并选择 `confirm`。
 
 ![Cyano SC deploy](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/Cyano_SC_deploy.jpg)
 
-Enter your Cyano wallet password to deploy your smart contract.
+输入你的 Cyano 钱包密码以部署你的智能合约。
 <p><br>
 
-## Check the smart contract has deployed successfully
+## 检查智能合约是否已成功部署
 
-You can verify the smart contract has been deployed correctly by clicking the Smart Contract icon in solo-chain which will show you the contract hash and information you entered in SmartX.
+你可以通过单击 solo-chain 中的 `Smart Contracts` 选项卡来验证智能合约是否已正确部署，该选项卡将显示您在SmartX中输入的合约哈希和信息。
 
 ![Solo-chain SC list](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/solo-chain_SC_list.jpg)
 <p><br>
@@ -94,44 +85,46 @@ You can verify the smart contract has been deployed correctly by clicking the Sm
 
 The next step is to invoke your smart contract which is done in SmartX by selecting Run and selecting any methods (if applicable).  In this example we are using the 'Arith' template so we will be using the add method to add two numbers together.
 
+下一步是通过点击 `Run` 并选择任何方法（如果适用）来调用在SmartX中完成的智能合约。 在这个例子中，我们使用`Arith` 模板，因此我们将使用 `add` 方法将两个数字相加。
+
 ![SmartX invoke SC](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/SmartX_invoke_SC.jpg)
 
 Once you click on Run, Cyano wallet will prompt you to invoke the smart contract which can be done by clicking confirm and entering your password.
 
+点击`run`后，Cyano 钱包将提示你智能合约调用，单击 `Confirm` 并输入密码即可完成。
+
 ![Cyano invoke SC](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/Cyano_invoke_SC.jpg)
 
-The results of the invocation will be displayed in the log window of SmartX.
+调用的结果将显示在 SmartX 的日志窗口中。
 
 ![SmartX invoke SC results](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/SmartX_invoke_SC_result.jpg)
 <p><br>
 
+## 检查调用交易
 
-## Check invocation transction
-
-You can also use solo-chain to check the invoke function by selecting the Transactions tab and looking for a transaction type of Invoke.
+你还可以使用 solo-chain 在`Transactions`选项卡中查找 `Invoke` 类型的交易来检查函数调用。
 
 ![Solo-chain invoke transaction](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/solo-chain_transaction_invoke.jpg)
 
-More detailed information is available by clicking on the Detail link.
+单击 `Detail` 链接可获得更多详细信息。
 
 ![Solo-chain invoke transaction details](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/solo-chain_transaction_invoke_details.jpg)
 <p><br>
 
+## 部署到主网
 
-## Deploy to Mainnet 
+完成上述步骤后，你可能希望将智能合约部署到本体主网。
 
-Once you have completed the above steps, you may wish to deploy your smart contract to the Ontology Mainnet for general purpose use.
-
-To do this, in Cyano select the settings cog in the top right hand corner.
+要执行此操作，请在 Cyano 中选择右上角的⚙图标。
 
 ![Cyano settings cog](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/Cyano_settings_cog.jpg)
 
-Change to network to Main-Net and click Save.
+切换到主网并保存。
 
 ![Cyano settings mainnet](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/Cyano_settings_page_mainnet.jpg)
 
-Ensure you have a Main-net wallet setup in Cyano with sufficient gas to deploy the contract before proceeding.
+确保您在 Cyano 中设置了主网钱包，并且在继续操作之前需要足够的 gas 来部署合同。
 
-Finally, return to SmartX and follow the same process as you did in the **Deploy smart contract in SmartX** section ensuring that Cyano shows it is connected to Main-net.
+最后，返回 SmartX 并按照与**在 SmartX 中部署智能合约**一节中所述步骤进行部署，确保 Cyano 显示它已连接到了主网。
 
-Your smart contract will now be deployed to the Ontology Main-net and you can invoke it as you did in the **Invoke smartcontract in SmartX** section.
+你的智能合约现在被部署到了本体主网，你可以调用它就像**在 SmartX 中调用智能合约**一节中所述步骤进行调用。
