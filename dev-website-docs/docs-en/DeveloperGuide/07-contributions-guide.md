@@ -1,8 +1,8 @@
 
 
-<h1 align="center">Guidelines for Technical Community Contributions</h1>
+<h1 align="center">Guidelines for technical community contributions</h1>
 
-<p align="center" class="version">Version 1.0.0 </p> 
+<p align="center" class="version">Version 1.0.1 </p> 
 
 ## Introduction
 
