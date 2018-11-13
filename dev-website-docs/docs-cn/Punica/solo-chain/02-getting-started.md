@@ -34,9 +34,7 @@
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/07-claim.png" ><br><br>
 </div>
 
-On the right side of the account line item, you will see a key icon. Upon clicking this, you will see a modal with the private key for this account. You will need these later when starting to build your applications, as they will serve as your credentials for sending transaction to the network.
-
-在帐户项的右侧，有一个🔑图标。单击此按钮后，您将看到一个带有此帐户私钥的模式。 稍后在开始构建应用程序时将需要这些，因为它们将用作将事务发送到网络的凭据。
+在帐户项的右侧，有一个🔑图标。单击此按钮后，你看到帐户的私钥。在构建自己的应用程序时可能会需要这些私钥来签署交易。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/08-pk.png" ><br><br>
