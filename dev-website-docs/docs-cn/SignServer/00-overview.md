@@ -1,19 +1,19 @@
-# Ontology Signature Service
-A service to facilitate account management and secure signing of messages to be broadcast to the Ontology blockchain. The signature service can be used as a part of a larger application server or as it's own stand-alone microservice. It is ideal for use in applications that require a automated transaction signing in a secure hosted environment, and provides a wide range of functionality which include:
+# Ontology 签名机服务
+一种便于帐户管理和安全签名消息的服务，该消息将被广播到Ontology区块链。 签名服务可以用作更大的应用程序服务器的一部分，也可以用作独立的微服务。 它非常适用于需要在安全托管环境中进行自动事务签名的应用程序，并提供广泛的功能，包括：
 
-## Account
-- Creation
-- Exports for secure backups
+## 账户
+- 创建
+- 导出安全备份
 
-## Signing
-- Arbitrary data in hex string format
-- Raw transactions
-- Raw Multiple Signature transactions
+## 签名
+- 任意的十六进制编码的字符串
+- 交易
+- 多重签名交易
 
-## Signing (convenience methods)
-- Asset transfers (eg. ONT or ONG)
-- Ontology Native Smart Contract invocations
-- NEO VM Smart Contract invocations w/ parameterized arguments
-- NEO VM Smart Contract invocations w/ unparameterized arguments + abi
+## 签名 (便利的方法)
+- 资产转账 (例如 ONT 和 ONG)
+- Ontology Native合约调用
+- NEO VM 智能合约和规范化参数
+- NEO VM 智能合约和未规范化参数以及abi
 
-__NOTE__: The service is solely responsible for signing of the provided input with the accounts it manages. The broadcast of all signed outputs must be handled by a separate service.
+注意: 该服务全权负责使用其管理的帐户签署所提供的输入。 所有签名输出的广播必须由单独的服务处理。

@@ -1,24 +1,23 @@
 # API Usage
 
-- [API Endpoint](#api-endpoint)
-- [Supported Request Methods](#supported-request-methods)
-- [Request structure](#request-structure)
-- [Response structure](#response-structure)
-  - [Error Codes](#error-codes)
+- [API 端点](#api端点)
+- [支持的请求方法](#支持的请求方法)
+- [请求结构](#请求结构)
+- [响应结构](#响应结构)
+  - [错误码](#错误码)
 
-## API Endpoint
-
-The signature service is a JSON RPC server available by default at:
+## API 端点
+签名Server提供通过下面的链接提供rpc服务
 ```
 http://localhost:20000/cli
 ```
 
-## Supported Request Methods
+## 支持的请求方法
 ```
 POST
 ```
 
-## Request structure
+## 请求结构
 
 ```
 {
@@ -30,7 +29,7 @@ POST
 }
 ```
 
-## Response structure
+## 响应结构
 
 ```
 {
@@ -44,7 +43,7 @@ POST
 }
 ```
 
-### Error Codes
+### 错误码
 
 Error code | Error description
 ---------- | -----------------
