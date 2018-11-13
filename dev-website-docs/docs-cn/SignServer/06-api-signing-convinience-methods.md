@@ -257,7 +257,7 @@ signeovminvoketx
 ```
 
 
-## 签名 NeoVM 合约使用ABI的调用
+## 签名 NeoVM 使用API的合约调用
 
 通过提供的abi文件构造和签名Neovm合约调用
 
