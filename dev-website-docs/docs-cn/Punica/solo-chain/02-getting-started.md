@@ -40,13 +40,13 @@
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/08-pk.png" ><br><br>
 </div>
 
-Moving onto the next tab, if you click on the `Blocks` item in the menu bar at the top, you will be presented with the blocks information screen.
+移动到下一个选项卡，如果单击顶部菜单栏中的`Blocks`选项，将能看到区块信息。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/09-blocks.png" ><br><br>
 </div>
 
-If you would like to see the details of any block, including all transactions processed in that block, click the `Detail` button on the right hand side of the block you want to see. A block detail modal will pop up with a interactive JSON of the information about that block.
+如果你想查看区块的详细信息（包括区块中所处理的所有交易），请单击想要查看区块右侧的`Detail`按钮。在弹出的区块详细信息窗口中，区块信息以JSON格式显示。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/10-block-detail.png" ><br><br>
