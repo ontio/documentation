@@ -14,14 +14,14 @@ Ontology智能合约是一个多功能、轻量级、高可用、可并发、多
 
 本体智能合约具有确定性、高性能、扩展性的特性，包括两大模块：交互服务和虚拟机。交互服务提供了虚拟机和区块链账本之间的交互。虚拟机提供了智能合约的运行环境。交互服务包括原生服务和Neo虚拟机服务。原生服务提供了基础链上特殊智能合约的实现，这种合约能被快速方便地使用。Neo虚拟机服务提供了外部访问Neo虚拟机的API, 它能增强智能合约的调用功能。
 
-![ontology smart contract architecture.png](./images/smartcontract_architecture.png)
+![ontology smart contract architecture.png](https://raw.githubusercontent.com/ontio/ontology-smartcontrac/master/smart-contract-tutorial/images/smartcontract_architecture.png)
 
 
 ## 合约类型
 
 Ontology智能合约现包含2种类型的合约：Native合约和NeoVm合约。Native合约是在Ontology底层直接编写的合约，不需要像部署普通合约那样编写合约代码，具有很高的执行效率，是对普通合约的极大优化，通用的服务包括：Oracle，DID，权限管理，数据交易所都将采用Native合约实现。NeoVm合约是采用NeoVm虚拟机运行的合约，需要编写相应的合约代码，现支持的语言包含：Java，C#，Python，NeoVm本身具有轻量级、可扩展、高性能的特性，通过结合Interop Service层能很好的打通虚拟机与账本层间的交互。
 
-![ontology smart contract type.png](./images/smartcontract_type.png)
+![ontology smart contract type.png](https://raw.githubusercontent.com/ontio/ontology-smartcontrac/master/smart-contract-tutorial/images/smartcontract_type.png)
 
 
 ## 合约调度

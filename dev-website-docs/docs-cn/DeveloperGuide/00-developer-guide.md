@@ -3,13 +3,11 @@
 
 <p align="center" class="version">Version 1.0.0 </p> 
 
-本体是新一代高性能公有式区块链，在主网上线之后，已经有非常多的开发者加入了本体技术社区。文档是开发者加入本体生态的入口，完善的文档体系能大大提高
-开发者的开发效率，通过文档，开发者们将对本体生态、本体技术有清晰的认识。本篇文档是本体文档中心的概览，将会大致介绍文档中心的各个组成本分，这将为
-开发者提供一个快速熟悉本体技术、本体生态的方法。
+
 
 * [本体](#本体)
-     * [什么是本体？](#什么是本体)
-     * [如何获取本体？](#如何获取本体)
+     * [本体的特性](#什么是本体)
+     * [如何下载本体？](#如何下载本体)
      * [本体节点介绍](#本体节点介绍)
         * [同步节点](#同步节点)
         * [共识节点](#共识节点)
@@ -22,6 +20,7 @@
      * [本体命令行工具](#本体命令行工具)
      * [本体签名机](#本体签名机)
      * [本体的API](#本体的api)
+     * [本体的SDK](#本体的sdk)
 * [本体智能合约](#本体智能合约)
      * [本体智能合约IDE——Smartx](#本体智能合约idesmartx)
      * [如何编写智能合约](#如何编写智能合约)
@@ -33,11 +32,11 @@
 
 ## 本体
 
-### 什么是本体？
+### 本体的特性
 
 本体的特性在[这里](https://ontio.github.io/documentation/install_zh.html#特性)有大致的介绍。
 
-### 如何获取本体？
+### 如何下载本体？
 
 目前本体的所有源码均在GitHub上开源，用户可以自行前往[代码库](https://github.com/ontio/ontology)中下载源码编译安装，你也可以通过命令 `curl https://dev.ont.io/ontology_install | sh `  获取最新的ontology版本。或者直接获取不同版本号的
 [release版本](https://github.com/ontio/ontology/releases)。具体的获取、安装方法可以参考[这里](https://ontio.github.io/documentation/install_zh.html)。
@@ -99,6 +98,12 @@ Ontology DID（简称：ONT ID）基于W3C的DID规范，是一个去中心化�
 在命令行之外，本体提供了一套更方便的区块链交互接口。这些接口以API的形式提供，目前本体的API包含三类：[本体RPC API](https://ontio.github.io/documentation/rpc_api_zh.html)，
 [本体Restful API](https://ontio.github.io/documentation/restful_api_zh.html)，[本体Websocket API](https://ontio.github.io/documentation/websocket_api_zh.html)。
 通过使用API，开发者可以十分便捷的向本体网络发送交易、查询数据。
+
+### 本体的SDK
+
+对于开发者而言，SDK是直接在程序中调用工具。目前，本体提供了三套SDK供开发者使用，分别是[Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_zh.html)，
+[Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_zh.html)与[Golang SDK](https://github.com/ontio/ontology-go-sdk)。在使用SDK之前，
+建议先阅读SDK的[总体说明](https://ontio.github.io/documentation/ontology_overview_sdks_zh.html)和本体的[钱包文件规范](https://ontio.github.io/documentation/Wallet_File_Specification_en.html)。
 
 ## 本体智能合约
 
