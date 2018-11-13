@@ -7,7 +7,7 @@
 - [Ontology](#ontology)
     - [Ontology Features](#ontology-features)
     - [How to get and install Ontology](#how-to-get-and-install-ontology)
-    - [Introduction of the Ontology nodes](#introduction-of-the-ontology-nodes)
+    - [Ontology nodes introduction](#ontology-nodes-introduction)
         - [Synchronization node](#synchronization-node)
         - [Consensus node](#consensus-node)
     - [Ontology consensus mechanism](#ontology-consensus-mechanism)
