@@ -14,87 +14,36 @@ We encourage the community to form independent groups so that we, the Ontology F
 
 <h4 align="center">We believe that projects are best executed in teams and encourage contributors to form independent groups.</h4>
 
-How you chose to structure an independent contributor group, join another groups, or work as an individual contributor is entirely up to yourself. We welcome you to send proposals to: mathiasglintborg@ont.io 
+How you chose to structure an independent group, join another groups, or work as an individual contributor is entirely up to yourself. 
 
-Proposal should include e.g. structure of group, team, budget and initaitives.
+For new groups, welcome you to send proposals to: mathiasglintborg@ont.io and include e.g. structure of group, team, budget and initaitives.
+
+To join an existing Ontology contributor group, talk to us at [Ontology Discord](https://discord.gg/9zcTQNy) or meet the independt groups at [Ontology Community Develoepers](https://discord.gg/YWXB9kj).
+
+If you are independt contributor, talk to us at [Ontology Discord](https://discord.gg/9zcTQNy) and check out the [Developer Center](https://developer.ont.io/).
 
 ## Technical contributions
 
-Ideas come from various sources and in many shapes and sizes. We encourage contributors to bring their own ideas to the table, but also get inspired by other ideas from the community.
-To get an overview of potential and ongoing projects, we are working on an index. This will be a space built and maintained by the community – dedicated to index Ontology activities so that it is more digestible for contributors and investors. For community contributors this index will include a section of projects and ideas, and you can:
+The main point of entrance to the technical community is [Developer Center](https://developer.ont.io/).
 
-- List your own ideas
--	See other community member ideas
--	See ideas from the Ontology Technical Committee
+Generally, we divide coding and development from the technical community into three categories:
 
-Generally, we divide development ideas into three categories
+- [Bounty program](https://bounty.ont.io/)
+  - You can claim existing bounties or suggest your own
+- [dApps](https://dapp.ont.io/)
+  - We welcome dApp projects to build on Ontology, talk to our VC, or incubation service
+- [Ontology enhancement proposals (OEP)](https://github.com/ontio/OEPs)
+  - OEPs describe standards for the Ontology platform, including core protocol specifications, client APIs, and contract standards
 
-- Ontology enhancement proposals (OEP)
-  - E.g. major proposals for design, network, architecture, protocols, or modules
-- Code contribution
-  - E.g. SDK development or bug fixing
-- dApps
-  - E.g. wallets
+### Rewards
 
-Each category has its own subcategories and scope. OEPs are related to our foundational technology, such as network architecture. OEPs are considered to have a large scope and a high level of complexity. Code contributions include projects which aim to build tools for the Ontology ecosystem and its users. The dApps category represent apps developed on the distributed network e.g. wallets or games.
-
-### Standard process for community contributions
-
-Individual or group technical contributions
-
-##### 1. OEP
-
-Login to GitHub [OEPs](https://github.com/ontio/OEPs) to view existing proposals and make new proposals. New proposals must be prototyped. The Ontology Technical Committee evaluates proposals and their prototype results, then submits projects to the Ontology Council. Pull requests are also welcome for existing proposals with no code implementation. The Ontology Technical Committee evaluates whether to accept the project based on the development application and sends it to the Ontology Council. The Ontology Council will consider giving appropriate compensation if the proposal is a large contribution to Ontology or will have a large impact.
-
-##### 2. Code contribution
-
-After starting the project you can start development. Please submit a pull request according to the [GitHub Standard Processes](https://help.github.com/). The Ontology Technical Committee will make an assessment and submit the report to the Ontology Council. It will then provide compensation based on the results of the assessment.
-
-If you identify a bug in any of the Ontology Github repositories, submit a pull request according to the GitHub standard processes, which is evaluated by the Ontology Technical Committee and submitted to the Ontology Council. After that, compensation is given based on the evaluation result.
-
-##### 3. dApps
-
-Ontology welcomes the community to build dApps in the ecosystem. If you have general inquiries regarding support, please refer to our [Organizational Cooperation](https://info.ont.io/cooperation/en) portal.
-
-Ontology has its own ecosystem accelerator program, which aims to incubate new dApps. The program invites technology and product experts across fields to collaborate in entrepreneurship and build new distributed business applications based on Ontology’s next-generation public chain infrastructure to build an open-source, open-minded, and collaborative distributed trust ecosystem. The Ontology Olympus Accelerator program will provide complete technical, marketing, funding, talent, and legal compliance support. For more information please visit [Ontology Olympus Accelerator](https://medium.com/ontologynetwork/ontology-launches-ecosystem-accelerator-program-ontology-olympus-accelerator-ooa-a2ad9229de83).
-
-### Compensation
-
-Compensation for qualified contributions are made according to the standard process for community contributions. They will be based on case-by-case evaluation conducted by the Ontology Technical Committee and approved by the Ontology Council. Compensation is distributed upon project completion and evaluation.  
-
-Note: Assessment of contributions for compensation is a detailed process and can take some time.
-
-##### How we measure compensation
-
-Our first approach will be based on case-by-case evaluation, hence as the community grows we will gain experience and be able to build a comprehensive framework. In general, when assessing compensation we will look at three factors:
-
-- Effort
-  - Number of people/teams involved and their technical expertise
-  - Total amount of manhours
-  - Project duration
-  - Involvement of community/Ontology Technical Committee
-- Projects degree of difficulty
-  - Technology
-  - Design and architecture
-  - Requirements
-  - Scope
-- Overall risk severity
-  - Impact
-  - Likelihood
-
-### Technical committee
-
-We welcome community talent to join the Ontology Technical Community. If you are interested, please apply in the [developer community on Discord](https://discord.gg/4TQujHj).
+Rewards for qualified contributions are made according to the standard process for community contributions. It will be based on case-by-case evaluation conducted by the Ontology Foundation and Ontology Research Institue. 
 
 ### Developer community organizational cooperation
 
 The Ontology Council welcomes organizations to discuss [cooperation](https://info.ont.io/cooperation/en). Please indicate that you are requesting technical community cooperation when you apply. The Ontology Council will carry out reviews based on the proposal, code contributions, and weekly reviews (JIRA will be used for management). Incentives will be distributed to partner institutions on a regular basis. Particularly excellent organizations can be considered for investment from Ontology.
 
-
-
-
-
-Ontology Technical Committee：
+Ontology core tech team:
 
 | **Group**                                     | **Name**     | **Discord**              | **GitHub**   | **Gitter**   |
 | --------------------------------------------- | ------------ | ------------------------ | ------------ | ------------ |
