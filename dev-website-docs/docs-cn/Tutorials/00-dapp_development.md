@@ -83,13 +83,9 @@ Cyano钱包是与SmartX集成的谷歌 Chrome 扩展程序，允许开发人员�
 
 ## Invoke smart contract in SmartX
 
-The next step is to invoke your smart contract which is done in SmartX by selecting Run and selecting any methods (if applicable).  In this example we are using the 'Arith' template so we will be using the add method to add two numbers together.
-
 下一步是通过点击 `Run` 并选择任何方法（如果适用）来调用在SmartX中完成的智能合约。 在这个例子中，我们使用`Arith` 模板，因此我们将使用 `add` 方法将两个数字相加。
 
 ![SmartX invoke SC](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/SmartX_invoke_SC.jpg)
-
-Once you click on Run, Cyano wallet will prompt you to invoke the smart contract which can be done by clicking confirm and entering your password.
 
 点击`run`后，Cyano 钱包将提示你智能合约调用，单击 `Confirm` 并输入密码即可完成。
 
