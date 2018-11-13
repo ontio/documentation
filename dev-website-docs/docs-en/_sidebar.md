@@ -14,6 +14,7 @@
 - Developer Guide
   - [Developer Guide](docs-en/DeveloperGuide/00-developer-guide.md)
   - [Installation](docs-en/DeveloperGuide/01-installation.md)
+  - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Quick Guide
   - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  

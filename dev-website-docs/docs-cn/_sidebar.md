@@ -13,8 +13,9 @@
   - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
   - [白皮书](docs-cn/DeveloperGuide/06-white-papers.md)
 - 开发者指导
-  - [开发指导](docs-cn/DeveloperGuide/00-developer-guide.md)
-  - [安装](docs-cn/DeveloperGuide/01-installation.md)
+  - [本体指南](docs-cn/DeveloperGuide/00-developer-guide.md)
+  - [本体安装](docs-cn/DeveloperGuide/01-installation.md)
+  - [工具概述](docs-cn/DeveloperGuide/tools.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
 - 快速学习
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
