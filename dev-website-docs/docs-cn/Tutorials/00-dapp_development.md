@@ -41,26 +41,26 @@ Solo-chain 是一个预构建的本体私链，它包含许多与网络交互和
 
 ## Install Cyano
 
-Cyano wallet is a Google Chrome extension that is integrated with SmartX and allows developers to deploy/invoke smart contracts either on a private-net or the Ontology mainnet.
+Cyano钱包是与SmartX集成的谷歌 Chrome 扩展程序，允许开发人员在私有链或者本体测试网、主网上部署和调用智能合约。
 
-Install [Cyano wallet](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon) and click on the settings cog in the top right hand corner of the first screen.
+安装 [Cyano 钱包](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon)并点击屏幕右上角的设置。
 
 ![Cyano settings cog](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/Cyano_settings_cog.jpg)
 
-Change the network to **Private-Net** and put the IP address shown in the solo-chain interface in Cyano (typically 127.0.0.1).
+将网络切换至 **Private-Net** 并粘贴 solo-chain 中显示的IP地址到 Cyano 钱包 (一般情况下是 `127.0.0.1`)。
 
 ![Cyano settings page](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/Cyano_settings_page.jpg)
 
-Once Cyano is successfully connected to your private-net, the connection icon in the bottom right hand side of the screen will show a connected icon (as above).
+一旦 Cyano 成功连接到你的私有网络，屏幕右下角的连接图标将显示一个连接图标（如上所示）。
 
-Next, import the private key of the main address from your solo-chain into Cyano.
+接下来，将私钥从 solo-chain 导入到 Cyano 钱包当中。
 
-Finally, initiate a transaction and claim your ONG which will be used to pay for transaction fees during deployment/invocation.
+最后，发起交易并提取用于在部署和调用智能合约期间支付交易费用的 ONG。
 <p><br>
 
 ## Deploy smart contract in SmartX
 
-Once you are satisfied with your smart contract, you can use SmartX to deploy it to your private-net.  SmartX will interact with Cyano wallet in order to deploy and pay the transaction fee(s).
+一旦你对你的智能合约感到满意，就可以使用SmartX将其部署到您的私人网络。SmartX将与Cyano钱包进行交互，以部署合约和支付交易费用。
 
 Select Deploy in SmartX and enter the appropriate details in the information fields (Name, Author, etc).  Once this has been done, select deploy.
 
@@ -107,7 +107,6 @@ More detailed information is available by clicking on the Detail link.
 
 ![Solo-chain invoke transaction details](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/solo-chain_transaction_invoke_details.jpg)
 <p><br>
-
 
 ## Deploy to Mainnet 
 
