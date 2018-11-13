@@ -1,5 +1,5 @@
 - Ontology
-  - [Introduction](docs-en/DeveloperGuide/01-installation.md)
+  - [Introduction](docs-en/DeveloperGuide/introduction.md)
   - [Consensus VBFT](docs-en/DeveloperGuide/02-VBFT-introduction.md)
   - [Smart Contract](docs-en/DeveloperGuide/smartcontract/smartcontract.md)
       - [Introduction](docs-en/DeveloperGuide/smartcontract/00-introduction-sc.md)
@@ -13,6 +13,7 @@
   - [White-papers](docs-en/DeveloperGuide/06-white-papers.md)
 - Developer Guide
   - [Developer Guide](docs-en/DeveloperGuide/00-developer-guide.md)
+  - [Installation](docs-en/DeveloperGuide/01-installation.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Quick Guide
   - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  

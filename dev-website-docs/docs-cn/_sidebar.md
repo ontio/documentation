@@ -1,6 +1,6 @@
 
 - 认识本体
-  - [介绍](docs-cn/DeveloperGuide/01-installation.md)
+  - [介绍](docs-cn/DeveloperGuide/introduction.md)
   - [VBFT共识](docs-cn/DeveloperGuide/02-VBFT-introduction.md)
   - [智能合约](docs-cn/DeveloperGuide/smartcontract/smartcontract.md)
       - [介绍](docs-cn/DeveloperGuide/smartcontract/00-introduction-sc.md)
@@ -14,6 +14,7 @@
   - [白皮书](docs-cn/DeveloperGuide/06-white-papers.md)
 - 开发者指导
   - [开发指导](docs-cn/DeveloperGuide/00-developer-guide.md)
+  - [安装](docs-cn/DeveloperGuide/01-installation.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
 - 快速学习
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
