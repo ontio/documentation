@@ -3,6 +3,7 @@
 
 <p align="center" class="version">Version 1.0.0 </p> 
 
+<!-- TOC -->
 
 - [Ontology](#ontology)
     - [Ontology Features](#ontology-features)
@@ -11,7 +12,7 @@
         - [Synchronization node](#synchronization-node)
         - [Consensus node](#consensus-node)
     - [Ontology consensus mechanism](#ontology-consensus-mechanism)
-    - [Connect to ontology](#connect-to-ontology)
+    - [Connect to Ontology](#connect-to-ontology)
     - [Ontology special features](#ontology-special-features)
         - [Ontology DID](#ontology-did)
         - [Distributed data transaction](#distributed-data-transaction)
@@ -24,10 +25,12 @@
     - [Ontology smart contract IDE--SmartX](#ontology-smart-contract-ide--smartx)
     - [How to write a smart contract](#how-to-write-a-smart-contract)
     - [Contract deployment and invocation](#contract-deployment-and-invocation)
-    - [Authority management of smart contract](#authority-management-of-smart-contract)
+    - [Authority management of smart contracts](#authority-management-of-smart-contracts)
 - [Use Ontology](#use-ontology)
     - [Environment setup](#environment-setup)
-    - [Contract writing, deployment and invocation](#contract-writing-deployment-and-invocation)
+    - [Contract writing, deployment, and invocation](#contract-writing-deployment-and-invocation)
+
+<!-- /TOC -->
 
 ## Ontology
 
