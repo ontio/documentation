@@ -12,7 +12,7 @@ This is a guide to help you become part of the Ontology technical community.
 
 We encourage the community to form independent groups so that we, the Ontology Foundation, can engage on a strategic level for support and rewards. It’s important for us that the different community participants takes responsibility for their own development and management - they are a cornerstone in the Ontology ecosystem and help define it!
 
-<h4 align="center">We believe that projects are best executed in teams and encourage contributors to form independent groups.</h4>
+<h4 align="center">The Ontology Foundation puts the technical community at highest priority and has allocated 10% (100,000,000 ONT) of the total token supply to the technical community alone</h4>
 
 How you chose to structure an independent group, join another groups, or work as an individual contributor is entirely up to yourself. 
 
