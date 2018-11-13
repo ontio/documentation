@@ -16,7 +16,14 @@ ONTPass的主要职责是：
 > 注意，如果对于可信声明规范还不了解，可以到[这里](https://github.com/ontio/ontology-DID/blob/master/docs/cn/claim_spec_cn.md)详细了解。 已经注册的认证服务和模板可以到[这里](./ontpass_template.md)了解。
 
 ONTPass开放认证服务，其原理如下：
+
 ![](http://assets.processon.com/chart_image/5a5fff53e4b0abe85d5e3e5f.png)
+
+流程中涉及到的参与方包括：
+
+* 需求方（Requester）: 需要对用户进行认证的DApp,机构或服务场景，是本体信任生态中认证服务的需求方。
+* ONTPass：基于本体区块链的去中心化身份交易平台，ONTPass主要用于协同用户和需求方进行数据交换，数据全程被加密，ONTPass并不会触碰用户隐私数据。
+* TrustAnchor：本体信任生态中的信任锚，为用户提供认证服务并能签发可信声明，背后连接了服务全球的身份认证服务供应商，能帮助用户实现身份认证。
 
 ## 为什么要使用ONTPass
 
@@ -40,7 +47,7 @@ ONTPass具有以下优势：
 
 [ONTO](https://onto.app)已经帮助用户完成了认证并管理好了可信声明，您只要提出认证请求，用户通过ONTO授权后即可提交用户认证信息。这个选项的好处是，您不必开发和管理用户ONTID和Claim系统。
 
-现在可以[开始使用ONTPass服务](https://github.com/ontio/ontology-DID/blob/master/docs/cn/thirdparty_kyc_cn.md)。
+现在可以[开始使用ONTPass服务](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/thirdparty_kyc.md)。
 
 
 
