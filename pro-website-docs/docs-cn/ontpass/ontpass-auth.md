@@ -18,18 +18,18 @@
 
 
 - A0：ONTPass提供了公开的认证服务集市，认证需求方可以到ONTPass平台浏览并选定自己需要的TrustAnchor及其认证服务。
-- A1：认证需求方确认所需的认证服务后，需要到ONTPass平台注册相关基本信息，包括OntId，基本信息及所需认证服务。
+- A1：认证需求方确认所需的认证服务后，需要到ONTPass平台注册相关基本信息，包括OntId，基本简介及回调地址。
 - A2：认证需求方根据TrustAnchor身份认证所需要的数据，将用户数据提交到TrustAnchor。
-- A3.1,A3.2：TrustAnchor根据收到的用户数据进行身份认证,签发可信声明并做链上可信声明存证。
+- A3.1,A3.2：TrustAnchor对用户进行身份认证，签发可信声明并做链上可信声明存证。
 - A4：TrustAnchor完成可信声明签发后，将可信声明用端到端加密传输到ONTPass。
-- A5：认证需求方可到ONTPass查询用户认证结果并获取可信声明。
+- A5：ONTPass根据回调地址将TrustAnchor签发的可信声明推送到认证需求方。
 
 
 ## 接入步骤
 
 ### 1.发现认证服务
 
-本体信任生态中的信任锚TrustAnchor会将自己能提供的认证服务和可信声明模板信息注册到ONTPass中，ONTPass会对外提供TrustAnchor认证服务集市。需求方可以从ONTPass的认证服务集市选择自己需要的认证服务。
+本体信任生态中的信任锚TrustAnchor会将自己能提供的认证服务和可信声明模板信息注册到ONTPass中，ONTPass对外提供TrustAnchor认证服务集市。认证需求方可以从ONTPass的认证服务集市选择自己需要的认证服务。
 
 <table>
 <tr>
@@ -200,6 +200,8 @@ RequestExample：
 |    Claims.Context|   String|  用户可信声明模板标识  | Y|
 |    Claims.EncryOrigData|   String|  加密后的可信声明 | Y|
 |    Signature|   String|  ONTPass对请求信息的签名 | Y|
+
+
 
 
 ### 附录
