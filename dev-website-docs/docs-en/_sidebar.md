@@ -10,6 +10,7 @@
       - [Invocation](docs-en/DeveloperGuide/smartcontract/01-invocation.md)
       - [Fee Model](docs-en/DeveloperGuide/smartcontract/03-fee-model.md)
       - [DAPP](docs-en/DeveloperGuide/smartcontract/04-dapp.md)
+      - [Smart Contract API](docs-en/DeveloperGuide/smartcontract/05-sc-api.md)
   - [White-papers](docs-en/DeveloperGuide/06-white-papers.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Tutorials
