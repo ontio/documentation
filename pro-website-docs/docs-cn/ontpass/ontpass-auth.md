@@ -39,7 +39,6 @@
 	<td>Claim_Description</td>
 	<td>PersonalKeyInfo</td>
 	<td>Provider</td>
-	<td>Charge</td>
 	<td>DocLink</td>
 </tr>
 <tr>
@@ -49,7 +48,6 @@
 	<td>中国公民实名身份认证</td>
 	<td>姓名，身份证号</td>
 	<td>CFCA</td>
-	<td>1 ONG</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
@@ -57,7 +55,6 @@
 	<td>中国公民实名身份认证</td>
 	<td>姓名，身份证号</td>
 	<td>SenseTime</td>
-	<td>0.8 ONG</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
@@ -67,7 +64,6 @@
 	<td>全球用户护照认证</td>
 	<td><nobr>姓名，国籍，出生日期，证件号,签发日期，过期日期</nobr></td>
 	<td>Shuftipro</td>
-	<td>0.8 ONG</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
@@ -75,7 +71,6 @@
 	<td>全球用户身份证认证</td>
 	<td><nobr>姓名，国籍，出生日期，证件号,签发日期，过期日期</nobr></td>
 	<td>Shuftipro</td>
-	<td>0.8 ONG</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
@@ -83,7 +78,6 @@
 	<td>全球用户驾照认证</td>
 	<td><nobr>姓名，国籍，出生日期，证件号,签发日期，过期日期</nobr></td>
 	<td>Shuftipro</td>
-	<td>0.8 ONG</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
@@ -91,7 +85,6 @@
 	<td>全球用户护照认证</td>
 	<td><nobr>姓名，国籍，证件号</nobr></td>
 	<td>IdentityMind</td>
-	<td>1.8 ONG</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
@@ -99,7 +92,6 @@
 	<td>全球用户身份证认证</td>
 	<td><nobr>姓名，国籍，证件号</nobr></td>
 	<td>IdentityMind</td>
-	<td>1.8 ONG</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
@@ -107,7 +99,6 @@
 	<td>全球用户驾照认证</td>
 	<td><nobr>姓名，国籍，证件号</nobr></td>
 	<td>IdentityMind</td>
-	<td>1.8 ONG</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 </table>
