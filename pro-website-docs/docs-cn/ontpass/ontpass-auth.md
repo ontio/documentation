@@ -14,7 +14,7 @@
 
 ## 交互流程说明
 
-![交互流程说明](http://assets.processon.com/chart_image/5be91bd2e4b0d74dc53afd69.png)
+![交互流程说明](https://github.com/ontio/documentation/blob/master/pro-website-docs/ontpass02.png)
 
 
 - A0：ONTPass提供了公开的认证服务集市，认证需求方可以到ONTPass平台浏览并选定自己需要的TrustAnchor及其认证服务。
