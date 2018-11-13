@@ -1,48 +1,39 @@
+本教程将指导你完成基于私有链的智能合约创建、部署、测试过程，并最终将其部署到本体主网。
 
+使用的步骤是：
 
+1.在SmartX中创建和编辑智能合约（**不要在此步骤部署**）。
+2.下载并安装solo-chain。
+3.在谷歌浏览器中安装Cynao并将其连接到私链。
+4.在SmartX中部署智能合约，它将调用Cyano将合约部署到solo-chain。
+5.检查智能合约是否已成功部署在solo-chain。
+6.在SmartX中调用智能合约，它将使用Cyano调用solo-chain中的合约。
+7.检查solo-chain中的交易。
+8.使用SmartX和Cyano在主网上进行部署和调用（**仅在完成开发后执行此操作**）
 
-This tutorial will guide you through the process of creating a smart contract, deploying it to your private-net, testing and finally deploying it to the Ontology Mainnet. 
+需要以下工具：
 
-The steps used will be:
+- [SmartX](https://smartx.ont.io/) —— 我们的在线智能合约集成开发环境和调试器。
+- [Solo-chain](https://github.com/punicasuite/solo-chain/releases) —— 一个预先构建的私有链。
+- [Cyano wallet](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon) —— 一个本体的谷歌 Chrome 浏览器插件。
 
-1. Create/edit smartcontract in SmartX (**do not deploy at this step**)
-2. Download and install solo-chain
-3. Install Cynao in Google Chrome and use private-net which will connnect to solo-chain
-4. Deploy smartcontract in SmartX which will use Cyano to deploy to solo-chain
-5. Check the smartcontract has deployed successfully on the solo-chain
-6. Invoke smartcontract in SmartX  which will use Cyano to invoke on solo-chain
-7. Check transction on solo-chain
-8. Deploy/Invoke to Mainnet using SmartX and Cyano (**only do this when you have completed development**)
+## 在SmartX中创建并编译智能合约
 
+我们将使用[SmartX](https://smartx.ont.io/)开发、编译和测试我们的智能合约。如果你不熟悉SmartX，请阅读[SmartX教程](https://ontio.github.io/documentation/SmartX_Tutorial_en.html)，它将指导你完成该工具的使用。
 
-The following tools will be needed:
-
-* [SmartX](https://smartx.ont.io/) - our online smart contract IDE and debugger
-* [Solo-chain](https://github.com/punicasuite/solo-chain/releases) - a prebuilt private-net for development
-* [Cyano wallet](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon) - an Ontology Google Chrome extension wallet
-<p><br>
-
-
-## Create and compile your smart contract in SmartX
-
-We will develop, compile and test our smart contract using the [SmartX](https://smartx.ont.io/) tool. If you are new to SmartX, please read over the [SmartX Tutorial](https://ontio.github.io/documentation/SmartX_Tutorial_en.html) which will guide you thorugh the process of using the tool.
-
-Create a new project in the language of your choice and use one of the templates (we will be using Arith) to work with if you don't have your own smart contract.
-
-Compile your smart contract but **do not deploy it yet**.
+编译你的智能合约但**不要部署它**。
 
 ![Compile](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/SmartX_compile.jpg)
 
-
 <p><br>
 
-## Download and install solo-chain
+## 下载并安装 solo-chain
 
-Solo-chain is a pre-built Ontology private-net which includes a number of tools to interact with and monitor the network.
+Solo-chain 是一个预构建的本体私链，它包含许多与网络交互和监视网络的工具。
 
-Download and install [Solo-chain](https://github.com/punicasuite/solo-chain/releases) and verify it is working as expected.  You can do this by checking that blocks are being generated and/or initiating a transaction.  
+下载安装[Solo-chain](https://github.com/punicasuite/solo-chain/releases)并验证它是否按预期工作。你可以通过检查正在生成的区块和发起交易来执行此操作。
 
-Please make note of the IP address shown in the dashboard for later use.
+请记录下控制面板中显示的IP地址以供日后使用。
 
 ![Solo-chain dashboard](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/solo-chain_interface.jpg)
 
