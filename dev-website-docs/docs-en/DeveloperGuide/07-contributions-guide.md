@@ -10,11 +10,13 @@ Dear Contributors,
 
 This is a guide to help you become part of the Ontology technical community.
 
-From the Ontology side we wish to build a highly engaged, quality community and believe that this is best achieved by teamwork. We encourage the community to form independent groups so that we, the Ontology core team, can engage on a strategic level for support and rewards. It’s important for us that the different community participants takes responsibility for their own development and management - they are a cornerstone in the Ontology ecosystem and help define it!
+We encourage the community to form independent groups so that we, the Ontology Foundation, can engage on a strategic level for support and rewards. It’s important for us that the different community participants takes responsibility for their own development and management - they are a cornerstone in the Ontology ecosystem and help define it!
 
 <h4 align="center">We believe that projects are best executed in teams and encourage contributors to form independent groups.</h4>
 
 How you chose to structure an independent contributor group, join another groups, or work as an individual contributor is entirely up to yourself. We welcome you to send proposals to: mathiasglintborg@ont.io 
+
+Proposal should include e.g. structure of group, team, budget and initaitives.
 
 ## Technical contributions
 
