@@ -28,4 +28,4 @@
 
 解释你的解决方案以及为什么你做你正在做的事情，而不是描述你正在做的事情。确保评审者和你未来都可以阅读补丁，并理解为什么要实施特定的解决方案。
 
-Reported-by: whoever-reported-it Signed-off-by: Your Name youremail@yourhost.com
+报告者：名字 签署者：名字 邮箱（Reported-by: whoever-reported-it Signed-off-by: Your Name youremail@yourhost.com）
