@@ -2,20 +2,20 @@
 
 使用的步骤是：
 
-1.在SmartX中创建和编辑智能合约（**不要在此步骤部署**）。
-2.下载并安装solo-chain。
-3.在谷歌浏览器中安装Cynao并将其连接到私链。
-4.在SmartX中部署智能合约，它将调用Cyano将合约部署到solo-chain。
-5.检查智能合约是否已成功部署在solo-chain。
-6.在SmartX中调用智能合约，它将使用Cyano调用solo-chain中的合约。
-7.检查solo-chain中的交易。
-8.使用SmartX和Cyano在主网上进行部署和调用（**仅在完成开发后执行此操作**）
+1. 在SmartX中创建和编辑智能合约（**不要在此步骤部署**）。
+2. 下载并安装solo-chain。
+3. 在谷歌浏览器中安装Cynao并将其连接到私链。
+4. 在SmartX中部署智能合约，它将调用Cyano将合约部署到solo-chain。
+5. 检查智能合约是否已成功部署在solo-chain。
+6. 在SmartX中调用智能合约，它将使用Cyano调用solo-chain中的合约。
+7. 检查solo-chain中的交易。
+8. 使用SmartX和Cyano在主网上进行部署和调用（**仅在完成开发后执行此操作**）
 
 需要以下工具：
 
 - [SmartX](https://smartx.ont.io/) —— 我们的在线智能合约集成开发环境和调试器。
-- [Solo-chain](https://github.com/punicasuite/solo-chain/releases) —— 一个预先构建的私有链。
-- [Cyano wallet](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon) —— 一个本体的谷歌 Chrome 浏览器插件。
+- [Solo-chain](https://github.com/punicasuite/solo-chain/releases) —— 是一个预先构建的私有链。
+- [Cyano wallet](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon) —— 是一个本体的谷歌 Chrome 浏览器插件。
 
 ## 在SmartX中创建并编译智能合约
 
@@ -81,15 +81,11 @@ Cyano钱包是与SmartX集成的谷歌 Chrome 扩展程序，允许开发人员�
 ![Solo-chain SC list](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/solo-chain_SC_list.jpg)
 <p><br>
 
-## Invoke smart contract in SmartX
-
-The next step is to invoke your smart contract which is done in SmartX by selecting Run and selecting any methods (if applicable).  In this example we are using the 'Arith' template so we will be using the add method to add two numbers together.
+## 在SmartX调用智能合约
 
 下一步是通过点击 `Run` 并选择任何方法（如果适用）来调用在SmartX中完成的智能合约。 在这个例子中，我们使用`Arith` 模板，因此我们将使用 `add` 方法将两个数字相加。
 
 ![SmartX invoke SC](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/SmartX_invoke_SC.jpg)
-
-Once you click on Run, Cyano wallet will prompt you to invoke the smart contract which can be done by clicking confirm and entering your password.
 
 点击`run`后，Cyano 钱包将提示你智能合约调用，单击 `Confirm` 并输入密码即可完成。
 

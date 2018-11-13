@@ -46,7 +46,7 @@
   - [Wallet Integration](docs-en/SDKs/02-wallet-intergration.md)
       - [iOS](docs-en/SDKs/ontology_wallet_dev_ts_sdk_en.md)
       - [Android](docs-en/SDKs/ontology_wallet_dev_android_en.md)
-- DAPI
+- dAPI.js
   - [Overview](docs-en/dApi/00-overview.md)
   - [Quick Start](docs-en/dApi/01-quickstart.md)
   - [Getting Started](docs-en/dApi/02-getting-started.md)

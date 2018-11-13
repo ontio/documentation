@@ -49,17 +49,17 @@
   - [钱包集成](docs-cn/SDKs/02-wallet-intergration.md)
       - [iOS](docs-cn/SDKs/ontology_wallet_dev_ts_sdk_zh.md)
       - [Android](docs-cn/SDKs/ontology_wallet_dev_android_zh.md)
-- DAPI
+- dAPI.js
   - [概述](docs-cn/dApi/00-overview.md)
   - [快速使用](docs-cn/dApi/01-quickstart.md)
   - [开始使用](docs-cn/dApi/02-getting-started.md)
 
-- Ontology-Cli
+- Ontology Cli
   - [概述](docs-cn/OntologyCli/overview.md)
   - [安装](docs-cn/OntologyCli/installation.md)
   - [开始使用](docs-cn/OntologyCli/getting-started.md)
 
-- Sign-Server
+- Sign Server
   - [概述](docs-cn/SignServer/00-overview.md)
   - [安装](docs-cn/SignServer/01-installation.md)
   - [开始使用](docs-cn/SignServer/02-getting-started.md)
@@ -68,7 +68,7 @@
       - [签名方法](docs-cn/SignServer/05-api-signing-methods.md)
       - [简便的签名方法](docs-cn/SignServer/06-api-signing-convinience-methods.md)
       
-- Ontology-API
+- Ontology API
   - [概述](docs-cn/API/00-overview.md)
   - [Rpc 接口](docs-cn/API/01-rpc_api.md)
   - [Restful 接口](docs-cn/API/02-restful_api.md)
