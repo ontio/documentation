@@ -1,22 +1,21 @@
-# API Methods
+# API 方法
 
-- [Sign Arbitrary Data](#sign-arbitrary-data)
-- [Sign Raw Transaction](#sign-raw-transaction)
-- [Sign Multiple Signature Raw Transaction](#sign-multiple-signature-raw-transaction)
-
-
-## Sign Arbitrary Data
-
-Signs arbitrary data as long as it is encoded as a hex string.
+- [签名任意的数据](#签名任意的数据)
+- [签名原始交易](#签名原始交易)
+- [签署多重签名交易](#签署多重签名交易)
 
 
-### Method Name
+## 签名任意的数据
+签名任意十六进制编码的字符串
+
+
+### 方法名
 ```
 sigdata
 ```
 
 
-### Request parameters
+### 请求参数
 
 ```
 {
@@ -25,7 +24,7 @@ sigdata
 ```
 
 
-### Response result
+### 响应结果
 
 ```
 {
@@ -34,9 +33,9 @@ sigdata
 ```
 
 
-### Examples
+### 例子
 
-Request:
+请求:
 ```
 {
   "qid": "t",
@@ -49,7 +48,7 @@ Request:
 }
 ```
 
-Response:
+响应:
 ```
 {
   "qid": "t",
@@ -62,17 +61,17 @@ Response:
 }
 ```
 
-## Sign Raw Transaction
+## 签名交易
 
-Signs a raw transaction.
+签名一个交易.
 
-### Method Name
+### 方法名
 ```
 sigrawtx
 ```
 
 
-### Request parameters
+### 请求参数
 
 ```
 {
@@ -90,9 +89,9 @@ sigrawtx
 ```
 
 
-### Examples
+### 例子
 
-Request:
+请求:
 ```
 {
   "qid": "1",
@@ -105,7 +104,7 @@ Request:
 }
 ```
 
-Response:
+响应:
 ```
 {
   "qid": "1",
@@ -118,17 +117,17 @@ Response:
 }
 ```
 
-## Sign Multiple Signature Raw Transaction
+## 签署一个多重签名的交易
 
-Signs a multi signature raw transaction with a single specific account. If more than one account within the sigsvr needs to sign, the server needs to be called once for each signer.
+用一个指定的账户进行多签，如果签名机需要多个账户签名，签名机需要为每个签名账户调用该方法进行签名。
 
-### Method Name
+### 方法名
 ```
 sigmutilrawtx
 ```
 
 
-### Request parameters
+### 请求参数
 
 ```
 {
@@ -139,7 +138,7 @@ sigmutilrawtx
 ```
 
 
-### Response result
+### 响应结果
 
 ```
 {
@@ -148,9 +147,9 @@ sigmutilrawtx
 ```
 
 
-### Examples
+### 例子
 
-Request:
+请求:
 ```
 {
   "qid": "1",
@@ -168,7 +167,7 @@ Request:
 }
 ```
 
-Response:
+响应:
 ```
 {
   "qid": "1",

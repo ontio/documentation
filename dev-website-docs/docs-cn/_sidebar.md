@@ -10,6 +10,7 @@
       - [调用](docs-cn/DeveloperGuide/smartcontract/01-invocation.md)
       - [燃料模型](docs-cn/DeveloperGuide/smartcontract/03-fee-model.md)
       - [DAPP](docs-cn/DeveloperGuide/smartcontract/04-dapp.md)
+      - [智能合约API](docs-cn/DeveloperGuide/smartcontract/05-sc-api.md)
   - [白皮书](docs-cn/DeveloperGuide/06-white-papers.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
 - 教程

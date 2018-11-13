@@ -1,30 +1,30 @@
-# API Convenience Methods
-In order to simplify the signature process of common transaction convenience methods are provided.
+# API 便利方法
+为了简化普通交易的签名过程，提供了下面的api。
 
-- [Sign Transfer Transaction](#sign-transfer-transaction)
-- [Sign Ontology Native Contract Invoke](#sign-native-contract-invoke)
-- [Sign NeoVM Contract Invoke](#sign-neovm-contract-invoke)
-- [Sign NeoVM Contract Invoke w/ ABI](#sign-neovm-contract-invoke-w/-abi)
+- [签名转账交易](#签名转账交易)
+- [签名 Ontology Native 合约调用](#签名-Ontology-Native-合约调用)
+- [签名 NeoVM 合约调用](#签名-NeoVM-合约调用)
+- [签名 NeoVM 使用API的合约调用](#签名-NeoVM-使用API的合约调用)
 
-## Network Fees
-By default, each of the following methods will use the signing account to pay the network fee.
+## 网络费用
+下面的所有方法默认使用签名账户支付网络费。
+如果你想用其他账户支付网络费：
 
-If you would like another account will pay the network fee:
+1. 在输入参数时指定peyer地址。
+2. 使用代签名的输出以及付款人账户作为后续调用`sigrawtx`方法的输入。
 
-1. Specify the payer account address as an optional input parameter.
-2. Use the signed output, along with the payer account, as the input for a subsequent call to the `sigrawtx` method.
+## 签名转账交易
 
-## Sign Transfer Transaction
+资产从一个账户到另一个账户转账。
 
-An asset transfer from one account to another.
 
-### Method Name
+### 方法名
 ```
 sigtransfertx
 ```
 
 
-### Request parameters
+### 请求参数
 ```
 {
   "gas_price": XXX,  // gasprice
@@ -38,7 +38,7 @@ sigtransfertx
 ```
 
 
-### Response result
+### 响应结果
 
 ```
 {
@@ -47,9 +47,9 @@ sigtransfertx
 ```
 
 
-### Examples
+### 例子
 
-Request:
+请求:
 ```
 {
   "qid": "t",
@@ -67,7 +67,7 @@ Request:
 }
 ```
 
-Response:
+响应:
 ```
 {
   "qid": "t",
@@ -81,19 +81,19 @@ Response:
 ```
 
 
-## Sign Ontology Native Contract Invoke
+## 签名 Ontology Native 合约调用
 
-The Native contract invocation transaction is constructed and signed according to the ABI.
+Native合约调用交易是通过abi文件进行构造和签名。
 
-Note:
-This method requires ABI files for any contract to be invoked. These files should be located by default in the `./abi` directory, unless an override was provided as a parameter when the service was started using `--abi`. If no abi file is found for a given contract address, this method will return a 1007 error.
+注意:
+该方法需要abi文件对于任何合约的调用，这些文件默认的路径会`./abi`，除非当server启动的时候使用`--abi`指定了特定的abi文件目录，如果对于给定的合约地址，没有发现对应的abi文件，将会返回1007错误。
 
-### Method Name
+### 方法名
 ```
 signativeinvoketx
 ```
 
-### Request parameters
+### 请求参数
 
 ```
 {
@@ -107,7 +107,7 @@ signativeinvoketx
 }
 ```
 
-### Response result
+### 响应结果
 
 ```
 {
@@ -115,9 +115,9 @@ signativeinvoketx
 }
 ```
 
-### Example 1: Transfer transaction via Native Contract Invoke
+### 例子1: 通过Native合约调用执行的转账交易
 
-Request:
+请求:
 ```
 {
   "pid": "t",
@@ -143,7 +143,7 @@ Request:
 }
 ```
 
-Response:
+响应:
 ```
 {
   "qid": "t",
@@ -156,7 +156,7 @@ Response:
 }
 ```
 
-### Example 2: Withdraw ONG
+### 例子 2: 提取ONG
 
 ```
 {
@@ -181,16 +181,16 @@ Response:
 ```
 
 
-## Sign NeoVM Contract Invoke
+## 签名 NeoVM 合约调用
 
-The NeoVM contract parameter supports the datatypes array, bytearray, string, int, and bool. When constructing parameters, it is necessary to provide parameter types and parameter values. The parameter values must all be cast to strings. The array datatype is an array that also contains type/value objects, which supports all the NeoVM supported parameter types.
-
-### Method Name
+NeoVm合约参数支持的数据类型是array, bytearray, string, int, and bool，参数值值必须转换成strings, array数据类型是一个包含类型和值数组对象，并且该类型必须是NeoVm支持的。
+ 
+### 方法名
 ```
 signeovminvoketx
 ```
 
-### Request parameters
+### 请求参数
 
 ```
 {
@@ -202,7 +202,7 @@ signeovminvoketx
 }
 ```
 
-### Response result
+### 响应结果
 
 ```
 {
@@ -210,9 +210,9 @@ signeovminvoketx
 }
 ```
 
-### Examples
+### 例子
 
-Request:
+请求:
 ```
 {
   "qid": "t",
@@ -243,7 +243,7 @@ Request:
 }
 ```
 
-Response:
+响应:
 ```
 {
   "qid": "t",
@@ -257,17 +257,18 @@ Response:
 ```
 
 
-## Sign NeoVM Contract Invoke w/ ABI
+## 签名 NeoVM 合约使用ABI的调用
 
-NeoVM contract invoke transaction constructed and signed according to the provided ABI.
-Note that the parameter values must all be cast to strings.
+通过提供的abi文件构造和签名Neovm合约调用
 
-### Method Name
+注意：参数值必须转换成strnigs类型的值
+
+### 方法名
 ```
 signeovminvokeabitx
 ```
 
-### Request parameters
+### 请求参数
 
 ```
 {
@@ -281,7 +282,7 @@ signeovminvokeabitx
 }
 ```
 
-### Response result
+### 响应结果
 
 ```
 {
@@ -289,9 +290,9 @@ signeovminvokeabitx
 }
 ```
 
-### Examples
+### 例子
 
-Request:
+请求:
 ```
 {
   "qid": "t",
@@ -343,7 +344,7 @@ Request:
 }
 ```
 
-Response:
+响应:
 ```
 {
   "qid": "t",

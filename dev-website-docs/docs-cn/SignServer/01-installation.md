@@ -1,30 +1,30 @@
-# Installation
-The signature service is a part of the [core Ontology repository](https://github.com/ontio/ontology). Download the core Ontology protocol repository and install all dependencies in the proper directory `$GOPATH/src/github.com/ontio`
+# 安装
+签名服务是ontology核心库的一部分 [core Ontology repository](https://github.com/ontio/ontology). 下载Ontology核心仓库代码，安装所有的依赖在`$GOPATH/src/github.com/ontio`路径下。
 
 ```
 git clone https://github.com/ontio/ontology.git
 ```
-or
+或
 ```
 go get github.com/ontio/ontology
 ```
 
-Navigate to the local repository
+切换到本地仓库目录
 ```
 $GOPATH/src/github.com/ontio
 ```
 
-Install project dependencies
+安装项目依赖
 ```
 glide install
 ```
 
-Build SigSvr from source code
+用源码构建签名机服务
 ```
 make tools
 ```
 
-Navigate into the tools directory
+切换到tools目录下
 ```
 cd tools
 ```

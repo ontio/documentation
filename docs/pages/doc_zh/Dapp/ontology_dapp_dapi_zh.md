@@ -17,7 +17,7 @@ giturl: https://github.com/ontio/ontology-dapi/blob/master/README_cn.md
 
 
 
-基于Ontology blockchain开发dApp的轻量级去中心化API。是根据OEP-6实现的dAPI ，[OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) communication protocol.
+DAPI是基于Ontology blockchain开发dApp的轻量级去中心化API。本工程是根据OEP-6实现了dAPI ，请参考[OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) 协议。
 
 使用前请先安装 **dAPI provider** . 比如 [Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
 
@@ -93,21 +93,21 @@ cd ontology-dapi
 npm install
 ```
 
-#### Development build
+#### 开发Build
 
 ````
 npm run build:dev
 ````
 
 
-#### Production build 
+#### 产品Build
 
 ````
 npm run build:prod
 ````
 
 
-## Built With
+## 创建工具
 
 * [TypeScript](https://www.typescriptlang.org/) - Used language
 * [Node.js](https://nodejs.org) - JavaScript runtime for building

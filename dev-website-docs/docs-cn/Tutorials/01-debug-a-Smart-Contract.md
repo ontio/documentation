@@ -1,98 +1,95 @@
 
-## Versions of SmartX
+## SmartX的3个版本
 
-[SmartX](https://smartx.ont.io) is the officially released version that provides the most advanced features and stable development experience.  
+[SmartX 正式版](https://smartx.ont.io)是官方正式版本，它提供了最完善的功能和最稳定的开发体验。
 
-[SmartX beta](https://smartxbeta.ont.io) is the beta released version that includes the newest features. But there may be some bugs existed, which will be fixed in the SmartX community edition first. 
+[SmartX 测试版](https://smartxbeta.ont.io)是测试版本，它包含了本体最新开发的功能。但其中也会存在一些bug，这些bug会在SmartX社区版中优先得到解决。
 
-[SmartX debug](http://smartxdebug.ont.io) is the open-source community edition. Login function has been removed for more convenient development. 
+[SmartX 社区版](http://smartxdebug.ont.io)是开源社区版本。为了更好的开发体验，我们移除了登录功能，开发者可以直接进行开发。 
 
 
+## Debug流程
 
-## Debug procedure
+#### 步骤1 - 创建一个Python工程
+选择Python语言和空白模板, 从[OEP4Sample.py](https://github.com/tonyclarking/python-template/blob/master/OEP4Sample/OEP4Sample.py])中拷贝代码并复制到编辑器中。 
 
-#### Step1 - Create a python project
+![step1.png](https://upload-images.jianshu.io/upload_images/150344-cc24c675bc9a3267.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-Select the python language and blank template. Copy the code in [OEP4Sample.py](https://github.com/tonyclarking/python-template/blob/master/OEP4Sample/OEP4Sample.py](https://github.com/tonyclarking/python-template/blob/master/OEP4Sample/OEP4Sample.py)
-) to editor.
+![step1.png](https://upload-images.jianshu.io/upload_images/150344-cdb9c5585a074881.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![step 1.png](https://upload-images.jianshu.io/upload_images/150344-cc24c675bc9a3267.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+#### 步骤2 - 编译
 
-![step 1.png](https://upload-images.jianshu.io/upload_images/150344-cdb9c5585a074881.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-#### Step2 - Compile
-
-Clicking the "Compile" button to compile the smart contract. ABI and AVM will be generated and Opcode will be displayed at the bottom.
+点击编译按钮编译智能合约。ABI与AVM文件会自动生成且操作码会显示在底部。
 
 ![step2.png](https://upload-images.jianshu.io/upload_images/150344-807d1c9add5be98f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#### Step3 - Set a breakpoint
+#### 步骤3 - 设置断点
 
-Clicking on the left side of the line number, a red breakpoint will appear.
+点击行数的左侧空白处，将会生成一个红色的断点。
 
 ![step3.png](https://upload-images.jianshu.io/upload_images/150344-82b13a0a1c8372db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#### Step4 - Debug run
+#### 步骤4 - 以Debug模式运行
 
-Firstly, Select run function, choose the type of the parameters, and fill in the parameters.
+第一，选择要执行的函数，再选择参数的类型并填充参数值。
 
-Secondly, click the "Debug Run" button.
+第二，点击“Debug run”按钮。
 
 ![step4.png](https://upload-images.jianshu.io/upload_images/150344-f890c3707e48fea4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-After clicking the "Debug Run" button, "Debug run" will be "Waiting".
+点击“Debug run”按钮之后，“Debug run”的字样会显示成“Waiting”。
 
-#### Step5 - Use the debug panel
+#### 步骤5 - 使用Debug控制面板
 
-Use the navigation panel to debug.
+使用导航面板debug
 
 ![debug panel.png](https://upload-images.jianshu.io/upload_images/150344-6b73326a3e5388e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-From the left to the right: 
+从左到右: 
 
-Continue(jump to the next breakpoint), Debug Stop, Step Over Line, Step Over Opcode, Clear (clear the window)
+继续运行(跳转到下一个断点), 终止debug, 跳转到下一行, 跳转到下一个操作码, 清屏
 
-## Debug panel
+## Debug控制面板
 
-The panel displays basic information about the current smart contract.
+控制面板会显示当前合约的基础信息。
 
 ![5.png](https://upload-images.jianshu.io/upload_images/150344-34922a573030a17a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-From the left to the right:
+从左到右:
 
-Logs: display execution result
+Logs: 显示合约执行的结果
 
-Evaluation Stack: temporarily store the data it is currently executing 
+Evaluation Stack: 临时存放当前合约正在使用的数据
 
-Alt Stack: store all variables. The locals read variables from alt stack
+Alt Stack: 存储所有变量。Locals将会从Alt Stack中读取本地变量
 
-History: display the history of execution of OP code
+History: 显示操作码的执行记录
 
-Locals: display local variables associated with the current context.
+Locals: 显示当前合约的本地变量
 
-Storage:  the database of the smart contract
+Storage:  智能合约的数据库
 
 
-## Change parameters in console
+## 用控制面板改变参数
 
-#### How to change variable
+#### 如何改变变量值
 
-Change a value in parentheses and the value of the corresponding variable will be changed.
+改变括号内的数值，其相对应的变量值将会改变。
 
 ![change locals.png](https://upload-images.jianshu.io/upload_images/150344-8c122e82a7d02d7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#### How to change storage
+#### 如何改变存储的数据值
 
-You can add or delete any key and its corresponding value in storage console.
+你可以使用Storage来新增或删除任意合约数据。
 
 ![change storage.png](https://upload-images.jianshu.io/upload_images/150344-52aa4be649311046.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-#### How to use transform tool in debugging
+#### 如何使用转换工具
 
-Select a function you want to use and fill the data into space.
+选择转换工具并填入相应的数据。
 
-Function list of Tool panel
+工具面板的功能列表
 
 ![tool panel.png](https://upload-images.jianshu.io/upload_images/150344-46e5da4eb0a4a8c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
