@@ -16,11 +16,11 @@ We encourage the community to form independent groups so that we, the Ontology F
 
 How you chose to structure an independent group, join another groups, or work as an individual contributor is entirely up to yourself. 
 
-For new groups, welcome you to send proposals to: mathiasglintborg@ont.io and include e.g. structure of group, team, budget and initaitives.
+For new groups, welcome you to send proposals to: mathiasglintborg@ont.io and include e.g. structure of group, team, budget and initiatives.
 
-To join an existing Ontology contributor group, talk to us at [Ontology Discord](https://discord.gg/9zcTQNy) or meet the independt groups at [Ontology Community Develoepers](https://discord.gg/YWXB9kj).
+To join an existing Ontology contributor group, talk to us at [Ontology Discord](https://discord.gg/9zcTQNy) or meet the independent groups at [Ontology Community Developers](https://discord.gg/YWXB9kj).
 
-If you are independt contributor, talk to us at [Ontology Discord](https://discord.gg/9zcTQNy) and check out the [Developer Center](https://developer.ont.io/).
+If you are independent contributor, talk to us at [Ontology Discord](https://discord.gg/9zcTQNy) and check out the [Developer Center](https://developer.ont.io/).
 
 ## Technical contributions
 
@@ -37,7 +37,7 @@ Generally, we divide coding and development from the technical community into th
 
 ### Rewards
 
-Rewards for qualified contributions are made according to the standard process for community contributions. It will be based on case-by-case evaluation conducted by the Ontology Foundation and Ontology Research Institue. 
+Rewards for qualified contributions are made according to the standard process for community contributions. It will be based on case-by-case evaluation conducted by the Ontology Foundation and Ontology Research Institute. 
 
 ### Developer community organizational cooperation
 
