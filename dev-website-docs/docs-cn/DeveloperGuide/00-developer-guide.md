@@ -22,6 +22,7 @@
      * [本体命令行工具](#本体命令行工具)
      * [本体签名机](#本体签名机)
      * [本体的API](#本体的api)
+     * [本体的SDK](#本体的sdk)
 * [本体智能合约](#本体智能合约)
      * [本体智能合约IDE——Smartx](#本体智能合约idesmartx)
      * [如何编写智能合约](#如何编写智能合约)
@@ -99,6 +100,12 @@ Ontology DID（简称：ONT ID）基于W3C的DID规范，是一个去中心化�
 在命令行之外，本体提供了一套更方便的区块链交互接口。这些接口以API的形式提供，目前本体的API包含三类：[本体RPC API](https://ontio.github.io/documentation/rpc_api_zh.html)，
 [本体Restful API](https://ontio.github.io/documentation/restful_api_zh.html)，[本体Websocket API](https://ontio.github.io/documentation/websocket_api_zh.html)。
 通过使用API，开发者可以十分便捷的向本体网络发送交易、查询数据。
+
+### 本体的SDK
+
+对于开发者而言，SDK是直接在程序中调用工具。目前，本体提供了三套SDK供开发者使用，分别是[Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_zh.html)，
+[Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_zh.html)与[Golang SDK](https://github.com/ontio/ontology-go-sdk)。在使用SDK之前，
+建议先阅读SDK的[总体说明](https://ontio.github.io/documentation/ontology_overview_sdks_zh.html)和本体的[钱包文件规范](https://ontio.github.io/documentation/Wallet_File_Specification_en.html)。
 
 ## 本体智能合约
 
