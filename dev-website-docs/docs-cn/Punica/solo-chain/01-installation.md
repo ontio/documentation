@@ -1,9 +1,11 @@
-# Installation
-- [Download the latest release](https://github.com/punicasuite/solo-chain/releases) version of the Solo chain application for your appropriate development environment (Windows, Mac)
-- Install the application to your desktop computer
+# 安装
 
-If you would like to compile the application yourself from the source repo, you are free to do that as well.
-- Clone down the github repo `git clone git@github.com:punicasuite/solo-chain.git`
-- Install dependencies `yarn install`
-- Compile installer `yarn build`
-- Navigate to the `release` folder and open the appropriate desktop installer (dmg or exe)
+- [下载](https://github.com/punicasuite/solo-chain/releases)适用于所在平台(Windows, Mac)的最新安装包。
+- 将应用程序安装到桌面计算机。
+
+如果您想基于源代码库自己编译应用程序。
+
+- 从Github上克隆项目库：`git clone git@github.com:punicasuite/solo-chain.git`
+- 安装依赖项`yarn install`
+- 编译安装程序`yarn build`
+- 跳转到`release`文件夹并打开相应的桌面安装程序（dmg或exe）
