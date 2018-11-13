@@ -43,7 +43,7 @@
 	<td>DocLink</td>
 </tr>
 <tr>
-    <td rowspan="2"> did:ont:ARr6ApK24E<br/></td>
+    <td rowspan="2"> did:ont:ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
     <td rowspan="2">Ontology TrustAnchor</td>
     <td>claim:cfca_authentication</td>
 	<td>中国公民实名身份认证</td>
@@ -61,7 +61,7 @@
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
-    <td rowspan="6"> did:ont:AcbVUAXk<br/></td>
+    <td rowspan="6"> did:ont:AcbVUAXkJSKy7g<br/>43KHW378pBwA48Ywbuuw<br/></td>
     <td rowspan="6">Ontology TrustAnchor</td>
     <td>claim:sfp_passport_authentication</td>
 	<td>全球用户护照认证</td>
@@ -131,10 +131,8 @@ Content-Type: application/json
 RequestExample：
 {
 	"OntId":"did:ont:Assxxxxxxxxxxxxx",
-	"NameCN":"COO",
-	"NameEN":"COO",
-	"DesCN":"COO 区块链",
-	"DesEN":"COO Blockchain",
+	"Name":"COO",
+	"Desc":"COO 区块链",
 	"CallBackAddr":"https://coo.chain/user/authentication",
 	"Signature":"AXFqy6w/xg+IFQBRZvucKXvTuIZaIxOS0pesuBj1IKHvw56DaFwWogIcr1B9zQ13nUM0w5g30KHNNVCTo14lHF0="
 }
@@ -153,10 +151,8 @@ SuccessResponse：
 | RequestField     |     Type |   Description   | Necessary|
 | :--------------: | :--------:| :------: |:----:|
 |    OntId|   String|  认证需求方OntId  | Y|
-|    NameEN|   String|  认证需求方名称，英文  | Y|
-|    NameCN|   String|  认证需求方名称，中文  |Y|
-|    DesEN|   String| 认证需求方描述，英文  |Y|
-|    DesCN|   String|  认证需求方描述，中文  |Y|
+|    Name|   String|  认证需求方名称  | Y|
+|    Desc|   String| 认证需求方描述 |Y|
 |    CallBackAddr|   String|  回调地址。满足https+域名，接收post回调请求来获取TrustAnchor签发完成的可信声明信息 | Y|
 |    Signature|   String|  请求信息的签名。由认证需求方使用自己OntId的私钥按照标准的ECDSA算法签名。| Y|
 
