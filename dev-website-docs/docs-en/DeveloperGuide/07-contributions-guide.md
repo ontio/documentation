@@ -33,7 +33,7 @@ Generally, we divide coding and development from the technical community into th
 - [dApps](https://dapp.ont.io/)
   - We welcome dApp projects to build on Ontology, talk to our VC, or incubation service
 - [Ontology enhancement proposals (OEP)](https://github.com/ontio/OEPs)
-  - OEPs describe standards for the Ontology platform, including core protocol specifications, client APIs, and contract standards
+  - OEPs describe standards for the Ontology platform, including core protocol specifications, client APIs, and contract standards. This is an opportunity to work along with the core tech team and build the blockchain infrastructure!
 
 ### Rewards
 
