@@ -1,66 +1,69 @@
 # Getting Started
 
-- [Operation](#operation)
-  - [Configuration](#configuration)
-  - [Wallet Data Directory](#wallet-data-directory)
-  - [IP Address Access Control](#ip-address-access-control)
-  - [IP Port Number](#ip-port-number)
-  - [ABI File Directory](#abi-file-directory)
-  - [Logging](#logging)
-- [Importing Pre-existing Wallet Data](#importing-existing-wallet-data)
+- [操作](#操作)
+  - [配置](#配置)
+  - [钱包数据目录](#钱包数据目录)
+  - [IP地址访问控制](#IP地址访问控制)
+  - [IP端口号](#IP-端口号)
+  - [ABI文件目录](#ABI-文件目录)
+  - [日志](#日志)
+- [导入钱包数据](#导入钱包数据)
 
-## Operation
-To quickly get the service running with all the default options, simply run the command
+## 操作
+如果仅使用默认参数的话，只需要执行下面的启动命令
 ```
 ./sigsvr
 ```
-The service will now be accessible at:
+通过下面的链接访问:
 ```
 http://localhost:20000/cli
 ```
 
-## Configuration
-The service comes preconfigured with default options to get you started, however you will want to adjust these as appropriate for your specific project. All configurations are made via option parameters, for example:
+## 配置
+服务启动的时候会使用默认配置，但是你可以修改配置参数以适用于特定的项目。所有的配置参数都可以通过可选参数选项进行设置。如下：
 
 ```
 ./sigsvr --walletdir ./data/wallets --abi ./data/abi
 ```
-Any combination of the configuration option is detailed below can be used.
+可以使用下面详述的配置选项的任何组合。
 
-### Wallet Data Directory
-The location where the local wallet data will be stored by the service. The default location is `$GOPATH/src/github.com/ontio/ontology/tools/wallet_data`. If you would like to change this location, please use the `walletdir` parameter.
+### 钱包数据目录
+服务会存储本地钱包的位置，默认的钱包文件位置是`$GOPATH/src/github.com/ontio/ontology/tools/wallet_data`. 如果你想改变钱包文件路径，可以使用`walletdir`参数设置。
 
-For example:
+
+例如:
 ```
 ./sigsvr --walletdir ./data/wallets
 ```
 
-### IP Address Access Control
-The IP address which you would like the service to be accessible from. By default, the it is set to only be accessed by your local machine, set by the value `127.0.0.1`. If you would like to have this service be accessible externally, please use the `cliaddress` parameter.
+### IP地址访问控制
 
-For example:
+IP地址默认只供本地访问，通过`127.0.0.1`。如果你想提供外部访问，请使用`cliaddress`进行配置。
+
+例如:
 ```
 ./sigsvr --cliaddress 0.0.0.0
 ```
 
-### IP Port Number
-The IP port number at which you would like your service to be avaliable at. By default the port number is set to `20000`. If you would like to change this location, please use the `cliport` parameter.
+### IP 端口号
 
-For example:
+服务的默认端口号是`20000`，如果你想更改端口号，请使用`cliport`参数配置。
+
+例如:
 ```
 ./sigsvr --cliport 1337
 ```
 
-### ABI File Directory
-The location where the local ABI files used for Ontology Native Smart Contract invocations will be located. By default, the current assortment of standard ABI files are provided for you, and located at `$GOPATH/src/github.com/ontio/ontology/tools/abi`. If you would like to change this location, please use the `abi` parameter.
+### ABI 文件目录
+服务会加载Ontology Native合约abi文件位置，abi文件位置默认是在`$GOPATH/src/github.com/ontio/ontology/tools/abi`，如果你想更改该路径，可以通过`abi`参数进行设置。
 
-For example:
+例如:
 ```
 ./sigsvr --abi ./data/abi
 ```
 
-### Logging
-Different levels of service logging available. By default, the logging level is set to Info (2). However there are seven different levels of logging available.
+### 日志
+提供不同级别的日志记录，默认的日志级别是Info (2). 可设置的日志级别如下.
 
 0. Trace
 1. Debug
@@ -70,17 +73,19 @@ Different levels of service logging available. By default, the logging level is 
 5. Fatal
 6. Max Level
 
-For example:
+例如:
 ```
 ./sigsvr --loglevel 0
 ```
 
-## Importing Existing Wallet Data
-You may already have a set of wallets generated offline, and would like to import them to the service. In order to do this, you can use the import command along with the `wallet` option to point to an existing `.dat` file to import wallets from. This command is separate from the service configuration options, as this will simply import wallets to the service, and not actually run the service.
+## 导入钱包数据
 
-For example:
+你可能已经离线生成了钱包文件，想要导入到服务中。为了达到这个目的，你可以使用导入命令选项`wallet`来打入一个已经存在的钱包文件，该命令独立于服务配置选项，仅仅将钱包数据导入到服务，并没有真正的运行服务。
+
+例如:
 ```
 ./sigsvr import --wallet ./wallet_2018-10-31-23-59-59.dat
 ```
 
-This can be useful to import wallets from an export using the services export function.
+这对于使用服务导出功能导出导入钱包非常有用。
+

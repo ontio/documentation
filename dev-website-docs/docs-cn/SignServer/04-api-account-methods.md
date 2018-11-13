@@ -1,31 +1,31 @@
-# API Account Methods
+# API 账户方法
 
-- [Create Account](#create-account)
-- [Export Account](#export-account)
+- [创建账户](#创建账户)
+- [导出账户](#导出账户)
 
 
-## Create Account
+## 创建账户
 
-Creates a new account and adds to wallet. Note that this does not create a backup of the new account. So please be sure to use the Export Account method regularly to properly backup any newly created wallets.
+创建一个新的账户并导入钱包，注意该操作并没有创建账户的备份，所以请确保已经使用导出账户方法来备份任何新建的钱包数据。
 
-### Method Name
+### 方法名
 ```
 createaccount
 ```
 
-### Request parameters
+### 请求参数
 ```
 None
 ```
 
-### Response
+### 响应
 ```
 {
   "account": "XXX"             // The address of account created by sigsvr
 }
 ```
 
-### Example
+### 例子
 
 Request:
 ```
@@ -37,7 +37,7 @@ Request:
 }
 ```
 
-Response:
+响应:
 ```
 {
   "qid": "t",
@@ -50,18 +50,17 @@ Response:
 }
 ```
 
-## Export Accounts
+## 导出账户
 
-Export accounts method will export all accounts in wallet data into a `.dat` wallet file. This can be used to backup the accounts managed by this service.
+导出Account方法将导出钱包文件中的所有账户到`.dat`文件中，这可用于备份此服务管理的帐户。。
 
-
-### Method Name
+### 方法名
 ```
 exportaccount
 ```
 
 
-### Request parameters
+### 请求参数
 
 ```
 {
@@ -70,7 +69,7 @@ exportaccount
 ```
 
 
-### Response result
+### 响应结果
 
 ```
 {
@@ -80,9 +79,9 @@ exportaccount
 ```
 
 
-### Examples
+### 例子
 
-Request:
+请求:
 ```
 {
   "qid": "t",
@@ -91,7 +90,7 @@ Request:
 }
 ```
 
-Response:
+响应:
 ```
 {
   "qid": "t",
