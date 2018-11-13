@@ -1,7 +1,7 @@
 
 The outline of this document is as follows:
 * [Overview](#wallet-integration-overview)
-* [Integration Guide](#wallet-integration)
+* [Integration Guide](#integration-Guide)
 * [Native contract address](#native-contract-address)
 
  
