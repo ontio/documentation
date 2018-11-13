@@ -20,16 +20,16 @@ If you have any issues getting setup, please reach out in the Github issues, or 
 
 ## 贡献指南
 
-Please open a pull request with signed-off commits. We appreciate your help! You can also send your codes as emails to the developer mailing list. You're welcomed to join the Ontology mailing list or developer forum.
+请打开带有签名的拉取请求。感谢您的帮助！您还可以将代码作为电子邮件发送到开发人员邮件列表。欢迎您加入本体邮件列表或开发人员论坛。
 
-Please provide detailed submission information when you want to contribute code for this project. The format is as follows:
+如果您想为此项目贡献代码，请提供详细的提交信息。格式如下：
 
-Header line: explain the commit in one line (use the imperative).
+标题行：在一行中解释提交（使用命令）。
 
-Body of commit message is a few lines of text, explaining things in more detail, possibly giving some background about the issue being fixed, etc.
+提交消息的主体是几行文本，更详细地解释事情，可能提供有关修复问题的一些背景，等等。
 
-The body of the commit message can be several paragraphs, and please do proper word-wrap and keep columns shorter than about 74 characters or so. That way "git log" will show things nicely even when it's indented.
+提交消息的主体可以是几个段落，请做正确的自动换行并保持列短于约74个字符左右。这样 `git log` 即使缩进也能很好地显示出来。
 
-Make sure you explain your solution and why you're doing what you're doing, as opposed to describing what you're doing. Reviewers and your future self can read the patch, but might not understand why a particular solution was implemented.
+解释你的解决方案以及为什么你做你正在做的事情，而不是描述你正在做的事情。确保评审者和你未来都可以阅读补丁，并理解为什么要实施特定的解决方案。
 
 Reported-by: whoever-reported-it Signed-off-by: Your Name youremail@yourhost.com
