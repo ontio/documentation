@@ -1,7 +1,5 @@
 # 贡献
 
-If you happen to find any issues, or have any cool ideas for the next amazing feature for Solo chain, please head over to the [Github](https://github.com/punicasuite/solo-chain) repo, and help us make Solo chain even better.
-
 如果您碰巧发现任何问题，或者对 Solo Chain 的后续功能有任何想法，请到 [Github 项目库](https://github.com/punicasuite/solo-chain) 中提出，这将帮助我们创造一个更好的 Solo Chain。
 
 ## 开发步骤
@@ -13,8 +11,6 @@ If you happen to find any issues, or have any cool ideas for the next amazing fe
 - 编译安装程序 `yarn dev`
 
 这将安装并编译所有必需的依赖项和源代码，并启在 `localhost：9080` 启动服务。当你对 `./src` 文件夹中的代码库进行更改时，应用程序将以热重载的方式进行刷新。
-
-If you have any issues getting setup, please reach out in the Github issues, or directly on Discord.
 
 如果你在安装时遇到任何问题，都可以在 Github 的 issue 中提出，或者直接在 Discord 上联系。
 
@@ -32,4 +28,4 @@ If you have any issues getting setup, please reach out in the Github issues, or 
 
 解释你的解决方案以及为什么你做你正在做的事情，而不是描述你正在做的事情。确保评审者和你未来都可以阅读补丁，并理解为什么要实施特定的解决方案。
 
-Reported-by: whoever-reported-it Signed-off-by: Your Name youremail@yourhost.com
+报告者：名字 签署者：名字 邮箱（Reported-by: whoever-reported-it Signed-off-by: Your Name youremail@yourhost.com）
