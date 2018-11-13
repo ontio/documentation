@@ -1,9 +1,6 @@
-- Developer Guide
-  - [Developer Guide](docs-en/DeveloperGuide/00-developer-guide.md)
-  - [Installation](docs-en/DeveloperGuide/01-installation.md)
+- Ontology
+  - [Introduction](docs-en/DeveloperGuide/01-installation.md)
   - [Consensus VBFT](docs-en/DeveloperGuide/02-VBFT-introduction.md)
-  - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
-  - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
   - [Smart Contract](docs-en/DeveloperGuide/smartcontract/smartcontract.md)
       - [Introduction](docs-en/DeveloperGuide/smartcontract/00-introduction-sc.md)
       - [Deployment](docs-en/DeveloperGuide/smartcontract/02-deployment.md)
@@ -11,9 +8,13 @@
       - [Fee Model](docs-en/DeveloperGuide/smartcontract/03-fee-model.md)
       - [DAPP](docs-en/DeveloperGuide/smartcontract/04-dapp.md)
       - [Smart Contract API](docs-en/DeveloperGuide/smartcontract/05-sc-api.md)
+  - [ONTID](docs-en/DeveloperGuide/04-ontid.md)
+  - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
   - [White-papers](docs-en/DeveloperGuide/06-white-papers.md)
+- Developer Guide
+  - [Developer Guide](docs-en/DeveloperGuide/00-developer-guide.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
-- Tutorials
+- Quick Guide
   - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  
   - [DAPI Useage](docs-en/Tutorials/06-dapi-useage.md)  
   - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)

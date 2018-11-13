@@ -1,9 +1,7 @@
-- 开发者指导
-  - [开发指导](docs-cn/DeveloperGuide/00-developer-guide.md)
+
+- 认识本体
   - [介绍](docs-cn/DeveloperGuide/01-installation.md)
   - [VBFT共识](docs-cn/DeveloperGuide/02-VBFT-introduction.md)
-  - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
-  - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
   - [智能合约](docs-cn/DeveloperGuide/smartcontract/smartcontract.md)
       - [介绍](docs-cn/DeveloperGuide/smartcontract/00-introduction-sc.md)
       - [部署](docs-cn/DeveloperGuide/smartcontract/02-deployment.md)
@@ -11,9 +9,13 @@
       - [燃料模型](docs-cn/DeveloperGuide/smartcontract/03-fee-model.md)
       - [DAPP](docs-cn/DeveloperGuide/smartcontract/04-dapp.md)
       - [智能合约API](docs-cn/DeveloperGuide/smartcontract/05-sc-api.md)
+  - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
+  - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
   - [白皮书](docs-cn/DeveloperGuide/06-white-papers.md)
+- 开发者指导
+  - [开发指导](docs-cn/DeveloperGuide/00-developer-guide.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
-- 教程
+- 快速学习
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
   - [DAPI 使用](docs-cn/Tutorials/06-dapi-useage.md)  
   - [Debug智能合约](docs-cn/Tutorials/01-debug-a-Smart-Contract.md)
