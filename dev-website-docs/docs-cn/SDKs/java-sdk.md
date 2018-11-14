@@ -2,7 +2,7 @@
 
 <p align="center" class="version">Version 1.0.0 </p>
 
-ONT中有两种资产：原生资产和合约资产。原生资产如ont和ong。交易所对接时，主要处理这两种类型资产的充值、提现等操作。
+ONT中有两种资产：原生资产和合约资产。原生资产包括ONT和ONG。合约资产如OEP-4。
 
 SDK文档：[SDK文档](https://github.com/ontio/ontology-java-sdk/tree/master/docs/cn) 
 
@@ -36,6 +36,8 @@ SDK文档：[SDK文档](https://github.com/ontio/ontology-java-sdk/tree/master/d
 		* [3.1 批量构造交易](#31-批量构造交易)
 		* [3.2 批量发送交易](#32-批量发送交易)
 		* [3.3 在钱包中创建Ontid](#33-在钱包中创建Ontid)
+		
+		
 ## 1. 公私钥和地址
 
 账户是基于公私钥创建的，地址是公钥转换而来。
