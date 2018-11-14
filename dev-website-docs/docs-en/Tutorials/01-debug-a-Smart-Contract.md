@@ -1,5 +1,6 @@
 
-## Versions of SmartX
+
+##  Versions of SmartX
 
 [SmartX](https://smartx.ont.io) is the officially released version that provides the most advanced features and stable development experience.  
 
