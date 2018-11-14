@@ -1,3 +1,4 @@
+
 ## 如何使用 
 ontology-dapi 可以作为 CommonJS/ES6 模块或在网页中直接使用. 
 
