@@ -24,7 +24,7 @@
        }
        main {height:auto;}
        .app-nav::after {
-       content: ''; position: absolute; top: 10px; right: -8px; border-left: 8px solid transparent; border-right: 8px solid
+       content: ''; position: absolute; top: 12px; right: -8px; border-left: 8px solid transparent; border-right: 8px solid
       transparent; border-top: 8px solid #32a4be; }
       .app-nav {
         margin-top:15px;
@@ -100,7 +100,14 @@
               url = 'https://github.com/ontio/documentation/blob/master/pro-website-docs' + vm.route.path+".md"
               console.log("####"+url);
             }
-            var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            // var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            var editHtml = [
+              '<p style="text-align:right">',
+              '<a href="' + url + '" target="_blank">',
+              '<img class="emoji" src="https://assets-cdn.github.com/images/icons/emoji/memo.png" alt="memo">',
+              ' Edit Document',
+              '</a></p>'
+            ].join('');
             return editHtml
               + html
           })
