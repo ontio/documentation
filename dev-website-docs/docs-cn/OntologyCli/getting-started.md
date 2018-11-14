@@ -1,565 +1,566 @@
-<!-- TOC -->
+# Ontology cli 使用说明
 
-- [1. Start and Manage Ontology Nodes](#1-start-and-manage-ontology-nodes)
-    - [1.1 Startup Parameters](#11-startup-parameters)
-        - [1.1.1 Ontology System Parameters](#111-ontology-system-parameters)
-        - [1.1.2 Account Parameters](#112-account-parameters)
-        - [1.1.3 Consensus Parameters](#113-consensus-parameters)
-        - [1.1.4 P2P Network Parameters](#114-p2p-network-parameters)
-        - [1.1.5 RPC Server Parameters](#115-rpc-server-parameters)
-        - [1.1.6 RESTful Server Parameters](#116-restful-server-parameters)
-        - [1.1.7 WebSocket Server Parameters](#117-websocket-server-parameters)
-        - [1.1.8 Test Mode Parameters](#118-test-mode-parameters)
-        - [1.1.9 Transaction Parameter](#119-transaction-parameter)
-    - [1.2 Node Deployment](#12-node-deployment)
-        - [1.2.1 MainNet Bookkeeping Node Deployment](#121-mainnet-bookkeeping-node-deployment)
-        - [1.2.2 MainNet Synchronization Node Deployment](#122-mainnet-synchronization-node-deployment)
-        - [1.2.3 Deploying on public test network Polaris sync node](#123-deploying-on-public-test-network-polaris-sync-node)
-        - [1.2.4 Single-Node Test Network Deployment](#124-single-node-test-network-deployment)
-- [2. Wallet Management](#2-wallet-management)
-    - [2.1. Add Account](#21-add-account)
-        - [2.1.1 Add Account Parameters](#211-add-account-parameters)
-    - [2.2 View Account](#22-view-account)
-    - [2.3 Modify Account](#23-modify-account)
-        - [2.3.1 Modifying Account Parameters](#231-modifying-account-parameters)
-    - [2.4 Delete Account](#24-delete-account)
-    - [2.5 Import Account](#25-import-account)
-        - [2.5.1 Import Account Parameters](#251-import-account-parameters)
-        - [2.5.2 Import Account by WIF](#252-import-account-by-wif)
-- [3. Asset Management](#3-asset-management)
-    - [3.1 Check Your Account Balance](#31-check-your-account-balance)
-    - [3.2 ONT/ONG Transfers](#32-ontong-transfers)
-        - [3.2.1 Transfer Arguments](#321-transfer-arguments)
-    - [3.3 Authorize Transfer](#33-authorize-transfer)
-        - [3.3.1 Authorize Transfer Parameter](#331-authorize-transfer-parameter)
-    - [3.4 View Authorized Transfer Balance](#34-view-authorized-transfer-balance)
-        - [3.4.1 View Authorized Transfer Balance Parameters](#341-view-authorized-transfer-balance-parameters)
-    - [3.5 Transferring Funds from Authorized Accounts](#35-transferring-funds-from-authorized-accounts)
-        - [3.5.1 Transferring Funds from Authorized Accounts Parameters](#351-transferring-funds-from-authorized-accounts-parameters)
-    - [3.6 View Unbound ONG Balance](#36-view-unbound-ong-balance)
-    - [3.7 Extract Unbound ONG](#37-extract-unbound-ong)
-        - [3.7.1 Extracting Unbound ONG Parameters](#371-extracting-unbound-ong-parameters)
-- [4. Query Information](#4-query-information)
-    - [4.1 Query Block Information](#41-query-block-information)
-    - [4.2 Query Transaction Information](#42-query-transaction-information)
-    - [4.3 Query Transaction Execution Information](#43-query-transaction-execution-information)
-- [5. Smart Contract](#5-smart-contract)
-    - [5.1 Smart Contract Deployment](#51-smart-contract-deployment)
-        - [5.1.1 Smart Contract Deployment Parameters](#511-smart-contract-deployment-parameters)
-    - [5.2 Smart Contract Execution](#52-smart-contract-execution)
-        - [5.2.1 Smart Contract Execution Parameters](#521-smart-contract-execution-parameters)
-    - [5.3 Smart Contract Code Execution Directly](#53-smart-contract-code-execution-directly)
-        - [5.3.1 Smart Contract Code Execution Directly Parameters](#531-smart-contract-code-execution-directly-parameters)
-- [6. Block Import and Export](#6-block-import-and-export)
-    - [6.1 Export Blocks](#61-export-blocks)
-        - [6.1.1 Export Block Parameters](#611-export-block-parameters)
-    - [6.2 Import Blocks](#62-import-blocks)
-        - [6.2.1 Importing Block Parameters](#621-importing-block-parameters)
-- [7. Build Transaction](#7-build-transaction)
-    - [7.1 Build Transfer Transaction](#71-build-transfer-transaction)
-        - [7.1.1 Build Transfer Transaction Params](#711-build-transfer-transaction-params)
-    - [7.2 Build Authorize Transfer](#72-build-authorize-transfer)
-        - [7.2.1 Build Authorize Transfer Params](#721-build-authorize-transfer-params)
-    - [7.3 Build Transfer From Authorize Account Transaction](#73-build-transfer-from-authorize-account-transaction)
-        - [7.3.1 Build Transfer From Authorize Account Transaction Params](#731-build-transfer-from-authorize-account-transaction-params)
-    - [7.4 Build Withdraw ONG Transaction](#74-build-withdraw-ong-transaction)
-        - [7.4.1 Build Withdraw ONG Transaction Params](#741-build-withdraw-ong-transaction-params)
-- [8. Sign To Transaction](#8-sign-to-transaction)
-    - [8.1 Sign To Transaction Parameters](#81-sign-to-transaction-parameters)
-- [9. Generate Multi-Signature Address](#9-generate-multi-signature-address)
-    - [9.1 Generate Multi-Signature Address Parameters](#91-generate-multi-signature-address-parameters)
-- [10. Multi-Signature To Transaction](#10-multi-signature-to-transaction)
-    - [10.1 Multi-signature parameters for transactions](#101-multi-signature-parameters-for-transactions)
-- [11. Send Transaction](#11-send-transaction)
-    - [11.1 Send Transaction Parameters](#111-send-transaction-parameters)
-- [12. Show Transaction Infomation](#12-show-transaction-infomation)
 
-<!-- /TOC -->
 
-## 1. Start and Manage Ontology Nodes
 
-Ontology CLI has a lot of startup parameters for configuring some of the Ontology node's behavior. Use ./Ontology -help to see all startup parameters supported by the Ontology CLI node. If Ontology CLI is started without any parameters, it will access the Ontology main network as a synchronous node by default.
+* [Ontology cli 使用说明](#ontology-cli-使用说明)
+	* [1、启动和管理Ontology节点](#1-启动和管理ontology节点)
+		* [1.1 启动参数](#11-启动参数)
+			* [1.1.1 Ontology 系统参数](#111-ontology-系统参数)
+			* [1.1.2 账户参数](#112-账户参数)
+			* [1.1.3 共识参数](#113-共识参数)
+			* [1.1.4 P2P网络参数](#114-p2p网络参数)
+			* [1.1.5 RPC 服务器参数](#115-rpc-服务器参数)
+			* [1.1.6 Restful 服务器参数](#116-restful-服务器参数)
+			* [1.1.7 Web socket服务器参数](#117-web-socket服务器参数)
+			* [1.1.8 测试模式参数](#118-测试模式参数)
+			* [1.1.9 交易参数](#119-交易参数)
+		* [1.2 节点部署](#12-节点部署)
+			* [1.2.1 主网记账节点部署](#121-主网记账节点部署)
+			* [1.2.2 主网同步节点部署](#122-主网同步节点部署)
+			* [1.2.3 部署测试网Polaris的同步节点](#123-部署测试网polaris的同步节点)
+			* [1.2.4 本地测试网部署](#124-本地测试网部署)
+	* [2、钱包管理](#2-钱包管理)
+		* [2.1 添加账户](#21-添加账户)
+			* [2.1.1 添加账户参数](#211-添加账户参数)
+		* [2.2 查看账户](#22-查看账户)
+		* [2.3 修改账户](#23-修改账户)
+			* [2.3.1 修改账户参数](#231-修改账户参数)
+		* [2.4 删除账户](#24-删除账户)
+		* [2.5 导入账户](#25-导入账户)
+			* [2.5.1 导入账户参数](#251-导入账户参数)
+			* [2.5.2 通过WIF导入账户](#252-通过wif导入账户)
+	* [3、资产管理](#3-资产管理)
+		* [3.1 查看账户余额](#31-查看账户余额)
+		* [3.2 ONT/ONG转账](#32-ontong转账)
+			* [3.2.1 转账参数](#321-转账参数)
+		* [3.3 授权转账](#33-授权转账)
+			* [3.3.1 授权转账参数](#331-授权转账参数)
+		* [3.4 查看授权转帐余额](#34-查看授权转帐余额)
+			* [3.4.1 查看授权转帐余额参数](#341-查看授权转帐余额参数)
+		* [3.5 从授权账户中转账](#35-从授权账户中转账)
+			* [3.5.1 从授权账户中转账参数](#351-从授权账户中转账参数)
+		* [3.6 查看未解绑的ONG余额](#36-查看未解绑的ong余额)
+		* [3.7 提取解绑的ONG](#37-提取解绑的ong)
+			* [3.7.1 提取解绑的ONG参数](#371-提取解绑的ong参数)
+	* [4、查询信息](#4-查询信息)
+		* [4.1 查询区块信息](#41-查询区块信息)
+		* [4.2 查询交易信息](#42-查询交易信息)
+		* [4.3 查询交易执行信息](#43-查询交易执行信息)
+	* [5、智能合约](#5-智能合约)
+		* [5.1 智能合约部署](#51-智能合约部署)
+			* [5.1.1 智能合约部署参数](#511-智能合约部署参数)
+		* [5.2 智能合约执行](#52-智能合约执行)
+			* [5.2.1 智能合约执行参数](#521-智能合约执行参数)
+		* [5.3 直接执行智能合约字节码](#53-直接执行智能合约字节码)
+			* [5.3.1 直接执行智能合约字节码参数](#531-直接执行智能合约字节码参数)
+			* [5.3.2 直接执行智能合约字节码](#532-直接执行智能合约字节码)
+	* [6、区块导入导出](#6-区块导入导出)
+		* [6.1 导出区块](#61-导出区块)
+			* [6.1.1 导出区块参数](#611-导出区块参数)
+		* [6.2 导入区块](#62-导入区块)
+			* [6.2.1 导入区块参数](#621-导入区块参数)
+	* [7、构造交易](#7-构造交易)
+		* [7.1 构造转账交易](#71-构造转账交易)
+			* [7.1.1 构造转账交易参数](#711-构造转账交易参数)
+		* [7.2 构造授权转账交易](#72-构造授权转账交易)
+			* [7.2.1 构造授权转账交易参数](#721-构造授权转账交易参数)
+		* [7.3 构造从授权账户中转账交易](#73-构造从授权账户中转账交易)
+			* [7.3.1 构造从授权账户中转账交易参数](#731-构造从授权账户中转账交易参数)
+		* [7.4 构造提取ONG交易](#74-构造提取ong交易)
+			* [7.4.1 构造提取ONG交易参数](#741-构造提取ong交易参数)
+	* [8、对交易签名](#8-对交易签名)
+		* [8.1 交易签名命令参数](#81-交易签名命令参数)
+	* [9、生成多重签名地址](#9-生成多重签名地址)
+		* [9.1 生成多重签名地址参数](#91-生成多重签名地址参数)
+	* [10、对交易多重签名](#10-对交易多重签名)
+		* [10.1 对交易多重签名参数](#101-对交易多重签名参数)
+	* [11、发送交易](#11-发送交易)
+		* [11.1 发送交易](#111-发送交易)
+	* [12、查看交易信息](#12-查看交易信息)
 
-### 1.1 Startup Parameters
+## 1、启动和管理Ontology节点
 
-The following are the command line parameters supported by Ontology CLI:
+Ontology cli有很多启动参数，用于配置很管理Ontology节点的一些行为。如果不带任何参数启动Ontology cli时，默认会作为一个同步节点接入Ontology的主网。
 
-#### 1.1.1 Ontology System Parameters
+```
+./ontology
+```
+使用./ontology -help 可以查看到Ontology cli节点支持的所有启动参数。
+
+### 1.1 启动参数
+
+以下是Ontology cli 支持的命令行参数：
+
+#### 1.1.1 Ontology 系统参数
 
 --config
-The config parameter specifies the file path of the genesis block for the current Ontolgy node. If not specified, Ontology will use the config of Polaris TestNet. Note that the genesis block configuration must be the same for all nodes in the same network, otherwise it will not be able to synchronize blocks or start nodes due to block data incompatibility.
+config 参数用于指定当前Ontology节点创世区块配置文件的路径。如果不指定，将使用Ontology主网的创世块配置。注意，同一个网络所有节点的创世区块配置必须一致，否则会因为区块数据不兼容导致无法启动节点或同步区块数据。
 
 --loglevel
-The loglevel parameter is used to set the log level the Ontology outputs. Ontology supports 7 different log levels, i.e. 0:Trace 1:Debug 2:Info 3:Warn 4:Error 5:Fatal 6:MaxLevel. The logs are logged from low to high, and the log output volume is from high to low. The default value is 2, which means that only logs at the info level or higher level.
+loglevel 参数用于设置Ontology输出的日志级别。Ontology支持从0:Trace 1:Debug 2:Info 3:Warn 4:Error 5:Fatal 6:MaxLevel 的7级日志，日志等级由低到高，输出的日志量由多到少。默认值是2，即只输出info级及其之上级别的日志。
 
 --disable-event-log
-The disable-event-log parameter is used to disable the event log output when the smart contract is executed to improve the node transaction execution performance. The Ontology node enables the event log output function by default.
+disable-event-log 参数用于关闭智能合约执行时输出的event log，以提升节点交易执行性能。Ontology 节点默认会开启智能合约执行时的event log输出功能。
 
 --data-dir
-The data-dir parameter specifies the storage path of the block data. The default value is "./Chain".
+data-dir 参数用于指定区块数据的存放目录。默认值为"./Chain"。
 
-#### 1.1.2 Account Parameters
+#### 1.1.2 账户参数
 
 --wallet, -w
-The wallet parameter is used to specify the wallet file path when the Ontology node starts. The default value is "./wallet.dat".
+wallet 参数用于指定Ontology节点启动时的钱包文件路径。默认值为"./wallet.dat"。
 
 --account, -a
-The account parameter is used to specify the account address when the Ontology node starts. If the account is null, it uses the wallet default account.
+account 参数用于指定Ontlogy节点启动时的账户地址。不填则使用钱包默认账户。
 
 --password, -p
-The password parameter is used to specify the account password when Ontology node starts. Because the account password entered in the command line is saved in the log, it is easy to leak the password. Therefore, it is not recommended to use this parameter in a production environment.
+password 参数用于指定Ontology节点启动的账户密码。因为在命令行中输入的账户密码会被保存在系统的日志中，容易造成密码泄露，因此在生产环境中建议不要使用该参数。
 
-#### 1.1.3 Consensus Parameters
+#### 1.1.3 共识参数
 
 --enable-consensus
-The enable-consensus parameter is used to turn the consensus on. If the current node will startup as a bookkeeper node, this flag must be enabled. The default is disable.
+enable-consensus 参数用于启动网络共识。如果当前节点是作为记账节点的，请开启此参数。默认是关闭网络共识的。
 
 --max-tx-in-block
-The max-tx-in-block parameter is used to set the maximum transaction number of a block. The default value is 50000.
+max-tx-in-block 参数用于设置区块最大的交易数量。默认值是50000。
 
-#### 1.1.4 P2P Network Parameters
+#### 1.1.4 P2P网络参数
 
 --networkid
-The networkid parameter is used to specify the network ID. Different networkids cannot connect to the blockchain network. 1=main net, 2=polaris test net, 3=testmode, and other for custom network.
+networkid 参数用于指定网络ID，networkid不同将无法连接到区块链网络中。1:主网, 2:polaris测试网络, 3:testmode测试网, 其他的是用户自定义网络。
 
 --nodeport
-The nodeport parameter is used to specify the P2P network port number. The default value is 20338.
+nodeport 参数用于指定P2P网络端口号，默认值为20338。
 
---consensusport
-The consensusport parameter specifies the consensus network port number. By default, the consensus network reuses the P2P network, so it is not necessary to specify a consensus network port. After the dual network is enabled with the --dualport parameter, the consensus network port number must be set separately. The default is 20339.
+--consensus-port
+consensus-port 参数用于指定共识网络端口号。默认情况下，共识网络复用P2P网络，因此不需要指定共识网络端口，在通过--dualport参数启动双网络后，则需要单独设置共识网络端口号。默认值为20339。
 
 --dual-port
-The dual-port parameter initiates a dual network, i.e. a P2P network for processing transaction messages and a consensus network for consensus messages. The parameter disables by default.
+dual-port 参数启动双网络，即用于处理交易消息的P2P网络，和用于共识消息的共识网络。默认不开启。
 
-
-#### 1.1.5 RPC Server Parameters
+#### 1.1.5 RPC 服务器参数
 
 --disable-rpc
-The disable-rpc parameter is used to shut down the EPC server. The Ontology node starts the RPC server by default at startup.
+disablerpc 参数用于关闭rpc服务器。Ontology节点在启动时会默认启动rpc服务器。
 
 --rpcport
-The rpcport parameter specifies the port number to which the RPC server is bound. The default is 20336.
+rpcport 参数用指定rpc服务器绑定的端口号。默认值为20336。
 
-#### 1.1.6 RESTful Server Parameters
+#### 1.1.6 Restful 服务器参数
 
 --rest
-The rest parameter is used to start the RESTful server.
+rest 参数用于启动rest服务器。
 
 --restport
-The restport parameter specifies the port number to which the RESTful server is bound. The default value is 20334.
+restport 参数用于指定restful服务器绑定的端口号。默认值为20334。
 
-#### 1.1.7 WebSocket Server Parameters
+#### 1.1.7 Web socket服务器参数
 
 --ws
-The ws parameter is used to start the WebSocket server.
+ws 参数用于启动Web socket服务器。
 
 --wsport
-The wsport parameter specifies the port number to which the WebSocket server is bound. The default value is 20335
+wsport 参数用于指定Web socket服务器绑定的端口号。默认值为20335
 
-#### 1.1.8 Test Mode Parameters
+#### 1.1.8 测试模式参数
 
 --testmode
-The testmode parameter is used to start a single node test network for ease of development and debug. In testmode, Ontology will start RPC, RESTful and WebSocket server, and blockchain data will be clear generated by the last start in testmode.
+testmode 参数用于启动单节点的测试网络，便于开发和调试。使用testmode启动测试网络时，会同时启动rpc、rest以及ws服务器，同时把gasprice设置为0。
 
 --testmode-gen-block-time
-The testmode-gen-block-time parameter is used to set the block-out time in test mode. The time unit is in seconds, and the minimum block-out time is 2 seconds.
+testmode-gen-block-time 参数用于设置测试模式下的出块时间，时间单位为秒，最小出块时间为2秒，默认值为6秒。
 
-#### 1.1.9 Transaction Parameter
+#### 1.1.9 交易参数
 
 --gasprice
-The gasprice parameter is used to set the lowest gasprice of the current node transaction pool to accept transactions. Transactions below this gasprice will be discarded. The default value is 500(0 in testmode).
+gasprice 参数用于设定当前节点交易池接受交易的最低gasprice，低于这个gasprice的交易将会被丢弃。在交易池有交易排队等待打包进区块时，交易池根据gas price的高低来排序交易，gas price高的交易将会被优先处理。默认值为500（在testmode模型下为0）。
 
 --gaslimit
-The gaslimit parameter is used to set the gaslimit of the current node transaction pool to accept transactions. Transactions below this gaslimit will be discarded. The default value is 20000.
+gaslimit 参数用于设置当前节点交易池接受交易的最低gaslimit，低于这个gaslimit的交易将被丢弃。默认值为20000。
 
 --disable-tx-pool-pre-exec
-The disable-tx-pool-pre-exec parameter is used to disable preExecution of a transaction from network in the transaction pool. By default, preExecution is enabled when ontology bootstrap.
+disable-tx-pool-pre-exec 参数用于关闭交易池中对来自网络的交易预执行校验。Ontology节点在启动时交易池默认打开预执行。
 
 --disable-sync-verify-tx
-The disable-sync-verify-tx is used to disable sync verify transaction in send transaction,include rpc restful websocket.
+disable-sync-verify-tx 参数用于关闭rpc、restful、websocket中同步验证交易
 
 --disable-broadcast-net-tx
-The disable-broadcast-net-tx is used to disable broadcast a transaction from network in the transaction pool. By default, this function is enabled when ontology bootstrap.
+disable-broadcast-net-tx 参数用于关闭交易池广播来自网络的交易。Ontology节点在启动时交易池默认打开广播来自网络的交易功能的。
 
-### 1.2 Node Deployment
+### 1.2 节点部署
 
-#### 1.2.1 MainNet Bookkeeping Node Deployment
+#### 1.2.1 主网记账节点部署
 
-According to different roles of nodes, they can be divided into bookkeeping nodes and synchronization nodes. Bookkeeping nodes participate in the network consensus, and synchronization nodes only synchronize the blocks generated by the bookkeeping nodes. Since Ontology node won't start consensus by default, consensus must be turned on by the --enableconsensus parameter. The Ontology node will start the RPC server by default and output the event log of the smart contract. Therefore, if there is no special requirement, you can use the --disablerpc and --disableeventlog command line parameters to turn off the RPC and eventlog modules.
+按照角色不同，节点可以分为记账节点和同步节点，记账节点参与网络共识，而同步节点只同步记账节点生成的区块。由于Ontology默认是不启动共识模块的，因此部署记账节点需要通过--enableconsensus命令行参数开启共。此外，Ontology节点默认会启动Rpc服务器，同时会输出智能合约输出的Event Log，因此如果没有特殊要求，可以使用--disablerpc和--disableeventlog命令行参数关闭rpc和eventlog模块。
 
-Recommended bookkeeping node startup parameters:
-
-```
-./Ontology --enbale-consensus --disable-rpc --disable-event-log
-```
-    - `enbale-consensus` is use to start the consensus
-    - `disable-rpc` is to close the rpc services for the safe concerns.
-    - `disable-event-log` is to disable the event log for high performance.
-If the node does not use the default genesis block configuration file and wallet account, the node can specify them with the --config, --wallet, --account parameters.
-At the same time, if the bookkeeping node needs to modify the default minimum gas price and gas limit of the transaction pool, it can set the parameters by --gasprice and --gaslimit.
-
-#### 1.2.2 MainNet Synchronization Node Deployment
-
-Since the synchronization node only synchronizes the blocks generated by the bookkeeping node and does not participate in the network consensus.
+推荐记账节点启动参数：
 
 ```
-./Ontology
+./ontology --enable-consensus --disable-rpc --disable-event-log
 ```
+ - `enable-consensus` 是用来开启节点共识
+ - `disable-rpc` 是处于节点安全考虑关闭rpc服务
+ - `disable-event-log` 是关闭日志服务，这样可以提供更高的性能
+如果节点没有使用默认的创世块配置文件和钱包账户，可以通过--config参数和--wallet、--account参数指定。
+同时，如果记账节点需要修改交易池默认的最低gas price和gas limit，可以通过--gasprice和--gaslimit参数来设定。
 
-If the node does not use the default genesis block configuration file, it can be specified with the --config parameter. Since consensus won't be turned on, you don't need a wallet when starting up a synchronization node.
+#### 1.2.2 主网同步节点部署
 
-#### 1.2.3 Deploying on public test network Polaris sync node
-
-Run ontology straightly
-
-```
-./Ontology --networkid 2
-```
-#### 1.2.4 Single-Node Test Network Deployment
-
-Ontology supports single-node network deployment for the development of test environments. To start a single-node test network, you only need to add the --testmode command line parameter.
+由于同步节点只同步记账节点生成的区块，并不参与网络共识。
 
 ```
-./Ontology --testmode
+./ontology
+```
+如果节点没有使用默认的创世块配置文件，可以通过--config参数指定。同时由于没有启动共识模块，因此不需要钱包。
+
+#### 1.2.3 部署测试网Polaris的同步节点
+
+可以直接通过以下命令连接测试网
+
+```
+./ontology --networkid 2
 ```
 
-If the node does not use the default genesis block configuration file and wallet account, the node can specify them with the --config, --wallet, --account parameters.
-At the same time, if the bookkeeping node needs to modify the default minimum gas price and gas limit of the transaction pool, it can set the parameters by --gasprice and --gaslimit.
+#### 1.2.4 本地测试网部署
 
-Note that, Ontology will turn consensus RPC, RESTful, and WebSocket server on in test mode.
+Ontology支持单节点网络部署，用于开发测试环境搭建。启动单节点测试网络只需要加上--testmode参数即可。
 
-## 2. Wallet Management
+```
+./ontology --testmode
+```
+如果节点没有使用默认的创世块配置文件和钱包账户，可以通过--config参数和--wallet、--account参数指定。
+同时，如果记账节点需要修改交易池默认的最低gas price和gas limit，可以通过--gasprice和--gaslimit参数来设定。
 
-Wallet management commands can be used to add, view, modify, delete, and import account.
-You can use ./Ontology account --help command to view help information of wallet management command.
+启动单节点测试网络时，会同时启动共识、rpc、rest以及WebSocket模块。
 
-### 2.1. Add Account
+## 2、钱包管理
 
-Ontology supports multiple encryption algorithms, including ECDSA, SM2, and ED25519.
+钱包管理命令可以用来添加、查看、修改、删除、导入账户等功能。
+使用 ./ontology account --help 命令可以查看钱包管理命令的帮助信息。
 
-When using ECDSA encryption algorithm, it can support multiple key curves, such as: P-224, P-256, P-384, P-521; In addition, when using ECDSA encryption algorithm, you can also specify the signature scheme such as: SHA224withECDSA, SHA256withECDSA, SHA384withECDSA, SHA512withEdDSA, SHA3-224withECDSA, SHA3-256withECDSA, SHA3-384withECDSA, SHA3-512withECDSA, RIPEMD160withECDSA.
+### 2.1 添加账户
 
-When using the SM2 encryption algorithm, the sm2p256v1 curve and SM3withSM2 signature algorithm will be used.
+Ontology支持多种加密算法，包括ECDSA、SM2以及ED25519。
 
-When using the ED25519 encryption algorithm, the 25519 curve and SHA512withEdDSA signature algorithm will be used.
+在使用ECDSA加密算法时，可以支持多种密钥曲线，如：P-224、P-256、P-384、P-521；此外，在使用ECDSA加密算法时，还可以指定该密钥的签名方案，如：SHA224withECDSA、SHA256withECDSA、SHA384withECDSA、SHA512withEdDSA、SHA3-224withECDSA、SHA3-256withECDSA、SHA3-384withECDSA、SHA3-512withECDSA、RIPEMD160withECDSA。
 
+在使用SM2加密算法时，使用sm2p256v1曲线，同时使用SM3withSM2签名算法。
 
-**Default account**
+使用ED25519加密算法时，使用25519曲线，使用SHA512withEdDSA签名算法。
 
-Each wallet has a default account, which is generally the first account added. The default account cannot be deleted, you can modify the default account by ./Ontology account set command.
+**默认账户**
 
+每个钱包都一个默认账户，一般情况下是第一个添加的账户。默认账户不能被删除，可以通过./ontology account set 命令来修改默认账户。
 
-#### 2.1.1 Add Account Parameters
+#### 2.1.1 添加账户参数
 
 --type,t
-The type parameter is used to set the encryption algorithm and supports the ecdsa, sm2, and ed25519 encryption algorithms.
+type参数用于设定加密算法，支持ecdsa, sm2和ed25519加密算法。
 
 --bit-length,b
-bit-length parameter is used to specify the key length. If ecdsa is the encryption algorithm, you can choose p-224, p-256, p-384 or p-521; if sm2 is the encryption algorithm, the default is sm2p256v1; if ed25519 is the encryption algorithm, the default is 25519.
+bit-length参数用于指定密钥长度，如果是ecdsa加密算法，可以选择p-224, p-256, p-384, p-521；如果是sm2加密算法，默认为sm2p256v1；如果是ed25519加密算法，默认为25519。
 
 --signature-scheme,s
-The signature-scheme parameter is used to specify the key signature scheme. For the ecdsa encryption algorithm, these signature schemes such as SHA224withECDSA, SHA256withECDSA, SHA384withECDSA, SHA512withEdDSA, SHA3-224withECDSA, SHA3-256withECDSA, SHA3-384withECDSA, SHA3-512withECDSA, RIPEMD160withECDSA are supported; For the sm2 encryption algorithm, SM3withSM2 signature scheme is used by default. If ed25519 is the encryption algorithm, the SHA512withEdDSA signature scheme is used by default.
+signature-scheme参数用于指定密钥签名方案，对于ecdsa加密算法，支持SHA224withECDSA、SHA256withECDSA、SHA384withECDSA、SHA512withEdDSA、SHA3-224withECDSA、SHA3-256withECDSA、SHA3-384withECDSA、SHA3-512withECDSA、RIPEMD160withECDSA这些签名方案；如果是sm2加密算法，默认使用SM3withSM2签名方案；如果使用的是ed25519加密算法，默认使用的是SHA512withEdDSA签名方案。
 
 --default
-The default parameter uses the system's default key scheme. The default key scheme will use the ECDSA encryption algorithm with P-256 curve and SHA256withECDSA as the signature algorithm.
+default参数使用系统默认的密钥方案，默认的密钥方式将会使用ECDSA加密算法，使用P-256曲线以及SHA256withECDSA作为签名算法。
 
 --label
-Label is used to set labels for newly created accounts for easy and fast use of accounts. Note that duplicate label names cannot appear in the same wallet file. An account with no label is an empty string.
+label用于给新创建的账户设置标签，用于方便、快捷查找账户。注意，同一个钱包文件下，不能出现重复的label名。没有设置label的账户则为空字符串。
 
 --wallet
-The wallet parameter specifies the wallet file path. If the wallet file does not exist, a new wallet file will be automatically created.
+wallet 参数用于指定钱包文件路径。如果钱包文件不存在，则会自动创建一个新的钱包文件。
 
 --number
-The number parameter specifies the number of accounts that need to be created. You can batch create accounts by number parameter. The default value is 1.
+number参数用于需要创建的账户数量。可以通过number来批量创建账户。number默认值为1。
 
 --ontid
-The parameter is used to create ONT ID instead of account.
+ontid参数用来创建ONT ID，而不是普通账户。
 
-**Add account**
-
-```
-./Ontology account add --default
-```
-
-You can view the help information by ./Ontology account add --help.
-
-### 2.2 View Account
-
-Command：
+**添加账户**
 
 ```
-./Ontology account list
+./ontology account add --default
 ```
 
-You can view all account information in your current wallet. such as:
+通过 ./ontology account add --help 可以查看帮助信息。
+
+### 2.2 查看账户
+
+使用命令：
 
 ```
-$ ./Ontology account list
+./ontology account list
+```
+可以查看当前钱包中的所有账户信息。比如：
+
+```
+$ ./ontology account list
 Index:1    Address:TA587BCw7HFwuUuzY1wg2HXCN7cHBPaXSe  Label: (default)
 Index:2    Address:TA5gYXCSiUq9ejGCa54M3yoj9kfMv3ir4j  Label:
 ```
-Among them, Index is the index of the account in the wallet and the index starts from 1. Address is the address of the account. Label is the label of the account, default indicates that the current account is the default account.
-In Ontology CLI, you can find accounts by Index, Address, or a non-empty Label.
+其中，Index 为账户在钱包中的索引，索引从1开始，Addres 为账户地址，Label 为账户的标签，default表示当前账户是默认账户。
+在Ontology cli中，可以通过Index、Address或非空的Label来查找账户。
 
-Use --v to view the details of the account. You can view the help information via ./Ontology account list --help.
+使用--v 可以查看账户的详细信息。
+通过 ./ontology account list --help 可以查看帮助信息。
 
-### 2.3 Modify Account
+### 2.3 修改账户
 
-Using the modify account command to modify the account's label, reset the default account, modify the account's password. If the account is the key of the ECDSA encryption algorithm, you can also modify the key's signature scheme. You can view the help information via ./Ontology account add --help.
+使用修改账户命令可以修改账户的标签，重新设置默认账户，修改账户密码，如果账户是ECDSA加密算法的密钥，还可以修改密钥的签名方案。
+通过 ./ontology account set --help 可以查看帮助信息。
 
-
-#### 2.3.1 Modifying Account Parameters
+#### 2.3.1 修改账户参数
 
 --as-default, -d
-The as-default parameter sets the account as the default account. A wallet only has one default account. After setting a new default account, the previous default account will automatically cancel the default account properties.
-
+as-default参数设置账户为默认账户。
 
 --wallet, -w
-The wallet parameter specifies the wallet path. The default value is "./wallet.dat".
+wallet参数指定当前操作的钱包路径，默认值为"./wallet.dat"。
 
 --label, -l
-The label parameter is used to set a new label for the account. Note that a wallet file cannot have the same label.
+label参数用于给账户设置新的标签。注意一个钱包文件中，不能有两个相同的lable。
 
 --change-passwd
-The change-passwd parameter is used to modify the account password.
+change-passwd参数用于修改账户密码。
 
 --signature-scheme, -s
-The signature-scheme parameter is used to modify the account signature scheme. If the account uses an ECDSA key, the following ECDSA-supported signature schemes can be modified: SHA224withECDSA, SHA256withECDSA, SHA384withECDSA, SHA512withEdDSA, SHA3-224withECDSA, SHA3-256withECDSA, SHA3-384withECDSA, SHA3-512withECDSA, RIPEMD160withECDSA.
+signature-scheme参数用于修改账户签名方案。如果账户使用的是ECDSA密钥，则可以修改如下ECDSA支持的签名方案：SHA224withECDSA、SHA256withECDSA、SHA384withECDSA、SHA512withEdDSA、SHA3-224withECDSA、SHA3-256withECDSA、SHA3-384withECDSA、SHA3-512withECDSA、RIPEMD160withECDSA。
 
-**Set default account**
-
-```
-./Ontology account set --d <address|index|label>
-```
-**Edit account label**
+**设置默认账户**
 
 ```
-./Ontology account set --label=XXX <address|index|label>
+./ontology account set --d <address|index|label>
 ```
-**Change account password**
+**修改账户标签**
 
 ```
-./Ontology account set --changepasswd <address|index|label>
+./ontology account set --label=XXX <address|index|label>
 ```
-
-**Modify ECDSA key signature scheme**
-
-```
-./Ontology account set --s=SHA256withECDSA <address|index|label>
-```
-### 2.4 Delete Account
-
-Unnecessary accounts in the wallet can be deleted and cannot be recovered after delete. Note: The default account cannot be deleted.
+**修改账户密码**
 
 ```
-/Ontology account del <address|index|label>
+./ontology account set --changepasswd <address|index|label>
 ```
-### 2.5 Import Account
 
-The import account command can import account of another wallet into the current wallet.
+**修改ECDSA密钥签名方案**
 
-#### 2.5.1 Import Account Parameters
+```
+./ontology account set --s=SHA256withECDSA <address|index|label>
+```
+### 2.4 删除账户
+
+对于钱包中不需要的账户，可以删除。删除账户后无法恢复，所以请谨慎操作。注意：默认账户无法被删除。
+
+```
+/ontology account del <address|index|label>
+```
+### 2.5 导入账户
+
+导入账户命令可以把另一个钱包中的账户导入到当前的钱包中。
+
+#### 2.5.1 导入账户参数
 
 --wallet,w
-The wallet parameter specifies the current wallet path for saving the wallet-introduced account.
+wallet参数指定当前钱包路径，用于接收导入钱包的账户。
 
 --source,s
-The source parameter specifies the imported wallet path.
+source参数指定被导入的钱包路径
 
 ```
-./Ontology account import -s=./source_wallet.dat
+./ontology account import -s=./source_wallet.dat
 ```
 
-#### 2.5.2 Import Account by WIF
-Fill the WIF into a text file, and use the cmd below to import the key
+#### 2.5.2 通过WIF导入账户
+获得WIF并把WIF存入key.txt文件，并通过以下命令导入
 ontology account import --wif --source key.txt
 
-## 3. Asset Management
+## 3、资产管理
 
-Asset management commands can check account balance, ONT/ONG transfers, extract ONG, and view unbound ONG.
+资产管理命令可以查看账户的余额，执行ONT/ONG转账，提取ONG以及查看未绑定的ONG等操作。
 
-### 3.1 Check Your Account Balance
+### 3.1 查看账户余额
 
 ```
-./Ontology asset balance <address|index|label>
+./ontology asset balance <address|index|label>
 ```
-### 3.2 ONT/ONG Transfers
+### 3.2 ONT/ONG转账
 
-#### 3.2.1 Transfer Arguments
+#### 3.2.1 转账参数
 
 --wallet, -w
-Wallet specifies the transfer-out account wallet path. The default value is: "./wallet.dat".
+wallet指定转出账户钱包路径，默认值为:"./wallet.dat"
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice参数指定转账交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为500（在testmode模型下为0）。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
+gaslimit参数指定转账交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。 默认值为20000。
 
 --asset
-The asset parameter specifies the asset type of the transfer. ont indicates the ONT and ong indicates the ONG. The default value is ont.
+asset参数指定转账的资产类型，ont表示ONT，ong表示ONG。默认值为ont。
 
 --from
-The from parameter specifies the transfer-out account address.
+from参数指定转出账户地址。
 
 --to
-The to parameter specifies the transfer-in account address.
+to参数指定转入账户地址。
 
 --amount
-The amount parameter specifies the transfer amount. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
+amount参数指定转账金额。注意：由于ONT的精度是1，因此如果输入的是个浮点值，那么小数部分的值会被丢弃；ONG的精度为9，因此超出9位的小数部分将会被丢弃。
 
-**Transfer**
+--force, -f
+转账的时候如果账户余额小于转账金额, 转账交易会被终止，如果此时仍想把交易发送出去，则可使用改参数强行提交交易。
+
+**转账**
 
 ```
-./Ontology asset transfer --from=<address|index|label> --to=<address|index|label> --amount=XXX --asset=ont
+./ontology asset transfer --from=<address|index|label> --to=<address|index|label> --amount=XXX --asset=ont
 ```
 
-### 3.3 Authorize Transfer
+### 3.3 授权转账
 
-A user may authorize others to transfer money from his account, and he can specify the transfer amount when authorizing the transfer.
+用户可以授权其他账户在授权额度内从本账户中转账。
 
-#### 3.3.1 Authorize Transfer Parameter
-
+#### 3.3.1 授权转账参数
 --wallet, -w
-Wallet specifies the transfer-out account wallet path. The default value is: "./wallet.dat".
+wallet指定授权转出账户钱包路径，默认值为:"./wallet.dat"
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice参数指定转账交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为500（在testmode模型下为0）。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
+gaslimit参数指定转账交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。 默认值为20000。
 
 --asset
-The asset parameter specifies the asset type of the transfer. ont indicates the ONT and ong indicates the ONG. The default value is ont.
+asset参数指定转账的资产类型，ont表示ONT，ong表示ONG。默认值为ont。
 
 --from
-The from parameter specifies the transfer-out account address.
+from参数指定授权转出的账户地址。
 
 --to
-The to parameter specifies the transfer-in account address.
+to参数指定转授权入的账户地址。
 
 --amount
-The amount parameter specifies the transfer amount. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
+amount参数指定授权转账金额。注意：由于ONT的精度是1，因此如果输入的是个浮点值，那么小数部分的值会被丢弃；ONG的精度为9，因此超出9位的小数部分将会被丢弃。
 
-
-**Authorize Transfer**
+**授权转账**
 
 ```
-./Ontology asset approve --from=<address|index|label> --to=<address|index|label> --amount=XXX --asset=ont
+./ontology asset approve --from=<address|index|label> --to=<address|index|label> --amount=XXX --asset=ont
 ```
 
-### 3.4 View Authorized Transfer Balance
+### 3.4 查看授权转帐余额
 
-After authorizing a user to transfer funds, the user can execute transfer operation within the authorized amount multiple times based on needs. The command of checking authorized transfer balances can see the untransferred balances.
+授权用户转账后，用户可以根据需要分多次在授权额度内执行转账操作。查看授权转帐余额命令可以查看到未转账的余额。
 
-#### 3.4.1 View Authorized Transfer Balance Parameters
+#### 3.4.1 查看授权转帐余额参数
 
 --wallet, -w
-Wallet specifies the transfer-out account wallet path. The default value is: "./wallet.dat".
+wallet指定转出账户钱包路径，默认值为:"./wallet.dat"
 
 --asset
-The asset parameter specifies the asset type of the transfer. ont indicates the ONT and ong indicates the ONG. The default value is ont.
+asset参数指定转账的资产类型，ont表示ONT，ong表示ONG。默认值为ont。
 
 --from
-The from parameter specifies the transfer-out account address.
+from参数指定授权转出账户地址。
 
 --to
-The to parameter specifies the transfer-in account address.
+to参数指定授权转入账户地址。
 
-**View Authorized Transfer Balance**
+**查看授权转帐余额**
 
 ```
-./Ontology asset allowance --from=<address|index|label> --to=<address|index|label>
+./ontology asset allowance --from=<address|index|label> --to=<address|index|label>
 ```
 
-### 3.5 Transferring Funds from Authorized Accounts
+### 3.5 从授权账户中转账
 
-After user authorization, the transfer can be made from the authorized account.
+通过用户授权后，可以从授权账户中转帐。
 
-#### 3.5.1 Transferring Funds from Authorized Accounts Parameters
+#### 3.5.1 从授权账户中转账参数
 --wallet, -w
-Wallet specifies the wallet path of authorized account. The default value is: "./wallet.dat".
+wallet指定执行授权转账账户的钱包路径，默认值为:"./wallet.dat"
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice参数指定转账交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为500（在testmode模型下为0）。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
+gaslimit参数指定转账交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。 默认值为20000。
 
 --asset
-The asset parameter specifies the asset type of the transfer. ont indicates the ONT and ong indicates the ONG. The default value is ont.
+asset参数指定转账的资产类型，ont表示ONT，ong表示ONG。默认值为ont。
 
 --from
-The from parameter specifies the transfer-out account address.
+from参数指定授权转出账户地址。
 
 --to
-The to parameter specifies the transfer-in account address.
+to参数指定转授权入账户地址。
 
 --sender
-The sender parameter specifies the account address that actually operates the authorized transfer. If no sender parameter is specified, the sender parameter defaults to the value of the to parameter.
+sender参数指定实际执行授权转账的账户地址。如果没有指定sender参数，sender参数默认使用to参数的指定的账户地址。
 
 --amount
-The amount parameter specifies the transfer amount and the transfer amount cannot be greater than the authorized transfer balance. Otherwise, the transaction will be rejected. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
+amount参数指定转账金额，转账金额不能大于授权转账余额，否则交易会执行失败。注意：由于ONT的精度是1，因此如果输入的是个浮点值，那么小数部分的值会被丢弃；ONG的精度为9，因此超出9位的小数部分将会被丢弃。
 
-**Transfer from authorized account**
-
-```
-./Ontology asset transferfrom --from=<address|index|label> --to=<address|index|label> --sender=<address|index|label> --amount=XXX
-```
-
-### 3.6 View Unbound ONG Balance
-
-The ONG adopts the periodical unbinding policy to release the ONG bound to ONT. Use the following command to view the current account unbound ONG balance.
+**从授权账户中转账**
 
 ```
-./Ontology asset unboundong <address|index|label>
+./ontology asset transferfrom --from=<address|index|label> --to=<address|index|label> --sender=<address|index|label> --amount=XXX
 ```
 
-### 3.7 Extract Unbound ONG
+### 3.6 查看未解绑的ONG余额
 
-Use the following command to extract all unbound ONG.
+ONG采用定时解绑策略解除绑定在ONT上的ONG。使用如下命令可以查看到当前账户未解绑的ONG余额。
 
-#### 3.7.1 Extracting Unbound ONG Parameters
+```
+./ontology asset unboundong <address|index|label>
+```
+### 3.7 提取解绑的ONG
+
+使用提取命令可以提取当前所有未解绑的ONG。
+
+#### 3.7.1 提取解绑的ONG参数
 
 --wallet, -w
-Wallet specifies the wallet path of extracted account. The default value is: "./wallet.dat".
+wallet参数指定提取账户的钱包路径，默认值为:"./wallet.dat"
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice参数指定转账交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为500（在testmode模型下为0）。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
+gaslimit参数指定转账交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。 默认值为20000。
 
-**Extract Unbound ONG**
+**提取解绑的ONG**
 ```
-./Ontology asset withdrawong <address|index|label>
+./ontology asset withdrawong <address|index|label>
 ```
-## 4. Query Information
+## 4、查询信息
 
-Query information command can query information such as blocks, transactions, and transaction executions. You can use the ./Ontology info block --help command to view help information.
+查询信息命令可以查询区块、交易以及交易执行等信息。使用./ontology info block --help 命令可以查看帮助信息。
 
-### 4.1 Query Block Information
-
-```
-./Ontology info block <height|blockHash>
-```
-
-Block information can be queried by block height or block hash.
-
-### 4.2 Query Transaction Information
+### 4.1 查询区块信息
 
 ```
-./Ontology info tx <TxHash>
+./ontology info block <height|blockHash>
 ```
+可以通过区块高度或者区块Hash 查询区块信息。
 
-You can query transaction information by transaction hash.
-
-### 4.3 Query Transaction Execution Information
+### 4.2 查询交易信息
 
 ```
-./Ontology info status <TxHash>
+./ontology info tx <TxHash>
 ```
-You can query the transaction execution information through the transaction hash, and the following example is as follows:
+可以通过交易Hash查询交易信息。
+
+### 4.3 查询交易执行信息
+
+```
+./ontology info status <TxHash>
+```
+可以通过交易Hash查询交易的执行信息，返回示例如下：
 
 ```
 {
@@ -579,65 +580,63 @@ You can query the transaction execution information through the transaction hash
    ]
 }
 ```
-Among them, State represents the execution result of the transaction. The value of State is 1, indicating that the transaction execution is successful. When the State value is 0, it indicates that the execution failed. GasConsumed indicates the ONG consumed by the transaction execution. Notify represents the Event log output when the transaction is executed. Different transactions may output different event logs.
+其中，State表示交易执行结果，State的值为1，表示交易执行成功，State值为0时，表示执行失败。GasConsumed表示交易执行消耗的ONG。Notify表示交易执行时输出的Event log。不同的交易可能会输出不同的Event log。
 
-## 5. Smart Contract
+## 5、智能合约
 
-Smart contract operations support the deployment of NeoVM smart contract, and the pre-execution and execution of NeoVM smart contract.
+智能合约操作支持NeoVM智能合约的部署，以及NeoVM智能合约的预执行和执行。
 
-### 5.1 Smart Contract Deployment
+### 5.1 智能合约部署
 
-Before smart deployment, you need to compile the NeoVM contract compiler such as [SmartX](http://smartx.ont.io) and save the compiled code in a local text file.
+智能部署前需要把在NeoVM合约编译器如：[SmartX](http://smartx.ont.io) 上编译好的Code，保存在本地的一个文本文件中。
 
-#### 5.1.1 Smart Contract Deployment Parameters
+#### 5.1.1 智能合约部署参数
 
 --wallet, -w
-The wallet parameter specifies the wallet path of account for deploying smart contracts. Default: "./wallet.dat".
+wallet参数指定部署智能合约的账户钱包路径。默认值："./wallet.dat"。
 
 --account, -a
-The account parameter specifies the account that a contract deploys.
+account参数指定部署合约的账户。
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice参数指定部署合约交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为500（在testmode模型下为0）。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
+gaslimit参数指定部署合约交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。
 
-**For contract deployments, the gaslimit value must be greater than 20000000, and there must be sufficient ONG balance in the account.**
+**对于合约部署，gaslimit 值必须大于20000000，同时账户中必须保有足够的ONG余额。**
 
 --needstore
-The needstore parameter specifies whether the smart contract needs to use persistent storage. If needed, this parameter is required. The default is not used.
+needstore参数指定智能合约属否需要使用持久化存储，如果需要使用则需要带上该参数。默认为不使用。
 
 --code
-The code parameter specifies the code path of a smart contract.
+code参数指定智能合约代码路径。
 
 --name
-The name parameter specifies the name of a smart contract.
+name参数指定智能合约的名称。
 
 --version
-The version parameter specifies the version number of a smart contract.
+version参数指定智能合约的版本号。
 
 --author
-The author parameter specifies the author information of a smart contract.
-
+author参数指定智能合约的作者信息。
 
 --email
-The email parameter specifies the contact email of a smart contract.
+emial参数指定智能合约的联系人电子邮件。
 
 --desc
-The desc parameter specifies the description of a smart contract.
+desc参数可以指定智能合约的描述信息。
 
 --prepare, -p
-The prepare parameter indicates that the current deploy is a pre-deploy contract. The transactions executed will not be packaged into blocks, nor will they consume any ONG. Via pre-deploy contract, user can known the the gas limit required for the current deploy.
+prepare参数用于预部署合约, 预部署不会把合约部署到Ontology上， 也不会消耗人任何ONG。通过预部署合约，用户可以知道当前合约部署所需要消耗的gas limit。
 
-**Smart Contract Deployment**
+**智能合约部署**
 
 ```
-./Ontology contract deploy --name=xxx --code=xxx --author=xxx --desc=xxx --email=xxx --needstore --gaslimit=100000000
+./ontology contract deploy --name=xxx --code=xxx --author=xxx --desc=xxx --email=xxx --needstore --gaslimit=100000000
 ```
 
-After deployment, the TxHash of the transaction and the contract address will be returned. For example:
-
+部署后会返回部署交易的TxHash以及合约地址，如：
 
 ```
 Deploy contract:
@@ -645,9 +644,9 @@ Deploy contract:
   TxHash:99d719f51837acfa48f9cd2a21983fb993bc8d5a763b497802f7b872be2338fe
 ```
 
-You can query the contract execution status with the ./Ontology info status <TxHash> command. If an error such as UNKNOWN TRANSACTION is returned, it means that the transaction has not been posted. The transaction may be queued in the transaction pool to be packaged, or the transaction may be rejected because the gas limit or gas price is set too low.
+可以通过 ./ontology info status <TxHash> 命令查询合约执行状态。如果返回错误如：UNKNOWN TRANSACTION时，表示交易没有落帐，有可能交易还在交易池中排队等待被打包，也有可能表示交易因为gaslimit或者时gasprice设置过低，导致交易被拒绝。
 
-If the returned execution state - State is equal to 0, it indicates that the transaction execution fails. If State is equal to 1, the transaction execution is successful and the contract deployment is successful. Such as:
+如果返回的执行状态State等于0，表示交易执行失败，如果State等于1，表示交易执行成功，合约被成功部署。如：
 
 ```
 Transaction states:
@@ -659,304 +658,305 @@ Transaction states:
 }
 ```
 
-### 5.2 Smart Contract Execution
+Contract Address为根据合约Code生成的合约地址。
 
-The NeoVM smart contract supports array, bytearray, string, int, and bool parameter types. Array represents an array of objects, which can nest any number and any type of parameters that NeoVM supports; bytearray represents a byte array, and the input needs to be hexadecimal encoded into a string, such as []byte("HelloWorld"). : 48656c6c6f576f726c64; string represents a string literal; int represents an integer, because the NeoVM virtual machine does not support floating-point values, so it is necessary to convert the floating-point number into an integer; bool represents a Boolean variable, with true, false.
+### 5.2 智能合约执行
 
-In Ontology CLI, prefix method is used to construct the input parameters. The type of the parameter will be declared before the parameter, such as string input parameters represented as string: hello; integer parameters as int: 10; Boolean parameters represented as bool: true and so on. Multiple parameters are separated by ",". The object numerical array type uses "[ ]" to indicate the array element range, such as [int:10,string:hello,bool:true].
+NeoVM智能合约参数类型支持array、bytearray、string、int以及bool类型。其中array表示对象数组，数组元素可以是NeoVM支持的任意数量、任意类型的值；bytearray表示字节数组，输入时需要将byte数组用十六进制编码成字符串，如 []byte("HelloWorld") 编码成：48656c6c6f576f726c64；string表示字符串字面值；int表示整数，由于NeoVM虚拟机不支持浮点数值，因此需要将浮点数转换成整数；bool表示布尔型变量，用true，false表示。
 
-Input parameters example：
+在Ontology cli中，使用前缀法构造输入参数，参数前使用类型标识标注类型，如字符串参数表示为 string:hello; 整数参数表示为 int:10; 布尔类型参数表示为 bool:true等。多个参数使用","分隔。对象数组array类型用"[ ]"表示数组元素范围，如 [int:10,string:hello,bool:true]。
+
+输入参数示例：
 
 ```
-string:method,[string:arg1,int:arg2]
+string:methodName,[string:arg1,int:arg2]
 ```
 
-#### 5.2.1 Smart Contract Execution Parameters
+#### 5.2.1 智能合约执行参数
 
 --wallet, -w
-The wallet parameter specifies the account wallet path for smart contract execution. Default: "./wallet.dat".
+wallet参数指定智能合约执行的账户钱包路径。默认值："./wallet.dat"。
 
 --account, -a
-The account parameter specifies the account that will execute the contract.
+account参数指定执行合约的账户。
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice参数指定部署合约交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为500（在testmode模型下为0）。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
+gaslimit参数指定部署合约交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。
 
 --address
-The address parameter specifies the calling contract address.
+address参数指定调用的合约地址
 
 --params
-The params parameter is used to input the parameters of the contract invocation. The input parameters need to be encoded as described above.
+params参数用于输入合约调用的参数，需要按照上面的说明编码输入参数。
 
 --prepare, -p
-The prepare parameter indicates that the current execution is a pre-executed contract. The transactions executed will not be packaged into blocks, nor will they consume any ONG. Pre-execution will return the contract method's return value, as well as the gas limit required for the current call.
+prepare参数表示当前为预执行，执行交易不会被打包到区块中，也不会消耗任何ONG。预执行会返回合约方法的返回值，同时还会试算当前调用需要的gas limit。
 
 --return
-The return parameter is used with the --prepare parameter, which parses the return value of the contract by the return type of the --return parameter when the pre-execution is performed, otherwise returns the original value of the contract method call. Multiple return types are separated by "," such as string,int.
+return参数用于配合--prepare参数使用，在预执行时通过--return参数标注的返回值类型来解析合约返回返回值，否则输出合约方法调用时返回的原始值。多个返回值类型用","分隔，如 string,int
 
-
-**Smart Contract Pre-Execution**
+**智能合约预执行**
 
 ```
-./Ontology contract invoke --address=XXX --params=XXX --return=XXX --p
+./ontology contract invoke --address=XXX --params=XXX --return=XXX --p
 ```
-Return example:
+返回示例：
 
 ```
 Contract invoke successfully
 Gas consumed:20000
 Return:0
 ```
-**Smart Contract Execution**
+**智能合约执行**
 
 ```
-./Ontology contract invoke --address=XXX --params=XXX --gaslimit=XXX
+./ontology contract invoke --address=XXX --params=XXX --gaslimit=XXX
 ```
 
-Before the smart contract is executed, the gas limit required by the current execution can be calculated through pre-execution to avoid execution failure due to insufficient ONG balance.
+智能合约在执行之前，可以通过预执行，试算出当前执行所需要的gas limit，以避免ONG余额不足导致执行失败。
 
-### 5.3 Smart Contract Code Execution Directly
+### 5.3 直接执行智能合约字节码
 
-Ontology supports direct execution of smart contact code after deploying a contract.
+智能合约部署后，cli支持直接执行NeoVM Code。
 
-#### 5.3.1 Smart Contract Code Execution Directly Parameters
+#### 5.3.1 直接执行智能合约字节码参数
 
 --wallet, -w
-The wallet parameter specifies the account wallet path for smart contract execution. Default: "./wallet.dat".
+wallet参数指定智能合约执行的账户钱包路径。默认值："./wallet.dat"。
 
 --account, -a
-The account parameter specifies the account that will execute the contract.
+account参数指定执行合约的账户。
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice参数指定部署合约交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为0。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
+gaslimit参数指定部署合约交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。
 
 --prepare, -p
-The prepare parameter indicates that the current execution is a pre-executed contract. The transactions executed will not be packaged into blocks, nor will they consume any ONG. Pre-execution will return the contract method's return value, as well as the gas limit required for the current call.
+prepare参数表示当前为预执行，执行交易不会被打包到区块中，也不会消耗任何ONG。预执行会返回合约方法的返回值，同时还会试算当前调用需要的gas limit。
 
 --code
-The code parameter specifies the code path of a smart contract.
+code参数指定可执行的智能合约代码路径。
 
-**Smart Contract Code Execution Directly**
+#### 5.3.2 直接执行智能合约字节码
 
 ```
-./Ontology contract invokeCode --code=XXX --gaslimit=XXX
+./ontology contract invokeCode --code=XXX --gaslimit=XXX
 ```
 
-## 6. Block Import and Export
+## 6、区块导入导出
 
-Ontology CLI supports exporting the local node's block data to a compressed file. The generated compressed file can be imported into the Ontology node. For security reasons, the imported block data file must be obtained from a trusted source.
+Ontology Cli支持导出本地节点的区块数据到一个压缩文件中，生成的压缩文件可以再导入其它Ontology节点中。出于安全考虑，导入的区块数据文件请确保是从可信的来源获取的。
 
-### 6.1 Export Blocks
+### 6.1 导出区块
 
-#### 6.1.1 Export Block Parameters
+#### 6.1.1 导出区块参数
 
 --rpcport
-The rpcport parameter specifies the port number to which the RPC server is bound. The default is 20336.
+rpcport 参数用于指定Ontology节点的rpc端口号，默认值为20336。
 
 --exportfile
-The exportfile parameter specifies the exported file path. The default value is: ./OntBlocks.dat.
+exportfile 参数指定导出的文件路径。默认值为：./OntBlocks.dat
 
 --startheight
-The startheight parameter specifies the start height of the exported block. Default value is 0.
+startheight 参数指定导出区块的起始高度。默认值为0。
 
 --endheight
-The endheight parameter specifies the end height of the exported block. When height of the local node's current block is greater than the end height required for export, the greater part will not be exported. Height is equal to 0, which means exporting all the blocks of the current node. The default value is 0.
+endheight 参数用于指定导出区块的终止高度。默认值为0，表示导出所有区块。
 
 --speed
-The speed parameter specifies the export speed. Respectively, h denotes high, m denotes middle, and l denotes low. The default value is m.
+speed 参数指定导出速度。分别用h表示high，m表示middle，l表示low。默认值为m。
 
-Block export
+区块导出
 
 ```
-./Ontology export
+./ontology export
 ```
 
-### 6.2 Import Blocks
+### 6.2 导入区块
 
-#### 6.2.1 Importing Block Parameters
+#### 6.2.1 导入区块参数
 
 --datadir
-The datadir parameter specifies the storage path of the block data. The default value is "./Chain".
-
---networkid
-The networkid parameter is used to specify the network ID. Default value is 1, means MainNet network ID.
+datadir 参数用于指定区块数据存储目录
 
 --config
-The config parameter specifies the file path of the genesis block for the current Ontolgy node. Default value is main net config.
+config 参数用于指定当前Ontology节点创世区块配置文件的路径。如果不指定，将使用Ontolog主网的创世块配置。
 
 --disableeventlog
-The disableeventlog parameter is used to disable the event log output when the smart contract is executed to improve the node transaction execution performance. The Ontology node enables the event log output function by default.
+disableeventlog 参数用于关闭导入区块时生成合约日志功能。
+
+--networkid
+networkid 参数用于指定需要导入的网路ID。默认值为主网networkid。
 
 --endheight
-The endheight parameter specifies the end height of the imported block. If the block height specified by --endheight is less than the maximum height of the block file, it will only be imported to the height specified by --endheight and the rest blocks will stop importing. The default value is 0, which means import all the blocks.
+endheight 参数指定导入的目标区块高度。如果importheight指定的区块高度小于区块文件的最大高度时，只导入到importheight指定的高度，剩余的区块会停止导入。默认值为0，表示导入所有的区块。
 
 --importfile
-The importfile parameter is used with --importfile to specify the path to the import file when importing blocks. The default value is "./OntBlocks.dat".
+importfile 参数用于指定导入文件的路径。默认值为"./OntBlocks.dat"。
 
-Import block
+导入区块
 
 ```
 ./ontology import --importfile=./OntBlocks.dat
 ```
 
-## 7. Build Transaction
+## 7、构造交易
 
-Build transaction command can build transaction raw data, such as transfer transaction, approve tansaction, and so on. Note that before send to Ontology, the transaction after built should be signed by private key.
+构造交易命令用于构造各种交易的交易内容，如转账交易，授权转账交易等，构造出来的交易在发送到Ontology上之前，还需要用户的私钥签名。
 
-### 7.1 Build Transfer Transaction
+### 7.1 构造转账交易
 
-#### 7.1.1 Build Transfer Transaction Params
-
---wallet, -w
-Wallet specifies the transfer-out account wallet path. The default value is: "./wallet.dat".
+#### 7.1.1 构造转账交易参数
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice 参数用于设定交易执行的gasprice。默认值为500。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
-
---asset
-The asset parameter specifies the asset type of the transfer. Ont indicates the ONT and ong indicates the ONG. The default value is ont.
-
---from
-The from parameter specifies the transfer-out account address.
-
---to
-The to parameter specifies the transfer-in account address.
-
---amount
-The amount parameter specifies the transfer amount. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
+gaslimit 参数用于设定交易执行的gaslimit。默认值为20000。
 
 --payer
-payer parameter specifies the transaction fee payer. If don't specifies, using signer account default.
+payer 参数用于设置交易手续费的付款账户。如果不设定，默认使用付款人账户(账户可以用地址、索引、标签表示)。
+
+--asset
+asset 参数用于设置资产类型，如ONT，ONG。
+
+--from
+from 参数用于设置转账扣款账户(账户可以用地址、索引、标签表示)。
+
+--to
+to参数用于设置转账收款人账户(账户可以用地址、索引、标签表示)。
+
+--amount
+amount参数用于设定转账金额。浮点类型，如果0.001个ong
+
+--wallet
+wallet 钱包路径。wallet参数用于解析账户的索引或者标签。如果账户使用的都是地址，则不需要此参数。
 
 ```
 ./ontology buildtx transfer --from=ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48 --to=AaCe8nVkMRABnp5YgEjYZ9E5KYCxks2uce --amount=10
 ```
 
-Return example:
+返回如下：
 
 ```
 Transfer raw tx:
 00d1d376865bf401000000000000204e0000000000006a987e044e01e3b71f9bb60df57ab0458215ef0f6e00c66b6a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
 
-### 7.2 Build Authorize Transfer
+### 7.2 构造授权转账交易
 
-#### 7.2.1 Build Authorize Transfer Params
-
---wallet, -w
-Wallet specifies the transfer-out account wallet path. The default value is: "./wallet.dat".
+#### 7.2.1 构造授权转账交易参数
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice 参数用于设定交易执行的gasprice。默认值为500。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
-
---asset
-The asset parameter specifies the asset type of the transfer. Ont indicates the ONT and ong indicates the ONG. The default value is ont.
-
---from
-The from parameter specifies the transfer-out account address.
-
---to
-The to parameter specifies the transfer-in account address.
-
---amount
-The amount parameter specifies the transfer amount. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
+gaslimit 参数用于设定交易执行的gaslimit。默认值为20000。
 
 --payer
-payer parameter specifies the transaction fee payer. If don't specifies, using signer account default.
+payer 参数用于设置交易手续费的付款账户。如果不设定，默认使用付款人账户(账户可以用地址、索引、标签表示)。
+
+--asset
+asset 参数用于设置资产类型，如ONT，ONG。
+
+--from
+from 参数用于设置转账的扣款账户(账户可以用地址、索引、标签表示)。
+
+--to
+to参数用于设置转账收款人账户(账户可以用地址、索引、标签表示)。
+
+--amount
+amount参数用于设定转账金额。浮点类型，如果0.001个ong
+
+--wallet
+wallet 钱包路径。wallet参数用于解析账户的索引或者标签。如果账户使用的都是地址，则不需要此参数。
 
 ```
 ./ontology buildtx approve  --from=ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48 --to=AaCe8nVkMRABnp5YgEjYZ9E5KYCxks2uce --amount=10
 ```
-Return example:
+返回如下：
 
 ```
 Approve raw tx:
 00d12178865bf401000000000000204e0000000000006a987e044e01e3b71f9bb60df57ab0458215ef0f6b00c66b6a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c07617070726f76651400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
-### 7.3 Build Transfer From Authorize Account Transaction
 
-#### 7.3.1 Build Transfer From Authorize Account Transaction Params
+### 7.3 构造从授权账户中转账交易
 
---wallet, -w
-Wallet specifies the wallet path of authorized account. The default value is: "./wallet.dat".
+#### 7.3.1 构造从授权账户中转账交易参数
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice 参数用于设定交易执行的gasprice。默认值为500。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
-
---asset
-The asset parameter specifies the asset type of the transfer. Ont indicates the ONT and ong indicates the ONG. The default value is ont.
-
---from
-The from parameter specifies the transfer-out account address.
-
---to
-The to parameter specifies the transfer-in account address.
-
---sender
-The sender parameter specifies the account address that actually operates the authorized transfer. If no sender parameter is specified, the sender parameter defaults to the value of the to parameter.
-
---amount
-The amount parameter specifies the transfer amount and the transfer amount cannot be greater than the authorized transfer balance. Otherwise, the transaction will be rejected. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
+gaslimit 参数用于设定交易执行的gaslimit。默认值为20000。
 
 --payer
-payer parameter specifies the transaction fee payer. If don't specifies, using signer account default.
+payer 参数用于设置交易手续费的付款账户。如果不设定，默认使用付款人账户(账户可以用地址、索引、标签表示)。
+
+--asset
+asset 参数用于设置资产类型，如ONT，ONG。
+
+--sender
+sender 参数用于设定交易发送账户，也就是被授权账户(账户可以用地址、索引、标签表示)。如果不设定，默认使用收款人账户。
+
+--from
+from 参数用于设置转账的扣款账户，也就是授权账户(账户可以用地址、索引、标签表示)。
+
+--to
+to参数用于设置转账收款人账户(账户可以用地址、索引、标签表示)。
+
+--amount
+amount参数用于设定转账金额。浮点类型，如0.001个ong
+
+--wallet
+wallet 钱包路径。wallet参数用于解析账户的索引或者标签。如果账户使用的都是地址，则不需要此参数。
 
 ```
 ./ontology buildtx transferfrom --sender=AMFrW7hrSRw1Azz6hQohni8BdStZDvectW --from=Aaxjf7utmjSstmTD1LjtYfhZ3CoWaxC7Tt --to=AMFrW7hrSRw1Azz6hQohni8BdStZDvectW --amount=10
 ```
 
-Return example:
+返回如下：
 
 ```
 00d10754875bf401000000000000204e0000000000003c2352095b7428debfd1c1519f5a8f45a474a4218700c66b6a143c2352095b7428debfd1c1519f5a8f45a474a421c86a14d2784bddeac73d20124f20f4fa9528f3365a4dd4c86a143c2352095b7428debfd1c1519f5a8f45a474a421c86a5ac86c0c7472616e7366657246726f6d1400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
 
-### 7.4 Build Withdraw ONG Transaction
+### 7.4 构造提取ONG交易
 
-#### 7.4.1 Build Withdraw ONG Transaction Params
-
---wallet, -w
-Wallet specifies the wallet path of authorized account. The default value is: "./wallet.dat".
+#### 7.4.1 构造提取ONG交易参数
 
 --gasprice
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 500 (0 in testmode). When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized.
+gasprice 参数用于设定交易执行的gasprice。默认值为500。
 
 --gaslimit
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 20000.
-
---amount
-The amount parameter specifies the transfer amount and the transfer amount cannot be greater than the authorized transfer balance. Otherwise, the transaction will be rejected. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
-If don't specifies withdraw all unbound ONG as default.
-
---receive
-receive params specifies the ONG receive account. If don't specifies, using withdraw account default.
+gaslimit 参数用于设定交易执行的gaslimit。默认值为20000。
 
 --payer
-payer parameter specifies the transaction fee payer. If don't specifies, using signer account default.
+payer 参数用于设置交易手续费的付款账户。如果不设定，默认使用付款人账户(账户可以用地址、索引、标签表示)。
+
+--receive
+receive 参数用于设定提取的ONG接收账户。如果不设置，默认使用ONG提取账户。
+
+--amount
+amount参数用于设定提取的ONG金额。浮点类型，如0.001个ong。如果不填，默认提取该账户下的所有可以提取ONG。
+
+--wallet
+wallet 钱包路径。wallet参数用于解析账户的索引或者标签。如果账户使用的都是地址，则不需要此参数。
 
 --rpcport
-The rpcport parameter specifies the port number to which the RPC server is bound. The default is 20336.
+rpcport 参数用于设置RPC服务器的端口号。默认值为20336。
 
 ```
 ./ontology buildtx withdrawong ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48
 ```
 
-Return example:
+返回如下：
 
 ```
 Withdraw account:ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48
@@ -966,60 +966,62 @@ Withdraw raw tx:
 00d11b56875bf401000000000000204e0000000000006a987e044e01e3b71f9bb60df57ab0458215ef0f8e00c66b6a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a140000000000000000000000000000000000000001c86a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a071f57ad26643f08c86c0c7472616e7366657246726f6d1400000000000000000000000000000000000000020068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
 
-## 8. Sign To Transaction
+## 8、对交易签名
 
-The transaction build by buildtx command, should be signed before send to Ontology. Note that if transction fee payer is different with transfer from, both account should sign to the transaction.
+使用buildtx 命令构造的交易，需要通过相关账户签名后，才是有效的交易。注意，如果交易手续费账户和付款账户不是同一个账户，则该交易需要付款人账户和手续费账户都签名。
 
-### 8.1 Sign To Transaction Parameters
+### 8.1 交易签名命令参数
 
---wallet, -w
-Wallet specifies the wallet path of authorized account. The default value is: "./wallet.dat".
+--wallet
+wallet 参数用于指定钱包路径。
 
---account, a
-account parameter specifies signature account, if not specified, the default account of wallet will be used.
+--account
+account 参数用于指定签名账户，如果不设置，使用钱包默认账户。
 
 --send
---send parameter specifies whether send transaction to Ontology after signed.
+send 参数用于指定，交易签名后是否直接发送到Ontology网络上。
 
 --prepare
-prepare parameter specifies whether prepare execute transaction, without send to Ontology.
+prepare 参数用于指定，交易签名后是否本地预执行交易。
 
 --rpcport
-The rpcport parameter specifies the port number to which the RPC server is bound. The default is 20336.
+rpcport 参数用于指定RPC服务器端口号。默认值为20336。
+
 
 ```
 ./ontology sigtx --account=ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48 00d11b56875bf401000000000000204e0000000000006a987e044e01e3b71f9bb60df57ab0458215ef0f8e00c66b6a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a140000000000000000000000000000000000000001c86a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a071f57ad26643f08c86c0c7472616e7366657246726f6d1400000000000000000000000000000000000000020068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
 
-Return example:
+返回如下：
 
 ```
 RawTx after signed:
 00d11b56875bf401000000000000204e0000000000006a987e044e01e3b71f9bb60df57ab0458215ef0f8e00c66b6a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a140000000000000000000000000000000000000001c86a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a071f57ad26643f08c86c0c7472616e7366657246726f6d1400000000000000000000000000000000000000020068164f6e746f6c6f67792e4e61746976652e496e766f6b65000141407331b7ba2a7708187ad4cb14146d2080185e42f0a39d572f58d25fa2e20f3066711b64f2b91d958683f7bfb904badeb0d6bc733506e665028a2c2968b77d5958232103c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a56ac
 ```
 
-## 9. Generate Multi-Signature Address
+## 9、生成多重签名地址
 
-Generating a multi-signature address need public keys and the signature number at least.
+生成多重签名地址需要指定公钥列表PubKey，以及在公钥列表中的所需要的最少签名数量M。
 
-### 9.1 Generate Multi-Signature Address Parameters
-
+### 9.1 生成多重签名地址参数
 --pubkey
-pubkey parameter specifies the range of signature of public key.
-The public key of account can get by the command:
+pubkey 参数用于指定多重签名的公钥列表，公钥之间用逗号','分隔。
+账户公钥可以通过命令：
 
 ```
 ./ontology account list -v
 ```
-The max number of public key support by Ontology is 16 at present.
+查看。
+
+目前多重签名支持的最大公钥数为16。
 
 -m
-m parameter specifies the least number of signature. Default value is 1.
+m 参数用于指定所以的最少签名数。默认值为1。
 
 ```
 ./ontology multisigaddr --pubkey=03c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a56,02b2b9fb60a0add9ef6715ffbac8bc7e81cb47cd06c157c19e6a858859c0158231 -m=1
 ```
-Return example:
+返回如下：
 
 ```
 Pub key list:
@@ -1029,69 +1031,62 @@ Index 2 Address:ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48 PubKey:03c0c30f11c7fc1396e859
 MultiSigAddress:Ae4cxJiubmgueAVtNbjpmm2AGNgdKP6Ea7
 ```
 
-## 10. Multi-Signature To Transaction
+## 10、对交易多重签名
 
-Multi-Signature need multiple account sign to transaction one by one. The output of signature as input of another signature, until signature number up to M.
+多重签名需要不同的账户对同一个交易签名，一个账户签名后，返回的交易需要作为下一个账户签名的输入，直到满足m指定的交易签名数。
 
-### 10.1 Multi-signature parameters for transactions
+### 10.1 对交易多重签名参数
+
+--wallet
+wallet 参数用于指定钱包路径。
+
+--account
+account 参数用于指定签名账户，如果不设置，使用钱包默认账户。
 
 --pubkey
-is used to specify a list of public keys for multiple signatures, separated by a comma ','. The account public key can be passed through the command:
-
-pubkey parameter specifies the range of signature of public key.
-The public key of an account can be got by the command:
-
-```
-./ontology account list -v
-```
-The max number of public key support by Ontology is 16 at present.
+pubkey 参数用于指定多重签名的公钥列表，公钥之间用逗号','分隔。
 
 -m
-m parameter specifies the least number of signature. Default value is 1.
-
---wallet, -w
-Wallet specifies the wallet path of authorized account. The default value is: "./wallet.dat".
-
---account, a
-account parameter specifies signature account, if not specified, the default account of wallet will be used.
+m 参数用于指定所以的最少签名数。默认值为1。
 
 --send
---send parameter specifies whether send transaction to Ontology after signed.
+send 参数用于指定，交易签名后是否直接发送到Ontology网络上。
 
 --prepare
-prepare parameter specifies whether prepare execute transaction, without send to Ontology.
+prepare 参数用于指定，交易签名后是否本地预执行交易。
 
 --rpcport
-The rpcport parameter specifies the port number to which the RPC server is bound. The default is 20336.
+rpcport 参数用于指定RPC服务器端口号。默认值为20336。
+
 
 ```
 ./ontology multisigtx --account=ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48 --pubkey=03c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a56,02b2b9fb60a0add9ef6715ffbac8bc7e81cb47cd06c157c19e6a858859c0158231 -m=1 00d1045f875bf401000000000000204e000000000000f47d92d27d02b93d21f8af16c9f05a99d128dd5a6e00c66b6a14f47d92d27d02b93d21f8af16c9f05a99d128dd5ac86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
 
-Return example:
+返回如下：
 
 ```
 RawTx after multi signed:
 00d1045f875bf401000000000000204e000000000000f47d92d27d02b93d21f8af16c9f05a99d128dd5a6e00c66b6a14f47d92d27d02b93d21f8af16c9f05a99d128dd5ac86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65000141409dd2a46277f96566b9e9b4fc354be90b61776c58125cfbf36e770b1b1d50a16febad4bfadfc966fa575e90acf3b8308d7a0f637260b31321cb7ef6f741364d0e47512102b2b9fb60a0add9ef6715ffbac8bc7e81cb47cd06c157c19e6a858859c01582312103c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a5652ae
 ```
 
-## 11. Send Transaction
+## 11、发送交易
 
-The transaction after being signed can be sent to Ontology via sendtx command.
+用户签好名后的交易可以通过发送交易命令提交到Ontology网络上。
 
-### 11.1 Send Transaction Parameters
+### 11.1 发送交易参数
 
 --rpcport
-The rpcport parameter specifies the port number to which the RPC server is bound. The default is 20336.
+rpcport 参数用于设置RPC服务器的端口号。
 
 --prepare
-prepare parameter specifies whether prepare execute transaction, without send to Ontology.
+prepare 参数用于指定是否本地预执行该交易。预执行在本地执行，不会把交易发送到Ontology网路上，也不会提交到账户中。
 
 ```
 ./ontology sendtx 00d17c61875bf401000000000000204e0000000000006a987e044e01e3b71f9bb60df57ab0458215ef0f6e00c66b6a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65000141409f32f1fd170d174959da26cb9df8f4a15049d255ed3953d92870d5739c4e8b8158ec3bde1e9ae9b4d9621b09311b5e49ed91dcbc64d3b5f74cf011eaa616c403232103c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a56ac
 ```
 
-Return example:
+返回如下：
 
 ```
   TxHash:f8ea91da985af249e808913b6398150079cdfb02273146e4eb69c43947a42db2
@@ -1100,7 +1095,7 @@ Tip:
   Using './ontology info status f8ea91da985af249e808913b6398150079cdfb02273146e4eb69c43947a42db2' to query transaction status.
 ```
 
-If prepare execute return:
+如果是预执行返回如下：
 
 ```
 Prepare execute transaction success.
@@ -1108,16 +1103,16 @@ Gas limit:20000
 Result:01
 ```
 
-## 12. Show Transaction Infomation
+## 12、查看交易信息
 
-The information of transaction field can be show via showtx command.
+查看交易信息命令可以查看构造好的原始交易的字段信息。
 
-Example:
+如:
 
 ```
 ./ontology showtx 00d1045f875bf401000000000000204e000000000000f47d92d27d02b93d21f8af16c9f05a99d128dd5a6e00c66b6a14f47d92d27d02b93d21f8af16c9f05a99d128dd5ac86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65000141409dd2a46277f96566b9e9b4fc354be90b61776c58125cfbf36e770b1b1d50a16febad4bfadfc966fa575e90acf3b8308d7a0f637260b31321cb7ef6f741364d0e47512102b2b9fb60a0add9ef6715ffbac8bc7e81cb47cd06c157c19e6a858859c01582312103c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a5652ae
 ```
-Return:
+返回如下：
 
 ```
 {
