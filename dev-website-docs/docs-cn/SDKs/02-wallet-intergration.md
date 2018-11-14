@@ -1,17 +1,18 @@
 
-The outline of this document is as follows:
-* [Overview](#wallet-integration-overview)
-* [Integration Guide](#integration-Guide)
-* [Native contract address](#native-contract-address)
+<h1 align="center">钱包集成</h1>
+<p align="center" class="version">Version 1.0.0 </p>
 
- 
-## Overview
+内容:
+* [钱包集成](#钱包集成)
+* [Native 合约地址](#native-合约地址)
 
-The wallet function includes giving an account for digit asset and digital identity. [wallet Specification](https://ontio.github.io/documentation/Wallet_File_Specification_en.html)
+## 钱包集成
 
-Wallet function lists:
+钱包包括资产账户和身份两部分.详情请参考文档 [钱包规范](https://ontio.github.io/documentation/Wallet_File_Specification_cn.html)
 
-| Module                |                    Sub Module                    |     Test case      |
+钱包集成需要完成如下功能:
+
+| 模块                |                    子模块                    |     测试用例     |
 | ------------------    | :----------------------------------------------: | :------------------: |
 | Wallet management    |           create                                 |     Use the mnemonic words when creating wallet(Based on BIP39 and BIP44 specifications)   |
 |                       |          export                                 |    Export keystore      |
@@ -25,7 +26,7 @@ Wallet function lists:
 |                      |                                                  |  Query unclaim ONT&ONG   |
 |    Transfer Assets   |          Transfer                                |    ONT/ONG transfer        |
 |                      |                                                  |      ONG Claim              |
-|   ONT ID management  |         Create                                   |   Create a new ONT ID and write it in blockchain   |
+|   ONT ID management  |         Create                                   |   Create a new ONT ID and write onto blockchain   |
 |                      |        Import                                    |     Import keystore of ONT ID |
 |                      |        Export                                    |     Export keystore of ONT ID |
 |                      |       Information service                        |    Query ONT ID events , create, delete,etc.    |
@@ -33,7 +34,7 @@ Wallet function lists:
 
 
 
-The specifications of sdk implementations wallet are Currently:
+这些SDK已经完成了钱包规范:
 
 Java SDK ：[Java SDK](https://github.com/ontio/ontology-java-sdk/blob/master/docs) 
 
@@ -45,13 +46,8 @@ Golang SDK ：[Go SDK](https://github.com/ontio/ontology-go-sdk)
 
 Python SDK ：[Python SDK](https://github.com/ontio/ontology-python-sdk)
 
-## Integration Guide
 
-* [iOS wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_ts_sdk_en.html)
-* [Android wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html)
-
-
-## Native contract address
+## Native 合约地址
 
 contract | contract u160 address | Address
 ---|---|---
@@ -63,9 +59,3 @@ Oracle | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvh
 Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
 Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
 DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
-
-
-
-
-
- 
