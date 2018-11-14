@@ -42,6 +42,10 @@
 - SDKs
   - [Overview](docs-en/SDKs/00-overview.md)
   - [Wallet File](docs-en/SDKs/01-wallet-file-specification.md)
+  - [Java Sdk](docs-en/SDKs/java-sdk.md)
+      - [Digit Identity](docs-en/SDKs/java-sdk-ontid.md)
+  - [TypeScript Sdk](docs-en/SDKs/ts-sdk.md)
+      - [Digit Identity](docs-en/SDKs/ts-sdk-ontid.md)
   - [Wallet Integration](docs-en/SDKs/02-wallet-intergration.md)
       - [iOS](docs-en/SDKs/ontology_wallet_dev_ts_sdk_en.md)
       - [Android](docs-en/SDKs/ontology_wallet_dev_android_en.md)

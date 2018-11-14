@@ -45,6 +45,10 @@
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
   - [钱包文件](docs-cn/SDKs/01-wallet-file-specification.md)
+  - [Java Sdk](docs-cn/SDKs/java-sdk.md)
+     - [数字身份](docs-cn/SDKs/java-sdk-ontid.md)
+  - [TypeScript Sdk](docs-cn/SDKs/ts-sdk.md)
+     - [数字身份](docs-cn/SDKs/ts-sdk-ontid.md)
   - [钱包集成](docs-cn/SDKs/02-wallet-intergration.md)
       - [iOS](docs-cn/SDKs/ontology_wallet_dev_ts_sdk_zh.md)
       - [Android](docs-cn/SDKs/ontology_wallet_dev_android_zh.md)
