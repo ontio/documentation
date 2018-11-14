@@ -143,11 +143,14 @@ restClient.getContract('bcb08a0977ed986612c29cc9a7cbf92c6bd66d86').then(res => {
 
 [SmartX](http://smartx.ont.io) 是开发者编写、部署和调用智能合约的一站式工具。具体使用说明请参考[smart文档](https://github.com/ontio/ontology-smartcontract/blob/master/smart-contract-tutorial/SmartX_Tutorial_cn.md)。
 
-![](https://upload-images.jianshu.io/upload_images/150344-1186fa3b18f9752f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 首先，我们需要在smartx上编译写好的合约。当合约编译成功后，下一步，选择部署合约。
 
-![](https://upload-images.jianshu.io/upload_images/150344-5f94d283e690512d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+<p>
+  <img width="300px" src="https://upload-images.jianshu.io/upload_images/150344-1186fa3b18f9752f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  <img width="300px" src="https://upload-images.jianshu.io/upload_images/150344-5f94d283e690512d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+</p>
 
 在选择测试网环境时，SmartX提供了默认的账户，用来支付部署合约的费用和对交易签名。
 

@@ -145,11 +145,14 @@ If the request returns the avm content of the contract, the contract has been su
 [SmartX](http://smartx.ont.io) is a one-stop tool for developers to write, deploy, and invoke smart contracts.
 For specific instructions, please refer to [smart document](https://github.com/ontio/ontology-smartcontract/blob/master/smart-contract-tutorial/SmartX_Tutorial.md).
 
-![](http://wx1.sinaimg.cn/mw690/0060lm7Tly1fss9ydpl3ij30f90m840c.jpg)
 
 First, we need to compile the contract on SmartX. When the contract is successfully compiled, the next step is to deploy the contract.
 
-![](http://wx2.sinaimg.cn/mw690/0060lm7Tly1fss9v7mp42j30ex0m5t9z.jpg)
+
+<p>
+  <img width="300px" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fss9ydpl3ij30f90m840c.jpg">
+  <img width="300px" src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1fss9v7mp42j30ex0m5t9z.jpg">
+</p>
 
 In testing network, SmartX provides a default account to pay for the fee of contract deployment and sign the transaction.
 
