@@ -1,7 +1,4 @@
-[English](../en/thirdparty_kyc.md) / 中文
-
 <h1 align="center">ONTPass认证服务接入指导</h1>
-<p align="center" class="version">Version 0.8.0 </p>
 
 ## 概述
 
