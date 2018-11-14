@@ -32,13 +32,10 @@ SDK文档：[SDK文档](https://github.com/ontio/ontology-java-sdk/tree/master/d
 		* [2.5 ONG转账](#25-ONG转账)
 			* [ ONG转账](#ONG转账)
 			* [ 提取ong](#提取ong)
-	* [3. NEP5转账](#3-nep5转账)
-		* [3.1 查询](#31-查询)
-		* [3.2 转账](#32-转账)
-	* [4. 批量交易](#4-批量交易)
-		* [4.1 批量构造交易](#41-批量构造交易)
-		* [4.2 批量发送交易](#42-批量发送交易)
-		* [4.3 在钱包中创建Ontid](#43-在钱包中创建Ontid)
+	* [3. 批量交易](#3-批量交易)
+		* [3.1 批量构造交易](#31-批量构造交易)
+		* [3.2 批量发送交易](#32-批量发送交易)
+		* [3.3 在钱包中创建Ontid](#33-在钱包中创建Ontid)
 ## 1. 公私钥和地址
 
 账户是基于公私钥创建的，地址是公钥转换而来。
@@ -637,45 +634,13 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 
 
-## 3. NEP5转账
-
-参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/Nep5Demo.java)
-
-### 3.1 查询
-
-```json
-String balance = ontSdk.neovm().nep5().queryBalanceOf(acct.address);
-System.out.println(new BigInteger(Helper.reverse(Helper.hexToBytes(balance))).longValue());
-
-String totalSupply = ontSdk.neovm().nep5().queryTotalSupply();
-System.out.println(new BigInteger(Helper.reverse(Helper.hexToBytes(totalSupply))).longValue());
-
-String decimals = ontSdk.neovm().nep5().queryDecimals();
-System.out.println(decimals);
-
-String name = ontSdk.neovm().nep5().queryName();
-System.out.println(new String(Helper.hexToBytes(name)));
-
-String symbol = ontSdk.neovm().nep5().querySymbol();
-System.out.println(new String(Helper.hexToBytes(symbol)));
-
-System.out.println(Address.decodeBase58(acct.address).toHexString());
-```
-
-### 3.2 转账
-
-```json
-ontSdk.neovm().nep5().sendTransfer(acct,"AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2",46440000L,acct,gasLimit,0);
-```
-
-
-## 4. 批量交易
+## 3. 批量交易
 
 SDK发送注册Ontid和转账等交易时，根据钱包中账户和身份信息解密出私钥再做签名，这个过程大概需要1-2秒时间。为了节省发交易时间，可以多线程或多机器事先创建交易，再批量发送。
 
 实现步骤如下，[例子](https://github.com/ontio/ontology-java-sdk/tree/master/src/main/java/demo/CreateManyTx.java)
 
-### 4.1 批量构造交易
+### 3.1 批量构造交易
 
 1. 打开文件
 2. 构造交易，下面以构造注册Ontid交易为例。
@@ -719,7 +684,7 @@ for (int i = 0; i < 3; i++) {
 
 ```
 
-### 4.2 批量发送交易
+### 3.2 批量发送交易
 
 1. 打开文件
 2. 读取一行数据
@@ -740,7 +705,7 @@ while ((txHex=bf.readLine())!=null){
 ```
 
 
-### 4.3 在钱包中创建Ontid
+### 3.3 在钱包中创建Ontid
 
 如果需要把Ontid保存到钱包，根据4.1中保存的私钥，在钱包中创建Ontid即可。
 

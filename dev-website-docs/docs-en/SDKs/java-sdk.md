@@ -34,9 +34,6 @@ The outline of this document is as follows:
 	* [ONG transfer](#ong-transfer)
 		* [ONG transfer](#ong-transfer)
 		* [Withdraw ONG](#Withdraw-ong)
-* [NEP5 Transfer](#nep5-transfer)
-	* [Query NEP5 Balance](#query-nep5-balance)
-	* [Transfer NEP5 token](#transfer-nep5-token)
 * [Smart Contracts](#smart-contracts)
 	* [Query content of a smart contract](#query-content-of-a-smart-contract)
 	* [Synchronize query smartcontract event](#synchronize-query-smartcontract-event)
@@ -500,37 +497,6 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 ```
 
-
-## NEP5 Transfer
-
-[Full example](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/Nep5Demo.java)
-
-
-### Query NEP5 Balance
-
-```
-String balance = ontSdk.neovm().nep5().queryBalanceOf(acct.address);
-System.out.println(new BigInteger(Helper.reverse(Helper.hexToBytes(balance))).longValue());
-
-String totalSupply = ontSdk.neovm().nep5().queryTotalSupply();
-System.out.println(new BigInteger(Helper.reverse(Helper.hexToBytes(totalSupply))).longValue());
-
-String decimals = ontSdk.neovm().nep5().queryDecimals();
-System.out.println(decimals);
-
-String name = ontSdk.neovm().nep5().queryName();
-System.out.println(new String(Helper.hexToBytes(name)));
-
-String symbol = ontSdk.neovm().nep5().querySymbol();
-System.out.println(new String(Helper.hexToBytes(symbol)));
-
-System.out.println(Address.decodeBase58(acct.address).toHexString());
-```
-
-### Transfer NEP5 token
-```
-ontSdk.neovm().nep5().sendTransfer(acct,"AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2",46440000L,acct,gasLimit,0);
-```
 
 ## Smart contracts
 
