@@ -1,4 +1,7 @@
+
 <div align="center"><img src="https://raw.githubusercontent.com/punicasuite/solo-chain/master/image/icon.png" height="200" width="200"></div>
+
+---
 
 # Solo Chain 概览
 

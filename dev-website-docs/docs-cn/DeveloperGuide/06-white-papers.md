@@ -1,15 +1,4 @@
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/ontio/documentation/master/zh-CN/Ontology_CH.png"
-    width="200px"
-  >
-</p>
-<h1 align="center"></h1>
-<p align="center">
-  新一代多链式公有链平台 & 分布式信任生态
-</p>
 
----
 
 
 ## 本体文档

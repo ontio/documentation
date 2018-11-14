@@ -4,6 +4,8 @@
   <img src="https://raw.githubusercontent.com/punicasuite/punica-python/master/punica.png" height="200" width="200"><br><br>
 </div>
 
+---
+
 ### 概述
 
 [Punica Suite](https://punica.ont.io) 是基于Ontology的第一个dApp开发框架， 包含了绝大部分开发dApp工具.
