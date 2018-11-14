@@ -31,9 +31,42 @@
 
 ### 1.拥有自己的OntId
 
-首先网站服务方需要拥有自己的OntId，有了身份OntId相关信息后便可使用各种SDK进行签名验签等操作。OntId签名验签等身份相关操作可参考附录[示例代码](https://github.com/ontio/ontology-DID/blob/master/docs/cn/thirdparty_login_cn.md#%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81)或[SDKs开发文档](https://ontio.github.io/documentation/ontology_overview_sdks_en.html)
+首先网站服务方需要拥有自己的OntId，有了身份OntId相关信息后便可使用各种SDK进行签名验签等操作。OntId签名验签等身份相关操作可参考附录[示例代码](https://github.com/ontio/ontology-DID/blob/master/docs/cn/thirdparty_kyc_cn.md#%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81)或[SDKs开发文档](https://ontio.github.io/documentation/ontology_overview_sdks_en.html)
 
-推荐使用ONTO客户端[https://onto.app](https://onto.app)创建主网OntId。记住密码并导出keystore，keystore已包含salt，加密后的私钥，ontId等信息。
+测试网OntId可由ONTPass平台免费代付完成上链注册，直接调用以下API即可完成测试网OntId注册。
+
+```json
+Host：https://app.ont.io/S1/api/v1/ontpass/thirdparty/ontid
+Method：GET /HTTP/1.1
+SuccessResponse：
+{
+  "Action": "RegisterTestNetOntId",
+  "Error": 0,
+  "Desc": "SUCCESS",
+  "Version": "1.0",
+  "Result": {
+    "OntId": "did:ont:AVdPy51OzyK5MtYyxW4ggFmPCrWQU3VJF2",
+    "Salt": "FODMSCkT9YDxyVQXQ61+Nw==",
+    "Scrypt-N": 12386,
+    "EncryptedPriKey": "a7BCMN9gupQfzfpeJgXJRK3OsO2LITu6xpet5tPyR65LvG4/n1bF+3m2Yy4efGGx",
+    "Password": "123456",
+    "PrivateKey":"5A5610287B5C6281C6030990D"
+  }
+}
+```
+
+| Param     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    OntId|   String | OntId |
+|    Salt|   String | 盐，安全参数 |
+|    Scrypt-N|   int | 加密参数。该参数与后续导入OntId操作相关 |
+|    EncryptedPriKey|   String | 加密后的私钥 |
+|    Password|   String | OntId私钥密码 |
+|    PrivateKey|   String | 私钥 |
+
+
+主网OntId，推荐使用ONTO客户端[https://onto.app](https://onto.app)创建。记住密码并导出keystore，keystore已包含salt，加密后的私钥，OntId等信息。
+
 ONTO导出keystore示例：
 ```
 {
@@ -48,6 +81,8 @@ ONTO导出keystore示例：
     "curve" : "secp256r1"
   },
   "claimArray" : [
+  	....
+	....
   ],
   "label" : "xxx",
   "type" : "I",
@@ -59,24 +94,23 @@ ONTO导出keystore示例：
 
 | Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
+|    scrypt.n|   int | 加密参数。该参数与后续导入OntId操作相关 |
 |    key|   String | 加密后的私钥 |
 |    salt|   String | 盐，安全参数 |
-|    address|   String | OntId后缀地址。加上did:ont:即完整的OntId |
+|    address|   String | OntId后缀地址。加上did:ont: 即完整的OntId |
 
-
-若服务方已拥有资产账户且有ONG，也可直接使用各种SDK自行自付创建OntId，获取OntId相关信息。
-
-
-
-	测试网OntId可以申请由OntPass平台协助注册
+若网站服务方已拥有数字资产账户且持有至少0.01个ONG，也可直接使用各种SDK自行自付创建OntId，获取OntId相关信息。
 
 
 ### 2. ONTPass平台注册
 
 ONTPass根据本体生态中各种认证服务提供商TrustAnchor可签发的可信声明，提供了不同类型的[标准认证模板](./ONTPass_templete_cn.md)。
 
+
 - Q：什么是认证模板？ 
+
 - A: 认证模板用于设定需要哪些用户信息，认证模板包括认证模板标识、类型、描述，对应的可信声明模板标识，授权逻辑规则，单价等。
+
 
 网站服务方需要选择标准认证模板，也可以根据自己的业务需求，自由组合各种可信声明并制定基本的授权逻辑规则，生成自定义的认证模板。若网站服务方不选择任何认证模板且二维码也不包含认证模板，后续用户登录除了OntId不会提供其他相关身份认证信息。
 
