@@ -641,18 +641,18 @@ com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc
 
 ## Batch Transaction
 
-SDK发送注册Ontid和转账等交易时，根据钱包中账户和身份信息解密出私钥再做签名，这个过程大概需要1-2秒时间。为了节省发交易时间，可以多线程或多机器事先创建交易，再批量发送。
+
 When SDK sends OntID registration or other exchange transaction, the whole process takes 1-2 seconds since user will extract the private key information from the wallet before doing the signature. To be more efficient, we can constructure the transaction in advance by multi-line or multi-machine before pushing transaction
 
 Detail example as below，[Example](https://github.com/ontio/ontology-java-sdk/tree/master/src/main/java/demo/CreateManyTx.java)
 
-### 批量构造交易 Construct Batch Transaction
+### Construct Batch Transaction
 
-1. 打开文件 Open the file
-2. 构造交易，下面以构造注册Ontid交易为例。 Construct the transaction, we will use create OntID as an example down below
-3. 写入交易 Save the transaction
+1. Open the file
+2. Construct the transaction, we will use create OntID as an example down below
+3. Save the transaction
 
-> 构造交易时，如果新创建账户，需要用户自己保存账户私钥。When creating new transaction, user will need to protect their own private key if they are a new user
+> When creating new transaction, user will need to protect their own private key if they are a new user
 
 ```
 //open file, make registry ontid transaction, save tx to file.
@@ -678,7 +678,7 @@ for (int i = 0; i < 3; i++) {
 
 
 ```
-文件中数据格式：
+
 Data Format
 
 ```
@@ -691,11 +691,11 @@ Transaction，Transaction hash
 
 ```
 
-### 批量发送交易 Send Batch Transaction
+### Send Batch Transaction
 
-1. 打开文件 Open the file
-2. 读取一行数据 Read a line of data
-3. 提取交易数据，发送交易数据 Extract the data and send the transaction data
+1. Open the file
+2. Read a line of data
+3. Extract the data and send the transaction data
 
 ```
 //read transaction from file, send transaction to node
@@ -712,9 +712,8 @@ while ((txHex=bf.readLine())!=null){
 ```
 
 
-### 在钱包中创建Ontid Create OntID in Wallet
+### Ontid Create OntID in Wallet
 
-如果需要把Ontid保存到钱包，根据4.1中保存的私钥，在钱包中创建Ontid即可。
 OntID can be easily created by the wallet. You can refer to the private hey from section 4.1
 
 ```
