@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="https://github.com/ontio/documentation/blob/master/zh-CN/Ontology.png"
+    src="https://raw.githubusercontent.com/ontio/documentation/master/zh-CN/Ontology_CH.png"
     width="200px"
   >
 </p>
@@ -8,31 +8,6 @@
 <p align="center">
   A New High-Performance Public Chain Infrastructure & A Distributed Trust Collaboration Platform
 </p>
-
----
-
-
-## Ontology Infrastructure
-
-- [Ontology](#Ontology) :hatching_chick:
-- [Ontology WASM](#Ontology-wsam) :hatching_chick:
-- [Ontology Crypto](#Ontology-crypto) :hatching_chick:
-- [Ontology Eventbus](#Ontology-eventbus) :hatching_chick:
-- [Ontology RPC、Restful and WebSocket](#Ontology-rpc-restful-and-websocket) :hatching_chick:
-- [Ontology Oracle](#Ontology-oracle) :hatching_chick:
-- [Ontology FPGA](#Ontology-fpga) :egg:
-
-## Ontology Protocols and SDK
-
-- [Ontology DID](#Ontology-did) :hatched_chick:
-- [Ontology Java SDK](#Ontology-java-sdk) :hatched_chick:
-- [Ontology TS SDK](#Ontology-ts-sdk) :hatched_chick:
-- [Ontology Go SDK](#Ontology-go-sdk) :hatched_chick:
-- [Ontology Python SDK](#Ontology-python-sdk) :hatching_chick:
-
-## Ontology Applications
-- [ONTO](#onto) :hatching_chick:
-- [Ontology DDXF(Distributed Data eXchange Framework)](#Ontology-ddxf) :hatched_chick:
 
 ---
 
@@ -63,6 +38,33 @@
 - [OEPs](https://github.com/ontio/OEPs)
 
 ---
+
+
+## Ontology Infrastructure
+
+- [Ontology](#Ontology) :hatching_chick:
+- [Ontology WASM](#Ontology-wsam) :hatching_chick:
+- [Ontology Crypto](#Ontology-crypto) :hatching_chick:
+- [Ontology Eventbus](#Ontology-eventbus) :hatching_chick:
+- [Ontology RPC、Restful and WebSocket](#Ontology-rpc-restful-and-websocket) :hatching_chick:
+- [Ontology Oracle](#Ontology-oracle) :hatching_chick:
+- [Ontology FPGA](#Ontology-fpga) :egg:
+
+## Ontology Protocols and SDK
+
+- [Ontology DID](#Ontology-did) :hatched_chick:
+- [Ontology Java SDK](#Ontology-java-sdk) :hatched_chick:
+- [Ontology TS SDK](#Ontology-ts-sdk) :hatched_chick:
+- [Ontology Go SDK](#Ontology-go-sdk) :hatched_chick:
+- [Ontology Python SDK](#Ontology-python-sdk) :hatching_chick:
+
+## Ontology Applications
+- [ONTO](#onto) :hatching_chick:
+- [Ontology DDXF(Distributed Data eXchange Framework)](#Ontology-ddxf) :hatched_chick:
+
+---
+
+
 
 ### <a name="Ontology"></a>Ontology <sup>[top⇈](#ontology-infrastructure)</sup>
 > Ontology is dedicated to creating a modularized, freely configurable, interoperable cross-chain, high-performance, and horizontally scalable blockchain infrastructure system. Ontology makes deploying and invoking decentralized applications easier.

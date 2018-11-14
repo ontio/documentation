@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="https://github.com/ontio/documentation/blob/master/zh-CN/Ontology_CH.png"
+    src="https://raw.githubusercontent.com/ontio/documentation/master/zh-CN/Ontology_CH.png"
     width="200px"
   >
 </p>
@@ -11,30 +11,6 @@
 
 ---
 
-[English](/README.md) | 中文
-
-## 本体基础架构体系
-
-- [本体](#Ontology) :hatching_chick:
-- [本体 WASM](#Ontology-wsam) :hatching_chick:
-- [本体 Crypto](#Ontology-crypto) :hatching_chick:
-- [本体 Eventbus](#Ontology-eventbus) :hatching_chick:
-- [本体 RPC、Restful and WebSocket](#Ontology-rpc-restful-and-websocket) :hatching_chick:
-- [本体预言机](#Ontology-oracle) :hatching_chick:
-- [本体 FPGA](#Ontology-fpga) :egg:
-
-## 本体协议体系及SDK
-
-- [本体 DID](#Ontology-did) :hatched_chick:
-- [本体 Java SDK](#Ontology-java-sdk) :hatched_chick:
-- [本体 TS SDK](#Ontology-ts-sdk) :hatched_chick:
-- [本体 Python SDK](#Ontology-python-sdk) :hatching_chick:
-
-## 本体应用
-- [ONTO](#onto) :hatching_chick:
-- [本体分布式数据交易框架](#Ontology-ddxf) :hatched_chick:
-
----
 
 ## 本体文档
 - 白皮书概览
@@ -61,6 +37,31 @@
 - [OEPs](https://github.com/ontio/OEPs)
 
 ---
+
+## 本体基础架构体系
+
+- [本体](#Ontology) :hatching_chick:
+- [本体 WASM](#Ontology-wsam) :hatching_chick:
+- [本体 Crypto](#Ontology-crypto) :hatching_chick:
+- [本体 Eventbus](#Ontology-eventbus) :hatching_chick:
+- [本体 RPC、Restful and WebSocket](#Ontology-rpc-restful-and-websocket) :hatching_chick:
+- [本体预言机](#Ontology-oracle) :hatching_chick:
+- [本体 FPGA](#Ontology-fpga) :egg:
+
+## 本体协议体系及SDK
+
+- [本体 DID](#Ontology-did) :hatched_chick:
+- [本体 Java SDK](#Ontology-java-sdk) :hatched_chick:
+- [本体 TS SDK](#Ontology-ts-sdk) :hatched_chick:
+- [本体 Python SDK](#Ontology-python-sdk) :hatching_chick:
+
+## 本体应用
+- [ONTO](#onto) :hatching_chick:
+- [本体分布式数据交易框架](#Ontology-ddxf) :hatched_chick:
+
+---
+
+
 
 ### <a name="Ontology"></a>本体 <sup>[top⇈](#本体基础架构体系)</sup>
 > 本体致力于创建一个组件化、可自由配置、跨链支持、高性能、横向可扩展的区块链底层基础设施。 让部署及调用去中心化应用变得非常简单。
