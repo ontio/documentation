@@ -5,7 +5,6 @@
 <h1 align="center">Ontology SDKs 总体说明</h1>
 <p align="center" class="version">Version 1.0.0 </p>
 
-## 总体介绍
 
 SDK封装了加密算法、RPC交互和智能合约，是应用程序与本体区块链交互的重要桥梁。
 
