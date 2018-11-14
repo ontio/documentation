@@ -1,7 +1,6 @@
-# Punica
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/punicasuite/punica-python/master/punica.png" height="200" width="200"><br><br>
+<img src="https://avatars1.githubusercontent.com/u/43718245?s=400&amp;u=84eeb52003e5c32628fcc9cb23edd54d8596cf54&amp;v=4" height="200" width="200">
 </div>
 
 ## Overview
@@ -21,13 +20,13 @@ Features：
 
 Before you start, please download Punica first.
 
-###. Create a new directory for your Punica project:
+### Create a new directory for your Punica project:
 
 ```shell
 mkdir tutorialtoken
 cd tutorialtoken
 ```
-### Download ("unbox") the tutorialtoken box:
+### Download the tutorialtoken box:
 
 ```shell
 punica unbox tutorialtoken
