@@ -12,7 +12,6 @@
   - [White-papers](docs-en/DeveloperGuide/06-white-papers.md)
 - Developer Guide
   - [Developer Guide](docs-en/DeveloperGuide/00-developer-guide.md)
-  - [Installation](docs-en/DeveloperGuide/01-installation.md)
   - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Quick Guide
@@ -21,6 +20,7 @@
   - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)
   - [Smart Contract Template](docs-en/Tutorials/02-smartcontract-template.md)
   - [Learning Collection](docs-en/Tutorials/03-docs-collect.md)
+  - [Installation](docs-en/DeveloperGuide/01-installation.md)
   - [Learning dApp Video](docs-en/Tutorials/04-learning-dapp-video.md)
   - [Learning SC Video](docs-en/Tutorials/05-learning-sc-video.md)
 - Punica

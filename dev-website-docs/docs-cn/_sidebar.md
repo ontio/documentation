@@ -13,8 +13,7 @@
   - [白皮书](docs-cn/DeveloperGuide/06-white-papers.md)
 - 开发者指导
   - [本体指南](docs-cn/DeveloperGuide/00-developer-guide.md)
-  - [本体安装](docs-cn/DeveloperGuide/01-installation.md)
-  - [工具概述](docs-cn/DeveloperGuide/tools.md)
+  - [开发工具概述](docs-cn/DeveloperGuide/tools.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
 - 快速学习
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
@@ -22,6 +21,7 @@
   - [Debug智能合约](docs-cn/Tutorials/01-debug-a-Smart-Contract.md)
   - [智能合约模板](docs-cn/Tutorials/02-smartcontract-template.md)
   - [开发资料集合](docs-cn/Tutorials/03-docs-collect.md)
+  - [本体安装](docs-cn/DeveloperGuide/01-installation.md)
   - [dApp开发视频](docs-cn/Tutorials/04-learning-dapp-video.md)
   - [智能合约视频](docs-cn/Tutorials/05-learning-sc-video.md)
 - Punica
