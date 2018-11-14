@@ -2,7 +2,7 @@
 - 认识本体
   - [介绍](docs-cn/DeveloperGuide/introduction.md)
   - [VBFT共识](docs-cn/DeveloperGuide/02-VBFT-introduction.md)
-  - [智能合约](docs-cn/DeveloperGuide/smartcontract/smartcontract.md)
+  - [智能合约](docs-cn/DeveloperGuide/smartcontract/00-introduction-sc.md)
       - [部署](docs-cn/DeveloperGuide/smartcontract/02-deployment.md)
       - [调用](docs-cn/DeveloperGuide/smartcontract/01-invocation.md)
       - [燃料模型](docs-cn/DeveloperGuide/smartcontract/03-fee-model.md)
