@@ -24,3 +24,6 @@
 - P2P link layer encryption (optional module)
 - Multiple consensus algorithm support (VBFT/DBFT/RBFT/SBFT/PoW)
 - Quick block generation time
+
+
+<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/arch.png"><br><br></div>
