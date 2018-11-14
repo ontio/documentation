@@ -2,7 +2,6 @@
   - [Introduction](docs-en/DeveloperGuide/introduction.md)
   - [Consensus VBFT](docs-en/DeveloperGuide/02-VBFT-introduction.md)
   - [Smart Contract](docs-en/DeveloperGuide/smartcontract/smartcontract.md)
-      - [Introduction](docs-en/DeveloperGuide/smartcontract/00-introduction-sc.md)
       - [Deployment](docs-en/DeveloperGuide/smartcontract/02-deployment.md)
       - [Invocation](docs-en/DeveloperGuide/smartcontract/01-invocation.md)
       - [Fee Model](docs-en/DeveloperGuide/smartcontract/03-fee-model.md)

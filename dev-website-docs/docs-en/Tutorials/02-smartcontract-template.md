@@ -2,7 +2,7 @@
 
 [smart contract tutorial](https://github.com/ontio/ontology-smartcontract/tree/master/smart-contract-tutorial)
 
-##  Smart contract api
+##  Smart Contract API
 
 [API(python) doc](https://apidoc.ont.io/smartcontract/)
 
@@ -36,7 +36,7 @@
 
 [Native Contract Spec](https://github.com/ontio/ontology-smartcontract/tree/master/smartcontract/native)
 
-### Native contract address
+### Native Contract Address
 
 contract | contract u160 address | Address
 ---|---|---

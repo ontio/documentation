@@ -3,7 +3,7 @@
 
 [智能合约教程](https://github.com/ontio/ontology-smartcontract/tree/master/smart-contract-tutorial)
 
-##  智能合约 api
+##  智能合约API
 
 [API(python) doc](https://apidoc.ont.io/smartcontract/)
 
