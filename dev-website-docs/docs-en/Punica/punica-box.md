@@ -5,7 +5,7 @@
 
 ## Overview
 
-* [punica box](https://github.com/punica-box/)
+ [Punica Box](https://github.com/punica-box/) provides a variety of multi-language dApp examples and templates.
 
 
 Features：
