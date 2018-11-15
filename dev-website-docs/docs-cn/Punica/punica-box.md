@@ -7,12 +7,12 @@
 
 ## 概述
 
-Punica Box是dApp模板或案例，可以通过Punica-Cli下载和发布Box。目前已经提供的Box请查看网页[punica box](https://github.com/punica-box/)
+[Punica Box](https://github.com/punica-box/)是dApp模板或案例，可以通过Punica-Cli下载和发布Box。目前已经提供的Box请查看网页[punica box](https://github.com/punica-box/)
 
 
 
 特点：
-* 提供了多种语言版本的dApp例子。如Ontid，OEP-，OEP-5,OEP-8等。
+* 提供了多种语言版本的dApp例子。如Ontid，OEP-4，OEP-5,OEP-8等。
 * 将提供更多的开发者辅助库。
 * 开发者可以发布Punica-Box
 * 由社区贡献，方便与Punica-Cli一起使用。

@@ -1,50 +1,38 @@
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/punicasuite/punica-python/master/punica.png" height="200" width="200"><br><br>
+</div>
 
-## Punica-Cli
+<!-- TOC -->
 
-[punica-python](https://github.com/punicasuite/punica-python)
-[punica-ts](https://github.com/punicasuite/punica-ts)
-## Overview
+# Punica Cli
 
+- [1. 概览](#1-概览)
+- [2. 安装](#2-安装)
+- [3. 快速开始](#3-快速开始)
+- [4. 开始使用](#4-开始使用)
+    - [4.1. 创建一个项目](#41-创建一个项目)
+        - [4.1.1. 初始化一个新项目](#411-初始化一个新项目)
+	    - [4.1.2. 创建一个Box项目](#412-创建一个Box项目)
+    - [4.2. 编译](#42-编译)
+    - [4.3. 部署](#43-部署)
+    - [4.4. 调用](#44-调用)
+    - [4.5. Node](#45-node)
+    - [4.6. Scpm](#46-scpm)
+    - [4.7.  Smartx](#47-smartx)
+    - [4.8.  测试](#48-测试)
+    - [4.9.  钱包](#49-钱包)
 
-Features:
-* Supports intelligent contract compilation, deployment, invocation, and testing. Each item can be completed simply and efficiently through a single line of commands and testing through a configuration file.
-* Supports both Python and TypeScript programming languages;
-* download dApp templates and Punica-Box;
-* Smart contract packaging management tools;
-* Supports wallet file management.
+## 1. 概览
+欢迎使用Punica! Punica 机会拥有一切开发dapp所需要的功能。
 
-Punica-cli offers an interactive command line tool with many useful functions:	
-* Create an empty project
-* Create a project with various boilerplate/template projects 
-* Compile/deploy/invoke/test/debug smart contracts
-* Publish your project to Punica box to share with community
-* Start solo chain in local(WIP)
-* Smart contracts package manager(WIP)
-......
-
-Punica has two implementions: Punica-python and Punica-ts
-
-
-## Installation
-
-```shell
-pip install punica
-```
-```
-npm install punica-ts -g
-```
-or 
-
-```shell
-python setup.py install
-```
-
-
-## Quickstart
-
-To use most Punica commands, you need to run them against an existing Punica project. So the first step is to create a Punica project.
-
+### 特点
+* Punica-Cli 支持智能合约编译，部署，调用，测试。
+* Punica-Cli 实现了Python和TypeScript版本。
+* Punica 网站提供了健全的文档和合约模板。
+* 自动化生成dapp工程目录，提供多种box，是的开发者很容易的基于Punica-Boxes进行开发。
+* 智能合约测试配置与smartx有相同的配置标准。
+* 提供智能合约包管理工具。
 
 ```shell
 punica
@@ -68,22 +56,70 @@ Commands:
   wallet   Manager your ontid, account, asset.
 ```
 
-## Getting started
+## 2. 安装
 
+安装之前请先确保下面的工具已经安装
 
-#### 4.1.1. Initializing a New Project
+- [Python 3.7](https://www.python.org/downloads/release/python-370/)
+- [Git](https://git-scm.com/)
 
-You can create a bare Punica project with no smart contracts included, use `punica init` command.
-
-Once this operation is completed, you'll now have a project structure with the following items:
-
-- `contracts/`: Directory for Ontology smart contracts.
-- `src/`: Directory for DApp source file.
-- `test/`: Directory for test files for testing your application and contracts.
-- `wallet/`: Directory for save Ontology wallet file.
+然后，执行下面的命令进行安装
 
 ```shell
-punica init --help
+pip install punica
+```
+or
+
+```shell
+python setup.py install
+```
+
+## 3. 快速开始
+
+如果想使用Punica更多的命令，请先创建一个Punica 项目。
+
+
+```shell
+$ punica
+Usage: punica [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  -p, --project PATH  Specify a punica project directory.
+  -v, --version       Show the version and exit.
+  -h, --help          Show this message and exit.
+
+Commands:
+  compile  Compile the specified contracts to avm and...
+  deploy   Deploys the specified contracts to specified...
+  init     Initialize new and empty Ontology DApp...
+  invoke   Invoke the function list in default-config or...
+  node     Ontology Blockchain private net in test mode.
+  scpm     Smart contract package manager，support...
+  smartx   Ontology smart contract IDE,SmartX...
+  test     Unit test with specified smart contract
+  unbox    Download a Punica Box, a pre-built Ontology...
+  wallet   Manager your ontid, account, asset.
+```
+使用下面的命令生成一个新项目
+
+```shell
+sss$ punica init
+Downloading...
+Unpacking...
+Unbox successful. Enjoy it!
+```
+
+## 4. 开始使用
+
+
+### 4.1 创建一个项目
+
+#### 4.1.1 初始化一个新项目
+
+可以使用`punica init`命令创建一个空项目
+
+```shell
+$punica init --help
 Usage: punica init [OPTIONS]
 
   Initialize new and empty Ontology DApp project.
@@ -92,26 +128,40 @@ Options:
   -h, --help  Show this message and exit.
 ```
 
-**Note**: If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
+使用下面的命令生成一个新项目
 
-#### 4.1.2. Creating a Box Project
+```shell
+sss$ punica init
+Downloading...
+Unpacking...
+Unbox successful. Enjoy it!
+```
 
-You can create a bare project template, but for those just getting started, you can use Punica Boxes, which are example applications and project templates.
+生成的项目结构如下：
 
-We'll use the [ontology-tutorialtoken box](https://github.com/wdx7266/ontology-tutorialtoken), which creates a OEP4 token that can be transferred between accounts:
+- `contracts/`: 用于存放合约文件.
+- `src/`: 用于存放dapp js和html等相关文件.
+- `test/`: 合约代码测试文件.
+- `wallet/`: 用于存放钱包文件.
+- `punica-config.json` 用于配置区块链网络
 
-- Create a new directory for your Punica project:
+#### 4.1.2 创建一个Box项目
+
+Punica Box 是punica dapp模板库，你可以下载你感兴趣的项目，然后基于该项目进行创建你的dapp。
+
+- 创建一个新文件夹
 
 ```shell
 mkdir tutorialtoken
 cd tutorialtoken
 ```
 
-- Download ("unbox") the MetaCoin box:
+- 下载Box
 
 ```shell
 punica unbox tutorialtoken
 ```
+
 
 ```shell
 punica unbox --help
@@ -125,20 +175,20 @@ Options:
 
 **Note**:
 
-- You can use the `punica unbox <box-name>` command to download any of the other Punica Boxes.
-- If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
+- 你可以使用`punica unbox <box-name>`免费下载任意的Box项目。
+- 你可以在你的项目根目录使用punica的其他命令，也可以`-p` or `--project` 选项指定使用哪个项目。
 
+### 4.2 编译
 
+使用下面的命令编译你的合约
 
-### 4.2. Compiling
-
-You can use the following command to compile your Ontology smart contracts:
 
 ```shell
 punica compile
 ```
 
-If everything goes smoothly, you can find the `avm` and `abi` file in `contracts/build` folder.
+如果执行成功，将会在contracts文件夹下生成build文件夹
+
 
 ```shell
 contacts
@@ -147,248 +197,230 @@ contacts
     │      contract_abi.json
 ```
 
-For more usage, you can use `punica compile --help` command.
+如果你想使用punica更多的用法，你可以使用`punica compile --help`命令查看。
 
 ```shell
-punica compile --help
+$ punica compile --help
 Usage: punica compile [OPTIONS] CONTRACT_NAME
 
   Compile the specified contracts to avm and abi file.
 
 Options:
-  --contracts Only compile the specified contract
-  -h, --help  Show this message and exit.
+  --contracts TEXT  Compile specified contracts files in contracts dir.
+  --local BOOLEAN   Use local compiler.
+  -h, --help        Show this message and exit.
 ```
 
-**Note**: If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
+`--contracts`选项用于指定编译哪个合约文件
+`--local`选项用于指定使用哪个编译器
 
-### 4.3. Deployment
+### 4.3 部署
 
-To deploy your contract, run the following:
+部署之前，你要关心两个配置文件，一个是`punica-config.json`,该文件配置使用的区块链网络，另一个配置文件是contracts目录下面的default-config.json文件，
+该文件用于配置部署合约的参数信息和调用合约中函数的参数。
+
+部署命令
 
 ```shell
-punica deploy
+$ punica deploy
 ```
 
-This will deploy your smart contract in `bin` directory.
-
-A simple deployment process looks like this:
-
+例子：
 ```shell
-Using network 'testNet'.
+$ punica deploy
+Using network 'privateNet'.
 
-Running deployment: oep4.avm
+Running deployment: hello_ontology.avm
 	Deploying...
-	... 0x0131c56b6a00527ac46a51527ac46a00c3044e616d659c6409006593096c7566
-	Deploy to: 0xf9f47e6a80482eb1c8831789f46dbc5a4f606222
+	Deploy to: cb9f3b7c6fb1cf2c13a40637c189bdd066a272b4
 Deploy successful to network...
-	... 0xc08a440a7f93cc7229fee15b55455fac51ec15153753303bd252c710547ecb62
-Enjoy your contract:)
+	 Contract address is cb9f3b7c6fb1cf2c13a40637c189bdd066a272b4
+	 Txhash is 041db938710e0c2977bbb8af1bdf97a3efae8256baa0ec74980c98734e25f650
 ```
 
-For more usage, you can use `punica deploy --help` command.
+如果你想知道更多的用法你可以使用
 
 ```shell
-punica deploy --help
+sss:punica-init-default-box sss$ punica deploy -h
 Usage: punica deploy [OPTIONS]
 
   Deploys the specified contracts to specified chain.
 
 Options:
-  --network TEXT   Specify which network the contract will be deployed.
-  --avm TEXT       Specify which avm file will be deployed.
-  --wallet TEXT    Specify which wallet file will be used.
-  -h, --help       Show this message and exit.
+  --network TEXT  Specify which network the contracts will be deployed.
+  --avm TEXT      Specify which avm file will be deployed.
+  --wallet TEXT   Specify which wallet file will be used.
+  --config TEXT   Specify which deploy config file will be used.
+  -h, --help      Show this message and exit.
 ```
 
-**Note**:
+- `--network TEXT` 用于指定使用的网络,默认使用punica-config.json里的配置文件
+- `--avm TEXT` 用于指定使用的avm，默认使用defaul-config.json中配置的avm文件
+- `--wallet TEXT`用于指定使用的钱包文件，默认使用wallet文件夹下的wallet.json文件
+- `--config TEXT`用于指定使用的配置文件，默认使用defaul-config.json
 
-- If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
-- If multi `avm` file exist in your `bin` directory, you need to use `--avm` option to specify which contract you want to deploy.
-- If multi wallet file exist in your `wallet` directory, you may need to use `--wallet` option to specify which wallet you want to use. otherwise, a random wallet file in `wallet` directory will be used.
+### 4.4 调用
 
-### 4.4. Invocation
+调用之前，请确保default-config.json文件中已经配好合约方法需要的参数。
 
-If you want to invoke a list of function in your deployed smart contract, a convenience way is to use `Invoke` command.
-
-Support we have an invoke config in our `default-config.json`:
+`default-config.json`配置例子,省略了部分内容，完整内容请看[init box](https://github.com/punica-box/punica-init-default-box/blob/master/contracts/default-config.json)
 
 ```json
-"invokeConfig":{
-    "abi": "oep4_token_abi.json",
-    "defaultPayer": "ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6",
-    "gasPrice": 0,
-    "gasLimit": 21000000,
-    "functions": [
-        {   
-	    "name": "Name",
-            "params": {},
-            "signers": {},
-            "preExec": true
-        },
-	{
-            "name": "Symbol",
-            "params": {},
-            "signers": {},
-            "preExec": true
-        },
-	{
-            "name": "Decimal",
-            "params": {},
-            "signers": {},
-            "preExec": true
-        },
-        {
-	    "name": "TotalSupply",
-            "params": {},
-            "signers": {},
-            "preExec": true
-        },
-        {
-	    "name":"BalanceOf",
-            "params": {
-                "account": "ByteArray:ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6"
-            },
-            "signers": {},
-            "preExec": true
-        },
-        {
-	    "name": "Transfer",
-            "params": {
-                "from_acct": "ByteArray:ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6",
-                "to_acct": "ByteArray:AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve",
-                "amount": 1
-            },
-            "signers": {
-                "m": 1,
-                "signer": ["ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6"]
-            },
-            "preExec": false
-        },
-        {
-	    "name": "TransferMulti",
-            "params": {
-                "args": [
+{
+    "defaultWallet": "wallet.json",
+    "password": {
+        "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ": "password",
+        "AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ": "password",
+        "AQvZMDecMoCi2y4V6QKdJBtHW1eV7Vbaof": "password"
+    },
+    "deployConfig": {
+        "name": "contract name ",
+        "version": "contract version",
+        "author": "the author of contract",
+        "email": "email address",
+        "desc": "a description for your contract",
+        "needStorage": true,
+        "payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
+        "gasPrice": 0,
+        "gasLimit": 31000000
+    },
+    "invokeConfig": {
+        "abi": "hello_ontology_abi.json",
+        "defaultPayer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
+        "gasPrice": 0,
+        "gasLimit": 20000,
+        "functions": [
+            {
+                "operation": "testByteArrayListAndStr", //合约中函数名
+                "args": [                               //合约中需要的参数
                     {
-                        "from": "ByteArray:ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6",
-                        "to": "ByteArray:AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve",
-                        "amount": 1
+                        "bytearrayList": [
+                            "ByteArray:Hello",
+                            "ByteArray:world"
+                        ]
                     },
                     {
-                        "from": "ByteArray:AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve",
-                        "to": "ByteArray:Ad4H6AB3iY7gBGNukgBLgLiB6p3v627gz1",
-                        "amount": 2
+                        "msgStr": "String:hello"
                     }
-                ]
+                ],
+                "signers": {},
+                "preExec": true
             },
-            "signers": {
-                "m": 1,
-                "signer": ["ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6", "AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve"]
+            {
+                "operation": "testStructList",
+                "args": [
+                  {
+                      "structList": [
+                        [
+                          "String:hello",
+                          1
+                        ],
+                        [
+                          "String:hello2",
+                          2
+                        ]
+                      ]
+                  }
+                ],
+                "signers": {},
+                "preExec": true
             },
-            "payer": "ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6",
-            "preExec": false
-        },
-        {
-	    "name": "Allowance",
-            "params": {
-                "owner": "ByteArray:ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6",
-                "spender": "ByteArray:AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve"
-            },
-            "signers": {
-                "m": 1,
-                "signer": ["ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6"]
-            },
-            "preExec": false
-        },
-        {
-	    "name": "TransferFrom",
-            "params": {
-                "sender": "ByteArray:AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve",
-                "from_acct": "ByteArray:ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6",
-                "to_acct": "ByteArray:Ad4H6AB3iY7gBGNukgBLgLiB6p3v627gz1",
-                "amount": 1
-            },
-            "signers": {
-                "m": 1,
-                "signer": ["ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6"]
-            },
-            "preExec": false
-        },
-        {
-	    "name": "Init",
-            "params": {},
-            "signers": {},
-            "preExec": true
-        }
-    ]
+            {
+                "operation": "testStructListAndStr",
+                "args": [
+                  {
+                      "structList": [
+                          [
+                            "String:hello",
+                             1
+                          ],
+                          [
+                            "String:hello2",
+                             2
+                          ]
+                      ]
+                  },
+                  {
+                    "msgStr": "String:test"
+                  }
+                ],
+                "signers": {},
+                "preExec": true
+            }
+        ]
+    }
 }
 ```
-View the functions that can be called
+
+请注意参数值的配置，
+- "String:test", "String"表示合约中的函数需要的参数类型是String。
+- "ByteArry:test", "ByteArray"表示合约中的函数需要的参数类型是ByteArray。
+- "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",表示将参数`AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ`按照Address的格式转换成字节数组。
+- "Hex:0a"表示将参数`0a`按照hex的形式转换成字节数组
+
+
+`default-config.json`配置完成后，可以通过下面的命令查看可以调用的函数
+
 
 ```shell
-punica list
+punica invoke list
 ```
 
-The following output we will get:
+输出结果是
+
 ```shell
+sss:punica-init-default-box sss$ punica invoke list
 All Functions:
-         Init
-         Name
-         Symbol
-         Decimal
-         TotalSupply
-         BalanceOf
-         Transfer
-         TransferMulti
-         Allowance
-         TransferFrom
+	 testHello
+	 testNumList
+	 testNumListAndStr
+	 testStrListAndStr
+	 testByteArrayListAndStr
+	 testStructList
+	 testStructListAndStr
 ```
 
-To run our invoke function list, run the following:
-
-`punica invoke`
-
-The following output we will get:
-
+使用下面的命令运行指定函数
 ```shell
-Running invocation: oep4.json
-Using network 'testNet'.
+sss$ punica invoke --functions testHello
+Using network 'privateNet'.
 
+Running invocation: hello_ontology_abi.json
 Unlock default payer account...
-	Unlock account: ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6
-    Please input account password: 
-	Unlock successful...
-Invoking Name...
-	Invoke successful...
-		... Invoke result: 546f6b656e4e616d65
-Invoking Symbol......
-	
+Invoking  testHello
+Invoke successful
+Invoke result: ['01', '64', '74657374', '74657374', '0a', '8f651d459b4f146380dab28e7cfb9d4bb9c3fcd1']
 ```
 
-For more usage, you can use `punica invoke --help` command.
-
+如果你想查看invoke更多的信息，你可以执行下面的命令
 ```shell
-punica invoke --help
-Usage: punica invoke [OPTIONS]
+$ punica invoke -h
+Usage: punica invoke [OPTIONS] COMMAND [ARGS]...
 
-  Invoke the function list in punica-config.
+  Invoke the function list in default-config or specify config.
 
 Options:
-  --network TEXT   Specify which network the contract will be deployed.
-  --wallet TEXT    Specify which wallet file will be used.
-  --functions Text Specify which function will be used.
-  -h, --help       Show this message and exit.
+  --network TEXT    Specify which network the contracts will be deployed.
+  --wallet TEXT     Specify which wallet file will be used.
+  --functions TEXT  Specify which function will be executed.
+  --config TEXT     Specify which config file will be used.
+  --preexec TEXT    preExec the function.
+  -h, --help        Show this message and exit.
+
+Commands:
+  list  List all the function in default-config or...
 ```
 
-**Note**:
+- `--functions TEXT`表示指定要执行的函数，可以一次指定多个函数，例如：`punica invoke --functions testHello,testNumList`
+- `--preexec TEXT`表示预执行，预执行表示不会将状态更新到区块链，适合于查询的函数。
+其他的配置信息请参看上面的讲解。
 
-- If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
-- If multi wallet file exist in your `wallet` directory, you may need to use `--wallet` option to specify which wallet you want to use. otherwise, a random wallet file in `wallet` directory will be used.
 
 ### 4.5 Node
 
+
 ```shell
-sss:test sss$ punica node
+$ punica node
 Usage: punica node [OPTIONS]
 
    Ontology Blockchain private net in test mode. please download from
@@ -398,10 +430,10 @@ Options:
    -h, --help  Show this message and exit.
 ```
 
-### 4.6. Scpm
+### 4.6 Scpm
 
 ```shell
-sss:test sss$ punica scpm
+$ punica scpm
 Usage: punica scpm [OPTIONS]
 
    smart contract package manager，support download and publish.
@@ -410,18 +442,18 @@ Options:
    -h, --help  Show this message and exit.
 
 ```
-### 4.7  Smartx
+### 4.7 Smartx
 
 ```shell
-sss:test sss$ punica smartx
+$ punica smartx
 
 Please go to Smartx for debugging smart contracts:
 http://smartx.ont.io/#/
 ```
-### 4.8  Test
+### 测试
 
 ```shell
-sss:test sss$ punica test -h
+$ punica test -h
 Usage: punica test [OPTIONS] COMMAND [ARGS]...
 
   Unit test with specified smart contract
@@ -433,10 +465,11 @@ Options:
 Commands:
   template  generate test template file
 ```
-### 4.9  Wallet
+
+### 4.8 钱包
 
 ```shell
-sss:test sss$ punica wallet
+$ punica wallet
 Usage: punica wallet [OPTIONS] COMMAND [ARGS]...
 
    Manager your asset, ontid, account.
@@ -451,4 +484,3 @@ Commands:
 
 ```
 
-## 
