@@ -16,6 +16,11 @@
     - [3.4. 创建你的私有星际文件系统网络（可选）](#34-创建你的私有星际文件系统网络可选)
     - [3.5. 运行你的星际文件系统节点](#35-运行你的星际文件系统节点)
     - [3.6. 星际文件系统客户端 API 库](#36-星际文件系统客户端-api-库)
+- [4. 演示性项目：星际相册](#4-演示性项目星际相册)
+    - [4.1. 简介](#41-简介)
+    - [4.2. 架构](#42-架构)
+    - [4.3. 环境搭建](#43-环境搭建)
+    - [4.4. 做中学](#44-做中学)
 
 <!-- /TOC -->
 
@@ -77,7 +82,11 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 行星际文件系统（IPFS）是一种基于内容寻址的协议和一个点对点网络，旨在提供一种在分布式文件系统中存储和共享超媒体的方法。
 
+<<<<<<< HEAD
+![ipfs](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg)
+=======
 <div align=center><img height="400" src="https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg"/></div>
+>>>>>>> upstream/master
 
 ### 3.1. 星际文件系统是如何工作的？
 
@@ -97,7 +106,11 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 星际文件系统 HTTP API旨在使不同的星际文件系统实现保持相同的 HTTP API。但是，并非所有实现都同样是最新的，功能最完整（以及此规范的当前参考）是 go-ipfs。
 
+<<<<<<< HEAD
+![ipfsHttp](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png)
+=======
 <div align=center><img height="400" src="https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png"/></div>
+>>>>>>> upstream/master
 
 ### 3.3. 初始化你的星际文件系统存储库
 
@@ -232,3 +245,36 @@ Daemon is ready
 - [Go](https://github.com/ipfs/go-ipfs-api)
 - [Python](https://github.com/ipfs/py-ipfs-api)
 - [JavaScript](https://github.com/ipfs/js-ipfs)
+
+## 4. 演示性项目：星际相册
+
+### 4.1. 简介
+
+星际相册是一个基于星际文件系统（IPFS）、本体分布式身份框架（ONTID）和 DDXF 加密组件所构建的去中心化的相册。
+
+你可以访问[这里](https://github.com/punica-box/interplanetary-album-box)来获取更多的信息。
+
+### 4.2. 架构
+
+![interplanetary-album](https://github.com/punica-box/interplanetary-album-box/blob/master/img/interplanetary-album.svg)
+
+### 4.3. 环境搭建
+
+我们需要为这个项目安装一些必不可少的软件：
+
+- [python 3.7](https://www.python.org/downloads/release/python-370/)
+- [go-ipfs](https://dist.ipfs.io/#go-ipfs)
+
+### 4.4. 做中学
+
+我们可以在浏览器中运行我们的星际相册：
+
+```shell
+python interplanetary_album.py
+```
+
+- 如果一切顺利，我们的星际相册将运行在 `http://127.0.0.1:5000/`，而 `IPFS` 节点将运行在 `http://127.0.0.1:5001/` 。
+
+- 如果你想退出程序，可以按下 `CTRL+C` 或者关闭终端。
+
+在星际相册中，所有图片的 IPFS 地址都与 ONT ID 绑定，并通过椭圆曲线集成加密方案（ECIES）进行加密。也就是说，只有图片所有者和他共享的用户可以访问他在 IPFS 网络中的图片。
