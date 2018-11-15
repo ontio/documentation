@@ -49,7 +49,7 @@ The outline of this document is as follows:
 * [Smart Contracts](#smart-contracts)
 	* [Query content of a smart contract](#query-content-of-a-smart-contract)
 	* [Synchronize query smartcontract event](#synchronize-query-smartcontract-event)
-* [Batch Transaction](#Batch Transaction)
+* [Batch Transaction](#Batch-Transaction)
     * [Constructure Batch Transaction](#批量构造交易)
     * [Send Batch Transaction](#批量发送交易)
     * [Create Ontid in Wallet](#在钱包中创建Ontid)	
