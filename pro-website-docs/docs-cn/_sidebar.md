@@ -6,3 +6,5 @@
   - [开始使用](docs-cn/ontpass/ontpass-auth.md)
 - 分布式数据交易框架DDXF
   - [概述](docs-cn/ddxf/overview.md)
+- 信任锚接入
+  - [概述](docs-cn/taconnector/overview.md)

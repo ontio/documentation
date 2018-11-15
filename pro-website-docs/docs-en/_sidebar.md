@@ -7,3 +7,5 @@
   - [Get started](docs-en/ontpass/ontpass-auth.md)
 - DDXF
   - [Overview](docs-en/ddxf/overview.md)
+- Trust Anchor Connector
+  - [Overview](docs-cn/taconnector/overview.md)
