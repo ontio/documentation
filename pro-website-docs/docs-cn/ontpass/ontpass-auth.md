@@ -106,7 +106,7 @@
 
 认证需求方选定所需的认证服务后，需要到ONTPass平台注册相关信息，主要包括ONT ID，基本简介及回调地址。只有注册过的需求方ONT ID才会收到后续的可信声明回调推送。
 
-> 如何拥有自己的ONT ID并进行签名，可参考[附录](http://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E9%99%84%E5%BD%95)
+> 如何拥有自己的ONT ID并进行签名，可参考[附录](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E9%99%84%E5%BD%95)
 
 
 #### 认证需求方注册API
