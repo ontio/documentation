@@ -82,7 +82,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 行星际文件系统（IPFS）是一种基于内容寻址的协议和一个点对点网络，旨在提供一种在分布式文件系统中存储和共享超媒体的方法。
 
-![ipfs](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg)
+![](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg)
 
 ### 3.1. 星际文件系统是如何工作的？
 
@@ -102,7 +102,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 星际文件系统 HTTP API旨在使不同的星际文件系统实现保持相同的 HTTP API。但是，并非所有实现都同样是最新的，功能最完整（以及此规范的当前参考）是 go-ipfs。
 
-![ipfsHttp](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png)
+![](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png)
 
 ### 3.3. 初始化你的星际文件系统存储库
 
@@ -270,3 +270,5 @@ python interplanetary_album.py
 - 如果你想退出程序，可以按下 `CTRL+C` 或者关闭终端。
 
 在星际相册中，所有图片的 IPFS 地址都与 ONT ID 绑定，并通过椭圆曲线集成加密方案（ECIES）进行加密。也就是说，只有图片所有者和他共享的用户可以访问他在 IPFS 网络中的图片。
+
+![](https://github.com/punica-box/interplanetary-album-box/blob/master/img/loginSuccessful.png)
