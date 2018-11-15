@@ -40,9 +40,7 @@ ONT ID为每个用户，公司，物品等任何实体建立基于密码学的�
 
 ![](https://github.com/ontio/ontology-DID/raw/master/images/claim_workflow_cn.png)
 
-## 开始使用
 
-进入 [>>快速开发指南](./docs/en/get_started.md)开始使用。
 
 ## 了解ONT ID协议
 
