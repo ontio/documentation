@@ -10,15 +10,20 @@
 
 [Punica Suite](https://punica.ont.io) is Ontology's dApp development framework and has (almost) everything you need to start developing your Ontology based dApp.
 
-The aim of Punica Suite is to provide developers with the tools and resources that will allow them to develop their projects quickly and easily for use on the Ontology blockchain.  Please see below for a list of open-source tools and resources to help get you started.
-
-
-### Tools
+Punica provides developers with a complete set of open-source development tools for dApp development, will allow developers to develop their projects quickly and easily for use on the Ontology blockchain.  Please see below for a list of open-source tools and resources to help get you started.
 
 * [Punica Python CLI](https://github.com/punicasuite/punica-python) or [Punica TypeScript CLI](https://github.com/punicasuite/punica-ts) - used to download, compile, deploy and invoke smart contracts
 * [Punica boxes](http://punica.ont.io/boxes/) - pre-configured smart contract templates
 * [Solo-chain](https://github.com/punicasuite/solo-chain/releases) - a prebuilt private-net for development 
 
+Advantages：
+
+1. Punica is the first dapp development framework for the ontology, saving users at least 50% development time.
+2. Provide a large number of textbooks and videos for beginners to get started.
+3. Developed a smart contract testing framework that supports unit testing and functional testing, which is much easier than using the SDK testing.
+4. Smart contract compilation/deployment/testing in one command, saving development time. The debug function has been integrated in smartx, and the command line debug function is supported later.
+5. Solo-chain makes it easy for users to view data on the chain in real time, which is more than 50% more convenient than test net or building a private network.
+6. Provide a variety of SDKs and dApi cases, suitable for different user groups to develop dApp.
 
 ### Resources
 
