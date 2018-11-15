@@ -1,3 +1,4 @@
+
 # Contributing
 If you happen to find any issues, or have any cool ideas for the next amazing feature for Solo chain, please head over to the [Github](https://github.com/punicasuite/solo-chain) repo, and help us make Solo chain even better.
 

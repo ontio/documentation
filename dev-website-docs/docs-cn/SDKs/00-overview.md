@@ -1,6 +1,4 @@
 
-[English](./ontology_overview_sdks_en.md) / 中文
-
 
 <h1 align="center">Ontology SDKs 总体说明</h1>
 <p align="center" class="version">Version 1.0.0 </p>

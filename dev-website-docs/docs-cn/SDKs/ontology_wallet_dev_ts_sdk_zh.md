@@ -1,5 +1,3 @@
-[English](./ontology_wallet_dev_ts_sdk_en.html) / 中文
-
 
 
 <h1 align="center">iOS钱包集成</h1>

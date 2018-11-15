@@ -1,3 +1,4 @@
+
 # API Methods
 
 - [Sign Arbitrary Data](#sign-arbitrary-data)

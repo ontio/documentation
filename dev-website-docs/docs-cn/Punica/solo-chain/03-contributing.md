@@ -1,3 +1,4 @@
+
 # 贡献
 
 如果您碰巧发现任何问题，或者对 Solo Chain 的后续功能有任何想法，请到 [Github 项目库](https://github.com/punicasuite/solo-chain) 中提出，这将帮助我们创造一个更好的 Solo Chain。

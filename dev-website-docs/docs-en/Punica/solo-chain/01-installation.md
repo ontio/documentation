@@ -1,3 +1,4 @@
+
 # Installation
 - [Download the latest release](https://github.com/punicasuite/solo-chain/releases) version of the Solo chain application for your appropriate development environment (Windows, Mac)
 - Install the application to your desktop computer
