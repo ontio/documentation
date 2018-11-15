@@ -12,30 +12,25 @@ ONTPass具有以下优势：
 
 * 本体信任生态已经连接了全球的认证服务机构，覆盖218个国家的用户；
 * 低成本，一次认证，可以多次使用，总体降低了多次认证成本;
-* 协议使用[End-to-End加密规范](https://github.com/ontio/documentation/pro-website-docs/docs-cn/ontid/end-to-end-encryption.md)，全程保护用户数据；
+* 协议使用[End-to-End加密规范](https://github.com/ontio/ontology-DID/blob/master/docs/cn/end-to-end-encryption.md)，全程保护用户数据；
 * 基于本体区块链，所有认证动作和认证结果被区块链存证。
 * 规范支持零知识证明等密码学算法，用户可以选择性出示自己的身份信息，最大限度保护用户隐私。
 
-## 开始使用
-
-[开始使用ONTPass服务](http://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth)。
-
-> ONTPass基于ONT ID，您可能需要理解ONTID和可信声明体系，了解ONTID 和 可信声明的使用方法，请先到[这里](https://github.com/ontio/ontology-DID/blob/master/docs/cn/get_started_cn.md)了解。
+[>> 开始使用ONTPass服务](http://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth)。
 
 
 ## 了解ONTPass的工作原理？
+
+> ONTPass基于ONT ID，了解ONTID 和 可信声明的使用方法，请先了解[ONT ID](https://github.com/ontio/ontology-DID/blob/master/docs/cn/get_started_cn.md)。
+
+ONTPass开放认证服务，其原理如下：
+![](http://assets.processon.com/chart_image/5a5fff53e4b0abe85d5e3e5f.png)
 
 ONTPass的主要职责是：
 * 登记本体生态上的信任锚及其认证服务，并提供认证服务发现功能；
 * 登记本体生态可以提供的认证模板及可信声明模板，并提供模板发现功能；
 * 用户可信声明信息传递；
 * 为用户认证需求匹配对应的可信声明模板。
-
-> 注意，如果对于可信声明规范还不了解，可以到[这里](https://github.com/ontio/ontology-DID/blob/master/docs/cn/claim_spec_cn.md)详细了解。 
-
-ONTPass开放认证服务，其原理如下：
-![](http://assets.processon.com/chart_image/5a5fff53e4b0abe85d5e3e5f.png)
-
 
 流程中涉及到的参与方包括：
 * 认证需求方（Requester）: 需要对自有用户进行认证的DApp，机构或服务场景，是本体信任生态中认证服务的需求方。
