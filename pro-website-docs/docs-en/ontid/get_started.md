@@ -4,11 +4,11 @@
 
 我们支持使用多种SDK或RPC方式来应用ONT ID ，我们以Typescript SDK为例，说明如何进行快速开发。本文档中以下的示例代码都以Node环境为例。
 
-## 环境准备
+## 1. 环境准备
 
 请参考[Ontology TS SDk的安装指南](https://github.com/ontio/ontology-ts-sdk)，安装好环境。
 
-## 创建数字身份
+## 2. 创建数字身份
 
 ### 2.1 创建身份
 
