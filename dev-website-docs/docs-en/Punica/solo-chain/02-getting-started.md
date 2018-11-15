@@ -1,5 +1,5 @@
 
-# Getting started
+# Getting Started
 Upon opening the application, you will be presented with the first look at your private Ontology network.
 
 <div align="center">

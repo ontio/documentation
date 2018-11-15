@@ -27,7 +27,7 @@ The aim of Punica Suite is to provide developers with the tools and resources th
 * [Discord ](https://discord.gg/RkzRQqr)- Get support and chat to other developers on Discord
 <p><br>
 
-### Getting started
+### Getting Started
 
 We recommend starting with the [Punica CLI tutorial](http://punica.ont.io/tutorials/How-to-use-Punica-Cli/) to help get you started.  Once you have installed Punica and get familiar with some of the Punica boxes you can start working on your own smart contract with our [SmartX](https://smartx.ont.io/) tool.  Please see the additional tutorials for further information.
 <p><br>

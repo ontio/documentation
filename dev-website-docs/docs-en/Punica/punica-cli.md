@@ -78,7 +78,7 @@ Once this operation is completed, you'll now have a project structure with the f
 - `test/`: Directory for test files for testing your application and contracts.
 - `wallet/`: Directory for save Ontology wallet file.
 
-## Getting started
+## Getting tartedS
 
 
 #### 4.1.1. Initializing a New Project
