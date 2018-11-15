@@ -77,7 +77,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 InterPlanetary File System (IPFS) is a protocol and network designed to create a content-addressable, peer-to-peer method of storing and sharing hypermedia in a distributed file system.
 
-<div align=center><img height="400" src="img/ipfs.jpeg"/></div>
+<div align=center><img height="400" src="https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg"/></div>
 
 ### 3.1. How IPFS Works
 
@@ -97,7 +97,7 @@ In many cases, using this API this is preferable to embedding IPFS directly in y
 
 This API is intended to be the same across different IPFS implementations. However, not all implementations are equally up-to-date. The most feature-complete (and the current reference for this specification) is go-ipfs.
 
-<div align=center><img height="400" src="https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg"/></div>
+<div align=center><img height="400" src="https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png"/></div>
 
 ### 3.3. Initialize your IPFS Repository
 
