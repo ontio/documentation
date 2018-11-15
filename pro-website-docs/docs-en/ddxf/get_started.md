@@ -82,7 +82,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 InterPlanetary File System (IPFS) is a protocol and network designed to create a content-addressable, peer-to-peer method of storing and sharing hypermedia in a distributed file system.
 
-![ipfs](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg)
+![](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg)
 
 ### 3.1. How IPFS Works
 
@@ -102,7 +102,7 @@ In many cases, using this API this is preferable to embedding IPFS directly in y
 
 This API is intended to be the same across different IPFS implementations. However, not all implementations are equally up-to-date. The most feature-complete (and the current reference for this specification) is go-ipfs.
 
-![ipfsHttp](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png)
+![](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png)
 
 ### 3.3. Initialize your IPFS Repository
 
@@ -250,11 +250,11 @@ Daemon is ready
 
 Interplanetary Album is a decentralized Album which based on InterPlanetary File System (IPFS), Ontology Distributed Identity Framework (ONTID) and DDXF Cryptography Component.
 
-You can visit [here](https://github.com/punica-box/interplanetary-album-box to get more information.
+You can visit [here](https://github.com/punica-box/interplanetary-album-box) to get more information.
 
 ### 4.2. Architecture
 
-![interplanetary-album](https://github.com/punica-box/interplanetary-album-box/blob/master/img/interplanetary-album.svg)
+![](https://github.com/punica-box/interplanetary-album-box/blob/master/img/interplanetary-album.svg)
 
 ### 4.3. Setting up the environment
 
@@ -277,4 +277,4 @@ python interplanetary_album.py
 
 In interplanetary-album project, all pictures's IPFS address are bind with ONT ID and encrypted by it's public key in elliptic curve integrated encryption scheme(also ECIES). That is to say, only the picture owner and the user he shared with can visit his picture in the IPFS Network.
 
-![loginSuccessful](https://github.com/punica-box/interplanetary-album-box/blob/master/img/loginSuccessful.png)
+![](https://github.com/punica-box/interplanetary-album-box/blob/master/img/loginSuccessful.png)
