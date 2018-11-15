@@ -16,6 +16,11 @@
     - [3.4. Create your Private IPFS Network (optional)](#34-create-your-private-ipfs-network-optional)
     - [3.5. Run your IPFS Node](#35-run-your-ipfs-node)
     - [3.6. Client Library for IPFS API](#36-client-library-for-ipfs-api)
+- [4. Demo Project: Interplanetary Album](#4-demo-project-interplanetary-album)
+    - [4.1. Introduction](#41-introduction)
+    - [4.2. Architecture](#42-architecture)
+    - [4.3. Setting up the environment](#43-setting-up-the-environment)
+    - [4.4. Learn by Using it](#44-learn-by-using-it)
 
 <!-- /TOC -->
 
@@ -25,7 +30,7 @@
 
 The Distributed Data eXchange Framework (also DDXF) Cryptography Component is a cryptography component based on Python3.5 and provide cryptography kit for DDXF. Currently, it contain hash kit, encryption kit, signature kit and Key Derivation Function (KDF) kit.
 
-you can visit [here](https://github.com/NashMiao/ontology-ddxf-crypto) to get more information.
+You can visit [here](https://github.com/NashMiao/ontology-ddxf-crypto) to get more information.
 
 **Note**: This component has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely. You need to test fully before using in production!
 
@@ -77,7 +82,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 InterPlanetary File System (IPFS) is a protocol and network designed to create a content-addressable, peer-to-peer method of storing and sharing hypermedia in a distributed file system.
 
-<div align=center><img height="400" src="https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg"/></div>
+![ipfs](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg)
 
 ### 3.1. How IPFS Works
 
@@ -97,7 +102,7 @@ In many cases, using this API this is preferable to embedding IPFS directly in y
 
 This API is intended to be the same across different IPFS implementations. However, not all implementations are equally up-to-date. The most feature-complete (and the current reference for this specification) is go-ipfs.
 
-<div align=center><img height="400" src="https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png"/></div>
+![ipfsHttp](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png)
 
 ### 3.3. Initialize your IPFS Repository
 
@@ -238,3 +243,38 @@ Daemon is ready
 - [Go](https://github.com/ipfs/go-ipfs-api)
 - [Python](https://github.com/ipfs/py-ipfs-api)
 - [JavaScript](https://github.com/ipfs/js-ipfs)
+
+## 4. Demo Project: Interplanetary Album
+
+### 4.1. Introduction
+
+Interplanetary Album is a decentralized Album which based on InterPlanetary File System (IPFS), Ontology Distributed Identity Framework (ONTID) and DDXF Cryptography Component.
+
+You can visit [here](https://github.com/punica-box/interplanetary-album-box to get more information.
+
+### 4.2. Architecture
+
+![interplanetary-album](https://github.com/punica-box/interplanetary-album-box/blob/master/img/interplanetary-album.svg)
+
+### 4.3. Setting up the environment
+
+There are a few technical requirements before we start. Please install the following:
+
+- [python 3.7](https://www.python.org/downloads/release/python-370/)
+- [go-ipfs](https://dist.ipfs.io/#go-ipfs)
+
+### 4.4. Learn by Using it
+
+We can run the Interplanetary Album in our browser:
+
+```shell
+python interplanetary_album.py
+```
+
+- If everything goes smoothly, your Interplanetary Album will run on `http://127.0.0.1:5000/`, and your IPFS node will run on http://127.0.0.1:5001/.
+
+- If you want to quit it, you can press `CTRL+C` or close the terminal.
+
+In interplanetary-album project, all pictures's IPFS address are bind with ONT ID and encrypted by it's public key in elliptic curve integrated encryption scheme(also ECIES). That is to say, only the picture owner and the user he shared with can visit his picture in the IPFS Network.
+
+![loginSuccessful](https://github.com/punica-box/interplanetary-album-box/blob/master/img/loginSuccessful.png)
