@@ -6,7 +6,7 @@
 
 * 认证需求方（Requester）: 需要对人，物，事进行认证的DApp，机构或服务场景，是本体信任生态中认证服务的需求方。
 * ONTPass：基于本体区块链的去中心化身份交易平台，ONTPass主要用于协同用户和需求方进行数据交换，数据全程被加密，ONTPass并不会触碰用户隐私数据。
-* TrustAnchor Sources：本体信任生态中的多信任源，能为现实中的人、物、事提供认证服务并能签发可信声明，背后既可是连接了服务全球的身份认证服务供应商，也可以是某种自信任源。
+* TrustAnchor：本体信任生态中的多信任源，能为现实中的人、物、事提供认证服务并能签发可信声明，背后既可是连接了服务全球的身份认证服务供应商，也可以是社群或自信任源。
 
 
 ## 交互流程说明
@@ -14,11 +14,11 @@
 ![交互流程说明](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontpass02.png)
 
 
-- A0：ONTPass提供了公开的认证服务集市，认证需求方可以到ONTPass平台浏览并选定自己需要的TrustAnchor Source及其认证服务。
+- A0：ONTPass提供了公开的认证服务集市，认证需求方可以到ONTPass平台浏览并选定自己需要的TrustAnchor及其认证服务。
 - A1：认证需求方确认所需的认证服务后，需要到ONTPass平台注册相关基本信息，包括ONT ID，基本简介及回调地址。
-- A2：认证需求方根据TrustAnchor Source身份认证的要求，将用户数据提交到TrustAnchor Source。
-- A3.1,A3.2：TrustAnchor Source对用户进行身份认证，完成可信声明签发，调用智能合约进行分润并做链上可信声明存证。
-- A4：TrustAnchor Source完成可信声明签发后，将可信声明用用户ONT ID对应的公钥进行端到端加密传输到ONTPass。
+- A2：认证需求方根据TrustAnchor身份认证的要求，将用户数据提交到TrustAnchor。
+- A3.1,A3.2：TrustAnchor对用户进行身份认证，完成可信声明签发，调用智能合约进行分润并做链上可信声明存证。
+- A4：TrustAnchor完成可信声明签发后，将可信声明用用户ONT ID对应的公钥进行端到端加密传输到ONTPass。
 - A5：ONTPass根据回调地址将签发的可信声明推送到认证需求方。
 
 
@@ -26,12 +26,12 @@
 
 ### 1.发现认证服务
 
-本体信任生态中的信任源TrustAnchor Source会将自己能提供的认证服务和可信声明模板信息注册到ONTPass中，ONTPass对外提供TrustAnchor Source认证服务集市。认证需求方可以从ONTPass的认证服务集市选择自己需要的认证服务。
+本体信任生态中的信任源TrustAnchor会将自己能提供的认证服务和可信声明模板信息注册到ONTPass中，ONTPass对外提供TrustAnchor认证服务集市。认证需求方可以从ONTPass的认证服务集市选择自己需要的认证服务。
 
 <table>
 <tr>
-	<td>TAS_OntId</td>
-	<td>TAS_Description</td>
+	<td>TA_OntId</td>
+	<td>TA_Description</td>
 	<td>Claim_Context</td>
 	<td>Claim_Description</td>
 	<td>PersonalKeyInfo</td>
@@ -40,7 +40,7 @@
 </tr>
 <tr>
     <td rowspan="2"> did:ont:ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
-    <td rowspan="2">Ontology China Identity TrustAnchor Source</td>
+    <td rowspan="2">Ontology China Identity TrustAnchor</td>
     <td>claim:cfca_authentication</td>
 	<td>中国公民实名身份认证</td>
 	<td>姓名，身份证号</td>
@@ -56,7 +56,7 @@
 </tr>
 <tr>
     <td rowspan="6"> did:ont:AcbVUAXkJSKy7g<br/>43KHW378pBwA48Ywbuuw<br/></td>
-    <td rowspan="6">Ontology Global Identity TrustAnchor Source</td>
+    <td rowspan="6">Ontology Global Identity TrustAnchor</td>
     <td>claim:sfp_passport_authentication</td>
 	<td>全球用户护照认证</td>
 	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
@@ -106,8 +106,7 @@
 
 认证需求方选定所需的认证服务后，需要到ONTPass平台注册相关信息，主要包括ONT ID，基本简介及回调地址。只有注册过的需求方ONT ID才会收到后续的可信声明回调推送。
 
-
-  如何拥有自己的ONT ID并进行签名，可参考[附录]
+> 如何拥有自己的ONT ID并进行签名，可参考[附录](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ontpass-auth.md#%E9%99%84%E5%BD%95)
 
 
 #### 认证需求方注册API
@@ -150,18 +149,18 @@ SuccessResponse：
 |    Result|   Boolean|  true：注册成功  false：注册失败|
 
 
-> 注意：为保证数据传输安全性，需求方注册的回调接口必须是https+域名形式，同时需求方需保证注册的回调接口高可用性且接受ONTPass标准的https的post请求
+> 为保证数据传输安全性，需求方注册的回调接口必须是https+域名形式，同时需求方需保证注册的回调接口高可用性且接受ONTPass标准的https的post请求
 
 
 
-### 3.向TrustAnchor Source提交认证
+### 3.向TrustAnchor提交认证
 
-认证需求方根据第一步选定的TrustAnchor Source认证服务的认证需求，提交认证数据。由TrustAnchor Source进行身份认证，签发可信声明并使用端到端加密，并完成智能合约调用进行资产分润和可信声明基本信息存证。
+认证需求方根据第一步选定的TrustAnchor认证服务的认证需求，向TrustAnchor提交认证数据。由TrustAnchor进行身份认证，签发可信声明并使用端到端加密，并完成智能合约调用进行资产分润和可信声明基本信息存证。
 
 
 ### 4.获取用户可信声明
 
-当TrustAnchor Source完成用户的信息认证并签发可信声明后，会将可信声明发送到ONTPass。ONTPass会根据认证需求方之前注册的回调地址，将签发完成的可信声明推送到需求方。
+当TrustAnchor完成用户的信息认证并签发可信声明后，会将可信声明发送到ONTPass。ONTPass会根据认证需求方之前注册的回调地址，将签发完成的可信声明推送到需求方并附带上自己ONT ID的签名。
 
 
 ```json
@@ -178,7 +177,7 @@ RequestExample：
 			"Context":"claim:cfca_authentication",
 			"EncryOrigData":"eyJraWQiOiJkaWQ6b250OkFScjZBcEsyNEVVN251Zk5ENHMxU1dwd1VMSEJlcnRwSmIja2V5cy0xIiwidHlwIjoiSldULVgiLCJhbGciOiJPTlQtRVMyNTYifQ==.eyJjbG"
 		}
-	]	"Signature":"AXFqt7w/xg+IFQBRZvucKXvTuIZaIxOS0pesuBj1IKHvw56DaFwWogIcr1B9zQ13nUM0w5g30KHNNVCTo04lHF0="
+	]		"Signature":"AXFqt7w/xg+IFQBRZvucKXvTuIZaIxOS0pesuBj1IKHvw56DaFwWogIcr1B9zQ13nUM0w5g30KHNNVCTo04lHF0="
 }
 ```
 
@@ -197,7 +196,7 @@ RequestExample：
 ### 附录
 
 
-#### 拥有自己的ONT ID并签名
+#### 拥有自己的ONT ID
 
 测试网ONT ID可由ONTPass平台免费代付完成上链注册，直接调用以下API即可完成测试网ONT ID注册。
 
@@ -267,9 +266,9 @@ ONTO导出keystore示例：
 
 若你已拥有数字资产账户且持有至少0.01个ONG，也可直接使用各种SDK自行自付创建ONT ID，获取ONT ID相关信息。
 
+#### 使用ONT ID签名验签
+
+有了身份ONT ID相关信息后便可进行签名验签操作，可参考[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.java)，[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 
-有了身份ONT ID相关信息后便可使用各种SDK进行签名验签等操作。
-
-ONT ID签名验签等身份相关操作可参考附录[示例代码](https://github.com/ontio/ontology-DID/blob/master/docs/cn/thirdparty_kyc_cn.md#%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81)或[SDKs开发文档](https://ontio.github.io/documentation/ontology_overview_sdks_en.html)
 
