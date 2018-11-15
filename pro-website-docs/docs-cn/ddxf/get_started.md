@@ -82,11 +82,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 行星际文件系统（IPFS）是一种基于内容寻址的协议和一个点对点网络，旨在提供一种在分布式文件系统中存储和共享超媒体的方法。
 
-<<<<<<< HEAD
 ![ipfs](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg)
-=======
-<div align=center><img height="400" src="https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg"/></div>
->>>>>>> upstream/master
 
 ### 3.1. 星际文件系统是如何工作的？
 
@@ -106,11 +102,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 星际文件系统 HTTP API旨在使不同的星际文件系统实现保持相同的 HTTP API。但是，并非所有实现都同样是最新的，功能最完整（以及此规范的当前参考）是 go-ipfs。
 
-<<<<<<< HEAD
 ![ipfsHttp](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png)
-=======
-<div align=center><img height="400" src="https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png"/></div>
->>>>>>> upstream/master
 
 ### 3.3. 初始化你的星际文件系统存储库
 
