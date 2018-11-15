@@ -45,12 +45,21 @@
       .sidebar li {
         margin: 0;
       }
-      
+      .doc-link {
+        color: #ffffff;
+        font-size: 18px;
+        margin-left: 50px;
+        text-decoration: none;
+      }
+      .doc-link:hover{
+        text-decoration: underline;
+      }
   </style>
 </head>
 <body>
 <header class="header">
   <img src="./assets/logo.png" alt="">
+  <a href="http://pro-docs.ont.io/#/" class="doc-link">Ontology products docs</a>
 </header>
 <div id="app"></div>
 <script>
@@ -104,7 +113,7 @@
             }
             // var editHtml = '[:memo: Edit Document](' + url + ')\n'
             var editHtml = [
-              '<p style="text-align:right">',
+              '<p style="text-align:right;position: absolute;top: 10px;right: 5px;">',
               '<a href="' + url + '" target="_blank">',
               '<img class="emoji" src="https://assets-cdn.github.com/images/icons/emoji/memo.png" alt="memo">',
               ' Edit Document',
