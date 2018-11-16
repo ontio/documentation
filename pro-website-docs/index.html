@@ -15,6 +15,8 @@
         background: #160033; display: flex; align-items: center; z-index: 1000; }
         .header img {
           width:150px;
+          height:29px;
+          cursor: pointer;
         }
        .sidebar {top:60px; }
        .footer {
@@ -46,8 +48,9 @@
       .doc-link {
         color: #ffffff;
         font-size: 18px;
-        margin-left: 50px;
         text-decoration: none;
+        position: absolute;
+        right: 150px;
       }
       .doc-link:hover{
         text-decoration: underline;
@@ -63,7 +66,7 @@
 </head>
 <body>
 <header class="header">
-  <img src="./assets/logo.png" alt="">
+  <img src="./assets/logo.png" alt="" id="header-logo">
   <a href="http://dev-docs.ont.io/#/" class="doc-link"><span>&#8594;</span> Ontology Developer Documentation</a>
 </header>
 <div id="app"></div>
@@ -152,6 +155,10 @@
 <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+
+<script>
+document.getElementById('header-logo').addEventListener('click', function(){window.location.href='http://pro-docs.ont.io/#/'})
+</script>
 
 </body>
 </html>

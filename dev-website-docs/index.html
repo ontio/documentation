@@ -14,6 +14,7 @@
         .header img {
           width:150px;
           height:29px;
+          cursor: pointer;
         }
        .sidebar {top:60px; }
        .footer {
@@ -64,7 +65,7 @@
 </head>
 <body>
 <header class="header">
-  <img src="./assets/logo.png" alt="">
+  <img src="./assets/logo.png" alt="" id="header-logo">
   <a href="http://pro-docs.ont.io/#/" class="doc-link"><span>&#8594;</span> Ontology Products Documentation</a>
 </header>
 <div id="app"></div>
@@ -155,5 +156,8 @@
 <script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
 
+<script>
+  document.getElementById('header-logo').addEventListener('click', function () { window.location.href = 'http://dev-docs.ont.io/#/' })
+</script>
 </body>
 </html>
