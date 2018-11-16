@@ -18,12 +18,12 @@ Punica provides developers with a complete set of open-source development tools 
 
 Advantages：
 
-1. Punica is the first dapp development framework for the ontology, saving users at least 50% development time.
-2. Provide a large number of textbooks and videos for beginners to get started.
-3. Developed a smart contract testing framework that supports unit testing and functional testing, which is much easier than using the SDK testing.
-4. Smart contract compilation/deployment/testing in one command, saving development time. The debug function has been integrated in smartx, and the command line debug function is supported later.
-5. Solo-chain makes it easy for users to view data on the chain in real time, which is more than 50% more convenient than test net or building a private network.
-6. Provide a variety of SDKs and dApi cases, suitable for different user groups to develop dApp.
+* Punica is the first dApp development framework for the ontology, which greatly saves development time and allows users to do more with less;
+* Provide a large number of teaching materials and teaching videos, so that beginners can quickly get started and fully understand;
+* Developed a smart contract testing framework that supports unit testing and functional testing, making it easier and more convenient than SDK testing;
+* Smart contract compilation and deployment testing as one, saving development time. The debug function has been integrated in SmartX, and the command line debug function will be supported later.
+* Solo-chain allows users to view data on the chain in real time, which is more than 50% more efficient than test network or building a private network.
+* A variety of SDK and dAPI cases are available for a variety of developers.
 
 ### Resources
 
