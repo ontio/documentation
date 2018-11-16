@@ -16,7 +16,7 @@ Once you create your ONT ID you will immediately have a blockchain-based digital
 
 * The powerful Ontology trust network
 
-The Ontology trust ecosystem has already been connected by global trust anchors (identity trust sources). They can authenticate ONT IDs and create multi-factor trusted certificates, which can help users prove their identity. Learn more about[>> trust anchors](https://info.ont.io/trust-anchor/en).
+The Ontology trust ecosystem has already been connected by global trust anchors (identity trust sources). They can authenticate ONT IDs and create multi-factor trusted certificates, which can help users prove their identity. Learn more about [trust anchors](https://info.ont.io/trust-anchor/en).
 
 * User privacy protection
 
