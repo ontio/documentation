@@ -156,7 +156,7 @@ console.log(ddo);
 
 Based on ONTID and Ontology Trust Ecosystem, ONTPass is an open, decentralized authentication service platform that provides KYC (Know Your Customer) services and various user authentication services. Ontology Trust Ecosystem has gathered trust anchors that provide global identity authentication services, including IdentityMind, CFCA, Shangtang Technology, Shufti Pro, etc., as well as mailbox, mobile, and social media authentication methods.
 
-[>> User authentication through ONTPass](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ontpass_getstarted.md)
+[>> Use ONTPass](http://pro-docs.ont.io/#/docs-en/ontpass/overview)
 
 
 ## 5. Verify the varifiable claim
