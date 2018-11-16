@@ -37,7 +37,7 @@ The following roles will be present throughout the use of ONT ID:
 
 * **Developer** Provide various application development services for different users and scenarios using the ONT ID protocol and interface.
 
-![](https://github.com/ontio/ontology-DID/raw/master/images/claim_workflow_cn.png)
+![](https://github.com/ontio/ontology-DID/raw/master/images/claim_workflow.png)
 
 
 
@@ -48,7 +48,7 @@ The ONT ID protocol system consists of two parts: the Ontology DID and the verif
 Ontology DID is a decentralized identity protocol based on [W3C](https://www.w3.org/2017/vc/WG/) [DID](https://w3c-ccg.github.io/did-spec/) specification. Ontology's ONT ID creates and manages on-chain identities using this protocol. [>> Read more about the ONT ID protocol](https://github.com/ontio/ontology-DID/blob/master/docs/cn/ONTID_protocol_spec_cn.md)
 
 A verifiable claim is a statement made by an entity of certain attributes of another entity (including itself). It includes the entity's own digital signature to prove the authenticity of these attributes, which can be used by other entities for verification purposes. The verifiable claim protocol details the procedures and specifications for the issuance, storage, verification, and so on of the statement. The Ontology verifiable claim protocol establishes a decentralized trust model and a distributed trust delivery system, and introduces cryptographic techniques such as the C-L signature algorithm and sigma protocol to assure privacy protection of verifiable claims.
-[>> Read more about the verifiable claim protocol](https://github.com/ontio/ontology-DID/blob/master/docs/cn/claim_spec_cn.md)
+[>> Read more about the verifiable claim protocol](https://github.com/ontio/ontology-DID/blob/master/docs/en/claim_spec.md)
 
 ## Trust anchor
 
