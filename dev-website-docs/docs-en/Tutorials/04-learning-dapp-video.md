@@ -1,6 +1,6 @@
 
 
-[Docs in Video](https://github.com/xavizhao/Ontology-Development-Tutorial)
+[Docs in Video](https://github.com/punicasuite/tutorials/tree/master/toolkits-docs)
 
 ### 1. Documentation Introduction
 

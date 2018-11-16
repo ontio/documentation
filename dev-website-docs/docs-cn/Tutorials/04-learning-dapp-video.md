@@ -1,6 +1,6 @@
 
 
-[视频文档](https://github.com/xavizhao/Ontology-Development-Tutorial)
+[视频文档](https://github.com/punicasuite/tutorials/tree/master/toolkits-docs)
 
 ### 1. 文档介绍
 
