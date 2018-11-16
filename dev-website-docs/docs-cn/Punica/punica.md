@@ -9,7 +9,7 @@
 
 ### 概述
 
-[Punica Suite](https://punica.ont.io) 是基于本体主网的第一个dApp开发框架， 为开发者提供了一整套开发工具，主要包括：
+[Punica Suite](https://punica.ont.io) 是基于本体的第一个dApp开发框架， 为开发者提供了一整套开发工具，主要包括：
 
 * [Punica Python CLI](https://github.com/punicasuite/punica-python) 和 [Punica TypeScript CLI](https://github.com/punicasuite/punica-ts) - 作为命令行工具，可以与主网、测试网或私网连接，能够让开发者便捷地使用本体智能合约，支持编译、部署、调用和测试功能。
 * [Punica boxes](https://punica.ont.io/boxes/) - 提供多款dApp模板和应用案例。
