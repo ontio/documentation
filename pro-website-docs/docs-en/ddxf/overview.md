@@ -1,77 +1,79 @@
-<h1 align="center">去中心化数据交换应用框架</h1>
+<h1 align="center">Decentralized Data Exchange Application Framework</h1>
 
-## DDXF是什么
+## What is DDXF?
 
-针对目前中心化数据交易所的痛点如：数据缓存、隐私数据未经用户授权、数据版权无法保护等问题，本体推出去中心化数据交易框架DDXF。本体生态应用开发者可以基于DDXF开发满足各种细分场景需求和各具特色的去中心化数据交易应用，并支持数据交易平台之间交易互通。
+In light of the pain points of the current centralized data exchanges, such as data caching, private data use without user authorization, data copyright protection, etc., Ontology launched the decentralized data transaction framework, “DDXF”. Ontology ecosystem application developers can develop decentralized data transaction applications based on DDXF to meet different scenarios and features, and support communication/transactions between data transaction platforms.
 
-DDXF基于Ontology BlockChain和ONT ID协议，通过一致性账本、智能合约、密码学技术完美实现数字资产去中心化交易。DDXF提供一系列智能合约模板、交易组件和密码学组件，上层应用可以非常方便地实现版权控制、契约式数据分享等场景需求。
+Based on the Ontology blockchain and ONT ID protocols, DDXF implements decentralized transactions of digital assets through consistent bookkeeping, smart contracts, and cryptography. DDXF provides a series of smart contract templates, transaction modules, and cryptography modules. Applications can also easily implement the requirements of copyright control, contractual data sharing, etc.
 
-## 如何使用DDXF
+## How to use DDXF
 
-DDXF能帮助你快速构建去中心化的数据交换系统，您只要将您的系统集成数据交易客户端DataRot，并对接到一个可视化的数据交易市场界面即可。
+DDXF can help you quickly build a decentralized data exchange system. Simply integrate your system into the data transaction client DataRot and connect to a visual data trading market interface.
 
-开始使用[>> 数据交易客户端]()构建您的去中心化数据交易平台。
+Start building your decentralized data trading platform with the [>> data trading client]().
 
-## 理解DDXF工作原理
+## Understand how DXF works
 
 ![](http://on-img.com/chart_image/5b9b529de4b0fe81b63605f9.png)
 
-在分布式数据交换协议中主要的参与方有：
-•数据需求方Data Consumer：需要采购数据的机构/企业/个人；
-•数据提供方Data Provider：提供数据的机构/企业/个人，数据可以是源数据，也可以是加工数据，数据提供需要完全满足当地政府的法律法规；
-•数据所有者Data Owner：即数据主体，可以是机构/企业/个人。
-去中心化数据交易所Market Place：运营可视化的数据交易页面或社区 ，制定行业中的数据交易和交换标准，便于买卖双方以及交易参与方高效交易。各行各业数据交换标准会有很大差异性，所以将有各种不同类型的去中心化数据交易所。
+The main players in the distributed data exchange protocol are:
+* Data consumer: Institutions/enterprises/individuals who need to purchase data;
 
-### 协作流程
+* Data provider: The organization/enterprise/individual providing the data, the data can be source data or processed data, and the data supply needs to fully meet the local government's laws and regulations;
+
+* Data owner: The data subject can be an institution, enterprise, individual, etc.;
+
+* Marketplace: Operates a visual data transaction page or community, develops data transaction and exchange standards in the industry, and facilitates efficient trading between buyers and sellers and trading participants. There will be significant differences in data exchange standards across industries, so there will be different types of decentralized data exchanges.
+
+### Collaboratrion process
 
 ![](http://on-img.com/chart_image/5a54d944e4b01acda595f66d.png)
 
-* 准备事项
+* Preparation
 
-    1 交易参与方开通ONT ID。
-    2 在交易请求发起之前，需求方首先向数据交易合约地址存入一笔资金。
+    1. Trading participants opens an ONT ID.
+    
+    2. Before the transaction request is initiated, the demander first deposits a sum of funds into the data transaction contract address.
 
-* 交易请求，智能合约锁仓
+* Transaction request, smart contract lock
 
-    数据需求方通过区块链向提供方发送数据交易请求，该请求包括不限于：交易信息、ONT ID等。同时，调用XSC智能合约资金锁定接口，锁定需求方必需的交易费用。
+    The data requester sends a data transaction request to the provider through the blockchain, and the request includes not limited to: transaction information, ONT ID, etc. At the same time, the XSC smart contract fund lock interface is invoked to lock the transaction costs necessary from the demander.
 
-* 用户授权
+* User authorization
 
-    数据提供方收到需求方的请求之后，访问用户代理，发起授权申请。此时，用户代理可以通过本体认证需求方的身份，并根据数据所有者事先提供的访问策略进行授权处理。如果所有者没有设置访问策略，用户代理通知其进行授权操作。如果未能获得的授权，则交易终止。 
+    After receiving the request from the demanding party, the user agent is accessed and authorization request initiated. At this time, the user agent can authenticate the identity of the demander through Ontology, and perform authorization processing according to the access policy provided by the data owner in advance. If the owner does not set an access policy, the user agent notifies them of the authorization. If the authorization is not obtained, the transaction is terminated.
 
-* 上传数据
+* Upload data
 
-    数据提供方根据请求方支持的对称加密算法，生成一次性会话密钥，使用会话密钥加密交易的数据和数据特征值，将密文上传到第三方可信存储（比如去中心化存储IPFS）。
+    The data provider generates a one-time session key according to the symmetric-key algorithm supported by the requester, encrypts the data and data feature values of the transaction using the session key, and uploads the ciphertext to the third-party trusted storage (such as decentralized storage IPFS).
 
-* 智能合约解锁和分润
+* Smart contract unlocking and distribution
 
-    数据提供方调用XSC智能合约资产解锁接口，释放锁定资金，进行数据资产和资金的交割，同时根据智能合约规则进行多方分润。 数据资产DToken通过事件推送的方式推送给数据接受方。
+    The data provider invokes the XSC smart contract asset unlocking interface, releases the locked funds, delivers the data assets and funds, and performs multi-party distribution according to the smart contract rules. The data asset DToken is pushed to the data receiver through event push.
 
-* 收取数据，交易完成
+* Receive data, transaction completed
 
-    数据需求方接收到智能合约事件通知后，获取DToken，通过DToken从第三方可信存储获取数据，交易完成。
+    After receiving the notification of the smart contract event, the data requester obtains the DToken and obtains the data from the third-party trusted storage through DToken, and the transaction is completed.
 
-## 链上的“一手交钱，一手交货”
+## Simultaneous on-chain settlement of goods and funds
 
-为了保证交易参与方的权益，在DDXF交易流程中引入一个作为“担保人”的中间方，保证“一手交钱，一手交货”的结算过程。该中间方负责保管买方的资金，并根据最终交易结果将该资金转给卖方或退回给买方。因为中间方负责交易的最终结算，必须具备足够的公正性与安全性。依托于分布式账本运作的智能合约，具有公开且去中心化管理的特点，十分适合承担中间方的角色。
+In order to ensure the rights and interests of trading participants, an intermediary as a “guarantor” is used in DDXF transaction processes to ensure the settlement process of goods and funds is handled simultaneously. The intermediary is responsible for keeping the buyer's funds and transferring the funds to the seller or returning them to the buyer based on the final transaction result.
 
-此合约用于资金的锁定与分配。 合约接受用户账户输入的资金，锁定一定时间。在锁定期间内任何人无法动用这笔资金。锁定结束后按照指定的分配规则将资金分发给其他账户。
+DDXF designed a smart contract to implement this mechanism. This contract is used for locking and distributing funds. The contract accepts funds entered by the user account and locks them for a certain period of time. No one can use this money during the lock-in period. After the lock is over, the funds are distributed to other accounts according to the specified allocation rules.
 
-DDXF设计了一个智能合约来实现此机制。该合约用于资金的锁定与分配。合约接受数据需求方的账户输入的资金，锁定一定时间。在锁定期间内任何人无法动用这笔资金。锁定结束后按照指定的分配规则将资金分发给数据提供方的账户。
+This mechanism can achieve the following results:
+* 1. The data demander proves that it has sufficient funds;
+* 2. After the transaction is completed, the funds will be transferred to the data provider's account;
+* 3. The data requester has the right to request a refund for the failed transaction;
+* 4. A third party may be introduced for arbitration in a transaction.
 
-此机制将实现以下效果：
-* 1.数据需求方证明其有足够的资金；
-* 2.交易完成后资金将转入数据提供方的账户；
-* 3.数据需求方有权对失败的交易申请退款；
-* 4.对于交易中的纠纷可以引入第三方进行仲裁。
+**Process design**:
 
-**流程设计**:
+The entire process is divided into three phases, shown in this example:
 
-整个流程分为3个阶段：
-
-* 1.数据需求方作为付款人生成实例，设定收款人，即数据提供方，以及其他参数，并转入资金。若设定评审人，则数据提供方需在此阶段确认评审人信息。此阶段数据需求方可取消实例。
-* 2.数据需求方调用锁定接口，资金被锁定在合约中，任何人将无法操作实例中的资金。
-* 3.锁定期结束后，进入资金分配阶段。此阶段收付款双方任意一方确认，即可完成资金的分配，实例结束。
+* 1. The data demander, as the payer, sets the payee (the data provider) and other parameters, and transfers the funds. If a reviewer is set up, the data provider needs to confirm the reviewer information at this stage. At this stage, the data request can be canceled.
+* 2. The data demander invokes the lockout interface, the funds are locked in the contract, and no one can touch the funds.
+* 3. After the lockout period is over, the fund allocation phase begins. At this stage, the parties to receive payment are confirmed by either party, and the allocation of funds can be completed.
 
 
 
