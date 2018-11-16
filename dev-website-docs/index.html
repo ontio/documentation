@@ -14,15 +14,14 @@
         .header img {
           width:150px;
           height:29px;
+          cursor: pointer;
         }
        .sidebar {top:60px; }
        .footer {
         height: 60px; border-top: 1px solid #dddddd; background: #ffffff;
        }
        .content {position: relative; left:150px;}
-       @media screen and (max-width:600px) {
-         .content {left:0;padding-top: 50px;}
-       }
+       
        main {height:auto;}
        .app-nav::after {
        content: ''; position: absolute; top: 12px; right: -8px; border-left: 8px solid transparent; border-right: 8px solid
@@ -48,18 +47,26 @@
       .doc-link {
         color: #ffffff;
         font-size: 18px;
-        margin-left: 50px;
         text-decoration: none;
+        position: absolute;
+        right: 150px;
       }
       .doc-link:hover{
         text-decoration: underline;
       }
+      body {
+        font-size: 16px;
+      }
+      @media screen and (max-width:600px) {
+         .content {left:0;padding-top: 50px;}
+         .doc-link {position: relative;text-align: right;right:0;}
+       }
   </style>
 </head>
 <body>
 <header class="header">
-  <img src="./assets/logo.png" alt="">
-  <a href="http://pro-docs.ont.io/#/" class="doc-link">Ontology products docs</a>
+  <img src="./assets/logo.png" alt="" id="header-logo">
+  <a href="http://pro-docs.ont.io/#/" class="doc-link"><span>&#8594;</span> Ontology Products Documentation</a>
 </header>
 <div id="app"></div>
 <script>
@@ -149,5 +156,8 @@
 <script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
 
+<script>
+  document.getElementById('header-logo').addEventListener('click', function () { window.location.href = 'http://dev-docs.ont.io/#/' })
+</script>
 </body>
 </html>
