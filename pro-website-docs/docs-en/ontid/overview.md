@@ -54,5 +54,5 @@ A verifiable claim is a statement made by an entity of certain attributes of ano
 
 Trust anchors are partners that provide certification services in the Ontology ecosystem. They may be government agencies, universities, banks, third-party certification service organizations (such as CA), biometric technology companies, etc. We welcome you to join the Ontology ecosystem and build up the distributed trust chain network.
 
-You can read more about trust achors [here]().
+You can read more about trust achors [here](https://info.ont.io/trust-anchor/en).
 
