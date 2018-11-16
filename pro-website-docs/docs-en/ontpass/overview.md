@@ -1,39 +1,38 @@
-﻿<h1 align="center">ONTPass产品及服务介绍 </h1>
+﻿<h1 align="center">ONTPass Product and Service Introduction </h1>
 
-## ONTPass是什么？
+## What is ONTPass?
 
-ONTPass基于ONTID及本体信任生态，是一个开放的、去中心化的认证平台，为人、财、物、事提供丰富的认证服务。本体信任生态已聚集了提供全球身份认证服务能力的信任锚，包括IdentityMind、CFCA、商汤科技、Shufti Pro等等，同时还支持邮箱、手机、社交媒体认证方式。详细[了解本体信任锚](https://info.ont.io/trust-anchor/en)。
+ONTPass is an open and decentralized authentication platform based on ONT ID and the Ontology trust ecosystem. It provides rich authentication services for people, finances, things, and affairs. The Ontology trust ecosystem has gathered trust anchors that provide global identity authentication services, including IdentityMind, CFCA, SenseTime, Shufti Pro, etc., as well as email, mobile, and social media authentication methods. [Learn more about trust anchors](https://info.ont.io/trust-anchor/en).
 
-## ONTPass能为你做什么？
+## What can ONTPass do for you?
 
-如果您拥有自己的APP或平台，希望帮助您的用户并通过ONTPass认证您的用户，您可以把集成ONTPass到您的平台或产品中，用于KYC（Know Your Customer）、身份认证、Login等多种业务场景。
+If you have your own app or platform, ONTPass can help your users complete authentication. You can integrate ONTPass into your platform or product for KYC, identity authentication services, login, and so on, depending on your business requirements.
 
-ONTPass具有以下优势：
+ONTPass has the following advantages:
 
-* 本体信任生态已经连接了全球的认证服务机构，覆盖218个国家的用户；
-* 低成本，一次认证，可以多次使用，总体降低了多次认证成本;
-* 协议使用[End-to-End加密规范](https://github.com/ontio/ontology-DID/blob/master/docs/cn/end-to-end-encryption.md)，全程保护用户数据；
-* 基于本体区块链，所有认证动作和认证结果被区块链存证。
-* 规范支持零知识证明等密码学算法，用户可以选择性出示自己的身份信息，最大限度保护用户隐私。
+* The Ontology trust ecosystem is already connected to global certification services, covering users in 218 countries and regions;
+* Provides low cost, one-time authentication, which can be used multiple times, and reduces the cost of multiple authentications;
+* The protocol uses [end-to-end encryption specifications](https://github.com/ontio/ontology-DID/blob/master/docs/cn/end-to-end-encryption.md) to protect user data throughout;
+* All authentication actions and results are attested to the Ontology blockchain;
+* The specification supports cryptographic algorithms such as zero-knowledge proof, and users can selectively present their own identity information to maximize user privacy.
 
-[>> 开始使用ONTPass服务](http://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth)。
+[>> Start using the ONTPass service](http://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth)。
 
 
-## 了解ONTPass的工作原理？
+## Learn how ONTPass works
 
-> ONTPass基于ONT ID，了解ONTID 和 可信声明的使用方法，请先了解[ONT ID](https://github.com/ontio/ontology-DID/blob/master/docs/cn/get_started_cn.md)。
+> ONTPass is based on ONT ID. To understand how to use ONT ID and verifiable claims, please first familiarize yourself with [ONT ID](https://github.com/ontio/ontology-DID/blob/master/docs/cn/get_started_cn.md).
 
-ONTPass开放认证服务，其原理如下：
+The ONTPass open authentication service is based on the following principles:
 ![](http://assets.processon.com/chart_image/5a5fff53e4b0abe85d5e3e5f.png)
 
-ONTPass的主要职责是：
-* 登记本体生态上的信任锚及其认证服务，并提供认证服务发现功能；
-* 登记本体生态可以提供的认证模板及可信声明模板，并提供模板发现功能；
-* 用户可信声明信息传递；
-* 为用户认证需求匹配对应的可信声明模板。
+The main duties of ONTPass are:
+* Registering trust anchors and their verification services to the Ontology ecosystem, and providing a verification service discovery function;
+* Registering authentication and verifiable claim templates, and providing a template discovery function;
+* User verifiable claim information delivery;
+* Matching veriable claim templates with user authentication requirements.
 
-流程中涉及到的参与方包括：
-* 认证需求方（Requester）: 需要对自有用户进行认证的DApp，机构或服务场景，是本体信任生态中认证服务的需求方。
-* ONTPass：基于本体区块链的去中心化身份交易平台，ONTPass主要用于协同用户和需求方进行数据交换，数据全程被加密，ONTPass并不会触碰用户隐私数据。
-* TrustAnchor：本体信任生态中的信任锚，为全球用户提供认证服务并能签发可信声明，背后连接了服务全球的身份认证服务供应商，能帮助用户实现身份认证。
+The particles involved in the process include:
+* Requester: A dApp, organization, or service that requires authentication for its users. The authentication service demander in the Ontology trust ecosystem.
+* Trust anchor: Trust anchors in the Ontology trust ecosystem provide authentication services for users worldwide and can issue verifiable claims. Behind them are global identity authentication service providers, which can help users achieve identity authentication.
 
