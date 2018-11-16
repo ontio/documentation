@@ -1,34 +1,34 @@
-<h1 align="center">信任锚接入 </h1>
+<h1 align="center">Trust Anchor Access</h1>
 
-## 什么是信任锚
+## What is a trust anchor?
 
-信任锚Trust Anchor是指在本体生态上提供认证服务的合作方，其可能是政府机关、大学、银行、第三方认证服务机构（比如CA机构）、生物识别科技公司等等，这些企业为本体ONT ID的持有者（Owner）提供多维度的认证，并第一时间通过Ontology BlockChain来记录认证行为和认证结果HASH，从而为用户认证需求方/场景方提供了标准化、可信的认证方式。
+Trust anchors are partners that provide certification services in the Ontology ecosystem. They may be government agencies, universities, banks, third-party certification service organizations (such as CA), biometric technology companies, etc. These companies provide multi-dimensional authentication for ONT ID owners and record authentication activity and result hash, thereby reaching service demands of the user while using a standardized, trusted way to authenticate.
 
-## 如何使用Trust Anchor Connector
+## How to use Trust Anchor Connector
 
-Trust Anchor Connector(简称TAConnector)是一个技术接入组件，帮助信任锚快速接入本体信任生态。
+Trust Anchor Connector (also TAConnector) is a technology access component that helps trust anchors quickly access the Ontology trust ecosystem.
 
-## 工作原理
+## Working principle
 
  ![](http://assets.processon.com/chart_image/5a92d69de4b0874437cfe5f3.png)
 
 
-## 准入规则
+## Access rules
 
-作为本体信任锚，除了技术接入以外，需要遵守包括不限于以下条款：
+As an Ontology trust anchor, in addition to technical access, compliance with the following terms is not limited to the following:
 
-* 信任锚如果没有相应资质或用户许可，不可留存任何用户数据。
-* 信任锚在其官方网站上公布将作为本体的身份识别、认证服务提供者（Verify Provider），并指定其注册的OntID。
-* 信任锚应保证其用户信息准确性与真实性。本体团队对信任锚提交的用户信息的真实性不承担责任。因用户信息虚假、不完整，而导致有关法律文件的效力瑕疵，本体团队不承担责任，有关责任由信任锚自行向其用户或第三人承担。
-* 信任锚具备身份识别、认证管理配置能力，原则性要求如下，指标性要求可以由甲方根据具体服务要求来具体指定。
-* 具有身份识别、认证需要的硬件和网络设施；
-* 具有一定的安全防护标准；
-* 部署身份识别、认证管理软件，本体将开源标准软件代码；
-* 基于身份识别、认证的管理流程，信任锚将提供包括不限于以下的可信申明服务：1、可信申明的颁发；2、可信申明的吊销；3、以其官方域名URL对外开放可信申明验证服务。
+* The trust anchor cannot retain any user data without corresponding qualifications or user permissions.
+* The trust anchor publishes on its official website that it will be an Ontology authentication service provider and specifies its registered ONT ID.
+* The trust anchor should guarantee the accuracy and authenticity of its user information. The Ontology team is not responsible for authenticity information submitted by the trust anchor. If user information is false or incomplete, resulting in the validity of the relevant legal documents, the Ontology team is not responsible, and the responsibility is borne by the trust anchor itself to its users or third parties.
+* The trust anchor has the ability of identity identification and authentication management configuration. The principle requirements are as follows. The index requirements can be specified by Party A according to specific service requirements.
+* Hardware and network facilities with identification and authentication requirements;
+* Have certain security protection standards;
+* Deploy identity and authentication management software, and Ontology will open source standard software code;
+* Based on the identification and authentication management process, trust anchors will provide verifiable claim services including: 1. Issuing verifiable claims; 2. Revoking verifiable claims; 3. Official domain name/URL verification services.
 
 
-## 奖励或分润机制
+## Reward or distribution mechanism
 
-* 用户只要完成认证后，参与的认证服务商将得到奖励，具体政策将在本体《治理白皮书》发布。
+* Once the user completes the certification, the participating certification service providers will be rewarded. The specific policy will be laid out in the future Governance White Paper.
 
-* 用户使用可信申明进行身份认证，参与的认证服务商将得到分润或奖励，这个部分由各个去中心化数据交易所同本体共同制定政策。
+* The user uses the verifiable claim for identity authentication, and the participating authentication service providers will be distributed or rewarded. This part is formulated by Ontology policy.
