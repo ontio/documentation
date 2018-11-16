@@ -1,32 +1,33 @@
-<h1 align="center">ONTPass认证服务接入指导</h1>
+<h1 align="center">ONTPassAuthenticationServiceAccessGuide</h1>
 
-## 概述
+## Overview
 
-本文用于指导认证需求方如何接入本体，并使用ONTPass提供的认证服务，流程中涉及到的参与方包括：
+This tutorial will guide Requester to access the Ontology, and to use the authentication service provided by ONTPass. The participants involved in the process include:
 
-* 认证需求方（Requester）: 需要对人，物，事进行认证的DApp，机构或服务场景，是本体信任生态中认证服务的需求方。
-* ONTPass：基于本体区块链的去中心化身份交易平台，ONTPass主要用于协同用户和需求方进行数据交换，数据全程被加密，ONTPass并不会触碰用户隐私数据。
-* TrustAnchor Sources：本体信任生态中的多信任源，能为现实中的人、物、事提供认证服务并能签发可信声明，背后既可是连接了服务全球的身份认证服务供应商，也可以是某种自信任源。
-
-
-## 交互流程说明
-
-![交互流程说明](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontpass02.png)
+* Requester: DApp, institution or service scenario that requires authentication of people, object or thing. Requester is the demand side of authentication service in the Ontology Trust Ecology.
+* ONTPass：A decentralized identity transaction platform based on the ontology blockchain. ONTPass is mainly used to exchange data between the user and the Requester. The data is encrypted all the time, and the ONTPass does not touch the user's private data.
+* TrustAnchor Sources：The multiple trust source in the Ontology Trust Ecosystem. It can provide authentication services for people, object and thing in the real world and can issue verifiable claims. It can be connected to the identity authentication service provider worldwide, or it can be a certain Self-trust source.
 
 
-- A0：ONTPass提供了公开的认证服务集市，认证需求方可以到ONTPass平台浏览并选定自己需要的TrustAnchor Source及其认证服务。
-- A1：认证需求方确认所需的认证服务后，需要到ONTPass平台注册相关基本信息，包括ONT ID，基本简介及回调地址。
-- A2：认证需求方根据TrustAnchor Source身份认证的要求，将用户数据提交到TrustAnchor Source。
-- A3.1,A3.2：TrustAnchor Source对用户进行身份认证，完成可信声明签发，调用智能合约进行分润并做链上可信声明存证。
-- A4：TrustAnchor Source完成可信声明签发后，将可信声明用用户ONT ID对应的公钥进行端到端加密传输到ONTPass。
-- A5：ONTPass根据回调地址将签发的可信声明推送到认证需求方。
+## Interaction Process Description
 
 
-## 接入步骤
+![Interaction Process Description](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontpass02.png)
 
-### 1.发现认证服务
 
-本体信任生态中的信任源TrustAnchor Source会将自己能提供的认证服务和可信声明模板信息注册到ONTPass中，ONTPass对外提供TrustAnchor Source认证服务集市。认证需求方可以从ONTPass的认证服务集市选择自己需要的认证服务。
+- A0：ONTPass provides a public certification service market. Requester can browse and select the TrustAnchor Source and its authentication service they need on the ONTPass platform.
+- A1：After the Requester confirms the  authentication service, it needs to register basic information to the ONTPass  platform. The information includes the ONT ID, basic introduction and callback address.
+- A2：The authentication requester submits the user data to the TrustAnchor Source according to the requirements of the TrustAnchor Source authentication.
+- A3.1,A3.2：The TrustAnchor Source authenticates the user, issues the verifiable claim and invokes the smart contract to distribute the profit and attest the verifiable claim on the blockchain.
+- A4：After the TrustAnchor Source issues the verifiable claim, The encrypted public key of the ONT ID, which corresponds to the verifiable claim user, is transmitted to the ONTPass end to end .
+- A5：ONTPass pushes the verifiable claim to Requester according to the callback address.
+
+
+## Access Step
+
+### 1.Discovery Certification Service
+
+TrustAnchor Source registers to the ONTPass the authentication service and verifiable claim template informationto the ONTPass. The ONTPass provides the TrustAnchor Source authentication service market. Requester can select the certification service from the market.
 
 <table>
 <tr>
@@ -42,15 +43,15 @@
     <td rowspan="2"> did:ont:ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
     <td rowspan="2">Ontology China Identity TrustAnchor Source</td>
     <td>claim:cfca_authentication</td>
-	<td>中国公民实名身份认证</td>
-	<td>姓名，身份证号</td>
+	<td>Chinese Citizen Real-name Authentication</td>
+	<td>NAME，ID Card Number</td>
 	<td>CFCA</td>
 	<td>https://www.trustasia.com/cfca?bdcpc&b_scene_zt=1</td>
 </tr>
 <tr>
     <td>claim:sensetime_authentication</td>
-	<td>中国公民实名身份认证</td>
-	<td>姓名，身份证号</td>
+	<td>Chinese Citizen Real-name Authentication</td>
+	<td>NAME，ID Card Number</td>
 	<td>SenseTime</td>
 	<td>https://www.sensetime.com/authentication/87</td>
 </tr>
@@ -58,43 +59,43 @@
     <td rowspan="6"> did:ont:AcbVUAXkJSKy7g<br/>43KHW378pBwA48Ywbuuw<br/></td>
     <td rowspan="6">Ontology Global Identity TrustAnchor Source</td>
     <td>claim:sfp_passport_authentication</td>
-	<td>全球用户护照认证</td>
-	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
+	<td>Global User Passport Certification</td>
+	<td><nobr>Name, Nationality, Date of Birth, Document Number, Date of Issue, Expiration Date</nobr></td>
 	<td>Shuftipro</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
     <td>claim:sfp_idcard_authentication</td>
-	<td>全球用户身份证认证</td>
-	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
+	<td>Global User ID Certification</td>
+	<td><nobr>Name, Nationality, Date of Birth, Document Number, Date of Issue, Expiration Date</nobr></td>
 	<td>Shuftipro</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
     <td>claim:sfp_dl_authentication</td>
-	<td>全球用户驾照认证</td>
-	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
+	<td>Global User License Certification</td>
+	<td><nobr>Name, Nationality, Date of Birth, Document Number, Date of Issue, Expiration Date</nobr></td>
 	<td>Shuftipro</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
 <tr>
     <td>claim:idm_passport_authentication</td>
-	<td>全球用户护照认证</td>
-	<td><nobr>姓名，国籍，证件号</nobr></td>
+	<td>Global User Passport Certification</td>
+	<td><nobr>Name, Nationality, Document Number</nobr></td>
 	<td>IdentityMind</td>
 	<td>https://identitymindglobal.com/identity-link-api/</td>
 </tr>
 <tr>
     <td>claim:idm_idcard_authentication</td>
-	<td>全球用户身份证认证</td>
-	<td><nobr>姓名，国籍，证件号</nobr></td>
+	<td>Global User ID Certification</td>
+	<td><nobr>Name, Nationality, Document Number</nobr></td>
 	<td>IdentityMind</td>
 	<td>https://identitymindglobal.com/identity-link-api/</td>
 </tr>
 <tr>
     <td>claim:sfp_dl_authentication</td>
-	<td>全球用户驾照认证</td>
-	<td><nobr>姓名，国籍，证件号</nobr></td>
+	<td>Global User License Certification</td>
+	<td><nobr>Name, Nationality, Document Number</nobr></td>
 	<td>IdentityMind</td>
 	<td>https://identitymindglobal.com/identity-link-api/</td>
 </tr>
@@ -102,15 +103,14 @@
 
 
 
-### 2. ONTPass平台注册
+### 2. ONTPass Platform Registion
 
-认证需求方选定所需的认证服务后，需要到ONTPass平台注册相关信息，主要包括ONT ID，基本简介及回调地址。只有注册过的需求方ONT ID才会收到后续的可信声明回调推送。
+After selecting the authentication service, Requester needs to register the relevant information to the ONTPass platform. The information includes the ONT ID, basic introduction and callback address. Only the registered Requester ONT ID will receive the subsequent trusted statement callback.
+
+  How to have your own ONT ID and sign it, please refer to [Appendix]
 
 
-  如何拥有自己的ONT ID并进行签名，可参考[附录]
-
-
-#### 认证需求方注册API
+#### Request Registers API
 
 ```json
 Host：https://app.ont.io/S1/api/v1/ontpass/authrequester
@@ -138,34 +138,35 @@ SuccessResponse：
 
 | RequestField     |     Type |   Description   | Necessary|
 | :--------------: | :--------:| :------: |:----:|
-|    OntId|   String|  认证需求方ONT ID  | Y|
-|    Name|   String|  认证需求方名称  | Y|
-|    Desc|   String| 认证需求方描述 |Y|
-|    CallBackAddr|   String|  回调地址。满足https+域名，接收post回调请求来获取可信声明信息 | Y|
-|    Signature|   String|  请求信息的签名。由认证需求方使用自己ONT ID的私钥按照标准的ECDSA算法签名。| Y|
+|    OntId|   String|  Requester ONT ID  | Y|
+|    Name|   String|  Name of Requester  | Y|
+|    Desc|   String| Description of Requester |Y|
+|    CallBackAddr|   String|  Callback Address, which 
+meets https+ domain name, and receives post callback request to get trusted claim information | Y|
+|    Signature|   String|  Request Signature of Information。The Requester uses the private key of its own ONT ID to sign based on the standard ECDSA algorithm.| Y|
 
 
 | ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    Result|   Boolean|  true：注册成功  false：注册失败|
+|    Result|   Boolean|  true：Register Success  false：Register Failure|
 
 
-> 注意：为保证数据传输安全性，需求方注册的回调接口必须是https+域名形式，同时需求方需保证注册的回调接口高可用性且接受ONTPass标准的https的post请求
+> Note: In order to ensure data transmission security, the callback interface must be in the form of https+domain name, and Requester must ensure that the registered callback interface is highly available and accepts the https post request that meets the ONTPass standard.
 
 
+### 3.Submit certification to TrustAnchor Source
 
-### 3.向TrustAnchor Source提交认证
-
-认证需求方根据第一步选定的TrustAnchor Source认证服务的认证需求，提交认证数据。由TrustAnchor Source进行身份认证，签发可信声明并使用端到端加密，并完成智能合约调用进行资产分润和可信声明基本信息存证。
+Requester submits the certification data according to the certification requirements of the TrustAnchor Source authentication service selected in the first step. TrustAnchor Source conducts the Identity Authentication, issues end-to-end encrypted verifiable claim, and invokes smart contract for asset distribution and basic information attestation.
 
 
-### 4.获取用户可信声明
+### 4. Get Verifiable Claim
 
 当TrustAnchor Source完成用户的信息认证并签发可信声明后，会将可信声明发送到ONTPass。ONTPass会根据认证需求方之前注册的回调地址，将签发完成的可信声明推送到需求方。
+After TrustAnchor Source completes the user's information authentication and issues a verifialbe claim, the verifiable claim is sent to ONTPass. ONTPass pushes the signed verifialbe claim to Requester based on the callback address previously registered by Requester.
 
 
 ```json
-Host：回调地址
+Host：Callback Address
 Method：POST /HTTP/1.1
 Content-Type: application/json
 
@@ -185,21 +186,22 @@ RequestExample：
 
 | RequestField     |     Type |   Description   | Necessary|
 | :--------------: | :--------:| :------: | :----: |
-|    OntPassOntId|   String|  ONTPass平台的ONT ID  | Y|
-|    Claims.UserOntId|   String|  用户ONT ID  | Y|
-|    Claims.Context|   String|  用户可信声明模板标识  | Y|
-|    Claims.EncryOrigData|   String|  加密后的可信声明 | Y|
-|    Signature|   String|  ONTPass对请求信息的签名 | Y|
+|    OntPassOntId|   String|  ONTID of ONTPass Platform  | Y|
+|    Claims.UserOntId|   String|  User ONT ID  | Y|
+|    Claims.Context|   String|  User Verifiable Claim Template Identifier  | Y|
+|    Claims.EncryOrigData|   String|  Encrypted Verifiable Claim | Y|
+|    Signature|   String|  ONTPass signs for requested information | Y|
 
 
 
 
-### 附录
+### Appendix
 
 
-#### 拥有自己的ONT ID并签名
+#### Have your own ONT ID and sign it
 
 测试网ONT ID可由ONTPass平台免费代付完成上链注册，直接调用以下API即可完成测试网ONT ID注册。
+The Testnet ONT ID can be registered on-chain by ONTPass Platform for free. TestnetI ONT ID registration can be completed by directly calling the following API.
 
 ```json
 Host：https://app.ont.io/S1/api/v1/ontpass/thirdparty/ontid
@@ -224,16 +226,15 @@ SuccessResponse：
 | Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    OntId|   String | ONT ID |
-|    Salt|   String | 盐，安全参数 |
-|    Scrypt-N|   int | 加密参数。该参数与后续导入ONT ID操作相关 |
-|    EncryptedPriKey|   String | 加密后的私钥 |
-|    Password|   String | ONT ID私钥密码 |
-|    PrivateKey|   String | 私钥 |
+|    Salt|   String | Salt，Safety Parameter |
+|    Scrypt-N|   int | Encrypted Parameter。This parameter is related to the subsequent import of the ONT ID operation. |
+|    EncryptedPriKey|   String | Encrypted PrivateKey |
+|    Password|   String | ONT ID PrivateKey Password |
+|    PrivateKey|   String | PrivateKey |
 
+It is recommended that MainNet ONT ID be registed from ONTO Client[https://onto.app](https://onto.app). Please remember your password and export keystore. Keystore includes salt, encrypted privatekey, ONT ID and other information.
 
-主网ONT ID，推荐使用ONTO客户端[https://onto.app](https://onto.app)创建。记住密码并导出keystore，keystore已包含salt，加密后的私钥，ONT ID等信息。
-
-ONTO导出keystore示例：
+Example of keystore：
 ```
 {
   "scrypt" : {
@@ -260,16 +261,15 @@ ONTO导出keystore示例：
 
 | Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    scrypt.n|   int | 加密参数。该参数与后续导入ONT ID操作相关 |
-|    key|   String | 加密后的私钥 |
-|    salt|   String | 盐，安全参数 |
-|    address|   String | ONT ID后缀地址。加上did:ont: 即完整的ONT ID |
+|    scrypt.n|   int | Encrypted Parameter。This parameter is related to the subsequent import of the ONT ID operation.|
+|    key|   String | Encrypted PrivateKey |
+|    salt|   String | Salt，Safety Parameter  |
+|    address|   String | ONT ID suffix address。Plus did:ont: is the full ONT ID |
 
-若你已拥有数字资产账户且持有至少0.01个ONG，也可直接使用各种SDK自行自付创建ONT ID，获取ONT ID相关信息。
+If you already have a digital asset account and hold at least 0.01 ONGs, you can also use various SDKs to create an ONT ID and obtain relevent information.
 
+With the relevent information of the ONT ID identity, you can use various SDKs for signature verification and other operations.
 
-
-有了身份ONT ID相关信息后便可使用各种SDK进行签名验签等操作。
-
-ONT ID签名验签等身份相关操作可参考附录[示例代码](https://github.com/ontio/ontology-DID/blob/master/docs/cn/thirdparty_kyc_cn.md#%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81)或[SDKs开发文档](https://ontio.github.io/documentation/ontology_overview_sdks_en.html)
+Refer to the appendix for identity-related operations such as ONT ID signature verification[Sample Code](https://github.com/ontio/ontology-DID/blob/master/docs/cn/thirdparty_kyc_cn.md#%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81)OR[
+SDKs development documentation](https://ontio.github.io/documentation/ontology_overview_sdks_en.html)
 
