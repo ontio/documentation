@@ -1,4 +1,4 @@
-<h1 align="center">ONT ID Application Development Repid Guide </h1>
+<h1 align="center">ONT ID Application Development Guide </h1>
 
 We assume that you already know the concept of the ONT ID and know what the ONT ID can do for you. Now you need to use ONT ID to authenticate you users or use ONT ID to manage digital identities for your users. You can start with this document.
 
