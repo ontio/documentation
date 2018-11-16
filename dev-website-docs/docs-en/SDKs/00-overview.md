@@ -5,11 +5,11 @@ This official Ontology SDK is a comprehensive library for the Ontology blockchai
 
 Ontology has developed a variety of SDKs, including:
 
-* [Java SDK](https://github.com/ontio/ontology-java-sdk), [API docs](https://apidoc.ont.io/javasdk/)
-* [Android SDK](https://github.com/ontio-community/ontology-andriod-sdk), [API docs](https://apidoc.ont.io/javasdk/)
-* [Typescript SDK](https://github.com/ontio/ontology-ts-sdk), [API docs](https://apidoc.ont.io/tssdk/)
-* [Python SDK](https://github.com/ontio/ontology-python-sdk), [API docs](https://apidoc.ont.io/pythonsdk/)
-* [Golang SDK](https://github.com/ontio/ontology-go-sdk)
+* [Github of Java SDK](https://github.com/ontio/ontology-java-sdk), [API docs](https://apidoc.ont.io/javasdk/)
+* [Github of Android SDK](https://github.com/ontio-community/ontology-andriod-sdk), [API docs](https://apidoc.ont.io/javasdk/)
+* [Github of Typescript SDK](https://github.com/ontio/ontology-ts-sdk), [API docs](https://apidoc.ont.io/tssdk/)
+* [Github of Python SDK](https://github.com/ontio/ontology-python-sdk), [API docs](https://apidoc.ont.io/pythonsdk/)
+* [Github of Golang SDK](https://github.com/ontio/ontology-go-sdk)
 
 In addition, several other SDKs are being developed, such as: C#, C++, Swift.
 

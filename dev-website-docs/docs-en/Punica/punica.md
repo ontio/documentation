@@ -22,7 +22,7 @@ Advantages：
 * Provide a large number of teaching materials and teaching videos, so that beginners can quickly get started and fully understand;
 * Developed a smart contract testing framework that supports unit testing and functional testing, making it easier and more convenient than SDK testing;
 * Smart contract compilation and deployment testing as one, saving development time. The debug function has been integrated in SmartX, and the command line debug function will be supported later.
-* Solo-chain allows users to view data on the chain in real time, which is more than 50% more efficient than test network or building a private network.
+* Solo-chain allows users to view data on the chain in real time, which is more efficient than test network or building a private network.
 * A variety of SDK and dAPI cases are available for a variety of developers.
 
 ### Resources
