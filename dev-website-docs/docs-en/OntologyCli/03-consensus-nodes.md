@@ -1,0 +1,158 @@
+
+* [1.2 Node Deployment](#12-node-deployment)
+	* [1.2.1 MainNet Bookkeeping Node Deployment](#121-mainnet-bookkeeping-node-deployment)
+	* [1.2.2 MainNet Synchronization Node Deployment](#122-mainnet-synchronization-node-deployment)
+	* [1.2.3 Deploying on public test network Polaris sync node](#123-deploying-on-public-test-network-polaris-sync-node)
+	* [1.2.4 Single-Node Test Network Deployment](#124-single-node-test-network-deployment)
+
+## 1. Start and Manage Ontology Nodes
+
+Ontology CLI has a lot of startup parameters for configuring some of the Ontology node's behavior. Use ./Ontology -help to see all startup parameters supported by the Ontology CLI node. If Ontology CLI is started without any parameters, it will access the Ontology main network as a synchronous node by default.
+
+### 1.1 Startup Parameters
+
+The following are the command line parameters supported by Ontology CLI:
+
+#### 1.1.1 Ontology System Parameters
+
+--config
+The config parameter specifies the file path of the genesis block for the current Ontolgy node. If not specified, Ontology will use the config of Polaris TestNet. Note that the genesis block configuration must be the same for all nodes in the same network, otherwise it will not be able to synchronize blocks or start nodes due to block data incompatibility.
+
+--loglevel
+The loglevel parameter is used to set the log level the Ontology outputs. Ontology supports 7 different log levels, i.e. 0:Trace 1:Debug 2:Info 3:Warn 4:Error 5:Fatal 6:MaxLevel. The logs are logged from low to high, and the log output volume is from high to low. The default value is 2, which means that only logs at the info level or higher level.
+
+--disable-event-log
+The disable-event-log parameter is used to disable the event log output when the smart contract is executed to improve the node transaction execution performance. The Ontology node enables the event log output function by default.
+
+--data-dir
+The data-dir parameter specifies the storage path of the block data. The default value is "./Chain".
+
+#### 1.1.2 Account Parameters
+
+--wallet, -w
+The wallet parameter is used to specify the wallet file path when the Ontology node starts. The default value is "./wallet.dat".
+
+--account, -a
+The account parameter is used to specify the account address when the Ontology node starts. If the account is null, it uses the wallet default account.
+
+--password, -p
+The password parameter is used to specify the account password when Ontology node starts. Because the account password entered in the command line is saved in the log, it is easy to leak the password. Therefore, it is not recommended to use this parameter in a production environment.
+
+#### 1.1.3 Consensus Parameters
+
+--enable-consensus
+The enable-consensus parameter is used to turn the consensus on. If the current node will startup as a bookkeeper node, this flag must be enabled. The default is disable.
+
+--max-tx-in-block
+The max-tx-in-block parameter is used to set the maximum transaction number of a block. The default value is 50000.
+
+#### 1.1.4 P2P Network Parameters
+
+--networkid
+The networkid parameter is used to specify the network ID. Different networkids cannot connect to the blockchain network. 1=main net, 2=polaris test net, 3=testmode, and other for custom network.
+
+--nodeport
+The nodeport parameter is used to specify the P2P network port number. The default value is 20338.
+
+--consensusport
+The consensusport parameter specifies the consensus network port number. By default, the consensus network reuses the P2P network, so it is not necessary to specify a consensus network port. After the dual network is enabled with the --dualport parameter, the consensus network port number must be set separately. The default is 20339.
+
+--dual-port
+The dual-port parameter initiates a dual network, i.e. a P2P network for processing transaction messages and a consensus network for consensus messages. The parameter disables by default.
+
+
+#### 1.1.5 RPC Server Parameters
+
+--disable-rpc
+The disable-rpc parameter is used to shut down the EPC server. The Ontology node starts the RPC server by default at startup.
+
+--rpcport
+The rpcport parameter specifies the port number to which the RPC server is bound. The default is 20336.
+
+#### 1.1.6 RESTful Server Parameters
+
+--rest
+The rest parameter is used to start the RESTful server.
+
+--restport
+The restport parameter specifies the port number to which the RESTful server is bound. The default value is 20334.
+
+#### 1.1.7 WebSocket Server Parameters
+
+--ws
+The ws parameter is used to start the WebSocket server.
+
+--wsport
+The wsport parameter specifies the port number to which the WebSocket server is bound. The default value is 20335
+
+#### 1.1.8 Test Mode Parameters
+
+--testmode
+The testmode parameter is used to start a single node test network for ease of development and debug. In testmode, Ontology will start RPC, RESTful and WebSocket server, and blockchain data will be clear generated by the last start in testmode.
+
+--testmode-gen-block-time
+The testmode-gen-block-time parameter is used to set the block-out time in test mode. The time unit is in seconds, and the minimum block-out time is 2 seconds.
+
+#### 1.1.9 Transaction Parameter
+
+--gasprice
+The gasprice parameter is used to set the lowest gasprice of the current node transaction pool to accept transactions. Transactions below this gasprice will be discarded. The default value is 500(0 in testmode).
+
+--gaslimit
+The gaslimit parameter is used to set the gaslimit of the current node transaction pool to accept transactions. Transactions below this gaslimit will be discarded. The default value is 20000.
+
+--disable-tx-pool-pre-exec
+The disable-tx-pool-pre-exec parameter is used to disable preExecution of a transaction from network in the transaction pool. By default, preExecution is enabled when ontology bootstrap.
+
+--disable-sync-verify-tx
+The disable-sync-verify-tx is used to disable sync verify transaction in send transaction,include rpc restful websocket.
+
+--disable-broadcast-net-tx
+The disable-broadcast-net-tx is used to disable broadcast a transaction from network in the transaction pool. By default, this function is enabled when ontology bootstrap.
+
+### 1.2 Node Deployment
+
+#### 1.2.1 MainNet Bookkeeping Node Deployment
+
+According to different roles of nodes, they can be divided into bookkeeping nodes and synchronization nodes. Bookkeeping nodes participate in the network consensus, and synchronization nodes only synchronize the blocks generated by the bookkeeping nodes. Since Ontology node won't start consensus by default, consensus must be turned on by the --enableconsensus parameter. The Ontology node will start the RPC server by default and output the event log of the smart contract. Therefore, if there is no special requirement, you can use the --disablerpc and --disableeventlog command line parameters to turn off the RPC and eventlog modules.
+
+Recommended bookkeeping node startup parameters:
+
+```
+./Ontology --enbale-consensus --disable-rpc --disable-event-log
+```
+    - `enbale-consensus` is use to start the consensus
+    - `disable-rpc` is to close the rpc services for the safe concerns.
+    - `disable-event-log` is to disable the event log for high performance.
+If the node does not use the default genesis block configuration file and wallet account, the node can specify them with the --config, --wallet, --account parameters.
+At the same time, if the bookkeeping node needs to modify the default minimum gas price and gas limit of the transaction pool, it can set the parameters by --gasprice and --gaslimit.
+
+#### 1.2.2 MainNet Synchronization Node Deployment
+
+Since the synchronization node only synchronizes the blocks generated by the bookkeeping node and does not participate in the network consensus.
+
+```
+./Ontology
+```
+
+If the node does not use the default genesis block configuration file, it can be specified with the --config parameter. Since consensus won't be turned on, you don't need a wallet when starting up a synchronization node.
+
+#### 1.2.3 Deploying on public test network Polaris sync node
+
+Run ontology straightly
+
+```
+./Ontology --networkid 2
+```
+#### 1.2.4 Single-Node Test Network Deployment
+
+Ontology supports single-node network deployment for the development of test environments. To start a single-node test network, you only need to add the --testmode command line parameter.
+
+```
+./Ontology --testmode
+```
+
+If the node does not use the default genesis block configuration file and wallet account, the node can specify them with the --config, --wallet, --account parameters.
+At the same time, if the bookkeeping node needs to modify the default minimum gas price and gas limit of the transaction pool, it can set the parameters by --gasprice and --gaslimit.
+
+Note that, Ontology will turn consensus RPC, RESTful, and WebSocket server on in test mode.
