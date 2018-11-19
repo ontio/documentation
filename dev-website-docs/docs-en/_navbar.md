@@ -1,4 +1,5 @@
 - Language  
   - [:uk: English](/)
   - [:cn: 中文](/docs-cn/)
+  - [:kr: Korea](/docs-kr/)
 
