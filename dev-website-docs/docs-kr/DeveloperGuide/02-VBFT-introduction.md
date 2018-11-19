@@ -19,7 +19,7 @@ The consensus network consists of all consensus nodes responsible for consensus 
 >
 The nodes in the candidate network do not participate in consensus but remain synchronized with the consensus network and update to the latest consensus block on the blockchain maintained by them in real time. Candidate networks will also monitor consensus network status, validate consensus blocks, and assist in managing the Ontology network.
 
-![VBFT Network](./images/vbft-network.jpeg)
+![VBFT Network](https://raw.githubusercontent.com/ontio/documentation/master/vbft-intro/images/vbft-network.jpeg)
 
 The size of the consensus network is managed through a consensus management smart contract. The stake must be locked for the node in the consensus network (the stake is from the owner of the node).
 

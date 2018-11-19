@@ -1,27 +1,4 @@
 
-## Ontology Infrastructure
-
-- [Ontology](#Ontology) :hatching_chick:
-- [Ontology WASM](#Ontology-wsam) :hatching_chick:
-- [Ontology Crypto](#Ontology-crypto) :hatching_chick:
-- [Ontology Eventbus](#Ontology-eventbus) :hatching_chick:
-- [Ontology RPC、Restful and WebSocket](#Ontology-rpc-restful-and-websocket) :hatching_chick:
-- [Ontology Oracle](#Ontology-oracle) :hatching_chick:
-- [Ontology FPGA](#Ontology-fpga) :egg:
-
-## Ontology Protocols and SDK
-
-- [Ontology DID](#Ontology-did) :hatched_chick:
-- [Ontology Java SDK](#Ontology-java-sdk) :hatched_chick:
-- [Ontology TS SDK](#Ontology-ts-sdk) :hatched_chick:
-- [Ontology Go SDK](#Ontology-go-sdk) :hatched_chick:
-- [Ontology Python SDK](#Ontology-python-sdk) :hatching_chick:
-
-## Ontology Applications
-- [ONTO](#onto) :hatching_chick:
-- [Ontology DDXF(Distributed Data eXchange Framework)](#Ontology-ddxf) :hatched_chick:
-
----
 
 ## Ontology Documents and Resources
 
@@ -50,6 +27,33 @@
 - [OEPs](https://github.com/ontio/OEPs)
 
 ---
+
+
+## Ontology Infrastructure
+
+- [Ontology](#Ontology) :hatching_chick:
+- [Ontology WASM](#Ontology-wsam) :hatching_chick:
+- [Ontology Crypto](#Ontology-crypto) :hatching_chick:
+- [Ontology Eventbus](#Ontology-eventbus) :hatching_chick:
+- [Ontology RPC、Restful and WebSocket](#Ontology-rpc-restful-and-websocket) :hatching_chick:
+- [Ontology Oracle](#Ontology-oracle) :hatching_chick:
+- [Ontology FPGA](#Ontology-fpga) :egg:
+
+## Ontology Protocols and SDK
+
+- [Ontology DID](#Ontology-did) :hatched_chick:
+- [Ontology Java SDK](#Ontology-java-sdk) :hatched_chick:
+- [Ontology TS SDK](#Ontology-ts-sdk) :hatched_chick:
+- [Ontology Go SDK](#Ontology-go-sdk) :hatched_chick:
+- [Ontology Python SDK](#Ontology-python-sdk) :hatching_chick:
+
+## Ontology Applications
+- [ONTO](#onto) :hatching_chick:
+- [Ontology DDXF(Distributed Data eXchange Framework)](#Ontology-ddxf) :hatched_chick:
+
+---
+
+
 
 ### <a name="Ontology"></a>Ontology <sup>[top⇈](#ontology-infrastructure)</sup>
 > Ontology is dedicated to creating a modularized, freely configurable, interoperable cross-chain, high-performance, and horizontally scalable blockchain infrastructure system. Ontology makes deploying and invoking decentralized applications easier.

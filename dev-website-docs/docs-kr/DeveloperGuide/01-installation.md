@@ -40,16 +40,20 @@ We openly welcome developers to Ontology.
 
 ## Contents
 
+<!-- TOC -->
+
+- [Features](#features)
+- [Contents](#contents)
 - [Build development environment](#build-development-environment)
 - [Get Ontology](#get-ontology)
     - [Get from release](#get-from-release)
     - [Get from source code](#get-from-source-code)
 - [Run Ontology](#run-ontology)
     - [MainNet sync node](#mainnet-sync-node)
-    - [Public test network Polaris sync node](#public-test-network-polaris-sync-node)
+    - [Public test network Polaris sync node (TestNet)](#public-test-network-polaris-sync-node-testnet)
     - [Testmode](#testmode)
     - [Run in docker](#run-in-docker)
-- [Some examples](#some-example)
+- [Some examples](#some-examples)
     - [ONT transfer sample](#ont-transfer-sample)
     - [Query transfer status sample](#query-transfer-status-sample)
     - [Query account balance sample](#query-account-balance-sample)
@@ -58,6 +62,8 @@ We openly welcome developers to Ontology.
     - [Site](#site)
     - [Developer Discord Group](#developer-discord-group)
 - [License](#license)
+
+<!-- /TOC -->
 
 ## Build development environment
 The requirements to build Ontology are:

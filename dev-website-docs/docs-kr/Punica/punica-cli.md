@@ -1,7 +1,10 @@
-# Punica-Cli
 
-[punica-python](https://github.com/punicasuite/punica-python)
-[punica-ts](https://github.com/punicasuite/punica-ts)
+
+## Punica-Cli
+
+* [punica-python](https://github.com/punicasuite/punica-python)
+* [punica-ts](https://github.com/punicasuite/punica-ts)
+
 ## Overview
 
 
@@ -66,7 +69,16 @@ Commands:
   wallet   Manager your ontid, account, asset.
 ```
 
-## Getting started
+You can create a bare Punica project with no smart contracts included, use `punica init` command.
+
+Once this operation is completed, you'll now have a project structure with the following items:
+
+- `contracts/`: Directory for Ontology smart contracts.
+- `src/`: Directory for DApp source file.
+- `test/`: Directory for test files for testing your application and contracts.
+- `wallet/`: Directory for save Ontology wallet file.
+
+## Getting tartedS
 
 
 #### 4.1.1. Initializing a New Project
