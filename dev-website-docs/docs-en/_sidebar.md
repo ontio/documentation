@@ -30,7 +30,8 @@
   - [Solo Chain](docs-en/Punica/solo-chain/00-overview.md)
       - [Installation](docs-en/Punica/solo-chain/01-installation.md)
       - [Getting Started](docs-en/Punica/solo-chain/02-getting-started.md)
-      - [Contributing](docs-en/Punica/solo-chain/03-contributing.md)
+      - [Usage](docs-en/Punica/solo-chain/03-usage.md)
+      - [Contributing](docs-en/Punica/solo-chain/04-contributing.md)
 - SmartX
   - [Overview](docs-en/SmartX/00-overview.md)
   - [Getting Started](docs-en/SmartX/01-getting-started.md)
