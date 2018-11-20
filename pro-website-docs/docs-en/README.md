@@ -1,4 +1,3 @@
-
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/ontio/documentation/master/zh-CN/Ontology_CH.png"
@@ -31,4 +30,3 @@ Trust anchors refers to the partners that provides authentication services in th
 TAConnector is a technology access component that helps Trust anchors quickly access the Ontology trust ecosystem.
 
 * More products are coming soon
-
