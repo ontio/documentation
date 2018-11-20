@@ -22,15 +22,15 @@ ONT ID can establish a cryptographic digital identity for users, organizations, 
 
 Based on ONT ID and the Ontology trust eco-system, ONT Pass is an open and decentralized authentication platform providing various authentication services for people, assets, objects and events.
 
-* Decentralized Data Exchange Application Framework(DDXF)
+* Decentralized Data Exchange Application Framework (DDXF)
 
-Based on the Ontology blockchain and ONT ID protocols, DDXF perfectly implements digital asset decentralized transactions through unified ledger, smart contracts, and cryptography. DDXF provides a series of smart contract templates, transaction components and cryptographic components. The front end application can easily implement data collaboration and sharing.
+Based on the Ontology blockchain and ONT ID protocols, DDXF implements digital asset decentralized transactions through a unified ledger, smart contracts, and cryptography. DDXF provides a range of smart contract templates, transaction components and cryptographic components. The front-end application can easily implement data collaboration and sharing.
 
-* Trust Anchor Connector
+* TrustAnchor Connector (TAConnector)
 
-Trust Anchor refers to the partner that provides authentication services on the Ontology ecosystem.  Trust anchors can be government agencies, universities, banks, third-party authentication service agencies (such as CA agencies), biometric technology companies and etc. They provide multi-dimensional authentication for ONT ID owners by recording the HASH of authentication behavior and authentication result through the Ontology blockchain while providing a standardized and credible authentication method for the authentication requester.
+Trust anchors refers to the partners that provides authentication services in the Ontology ecosystem. Trust anchors can be government agencies, universities, banks, third-party authentication service agencies (such as CA agencies), biometric technology companies and more. They provide multi-dimensional authentication for ONT ID owners by recording the HASH of authentication behavior and authentication result on the Ontology blockchain while providing a standardized and credible authentication method for the authentication requester.
 
-Trust Anchor Connector(called for short:TAConnector) is a technology access component that helps Trust Anchors quickly access the Ontology trust ecosystem.
+TAConnector is a technology access component that helps Trust anchors quickly access the Ontology trust ecosystem.
 
 * More products are coming soon
 
