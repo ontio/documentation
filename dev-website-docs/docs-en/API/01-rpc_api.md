@@ -790,15 +790,19 @@ result description
 
 | Field | Type | Description |
 | :---| :---| :---|
-| ContractAddress| string | contract address |
-| States | array | states[0] indicates function name, the other value of states indicate parameter|
+| TxHash| string | transactions hash |
+| GasConsumed | int64 | transaction fee|
+| State | int64 | transaction executed state, 0 indicates failed, 1 indicates success|
+| Notify| array | contract events|
+
 
 notify description
 
 | Field | Type | Description |
 | :---| :---| :---|
-| TxHash| string | transactions hash |
-| States | int64 | transaction executed state, 0 indicates failed, 1 indicates success|
+| ContractAddress| string | contract address |
+| States | array | states[0] indicates function name, the other value of states indicate parameter|
+
 
 > Note: If params is a number, the response result will be the smartcode list. If params is transaction hash, the response result will be smartcode event.
 
