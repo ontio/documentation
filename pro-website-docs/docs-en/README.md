@@ -10,17 +10,17 @@
   Ontology Application Products-Documentation Centre
 </p>
 
-[Ontology](https://ont.io/#/) puts forward a series of protocol standards. Proposals include an identity protocol, multi-source authentication protocol, user authorization protocol, distributed data exchange protocol and so on. Based on these protocols，Ontology provides products and frameworks for application developers to directly build distributed Apps without having any knowledge of how to develop a complicated distributed systems.This makes blockchain easy to use for everybody.
+[Ontology](https://ont.io/#/) provides a range of protocol standards. These include identity protocol, multi-source authentication protocol, user authorization protocol, distributed data exchange protocol, and more to come. Based on these protocols, Ontology provides products and frameworks for application developers in order to directly build dApps without having knowledge of how to develop a complicated distributed system. This makes getting started with blockchain development easy!
 
 ### You can get these product documentations as below：
 
 * ONT ID 
 
-ONT ID can establish a cryptographic digital identity for every user, company, object or any other entity. Digital identity is based on the Ontology blockchain technology and is not restricted by any centralized organizations. It is purely managed by the users themselves, and has the characteristics of security and credibility.
+ONT ID can establish a cryptographic digital identity for users, organizations, objects, or any other entity type. Digital identity is based on the Ontology blockchain technology and is not restricted by any centralized organizations. The identity is self sovereign, managed by the ID holder, and has the characteristics of security and credibility.
 
-* ONTPass 
+* ONT Pass 
 
-Based on ONT ID and Ontological trust eco-system, it is an open and decentralized authentication platform, providing various authentication services for people, assets, objects and events.
+Based on ONT ID and the Ontology trust eco-system, ONT Pass is an open and decentralized authentication platform providing various authentication services for people, assets, objects and events.
 
 * Decentralized Data Exchange Application Framework(DDXF)
 
