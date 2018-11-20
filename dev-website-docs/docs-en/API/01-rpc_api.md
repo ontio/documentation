@@ -801,7 +801,7 @@ notify description
 | Field | Type | Description |
 | :---| :---| :---|
 | ContractAddress| string | contract address |
-| States | array | states[0] indicates function name, the other value of states indicate parameter|
+| States | array | states indicate notify message of contract|
 
 
 > Note: If params is a number, the response result will be the smartcode list. If params is transaction hash, the response result will be smartcode event.
