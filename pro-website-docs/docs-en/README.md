@@ -6,13 +6,11 @@
   >
 </p>
 <h1 align="center"></h1>
-<p align="center">
-  Ontology Application Products-Documentation Centre
-</p>
+<h2 align="center">Documentation for Ontology application products</h2>
 
 [Ontology](https://ont.io/#/) provides a range of protocol standards. These include identity protocol, multi-source authentication protocol, user authorization protocol, distributed data exchange protocol, and more to come. Based on these protocols, Ontology provides products and frameworks for application developers in order to directly build dApps without having knowledge of how to develop a complicated distributed system. This makes getting started with blockchain development easy!
 
-### You can get these product documentations as below：
+#### Our current product range include：
 
 * ONT ID 
 
