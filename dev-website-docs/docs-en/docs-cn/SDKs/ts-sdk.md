@@ -269,7 +269,7 @@ axios.post('127.0.0.1:20386', restData).then(res => {
 
 ## 数字资产查询 getBalance
 
-### 查询余额链接
+### 查询余额
 
 ````
 //nodeURL 节点的IP地址
@@ -301,6 +301,113 @@ let request = `http://127.0.0.1:20384/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kP
 		}
 	})
 ````
+
+## 查询可提取的ONG
+
+有两种方式查询可提取的ONG。
+
+### 使用区块链API查询
+
+这里以Restful API为例：
+
+#### Example:
+
+```typescript
+const address = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz');
+const rest = new RestClient();// default connects to Testnet
+const result = await restClient.getAllowance('ong', new Address(ONT_CONTRACT), addr);
+        console.log(result);
+```
+
+返回结果类似如下：
+
+```json
+{ 
+    Action: 'getallowance',
+      Desc: 'SUCCESS',
+      Error: 0,
+      Result: '534420890',
+      Version: '1.0.0'
+}
+```
+
+**Result** 是带精度的可提取ONG数额.
+
+### 使用合约API查询
+
+#### Example：
+
+```typescript
+import {OntAssetTxBuilder} from 'ontology-ts-sdk'
+const ONT_CONTRACT = '0000000000000000000000000000000000000001'
+const address = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz');
+const rest = new RestClient();// default connects to Testnet
+const tx = OntAssetTxBuilder.makeQueryAllowanceTx('ong', new Address(ONT_CONTRACT), address);
+const result = await restClient.sendRawTransaction(tx.serialize(), true);
+console.log(result);
+if (result.Result) {
+    const num = parseInt(reverseHex(result.Result.Result), 16);
+    console.log(num);
+}
+```
+
+**num** 是可提取ONG数额。我们需要将返回的结果处理下得到实际的数额。
+
+## 提取ONG
+
+提取ONG的步骤如下：
+
+### 构造交易
+
+`from` Sender's address to withdraw ONG.
+
+`to` Receiver's address to receive ONG.
+
+`amount` Amount of ONG to withdraw. Need to multiply 1e9 to keep precision.
+
+`gasPrice` Gas price.
+
+`gasLimit` Gas limit.
+
+`payer` Payer's address to pay for the transaction gas.
+
+```typescript
+import {OntAssetTxBuilder} from 'ontology-ts-sdk'
+
+//suppose we have an account already
+const from = account.address;
+const to = account.address;
+const amount = 10 * 1e9;
+const gasPrice = '500';
+const gasLimit = '20000';
+const payer = account.address;
+const tx = OntAssetTxBuilder.makeWithdrawOngTx(from, to, amount, payer, gasPrice, gasLimit);
+```
+
+### 发送交易
+
+我们以Restful API为例。
+
+```typescript
+//sign transaction before send it
+import {RestClient, CONST, TransactionBuilder} from 'ontology-ts-sdk'
+
+//we already got the transaction we created before
+
+//we have to sign the transaction before sent it
+//Use user's private key to sign the transaction
+TransactionBuilder.signTransaction(tx, privateKey)
+
+const rest = new RestClient(CONST.TEST_ONT_URL.REST_URL);
+rest.sendRawTransaction(tx.serialize()).then(res => {
+	console.log(res)	
+})
+
+```
+
+发送了交易后，我们可以查询余额来检查提取ONG过程是否成功。
+
+
 
 
 
