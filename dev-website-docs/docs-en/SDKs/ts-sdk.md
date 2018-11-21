@@ -315,7 +315,7 @@ The `Result` of the response is the transaction hash, it can be used to query th
 
 ## Digital Asset Inquiry: getBalance
 
-### Link of Balance Inquiry
+### Balance Inquiry
 
 We can use RESTful API, RPC API and WebSocket API to query the balance. Here we use RESTful API as example.
 
@@ -329,6 +329,57 @@ rest.getBalance(address).then(res -> {
 })
 ````
 The result contains balance of ONT and ONG.
+
+## Claimable ONG Inquiry
+
+The are two ways to query the claimable ONG.
+
+### Query with Blockchain API
+
+We take RESTful API as an example here:
+
+#### Example:
+
+````typescript
+const address = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz');
+const rest = new RestClient();// default connects to Testnet
+const result = await restClient.getAllowance('ong', new Address(ONT_CONTRACT), addr);
+        console.log(result);
+````
+
+The returned result is like:
+
+````json
+{ 
+    Action: 'getallowance',
+      Desc: 'SUCCESS',
+      Error: 0,
+      Result: '534420890',
+      Version: '1.0.0'
+}
+````
+
+**Result** is the claimable ONG amount with decimal.
+
+### Query with Native contract API
+
+#### Example：
+
+````typescript
+import {OntAssetTxBuilder} from 'ontology-ts-sdk'
+const ONT_CONTRACT = '0000000000000000000000000000000000000001'
+const address = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz');
+const rest = new RestClient();// default connects to Testnet
+const tx = OntAssetTxBuilder.makeQueryAllowanceTx('ong', new Address(ONT_CONTRACT), address);
+const result = await restClient.sendRawTransaction(tx.serialize(), true);
+console.log(result);
+if (result.Result) {
+    const num = parseInt(reverseHex(result.Result.Result), 16);
+    console.log(num);
+}
+````
+
+**num** is the claimable ONG amount with decimal. We need to transform the returned result to get the actual amount.
 
 ## Withdraw ONG
 Withdraw generated ONG from user's account address and send to other address. They can be the same address.
