@@ -14,7 +14,7 @@ dApp开发系列教程。[视频文档](https://github.com/punicasuite/tutorials
 
 ### 2. 如何使用solo-chain?
 
-<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=v0791tzf1ag" allowFullScreen="true" width="100%" height="360"></iframe>
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=v0792l7bhji" allowFullScreen="true" width="100%" height="360"></iframe>
 
 ### 3. 如何使用 Cyano wallet?      
 
