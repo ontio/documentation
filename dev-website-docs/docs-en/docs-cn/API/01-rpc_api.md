@@ -786,6 +786,24 @@ or
 }
 ```
 
+result 描述
+
+| 字段 | 类型 | 定义 |
+| :---| :---| :---|
+| TxHash| string | 交易hash |
+| State | int64 | 交易执行结果的状态，0表示执行失败，1表示执行成功 |
+| GasConsumed | int64 | 交易手续费 |
+| Notify | array | 合约事件列表 |
+
+notify 描述
+
+| 字段 | 类型 | 定义 |
+| :---| :---| :---|
+| ContractAddress| string | 合约地址 |
+| States | array | 表示合约中Notify推送的消息 |
+
+
+
 > 注意： 如果参数是区块高度，则返回执行结果的集合；如果是交易哈希，则返回该交易对应的结果。
 
 #### 14. getblockheightbytxhash
