@@ -28,6 +28,7 @@
   - [概述](docs-cn/Punica/punica.md)
   - [Punica Cli](docs-cn/Punica/punica-cli.md)
   - [Punica Box](docs-cn/Punica/punica-box.md)
+  - [VSCode 插件](docs-cn/Punica/sc-extension.md)
   - [Solo Chain](docs-cn/Punica/solo-chain/00-overview.md)
       - [安装](docs-cn/Punica/solo-chain/01-installation.md)
       - [开始使用](docs-cn/Punica/solo-chain/02-getting-started.md)

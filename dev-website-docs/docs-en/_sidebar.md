@@ -27,6 +27,7 @@
   - [Overview](docs-en/Punica/punica.md)
   - [Punica Cli](docs-en/Punica/punica-cli.md)
   - [Punica Box](docs-en/Punica/punica-box.md)
+  - [VSCode Extension](docs-en/Punica/sc-extension.md)
   - [Solo Chain](docs-en/Punica/solo-chain/00-overview.md)
       - [Installation](docs-en/Punica/solo-chain/01-installation.md)
       - [Getting Started](docs-en/Punica/solo-chain/02-getting-started.md)
