@@ -15,6 +15,7 @@ Punica provides developers with a complete set of open-source development tools 
 * [Punica Python CLI](https://github.com/punicasuite/punica-python) or [Punica TypeScript CLI](https://github.com/punicasuite/punica-ts) - used to download, compile, deploy and invoke smart contracts
 * [Punica boxes](http://punica.ont.io/boxes/) - pre-configured smart contract templates
 * [Solo-chain](https://github.com/punicasuite/solo-chain/releases) - a prebuilt private-net for development 
+* [VScode Extension](https://github.com/punicasuite/vscode-ext-ontology) - VScode Extension for Ontology
 
 Advantages：
 

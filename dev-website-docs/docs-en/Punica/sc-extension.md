@@ -1,7 +1,10 @@
 
 
-<h1 align="center">VSCode Extension for Ontology</h1>
-<p align="center" class="version">Version 0.1</p>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/image/sc-vscode-exten.png" height="200" width="200">
+</div>
+
+---
 
 ## Overview
 

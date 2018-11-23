@@ -14,6 +14,7 @@
 * [Punica Python CLI](https://github.com/punicasuite/punica-python) 和 [Punica TypeScript CLI](https://github.com/punicasuite/punica-ts) - 作为命令行工具，可以与主网、测试网或私网连接，能够让开发者便捷地使用本体智能合约，支持编译、部署、调用和测试功能。
 * [Punica boxes](https://punica.ont.io/boxes/) - 提供多款dApp模板和应用案例。
 * [Solo-chain](https://github.com/punicasuite/solo-chain/releases) - 本体的一键式（私有）区块链，便于开发者本地测试。 
+* [VScode Extension](https://github.com/punicasuite/vscode-ext-ontology) - VScode开发插件。 
 
 Punica致力于提供完善的工具与整合的资源，让开发者快速上手dApp开发。
 
