@@ -21,3 +21,8 @@ Visual Studio Code（简称VS Code）是一个由微软开发的，同时支持W
 2. 部署: 支持 MainNet / TestNet/ PrivateNet.
 3. 调用: 支持调用合约，参数支持多种类型.
 4. Debug: 支持 (StepIn, StepOut, Next, Continue, Stop, Restart)
+
+
+## 开始使用
+
+[使用文档](https://github.com/punicasuite/tutorials/blob/master/toolkits-docs/course07-How%20to%20Use%20VScode%20Extension.md)

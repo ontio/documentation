@@ -21,3 +21,7 @@ Before start, please check you have download [VSCode](https://code.visualstudio.
 2. Deploy: Deploy smart contracts to MainNet / TestNet/ PrivateNet.
 3. Invoke: Execute or pre-execute a smart contract.
 4. Debug: Support debug procedure (StepIn, StepOut, Next, Continue, Stop, Restart), setting breakpoints, variables preview and set, and state store manipulation.
+
+## Getting started
+
+[User Guide](https://github.com/punicasuite/tutorials/blob/master/toolkits-docs/course07-How%20to%20Use%20VScode%20Extension.md)
