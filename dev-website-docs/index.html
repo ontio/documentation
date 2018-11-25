@@ -13,18 +13,18 @@
         background: #160033; display: flex; align-items: center; z-index: 1000; }
         .header img {
           width:150px;
+          height:29px;
+          cursor: pointer;
         }
        .sidebar {top:60px; }
        .footer {
         height: 60px; border-top: 1px solid #dddddd; background: #ffffff;
        }
        .content {position: relative; left:150px;}
-       @media screen and (max-width:600px) {
-         .content {left:0;padding-top: 50px;}
-       }
+       
        main {height:auto;}
        .app-nav::after {
-       content: ''; position: absolute; top: 10px; right: -8px; border-left: 8px solid transparent; border-right: 8px solid
+       content: ''; position: absolute; top: 12px; right: -8px; border-left: 8px solid transparent; border-right: 8px solid
       transparent; border-top: 8px solid #32a4be; }
       .app-nav {
         margin-top:15px;
@@ -44,31 +44,51 @@
       .sidebar li {
         margin: 0;
       }
+      .doc-link {
+        color: #ffffff;
+        font-size: 18px;
+        text-decoration: none;
+        position: absolute;
+        right: 150px;
+      }
+      .doc-link:hover{
+        text-decoration: underline;
+      }
+      body {
+        font-size: 16px;
+      }
+      @media screen and (max-width:600px) {
+         .content {left:0;padding-top: 50px;}
+         .doc-link {position: relative;text-align: right;right:0;}
+       }
   </style>
 </head>
 <body>
 <header class="header">
-  <img src="./assets/logo.png" alt="">
+  <img src="./assets/logo.png" alt="" id="header-logo">
+  <a href="http://pro-docs.ont.io/#/" class="doc-link"><span>&#8594;</span> Ontology Products Documentation</a>
 </header>
 <div id="app"></div>
 <script>
+    var baseUrl = '';//'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/';
+    var gitUrl = 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/';
     window.$docsify = {
     alias: {
         '/.*/_navbar.md': '/_navbar.md',
-        '/docs-en/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en/$1',
-        '/docs-cn/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-cn/$1',
-        '/docs-kr/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-kr/$1',
-        '/docs-jp/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-jp/$1'
+        '/docs-en/(.*)': baseUrl + '$1',//docs-en/
+        '/docs-cn/(.*)': baseUrl + 'docs-cn/$1',
+        '/docs-kr/(.*)': baseUrl + 'docs-kr/$1',
+        '/docs-jp/(.*)': baseUrl + 'docs-jp/$1'
       },
       notFoundPage: '_404.html',
       auto2top: true,
-      basePath: 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en',
+      basePath: baseUrl + 'docs-en',
       executeScript: true,
       loadNavbar: true,
       loadSidebar: true,
       autoHeader: true,
       coverpage: false,
-      name: 'Ontology Developer',
+      // name: 'Ontology Developer',
       subMaxLevel: 2,
       mergeNavbar: true,
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
@@ -100,8 +120,15 @@
               url = 'https://github.com/ontio/documentation/blob/master/dev-website-docs' + vm.route.path+".md"
               console.log("####"+url);
             }
-            var editHtml = '[:memo: Edit Document](' + url + ')\n'
-            return editHtml
+            // var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            var editHtml = [
+              '<p style="text-align:right;position: absolute;top: 10px;right: 5px;">',
+              '<a href="' + url + '" target="_blank">',
+              '<img class="emoji" src="https://assets-cdn.github.com/images/icons/emoji/memo.png" alt="memo">',
+              ' Edit Document',
+              '</a></p>'
+            ].join('');
+            return editHtml + '\n'
               + html
           })
         }
@@ -131,5 +158,8 @@
 <script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
 
+<script>
+  document.getElementById('header-logo').addEventListener('click', function () { window.location.href = 'http://dev-docs.ont.io/#/' })
+</script>
 </body>
 </html>

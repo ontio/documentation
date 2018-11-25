@@ -26,6 +26,7 @@ They are:
 * Digit identity
 * Neo smart contract deploy and invoke
 * Native smart contract invoke
+* Verify Signature
 
 ----
 ### Init
@@ -275,3 +276,21 @@ They are:
  |   12| String changeMaxAuthorization(Account account,String peerPubkey,int maxAuthorize,Account payerAcct,long gaslimit,long gasprice) | The node modifies the maximum number of authorized ONTs it accepts.|
  |   13| String getPeerAttributes(String peerPubkey)                                                                                     | Query node attribute information|
  |   14| String getSplitFeeAddress(String address)                                                                                       | Query the incentives for an address|
+
+
+
+### Verify Signature
+       
+```
+
+com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
+byte[] data = "12345".getBytes();
+DataSignature sign = new DataSignature(ontSdk.defaultSignScheme, acct, data);
+byte[] signature = sign.signature();
+
+
+com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(false,acct.serializePublicKey());
+DataSignature sign2 = new DataSignature();
+System.out.println(sign2.verifySignature(acct2, data, signature));
+    
+```   

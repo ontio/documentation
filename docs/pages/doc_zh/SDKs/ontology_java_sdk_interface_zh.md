@@ -24,6 +24,8 @@ giturl: https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface
 * 数字身份接口
 * NEO智能合约部署与调用接口
 * Native合约调用
+* 签名验签
+
 
 ### 初始化接口：
 
@@ -285,3 +287,20 @@ ong:
        12| String changeMaxAuthorization(Account account,String peerPubkey,int maxAuthorize,Account payerAcct,long gaslimit,long gasprice) | 节点修改自己接受的最大授权ONT数量
        13| String getPeerAttributes(String peerPubkey)                                                                                     | 查询节点属性信息
        14| String getSplitFeeAddress(String address)                                                                                       | 查询某地址得到的激励
+       
+       
+### 签名验签
+       
+```
+
+com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
+byte[] data = "12345".getBytes();
+DataSignature sign = new DataSignature(ontSdk.defaultSignScheme, acct, data);
+byte[] signature = sign.signature();
+
+
+com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(false,acct.serializePublicKey());
+DataSignature sign2 = new DataSignature();
+System.out.println(sign2.verifySignature(acct2, data, signature));
+    
+```   

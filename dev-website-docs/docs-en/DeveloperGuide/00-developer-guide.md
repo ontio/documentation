@@ -3,18 +3,16 @@
 
 <p align="center" class="version">Version 1.0.0 </p> 
 
-Ontology is a new generation of high-performance public blockchains. The infrastructure is scalable, stable, and allows low-level customization for different business requirements. After the Ontology MainNet release, we have welcomed many new developers to the Ontology technical community and launched our [Developer Center ](https://bounty.ont.io/index.php/index/developer).
-
-This documentation is an entry to the Ontology ecosystem for new Ontology developers, as well as experienced ones. The Ontology community and Ontology core team maintain the documentation - we welcome you to help us with this! The documentation serves the purpose of providing a clear understanding of Ontology's technology and ecosystem. This document is an overview of the Ontology documentation center and provides an introduction of each section, which help developers familiarize themselves with Ontology quickly.
+<!-- TOC -->
 
 - [Ontology](#ontology)
-    - [What is Ontology](#what-is-ontology)
+    - [Ontology Features](#ontology-features)
     - [How to get and install Ontology](#how-to-get-and-install-ontology)
-    - [Introduction of the Ontology nodes](#introduction-of-the-ontology-nodes)
+    - [Ontology nodes introduction](#ontology-nodes-introduction)
         - [Synchronization node](#synchronization-node)
         - [Consensus node](#consensus-node)
     - [Ontology consensus mechanism](#ontology-consensus-mechanism)
-    - [Connect to ontology](#connect-to-ontology)
+    - [Connect to Ontology](#connect-to-ontology)
     - [Ontology special features](#ontology-special-features)
         - [Ontology DID](#ontology-did)
         - [Distributed data transaction](#distributed-data-transaction)
@@ -22,28 +20,23 @@ This documentation is an entry to the Ontology ecosystem for new Ontology develo
     - [Ontology command line tool](#ontology-command-line-tool)
     - [Ontology signature server](#ontology-signature-server)
     - [Ontology API](#ontology-api)
+    - [Ontology SDK](#ontology-sdk)
 - [Ontology smart contract](#ontology-smart-contract)
     - [Ontology smart contract IDE--SmartX](#ontology-smart-contract-ide--smartx)
     - [How to write a smart contract](#how-to-write-a-smart-contract)
     - [Contract deployment and invocation](#contract-deployment-and-invocation)
-    - [Authority management of smart contract](#authority-management-of-smart-contract)
+    - [Authority management of smart contracts](#authority-management-of-smart-contracts)
 - [Use Ontology](#use-ontology)
     - [Environment setup](#environment-setup)
-    - [Contract writing, deployment and invocation](#contract-writing-deployment-and-invocation)
+    - [Contract writing, deployment, and invocation](#contract-writing-deployment-and-invocation)
+
+<!-- /TOC -->
 
 ## Ontology
 
-### What is Ontology?
+### Ontology Features
 
-Ontology is an infrastructure that integrates fragmented industries in order to build a true and complete trust system. It's a platform that bridges the digital world with the real world. From a high-level perspective we can Ontology understand from two views:
-
-<p align="center">Public blockchains with a new architecture (Infrastructure)</p>
-Ontology is a new generation of a public chain infrastructure with high-performance (+5,000 TPS for Ontology 1.0, 8,000-10,000 TPS for Ontology 2.0). The open-source framework allows for low-level customization so that different business requirements and scenarios can be implemented.
-</br>
-<p align="center">A distributed trust collaboration platform</p>
-With Ontology organizations, people, objects, and communities can engage with each other in a trustful way. The platform links the digital economy with the real economy and support scenarios for exmPLE distributed identity services, distributed data exchange, and reputation. 
-</br>
-The features of Ontology are outlined in [Ontology Features](https://ontio.github.io/documentation/install_en.html#features). 
+The features of Ontology are outlined in  [Ontology Features](https://ontio.github.io/documentation/install_en.html) . 
 
 ### How to get and install Ontology
 
@@ -100,6 +93,11 @@ In addition to the command line tools, Ontology provides APIs for a more conveni
 
 With these APIs, developers can easily send transactions and query data to the Ontology network.
 
+### Ontology SDK
+
+SDK is a tool that is invoked directly in the program. Currently, Ontology provides three SDKs for developers, [Java SDK](https://ontio.github.io/documentation/ontology_java_sdk_en.html), [Typescript SDK](https://ontio.github.io/documentation/ontology_ts_sdk_en.html), and [Golang SDK](https://github.com/ontio/ontology-go-sdk). 
+
+We recommended to read the [Overview of the SDK](https://ontio.github.io/documentation/ontology_overview_sdks_en.html) and the [Wallet File Specification](https://ontio.github.io/documentation/Wallet_File_Specification_en.html) before using the SDK.
 
 
 ## Ontology smart contract

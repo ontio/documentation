@@ -1,3 +1,4 @@
+
 from boa.interop.System.Runtime import Log, GetTrigger, CheckWitness, Notify
 from boa.interop.System.ExecutionEngine import GetScriptContainer, GetExecutingScriptHash
 from boa.interop.System.Blockchain import GetHeight, GetHeader
@@ -27,18 +28,11 @@ def Main(operation, args):
 
 
 def Query(domain):
-    context = GetContext()
-    owner = Get(context, domain);
-
-    Notify('query', domain)
-    if owner != None:
-        return owner
-
-    return False
+    return  Get(GetContext(), domain)
 
 def Register(domain, owner):
     context = GetContext()
-    occupy = Get(context, domain);
+    occupy = Get(context, domain)
     if occupy != None:
         return False;
     Put(context, domain, owner)
@@ -69,7 +63,7 @@ def  Transfer(domain, to):
 
 def  Delete(domain):
     context = GetContext()
-    owner = Get(context, domain);
+    owner = Get(context, domain)
     is_owner = CheckWitness(owner)
     if not is_owner:
         return False;

@@ -726,7 +726,7 @@ Response:
   "result": [
        {
             "TxHash": "7e8c19fdd4f9ba67f95659833e336eac37116f74ea8bf7be4541ada05b13503e",
-            "State": 1,
+            "State": 1, 
             "GasConsumed": 0,
             "Notify": [
                 {
@@ -785,6 +785,24 @@ or
     }
 }
 ```
+
+result description
+
+| Field | Type | Description |
+| :---| :---| :---|
+| TxHash| string | transactions hash |
+| GasConsumed | int64 | transaction fee|
+| State | int64 | transaction executed state, 0 indicates failed, 1 indicates success|
+| Notify| array | contract events|
+
+
+notify description
+
+| Field | Type | Description |
+| :---| :---| :---|
+| ContractAddress| string | contract address |
+| States | array | states indicate notify message of contract|
+
 
 > Note: If params is a number, the response result will be the smartcode list. If params is transaction hash, the response result will be smartcode event.
 
