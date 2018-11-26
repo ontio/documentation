@@ -20,9 +20,9 @@ def Main(operation, args):
         to = args[1]
         return Transfer(domain, to)
 
-    if operation == 'Delete':
+    if operation == 'DeleteDomain':
         domain = args[0]
-        return Delete(domain)
+        return DeleteDomain(domain)
 
     return False
 
@@ -61,7 +61,7 @@ def  Transfer(domain, to):
 
     return True
 
-def  Delete(domain):
+def  DeleteDomain(domain):
     context = GetContext()
     owner = Get(context, domain)
     is_owner = CheckWitness(owner)
