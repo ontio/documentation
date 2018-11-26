@@ -58,10 +58,17 @@
   - [Getting Started](docs-en/dApi/02-getting-started.md)
 
 - Ontology-Cli
-  - [Overview](docs-en/OntologyCli/overview.md)
-  - [Installation](docs-en/OntologyCli/installation.md)
+  - [Overview](docs-en/OntologyCli/00-overview.md)
+  - [Installation](docs-en/OntologyCli/01-installation.md)
   - [Getting Started](docs-en/OntologyCli/getting-started.md)
-
+      - [Running Node](docs-en/OntologyCli/02-running-node.md)
+      - [Wallet](docs-en/OntologyCli/04-wallet-management.md)
+      - [Asset](docs-en/OntologyCli/05-asset-management.md)
+      - [Transactions](docs-en/OntologyCli/06-transactions.md)
+      - [Smart Contract](docs-en/OntologyCli/07-smart-contracts.md)
+      - [Block Import/Export](docs-en/OntologyCli/08-block-data.md)
+      - [Multi Signature](docs-en/OntologyCli/09-multisig.md)
+      - [Query Info](docs-en/OntologyCli/10-query-info.md)
 - Sign-Server
   - [Overview](docs-en/SignServer/00-overview.md)
   - [Installation](docs-en/SignServer/01-installation.md)
