@@ -1,6 +1,6 @@
 
 # Getting Started
-Upon opening the application, you will be presented with the first look at your private Ontology network.
+Upon opening the application as "Run as administrator", you will be presented with the first look at your private Ontology network.
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/00-home.png" ><br><br>
