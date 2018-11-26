@@ -42,7 +42,7 @@ Punica致力于提供完善的工具与整合的资源，让开发者快速上�
 
 ### 开始使用
 
-建议从 [Punica CLI tutorial](https://punica.ont.io/tutorials/How-to-use-Punica-Cli/) 开始学习使用Punica。 一旦你已经安装了 Punica 就可以联合 [SmartX](https://smartx.ont.io/) 智能合约开发工具学习使用 [Punica boxes](https://punica.ont.io/boxes/) ， 请参考其他的[教程文档](https://punica.ont.io/tutorials/).
+建议从**Punica CLI** 开始学习使用Punica。 一旦你已经安装了 Punica 就可以联合 [SmartX](https://smartx.ont.io/) 智能合约开发工具学习使用 [Punica boxes](https://punica.ont.io/boxes/) ， 请参考其他的[教程文档](https://punica.ont.io/tutorials/).
 <p><br>
   
 

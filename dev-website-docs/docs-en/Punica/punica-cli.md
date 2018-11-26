@@ -16,7 +16,7 @@ Punica-Cli is a command line interface designed to allow devlopers to compile, d
 ## Installation
 
 ```shell
-pip install punica
+pip3 install punica
 ```
 ```
 npm install punica-ts -g
