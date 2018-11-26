@@ -10,7 +10,7 @@ Trust Anchor Connector (also TAConnector) is a technology access component that 
 
 ## Working principle
 
- ![](http://assets.processon.com/chart_image/5a92d69de4b0874437cfe5f3.png)
+ ![](http://assets.processon.com/chart_image/5abe12cde4b02cee4cfc4961.png)
 
 
 ## Access rules
