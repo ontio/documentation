@@ -39,7 +39,7 @@
 	<td>DocLink</td>
 </tr>
 <tr>
-    <td rowspan="2">`did:ont:`ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
+    <td rowspan="2">did:ont:ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
     <td rowspan="2">Ontology China Identity TrustAnchor</td>
     <td>claim:cfca_authentication</td>
 	<td>中国公民实名身份认证</td>
@@ -55,7 +55,7 @@
 	<td>https://www.sensetime.com/authentication/87</td>
 </tr>
 <tr>
-    <td rowspan="6">`did:ont:`AcbVUAXkJSKy7g<br/>43KHW378pBwA48Ywbuuw<br/></td>
+    <td rowspan="6">did:ont:AcbVUAXkJSKy7g<br/>43KHW378pBwA48Ywbuuw<br/></td>
     <td rowspan="6">Ontology Global Identity TrustAnchor</td>
     <td>claim:sfp_passport_authentication</td>
 	<td>全球用户护照认证</td>
