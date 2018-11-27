@@ -40,7 +40,7 @@ TrustAnchor Source registers to the ONTPass the authentication service and verif
 	<td>DocLink</td>
 </tr>
 <tr>
-    <td rowspan="2">did:ont:ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
+    <td rowspan="2">did: ont:ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
     <td rowspan="2">Ontology China Identity TrustAnchor Source</td>
     <td>claim:cfca_authentication</td>
 	<td>Chinese Citizen Real-name Authentication</td>
