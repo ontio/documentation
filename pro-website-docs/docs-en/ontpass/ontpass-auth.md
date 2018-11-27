@@ -40,7 +40,7 @@ TrustAnchor Source registers to the ONTPass the authentication service and verif
 	<td>DocLink</td>
 </tr>
 <tr>
-    <td rowspan="2"> did:ont:ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
+    <td rowspan="2">DID:ONT:ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
     <td rowspan="2">Ontology China Identity TrustAnchor Source</td>
     <td>claim:cfca_authentication</td>
 	<td>Chinese Citizen Real-name Authentication</td>
@@ -56,7 +56,7 @@ TrustAnchor Source registers to the ONTPass the authentication service and verif
 	<td>https://www.sensetime.com/authentication/87</td>
 </tr>
 <tr>
-    <td rowspan="6"> did:ont:AcbVUAXkJSKy7g<br/>43KHW378pBwA48Ywbuuw<br/></td>
+    <td rowspan="6">DID:ONT:AcbVUAXkJSKy7g<br/>43KHW378pBwA48Ywbuuw<br/></td>
     <td rowspan="6">Ontology Global Identity TrustAnchor Source</td>
     <td>claim:sfp_passport_authentication</td>
 	<td>Global User Passport Certification</td>
@@ -141,8 +141,7 @@ SuccessResponse：
 |    OntId|   String|  Requester ONT ID  | Y|
 |    Name|   String|  Name of Requester  | Y|
 |    Desc|   String| Description of Requester |Y|
-|    CallBackAddr|   String|  Callback Address, which 
-meets https+ domain name, and receives post callback request to get trusted claim information | Y|
+|    CallBackAddr|   String|  Callback Address, which meets https+ domain name, and receives post callback request to get trusted claim information | Y|
 |    Signature|   String|  Request Signature of Information。The Requester uses the private key of its own ONT ID to sign based on the standard ECDSA algorithm.| Y|
 
 
@@ -161,7 +160,6 @@ Requester submits the certification data according to the certification requirem
 
 ### 4. Get Verifiable Claim
 
-当TrustAnchor Source完成用户的信息认证并签发可信声明后，会将可信声明发送到ONTPass。ONTPass会根据认证需求方之前注册的回调地址，将签发完成的可信声明推送到需求方。
 After TrustAnchor Source completes the user's information authentication and issues a verifialbe claim, the verifiable claim is sent to ONTPass. ONTPass pushes the signed verifialbe claim to Requester based on the callback address previously registered by Requester.
 
 
@@ -200,7 +198,6 @@ RequestExample：
 
 #### Have your own ONT ID and sign it
 
-测试网ONT ID可由ONTPass平台免费代付完成上链注册，直接调用以下API即可完成测试网ONT ID注册。
 The Testnet ONT ID can be registered on-chain by ONTPass Platform for free. TestnetI ONT ID registration can be completed by directly calling the following API.
 
 ```json
