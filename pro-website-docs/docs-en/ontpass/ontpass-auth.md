@@ -40,7 +40,7 @@ TrustAnchor Source registers to the ONTPass the authentication service and verif
 	<td>DocLink</td>
 </tr>
 <tr>
-    <td rowspan="2">did: ont:ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
+    <td rowspan="2">did：ont：ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
     <td rowspan="2">Ontology China Identity TrustAnchor Source</td>
     <td>claim:cfca_authentication</td>
 	<td>Chinese Citizen Real-name Authentication</td>
@@ -56,7 +56,7 @@ TrustAnchor Source registers to the ONTPass the authentication service and verif
 	<td>https://www.sensetime.com/authentication/87</td>
 </tr>
 <tr>
-    <td rowspan="6">did: ont:AcbVUAXkJSKy7g<br/>43KHW378pBwA48Ywbuuw<br/></td>
+    <td rowspan="6">did：ont：AcbVUAXkJSKy7g<br/>43KHW378pBwA48Ywbuuw<br/></td>
     <td rowspan="6">Ontology Global Identity TrustAnchor Source</td>
     <td>claim:sfp_passport_authentication</td>
 	<td>Global User Passport Certification</td>
@@ -261,7 +261,7 @@ Example of keystore：
 |    scrypt.n|   int | Encrypted Parameter。This parameter is related to the subsequent import of the ONT ID operation.|
 |    key|   String | Encrypted PrivateKey |
 |    salt|   String | Salt，Safety Parameter  |
-|    address|   String | ONT ID suffix address。Plus did:ont: is the full ONT ID |
+|    address|   String | ONT ID suffix address。Plus did：ont： is the full ONT ID |
 
 If you already have a digital asset account and hold at least 0.01 ONGs, you can also use various SDKs to create an ONT ID and obtain relevent information.
 
