@@ -10,7 +10,10 @@ ONT ID establishes a cryptographic-based digital identity for any user, company,
 
 Once you create your ONT ID you will immediately have a blockchain-based digital identity. In order to make your ONT ID more credible and have more sources, you can authenticate and endorse your ONT ID through trusted sources in different fields, such as eID, CA, governments, institutions, schools, companies, communities, individuals, and so on. After authentication and authorization, you will have blockchain certificates from different identity trust sources (we call them “verifiable claims").
 ![](https://github.com/ontio/ontology-DID/raw/master/images/ontid.jpg)
-> The upper picture is from Ontology community.
+
+<p align="center">
+<b>One Page Presentation for ONT ID from Ontology Community[1]</b>
+</p>
 
 ## Why do I need to integrate ONT ID?
 
@@ -55,4 +58,8 @@ A verifiable claim is a statement made by an entity of certain attributes of ano
 Trust anchors are partners that provide certification services in the Ontology ecosystem. They may be government agencies, universities, banks, third-party certification service organizations (such as CA), biometric technology companies, etc. We welcome you to join the Ontology ecosystem and build up the distributed trust chain network.
 
 You can read more about trust achors [here](https://info.ont.io/trust-anchor/en).
+
+## Citations
+
+- [1] "Ontology Trust Network" by https://twitter.com/musuko_crypto
 
