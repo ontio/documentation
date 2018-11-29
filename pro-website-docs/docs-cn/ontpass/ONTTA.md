@@ -111,7 +111,7 @@ SuccessResponse：
 	
 	Length: **2 characters**
 
-	两位国家代码，参照ISO 3166-1 alpha-2编码标准。支持的国家及对应的国家编码可查询[认证支持国家列表](https://github.com/shuftipro/RESTful-API-v1.3/blob/master/countries.md)
+	两位国家代码，参照ISO 3166-1 alpha-2编码标准。支持的国家及对应的国家编码可查询[认证支持国家列表](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E9%94%99%E8%AF%AF%E7%A0%81)
 
 
 * ### doc_type
@@ -203,7 +203,7 @@ SuccessResponse：
 
 	Type: **long**
 
-	错误码。具体可参照[错误码表]()
+	错误码。具体可参照[错误码表](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E9%94%99%E8%AF%AF%E7%A0%81)
 
 
 * ### desc
