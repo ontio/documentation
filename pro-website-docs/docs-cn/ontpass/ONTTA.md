@@ -111,7 +111,7 @@ SuccessResponse：
 	
 	Length: **2 characters**
 
-	两位国家代码，参照ISO 3166-1 alpha-2编码标准。支持的国家及对应的国家编码可查询[认证支持国家列表](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E9%94%99%E8%AF%AF%E7%A0%81)
+	两位国家代码，参照ISO 3166-1 alpha-2编码标准。支持的国家及对应的国家编码可查询[认证支持国家列表](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)
 
 
 * ### doc_type
@@ -180,7 +180,7 @@ SuccessResponse：
 	
 	Type: **string**
 
-	请求方使用ONT ID私钥按照签名规则对请求内容的签名。签名规则可参考[附录]()
+	请求方使用ONT ID私钥按照签名规则对请求内容的签名。签名规则可参考[签名验签](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)
 
 --------------------------------------------------------
 ## ResponseField
