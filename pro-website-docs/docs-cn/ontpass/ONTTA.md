@@ -59,7 +59,7 @@ RequestExample:
 	"country":"CN",
 	"doc_type":"passport",
 	"frontdoc":"image/png;base64,iVBORw0KGgoAAAAADAFBMVEVHcEwAAAAAAAAAAAAAAAAAAA...",
-    "ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
+    	"ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
 	"owner_ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
 	"txn_body":"",
 	"txn_hash":"",
@@ -80,8 +80,11 @@ SuccessResponse：
 * ### auth_id
 
 	Required: **Yes**
+	
 	Type: **string**
+	
 	Minimum: **20 characters**
+	
 	Maximum: **255 characters**
 
 	请求认证编码，需保证唯一性。在后续认证过程中只做透传。
@@ -90,8 +93,11 @@ SuccessResponse：
 * ### backdoc
 
 	Required: **Yes**
+	
 	Type: **string**
+	
 	Format: **JPG, JPEG, PNG, PDF**
+	
 	Maximum: **16MB**
 
 	证件照反面的base64编码。
@@ -100,7 +106,9 @@ SuccessResponse：
 * ### country
 
 	Required: **Yes**
+	
 	Type: **string**
+	
 	Length: **2 characters**
 
 	两位国家代码，参照ISO 3166-1 alpha-2编码标准。支持的国家及对应的国家编码可查询[认证支持国家列表](https://github.com/shuftipro/RESTful-API-v1.3/blob/master/countries.md)
@@ -109,7 +117,9 @@ SuccessResponse：
 * ### doc_type
 
 	Required: **Yes**
+	
 	Type: **string**
+	
 	Supported Types: **passport，id_card，driving_license**
 
 	证件类型  护照:passport 身份证:id_card  驾照:driving_license
@@ -118,8 +128,11 @@ SuccessResponse：
 * ### frontdoc
 
 	Required: **Yes**
+	
 	Type: **string**
+	
 	Image Format: **JPG, JPEG, PNG, PDF**
+	
 	Maximum: **16MB**
 
 	证件照正面的base64编码。
@@ -128,6 +141,7 @@ SuccessResponse：
 * ### ontid
 
 	Required: **Yes**
+	
 	Type: **string**
 
 	请求方的ONT ID。
@@ -136,6 +150,7 @@ SuccessResponse：
 * ### owner_ontid
 
 	Required: **Yes**
+	
 	Type: **string**
 
 	用户的ONT ID。
@@ -144,6 +159,7 @@ SuccessResponse：
 * ### txn_body
 
 	Required: **Yes**
+	
 	Type: **string**
 
 	构造好的转账交易体。
@@ -152,6 +168,7 @@ SuccessResponse：
 * ### txn_body
 
 	Required: **Yes**
+	
 	Type: **string**
 
 	构造好的转账交易hash。
@@ -160,6 +177,7 @@ SuccessResponse：
 * ### signature
 
 	Required: **Yes**
+	
 	Type: **string**
 
 	请求方使用ONT ID私钥按照签名规则对请求内容的签名。签名规则可参考[附录]()
