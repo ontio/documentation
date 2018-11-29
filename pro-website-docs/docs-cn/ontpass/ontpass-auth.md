@@ -188,7 +188,7 @@ RequestExample：
 	"auth_flag":true,
 	"auth_id":"xxxxxxxxxxx",
 	"claim_context":"claim:cfca_authentication",
-    "encrp_origdata":"header.payload.signature.blockchain_proof",
+    	"encrp_origdata":"header.payload.signature.blockchain_proof",
 	"ontid":"did:ont:AEnB1v4zRzepHY344g2K1eiZqdskhwGuN3",
 	"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
 	"ta_ontid":"did:ont:A7wB7v4zRzepHY344g2K1eiZqdskhwHu9J",
@@ -213,9 +213,9 @@ RequestExample：
 
 
 
-### 附录
+## 附录
 
-#### 拥有自己的ONT ID
+### 拥有自己的ONT ID
 
 **如何拥有测试网ONT ID？**
 
@@ -247,7 +247,7 @@ SuccessResponse：
 
 **如何拥有主网ONT ID？**
 
-- 若你已拥有数字资产账户且在主网上持有至少0.01个ONG，可直接使用各种SDK自行自付创建ONT ID，获取ONT ID相关信息。
+- 若你已拥有数字资产账户且在主网上持有至少0.01个ONG，可直接使用各种SDK自行自付创建ONT ID。自付创建ONT ID，可参考[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.java)，[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 - 可使用ONTO客户端[https://onto.app](https://onto.app)创建。记住密码并导出keystore，keystore已包含salt，加密后的私钥，ONT ID等信息。
 
@@ -284,7 +284,56 @@ ONTO导出keystore示例：
 |    address|   String | ONT ID后缀地址。加上did：ont： 即完整的ONT ID |
 
 
-#### 使用ONT ID签名验签
+### 使用ONT ID签名验签
+
+**签名规则：**
+
+http Post请求体里的JSON对象需要按照key的字母升序排序，然后序列化为标准的JSON格式字符串，再对该请求内容字符串进行签名，最后再把签名以signature为key添加到请求体里的JSON对象中。
+
+以注册请求为例：
+POST请求的JSON对象按照key升序排序后为
+```
+{
+	"callback_addr": "https://xxx",
+	"description": "coinwallet",
+	"name": "coinwallet",
+	"ontid": "did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM",
+	"ta_info": [
+		{
+			"claim_contexts": [
+				"claim:sensetime_authentication"
+			],
+			"ontid": "did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM"
+		}
+	]
+}
+```
+转换成标准JSON格式字符串：
+
+	{"callback_addr":"https://xxx","description":"coinwallet","name":"coinwallet","ontid":"did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM","ta_info":[{"claim_contexts":["claim:sensetime_authentication"],"ontid":"did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM"}]}
+
+再对该JSON格式字符串进行签名，得到签名值sigvalue后，以signature为key添加到Post请求体的JSON对象中
+
+最终认证Post请求体的JSON对象为：
+```
+{
+	"callback_addr": "https://xxx",
+	"description": "coinwallet",
+	"name": "coinwallet",
+	"ontid": "did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM",
+	"ta_info": [
+		{
+			"claim_contexts": [
+				"claim:sensetime_authentication"
+			],
+			"ontid": "did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM"
+		}
+	],
+	"signature":"sigvalue"
+}
+```
+
+**签名验签**
 
 有了身份ONT ID相关信息后便可进行签名验签操作，可参考[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.java)，[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
