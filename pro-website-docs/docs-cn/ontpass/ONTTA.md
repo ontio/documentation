@@ -81,7 +81,7 @@ SuccessResponse：
 }
 ```
 
-## RequestField
+### RequestField
 
 * ### auth_id
 
@@ -189,7 +189,7 @@ SuccessResponse：
 	请求方使用ONT ID私钥按照[签名规则](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)对请求内容的签名。
 
 --------------------------------------------------------
-## ResponseField
+### ResponseField
 
 * ### version
 
@@ -378,7 +378,7 @@ Payload里认证信息clm格式如下：
 |    IssueDate|   String|  证件签发日期。格式：yyyy-mm-dd |
 |    ExpirationDate |   String|  证件过期日期。格式：yyyy-mm-dd    |
 |    IDDocNumber|   String|  证件号    |
-|    IssuerName |   String|  ONTTA  |
+|    IssuerName |   String|  Shuftipro  |
 
 
 ## 附录
