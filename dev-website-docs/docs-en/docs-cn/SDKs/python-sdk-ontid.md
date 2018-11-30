@@ -9,17 +9,16 @@
 - [接口](#接口)
     - [Network](#network)
     - [Wallet](#wallet)
-    - [Account](#account)
-    - [AccountManager](#accountmanager)
-    - [Asset](#asset)
+    - [Identity](#identity)
+    - [IdentityManager](#identitymanager)
     - [ABI](#abi)
-    - [OEP4](#oep4)
     - [Utils](#utils)
 - [参与项目](#参与项目)
 - [命名规范](#命名规范)
     - [概述](#概述)
     - [应该避免的名称](#应该避免的名称)
     - [命名约定](#命名约定)
+    - [Python之父Guido推荐的规范](#python之父guido推荐的规范)
 - [官网](#官网)
 - [许可证](#许可证)
 
@@ -76,70 +75,52 @@ pip install ontology-python-sdk
 
 **注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
 
-### Account
 
-这是一个
-This is an API set that allows you to generate Ontology accounts and sign transactions and data.
+### Identity
+
+This is an API set that allows you to generate **Ontology Digital Identity.**
+
+|       | Main Function                        |
+| :---: | :----------------------------------- |
+| 1     | parse_ddo()                          |
+| 2     | send_get_ddo()                       |
+| 3     | new_get_ddo_transaction()            |
+| 4     | new_add_recovery_transaction()       |
+| 5     | new_add_attribute_transaction()      |
+| 6     | new_add_public_key_transaction()     |
+| 7     | new_remove_public_key_transaction()  |
+| 8     | new_registry_ont_id_transaction()    |
+| 9     | new_remove_attribute_transaction()   |
+| 10    | send_add_recovery_transaction()      |
+| 11    | send_add_attribute_transaction()     |
+| 12    | send_add_public_key_transaction()    |
+| 13    | send_registry_ont_id_transaction()   |
+| 14    | send_remove_public_key_transaction() |
+| 15    | send_remove_attribute_transaction()  |
+| 16    | send_add_public_key_by_recovery()    |
+| 17    | sign_transaction()                   |
+| 18    | add_sign_transaction()               |
+| 19    | add_multi_sign_transaction()         |
+| 20    | get_merkle_proof()                   |
+| 21    | get_raw_transaction()                |
+| 22    | send_raw_transaction()               |
+| 23    | send_raw_transaction_pre_exec()      |
+
+**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
+
+
+### IdentityManager
+
+This is an API set that allows you to manage your multiple identity in an wallet file.
 
 |       | Main Function                      |
 | :---: | :--------------------------------- |
-| 1     | export_wif()                       |
-| 2     | get_signature_scheme()             |
-| 3     | serialize_public_key()             |
-| 4     | serialize_private_key()            |
-| 5     | get_public_key_hex()               |
-| 6     | get_public_key_bytes()             |
-| 7     | get_private_key_from_wif()         |
-| 8     | get_gcm_decoded_private_key()      |
-| 9     | export_gcm_encrypted_private_key() |
-| 10    | get_address_hex()                  |
-| 11    | get_address_hex_reverse()          |
-| 12    | get_address_base58()               |
-| 13    | generate_signature()               |
+| 1     | create_identity()                  |
+| 2     | import_identity()                  |
+| 3     | create_identity_from_private_key() |
 
 **注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
 
-
-### AccountManager
-
-This is an API set that allows you to manage your multiple account in an wallet file.
-
-|       | Main Function                     |
-| :---: | :-------------------------------- |
-| 1     | import_account()                  |
-| 2     | create_account()                  |
-| 3     | create_account_from_private_key() |
-| 4     | get_account()                     |
-| 5     | get_accounts()                    |
-| 6     | get_default_account()             |
-| 7     | get_default_account_address()     |
-| 8     | set_default_account_by_index()    |
-| 9     | set_default_account_by_address()  |
-
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
-
-
-### Asset
-
-`Asset`包使你能够容易地处理Ontology原生数字资产（ONT，ONG）。
-
-|       | Main Function                   |
-| :---: | :------------------------------ |
-| 1     | query_name()                    |
-| 2     | query_symbol()                  |
-| 3     | query_balance()                 |
-| 4     | query_decimals()                |
-| 5     | query_allowance()               |
-| 6     | query_unbound_ong()             |
-| 7     | get_asset_address()             |
-| 8     | new_approve_transaction()       |
-| 9     | new_transfer_transaction()      |
-| 10    | new_transfer_from_transaction() |
-| 11    | new_withdraw_ong_transaction()  |
-| 12    | send_transfer()                 |
-| 13    | send_approve()                  |
-| 14    | send_transfer_from()            |
-| 15    | send_withdraw_ong_transaction() |
 
 ### ABI
 
