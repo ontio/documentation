@@ -46,6 +46,12 @@ ONTTA作为Ontology信任生态上的一个综合性的全球身份认证信任�
 </table>
 
 
+## 认证模式
+
+现在身份认证是**单笔小额付费**模式，即每次身份认证请求都需要消耗ONG手续费，所以认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址是**ATGJSGzm2poCB8N44BgrAccJcZ64MFf187**，金额即每次身份认证的手续费）。收到认证请求后由TrustAnchor先将交易发送到链上，交易发送成功后才会继续后续的身份认证流程。
+
+如何构造转账交易可参考[附录DEMO]()或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+
 ## 认证请求示例
 
 ```json
@@ -203,7 +209,7 @@ SuccessResponse：
 
 	Type: **long**
 
-	错误码。具体可参照[错误码表](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E9%94%99%E8%AF%AF%E7%A0%81)
+	错误码。具体可参照[错误码字典](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E9%94%99%E8%AF%AF%E7%A0%81)
 
 
 * ### desc
@@ -220,7 +226,7 @@ SuccessResponse：
 	true：即提交成功  false：即提交失败
 
 
-## 错误码
+## 错误码字典
 
 
 | Field | Type | Description |
@@ -228,8 +234,12 @@ SuccessResponse：
 | 0 | long | SUCCESS. 成功 |
 | 61001 | long | FAIL, param error. 参数错误 |
 | 62003 | long | FAIL, communication fail. 通信异常 |
+| 62005 | long | FAIL, transaction error. 交易异常 |
 | 62006 | long | FAIL, verify signature fail. 验签失败 |
+| 62007 | long | FAIL, send transaction fail. 交易发送失败 |
 | 63001 | long | FAIL, inner error. 内部异常 |
+
+
 
 ## 认证支持国家列表
 
@@ -418,10 +428,9 @@ POST请求的JSON对象按照key升序排序后的JSON为
 ```
 
 
-**使用ONT ID签名验签：**
+### 示例DEMO
 
-使用身份ONT ID私钥进行签名验签操作，可参考[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.java)，[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
-
+构造转账交易，注册ONTID，使用身份ONT ID私钥进行签名验签等操作，可参考[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/Demo.java)，[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 
 
