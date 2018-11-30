@@ -1,4 +1,4 @@
-<h1 align="center">Distributed Data eXchange Framework Component Getting Started Guide</h1>
+<h1 align="center">Distributed Data Exchange Framework Component Getting Started Guide</h1>
 
 <!-- TOC -->
 
@@ -20,7 +20,7 @@
     - [4.1. Introduction](#41-introduction)
     - [4.2. Architecture](#42-architecture)
     - [4.3. Setting up the environment](#43-setting-up-the-environment)
-    - [4.4. Learn by Using it](#44-learn-by-using-it)
+    - [4.4. Learn by using it](#44-learn-by-using-it)
 
 <!-- /TOC -->
 
@@ -28,11 +28,11 @@
 
 ### 1.1. Introduction
 
-The Distributed Data eXchange Framework (also DDXF) Cryptography Component is a cryptography component based on Python3.5 and provide cryptography kit for DDXF. Currently, it contain hash kit, encryption kit, signature kit and Key Derivation Function (KDF) kit.
+The Distributed Data Exchange Framework (also DDXF) Cryptography Component is based on Python 3.5 and provides a cryptography kit for DDXF. Currently, it contains the hash kit, encryption kit, signature kit, and Key Derivation Function (KDF) kit.
 
 You can visit [here](https://github.com/NashMiao/ontology-ddxf-crypto) to get more information.
 
-**Note**: This component has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely. You need to test fully before using in production!
+**Note**: This component has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly and store the private keys safely. You need to test it fully before using in production!
 
 ### 1.2. Install
 
@@ -66,13 +66,13 @@ decrypted_text = decrypted_text_bytes.decode('utf-8'))
 
 The Distributed Data eXchange Framework (also DDXF) smart contract library is a data exchange contract library.
 
-you can visit [here](https://github.com/NashMiao/ontology-ddxf-contract) to get more information.
+You can visit [here](https://github.com/NashMiao/ontology-ddxf-contract) to get more information about DDXF.
 
 **Note**: This contract library has **NOT** been audited and might potentially be unsafe. You need to test fully before using in production!
 
 ### 2.2. Install
 
-You can get the library from GitHub easily.
+You can get the library from GitHub:
 
 ```shell
 git clone https://github.com/NashMiao/ontology-ddxf-contract.git
@@ -88,17 +88,17 @@ InterPlanetary File System (IPFS) is a protocol and network designed to create a
 
 You may be interested about how IPFS works. In fact, when we add files to IPFS:
 
-- Each file and all of the blocks within it are given a unique fingerprint called a cryptographic hash.
-- IPFS removes duplications across the network.
-- Each network node stores only content it is interested in, and some indexing information that helps figure out who is storing what.
-- When looking up files, you're asking the network to find nodes storing the content behind a unique hash.
+- Each file and all of the blocks within it are given a unique fingerprint called a cryptographic hash;
+- IPFS removes duplications across the network;
+- Each network node stores only content it is interested in, and some indexing information that helps figure out who is storing what;
+- When looking up files, you're asking the network to find nodes storing the content behind a unique hash;
 - Every file can be found by human-readable names using a decentralized naming system called IPNS.
 
 ### 3.2. IPFS HTTP API
 
 When an IPFS node is running as a daemon, it exposes an HTTP API that allows you to control the node and run the same commands you can from the command line.
 
-In many cases, using this API this is preferable to embedding IPFS directly in your program — it allows you to maintain peer connections that are longer lived than your app and you can keep a single IPFS node running instead of several if your app can be launched multiple times. In fact, the ipfs CLI commands use this API when operating in online mode.
+In many cases, using this API is preferable to embedding IPFS directly into your program — it allows you to maintain peer connections that are longer lived than your app and you can keep a single IPFS node running instead of several if your app can be launched multiple times. In fact, the IPFS CLI commands use this API when operating in online mode.
 
 This API is intended to be the same across different IPFS implementations. However, not all implementations are equally up-to-date. The most feature-complete (and the current reference for this specification) is go-ipfs.
 
@@ -106,7 +106,7 @@ This API is intended to be the same across different IPFS implementations. Howev
 
 ### 3.3. Initialize your IPFS Repository
 
-IPFS stores all its settings and internal data in a directory called the repository. Before using IPFS for the first time, you’ll need to initialize the repository with the ipfs init command:
+IPFS stores all its settings and internal data in a directory called the repository. Before using IPFS for the first time, you’ll need to initialize the repository with the `ipfs init` command:
 
 ```shell
 PS C:\Users> ipfs init
@@ -118,11 +118,11 @@ to get started, enter:
         ipfs cat /ipfs/QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv/readme
 ```
 
-The hash after `peer identity` is your node’s ID and will be different from the one shown in the above output. Other nodes on the network use it to find and connect to you. You can run ipfs id at any time to get it again if you need it.
+The hash after `peer identity` is your node’s ID and will be different from the one shown in the above output. Other nodes on the network use it to find and connect to you. You can run `ipfs id` at any time to get it again if you need it.
 
 ### 3.4. Create your Private IPFS Network (optional)
 
-The IPFS bootstrap list is a list of peers with which the IPFS daemon learns about other peers on the network. IPFS comes with a default list of trusted peers, but you are free to modify the list to suit your needs. One popular use for a custom bootstrap list is to create a personal IPFS network. You can get you IPFS bootstrap list by `bootstrap` command.
+The IPFS bootstrap list is a list of peers with which the IPFS daemon learns about other peers on the network. IPFS comes with a default list of trusted peers, but you are free to modify the list to suit your needs. One popular use for a custom bootstrap list is to create a personal IPFS network. You can get your IPFS bootstrap list using the `bootstrap` command.
 
 ```shell
 PS C:\Users> ipfs bootstrap
@@ -141,9 +141,9 @@ PS C:\Users> ipfs bootstrap
 /ip6/2a03:b0c0:0:1010::23:1001/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd
 ```
 
-**Note**: You **must** understand the risks of adding or removing nodes form IPFS node's bootstrap list, before you do it.
+**Note**: You **must** understand the risks of adding or removing nodes form IPFS node's bootstrap list before you do so.
 
-Therefore, If you want to create your own IPFS network, you need to remove the default list of trusted peers, and add the peers that you trusted.
+Therefore, if you want to create your own IPFS network, you need to remove the default list of trusted peers, and add the peers that you trust.
 
 ```shell
 PS C:\Users> ipfs bootstrap rm --all
@@ -162,13 +162,13 @@ removed /ip6/2604:a880:800:10::4a:5001/tcp/4001/ipfs/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U
 removed /ip6/2a03:b0c0:0:1010::23:1001/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd
 ```
 
-**Tips**: With an empty list, we can restore the default bootstrap list by `--default` option.
+**Tips**: With an empty list, we can restore the default bootstrap list with the `--default` option.
 
 ```shell
 ipfs bootstrap add --default
 ```
 
-To be extra cautious, You can also set the `LIBP2P_FORCE_PNET` environment variable to 1 to force the usage of private networks. If no private network is configured, the daemon will fail to start.
+To be extra cautious, you can also set the `LIBP2P_FORCE_PNET` environment variable to 1 to force the usage of private networks. If no private network is configured, the daemon will fail to start.
 
 ```shell
 user@ubuntu:~$ export LIBP2P_FORCE_PNET=1
@@ -176,15 +176,15 @@ user@ubuntu:~$ echo $LIBP2P_FORCE_PNET
 1
 ```
 
-To create a private network, we also need to create a `swarm.key` file to enable private network feature of IPFS. We will start by adding a key called the `swarm.key` that tells the IPFS nodes that they will be a part of a private network which all will share this `swarm.key` file.
+To create a private network, we also need to create a `swarm.key` file to enable the private network feature of IPFS. We will start by adding a key called the `swarm.key` that tells the IPFS nodes that they will be a part of a private network which all will share this `swarm.key` file.
 
-If you have Go environment, you can run the following command to install the `swarm.key` generation utility:
+If you have a Go environment, you can run the following command to install the `swarm.key` generation utility:
 
 ```shell
 go get -u github.com/Kubuxu/go-ipfs-swarm-key-gen/ipfs-swarm-key-gen
 ```
 
-After install this utility successful, you can run it in one of your node like this:
+After successfully installing this utility, you can run it in one of your nodes like this:
 
 ```shell
 ipfs-swarm-key-gen > ~/.ipfs/swarm.key
@@ -201,13 +201,13 @@ added /ip4/192.168.181.141/tcp/4001/ipfs/QmYzdL2Pe3JvoqMZ1qvcVMnAWo4fVqyvw2S8XDn
 
 ### 3.5. Run your IPFS Node
 
-Before we use IPFS HTTP API, we need to run our IPFS node as a daemon.
+Before we use the IPFS HTTP API, we need to run our IPFS node as a daemon.
 
 ```shell
 PS C:\Users> ipfs daemon
 ```
 
-If your node run properly, you can see the following output.
+If your node runs properly, you will see the following output:
 
 ```shell
 Initializing daemon...
@@ -248,7 +248,7 @@ Daemon is ready
 
 ### 4.1. Introduction
 
-Interplanetary Album is a decentralized Album which based on InterPlanetary File System (IPFS), Ontology Distributed Identity Framework (ONTID) and DDXF Cryptography Component.
+Interplanetary Album is a decentralized album based on the InterPlanetary File System (IPFS), Ontology Distributed Identity Framework (ONTID), and DDXF Cryptography Component.
 
 You can visit [here](https://github.com/punica-box/interplanetary-album-box) to get more information.
 
@@ -263,18 +263,18 @@ There are a few technical requirements before we start. Please install the follo
 - [python 3.7](https://www.python.org/downloads/release/python-370/)
 - [go-ipfs](https://dist.ipfs.io/#go-ipfs)
 
-### 4.4. Learn by Using it
+### 4.4. Learn by using it
 
-We can run the Interplanetary Album in our browser:
+We can run the interplanetary album in our browser:
 
 ```shell
 python interplanetary_album.py
 ```
 
-- If everything goes smoothly, your Interplanetary Album will run on `http://127.0.0.1:5000/`, and your IPFS node will run on http://127.0.0.1:5001/.
+- If everything goes smoothly, your interplanetary album will run on `http://127.0.0.1:5000/`, and your IPFS node will run on http://127.0.0.1:5001/.
 
 - If you want to quit it, you can press `CTRL+C` or close the terminal.
 
-In interplanetary-album project, all pictures's IPFS address are bind with ONT ID and encrypted by it's public key in elliptic curve integrated encryption scheme(also ECIES). That is to say, only the picture owner and the user he shared with can visit his picture in the IPFS Network.
+In the interplanetary-album project, IPFS addresses of pictures are bound with ONT ID and encrypted with its public key in the elliptic curve integrated encryption scheme (also ECIES). In other words, only the picture owner and the user he shared with can visit his picture in the IPFS Network.
 
 ![](https://github.com/punica-box/interplanetary-album-box/blob/master/img/loginSuccessful.png)
