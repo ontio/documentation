@@ -41,28 +41,10 @@
 	<td>DocLink</td>
 </tr>
 <tr>
-    <td rowspan="2">did：ont：ARr6ApK24EU7nu<br/>fND4s1SWpwULHBertpJb</td>
-	<td rowspan="2">Ontology China Identity TrustAnchor</td>
-    <td rowspan="2">Ontology China Identity TrustAnchor</td>
-	<td rowspan="2">Adj7W5Z2hTxxxxxxxx</td>
-    <td>claim:cfca_authentication</td>
-	<td>中国公民实名身份认证</td>
-	<td>姓名，身份证号</td>
-	<td>CFCA</td>
-	<td>https://www.trustasia.com/cfca?bdcpc&b_scene_zt=1</td>
-</tr>
-<tr>
-    <td>claim:sensetime_authentication</td>
-	<td>中国公民实名身份认证</td>
-	<td>姓名，身份证号</td>
-	<td>SenseTime</td>
-	<td>https://www.sensetime.com/authentication/87</td>
-</tr>
-<tr>
-    <td rowspan="6">did：ont：A8JnUAXkJS9LHn<br/>43KHW378pBwA48Ywbuuw<br/></td>
-	<td rowspan="6">Ontology Global Identity TrustAnchor</td>
-    <td rowspan="6">Ontology Global Identity TrustAnchor</td>
-	<td rowspan="6">Adj7W5Z2hTxxxxxxxx</td>
+    <td rowspan="3">did:ont:ANNmeSiQJVwq3z6K<br/>vKo3SSKGnoBqvwYcwt<br/></td>
+	<td rowspan="3">Ontology Global Identity TrustAnchor</td>
+    <td rowspan="3">Ontology Global Identity TrustAnchor</td>
+	<td rowspan="3">ATGJSGzm2poCB8N44BgrAccJcZ64MFf187</td>
     <td>claim:sfp_passport_authentication</td>
 	<td>全球用户护照认证</td>
 	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
@@ -83,27 +65,6 @@
 	<td>Shuftipro</td>
 	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
 </tr>
-<tr>
-    <td>claim:idm_passport_authentication</td>
-	<td>全球用户护照认证</td>
-	<td><nobr>姓名，国籍，证件号</nobr></td>
-	<td>IdentityMind</td>
-	<td>https://identitymindglobal.com/identity-link-api/</td>
-</tr>
-<tr>
-    <td>claim:idm_idcard_authentication</td>
-	<td>全球用户身份证认证</td>
-	<td><nobr>姓名，国籍，证件号</nobr></td>
-	<td>IdentityMind</td>
-	<td>https://identitymindglobal.com/identity-link-api/</td>
-</tr>
-<tr>
-    <td>claim:sfp_dl_authentication</td>
-	<td>全球用户驾照认证</td>
-	<td><nobr>姓名，国籍，证件号</nobr></td>
-	<td>IdentityMind</td>
-	<td>https://identitymindglobal.com/identity-link-api/</td>
-</tr>
 </table>
 
 
@@ -112,7 +73,7 @@
 
 认证需求方选定所需的TrustAnchor提供的认证服务后，需要到ONTPass平台注册相关信息，主要包括ONT ID，基本简介，所需认证服务及回调地址。只有在平台注册过的需求方才会收到后续的可信声明回调推送。
 
-> 如何拥有自己的ONT ID并进行签名，可参考[附录](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E9%99%84%E5%BD%95)
+> 如何拥有自己的ONT ID并进行签名，可参考[附录DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E9%99%84%E5%BD%95)
 
 
 #### 认证需求方注册API
@@ -172,7 +133,9 @@ SuccessResponse：
 
 ### 3.向TrustAnchor提交认证
 
-认证需求方根据第一步选定的TrustAnchor认证服务的认证需求，向TrustAnchor提交认证数据。由TrustAnchor进行身份认证，签发可信声明并使用端到端加密，并完成智能合约调用进行资产分润和可信声明基本信息存证。
+认证需求方根据在ONTPass认证集市选定的TrustAnchor认证服务的认证需求，向TrustAnchor提交认证数据。由TrustAnchor进行身份认证，签发可信声明并使用端到端加密传输，并完成智能合约调用进行资产分润和可信声明基本信息存证。
+
+[查看ONTPass平台已登记的TrustAnchor信任源]()
 
 
 ### 4.获取用户可信声明
@@ -188,7 +151,7 @@ RequestExample：
 	"auth_flag":true,
 	"auth_id":"xxxxxxxxxxx",
 	"claim_context":"claim:cfca_authentication",
-    	"encrp_origdata":"header.payload.signature.blockchain_proof",
+    "encrp_origdata":"header.payload.signature.blockchain_proof",
 	"ontid":"did:ont:AEnB1v4zRzepHY344g2K1eiZqdskhwGuN3",
 	"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
 	"ta_ontid":"did:ont:A7wB7v4zRzepHY344g2K1eiZqdskhwHu9J",
@@ -213,78 +176,18 @@ RequestExample：
 
 
 
-## 附录
+### 附录
 
-### 拥有自己的ONT ID
+#### 拥有自己的ONT ID
 
-**如何拥有测试网ONT ID？**
+在Ontology上注册ONT ID需要消耗0.01ONG手续费。首先需要你拥有数字资产账户，且账户里至少有0.01个ONG，然后使用该资产账户为注册ONT ID进行手续费代付，完成ONT ID链上注册。
 
-测试网ONT ID可由ONTPass平台免费代付完成上链注册，直接调用以下API即可完成测试网ONT ID注册并获取相关信息。
-
-```json
-Host：https://app.ont.io/S1/api/v1/ontpass/thirdparty/ontid
-Method：GET /HTTP/1.1
-SuccessResponse：
-{
-	"ontId": "did:ont:AVdPy51OzyK5MtYyxW4ggFmPCrWQU3VJF2",
-	"salt": "FODMSCkT9YDxyVQXQ61+Nw==",
-	"scrypt_n": 12386,
-	"encrypted_prikey": "a7BCMN9gupQfzfpeJgXJRK3OsO2LITu6xpet5tPyR65LvG4/n1bF+3m2Yy4efGGx",
-	"password": "123456",
-	"privatekey":"5A5610287B5C6281C6030990D"
-}
-```
-
-| Param     |     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    ontId|   String | ONT ID |
-|    salt|   String | 盐，安全参数 |
-|    scrypt_n|   int | 加密参数。该参数与后续导入ONT ID操作相关 |
-|    encrypted_prikey|   String | 加密后的私钥 |
-|    password|   String | ONT ID私钥密码 |
-|    privatekey|   String | 私钥 |
+如何创建资产账户，使用资产账户创建ONT ID，获取ONT ID相关信息并进行签名。可参考[附录DEMO]()或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 
-**如何拥有主网ONT ID？**
+测试网ONG可到Ontology开发者中心直接申请：[测试网ONG申请入口](https://developer.ont.io/applyOng)
 
-- 若你已拥有数字资产账户且在主网上持有至少0.01个ONG，可直接使用各种SDK自行自付创建ONT ID。自付创建ONT ID，可参考[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.java)，[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
-
-- 可使用ONTO客户端[https://onto.app](https://onto.app)创建。记住密码并导出keystore，keystore已包含salt，加密后的私钥，ONT ID等信息。
-
-ONTO导出keystore示例：
-```
-{
-  "scrypt" : {
-    "r" : 8,
-    "p" : 8,
-    "n" : 4096,
-    "dkLen" : 64
-  },
-  "address" : "AYMKcyx1EuY6o7qqMX17DCPbwmsFpQSoAx",
-  "parameters" : {
-    "curve" : "secp256r1"
-  },
-  "claimArray" : [
-  	....
-	....
-  ],
-  "label" : "xxx",
-  "type" : "I",
-  "algorithm" : "ECDSA",
-  "key" : "rnE6WclHSS9tpHGp01KQOM10NzeZt4lvlOOOQC8ht9N0x7d1jkjccP9Ay3qQmStT",
-  "salt" : "UyDgxiZs1StSBkqTmynRJg=="
-}
-```
-
-| Param     |     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    scrypt.n|   int | 加密参数。该参数与后续导入ONT ID操作相关 |
-|    key|   String | 加密后的私钥 |
-|    salt|   String | 盐，安全参数 |
-|    address|   String | ONT ID后缀地址。加上did：ont： 即完整的ONT ID |
-
-
-### 使用ONT ID签名验签
+#### 使用ONT ID签名验签
 
 **签名规则：**
 
@@ -335,6 +238,12 @@ POST请求的JSON对象按照key升序排序后为
 
 **签名验签**
 
-有了身份ONT ID相关信息后便可进行签名验签操作，可参考[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.java)，[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+有了身份ONT ID相关信息后便可进行签名验签操作，可参考[附录DEMO]()或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+
+### DEMO
+
+[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/Demo.java)
+
+[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)
 
 
