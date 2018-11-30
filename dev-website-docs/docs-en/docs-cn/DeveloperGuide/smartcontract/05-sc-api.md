@@ -1,5 +1,10 @@
 
+
+
 ## 智能合约API文档
+
+详细的API和例子可以参考[API(python) doc](https://apidoc.ont.io/smartcontract/).
+
 从区块链查询数据的 API：
 
 | API                                      | 返回值         | 说明               |

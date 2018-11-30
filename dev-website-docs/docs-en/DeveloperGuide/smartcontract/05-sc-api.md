@@ -1,6 +1,8 @@
 
 ## Smart Contract API Document
 
+Pleae reference to [API(python) doc](https://apidoc.ont.io/smartcontract/).
+
 Query the data by blockchain API:
 
 | API                                      | Return Value         | Description               |

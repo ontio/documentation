@@ -3,6 +3,7 @@
 
 Chrome web store 下载[Cyano](https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm) . 
 
+或者通过安装文件自己安装，请点击[这里](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)
 
 ### 手动创建
 
@@ -21,7 +22,7 @@ npm install --global yarn
 
 #### 下载
 ```
-git clone 'https://github.com/backslash47/ontology-plugin-wallet.git'
+git clone 'https://github.com/OntologyCommunityDevelopers/cyano-wallet.git'
 ```
 
 

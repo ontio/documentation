@@ -9,7 +9,7 @@ Before deploying a contract, the developer needs to prepare the contract that ha
 
 The developer also needs Ontology's wallet account and guarantees that there are enough ONGs on the account to pay for the contract deployment.
 
-Currently, the cost can be set to 0 for deploying contracts on the test network.
+Currently, the gasprice can be set to 500 for deploying contracts on the test network.
 
 ## How to deploy
 
