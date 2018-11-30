@@ -17,7 +17,7 @@
 - A0：ONTPass提供了公开的认证服务集市，认证需求方可以到ONTPass平台浏览并选定自己需要的TrustAnchor及其认证服务。
 - A1：认证需求方确认所需的认证服务后，需要到ONTPass平台注册相关基本信息，包括ONT ID，基本简介，所需的认证服务及回调地址。
 - A2：认证需求方根据TrustAnchor身份认证的要求，将用户数据提交到TrustAnchor。
-- A3.1,A3.2：TrustAnchor对用户进行身份认证，完成可信声明签发，调用智能合约进行分润并做链上可信声明存证。
+- A3.1,A3.2：TrustAnchor对用户进行身份认证，完成可信声明签发，可信声明基本信息链上存证，资金交割。
 - A4：TrustAnchor完成可信声明签发后，将可信声明用用户ONT ID对应的公钥进行端到端加密传输到ONTPass。
 - A5：ONTPass根据回调地址将签发的可信声明推送到认证需求方。
 
@@ -49,21 +49,21 @@
 	<td>全球用户护照认证</td>
 	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
 	<td>Shuftipro</td>
-	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
+	<td>http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA</td>
 </tr>
 <tr>
     <td>claim:sfp_idcard_authentication</td>
 	<td>全球用户身份证认证</td>
 	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
 	<td>Shuftipro</td>
-	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
+	<td>http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA</td>
 </tr>
 <tr>
     <td>claim:sfp_dl_authentication</td>
 	<td>全球用户驾照认证</td>
 	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
 	<td>Shuftipro</td>
-	<td>https://github.com/shuftipro/RESTful-API-v1.3</td>
+	<td>http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA</td>
 </tr>
 </table>
 
@@ -73,7 +73,7 @@
 
 认证需求方选定所需的TrustAnchor提供的认证服务后，需要到ONTPass平台注册相关信息，主要包括ONT ID，基本简介，所需认证服务及回调地址。只有在平台注册过的需求方才会收到后续的可信声明回调推送。
 
-> 如何拥有自己的ONT ID并进行签名，可参考[附录DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E9%99%84%E5%BD%95)
+> 如何拥有自己的ONT ID并进行签名，可参考[附录DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=demo)
 
 
 #### 认证需求方注册API
@@ -114,12 +114,12 @@ SuccessResponse：
 | RequestField     |     Type |   Description   | Necessary|
 | :--------------: | :--------:| :------: |:----:|
 |    callback_addr |   String|  可信声明回调地址  | Y|
-|    description |   String|  请求方的描述  | N|
-|    name|   String|  请求方的名称 |N|
-|    ontid|   String|  请求方的ONT ID  | Y|
+|    description |   String|  需求方的描述  | Y|
+|    name|   String|  需求方的名称 |Y|
+|    ontid|   String|  需求方的ONT ID  | Y|
 |    ta_info.claim_contexts |   list|  选定所需的TrustAnchor的可信声明模板列表    | Y|
 |    ta_info.ontid |   String|  选定所需的TrustAnchor的ONT ID    | Y|
-|    signature |   String|  请求方使用ONT ID私钥按照[签名规则]()对请求内容的签名  |Y|
+|    signature |   String|  需求方使用ONT ID私钥按照[签名规则](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E4%BD%BF%E7%94%A8ont-id%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)对请求内容的签名  |Y|
 
 
 | ResponseField     |     Type |   Description   |
@@ -133,14 +133,16 @@ SuccessResponse：
 
 ### 3.向TrustAnchor提交认证
 
-认证需求方根据在ONTPass认证集市选定的TrustAnchor认证服务的认证需求，向TrustAnchor提交认证数据。由TrustAnchor进行身份认证，签发可信声明并使用端到端加密传输，并完成智能合约调用进行资产分润和可信声明基本信息存证。
+需求方在ONTPass认证集市选定TrustAnchor的认证服务后，需向TrustAnchor提交认证数据。由TrustAnchor进行身份认证，可信声明签发，可信声明基本信息存证，资产交割，并使用端到端加密传输可信声明到ONTPass。
 
-[查看ONTPass平台已登记的TrustAnchor信任源]()
+[查看ONTPass平台已登记的TrustAnchor信任源](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA)
 
 
 ### 4.获取用户可信声明
 
-当TrustAnchor完成用户认证后，会将认证结果及签发的信声明发送到ONTPass。ONTPass会根据认证需求方之前注册的回调地址，将认证结果和签发的可信声明推送到需求方。信息回调时ONTPass平台会带上自己的ONT ID对应的签名，认证需求方可进行验签，验证回调请求的可信性及未篡改性。
+当TrustAnchor完成用户认证后，会将认证结果及签发的信声明发送到ONTPass。ONTPass会根据认证需求方之前注册的回调地址，将认证结果和签发的可信声明推送到需求方。
+
+信息回调时ONTPass平台会带上自己的ONT ID对应的签名，认证需求方可进行验签，验证回调请求的可信性及未篡改性。
 
 ```json
 Host：回调地址
@@ -151,7 +153,7 @@ RequestExample：
 	"auth_flag":true,
 	"auth_id":"xxxxxxxxxxx",
 	"claim_context":"claim:cfca_authentication",
-    "encrp_origdata":"header.payload.signature.blockchain_proof",
+    	"encrp_origdata":"header.payload.signature.blockchain_proof",
 	"ontid":"did:ont:AEnB1v4zRzepHY344g2K1eiZqdskhwGuN3",
 	"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
 	"ta_ontid":"did:ont:A7wB7v4zRzepHY344g2K1eiZqdskhwHu9J",
@@ -164,14 +166,14 @@ RequestExample：
 | RequestField     |     Type |   Description   | Necessary|
 | :--------------: | :--------:| :------: |:----:|
 |    auth_flag |   Boolean|  TrustAnchor认证结果 true：认证通过  false：认证未通过  |Y|
-|    auth_id |   String|  请求方认证时传给TrustAnchor的认证编号  |Y|
+|    auth_id |   String|  需求方认证时传给TrustAnchor的认证编号  |Y|
 |    claim_context |   String|  可信声明模板标识  |Y|
 |    encrp_origdata|   String|  加密后的可信声明 |Y|
 |    ontid|   String|  ONTPass的ONT ID  |Y|
 |    owner_ontid|   String|  用户的ONT ID   |Y|
 |    ta_ontid|   String|  TrustAnchor的ONT ID   |Y|
 |    txnhash |   String|  可信声明存证交易hash  |Y|
-|    signature |   String|  ONTPass使用ONT ID私钥按照[签名规则]()对请求内容的签名  |Y|
+|    signature |   String|  ONTPass使用ONT ID私钥按照[签名规则](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E4%BD%BF%E7%94%A8ont-id%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)对请求内容的签名  |Y|
 
 
 
@@ -180,18 +182,18 @@ RequestExample：
 
 #### 拥有自己的ONT ID
 
-在Ontology上注册ONT ID需要消耗0.01ONG手续费。首先需要你拥有数字资产账户，且账户里至少有0.01个ONG，然后使用该资产账户为注册ONT ID进行手续费代付，完成ONT ID链上注册。
+在Ontology上注册ONT ID需要消耗ONG手续费。首先需要你拥有数字资产账户，且账户里至少有0.01个ONG，然后使用该资产账户为注册ONT ID进行手续费代付，完成ONT ID链上注册。
 
-如何创建资产账户，使用资产账户创建ONT ID，获取ONT ID相关信息并进行签名。可参考[附录DEMO]()或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+> 如何创建数字资产账户，使用资产账户创建ONT ID，获取ONT ID相关信息并进行签名。可参考[附录DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=demo)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 
-测试网ONG可到Ontology开发者中心直接申请：[测试网ONG申请入口](https://developer.ont.io/applyOng)
+> 测试网ONG可到Ontology开发者中心直接申请：[测试网ONG申请入口](https://developer.ont.io/applyOng)
 
 #### 使用ONT ID签名验签
 
 **签名规则：**
 
-http Post请求体里的JSON对象需要按照key的字母升序排序，然后序列化为标准的JSON格式字符串，再对该请求内容字符串进行签名，最后再把签名以signature为key添加到请求体里的JSON对象中。
+HTTP Post请求体里的JSON对象需要按照key的字母升序排序，然后序列化为标准的JSON格式字符串，再对该请求内容字符串进行签名，最后再把签名以signature为key添加到请求体里的JSON对象中。
 
 以注册请求为例：
 POST请求的JSON对象按照key升序排序后为
@@ -215,7 +217,7 @@ POST请求的JSON对象按照key升序排序后为
 
 	{"callback_addr":"https://xxx","description":"coinwallet","name":"coinwallet","ontid":"did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM","ta_info":[{"claim_contexts":["claim:sensetime_authentication"],"ontid":"did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM"}]}
 
-再对该JSON格式字符串进行签名，得到签名值sigvalue后，以signature为key添加到Post请求体的JSON对象中
+再对该JSON格式字符串进行签名(签名验签操作，可参考[附录DEMO]()或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview))，得到签名值sigvalue后，以signature为key添加到Post请求体的JSON对象中
 
 最终认证Post请求体的JSON对象为：
 ```
@@ -236,9 +238,7 @@ POST请求的JSON对象按照key升序排序后为
 }
 ```
 
-**签名验签**
 
-有了身份ONT ID相关信息后便可进行签名验签操作，可参考[附录DEMO]()或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 ### DEMO
 
