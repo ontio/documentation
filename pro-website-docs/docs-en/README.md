@@ -9,7 +9,7 @@
 
 [Ontology](https://ont.io/#/) provides a range of protocol standards. These include identity protocol, multi-source authentication protocol, user authorization protocol, distributed data exchange protocol, and more to come. Based on these protocols, Ontology provides products and frameworks for application developers in order to directly build dApps without having knowledge of how to develop a complicated distributed system. This makes getting started with blockchain development easy!
 
-#### Our current product range include：
+#### Our current product range include:
 
 * ONT ID 
 
