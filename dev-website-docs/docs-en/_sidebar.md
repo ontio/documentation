@@ -11,8 +11,8 @@
   - [Developer Guide](docs-en/DeveloperGuide/00-developer-guide.md)
   - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
   - [Smart Contract Guide](docs-en/DeveloperGuide/smartcontract/02-deployment.md)
-        - [Invocation](docs-en/DeveloperGuide/smartcontract/01-invocation.md)
-        - [API](docs-en/DeveloperGuide/smartcontract/05-sc-api.md)
+      - [Invocation](docs-en/DeveloperGuide/smartcontract/01-invocation.md)
+      - [API](docs-en/DeveloperGuide/smartcontract/05-sc-api.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Quick Guide
   - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  

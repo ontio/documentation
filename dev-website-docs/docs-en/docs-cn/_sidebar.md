@@ -12,8 +12,8 @@
   - [本体指南](docs-cn/DeveloperGuide/00-developer-guide.md)
   - [开发工具指南](docs-cn/DeveloperGuide/tools.md)
   - [智能合约指南](docs-cn/DeveloperGuide/smartcontract/02-deployment.md)
-        - [调用](docs-cn/DeveloperGuide/smartcontract/01-invocation.md)
-        - [API](docs-cn/DeveloperGuide/smartcontract/05-sc-api.md)
+      - [调用](docs-cn/DeveloperGuide/smartcontract/01-invocation.md)
+      - [API](docs-cn/DeveloperGuide/smartcontract/05-sc-api.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
 - 快速学习
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
