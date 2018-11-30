@@ -265,7 +265,7 @@ An example of a keystore:
 
 If you already have a digital asset account and hold at least 0.01 ONG, you can also use various SDKs to create an ONT ID and obtain relevent information.
 
-With ONT ID, you can also use SDKs for signature verification and other operations.
+You can also use SDKs for signature verification and other operations using ONT ID.
 
 You can also take a look at identity-related operations such as ONT ID signature verification [sample code](https://github.com/ontio/ontology-DID/blob/master/docs/cn/thirdparty_kyc_cn.md#%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81) or [SDK development documentation](https://ontio.github.io/documentation/ontology_overview_sdks_en.html).
 
