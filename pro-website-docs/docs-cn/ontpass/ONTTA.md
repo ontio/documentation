@@ -50,7 +50,7 @@ ONTTA作为Ontology信任生态上的一个综合性的全球身份认证信任�
 
 现在身份认证是**单笔小额付费**模式，即每次身份认证请求都需要消耗ONG手续费，所以认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址是**ATGJSGzm2poCB8N44BgrAccJcZ64MFf187**，金额即每次身份认证的手续费）。收到认证请求后由TrustAnchor先将交易发送到链上，交易发送成功后才会继续后续的身份认证流程。
 
-如何构造转账交易可参考[附录DEMO]()或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+如何构造转账交易可参考[附录DEMO](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E7%A4%BA%E4%BE%8Bdemo)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 ## 认证请求示例
 
@@ -65,7 +65,7 @@ RequestExample:
 	"country":"CN",
 	"doc_type":"passport",
 	"frontdoc":"image/png;base64,iVBORw0KGgoAAAAADAFBMVEVHcEwAAAAAAAAAAAAAAAAAAA...",
-    	"ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
+	"ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
 	"owner_ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
 	"txn_body":"",
 	"txn_hash":"",
@@ -117,7 +117,7 @@ SuccessResponse：
 	
 	Length: **2 characters**
 
-	两位国家代码，参照ISO 3166-1 alpha-2编码标准。支持的国家及对应的国家编码可查询[认证支持国家列表](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)
+	两位国家代码，参照ISO 3166-1 alpha-2编码标准。支持的国家及对应的国家编码可查询[认证支持国家列表](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E8%AE%A4%E8%AF%81%E6%94%AF%E6%8C%81%E5%9B%BD%E5%AE%B6%E5%88%97%E8%A1%A8)
 
 
 * ### doc_type
@@ -186,7 +186,7 @@ SuccessResponse：
 	
 	Type: **string**
 
-	请求方使用ONT ID私钥按照签名规则对请求内容的签名。签名规则可参考[签名验签](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)
+	请求方使用ONT ID私钥按照[签名规则](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)对请求内容的签名。
 
 --------------------------------------------------------
 ## ResponseField
@@ -209,7 +209,7 @@ SuccessResponse：
 
 	Type: **long**
 
-	错误码。具体可参照[错误码字典](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ONTTA.md#%E9%94%99%E8%AF%AF%E7%A0%81)
+	错误码。具体可参照[错误码字典](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E9%94%99%E8%AF%AF%E7%A0%81%E5%AD%97%E5%85%B8)
 
 
 * ### desc
@@ -233,10 +233,10 @@ SuccessResponse：
 | :--- | :--- | :--- |
 | 0 | long | SUCCESS. 成功 |
 | 61001 | long | FAIL, param error. 参数错误 |
-| 62003 | long | FAIL, communication fail. 通信异常 |
-| 62005 | long | FAIL, transaction error. 交易异常 |
+| 62003 | long | FAIL, communication fail. 内部通信异常 |
 | 62006 | long | FAIL, verify signature fail. 验签失败 |
-| 62007 | long | FAIL, send transaction fail. 交易发送失败 |
+| 62007 | long | FAIL, transaction error. 交易异常 |
+| 62008 | long | FAIL, send transaction fail. 交易发送失败 |
 | 63001 | long | FAIL, inner error. 内部异常 |
 
 
@@ -388,7 +388,8 @@ Payload里认证信息clm格式如下：
 为保证请求的不可篡改性，可验证性，每次认证需求方发起认证时都需要使用自己的ONT ID对应的私钥对请求内容进行签名，TrustAnchor会对每次认证请求数据进行验签。
 
 **签名规则：**
-http Post请求体里的JSON对象需要按照key的字母升序排序，然后序列化为标准的JSON格式字符串，再对该请求内容字符串进行签名，最后再把签名以signature为key添加到请求体里的JSON对象中。
+
+HTTP Post请求体里的JSON对象需要按照key的字母升序排序，然后序列化为标准的JSON格式字符串，再对该请求内容字符串进行签名，最后再把签名以signature为key添加到请求体里的JSON对象中。
 
 以某次OCR认证请求为例：
 POST请求的JSON对象按照key升序排序后的JSON为
@@ -399,7 +400,7 @@ POST请求的JSON对象按照key升序排序后的JSON为
 	"country":"CN",
 	"doc_type":"passport",
 	"frontdoc":"image/png;base64,iVBORw0KGgoAAAAADAFBMAAAAAAAAAAAAAAA...",
-    "ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
+    	"ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
 	"owner_ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
 	"txn_body":"000005f77103a51c9eb625618fab20a8486fc03b1184...1dee3be19909583",
 	"txn_hash":"5f77103a51ef21c912625618fab20a8486fc03b118410b5101dee3be19909583"
@@ -419,7 +420,7 @@ POST请求的JSON对象按照key升序排序后的JSON为
 	"country":"CN",
 	"doc_type":"passport",
 	"frontdoc":"image/png;base64,iVBORw0KGgoAAAAADAFBMAAAAAAAAAAAAAAA...",
-    "ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
+    	"ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
 	"owner_ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
 	"txn_body":"000005f77103a51c9eb625618fab20a8486fc03b1184...1dee3be19909583",
 	"txn_hash":"5f77103a51ef21c912625618fab20a8486fc03b118410b5101dee3be19909583",
@@ -430,7 +431,13 @@ POST请求的JSON对象按照key升序排序后的JSON为
 
 ### 示例DEMO
 
-构造转账交易，注册ONTID，使用身份ONT ID私钥进行签名验签等操作，可参考[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/Demo.java)，[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+构造转账交易，使用身份ONT ID私钥进行签名验签等操作，可参考
+
+[JAVA DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/Demo.java)
+
+[TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)
+
+[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 
 
