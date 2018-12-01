@@ -12,9 +12,8 @@ SDK封装了加密算法、RPC交互和智能合约，是应用程序与本体�
 * [Typescript SDK项目地址](https://github.com/ontio/ontology-ts-sdk), [API 文档](https://apidoc.ont.io/tssdk/)
 * [Python SDK项目地址](https://github.com/ontio/ontology-python-sdk), [API 文档](https://apidoc.ont.io/pythonsdk/)
 * [Golang SDK项目地址](https://github.com/ontio/ontology-go-sdk)
-* [Object C SDK](https://github.com/ontio-community/ontology-oc-sdk)
-* [Android SDK](https://github.com/ontio-community/ontology-andriod-sdk)
-* [PHP SDK ](https://github.com/ontio-community/ontology-php-sdk)
+* [Object C SDK项目地址](https://github.com/ontio-community/ontology-oc-sdk)
+* [PHP SDK项目地址](https://github.com/ontio-community/ontology-php-sdk)
  
  正在开发中和即将启动开发的SDK包括：C#,C++,Swift 。
 
