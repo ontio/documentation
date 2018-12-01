@@ -5,7 +5,7 @@
 
 ##  智能合约API
 
-[API(python) doc](https://apidoc.ont.io/smartcontract/)
+[API doc](https://apidoc.ont.io/smartcontract/)
 
 ## 智能合约模板
 
