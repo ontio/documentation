@@ -152,7 +152,8 @@ RequestExample：
 {
 	"auth_flag":true,
 	"auth_id":"xxxxxxxxxxx",
-	"claim_context":"claim:cfca_authentication",
+	"claim_context":"claim:sfp_passport_authentication",
+	"description":"shuftipro passport authentication ",
     	"encrp_origdata":"header.payload.signature.blockchain_proof",
 	"ontid":"did:ont:AEnB1v4zRzepHY344g2K1eiZqdskhwGuN3",
 	"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
@@ -168,6 +169,7 @@ RequestExample：
 |    auth_flag |   Boolean|  TrustAnchor认证结果 true：认证通过  false：认证未通过  |Y|
 |    auth_id |   String|  需求方认证时传给TrustAnchor的认证编号  |Y|
 |    claim_context |   String|  可信声明模板标识  |Y|
+|    description|   String|  若认证失败，即失败原因。若认证成功，即可信声明描述 |Y|
 |    encrp_origdata|   String|  加密后的可信声明 |Y|
 |    ontid|   String|  ONTPass的ONT ID  |Y|
 |    owner_ontid|   String|  用户的ONT ID   |Y|
