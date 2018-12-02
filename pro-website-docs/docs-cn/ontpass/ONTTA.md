@@ -55,7 +55,7 @@ ONTTA作为Ontology信任生态上的一个综合性的全球身份认证信任�
 ## 认证请求示例
 
 ```json
-Host：/api/v1/trustanchor/ocr/authentication
+Host：/api/v1/ontta/ocr/authentication
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample:
@@ -73,7 +73,7 @@ RequestExample:
 }
 SuccessResponse：
 {
-    "action": "ShuftiproApply",
+    "action": "OcrApply",
     "error": 0,
     "desc": "SUCCESS",
     "version": "1.0",
@@ -233,7 +233,7 @@ SuccessResponse：
 | :--- | :--- | :--- |
 | 0 | long | SUCCESS. 成功 |
 | 61001 | long | FAIL, param error. 参数错误 |
-| 62003 | long | FAIL, communication fail. 内部通信异常 |
+| 62003 | long | FAIL, inner communicate fail. 内部通信异常 |
 | 62006 | long | FAIL, verify signature fail. 验签失败 |
 | 62007 | long | FAIL, transaction error. 交易异常 |
 | 62008 | long | FAIL, send transaction fail. 交易发送失败 |
