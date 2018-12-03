@@ -55,7 +55,7 @@ ONTTA作为Ontology信任生态上的一个综合性的全球身份认证信任�
 ## 认证请求示例
 
 ```json
-Host：/api/v1/ontta/ocr/authentication
+Host：https://api.ont.network/api/v1/ontta/ocr/authentication
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample:
