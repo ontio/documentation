@@ -182,6 +182,19 @@ RequestExample：
 
 ### 附录
 
+#### 错误码字典
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| 0 | long | SUCCESS. 成功 |
+| 61001 | long | FAIL, param error. 参数错误 |
+| 61002 | long | FAIL, already exist. 已存在 |
+| 61003 | long | FAIL, not found. 未找到 |
+| 62003 | long | FAIL, communication fail. 内部通讯异常 |
+| 62006 | long | FAIL, FAIL, verify signature fail. 验签失败 |
+| 63001 | long | FAIL, inner error. 内部错误 |
+
+
 #### 拥有自己的ONT ID
 
 在Ontology上注册ONT ID需要消耗ONG手续费。首先需要你拥有数字资产账户，且账户里至少有0.01个ONG，然后使用该资产账户为注册ONT ID进行手续费代付，完成ONT ID链上注册。
