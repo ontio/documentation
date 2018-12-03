@@ -79,7 +79,7 @@
 #### 认证需求方注册API
 
 ```json
-Host：https://app.ont.io/S1/api/v1/ontpass/authrequesters
+Host：https://api.ont.network/api/v1/ontpass/authrequesters
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample：
