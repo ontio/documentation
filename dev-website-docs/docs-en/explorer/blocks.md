@@ -16,7 +16,7 @@ successResponse：
 			"Hash":"63355f8e808e4572bab07c0748bd4182a562ee73401fc16c8108e4e56b264d2a",
 			"Height":112,
 			"TxnsRoot":"472af7d21a8315636021940933ec8d07a7a32fe21ba91075b4c0e0b1b4576531",
-			"BookKeeper":"TAEH7BXkLKi1gRLWs1zTWLmp1objhWc4Tk",
+			"BookKeeper":"AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC&AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC",
 			"NextBlock":"59192b3a12497793568f2394da91725cf382556b7a72e92f58e0a6f6cab6a70d",
 			"ConsensusData":"12156079575032856115",
 			"PrevBlock":"3865b98b84b3af895c946b23938a5dde127ad12d4268d92fbd63e642e91b00c8",
@@ -66,7 +66,7 @@ successResponse：
 				"Hash":"63355f8e808e4572bab07c0748bd4182a562ee73401fc16c8108e4e56b264d2a",
 				"Height":112,
 				"TxnsRoot":"472af7d21a8315636021940933ec8d07a7a32fe21ba91075b4c0e0b1b4576531",
-				"BookKeeper":"TAEH7BXkLKi1gRLWs1zTWLmp1objhWc4Tk",
+				"BookKeeper":"AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC&AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC",
 				"NextBlock":"59192b3a12497793568f2394da91725cf382556b7a72e92f58e0a6f6cab6a70d",
 				"ConsensusData":"12156079575032856115",
 				"PrevBlock":"3865b98b84b3af895c946b23938a5dde127ad12d4268d92fbd63e642e91b00c8",
@@ -118,7 +118,7 @@ successResponse：
 		"Hash":"63355f8e808e4572bab07c0748bd4182a562ee73401fc16c8108e4e56b264d2a",
 		"Height":112,
 		"TxnsRoot":"472af7d21a8315636021940933ec8d07a7a32fe21ba91075b4c0e0b1b4576531",
-		"BookKeeper":"TAEH7BXkLKi1gRLWs1zTWLmp1objhWc4Tk",
+		"BookKeeper":"AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC&AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC",
 		"NextBlock":"59192b3a12497793568f2394da91725cf382556b7a72e92f58e0a6f6cab6a70d",
 		"ConsensusData":"12156079575032856115",
 		"PrevBlock":"3865b98b84b3af895c946b23938a5dde127ad12d4268d92fbd63e642e91b00c8",
@@ -154,7 +154,7 @@ successResponse：
 |   Hash|   String|  区块hash  |
 |	Height|   int|  区块高度|
 |	TxnsRoot|   String|  该区块内所有交易的merkleroot  |
-|   BookKeeper|   String|  记账人  |
+|   BookKeeper|   String|  记账人,多个记账人以"&"分割    |
 |   NextBlock|   String|  下一区块hash  |
 |	ConsensusData	|	String|	共识数据  |
 |	PrevBlock|	String|	上一区块hash  |
@@ -165,4 +165,3 @@ successResponse：
 |	Txnlist.TxnType|	int|	交易类型  |
 |	Txnlistist.Height|	int |	交易区块高度  |
 |	Txnlistist.TxnTime|	int |	交易时间戳，unix时间戳  |
-
