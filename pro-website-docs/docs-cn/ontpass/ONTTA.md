@@ -217,109 +217,252 @@ SuccessResponse：
 ## 认证支持国家列表
 
 
-Country Name       | Language Code
+Country Name       | Country Code
 ---------          | -----------
-Afrikaans | AF
-Albanian | SQ
-Amharic | AM
-Arabic | AR
-Armenian | HY
-Azerbaijani | AZ
-Basque | EU
-Belarusian | BE
-Bengali | BN
-Bosnian | BS
-Bulgarian | BG
-Burmese | MY
-Catalan | CA
-Chichewa | NY
-Chinese | ZH
-Corsican | CO
-Croatian | HR
-Czech | CS
-Danish | DA
-Dutch | NL
-English | EN
-Esperanto | EO
-Estonian | ET
-Filipino | TL
-Finnish | FI
-French | FR
-Frisian | FY
-Galician | GL
-Georgian | KA
-German | DE
-Greek (modern) | EL
-Gujarati | GU
-Haitian, Haitian Creole | HT
-Hausa | HA
-Hebrew (modern) | HE
-Hindi | HI
-Hungarian | HU
-Indonesian | ID
-Irish | GA
-Igbo | IG
-Icelandic | IS
-Italian | IT
-Japanese | JA
-Javanese | JV
-Kannada | KN
-Kazakh | KK
-Khmer | KM
-Kirghiz, Kyrgyz | KY
-Korean | KO
-Kurdish | KU
-Latin | LA
-Luxembourgish, Letzeburgesch | LB
-Lao | LO
-Lithuanian | LT
-Latvian | LV
-Macedonian | MK
-Malagasy | MG
-Malay | MS
-Malayalam | ML
-Maltese | MT
-Maori | MI
-Marathi | MR
-Mongolian | MN
-Nepali | NE
-Norwegian | NO
-Punjabi | PA
-Persian | FA
-Polish | PL
-Pashto | PS
-Portuguese | PT
-Romanian | RO
-Russian | RU
-Sindhi | SD
-Samoan | SM
-Serbian | SR
-Scottish Gaelic | GD
-Shona | SN
-Sinhala | SI
-Slovak | SK
-Slovenian | SL
-Somali | SO
-Sesotho | ST
-Spanish | ES
-Sundanese | SU
-Swahili | SW
-Swedish | SV
-Tamil | TA
-Telugu | TE
-Tajik | TG
-Thai | TH
-Turkish | TR
-Ukrainian | UK
-Urdu | UR
-Uzbek | UZ
-Vietnamese | VI
-Welsh | CY
-Xhosa | XH
-Yiddish | YI
-Yoruba | YO
-Zulu | ZU
-
+Afghanistan|AF
+Aland Islands|AX
+Albania|AL
+Algeria|DZ
+American Samoa|AS
+Andorra|AD
+Angola|AO
+Anguilla|AI
+Antarctica|AQ
+Antigua and Barbuda|AG
+Argentina|AR
+Armenia|AM
+Aruba|AW
+Australia|AU
+Austria|AT
+Azerbaijan|AZ
+Bahamas|BS
+Bahrain|BH
+Bangladesh|BD
+Barbados|BB
+Belarus|BY
+Belgium|BE
+Belize|BZ
+Benin|BJ
+Bermuda|BM
+Bhutan|BT
+Bolivia|BO
+Bosnia and Herzegovina|BA
+Botswana|BW
+Bouvet Island|BV
+Brazil|BR
+British Indian Ocean Territory|IO
+Brunei|BN
+Bulgaria|BG
+Burkina Faso|BF
+Burma (Myanmar)|MM
+Burundi|BI
+Cambodia|KH
+Cameroon|CM
+Canada|CA
+Cape Verde|CV
+Cayman Islands|KY
+Central African Republic|CF
+Chad|TD
+Chile|CL
+China|CN
+Christmas Island|CX
+Cocos (Keeling) Islands|CC
+Colombia|CO
+Comoros|KM
+Congo, Dem. Republic|CD
+Congo, Republic|CG
+Cook Islands|CK
+Costa Rica|CR
+Croatia|HR
+Cuba|CU
+Cyprus|CY
+Czech Republic|CZ
+Denmark|DK
+Djibouti|DJ
+Dominica|DM
+Dominican Republic|DO
+East Timor|TL
+Ecuador|EC
+Egypt|EG
+El Salvador|SV
+Equatorial Guinea|GQ
+Eritrea|ER
+Estonia|EE
+Ethiopia|ET
+Falkland Islands|FK
+Faroe Islands|FO
+Fiji|FJ
+Finland|FI
+France|FR
+French Guiana|GF
+French Polynesia|PF
+French Southern Territories|TF
+Gabon|GA
+Gambia|GM
+Georgia|GE
+Germany|DE
+Ghana|GH
+Gibraltar|GI
+Greece|GR
+Greenland|GL
+Grenada|GD
+Guadeloupe|GP
+Guam|GU
+Guatemala|GT
+Guernsey|GG
+Guinea|GN
+Guinea-Bissau|GW
+Guyana|GY
+Haiti|HT
+Heard Island and McDonald Islands|HM
+Honduras|HN
+HongKong|HK
+Hungary|HU
+Iceland|IS
+India|IN
+Indonesia|ID
+Iran|IR
+Iraq|IQ
+Ireland|IE
+Israel|IL
+Italy|IT
+Ivory Coast|CI
+Jamaica|JM
+Japan|JP
+Jersey|JE
+Jordan|JO
+Kazakhstan|KZ
+Kenya|KE
+Kiribati|KI
+Korea, Dem. Republic of|KP
+Kuwait|KW
+Kyrgyzstan|KG
+Laos|LA
+Latvia|LV
+Lebanon|LB
+Lesotho|LS
+Liberia|LR
+Libya|LY
+Liechtenstein|LI
+Lithuania|LT
+Luxemburg|LU
+Macau|MO
+Macedonia|MK
+Madagascar|MG
+Malawi|MW
+Malaysia|MY
+Maldives|MV
+Mali|ML
+Malta|MT
+Man Island|IM
+Marshall Islands|MH
+Martinique|MQ
+Mauritania|MR
+Mauritius|MU
+Mayotte|YT
+Mexico|MX
+Micronesia|FM
+Moldova|MD
+Monaco|MC
+Mongolia|MN
+Montenegro|ME
+Montserrat|MS
+Morocco|MA
+Mozambique|MZ
+Namibia|NA
+Nauru|NR
+Nepal|NP
+Netherlands|NL
+Netherlands Antilles|AN
+New Caledonia|NC
+New Zealand|NZ
+Nicaragua|NI
+Niger|NE
+Nigeria|NG
+Niue|NU
+Norfolk Island|NF
+Northern Mariana Islands|MP
+Norway|NO
+Oman|OM
+Pakistan|PK
+Palau|PW
+Palestinian Territories|PS
+Panama|PA
+Papua New Guinea|PG
+Paraguay|PY
+Peru|PE
+Philippines|PH
+Pitcairn|PN
+Poland|PL
+Portugal|PT
+Puerto Rico|PR
+Qatar|QA
+Reunion Island|RE
+Romania|RO
+Russian Federation|RU
+Rwanda|RW
+Saint Barthelemy|BL
+Saint Kitts and Nevis|KN
+Saint Lucia|LC
+Saint Martin|MF
+Saint Pierre and Miquelon|PM
+Saint Vincent and the Grenadines|VC
+Samoa|WS
+San Marino|SM
+Saudi Arabia|SA
+Senegal|SN
+Serbia|RS
+Seychelles|SC
+Sierra Leone|SL
+Singapore|SG
+Slovakia|SK
+Slovenia|SI
+Solomon Islands|SB
+Somalia|SO
+South Africa|ZA
+South Georgia and the South Sandwich Islands|GS
+South Korea|KR
+Spain|ES
+Sri Lanka|LK
+Sudan|SD
+Suriname|SR
+Svalbard and Jan Mayen|SJ
+Swaziland|SZ
+Sweden|SE
+Switzerland|CH
+Syria|SY
+São Tomé and Príncipe|ST
+Taiwan|TW
+Tajikistan|TJ
+Tanzania|TZ
+Thailand|TH
+Togo|TG
+Tokelau|TK
+Tonga|TO
+Trinidad and Tobago|TT
+Tunisia|TN
+Turkey|TR
+Turkmenistan|TM
+Turks and Caicos Islands|TC
+Tuvalu|TV
+Uganda|UG
+Ukraine|UA
+United Arab Emirates|AE
+United Kingdom|GB
+United States|US
+Uruguay|UY
+Uzbekistan|UZ
+Vanuatu|VU
+Vatican City State|VA
+Venezuela|VE
+Vietnam|VN
+Virgin Islands (British)|VG
+Virgin Islands (U.S.)|VI
+Wallis and Futuna|WF
+Western Sahara|EH
+Yemen|YE
+Zambia|ZM
+Zimbabwe|ZW
 
 ## 签发的可信声明模板
 
