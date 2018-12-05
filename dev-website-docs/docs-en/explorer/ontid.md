@@ -16,12 +16,17 @@
 
 ### DDO Attribute字典
 
+
+
 | Key     | Value     |     Type |   Description   | 
-| :--------------: | :--------:| :------: |
+| :--------------: | :--------:| :------: |:-----:|
 |    Claim |    ContextDesc |   String|  claim模板描述 |
 |    |    ClaimContext |   String|  claim模板标识  |
 |    |    IssuerOntId |   String| 颁发者ONTID |
 |    |    ClaimId |   String|  claim的唯一标识 |
+|   SelfDefined |    value |   String|  用户自定义的DDO信息 |
+
+
 
 
 
@@ -67,6 +72,7 @@ successResponse：
 
 
 
+
 ### 分页查询OntId信息列表
 
 ```json
@@ -105,6 +111,7 @@ successResponse：
 |    OntIdList.TxnType|   int|  交易类型  |
 |    OntIdList.Fee |   String|  交易手续费  |
 |    Total|   int|  ontId相关的交易总数  |
+
 
 
 
