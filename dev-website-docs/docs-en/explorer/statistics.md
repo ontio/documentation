@@ -1,6 +1,6 @@
 ## Statistics APIs
 
-##4.1.1 区块链统计信息查询
+### 区块链统计信息查询
 
 ```json
 url：/api/v1/explorer/summary
@@ -28,7 +28,8 @@ successResponse：
 |    OntIdCount|   int|  已注册的OntId数量|
 
 
-##4.1.2 区块生成时间查询
+
+### 区块生成时间查询
 
 ```json
 url：/api/v1/explorer/block/generatetime/{amount}
