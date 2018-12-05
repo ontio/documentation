@@ -58,7 +58,7 @@
   - [Quick Start](docs-en/dApi/01-quickstart.md)
   - [Getting Started](docs-en/dApi/02-getting-started.md)
 
-- Ontology-Cli
+- Ontology Cli
   - [Overview](docs-en/OntologyCli/00-overview.md)
   - [Installation](docs-en/OntologyCli/01-installation.md)
   - [Getting Started](docs-en/OntologyCli/getting-started.md)
@@ -70,7 +70,7 @@
       - [Block Import/Export](docs-en/OntologyCli/08-block-data.md)
       - [Multi Signature](docs-en/OntologyCli/09-multisig.md)
       - [Query Info](docs-en/OntologyCli/10-query-info.md)
-- Sign-Server
+- Sign Server
   - [Overview](docs-en/SignServer/00-overview.md)
   - [Installation](docs-en/SignServer/01-installation.md)
   - [Getting Started](docs-en/SignServer/02-getting-started.md)
@@ -79,13 +79,13 @@
       - [Signing Methods](docs-en/SignServer/05-api-signing-methods.md)
       - [Convenience Methods](docs-en/SignServer/06-api-signing-convinience-methods.md)
   
-- Ontology-API
+- Ontology API
   - [Overview](docs-en/API/00-overview.md)
   - [Rpc API](docs-en/API/01-rpc_api.md)
   - [Restful API](docs-en/API/02-restful_api.md)
   - [Websocket API](docs-en/API/03-websocket_api.md)
   
-- Ontology Explorer-API
+- Explorer API
   - [Blocks](docs-en/explorer/blocks.md)
   - [Accounts](docs-en/explorer/accounts.md)
   - [Transactions](docs-en/explorer/transactions.md)

@@ -1,7 +1,7 @@
 ## Account APIs
 
 
-### Ontology Asset
+### Ontology资产名称字典
 
 
 | value     |     Type |   Description   | 
@@ -13,7 +13,7 @@
 
 
 
-### Query transfer information by address
+### 分页查询某个地址的所有转账交易信息
 
 ```json
 url：/api/v1/explorer/address/{address}/{pagesize}/{pagenumber}
@@ -73,33 +73,33 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    address|   String|  address  |
-|    pagesize|   int|  pagesize  |
-|    pagenumber|   int|  pagenumber |
+|    address|   String|  账户地址  |
+|    pagesize|   int|  分页大小  |
+|    pagenumber|   int|  页数，从1开始计数  |
 
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    AssetBalance.AssetName|   String|  |
-|    AssetBalance.Balance|   String|  |
-|    TxnList.TxnHash|   String|   |
-|    TxnList.ConfirmFlag|   int|   |
-|    TxnList.Height|   int|    |
-|    TxnList.TxnType|   int|    |
-|    TxnList.TxnTime| int|    |
-|    TxnList.Fee|   String|    |
-|    TxnList.BlockIndex|   int|    |
-|    TxnList.TransferList.FromAddress|   String|    |
-|    TxnList.TransferList.ToAddress|   String|    |
-|    TxnList.TransferList.Amount|   String|    |
-|    TxnList.TransferList.AssetName|   String|   |
+|    AssetBalance.AssetName|   String|  资产名称，具体可参考**资产名称字典**|
+|    AssetBalance.Balance|   String|  该资产的账户余额|
+|    TxnList.TxnHash|   String|  交易hash |
+|    TxnList.ConfirmFlag|   int|  交易状态，1:交易成功 2:交易失败 |
+|    TxnList.Height|   int|  区块高度  |
+|    TxnList.TxnType|   int|  交易类型  |
+|    TxnList.TxnTime| int|  交易时间，unix时间戳  |
+|    TxnList.Fee|   String|  手续费  |
+|    TxnList.BlockIndex|   int|  该交易在该区块中的索引  |
+|    TxnList.TransferList.FromAddress|   String|  转出账户地址  |
+|    TxnList.TransferList.ToAddress|   String|  转入账户地址  |
+|    TxnList.TransferList.Amount|   String|  交易金额  |
+|    TxnList.TransferList.AssetName|   String|  交易资产名称，具体可参考**资产名称字典**  |
 
 
 
 
 
-### Query transfer information by address and asset type
+### 分页查询某个地址的某种资产的所有转账交易信息
 
 ```json
 url：/api/v1/explorer/address/{address}/{assetname}/{pagesize}/{pagenumber}
@@ -143,35 +143,35 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    address|   String|    |
-|    assetname|   String|   |
-|    pagesize|   int|    |
-|    pagenumber|   int|    |
+|    address|   String|  账户地址  |
+|    assetname|   String|  资产名称，具体可参考**资产名称字典**  |
+|    pagesize|   int|  分页大小  |
+|    pagenumber|   int|  页数，从1开始计数  |
 
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    AssetBalance.AssetName|   String|  |
-|    AssetBalance.Balance|   String|  |
-|    TxnList.TxnHash|   String|   |
-|    TxnList.ConfirmFlag|   int|  state，1:success 2:fail |
-|    TxnList.Height|   int|    |
-|    TxnList.TxnType|   int|    |
-|    TxnList.TxnTime| int|   |
-|    TxnList.Fee|   String|    |
-|    TxnList.BlockIndex|   int|    |
-|    TxnList.TransferList.FromAddress|   String|    |
-|    TxnList.TransferList.ToAddress|   String|    |
-|    TxnList.TransferList.Amount|   String|    |
-|    TxnList.TransferList.AssetName|   String|    |
+|    AssetBalance.AssetName|   String|  资产名称|
+|    AssetBalance.Balance|   String|  该资产的账户余额|
+|    TxnList.TxnHash|   String|  交易hash |
+|    TxnList.ConfirmFlag|   int|  交易状态，1:交易成功 2:交易失败 |
+|    TxnList.Height|   int|  区块高度  |
+|    TxnList.TxnType|   int|  交易类型  |
+|    TxnList.TxnTime| int|  交易时间，unix时间戳  |
+|    TxnList.Fee|   String|  手续费  |
+|    TxnList.BlockIndex|   int|  该交易在该区块中的索引  |
+|    TxnList.TransferList.FromAddress|   String|  转出账户地址  |
+|    TxnList.TransferList.ToAddress|   String|  转入账户地址  |
+|    TxnList.TransferList.Amount|   String|  交易金额  |
+|    TxnList.TransferList.AssetName|   String|  交易资产名称，具体可参考**资产名称字典**  |
 
 
-> query ong，return waitboundong，unboundong
+> 查询ong资产，会同时返回waitboundong，unboundong
 
 
 
-### Query transfer information by address and time
+### 根据时间范围查询某个地址的某种资产的所有转账交易信息
 
 ```json
 url：/api/v1/explorer/address/time/{address}/{assetname}/{begintime}/{endtime}
@@ -223,28 +223,28 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    address|   String|    |
-|    assetname|   String|    |
-|    begintime|   int|    |
-|    endtime|   int|   |
+|    address|   String|  账户地址  |
+|    assetname|   String|  资产名称，具体可参考**资产名称字典**  |
+|    begintime|   int|  开始时间，unix时间戳  |
+|    endtime|   int|  结束时间，unix时间戳  |
 
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    AssetBalance.AssetName|   String|  |
-|    AssetBalance.Balance|   String|  |
-|    TxnList.TxnHash|   String|   |
-|    TxnList.ConfirmFlag|   int|  |
-|    TxnList.Height|   int|    |
-|    TxnList.TxnType|   int|    |
-|    TxnList.TxnTime| int|    |
-|    TxnList.Fee|   String|    |
-|    TxnList.BlockIndex|   int|    |
-|    TxnList.TransferList.FromAddress|   String|    |
-|    TxnList.TransferList.ToAddress|   String|    |
-|    TxnList.TransferList.Amount|   String|    |
-|    TxnList.TransferList.AssetName|   String|   |
+|    AssetBalance.AssetName|   String|  资产名称|
+|    AssetBalance.Balance|   String|  该资产的账户余额|
+|    TxnList.TxnHash|   String|  交易hash |
+|    TxnList.ConfirmFlag|   int|  交易状态，1:交易成功 2:交易失败 |
+|    TxnList.Height|   int|  区块高度  |
+|    TxnList.TxnType|   int|  交易类型  |
+|    TxnList.TxnTime| int|  交易时间，unix时间戳  |
+|    TxnList.Fee|   String|  手续费  |
+|    TxnList.BlockIndex|   int|  该交易在该区块中的索引  |
+|    TxnList.TransferList.FromAddress|   String|  转出账户地址  |
+|    TxnList.TransferList.ToAddress|   String|  转入账户地址  |
+|    TxnList.TransferList.Amount|   String|  交易金额  |
+|    TxnList.TransferList.AssetName|   String|  交易资产名称，具体可参考**资产名称字典**  |
 
 
 

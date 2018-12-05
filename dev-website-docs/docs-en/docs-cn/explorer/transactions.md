@@ -1,26 +1,26 @@
 ## Transactions APIs
 
-### Txn Type
+### TxnType交易类型字典
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    208|   int|  deploy  |
-|    209|   int|  invoke  |
+|    208|   int|  部署智能合约交易  |
+|    209|   int|  调用智能合约交易  |
 
-### Description
+### Description交易描述字典
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    transfer|   String|  transfer  |
-|    gasconsume|   String|  gas consume  |
-|    ontId- |   String|  OntId |
-|    claimRecord- |   String|  claim Record  |
-|    auth |   String|  auth  |
+|    transfer|   String|  资产转账交易  |
+|    gasconsume|   String|  手续费交易  |
+|    ontId- |   String|  OntId相关动作交易  |
+|    claimRecord- |   String|  存证动作交易  |
+|    auth |   String|  权限交易  |
 
 
 
 
-### Query transaction list by transaction amount
+### 获取当前最新交易基本信息列表
 
 ```json
 url：/api/v1/explorer/transactionlist/{amount}
@@ -47,21 +47,21 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    amount|   int|  totoal num  |
+|    amount|   int|  查询的交易总数  |
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    TxnHash|   String|    |
-|    TxnType|   int|  |
-|    TxnTime|   int|    |
-|    Height|   int|    |
-|    BlockIndex|   int|    |
-|    ConfirmFlag|   int |   |
-|    Fee|   String |   |
+|    TxnHash|   String|  交易hash  |
+|    TxnType|   int|  交易类型|
+|    TxnTime|   int|  交易时间戳，unix时间戳  |
+|    Height|   int|  区块高度  |
+|    BlockIndex|   int|  交易在该区块的索引  |
+|    ConfirmFlag|   int |  确认标识 1:交易成功 2:交易失败 |
+|    Fee|   String |  手续费 |
 
 
 
-### Query transaction list by page
+### 根据分页获取交易基本信息列表
 
 
 ```json
@@ -92,25 +92,25 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    pagesize|   int|    |
-|    pagenumber|   int|  |
+|    pagesize|   int|  每页数量  |
+|    pagenumber|   int|  页数|
 
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    Txnlistist.TxnHash|   String|    |
-|    Txnlistist.TxnType|   int|  |
-|    Txnlistist.TxnTime|   int|    |
-|    Txnlistist.Height|   int|    |
-|    Txnlistist.BlockIndex|   int|    |
-|    Txnlistist.ConfirmFlag|   int|   |
-|    Txnlistist.Fee|   String |   |
-|    Total|   int|   |
+|    Txnlistist.TxnHash|   String|  交易hash  |
+|    Txnlistist.TxnType|   int|  交易类型|
+|    Txnlistist.TxnTime|   int|  交易时间戳，unix时间戳  |
+|    Txnlistist.Height|   int|  区块高度  |
+|    Txnlistist.BlockIndex|   int|  交易在该区块的索引  |
+|    Txnlistist.ConfirmFlag|   int|  确认标识 1:交易成功 2:交易失败 |
+|    Txnlistist.Fee|   String |  手续费 |
+|    Total|   int|  总的交易数量 |
 
 
 
-### Query transaction information by transaction hash 
+### 根据交易hash获取交易详细信息
 
 
 ```json
@@ -145,22 +145,22 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    TxnHash|   String|    |
-|    TxnType|   int|  |
-|    TxnTime|   int|    |
-|    Height|   int|    |
-|    BlockIndex|   int|    |
-|    Fee|   String |   |
-|    ConfirmFlag|   int|   |
-|    Description|   String|   |
-|    Detail|   Object|   |
+|    TxnHash|   String|  交易hash  |
+|    TxnType|   int|  交易类型|
+|    TxnTime|   int|  交易时间戳，unix时间戳  |
+|    Height|   int|  区块高度  |
+|    BlockIndex|   int|  交易在该区块的索引  |
+|    Fee|   String |  手续费 |
+|    ConfirmFlag|   int|  确认标识 1:交易成功 2:交易失败 |
+|    Description|   String|  交易描述 ，具体参考**交易描述字典** |
+|    Detail|   Object|  交易详情，根据不同的交易类型，该字段内的内容会不一样，需根据交易描述做判断。详细字段参考以下说明 |
 
 
 
-**Detail：**
+**Detail字段内容：**
 
 
-- Transfer Transaction
+- 转账交易
 
 ```json
 successResponse：
@@ -182,14 +182,14 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    TransferList.AssetName|   String|  |
-|    TransferList.ToAddress|   String|  |
-|    TransferList.FromAddress|   String|  |
-|    TransferList.Amount|   String|  |
+|    TransferList.AssetName|   String|  资产名称,具体可参考**资产名称字典**|
+|    TransferList.ToAddress|   String|  交易转入地址|
+|    TransferList.FromAddress|   String|  交易转出地址|
+|    TransferList.Amount|   String|  交易金额|
 |    TransferList.Description|   String|  transfer|
 
 
-- ontid transaction
+- ontid相关交易
 
 ```json
 successResponse：
@@ -205,6 +205,6 @@ successResponse：
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    OntId|   String|  OntId|
-|    Description|   String| 
+|    Description|   String|  OntId操作描述，具体字段参考**OntId操作描述字典**|
 
 

@@ -1,6 +1,6 @@
 ## Statistics APIs
 
-### Get summary
+### 区块链统计信息查询
 
 ```json
 url：/api/v1/explorer/summary
@@ -22,14 +22,14 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    CurrentHeight|   int|    |
-|    TxnCount|   int|  |
-|    NodeCount|   int|  |
-|    OntIdCount|   int|  |
+|    CurrentHeight|   int|  当前区块高度  |
+|    TxnCount|   int|  交易数量|
+|    NodeCount|   int|  节点数量|
+|    OntIdCount|   int|  已注册的OntId数量|
 
 
 
-### Query generate block time
+### 区块生成时间查询
 
 ```json
 url：/api/v1/explorer/block/generatetime/{amount}
@@ -51,10 +51,10 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    amount|   int|    |
+|    amount|   int|  查询的最新区块数量  |
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    Height|   int|    |
-|    GenerateTime|   int|  |
+|    Height|   int|  区块高度  |
+|    GenerateTime|   int|  出块时间，单位秒|
 
