@@ -60,6 +60,7 @@ successResponse：
 |    Fee|   String |  手续费 |
 
 
+
 ### 根据分页获取交易基本信息列表
 
 
@@ -151,11 +152,14 @@ successResponse：
 |    BlockIndex|   int|  交易在该区块的索引  |
 |    Fee|   String |  手续费 |
 |    ConfirmFlag|   int|  确认标识 1:交易成功 2:交易失败 |
-|    Description|   String|  交易描述 ，具体参考**4.3.0 交易描述字典** |
+|    Description|   String|  交易描述 ，具体参考**交易描述字典** |
 |    Detail|   Object|  交易详情，根据不同的交易类型，该字段内的内容会不一样，需根据交易描述做判断。详细字段参考以下说明 |
 
 
+
 **Detail字段内容：**
+
+
 - 转账交易
 
 ```json
@@ -178,7 +182,7 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    TransferList.AssetName|   String|  资产名称,具体可参考**4.5.0资产名称字典**|
+|    TransferList.AssetName|   String|  资产名称,具体可参考**资产名称字典**|
 |    TransferList.ToAddress|   String|  交易转入地址|
 |    TransferList.FromAddress|   String|  交易转出地址|
 |    TransferList.Amount|   String|  交易金额|
@@ -201,8 +205,6 @@ successResponse：
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    OntId|   String|  OntId|
-|    Description|   String|  OntId操作描述，具体字段参考**4.4.0 OntId操作描述字典**|
-
-
+|    Description|   String|  OntId操作描述，具体字段参考**OntId操作描述字典**|
 
 
