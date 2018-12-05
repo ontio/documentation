@@ -1,56 +1,27 @@
-<h1 align="center">ONTTA认证服务对接指导</h1>
+<h1 align="center">全球身份认证接入指导</h1>
 
 ## 概述
 
-ONTTA作为Ontology信任生态上的一个综合性的全球身份认证信任源，可对全球200+国家的公民进行护照，驾照，身份证OCR认证并签发对应的可信声明。为Ontology信任生态中的身份认证需求方提供了多维度、高准确性、全球化的身份认证服务。
+Ontology Global Identity TrustAnchor(ONTTA)作为Ontology信任生态上的一个综合性的全球身份认证信任源，可对全球200+国家的公民进行护照，驾照，身份证OCR认证并签发对应的可信声明。为Ontology信任生态中的身份认证需求方提供了多维度、高准确性、全球化的身份认证服务。
 
-提供的认证服务包括：
+* TrustAnchor Name : Ontology Global Identity TrustAnchor
+* TrustAnchor ONT ID :  did：ont：ANNmeSiQJVwq3z6KvKo3SSKGnoBqvwYcwt
+* TrustAnchor Account Address : ATGJSGzm2poCB8N44BgrAccJcZ64MFf187
+* 服务列表
 
-- 护照OCR认证
-- 驾照OCR认证
-- 身份证OCR认证
-
-<table>
-<tr>
-	<td>TA_OntId</td>
-	<td>TA_Name</td>
-	<td>TA_Description</td>
-	<td>TA_Address</td>
-	<td>Claim_Context</td>
-	<td>Claim_Description</td>
-	<td>PersonalKeyInfo</td>
-	<td>Provider</td>
-</tr>
-<tr>
-    <td rowspan="3">did:ont:ANNmeSiQJVwq3z6K<br/>vKo3SSKGnoBqvwYcwt<br/></td>
-	<td rowspan="3">Ontology Global Identity TrustAnchor</td>
-    <td rowspan="3">Ontology Global Identity TrustAnchor</td>
-	<td rowspan="3">ATGJSGzm2poCB8N44BgrAccJcZ64MFf187</td>
-    <td>claim:sfp_passport_authentication</td>
-	<td>全球用户护照认证</td>
-	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
-	<td>Shuftipro</td>
-</tr>
-<tr>
-    <td>claim:sfp_idcard_authentication</td>
-	<td>全球用户身份证认证</td>
-	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
-	<td>Shuftipro</td>
-</tr>
-<tr>
-    <td>claim:sfp_dl_authentication</td>
-	<td>全球用户驾照认证</td>
-	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
-	<td>Shuftipro</td>
-</tr>
-</table>
+| Claim_Templete_Name | Claim_Description |  DocLink |
+| :-----------------: | :----------------:| :------: |
+|claim:sfp_passport_authentication | 全球用户护照认证   | http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA |
+|claim:sfp_idcard_authentication   | 全球用户身份证认证 | http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA |
+|claim:sfp_dl_authentication       | 全球用户驾照认证   | http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA |
 
 
-## 认证模式
 
-现在身份认证是**单笔小额付费**模式，即每次身份认证请求都需要消耗ONG手续费，所以认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址是**ATGJSGzm2poCB8N44BgrAccJcZ64MFf187**，金额即每次身份认证的手续费）。收到认证请求后由TrustAnchor先将交易发送到链上，交易发送成功后才会继续后续的身份认证流程。
+## 收费标准
 
-如何构造转账交易可参考[附录DEMO](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E7%A4%BA%E4%BE%8Bdemo)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+采用即时支付模式，即每次身份认证请求都需要消耗ONG手续费，所以认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址是**ATGJSGzm2poCB8N44BgrAccJcZ64MFf187**）。
+
+每次认证费用：*1.2 ONG*
 
 ## 认证请求示例
 

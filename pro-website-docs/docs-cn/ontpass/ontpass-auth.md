@@ -9,7 +9,7 @@
 * TrustAnchor：信任锚Trust Anchor是指在本体生态上提供认证服务的合作方，其可能是政府机关、大学、银行、第三方认证服务机构（比如CA机构）、生物识别科技公司等等。
 
 
-## 交互流程说明
+## 了解和ONTPass的交互流程
 
 ![交互流程说明](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontpass02.png)
 
@@ -30,10 +30,10 @@
 
 ONTPass目前已经对外开放的认证服务包括：
 
-#### 全球用户身份认证 Global Identity Authentication Service
+#### 全球身份认证服务 Global Identity Authentication Service
 
 * TrustAnchor Name : Ontology Global Identity TrustAnchor
-* TrustAnchor ONT ID :  'did:ont:'ANNmeSiQJVwq3z6KvKo3SSKGnoBqvwYcwt
+* TrustAnchor ONT ID :  did：ont：ANNmeSiQJVwq3z6KvKo3SSKGnoBqvwYcwt
 * TrustAnchor Account Address : ATGJSGzm2poCB8N44BgrAccJcZ64MFf187
 * 服务列表
 
@@ -124,7 +124,7 @@ SuccessResponse：
 
 需求方在ONTPass认证集市选定TrustAnchor的认证服务后，需向TrustAnchor提交认证数据。由TrustAnchor进行身份认证，可信声明签发，可信声明基本信息存证，资产交割，并使用端到端加密传输可信声明到ONTPass。
 
-[查看ONTPass平台已登记的TrustAnchor信任源](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA)
+- [接入全球身份认证](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA)
 
 
 ### Step 5: 获取认证结果
