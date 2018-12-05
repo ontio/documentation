@@ -20,4 +20,4 @@ The main players in the distributed data exchange protocol are:
 
 * Data owner: The data subject can be an institution, enterprise, individual, etc.;
 
-* Marketplace: Operates a visual data transaction page or community, develops data transaction and exchange standards in the industry, and facilitates efficient trading between buyers and sellers and trading participants. There will be significant differences in data exchange standards across industries, so there will be different types of decentralized data exchanges.
+* Marketplace: Operates a visual data transaction page or community, develops data transaction and exchange standards in the industry, and facilitates efficient trading between buyers and sellers and trading participants. There will be significant differences in data exchange standards across industries, so there will be different types of decentralized data exchanges. For more info, please visit our [DDXF product site](http://pro-docs.ont.io/#/docs-en/ddxf/overview)
