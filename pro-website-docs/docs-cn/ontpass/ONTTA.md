@@ -23,6 +23,8 @@ Ontology Global Identity TrustAnchor(ONTTA)作为Ontology信任生态上的一�
 
 每次认证费用：*1.2 ONG*
 
+> 备注：如何构造转账交易可参考[附录DEMO](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E7%A4%BA%E4%BE%8Bdemo)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+
 ## 认证请求示例
 
 ```json
