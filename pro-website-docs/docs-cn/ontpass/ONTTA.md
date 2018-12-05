@@ -336,7 +336,7 @@ Payload里认证信息clm格式如下：
 		"IssueDate":"2000-01-01",
 		"ExpirationDate":"2020-01-01",
 		"IDDocNumber":"510807199001012551",
-		"IssuerName":"Shuftipro"
+		"IssuerName":"ONTTA"
 	}
 }
 
@@ -349,7 +349,7 @@ Payload里认证信息clm格式如下：
 |    IssueDate|   String|  证件签发日期。格式：yyyy-mm-dd |
 |    ExpirationDate |   String|  证件过期日期。格式：yyyy-mm-dd    |
 |    IDDocNumber|   String|  证件号    |
-|    IssuerName |   String|  Shuftipro  |
+|    IssuerName |   String|  ONTTA  |
 
 
 ## 附录
