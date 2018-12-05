@@ -5,8 +5,8 @@
 本文用于指导认证需求方如何接入本体，并使用ONTPass提供的认证服务，流程中涉及到的参与方包括：
 
 * 认证需求方（Requester）: 需要对人，物，事进行认证的DApp，机构或服务场景，是本体信任生态中认证服务的需求方。
-* ONTPass：基于本体区块链的去中心化身份交易平台，ONTPass主要用于协同用户和需求方进行数据交换，数据全程被加密，ONTPass并不会触碰用户隐私数据。
-* TrustAnchor：本体信任生态中的多信任源，能为现实中的人、物、事提供认证服务并能签发可信声明，背后既可以是连接了服务全球的身份认证服务供应商，也可以是社群或自信任源。
+* ONTPass：基于ONTID及本体信任生态，是一个开放的、去中心化的认证平台，为人、财、物、事提供丰富的认证服务。ONTPass协同用户和需求方进行数据交换，数据全程被加密，保护用户隐私数据。
+* TrustAnchor：信任锚Trust Anchor是指在本体生态上提供认证服务的合作方，其可能是政府机关、大学、银行、第三方认证服务机构（比如CA机构）、生物识别科技公司等等。
 
 
 ## 交互流程说明
@@ -24,52 +24,41 @@
 
 ## 接入步骤
 
-### 1.发现认证服务
+### Step 1: 发现认证服务
 
-本体信任生态中的信任源TrustAnchor会将基本简介，能提供的认证服务和可信声明模板信息注册到ONTPass中，ONTPass对外提供TrustAnchor认证服务集市。认证需求方可以从ONTPass的认证服务集市选择自己需要的认证服务。
+本体信任生态中的信任源TrustAnchor将认证服务和可信声明模板信息注册到ONTPass中，ONTPass对外提供认证服务集市。认证服务集市完全开放，认证需求方可以从ONTPass的认证服务集市选择自己需要的认证服务。
 
-<table>
-<tr>
-	<td>TA_OntId</td>
-	<td>TA_Name</td>
-	<td>TA_Description</td>
-	<td>TA_Address</td>
-	<td>Claim_Context</td>
-	<td>Claim_Description</td>
-	<td>PersonalKeyInfo</td>
-	<td>Provider</td>
-	<td>DocLink</td>
-</tr>
-<tr>
-    <td rowspan="3">did:ont:ANNmeSiQJVwq3z6K<br/>vKo3SSKGnoBqvwYcwt<br/></td>
-	<td rowspan="3">Ontology Global Identity TrustAnchor</td>
-    <td rowspan="3">Ontology Global Identity TrustAnchor</td>
-	<td rowspan="3">ATGJSGzm2poCB8N44BgrAccJcZ64MFf187</td>
-    <td>claim:sfp_passport_authentication</td>
-	<td>全球用户护照认证</td>
-	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
-	<td>Shuftipro</td>
-	<td>http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA</td>
-</tr>
-<tr>
-    <td>claim:sfp_idcard_authentication</td>
-	<td>全球用户身份证认证</td>
-	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
-	<td>Shuftipro</td>
-	<td>http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA</td>
-</tr>
-<tr>
-    <td>claim:sfp_dl_authentication</td>
-	<td>全球用户驾照认证</td>
-	<td><nobr>姓名，国籍，出生日期，证件号，签发日期，过期日期</nobr></td>
-	<td>Shuftipro</td>
-	<td>http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA</td>
-</tr>
-</table>
+ONTPass目前已经对外开放的认证服务包括：
+
+#### 全球用户身份认证 Global Identity Authentication Service
+
+* TrustAnchor Name : Ontology Global Identity TrustAnchor
+* TrustAnchor ONT ID :  'did:ont:'ANNmeSiQJVwq3z6KvKo3SSKGnoBqvwYcwt
+* TrustAnchor Account Address : ATGJSGzm2poCB8N44BgrAccJcZ64MFf187
+* 服务列表
+
+| Claim_Templete_Name | Claim_Description |  DocLink |
+| :-----------------: | :----------------:| :------: |
+|claim:sfp_passport_authentication | 全球用户护照认证   | http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA |
+|claim:sfp_idcard_authentication   | 全球用户身份证认证 | http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA |
+|claim:sfp_dl_authentication       | 全球用户驾照认证   | http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA |
 
 
 
-### 2. ONTPass平台注册
+### Step 2: 确定收费模式
+
+使用ONTPass需要支付一定的费用，ONTPass支持两种收费模式，您需要根据您的情况选择合适的支付方式。
+
+* 模式一：即时支付模式
+
+即时支付模式是完全开放并自治化，即每次认证请求都需要消耗ONG手续费，所以认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址和具体金额由各个TrustAnchor指定）。收到认证请求后由TrustAnchor先将交易发送到链上，交易发送成功后才会继续后续的身份认证流程。
+
+* 模式二：后付费模式
+
+如果选择后付费模式，你需要联系[本体机构合作](https://info.ont.io/cooperation/zh)。
+
+
+### Step 3:  ONTPass平台注册
 
 认证需求方选定所需的TrustAnchor提供的认证服务后，需要到ONTPass平台注册相关信息，主要包括ONT ID，基本简介，所需认证服务及回调地址。只有在平台注册过的需求方才会收到后续的可信声明回调推送。
 
@@ -131,14 +120,14 @@ SuccessResponse：
 
 
 
-### 3.向TrustAnchor提交认证
+### Step 4: 向TrustAnchor提交认证
 
 需求方在ONTPass认证集市选定TrustAnchor的认证服务后，需向TrustAnchor提交认证数据。由TrustAnchor进行身份认证，可信声明签发，可信声明基本信息存证，资产交割，并使用端到端加密传输可信声明到ONTPass。
 
 [查看ONTPass平台已登记的TrustAnchor信任源](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA)
 
 
-### 4.获取用户可信声明
+### Step 5: 获取认证结果
 
 当TrustAnchor完成用户认证后，会将认证结果及签发的信声明发送到ONTPass。ONTPass会根据认证需求方之前注册的回调地址，将认证结果和签发的可信声明推送到需求方。
 
@@ -154,7 +143,7 @@ RequestExample：
 	"auth_id":"xxxxxxxxxxx",
 	"claim_context":"claim:sfp_passport_authentication",
 	"description":"shuftipro passport authentication ",
-    	"encrp_origdata":"header.payload.signature.blockchain_proof",
+    "encrp_origdata":"header.payload.signature.blockchain_proof",
 	"ontid":"did:ont:AEnB1v4zRzepHY344g2K1eiZqdskhwGuN3",
 	"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
 	"ta_ontid":"did:ont:A7wB7v4zRzepHY344g2K1eiZqdskhwHu9J",
