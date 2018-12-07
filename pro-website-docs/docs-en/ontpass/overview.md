@@ -12,7 +12,7 @@ ONTPass has the following advantages:
 
 * The Ontology trust ecosystem is already connected to global certification services, covering users in 218 countries and regions;
 * Provides low cost, one-time authentication, which can be used multiple times, and reduces the cost of multiple authentications;
-* The protocol uses [end-to-end encryption specifications](https://github.com/ontio/ontology-DID/blob/master/docs/cn/end-to-end-encryption.md) to protect user data throughout;
+* The protocol uses [end-to-end encryption specifications](https://github.com/ontio/ontology-DID/blob/master/docs/en/end-to-end-encryption.md) to protect user data throughout;
 * All authentication actions and results are attested to the Ontology blockchain;
 * The specification supports cryptographic algorithms such as zero-knowledge proof, and users can selectively present their own identity information to maximize user privacy.
 
