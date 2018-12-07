@@ -78,9 +78,9 @@ withdrawable ONG amount = [unbounded ong amount per second] × [holding time of 
 
 [unbounded ong amount per second] will reduced by  [5, 4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]  every year.
 
-[holding time of ONT] :current time - last ONT account changed time
+[holding time of ONT] : current time - last ONT account changed time
 
-[ONT total supply]:1000000000
+[ONT total supply] : 1000000000
 
 For Example:Account A holding 100 ONTs on day 1,200 ONTs on day 2, 300 ONTs on day 3, so he can withdraw ONGs:
 
