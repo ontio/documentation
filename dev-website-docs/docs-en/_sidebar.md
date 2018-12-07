@@ -89,6 +89,8 @@
   - [Overview](docs-en/explorer/overview.md)
   - [Blocks](docs-en/explorer/blocks.md)
   - [Accounts](docs-en/explorer/accounts.md)
+  - [Contracts](docs-en/explorer/contracts.md)
+  - [Tokens](docs-en/explorer/tokens.md)
   - [Transactions](docs-en/explorer/transactions.md)
   - [ONT ID](docs-en/explorer/ontid.md)
   - [Statistics](docs-en/explorer/statistics.md) 
