@@ -1,10 +1,10 @@
 
 
-The document description API specification in Ontology Explorer.
+The document presents API specification of Ontology Explorer.
 
-#### The MainNet explorer api domain
+#### MainNet explorer API domain
 https://explorer.ont.io
 
-#### The TestNet explorer api domain
+#### TestNet explorer API domain
 https://polarisexplorer.ont.io
 
