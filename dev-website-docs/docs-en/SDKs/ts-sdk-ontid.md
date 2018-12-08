@@ -4,7 +4,7 @@ Identity has the following structure:
 
 ```
 {
-	"ontid": "did:ont:ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
+    "ontid": "did:ont:ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
     "label": "mickey",
     "lock": false,
     "controls": [{
