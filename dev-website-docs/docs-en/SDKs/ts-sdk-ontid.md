@@ -92,7 +92,7 @@ const pk = privateKey.getPublicKey();
 const gasPrice = '0';
 const gasLimit = '20000;
 const tx = OntidContract.buildRegisterOntidTx(did, pk, gasPrice, gasLimit);
-Transaction.signTransaction(tx, privateKey);
+TransactionBuilder.signTransaction(tx, privateKey);
 
 ````
 ### Sign Transaction With Payer
