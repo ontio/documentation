@@ -92,7 +92,6 @@ const pk = privateKey.getPublicKey();
 const gasPrice = '0';
 const gasLimit = '20000;
 const tx = OntidContract.buildRegisterOntidTx(did, pk, gasPrice, gasLimit);
-TransactionBuilder.signTransaction(tx, privateKey);
 
 ````
 ### Sign Transaction With Payer
@@ -103,6 +102,8 @@ import {TransactionBuilder} from 'ontology-ts-sdk'
 //we also need an account to pay for the gas
 //supporse we have an account and the privateKey
 tx.payer = account.address
+// First, we need sign transaction with the private key of the ONT ID.
+TransactionBuilder.signTransaction(tx, privateKey);
 //Then sign the transaction with payer's account
 //we already got transaction created before,add the signature.
 TransactionBuilder.addSign(tx, privateKeyOfAccount)
