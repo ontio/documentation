@@ -22,8 +22,8 @@
   - [智能合约模板](docs-cn/Tutorials/02-smartcontract-template.md)
   - [开发资料集合](docs-cn/Tutorials/03-docs-collect.md)
   - [本体安装](docs-cn/DeveloperGuide/01-installation.md)
-  - [dApp开发视频](docs-cn/Tutorials/04-learning-dapp-video.md)
-  - [智能合约视频](docs-cn/Tutorials/05-learning-sc-video.md)
+  - [DApp开发视频](docs-cn/Tutorials/04-learning-dapp-video.md)
+  - [智能合约开发视频](docs-cn/Tutorials/05-learning-sc-video.md)
 - Punica
   - [概述](docs-cn/Punica/punica.md)
   - [Punica Cli](docs-cn/Punica/punica-cli.md)
