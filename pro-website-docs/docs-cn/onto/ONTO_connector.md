@@ -112,6 +112,7 @@ method: post
 	"action": "invoke",
   "params": {
       "login_statu": true,
+			"sc_content":"you will pay 11 ont for something"
       "method": "post",
       "url": "http://127.0.0.1:80/rawtransaction/txhash", //optional: get signedTx from DApp backend
       "signedTx": "00d000000000000000000000000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000004010b506172616d436f6e66696703312e300d4f6e746f6c6f6779205465616d0e636f6e74616374406f6e742e696f2b436861696e20476c6f62616c20456e7669726f6e6d656e74205661726961626c6573204d616e61676572200000"
@@ -124,6 +125,7 @@ method: post
 | ----------- | ------- | ----------------------------------------------------------------- |
 | action      | string  | 定义此二维码的功能，登录设定为"Login"，调用智能合约设定为"invoke" |
 | login_statu | boolean |                                                                   |
+| sc_content | string | 告知用户你正在做什么操作                                                             |
 | method      | string  | post                                                              |
 | url         | string  | 用户扫码签名后发送的URL                                           |
 | signedTx    | string  | dapp后台根据用户钱包构建的调用智能合约交易                        |
