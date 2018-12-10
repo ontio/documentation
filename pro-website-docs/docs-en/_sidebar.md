@@ -11,3 +11,6 @@
   - [Get started](docs-en/ddxf/get_started.md)
 - Trust Anchor Connector
   - [Overview](docs-en/taconnector/overview.md)
+- ONTO
+  - [Overview](docs-en/onto/overview.md)
+  - [ONTO Login](docs-en/onto/ONTO_login.md)
