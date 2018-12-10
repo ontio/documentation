@@ -14,8 +14,9 @@ SDK封装了加密算法、RPC交互和智能合约，是应用程序与本体�
 * [Golang SDK项目地址](https://github.com/ontio/ontology-go-sdk)
 * [Object C SDK项目地址](https://github.com/ontio-community/ontology-oc-sdk)
 * [PHP SDK项目地址](https://github.com/ontio-community/ontology-php-sdk)
+* [Swift SDK项目地址](https://github.com/ontio-community/ontology-swift-sdk)
  
- 正在开发中和即将启动开发的SDK包括：C#,C++,Swift 。
+ 正在开发中和即将启动开发的SDK包括：C#,C++ 。
 
 目前支持的功能：
 
