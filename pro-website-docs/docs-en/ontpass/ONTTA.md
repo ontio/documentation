@@ -123,7 +123,7 @@ SuccessResponse：
 	
 	Type: **string**
 
-	Requester's ONT ID。
+	Requester's ONT ID.You should use this ONT ID to signature.
 
 
 * ### owner_ontid
@@ -132,7 +132,7 @@ SuccessResponse：
 	
 	Type: **string**
 
-	User's ONT ID。
+	User's ONT ID.
 
 
 * ### txn_body
@@ -168,7 +168,7 @@ SuccessResponse：
 
 	Type: **string**
 
-	Version Number，Currently 1.0。
+	Version Number，Currently 1.0
 
 
 * ### action
@@ -204,13 +204,13 @@ SuccessResponse：
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| 0 | long | SUCCESS. Success |
-| 61001 | long | FAIL, param error. Parameter error |
-| 62003 | long | FAIL, inner communicate fail. Inner communicate failure |
-| 62006 | long | FAIL, verify signature fail.  Verify signature failure|
-| 62007 | long | FAIL, transaction error. Transaction error |
-| 62008 | long | FAIL, send transaction fail. transaction-sending failure |
-| 63001 | long | FAIL, inner error. Inner error |
+| 0 | int | SUCCESS. Success |
+| 61001 | int | FAIL, param error. Parameter error |
+| 62003 | int | FAIL, inner communicate fail. Inner communicate failure |
+| 62006 | int | FAIL, verify signature fail.  Verify signature failure|
+| 62007 | int | FAIL, txn toaddress error or amount insufficient. Transaction error |
+| 62008 | int | FAIL, send transaction fail. transaction-sending failure |
+| 63001 | int | FAIL, inner error. Inner error |
 
 
 
