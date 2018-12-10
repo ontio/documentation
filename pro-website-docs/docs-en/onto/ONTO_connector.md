@@ -1,4 +1,4 @@
-<h1 align="center">ONTO扫码服务接入标准 </h1>
+<h1 align="center">ONTO Connector服务接入标准 </h1>
 <p align="center" class="version">Version 0.8.0 </p>
 
 ## 概述
