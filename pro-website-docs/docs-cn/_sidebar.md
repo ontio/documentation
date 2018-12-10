@@ -13,3 +13,4 @@
 - ONTO
   - [概述](docs-cn/onto/overview.md)
   - [ONTO Login](docs-cn/onto/ONTO_login.md)
+  - [ONTO Connector](docs-cn/onto/ONTO_connector.md)
