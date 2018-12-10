@@ -123,7 +123,7 @@ SuccessResponse：
 	
 	Type: **string**
 
-	请求方的ONT ID。
+	请求方的ONT ID，使用该ONT ID对请求内容进行签名。
 
 
 * ### owner_ontid
@@ -204,13 +204,13 @@ SuccessResponse：
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| 0 | long | SUCCESS. 成功 |
-| 61001 | long | FAIL, param error. 参数错误 |
-| 62003 | long | FAIL, inner communicate fail. 内部通信异常 |
-| 62006 | long | FAIL, verify signature fail. 验签失败 |
-| 62007 | long | FAIL, transaction error. 交易异常 |
-| 62008 | long | FAIL, send transaction fail. 交易发送失败 |
-| 63001 | long | FAIL, inner error. 内部异常 |
+| 0 | int | SUCCESS. 成功 |
+| 61001 | int | FAIL, param error. 参数错误 |
+| 62003 | int | FAIL, inner communicate fail. 内部通信异常 |
+| 62006 | int | FAIL, verify signature fail. 验签失败 |
+| 62007 | int | FAIL, txn toaddress error or amount insufficient. 交易收款地址错误或金额不足 |
+| 62008 | int | FAIL, send transaction fail. 交易发送失败 |
+| 63001 | int | FAIL, inner error. 内部异常 |
 
 
 
