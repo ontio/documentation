@@ -9,19 +9,18 @@
   - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
   - [白皮书](docs-cn/DeveloperGuide/06-white-papers.md)
 - 开发者指导
-  - [本体指南](docs-cn/DeveloperGuide/00-developer-guide.md)
+  - [安装节点](docs-cn/DeveloperGuide/01-installation.md)
   - [开发工具指南](docs-cn/DeveloperGuide/tools.md)
-  - [智能合约指南](docs-cn/DeveloperGuide/smartcontract/02-deployment.md)
-      - [调用](docs-cn/DeveloperGuide/smartcontract/01-invocation.md)
-      - [API](docs-cn/DeveloperGuide/smartcontract/05-sc-api.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
 - 快速学习
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
   - [DAPI 使用](docs-cn/Tutorials/06-dapi-useage.md)  
   - [Debug智能合约](docs-cn/Tutorials/01-debug-a-Smart-Contract.md)
-  - [智能合约模板](docs-cn/Tutorials/02-smartcontract-template.md)
+  - [智能合约指南](docs-cn/DeveloperGuide/smartcontract/02-deployment.md)
+      - [调用](docs-cn/DeveloperGuide/smartcontract/01-invocation.md)
+      - [API](docs-cn/DeveloperGuide/smartcontract/05-sc-api.md)
+      - [模板](docs-cn/Tutorials/02-smartcontract-template.md)
   - [开发资料集合](docs-cn/Tutorials/03-docs-collect.md)
-  - [本体安装](docs-cn/DeveloperGuide/01-installation.md)
   - [DApp开发视频](docs-cn/Tutorials/04-learning-dapp-video.md)
   - [智能合约开发视频](docs-cn/Tutorials/05-learning-sc-video.md)
 - Punica
@@ -74,7 +73,7 @@
       - [签名方法](docs-cn/SignServer/05-api-signing-methods.md)
       - [简便的签名方法](docs-cn/SignServer/06-api-signing-convinience-methods.md)
       
-- Ontology API
+- Ontology HTTP API
   - [概述](docs-cn/API/00-overview.md)
   - [Rpc 接口](docs-cn/API/01-rpc_api.md)
   - [Restful 接口](docs-cn/API/02-restful_api.md)

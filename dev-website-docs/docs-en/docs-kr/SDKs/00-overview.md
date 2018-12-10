@@ -10,8 +10,9 @@ Ontology has developed a variety of SDKs, including:
 * [Github of Typescript SDK](https://github.com/ontio/ontology-ts-sdk), [API docs](https://apidoc.ont.io/tssdk/)
 * [Github of Python SDK](https://github.com/ontio/ontology-python-sdk), [API docs](https://apidoc.ont.io/pythonsdk/)
 * [Github of Golang SDK](https://github.com/ontio/ontology-go-sdk)
+* [Github of Swift SDK](https://github.com/ontio-community/ontology-swift-sdk)
 
-In addition, several other SDKs are being developed, such as: C#, C++, Swift.
+In addition, several other SDKs are being developed, such as: C#, C++.
 
 The common functions across the various SDKs are：
 

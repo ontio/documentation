@@ -8,19 +8,18 @@
   - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
   - [White-papers](docs-en/DeveloperGuide/06-white-papers.md)
 - Developer Guide
-  - [Developer Guide](docs-en/DeveloperGuide/00-developer-guide.md)
+  - [Node Setup](docs-en/DeveloperGuide/01-installation.md)
   - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
-  - [Smart Contract Guide](docs-en/DeveloperGuide/smartcontract/02-deployment.md)
-      - [Invocation](docs-en/DeveloperGuide/smartcontract/01-invocation.md)
-      - [API](docs-en/DeveloperGuide/smartcontract/05-sc-api.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Quick Guide
   - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  
   - [DAPI Useage](docs-en/Tutorials/06-dapi-useage.md)  
   - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)
-  - [Smart Contract Template](docs-en/Tutorials/02-smartcontract-template.md)
+  - [Smart Contract Guide](docs-en/DeveloperGuide/smartcontract/02-deployment.md)
+      - [Invocation](docs-en/DeveloperGuide/smartcontract/01-invocation.md)
+      - [API](docs-en/DeveloperGuide/smartcontract/05-sc-api.md)
+      - [Template](docs-en/Tutorials/02-smartcontract-template.md)
   - [Learning Collection](docs-en/Tutorials/03-docs-collect.md)
-  - [Installation](docs-en/DeveloperGuide/01-installation.md)
   - [DApp Video Tutorial](docs-en/Tutorials/04-learning-dapp-video.md)
   - [Smart Contract Video Tutorial](docs-en/Tutorials/05-learning-sc-video.md)
 - Punica
@@ -79,7 +78,7 @@
       - [Signing Methods](docs-en/SignServer/05-api-signing-methods.md)
       - [Convenience Methods](docs-en/SignServer/06-api-signing-convinience-methods.md)
   
-- Ontology API
+- Ontology HTTP API
   - [Overview](docs-en/API/00-overview.md)
   - [Rpc API](docs-en/API/01-rpc_api.md)
   - [Restful API](docs-en/API/02-restful_api.md)
