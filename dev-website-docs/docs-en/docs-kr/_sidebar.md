@@ -21,8 +21,8 @@
   - [Smart Contract Template](docs-kr/Tutorials/02-smartcontract-template.md)
   - [Learning Collection](docs-kr/Tutorials/03-docs-collect.md)
   - [Installation](docs-kr/DeveloperGuide/01-installation.md)
-  - [DApp Video Tutorail](docs-kr/Tutorials/04-learning-dapp-video.md)
-  - [Smart Contract Video Tutorail](docs-kr/Tutorials/05-learning-sc-video.md)
+  - [DApp Video Tutorial](docs-kr/Tutorials/04-learning-dapp-video.md)
+  - [Smart Contract Video Tutorial](docs-kr/Tutorials/05-learning-sc-video.md)
 - Punica
   - [Overview](docs-kr/Punica/punica.md)
   - [Punica Cli](docs-kr/Punica/punica-cli.md)
