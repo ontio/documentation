@@ -11,7 +11,7 @@
 
 ## 交互流程说明
 
-<img src="https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/split-login-invoke.png" style="max-width:1000px"/>
+<img src="https://i.postimg.cc/C1mVB1fM/split-login-invoke.png" style="max-width:1000px"/>
 
 ### Login
 - 1.1 使用ONTO作为provider扫描dapp方提供的二维码（[登陆二维码标准](#登陆二维码标准)）
