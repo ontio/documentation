@@ -59,32 +59,33 @@ successResponse：
 |    GenerateTime|   int|  |
 
 
-
-### Get daily information
+### Get daily info
 
 ```json
 url：/api/v1/explorer/daily/info/{starttime}/{endtime}
 method：GET
 successResponse：
 {
-	"Action":"QueryDailyInfo",
-	"Version":"1.0",
-	"Error":0,
-	"Desc":"SUCCESS",
-	"Result":[
+	"Action": "QueryDailyInfo",
+	"Error": 0,
+	"Desc": "SUCCESS",
+	"Version": "1.0",
+	"Result": [
 		{
-			"TxnCount": 1202,
-			"BlockCount": 1180,
-			"OntIdCount": 789,
-			"Time": "2018-11-02"
+			"TxnCount": 155,
+			"AddressCount": 4,
+			"BlockCount": 414,
+			"OntIdCount": 0,
+			"Time": "2018-12-06"
 		},
 		{
-			"TxnCount": 1002,
-			"BlockCount": 902,
-			"OntIdCount": 489,
-			"Time": "2018-11-01"
+			"TxnCount": 233,
+			"AddressCount": 16,
+			"BlockCount": 12,
+			"OntIdCount": 12,
+			"Time": "2018-12-07"
 		}
-  	]
+	]
 }
 ```
 
@@ -96,9 +97,9 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    TxnCount|   int|  该日交易总量  |
-|    BlockCount|   int| 该日区块总量 |
-|    OntIdCount|   int| 该日ONT ID总量 |
-|    Time|   string | 日期，格式：yyyy-MM-dd |
-
+|    Time|   string|   format:yyyy-MM-dd |
+|    TxnCount|   int|  |
+|    AddressCount|   int|  |
+|    BlockCount|   int|  |
+|    OntIdCount|   int|  |
 
