@@ -16,20 +16,19 @@
 		        "ContractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
 			"Name": "name",
 			"TxCount": 30,
-			"OntCount"："10",
-			"OngCount": "10.98",
 			"ABI":"{"contractHash":"16edbe366d1337eb510c2ff61099424c94aeef02","abi":{"functions":[{"name":"Main","parameters":[{"name":"operation","type":""},{"name":"args","type":""}],"returntype":""},{"name":"name","parameters":[{"name":"","type":""}],"returntype":""},{"name":"hello","parameters":[{"name":"msg","type":""}],"returntype":""},{"name":"testHello","parameters":[{"name":"msgBool","type":""},{"name":"msgInt","type":""},{"name":"msgByteArray","type":""},{"name":"msgStr","type":""},{"name":"msgAddress","type":""}],"returntype":""},{"name":"testList","parameters":[{"name":"msgList","type":""}],"returntype":""},{"name":"testListAndStr","parameters":[{"name":"msgList","type":""},{"name":"msgStr","type":""}],"returntype":""},{"name":"testStructList","parameters":[{"name":"structList","type":""}],"returntype":""},{"name":"testStructListAndStr","parameters":[{"name":"structList","type":""},{"name":"msgStr","type":""}],"returntype":""},{"name":"testMap","parameters":[{"name":"msg","type":""}],"returntype":""},{"name":"testGetMap","parameters":[{"name":"key","type":""}],"returntype":""},{"name":"testMapInMap","parameters":[{"name":"msg","type":""}],"returntype":""},{"name":"testGetMapInMap","parameters":[{"name":"key","type":""}],"returntype":""},{"name":"transfer","parameters":[{"name":"from_acct","type":""},{"name":"to_acct","type":""},{"name":"amount","type":""}],"returntype":""},{"name":"transferMulti","parameters":[{"name":"args","type":""}],"returntype":""}]}}",
 			"Code": "013ec56b6a00527ac46a51527ac46a00c3046e616d659c640900658e076c7566616a00c30568656c6c6f9c6424006a51c3c0519e640700006c7566616a51c300c36a52527ac46a52c36551076c7566616a00.......",
 			"CreateTime":1516946305,
 			"UpdateTime":1516948340,
-			"Description": "30",
 			"ContactInfo":{
 			    "email":"xx@onchain.com",
 			    "twitter":"",
 			    "github":""
 			    ....
 			    },
-			"Logo":""
+			"Logo":"",
+			"Description": "LuckyNumber is a decentralized, tru.....",
+			"Creator": "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM"
 		    }
 		]
 	    }
@@ -50,8 +49,6 @@
 | ContractHash|   String|    |
 | Name|   String|  |
 | TxCount|   int|    |
-| OntCount|   String|    |
-| OngCount|   String|    |
 | ABI|   String|    |
 | Code|   String|    |
 | CreateTime	|	int|	  |
@@ -59,6 +56,7 @@
 | ContactInfo|	String|	  |
 | Logo|	String|	  |
 | Description|	String|	  |
+| Creator|	String|	  |
 
 ---
 #  Get Contract Detail
@@ -73,8 +71,18 @@
 	   "Desc": "SUCCESS",
 	   "Version": "1.0",
 	   "Result": {
-	      "Total": 1,
 	      "Creator": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
+	      "Description": "LuckyNumber is a decentralized, .....",
+	      "CreateTime": 1530316800,
+	      "ABI": "",
+	      "Code": "",
+	      "Name": "ONT",
+	      "Logo": "https://luckynumber.one/index/img/logo.png",
+	      "OngCount": "1058893706.54002819",
+	      "Total": 1074,
+	      "UpdateTime": 1544084017,
+	      "ContactInfo": "{\"Github\":\"https://github.com/ontio\",\"Official Website\":\"https://github.com/ontio\"}",
+	      "OntCount": "0"
 	      "TxnList": [
 	         {
 	         "TxnTime": 1543304445,
@@ -100,10 +108,19 @@
 | :--------------: | :--------:| :------: |
 | Total|   int|    |
 | Creator|   String|    |
+| OntCount|   int|    |
+| OngCount|   Bigdecimal|    |
+| ABI|   String|    |
+| Code|   String|    |
+| Name|   String|    |
+| Logo|   String|    |
+| CreateTime	|	int|	  |
+| UpdateTime|	int|	  |
+| ContactInfo|	String|	  |
+| Description|	String|	  |
 | TxnHash|   String|    |
 | TxnType|   int|  |
 | TxnTime|   int|    |
 | Height|   int|    |
 | ConfirmFlag	|	int|	  |
 | Fee|	String|	  |
-
