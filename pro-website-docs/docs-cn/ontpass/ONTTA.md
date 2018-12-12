@@ -33,16 +33,16 @@ Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample:
 {
-	"auth_id":"xxxxxxxxx",
+	"auth_id":"12334566787878",
 	"backdoc":"image/png;base64,iVBORw0KGgoAAAANSUhmJlglqxaRSiRX/sIyvoGKIRmJM5WHUcAeKwnHAcY...",
 	"country":"CN",
 	"doc_type":"passport",
 	"frontdoc":"image/png;base64,iVBORw0KGgoAAAAADAFBMVEVHcEwAAAAAAAAAAAAAAAAAAA...",
 	"ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
 	"owner_ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
-	"txn_body":"",
-	"txn_hash":"",
-	"signature":""
+	"txn_body":"00d12a97160ab467d95aad45eed697a5...aea7c9a111674efd7e3a049b6d79a98eac",
+	"txn_hash":"a5ed038ff1d17d9d66f13e6f88cca211c65be66a32b5c08dcf687d3638e19ec7",
+	"signature":"AZMju/RtF5a594gR5VALto+nAQgk8mb41RT...isjt4wFKmkSMCRx3Mh0sk521jU5S4="
 }
 SuccessResponse：
 {
@@ -197,6 +197,315 @@ SuccessResponse：
 	Type: **boolean**
 
 	true：即提交成功  false：即提交失败
+
+
+
+## 获取已签发的用户认证历史数据
+
+### 认证需求方使用
+
+通过该API，认证需求方可以查询某段时间范围内TrustAnchor对某个用户签发的某种类型的可信声明信息。
+
+```json
+Host：https://api.ont.network/api/v1/ontta/authrequester/claims
+Method：POST /HTTP/1.1
+Content-Type: application/json
+RequestExample:
+{
+	"claim_contexts":["claim:sfp_idcard_authentication"],
+	"end_time":1544457600,
+	"ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
+	"owner_ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
+	"start_time":1544371200,
+	"signature":"AZMju/RtF5a594gR5VALto+n...9bih+bqdx4isjt4wFKmkSMCRx3Mh0sk521jU5S4="
+}
+SuccessResponse：
+{
+    "action": "QueryClaim",
+    "error": 0,
+    "desc": "SUCCESS",
+    "version": "1.0",
+    "result": [
+		{
+		"auth_id":"12334566787878",
+		"create_time":1544150654,
+		"claim_context":"claim:sfp_passport_authentication",
+		"description":"shuftipro passport authentication ",
+		"encrp_origdata":"header.payload.signature.blockchain_proof",
+		"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
+		"txnhash":"836764a693000d2ca89ea7187af6d40c0a10c303202b0551f63c6bc1be53fc5b"
+		}
+	]
+}
+```
+
+### RequestField
+
+* ### claim_contexts
+
+	Required: **No**
+	
+	Type: **list**
+	
+
+	可信声明模板标识列表。查询指定模板的可信声明信息。
+
+
+* ### end_time
+
+	Required: **Yes**
+	
+	Type: **long**
+	
+
+	截止时间。unix时间戳。
+
+
+* ### ontid
+
+	Required: **Yes**
+	
+	Type: **string**
+	
+
+	认证需求方ONT ID。需要使用该ONT ID对请求内容进行签名。
+
+
+* ### owner_ontid
+
+	Required: **No**
+	
+	Type: **string**
+	
+
+	用户的ONT ID。查询指定用户的可信声明。
+
+
+* ### start_time
+
+	Required: **Yes**
+	
+	Type: **long**
+	
+
+	开始时间。unix时间戳。
+
+
+* ### signature
+
+	Required: **Yes**
+	
+	Type: **string**
+
+	认证需求方使用ONT ID私钥按照[签名规则](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)对请求内容的签名。
+
+--------------------------------------------------------
+### ResponseField
+
+* ### version
+
+	Type: **string**
+
+	版本号，目前是1.0。
+
+
+* ### action
+
+	Type: **string**
+
+	固定值：QueryClaim
+
+
+* ### error
+
+	Type: **long**
+
+	错误码。具体可参照[错误码字典](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E9%94%99%E8%AF%AF%E7%A0%81%E5%AD%97%E5%85%B8)
+
+
+* ### desc
+
+	Type: **string**
+
+	错误信息。成功即SUCCESS，其他即错误信息
+
+
+* ### auth_id
+
+	Type: **string**
+
+	认证需求方的历史认证请求编号。
+
+
+* ### create_time
+
+	Type: **long**
+
+	可信声明创建时间。unix时间戳。
+
+
+* ### claim_context
+
+	Type: **string**
+
+	可信声明模板标识。
+
+
+* ### description
+
+	Type: **string**
+
+	认证描述。
+
+
+* ### encrp_origdata
+
+	Type: **string**
+
+	加密后的用户的可信声明。
+
+
+* ### owner_ontid
+
+	Type: **string**
+
+	用户的ONT ID。
+
+
+* ### txnhash
+
+	Type: **string**
+
+	该可信声明的存证交易hash值。
+
+
+
+### 用户使用
+
+通过该API，用户可以查询TrustAnchor对自己签发的某种类型的可信声明信息。
+
+```json
+Host：https://api.ont.network/api/v1/ontta/owner/claims
+Method：POST /HTTP/1.1
+Content-Type: application/json
+RequestExample:
+{
+	"claim_contexts":["claim:sfp_idcard_authentication"],
+	"ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
+	"signature":"AZMju/RtF5a594gR...jZT6HMv9bih+bqdx4isjt4wFKmkSMCRx3Mh0sk521jU5S4="
+}
+SuccessResponse：
+{
+    "action": "QueryClaim",
+    "error": 0,
+    "desc": "SUCCESS",
+    "version": "1.0",
+    "result": [
+		{
+		"create_time":1544150654,
+		"claim_context":"claim:sfp_passport_authentication",
+		"description":"shuftipro passport authentication ",
+		"encrp_origdata":"header.payload.signature.blockchain_proof",
+		"txnhash":"836764a693000d2ca89ea7187af6d40c0a10c31b202b0551f63c6bc1be53fc5b"
+		}
+	]
+}
+```
+
+### RequestField
+
+* ### claim_contexts
+
+	Required: **No**
+	
+	Type: **list**
+	
+
+	可信声明模板标识列表。查询指定模板的可信声明信息。
+
+
+* ### ontid
+
+	Required: **Yes**
+	
+	Type: **string**
+	
+
+	用户的ONT ID。需要使用该ONT ID对请求内容进行签名。
+
+
+* ### signature
+
+	Required: **Yes**
+	
+	Type: **string**
+
+	用户使用ONT ID私钥按照[签名规则](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)对请求内容的签名。
+
+--------------------------------------------------------
+### ResponseField
+
+* ### version
+
+	Type: **string**
+
+	版本号，目前是1.0。
+
+
+* ### action
+
+	Type: **string**
+
+	固定值：QueryClaim
+
+
+* ### error
+
+	Type: **int**
+
+	错误码。具体可参照[错误码字典](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E9%94%99%E8%AF%AF%E7%A0%81%E5%AD%97%E5%85%B8)
+
+
+* ### desc
+
+	Type: **string**
+
+	错误信息。成功即SUCCESS，其他即错误信息
+
+
+* ### create_time
+
+	Type: **long**
+
+	可信声明创建时间。unix时间戳。
+
+
+* ### claim_context
+
+	Type: **string**
+
+	可信声明模板标识。
+
+
+* ### description
+
+	Type: **string**
+
+	认证描述。
+
+
+* ### encrp_origdata
+
+	Type: **string**
+
+	加密后的用户的可信声明。
+
+
+* ### txnhash
+
+	Type: **string**
+
+	该可信声明的存证交易hash值。
 
 
 ## 错误码字典
@@ -554,7 +863,6 @@ POST请求的JSON对象按照key升序排序后的JSON为
 [TS DEMO](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/OntIdSignDemo.js)
 
 [SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
-
 
 
 
