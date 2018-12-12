@@ -180,7 +180,7 @@ SuccessResponse：
 
 * ### error
 
-	Type: **long**
+	Type: **int**
 
 	错误码。具体可参照[错误码字典](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E9%94%99%E8%AF%AF%E7%A0%81%E5%AD%97%E5%85%B8)
 
@@ -318,7 +318,7 @@ SuccessResponse：
 
 * ### error
 
-	Type: **long**
+	Type: **int**
 
 	错误码。具体可参照[错误码字典](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E9%94%99%E8%AF%AF%E7%A0%81%E5%AD%97%E5%85%B8)
 
