@@ -113,6 +113,9 @@ SuccessResponse：
 
 | ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
+|    version|   string|  版本号。目前是1.0|
+|    action|   string|  Register|
+|    error|   int|  错误码。可参考[错误码字典](http://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E9%94%99%E8%AF%AF%E7%A0%81%E5%AD%97%E5%85%B8)|
 |    result|   Boolean|  true：注册成功  false：注册失败|
 
 
@@ -143,7 +146,7 @@ RequestExample：
 	"auth_id":"xxxxxxxxxxx",
 	"claim_context":"claim:sfp_passport_authentication",
 	"description":"shuftipro passport authentication ",
-    "encrp_origdata":"header.payload.signature.blockchain_proof",
+    	"encrp_origdata":"header.payload.signature.blockchain_proof",
 	"ontid":"did:ont:AEnB1v4zRzepHY344g2K1eiZqdskhwGuN3",
 	"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
 	"ta_ontid":"did:ont:A7wB7v4zRzepHY344g2K1eiZqdskhwHu9J",
@@ -175,13 +178,13 @@ RequestExample：
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| 0 | long | SUCCESS. 成功 |
-| 61001 | long | FAIL, param error. 参数错误 |
-| 61002 | long | FAIL, already exist. 已存在 |
-| 61003 | long | FAIL, not found. 未找到 |
-| 62003 | long | FAIL, communication fail. 内部通讯异常 |
-| 62006 | long | FAIL, FAIL, verify signature fail. 验签失败 |
-| 63001 | long | FAIL, inner error. 内部错误 |
+| 0 | int | SUCCESS. 成功 |
+| 61001 | int | FAIL, param error. 参数错误 |
+| 61002 | int | FAIL, already exist. 已存在 |
+| 61003 | int | FAIL, not found. 未找到 |
+| 62003 | int | FAIL, communication fail. 内部通讯异常 |
+| 62006 | int | FAIL, FAIL, verify signature fail. 验签失败 |
+| 63001 | int | FAIL, inner error. 内部错误 |
 
 
 #### 拥有自己的ONT ID
