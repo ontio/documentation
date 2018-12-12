@@ -612,6 +612,7 @@ class AuhtorizeInfo {
 
 > Claimable ONT = withdrawUnfreezePos
 
+
 ### 6.3 Query rewards of stake authorization
 
 ```
@@ -759,3 +760,24 @@ const tx = GovernanceTxBuilder.makeWithdrawFeeTx(
     GAS_LIMIT
 )
 ```
+### 6.10 Query the sum of staked authorization
+
+```
+//@param userAddr {Address} Address of user
+//@param url Url of network to connect
+
+import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
+const url = getNodeUrl();
+const userAddr = new Crypto.Address(address);
+const totalStake = await GovernanceTxBuilder.getTotalStake(userAddr, url)
+```
+
+```
+class TotalStake {
+    address: Address; // User's address
+    stake: number; // Total num of stake
+    timeOffset: number; //Start time for calculating the unbound ONG
+}
+```
+
+
