@@ -91,15 +91,15 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    starttime|   int| 开始时间，unix时间戳   |
-|    endtime|   int| 截止时间，unix时间戳   |
+|    starttime|   int| unix time   |
+|    endtime|   int| unix time   |
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    Time|   string|   format:yyyy-MM-dd |
-|    TxnCount|   int|  |
-|    AddressCount|   int|  |
-|    BlockCount|   int|  |
-|    OntIdCount|   int|  |
+|    TxnCount|   int| total number of transactions today |
+|    AddressCount|   int| total number of addresses today |
+|    BlockCount|   int| total number of blocks today |
+|    OntIdCount|   int| total number of new ontid today |
 
