@@ -4,14 +4,14 @@
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    register OntId |   String|   |
-|    add publicKey:xxxxx |   String|   |
-|    remove publicKey:xxxxx |   String|   |
-|    add attribute:value1&value2 |   String|    |
-|    update attribute:xxxx |   String|   |
-|    remove attribute:xxxx |   String|  |
-|    change recovery:xxxx |   String|   |
-|    add recovery:xxxx |   String|   |
+|    register OntId |   String|  register OntId |
+|    add publicKey:xxxxx |   String|  add publicKey |
+|    remove publicKey:xxxxx |   String|  remove publicKey |
+|    add attribute:value1&value2 |   String| add attribute  |
+|    update attribute:xxxx |   String|  update attribute |
+|    remove attribute:xxxx |   String| remove attribute |
+|    change recovery:xxxx |   String|  change recovery |
+|    add recovery:xxxx |   String|  add recovery |
 
 
 ### DDO Attribute
@@ -20,10 +20,10 @@
 
 | Key     | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |:-----:|
-|    Claim |    ContextDesc |   String|  claim template |
-|    |    ClaimContext |   String|    |
-|    |    IssuerOntId |   String|  |
-|    |    ClaimId |   String|   |
+|    Claim |    ContextDesc |   String|  description |
+|    |    ClaimContext |   String|  claim context  |
+|    |    IssuerOntId |   String| ontid of the issuer |
+|    |    ClaimId |   String|  the hash of claim |
 |   SelfDefined |    value |   String|  self defined DDO info |
 
 
@@ -57,18 +57,18 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    amount|   int|  查询的交易总数  |
+|    amount|   int|  amount
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    OntId |   String|  OntId |
-|    TxnHash |   String|   |
-|    Height |   int|    |
-|    TxnTime |   int|    |
-|    Description |   String|    |
-|    TxnType |   int|    |
-|    Fee |   String|    |
+|    TxnHash |   String|  transaction hash
+|    Height |   int|  block height|
+|    TxnTime |   int|  unix time of the block|
+|    Description |   String|  description|
+|    TxnType |   int|  208 or 209  |
+|    Fee |   String|  fee  |
 
 
 
@@ -168,14 +168,14 @@ successResponse：
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    ontid|   String|  ontid  |
-|    pagesize|   int|    |
-|    pagenumber|   int|   |
+|    pagesize|   int|  pagesiez.1-20  |
+|    pagenumber|   int|  pagenumber. start from 1 |
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    TxnTotal| int|    |
-|    Ddo.Attributes|   list|  *|
+|    Ddo.Attributes|   list|  |
 |    Ddo.OntId|   String|  OntId |
 |    Ddo.Owners|   list|  |
 |    Ddo.Owners.Type|   String|  |
