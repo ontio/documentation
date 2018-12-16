@@ -56,7 +56,7 @@ successResponse：
 |    TxnTime|   int|    |
 |    Height|   int|    |
 |    BlockIndex|   int|  index in the block  |
-|    ConfirmFlag|   int |   1:success. 0:fail|
+|    ConfirmFlag|   int |   1:succeed. 2:failed|
 |    Fee|   String |   |
 
 
