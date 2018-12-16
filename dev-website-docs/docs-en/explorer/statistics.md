@@ -22,10 +22,10 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    CurrentHeight|   int|    |
-|    TxnCount|   int|  |
-|    NodeCount|   int|  |
-|    OntIdCount|   int|  |
+|    CurrentHeight|   int|  current block height  |
+|    TxnCount|   int| total number of transactions  |
+|    NodeCount|   int| total number of nodes |
+|    OntIdCount|   int| total number of ontids |
 
 
 
