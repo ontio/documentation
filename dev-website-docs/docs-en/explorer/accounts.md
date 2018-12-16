@@ -6,10 +6,10 @@
 
 | value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    ont|   String|  ont资产|
-|    ong|   String|  ong资产|
-|    waitboundong|   String|  等待提取ong资产|
-|    unboundong|   String|  未提取ong资产|
+|    ont|   String|  ont|
+|    ong|   String|  ong|
+|    waitboundong|   String|  waitbound ong|
+|    unboundong|   String|  unbound ong|
 
 
 
@@ -74,8 +74,8 @@ successResponse：
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    address|   String|  address  |
-|    pagesize|   int|  pagesize  |
-|    pagenumber|   int|  pagenumber |
+|    pagesize|   int|  pagesize.1-20  |
+|    pagenumber|   int|  pagenumber. |
 
 
 
@@ -84,12 +84,12 @@ successResponse：
 |    AssetBalance.AssetName|   String|  |
 |    AssetBalance.Balance|   String|  |
 |    TxnList.TxnHash|   String|   |
-|    TxnList.ConfirmFlag|   int|   |
+|    TxnList.ConfirmFlag|   int| 1:succeed 2:failed  |
 |    TxnList.Height|   int|    |
-|    TxnList.TxnType|   int|    |
+|    TxnList.TxnType|   int|  208 or 209  |
 |    TxnList.TxnTime| int|    |
 |    TxnList.Fee|   String|    |
-|    TxnList.BlockIndex|   int|    |
+|    TxnList.BlockIndex|   int| index in the block   |
 |    TxnList.TransferList.FromAddress|   String|    |
 |    TxnList.TransferList.ToAddress|   String|    |
 |    TxnList.TransferList.Amount|   String|    |
@@ -145,8 +145,8 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    address|   String|    |
 |    assetname|   String|   |
-|    pagesize|   int|    |
-|    pagenumber|   int|    |
+|    pagesize|   int|  pagesize. 1-20  |
+|    pagenumber|   int|  pagenumber|
 
 
 
@@ -155,7 +155,7 @@ successResponse：
 |    AssetBalance.AssetName|   String|  |
 |    AssetBalance.Balance|   String|  |
 |    TxnList.TxnHash|   String|   |
-|    TxnList.ConfirmFlag|   int|  state，1:success 2:fail |
+|    TxnList.ConfirmFlag|   int|  state，1:succeed 2:failed |
 |    TxnList.Height|   int|    |
 |    TxnList.TxnType|   int|    |
 |    TxnList.TxnTime| int|   |
@@ -225,8 +225,8 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    address|   String|    |
 |    assetname|   String|    |
-|    begintime|   int|    |
-|    endtime|   int|   |
+|    begintime|   int|   unix time |
+|    endtime|   int| unix time  |
 
 
 
@@ -253,7 +253,7 @@ successResponse：
 
 
 
-### 查询某个地址的资产余额
+### query all assets balance by address
 
 ```json
 url：/api/v1/explorer/address/balance/{address}
@@ -288,14 +288,14 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    address|   String|  账户地址  |
+|    address|   String|    |
 
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    AssetName|   String|  资产名称|
-|    Balance|   String|  该资产的账户余额|
+|    AssetName|   String|  |
+|    Balance|   String|  |
 
 
 
