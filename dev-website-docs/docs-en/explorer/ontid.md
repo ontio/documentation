@@ -1,6 +1,6 @@
 
 
-### OntId Information
+### ONT ID Information
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
@@ -22,8 +22,8 @@
 | :--------------: | :--------:| :------: |:-----:|
 |    Claim |    ContextDesc |   String|  description |
 |    |    ClaimContext |   String|  claim context  |
-|    |    IssuerOntId |   String| ontid of the issuer |
-|    |    ClaimId |   String|  the hash of claim |
+|    |    IssuerOntId |   String| ONT ID of the issuer |
+|    |    ClaimId |   String|   hash of the claim |
 |   SelfDefined |    value |   String|  self defined DDO info |
 
 
@@ -57,16 +57,16 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    amount|   int|  amount
+|    amount|   int|  amount|
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    OntId |   String|  OntId |
-|    TxnHash |   String|  transaction hash
+|    OntId |   String|  ONT ID |
+|    TxnHash |   String|  transaction hash|
 |    Height |   int|  block height|
 |    TxnTime |   int|  unix time of the block|
-|    Description |   String|  description|
+|    Description |   String|  description. reference **ONT ID Information**|
 |    TxnType |   int|  208 or 209  |
 |    Fee |   String|  fee  |
 
@@ -103,14 +103,14 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    OntIdList.OntId|   String|  OntId |
-|    OntIdList.TxnHash|   String|   |
-|    OntIdList.Height|   int|    |
-|    OntIdList.TxnTime|   int|    |
-|    OntIdList.Description|   String|   |
-|    OntIdList.TxnType|   int|    |
-|    OntIdList.Fee |   String|    |
-|    Total|   int|    |
+|    OntIdList.OntId|   String|  ONT ID |
+|    OntIdList.TxnHash|   String|  transaction hash |
+|    OntIdList.Height|   int|  block height  |
+|    OntIdList.TxnTime|   int|  unix time of the block  |
+|    OntIdList.Description|   String|  description. reference **ONT ID Information** |
+|    OntIdList.TxnType|   int|  208 or 209  |
+|    OntIdList.Fee |   String|  fee  |
+|    Total|   int|  total transactions  |
 
 
 
@@ -167,8 +167,8 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    ontid|   String|  ontid  |
-|    pagesize|   int|  pagesiez.1-20  |
+|    ontid|   String|  ONT ID  |
+|    pagesize|   int|  pagesiez. 1-20  |
 |    pagenumber|   int|  pagenumber. start from 1 |
 
 
@@ -176,16 +176,17 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    TxnTotal| int|    |
 |    Ddo.Attributes|   list|  |
-|    Ddo.OntId|   String|  OntId |
-|    Ddo.Owners|   list|  |
-|    Ddo.Owners.Type|   String|  |
-|    Ddo.Owners.Value|   String|  |
-|    TxnList.TxnHash|   String|   |
-|    TxnList.Height|   int|    |
-|    TxnList.TxnType|   int|    |
-|    TxnList.Fee| String|    |
-|    TxnList.OntId| String|  OntId  |
-|    TxnList.TxnTime| int|    |
-|    TxnList.Description|   String|   |
+|    Ddo.OntId|   String|  ONT ID |
+|    Ddo.Owners.Type|   String| ECDSA |
+|    Ddo.Owners.Curve|   String| P-256 |
+|    Ddo.Owners.Value|   String|  publickey in HEX string|
+|    Ddo.Owners.PublicKeyId|   String|  publickey id |
+|    TxnList.TxnHash|   String|  transaction hash |
+|    TxnList.Height|   int|   block height |
+|    TxnList.TxnType|   int|  208 or 209  |
+|    TxnList.Fee| String|  fee  |
+|    TxnList.OntId| String|  ONT ID  |
+|    TxnList.TxnTime| int|  unix time of the block  |
+|    TxnList.Description|   String|  description.reference **ONT ID Information** |
 
 
