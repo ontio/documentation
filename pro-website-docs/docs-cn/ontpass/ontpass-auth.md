@@ -60,6 +60,11 @@ ONTPass目前已经对外开放的认证服务包括：
 
 ### Step 3:  ONTPass平台注册
 
+
+**测试环境域名：https://api.ont.network**
+
+**生产环境域名：https://ontpass.ont.io**
+
 认证需求方选定所需的TrustAnchor提供的认证服务后，需要到ONTPass平台注册相关信息，主要包括ONT ID，基本简介，所需认证服务及回调地址。只有在平台注册过的需求方才会收到后续的可信声明回调推送。
 
 > 如何拥有自己的ONT ID并进行签名，可参考[附录DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=demo)
@@ -68,7 +73,7 @@ ONTPass目前已经对外开放的认证服务包括：
 #### 认证需求方注册API
 
 ```json
-Host：https://api.ont.network/api/v1/ontpass/authrequesters
+Host：域名+/api/v1/ontpass/authrequesters
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample：
