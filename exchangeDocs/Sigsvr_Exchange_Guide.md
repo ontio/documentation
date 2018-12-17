@@ -269,6 +269,47 @@ Then go to ontology cli, and run the following. Note that signed_tx should be th
 ```
 ./ontology sendtx "signed_tx" 
 ```
+
+To put multilpe transfers in ont transaction , you need to use the following paramters:
+```
+{
+    "Qid":"t",
+    "Method":"signativeinvoketx",
+    "account":"Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT",
+    "pwd":"xxxxx",
+    "Params":{
+    	"gas_price":500,
+    	"gas_limit":20000,
+    	"address":"0100000000000000000000000000000000000000",
+    	"method":"transfer",
+    	"version":0,
+    	"payer":"Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT",
+    	"params":[
+    		    [
+    			[
+    			"Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT",
+    			"AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb",
+    			"1000"
+    			],
+    			[
+    			"Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT",
+    			"AK98G45DhmPXg4TFPG1KjftvkEaHbU8SHM",
+    			"1000"
+    			]
+    		     ]
+    	]
+    }
+}
+```
+The returned result is:
+```
+{"qid":"t","method":"signativeinvoketx","result":{"signed_tx":"00d11104175cf401000000000000204e000000000000e98f4998d837fcdd44a50561f7f32140c7c6c260a700c66b6a14e98f4998d837fcdd44a50561f7f32140c7c6c260c86a1470a2ababdae0a9d1f9fc7296df3c6d343b772cf7c86a02e803c86c00c66b6a14e98f4998d837fcdd44a50561f7f32140c7c6c260c86a1424ed4f965d3a5a76f5d0e87633c0b76941fc8827c86a02e803c86c52c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b6500014140aeaa1c95c2c0bc3071d8d5896e6f7b359522efc7edbf8bcc991cb2d57adee1db8e598b25a0ef52f60f4c589ef05b0bfa7cbe906059b54abd6286cc043c975f8723210217c25948722c14c1a6fa8e06b78691e722f4598585805671b0beaa7fd6c7662bac"},"error_code":0,"error_info":""}
+```
+Then you can send the signed transaction to ontology as before.
+
+***Note:you can add up to 500 transfers in ont transaction***
+
+
 #### 4.1.3 Asset option
 
 You can set the "asset" parameters as "ont" or "ong"
