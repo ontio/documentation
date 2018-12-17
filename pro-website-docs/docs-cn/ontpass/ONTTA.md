@@ -5,8 +5,18 @@
 Ontology Global Identity TrustAnchor(ONTTA)作为Ontology信任生态上的一个综合性的全球身份认证信任源，可对全球200+国家的公民进行护照，驾照，身份证OCR认证并签发对应的可信声明。为Ontology信任生态中的身份认证需求方提供了多维度、高准确性、全球化的身份认证服务。
 
 * TrustAnchor Name : Ontology Global Identity TrustAnchor
-* TrustAnchor ONT ID :  did：ont：ANNmeSiQJVwq3z6KvKo3SSKGnoBqvwYcwt
-* TrustAnchor Account Address : ATGJSGzm2poCB8N44BgrAccJcZ64MFf187
+* TrustAnchor ONT ID :  
+
+	主网：did:ont:ANNmeSiQJVwq3z6KvKo3SSKGnoBqvwYcwt
+	
+	测试网：did:ont:ARr6ApK24EU7nufND4s1SWpwULHBertpJb
+	
+* TrustAnchor Account Address : 
+
+	主网：ATGJSGzm2poCB8N44BgrAccJcZ64MFf187
+	
+	测试网：ATGJSGzm2poCB8N44BgrAccJcZ64MFf187
+
 * 服务列表
 
 | Claim_Templete_Name | Claim_Description |  DocLink |
@@ -27,8 +37,13 @@ Ontology Global Identity TrustAnchor(ONTTA)作为Ontology信任生态上的一�
 
 ## 认证请求示例
 
+**测试环境域名：https://api.ont.network**
+
+**生产环境域名：https://ontpass.ont.io**
+
+
 ```json
-Host：https://api.ont.network/api/v1/ontta/ocr/authentication
+Host：域名+/api/v1/ontta/ocr/authentication
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample:
@@ -202,12 +217,18 @@ SuccessResponse：
 
 ## 获取已签发的用户认证历史数据
 
+
+**测试环境域名：https://api.ont.network**
+
+**生产环境域名：https://ontpass.ont.io**
+
+
 ### 认证需求方使用
 
 通过该API，认证需求方可以查询某段时间范围内TrustAnchor对某个用户签发的某种类型的可信声明信息。
 
 ```json
-Host：https://api.ont.network/api/v1/ontta/authrequester/claims
+Host：域名+/api/v1/ontta/authrequester/claims
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample:
@@ -385,7 +406,7 @@ SuccessResponse：
 通过该API，用户可以查询TrustAnchor对自己签发的某种类型的可信声明信息。
 
 ```json
-Host：https://api.ont.network/api/v1/ontta/owner/claims
+Host：域名+/api/v1/ontta/owner/claims
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample:
