@@ -1,40 +1,41 @@
 # Sigsvr plus rpc for exchanges
 This article mainly covers creating wallet and account, motinoring deposits and signing for withdrawal through sigsvr and rpc.
-- [Sigsvr plus rpc for exchanges](#sigsvr-plus-rpc-for-exchanges)
-    - [1. Prepation to run ontology and synchronize ontology node](#1-prepation-to-run-ontology-and-synchronize-ontology-node)
-    - [2. Server Side](#2-server-side)
-        - [2.1 Create Wallet through Cli](#21-create-wallet-through-cli)
-            - [2.1.1 Notes about Cli](#211-notes-about-cli)
-        - [2.2 Create account and export wallet file through Sigsvr](#22-create-account-and-export-wallet-file-through-sigsvr)
-            - [2.2.1 Postman](#221-postman)
-            - [2.2.2 Start Sigsvr](#222-start-sigsvr)
-        - [2.2.3 Post through Postman](#223-post-through-postman)
-        - [2.2.4 Export wallet file](#224-export-wallet-file)
-        - [2.2.5 Signature server method introduction](#225-signature-server-method-introduction)
-    - [3. Start ontology node](#3-start-ontology-node)
-    - [4. Process the asset transaction](#4-process-the-asset-transaction)
-        - [4.1 Sign for withdrawal](#41-sign-for-withdrawal)
-            - [4.1.1 Construct transaction through post method 1](#411-construct-transaction-through-post-method-1)
-            - [4.1.2 Construct transaction through post method 2](#412-construct-transaction-through-post-method-2)
-            - [4.1.3 Asset option](#413-asset-option)
-        - [4.2 Monitor the deposit](#42-monitor-the-deposit)
-            - [4.2.1 Get current block height](#421-get-current-block-height)
-                - [4.2.1.1 Through Cli](#4211-through-cli)
-                - [4.2.1.2 Getblockcount through Post](#4212-getblockcount-through-post)
-            - [4.2.2 Monitor block info](#422-monitor-block-info)
-                - [4.2.2.1 Through Cli](#4221-through-cli)
-                - [4.2.2.2 Getblock through post](#4222-getblock-through-post)
-            - [4.2.3 Get the transaction execution info](#423-get-the-transaction-execution-info)
-                - [4.2.3.1 Through Cli](#4231-through-cli)
-                - [4.2.3.2 Getrawtransaction through post](#4232-getrawtransaction-through-post)
-    - [5. Unbound Ong and withdraw](#5-unbound-ong-and-withdraw)
-        - [5.1 Check unbound ong](#51-check-unbound-ong)
-            - [5.1.1 Through Cli](#511-through-cli)
-            - [5.1.2 Getunboundong through post](#512-getunboundong-through-post)
-        - [5.2 Withdraw ong](#52-withdraw-ong)
-            - [5.2.1 Through Cli](#521-through-cli)
-            - [5.2.2 Withdrawong through post](#522-withdrawong-through-post)
 
+* [Sigsvr plus rpc for exchanges](#sigsvr-plus-rpc-for-exchanges)
+	* [1. Prepation to run ontology and synchronize ontology node](#1-prepation-to-run-ontology-and-synchronize-ontology-node)
+	* [2. Server Side](#2-server-side)
+		* [2.1 Create Wallet through Cli](#21-create-wallet-through-cli)
+			* [2.1.1 Notes about Cli](#211-notes-about-cli)
+		* [2.2 Create account and export wallet file through Sigsvr](#22-create-account-and-export-wallet-file-through-sigsvr)
+			* [2.2.1 Postman](#221-postman)
+			* [2.2.2 Start Sigsvr](#222-start-sigsvr)
+		* [2.2.3 Post through Postman](#223-post-through-postman)
+		* [2.2.4 Export wallet file](#224-export-wallet-file)
+		* [2.2.5 Signature server method introduction](#225-signature-server-method-introduction)
+	* [3. Start ontology node](#3-start-ontology-node)
+	* [4. Process the asset transaction](#4-process-the-asset-transaction)
+		* [4.1 Sign for withdrawal](#41-sign-for-withdrawal)
+			* [4.1.1 Construct transaction through post method 1](#411-construct-transaction-through-post-method-1)
+			* [4.1.2 Construct transaction through post method 2](#412-construct-transaction-through-post-method-2)
+			* [4.1.3 construct multi-transfers in transaction](#413-construct-multi-transfers-in-transaction)
+			* [4.1.4 Asset option](#414-asset-option)
+		* [4.2 Monitor the deposit](#42-monitor-the-deposit)
+			* [4.2.1 Get current block height](#421-get-current-block-height)
+				* [4.2.1.1 Through Cli](#4211-through-cli)
+				* [4.2.1.2 Getblockcount through Post](#4212-getblockcount-through-post)
+			* [4.2.2 Monitor block info](#422-monitor-block-info)
+				* [4.2.2.1 Through Cli](#4221-through-cli)
+				* [4.2.2.2 Getblock through post](#4222-getblock-through-post)
+			* [4.2.3 Get the transaction execution info](#423-get-the-transaction-execution-info)
+				* [4.2.3.1 Through Cli](#4231-through-cli)
+				* [4.2.3.2 Getrawtransaction through post](#4232-getrawtransaction-through-post)
+	* [5. Unbound Ong and withdraw](#5-unbound-ong-and-withdraw)
+		* [5.1 Check unbound ong](#51-check-unbound-ong)
+			* [5.1.1 Through Cli](#511-through-cli)
+			* [5.1.2 Getunboundong through post](#512-getunboundong-through-post)
+		* [5.2 Withdraw ong](#52-withdraw-ong)
+			* [5.2.1 Through Cli](#521-through-cli)
+			* [5.2.2  Withdrawong through post](#522-withdrawong-through-post)
 
 
 
@@ -269,7 +270,7 @@ Then go to ontology cli, and run the following. Note that signed_tx should be th
 ```
 ./ontology sendtx "signed_tx" 
 ```
-
+#### 4.1.3 construct multi-transfers in transaction
 To put multilpe transfers in ont transaction , you need to use the following paramters:
 ```
 {
@@ -310,7 +311,7 @@ Then you can send the signed transaction to ontology as before.
 ***Note:you can add up to 500 transfers in ont transaction***
 
 
-#### 4.1.3 Asset option
+#### 4.1.4 Asset option
 
 You can set the "asset" parameters as "ont" or "ong"
 
