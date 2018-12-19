@@ -1,3 +1,4 @@
+
 # Ontology Exchange Docking Document
 
 There are two kinds of assets in ONT: native assets and contract assets. Native assets are ONT and ONG. When docking with the exchange, it mainly processes deposit and withdrawal of these two assets.
@@ -21,7 +22,7 @@ The outline of this document is as follows:
 		* [User deposit](#user-deposit)
 		* [Deposit record](#deposit-record)
 		* [Process user withdrawal request](#process-user-withdrawal-request)
-				* [Create account based on private key](#create-account-based-on-private-key)
+			* [Create account based on private key](#create-account-based-on-private-key)
 			* [Use wallet management](#use-wallet-management)
 		* [Address generation](#address-generation)
 		* [ONT and ONG transfer](#ont-and-ong-transfer)
