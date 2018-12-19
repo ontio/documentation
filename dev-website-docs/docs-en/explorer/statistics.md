@@ -142,7 +142,7 @@ successResponse：
 
 ###  Query TPS Info
 
-  url：/api/v1/explorer/summary/tps
+  	url：/api/v1/explorer/summary/tps
 
 	method：GET
   
@@ -170,7 +170,7 @@ successResponse：
 
 ###  type： daily or weekly or monthly
 
-  url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
+  	url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
 
 	method：GET
   
@@ -225,7 +225,7 @@ successResponse：
 
 ###  type： daily or weekly or monthly
 
-  url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
+  	url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
 
 	method：GET
   
@@ -283,7 +283,7 @@ successResponse：
 
 ###  type： daily or weekly or monthly
 
-  url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
+  	url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
 
 	method：GET
   
