@@ -85,7 +85,7 @@ successResponse：
 		 	"OntId": "did:ont:ASJRuqNVKnZgqLxpq4X7bRsts68jvwP8XH"
 		 },
 		......
-		 ],
+		 ]
 	}
 }
 ```
