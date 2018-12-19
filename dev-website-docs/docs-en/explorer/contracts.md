@@ -28,7 +28,11 @@
 			    },
 			"Logo":"",
 			"Description": "LuckyNumber is a decentralized, tru.....",
-			"Creator": "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM"
+			"Creator": "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+			"ContactInfo": "contracts",
+			"OntCount": "2123.000000000",
+			"OngCount": "1233123123.000000000",
+			"AddressCount": 122
 		    }
 		]
 	    }
@@ -57,6 +61,9 @@
 | Logo|	String|	  |
 | Description|	String|	  |
 | Creator|	String|	  |
+| OngCount|	String|	  |
+| OntCount|	String|	  |
+| AddressCount|	int|	  |
 
 ---
 #  Get Contract Detail
@@ -76,13 +83,14 @@
 	      "CreateTime": 1530316800,
 	      "ABI": "",
 	      "Code": "",
-	      "Name": "ONT",
+	      "Name": "LuckyNumber",
 	      "Logo": "https://luckynumber.one/index/img/logo.png",
-	      "OngCount": "1058893706.54002819",
 	      "Total": 1074,
 	      "UpdateTime": 1544084017,
 	      "ContactInfo": "{\"Github\":\"https://github.com/ontio\",\"Official Website\":\"https://github.com/ontio\"}",
-	      "OntCount": "0"
+	      "OntCount": "2123.000000000",
+	      "OngCount": "1233123123.000000000",
+	      "AddressCount": 122,
 	      "TxnList": [
 	         {
 	         "TxnTime": 1543304445,
@@ -118,9 +126,11 @@
 | UpdateTime|	int|	  |
 | ContactInfo|	String|	  |
 | Description|	String|	  |
+| AddressCount|	int|	  |
 | TxnHash|   String|    |
 | TxnType|   int|  |
 | TxnTime|   int|    |
 | Height|   int|    |
 | ConfirmFlag	|	int|	  |
 | Fee|	String|	  |
+
