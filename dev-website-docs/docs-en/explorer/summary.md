@@ -11,16 +11,16 @@
 	    "Desc": "SUCCESS",
 	    "Version": "1.0",
 	    "Result": {
-          "currentTps": "10.02",
-          "maxTps": 10000
-          }
+	        "CurrentTps": "10.02",
+		"MaxTps": 10000
+		}
 	}
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-| currentTps|   String|    |
-| maxTps|	int|	  |
+| CurrentTps|   String|    |
+| MaxTps|	int|	  |
 
 
 
