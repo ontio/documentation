@@ -80,12 +80,12 @@
   - [Websocket 接口](docs-cn/API/03-websocket_api.md)
   
   
-- Explorer API
-  - [Blocks](docs-cn/explorer/blocks.md)
-  - [Accounts](docs-cn/explorer/accounts.md)
-  - [Transactions](docs-cn/explorer/transactions.md)
+- 浏览器 API
+  - [区块](docs-cn/explorer/blocks.md)
+  - [账户](docs-cn/explorer/accounts.md)
+  - [交易](docs-cn/explorer/transactions.md)
   - [ONT ID](docs-cn/explorer/ontid.md)
-  - [Statistics](docs-cn/explorer/statistics.md)   
+  - [统计](docs-cn/explorer/statistics.md)   
   
 - 交易所对接
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
