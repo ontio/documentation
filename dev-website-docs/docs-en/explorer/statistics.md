@@ -28,6 +28,87 @@ successResponse：
 |    OntIdCount|   int| total number of ontids |
 
 
+### Get summary all
+
+```json
+url：/api/v1/explorer/summary/{amount}
+method：GET
+successResponse：
+{
+	"Action":"QuerySummaryInfo",
+	"Version":"1.0",
+	"Error":0,
+	"Desc":"SUCCESS",
+	"Result":{
+		"TxnCount": 455325,
+		"NodeCount": 22,
+		"AddressCount": 696,
+		"CurrentHeight":12323,
+		"OntIdCount":188,
+		"CurrentTps": "10.02",
+		"MaxTps": 10000,
+		"BlockList": [
+		{
+			"PrevBlock": "0ceea8f2edc861a7cc11127cb4e4751fadf5ce3165e86874075b5032fe80b0ee",
+                	"TxnsRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+                	"BlockTime": 1545210088,
+                	"NextBlock": "",
+                	"BookKeeper": "AKEqQKmxCsjWJz8LPGryXzb6nN5fkK1WDY&ALZVrZrFqoSvqyi38n7mpPoeDp7DMtZ9b6&AKEqQKmxCsjWJz8LPGryXzb6nN5fkK1WDY&AY5W6p4jHeZG2jjW6nS1p4KDUhcqLkU6jz&AMogjmLf2QohTcGST7niV75ekZfj44SKme&AXmQDzzvpEtPkNwBEFsREzApTTDZFW6frD",
+                	"TxnNum": 0,
+                	"Height": 564409,
+                	"Hash": "ecdd32541dfa0ccda877695d9c2bb45b3612b3ef45db057bbcdc539aaffadcb0",
+                	"ConsensusData": "4076115108572212341",
+                	"BlockSize": 1012
+		},
+		......
+		],
+		"TxnList": [
+		{
+			"TxnTime": 1545210058,
+                	"TxnType": 209,
+                	"ConfirmFlag": 1,
+                	"Fee": "0.010000000",
+                	"TxnHash": "4f0d3eb7822c273cbd058393be635fc81f5159e3fe421b903743ec38c9bca3c4",
+                	"Height": 564408,
+                	"BlockIndex": 1
+		},
+		......
+		],
+		 "OntIdList": [
+		 {
+		 	"TxnTime": 1545206040,
+		 	"TxnType": 209,
+		 	"Description": "register OntId",
+		 	"Fee": "0.010000000",
+		 	"TxnHash": "c511478b22a6fdb8ef6d566d42ba09e529491a1b30ed4f0e77311728db5f11f4",
+		 	"Height": 564222,
+		 	"OntId": "did:ont:ASJRuqNVKnZgqLxpq4X7bRsts68jvwP8XH"
+		 },
+		......
+		 ],
+	}
+}
+```
+
+| RequestField     |     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    amount|   int|  the amount of latest blocks or txs or ontIds  |
+
+
+| ResponseField     |     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    CurrentHeight|   int|  current block height  |
+|    TxnCount|   int| total number of transactions  |
+|    NodeCount|   int| total number of nodes |
+|    OntIdCount|   int| total number of ontids |
+|    AddressCount|   int| total number of address |
+|    CurrentTps|   int| current tps |
+|    MaxTps|   int| max tps |
+|    BlockList|   int| block list |
+|    TxnList|   int| txn list |
+|    OntIdList|   int| ontId list |
+
+
 
 ### Query generate block time
 
@@ -59,7 +140,7 @@ successResponse：
 |    GenerateTime|   int|  |
 
 
-# Query TPS Info
+###  Query TPS Info
 
   url：/api/v1/explorer/summary/tps
 
@@ -85,9 +166,9 @@ successResponse：
 
 
 
-# Query Summary Info
+###  Query Summary Info
 
-## type： daily or weekly or monthly
+###  type： daily or weekly or monthly
 
   url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
 
@@ -140,9 +221,9 @@ successResponse：
 | OntIdNewCount|	int|	  |
 
 
-# Query Contract Info
+###  Query Contract Info
 
-## type： daily or weekly or monthly
+###  type： daily or weekly or monthly
 
   url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
 
@@ -198,9 +279,9 @@ successResponse：
 | OngCount|	String|	  |
 
 
-# Query Project Info
+###  Query Project Info
 
-## type： daily or weekly or monthly
+###  type： daily or weekly or monthly
 
   url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
 
