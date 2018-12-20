@@ -24,11 +24,11 @@ This article will guide Requester to access the Ontology network, and to use the
 
 
 
-## Access Step
+## How to integrate with ONTPass?
 
-### Step 1: iscovery Certification Service
+### Step 1: Find the Right Service
 
-TrustAnchor registers to the ONTPass the authentication service and verifiable claim template information to the ONTPass. The ONTPass provides the TrustAnchor authentication service market. Requester can select the certification service from the market.
+TrustAnchor registers to the ONTPass the authentication service and verifiable claim template information to the ONTPass. ONTPass provides the TrustAnchor authentication service marketplace. Requester can select the certification service from the marketplace.
 
 The ONTPass authentication services that are currently open to the public include:
 
@@ -47,15 +47,15 @@ The ONTPass authentication services that are currently open to the public includ
 
 
 
-### Step 2: Determine the charging mode
+### Step 2: Choose the Payment Model
 
-There is a fee for using ONTPass. ONTPass supports two charging modes. You need to choose the appropriate payment method according to your situation.
+There is a fee associated for using ONTPass. ONTPass supports two payment models. You need to choose the one that fits your need.
 
-* Mode 1: Instant payment mode
+* Mode 1: Pay as You Go
 
-The instant payment mode is completely open and autonomous, that is, each authentication request needs to consume the ONG fee, so the authentication requester needs to construct an ONG transfer transaction (The payment address and specific amount are specified by each TrustAnchor). After receiving the authentication request, TrustAnchor first sends the transaction to the chain, and the subsequent identity authentication process will continue after the transaction is successfully sent.
+The instant payment mode is completely open and autonomous, that is, each authentication request will consume ONG fee, so the authentication requester needs to establish an ONG transfer transaction (The payment address and specific amount are specified by each TrustAnchor). After receiving the authentication request, TrustAnchor will first sends the transaction to the blockchain, and the subsequent identity authentication process will continue after the transaction is successfully sent.
 
-* Mode 2: Postpaid mode
+* Mode 2: Postpaid model
 
 
 If you choose post-paid mode, you need to contact [Ontology
@@ -64,7 +64,7 @@ Institutional cooperation](https://info.ont.io/cooperation/zh).
 
 ### Step 3:  ONTPass Platform Registion
 
-After Requester selects the authentication service provided by the TrustAnchor in need, it needs to register the relevant information on the ONTPass platform, including the ONT ID, basic introduction,  authentication service in need, and callback address. Only  registered Requested on the platform will receive the subsequent verifiable claim callback.
+After Requester selects the authentication service provided by the TrustAnchor, Requester needs to register the relevant information on the ONTPass platform, including the ONTID, basic introduction,  authentication service, and a callback address. Only registered Requester on the platform will receive the subsequent verifiable claim callback.
 
 > Please refer to [Appendix] for the method to have your own ONT ID
 [AppendixDEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=demo)
@@ -125,17 +125,17 @@ SuccessResponse：
 
 
 
-### Step 4: Submit Certification to TrustAnchor Source
+### Step 4: Submit Certification to TrustAnchor
 
-After Requester selects the TrustAnchor authentication service in the ONTPass certification market, it needs to submit the authentication data to TrustAnchor. TrustAnchor then authenticates the identity, issues the verifiable claim, deposits basic information of the verifiable claim, and passes it to ONTPass through end-to-end encrypted transmission
+After Requester selects the TrustAnchor authentication service in the ONTPass certification market, Requester needs to submit the authentication data to TrustAnchor. TrustAnchor will then authenticates the identity, issues the verifiable claim, deposits basic information of the verifiable claim, and passes it to ONTPass through end-to-end encrypted transmission
 
 
 - [Access Global Identity Authentication](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA)
 
 
-### Step 5: Get certification results
+### Step 5: Get Authentication Results
 
-After TrustAnchor completes the user's information authentication and issues a verifialbe claim, the verifiable claim is sent to ONTPass. ONTPass pushes the signed verifialbe claim to Requester based on the callback address previously registered by Requester.
+After TrustAnchor completes the user's information authentication and issues a verifialbe claim, the verifiable claim will then be sent to ONTPass. ONTPass pushes the signed verifialbe claim to Requester based on the callback address previously registered by Requester.
 
 
 When the information is called back, the ONTPass platform will bring the signature corresponding to its own ONT ID. Requester can verify the signature, as well as the credibility and the non-tamperable features of the callback request.
@@ -193,7 +193,7 @@ RequestExample：
 
 #### Get your own ONT ID
 
-Registering an ONT ID on Ontology requires an ONG fee. First, you need to have a digital asset account, and there are at least 0.01 ONGs in the account. Then use the account to pay the fee for registering ONT ID and complete the registration on the ONT ID chain.
+Registering an ONT ID on Ontology requires an ONG fee. First, you need to have a digital asset account, and there is at least 0.01 ONG in your account. Then use the account to pay the fee for registering ONT ID and complete the registration on the ONT ID blockchain.
 
 > Please refer to [Appendix DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=demo) or [SDK developer documentation center](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)for method to create a digital asset account, to use the account to create an ONT ID, to obtain information about the ONT ID, and to do the signature
 
@@ -204,7 +204,7 @@ Registering an ONT ID on Ontology requires an ONG fee. First, you need to have a
 
 **Signature Rules：**
 
-The JSON object in the HTTP Post request body needs to be sorted in ascending alphabetical order of the key, then serialized into a standard JSON format string, then the request content string is signed, and finally the signature is added to the request body with the signature as the key. 
+The JSON object in the HTTP Post request body needs to be sorted in ascending alphabetical order of the key, serialized into a standard JSON format string, then the request content string is signed and finally the signature is added to the request body with the signature as the key. 
 
 Take a registration request as an example：
 After the JSON object of POST Request is sorted in ascending key order.
