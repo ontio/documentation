@@ -1,8 +1,8 @@
-<h1 align="center">ONTPassONTPass Authentication Service Access Guide</h1>
+<h1 align="center">ONTPass Authentication Service Access Guide</h1>
 
 ## Overview
 
-This tutorial will guide Requester to access the Ontology, and to use the authentication service provided by ONTPass. The participants involved in the process include:
+This tutorial will guide Requester to access Ontology, and to use the authentication service provided by ONTPass. The participants involved in the process include:
 
 * Requester: DApp, institution or service scenario that requires authentication of people, object or thing. Requester is the demand side of authentication service in the Ontology Trust Ecology.
 * ONTPass: Based on ONTID and Ontology Trust Ecosystem, it is an open, decentralized authentication platform that provides rich authentication services for people, finances, objects, and things. ONTPass cooperates with users and requesters for data exchange, and data is encrypted and protected all the time to protect User's private data.
