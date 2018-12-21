@@ -44,7 +44,18 @@ successResponse：
 			},
 			{
 				"AssetName": "pumpkin01",
-				"Balance": "7"
+				"Balance": "7",
+				"AssertType": "OEP8"
+			},
+			{
+				"AssetName": "HyperDragons",
+				"Balance": "3",
+				"AssertType": "OEP5"
+			},
+			{
+				"AssetName": "TNT",
+				"Balance": "58829",
+				"AssertType": "OEP4"
 			}
 		],
 		"TxnList":[
@@ -83,6 +94,7 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  资产名称，具体可参考**资产名称字典**|
 |    AssetBalance.Balance|   String|  该资产的账户余额|
+|    AssetBalance.AssertType|   String|  该资产的类型|
 |    TxnList.TxnHash|   String|  交易hash |
 |    TxnList.ConfirmFlag|   int|  交易状态，1:交易成功 2:交易失败 |
 |    TxnList.Height|   int|  区块高度  |
@@ -280,6 +292,21 @@ successResponse：
 		{
 			"Balance": "8637767",
 			"AssetName": "ont"
+		},
+		{
+			"AssetName": "pumpkin01",
+			"Balance": "7",
+			"AssertType": "OEP8"
+		},
+		{
+			"AssetName": "HyperDragons",
+			"Balance": "3",
+			"AssertType": "OEP5"
+		},
+		{
+			"AssetName": "TNT",
+			"Balance": "58829",
+			"AssertType": "OEP4"
 		}
 	]
 }
@@ -296,7 +323,7 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    AssetName|   String|  资产名称|
 |    Balance|   String|  该资产的账户余额|
-
+|    AssetBalance.AssertType|   String|  该资产的类型|
 
 
 
