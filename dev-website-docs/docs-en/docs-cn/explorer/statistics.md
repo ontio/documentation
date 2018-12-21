@@ -191,7 +191,9 @@ successResponse：
                   "OntIdNewCount": 0,
                   "NewAddress": 0,
                   "OntCount": "0.000000000",
-                  "Time": "2018-07-02"
+                  "Time": "2018-07-02",
+		  "OntIdSum": 0,
+		  "AddressSum": 0
               },
             .......
            ]
@@ -212,10 +214,12 @@ successResponse：
 | Time|	String|	  |
 | TxnCount|   int|  |
 | BlockCount|   int|    |
+| AddressSum|   int|   地址总数 |
 | ActiveAddress|   int|    |
 | NewAddress|	int|	  
 | OntCount|   String|    |
 | OngCount|	String|	  |
+| OntIdSum|	int|	ontId总数  |
 | OntIdActiveCount|	int|	  |
 | OntIdNewCount|	int|	  |
 
