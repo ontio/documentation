@@ -192,7 +192,9 @@ successResponse：
                   "OntIdNewCount": 0,
                   "NewAddress": 0,
                   "OntCount": "0.000000000",
-                  "Time": "2018-07-02"
+                  "Time": "2018-07-02",
+		  "OntIdSum": 0,
+		  "AddressSum": 0
               },
             .......
            ]
@@ -213,12 +215,16 @@ successResponse：
 | Time|	String|	  |
 | TxnCount|   int|  |
 | BlockCount|   int|    |
+| AddressSum|	int|	total address count  |
 | ActiveAddress|   int|    |
 | NewAddress|	int|	  
 | OntCount|   String|    |
 | OngCount|	String|	  |
+| OntIdSum|	int|	total ontId count  |
 | OntIdActiveCount|	int|	  |
 | OntIdNewCount|	int|	  |
+| OntIdSum|	int|	  |
+
 
 
 ###  Query Contract Info
