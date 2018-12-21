@@ -44,7 +44,18 @@ successResponse：
 			},
 			{
 				"AssetName": "pumpkin01",
-				"Balance": "7"
+				"Balance": "7",
+				"AssertType": "OEP8"
+			},
+			{
+				"AssetName": "TNT",
+				"Balance": "19888",
+				"AssertType": "OEP4"
+			},
+			{
+				"AssetName": "HyperDragons",
+				"Balance": "3",
+				"AssertType": "OEP5"
 			}
 		],
 		"TxnList":[
@@ -83,6 +94,7 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  |
 |    AssetBalance.Balance|   String|  |
+|    AssetBalance.AssertType|   String|  |
 |    TxnList.TxnHash|   String|   |
 |    TxnList.ConfirmFlag|   int| 1:succeed 2:failed  |
 |    TxnList.Height|   int|    |
@@ -280,6 +292,21 @@ successResponse：
 		{
 			"Balance": "8637767",
 			"AssetName": "ont"
+		},
+		{
+			"AssetName": "pumpkin01",
+			"Balance": "7",
+			"AssertType": "OEP8"
+		},
+		{
+			"AssetName": "TNT",
+			"Balance": "19888",
+			"AssertType": "OEP4"
+		},
+		{
+			"AssetName": "HyperDragons",
+			"Balance": "3",
+			"AssertType": "OEP5"
 		}
 	]
 }
@@ -296,6 +323,7 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    AssetName|   String|  |
 |    Balance|   String|  |
+|    AssertType|   String|  |
 
 
 
