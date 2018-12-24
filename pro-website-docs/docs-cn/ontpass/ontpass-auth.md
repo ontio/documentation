@@ -63,7 +63,7 @@ ONTPass目前已经对外开放的认证服务包括：
 
 **测试环境域名：https://api.ont.network**
 
-**生产环境域名：https://ontpass.ont.io**
+
 
 认证需求方选定所需的TrustAnchor提供的认证服务后，需要到ONTPass平台注册相关信息，主要包括ONT ID，基本简介，所需认证服务及回调地址。只有在平台注册过的需求方才会收到后续的可信声明回调推送。
 
