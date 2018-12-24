@@ -39,7 +39,7 @@ Ontology Global Identity TrustAnchor(ONTTA)作为Ontology信任生态上的一�
 
 **测试环境域名：https://api.ont.network**
 
-**生产环境域名：https://ontpass.ont.io**
+
 
 
 ```json
@@ -219,8 +219,6 @@ SuccessResponse：
 
 
 **测试环境域名：https://api.ont.network**
-
-**生产环境域名：https://ontpass.ont.io**
 
 
 ### 认证需求方使用
