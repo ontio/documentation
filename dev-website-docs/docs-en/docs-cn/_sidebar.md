@@ -45,7 +45,7 @@
 - Cyano-Provider
   - [手机版Provider](docs-cn/Cyano-provider/00-overview.md)
       - [扫二维码对接](docs-cn/Cyano-provider/02-scan-qrcode.md)
-      - [钱包里打开DApp对接](docs-cn/Cyano-provider/02-embedded-h5.md)
+      - [钱包里打开DApp对接](docs-cn/Cyano-provider/03-embedded-h5.md)
   
 - Cyano-dAPI
   - [概述](docs-cn/dApi/00-overview.md)
