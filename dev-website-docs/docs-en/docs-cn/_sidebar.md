@@ -43,16 +43,16 @@
   - [开始使用](docs-cn/Cyano/02-getting-started.md)
 
 - Cyano-Provider
-  - [provider-mobile](docs-cn/Cyano-provider/00-overview.md)
+  - [手机版Provider](docs-cn/Cyano-provider/00-overview.md)
       - [唤醒对接](docs-cn/Cyano-provider/01-wakeup.md)
       - [扫二维码对接](docs-cn/Cyano-provider/02-scan-qrcode.md)
       - [钱包里打开DApp对接](docs-cn/Cyano-provider/02-embedded-h5.md)
   
-- dAPI.js
+- Cyano-dAPI
   - [概述](docs-cn/dApi/00-overview.md)
-  - [dAPI](docs-cn/dApi/01-quickstart.md)
+  - [Chrome插件dAPI](docs-cn/dApi/01-quickstart.md)
       - [开始使用](docs-cn/dApi/02-getting-started.md)
-  - [dAPI-mobile](docs-cn/dApi-mobile/00-overview.md)
+  - [手机版dAPI](docs-cn/dApi-mobile/00-overview.md)
       - [开始使用](docs-cn/dApi-mobile/02-getting-started.md)
       
 - SDKs

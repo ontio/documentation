@@ -42,16 +42,16 @@
   - [Getting Started](docs-en/Cyano/02-getting-started.md)
 
 - Cyano-Provider
-  - [Overview](docs-en/Cyano-provider/00-overview.md)
-  - [Wakeup wallet](docs-en/Cyano-provider/01-wakeup.md)
-  - [Scan QRcode](docs-en/Cyano-provider/02-scan-qrcode.md)
-  - [Embedded H5 DApp](docs-en/Cyano-provider/02-embedded-h5.md)
+  - [Provider-Mobile](docs-en/Cyano-provider/00-overview.md)
+      - [Wakeup wallet](docs-en/Cyano-provider/01-wakeup.md)
+      - [Scan QRcode](docs-en/Cyano-provider/02-scan-qrcode.md)
+      - [Embedded H5 DApp](docs-en/Cyano-provider/02-embedded-h5.md)
   
-- dAPI.js
+- Cyano-dAPI
   - [Overview](docs-en/dApi/00-overview.md)
-  - [dAPI](docs-en/dApi/01-quickstart.md)
+  - [dAPI-Chrome](docs-en/dApi/01-quickstart.md)
       - [Getting Started](docs-en/dApi/02-getting-started.md)
-  - [dAPI-mobile](docs-en/dApi-mobile/00-overview.md)
+  - [dAPI-Mobile](docs-en/dApi-mobile/00-overview.md)
       - [Getting Started](docs-en/dApi-mobile/02-getting-started.md)
   
 - SDKs
