@@ -45,9 +45,8 @@ client.registerClient();
 
 参考例子 [demo app](https://github.com/ontio-cyano/mobile-dapp-demo).
 
-# 文档
 
-## 1. 安装
+### 1. 安装
 
 ```
 import { client } from 'cyanobridge'
@@ -56,7 +55,7 @@ client.registerClient();
 
 
 
-## 2. getAccount
+### 2. getAccount
 
 从钱包获取账号。
 
@@ -97,7 +96,7 @@ try {
 
 ```
 
-## 2. getIdentity
+### 2. getIdentity
 
 从钱包获取身份.
 
@@ -136,7 +135,7 @@ try {
 
 
 
-## 3. 登录
+### 3. 登录
 
 请求钱包对数据做签名.
 
@@ -198,7 +197,7 @@ try {
 
 
 
-## 4. 调用合约
+### 4. 调用合约
 
 请求调用合约.
 
@@ -284,7 +283,7 @@ try {
 
 ```
 
-## 5. 预执行合约
+### 5. 预执行合约
 
 预执行交易，参数与调用合约相同。
 
@@ -322,7 +321,7 @@ const scriptHash = 'b5a1f2cd4e27b7453111a2f5eb737714ead8fded';
         }
 ```
 
-## 6. 免密调用合约
+### 6. 免密调用合约
 
 有些游戏会用到自动投注功能，比如每隔10秒投注一次，用户只需要输入一次密码。我们只信任固定的方法和参数，而不是信任整个合约的所有方法。
 
@@ -361,7 +360,7 @@ try {
 }
 ```
 
-## 支持的参数列表
+### 支持的参数列表
 
 #### Integer
 
