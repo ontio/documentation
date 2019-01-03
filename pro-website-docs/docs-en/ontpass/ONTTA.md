@@ -206,6 +206,7 @@ SuccessResponse：
 | :--- | :--- | :--- |
 | 0 | int | SUCCESS. Success |
 | 61001 | int | FAIL, param error. Parameter error |
+| 61002 | int | FAIL, ONTID not exist. |
 | 62003 | int | FAIL, inner communicate fail. Inner communicate failure |
 | 62006 | int | FAIL, verify signature fail.  Verify signature failure|
 | 62007 | int | FAIL, txn toaddress error or amount insufficient. Transaction error |
