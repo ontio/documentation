@@ -1,40 +1,39 @@
-
-<h1 align="center">扫码接入流程</h1>
+<h1 align="center">Scan QR code</h1>
 <p align="center" class="version">Version 0.8.0 </p>
 
-## 概述
+## Overview
 
-本文用于指导DApp方如何接入Provider，并使用扫码登陆，扫码调用智能合约等服务。
-流程中涉及到的参与方包括：
+This article is used to guide the DApp party how to access the Provider, and use the scan code to log in, scan the code to call smart contracts and other services.
+The parties involved in the process include:
 
-* DApp方：对ONT生态内的用户提供dApp，是本体生态中重要的组成部分。
-* Provider：实现daApi mobile规范的钱包
+* DApp side: Providing dApp to users within the ONT ecosystem is an important part of the ontology ecosystem.
+* Provider: wallet that implements the daApi mobile specification
 
-## 交互流程说明
+## Interactive process description
 
 ![login-invoke](images/split-login-invoke.png)
 
 ### Login
-- 1.1 Provider扫描dApp方提供的二维码（[登陆二维码标准](#登陆二维码标准)）
-- 1.2 Provider获取到callback url和验证用的msg
-- 2 对msg签名，调用登陆方法（[DApp服务端登陆接口](#DApp服务端登陆接口)）
-- 3 dApp后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
+- 1.1 Provider scans the QR code provided by dApp ([Login QR Code Standard](#Login-QR-Code-Standard))
+- 1.2 Provider gets callback url and msg for verification
+- 2 Sign the msg, call the login method ([DApp server login interface](#DApp-server-login-interface))
+- 3 dApp backend verification signature ([Signature Verification Method](#Signature-Verification-Method)) returns the verification result
 
 ### Invoke Smart contract
-- 1.1 provider扫描dapp方提供的二维码（[调用合约二维码标准](#调用合约二维码标准)）
-- 1.2 使用Provider扫码
-- 2 Provider构造交易，用户签名，预执行交易，用户确认，发送到链上，返回交易hash
-- 3 dApp后端查询这笔合约交易（[合约查询方法](#合约查询方法)）
+- 1.1 provider scans the QR code provided by the dapp party ([Invoke smart contract QR code standard](#Invoke-smart-contract-QR-code-standard))
+- 1.2 Using Provider Scan Code
+- 2 Provider constructs transactions, user signatures, pre-executed transactions, user confirmation, sent to the chain, returns transaction hash
+- 3 dApp backend query for this contract transaction ([query smart contract](#query-smart-contract))
 
-## 接入步骤
+## Usage
 
-### 前提条件
-使用前，你需要联系[本体机构合作](https://info.ont.io/cooperation/en)
+### Precondition
+Before using, you need to contact [Ontology institutional cooperation](https://info.ont.io/cooperation/en)
 
-### 登陆接入步骤
+### Login
 
-#### 登陆二维码标准
-扫码获取
+#### Login QR Code Standard
+Scan QR Code
 
 ```
 {
@@ -51,17 +50,17 @@
 }
 ```
 
-|字段|类型|定义|
+|parameter|type|description|
 | :---| :---| :---|
-| action   |  string |  定义此二维码的功能，登录设定为"Login"，调用智能合约设定为"invoke" |
-| type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
-| dappName   | string  | dapp名字 |
-| dappIcon   | string  | dapp icon信息 |
-| message   | string  | 随机生成，用于校验身份  |
-| expire   | long  | 可选  |
-| callback   | string  |  用户扫码签名后发送到DApp后端URL |
+| action   |  string | |
+| type   |  string |  type is "ontid" or "account" |
+| dappName   | string  | dapp name  |
+| dappIcon   | string  | dapp icon |
+| message   | string  |   |
+| expire   | long  |   |
+| callback   | string  |  |
 
-### DApp服务端登陆接口
+### DApp server login interface
 method: post 
 
 ```
@@ -78,15 +77,15 @@ method: post
 }
 ```
 
-|字段|类型|定义|
+|parameter|type|description|
 | :---| :---| :---|
-| action | string | 操作类型，登录设定为"login"，调用智能合约设定为"invoke" |
-| params | string | 方法要求的参数 |
-| type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
-| user | string | 用户做签名的账户，比如用户的ontid或者钱包地址 |
-| message   | string  | 随机生成，用于校验身份  |
-| publickey | string | 账户公钥 |
-| signature  |  string |  用户签名 |
+| action | string | action |
+| params | string | params |
+| type   |  string |  type is "ontid" or "account" |
+| user | string |  |
+| message   | string  |  |
+| publickey | string |  |
+| signature  |  string |   |
 
 #### Response
 * Success
@@ -112,8 +111,8 @@ method: post
 ```
 
 
-### 调用合约二维码标准
-扫码获取
+### Invoke smart contract QR code standard
+Scan QR Code
 
 ```
 {
@@ -127,13 +126,13 @@ method: post
 }
 ```
 
-|字段|类型|定义|
+|parameter|type|description|
 | :---        | :---    | :---                                                              |
-| action      | string  | 操作类型，登录设定为"Login"，调用智能合约设定为"invoke" |
-| qrcodeUrl         | string  | 二维码参数地址                                           |
-| callback         | string  | 选填，返回交易hash给dApp服务端                                           |
+| action      | string  |  |
+| qrcodeUrl         | string  |                                            |
+| callback         | string  |                                           |
 
-根据二维码中qrcodeUrl链接，GET的的数据如下：
+According to the qrcodeUrl link in the QR code, the data of the GET is as follows:
 
 ```
 {
@@ -178,9 +177,10 @@ method: post
 ```
 
 
-Provider 构造交易，用户签名，预执行交易，发送交易，POST 交易hash给callback url。
 
-* 发送交易成功POST给callback
+Provider constructs transactions, user signatures, pre-executed transactions, sends transactions, POST transaction hashes to callback urls.
+
+* Send the transaction successfully POST to the callback
 
 ```
 {
@@ -191,7 +191,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 }
 ```
 
-* 发送交易失败给callback
+* Send transaction failed to callback
 
 ```
 {
@@ -202,17 +202,17 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 }
 ```
 
-##### 预执行交易
+##### Pre-executed transaction
 
-预执行交易是可选的，主要作用是提醒用户该交易中包含的ONT/ONG转账数量。
+The pre-execution transaction is optional and its main function is to remind the user of the number of ONT/ONG transfers included in the transaction.
 
-预执行交易返回的Notify结果可以查看用户在这笔交易中会花费多少ONT/ONG。因为当前节点没升级，需要连接到固定节点预执行才会有返回Notify信息：主网：http://dappnode3.ont.io， 测试网：http://polaris5.ont.io
+The Notify result returned by the pre-execution transaction can see how many ONTs/ONGs the user will spend in the transaction. Because the current node is not upgraded, you need to connect to the fixed node pre-execution to return Notify information: main network: http://dappnode3.ont.io, test network: http://polaris5.ont.io
 
-> 需要遍历Notify做判断，因为该交易可能有多笔转账事件或其他合约事件，如果是其他合约事件不需做处理，通过合约地址判断是ONT还是ONG，再判断transfer方法和转出方。建议UI显示转入转出方和amount，还有交易手续费大约0.01 ONG。
-ONT:0100000000000000000000000000000000000000
-ONG:0200000000000000000000000000000000000000
+> Need to traverse Notify to make judgments, because the transaction may have multiple transfer events or other contract events. If other contract events do not need to be processed, the contract address is judged to be ONT or ONG, and then the transfer method and the transfer party are judged. It is recommended that the UI display the transfer to and from the export, and the transaction fee is approximately 0.01 ONG.
+ONT: 0100000000000000000000000000000000000000
+ONG: 0200000000000000000000000000000000000000
 
-如果预执行成功，节点返回的结果是：
+If the pre-execution is successful, the result returned by the node is:
 ```
 {
     "Action": "sendrawtransaction",
@@ -231,20 +231,20 @@ ONG:0200000000000000000000000000000000000000
 }
 ```
 
-如果预执行失败，Error 的值> 0。
+Prepare execution fail, Error > 0。
 
 
-## 代码参考
+## Code reference
 
-##### 签名验证方法
-* [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
-* [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
+##### Signature Verification Method
+* [java sdk Verification](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
+* [ts sdk Verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
 
-##### 合约查询方法
-* [java sdk 合约查询](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
-* [ts sdk 合约查询](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
+##### query smart contract
+* [java sdk query smart contract](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
+* [ts sdk query smart contract](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
-##### 钱包
+##### wallet
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 * [WebViewActivity.java](https://github.com/ontio-cyano/cyano-android/blob/master/CyanoWallet/app/src/main/java/com/github/ont/cyanowallet/game/GameWebActivity.java)

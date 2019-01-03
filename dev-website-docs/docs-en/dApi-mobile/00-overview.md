@@ -1,34 +1,31 @@
-## 移动版dApi与chrome插件dApi区别
+## dApi-mobile and dApi for chrome
 
-移动版dApi只提供几个重要接口，查询相关的接口可以直接调用区块链浏览器的api接口查询,[explorer api](http://dev-docs.ont.io/#/docs-en/explorer/overview).
+dApi for mobile support interface less than dApi for chrome, for query balance or information of chain can use [explorer api](http://dev-docs.ont.io/#/docs-en/explorer/overview).
 
-移动版dApi使用方法: [cyano-dapi-mobile](https://github.com/ontio-cyano/cyano-dapi-mobile)
+For detail please reference to [cyano-dapi-mobile](https://github.com/ontio-cyano/cyano-dapi-mobile), [cyano-dapi](https://github.com/ontio/ontology-dapi)
 
-Chrome插件钱包的dApi使用方法[cyano-dapi](https://github.com/ontio/ontology-dapi)
+### dApi register
 
-### dApi接口初始化
 
-chrome插件版需要注册，移动版不需要。
-
-#### 移动版本
+#### dApi for mobile
 ```
 import { client } from 'cyanobridge'
 client.registerClient();
 
 ```
 
-#### chrome插件版
+#### dApi for chrome
 ```
 import {client} from 'ontology-dapi'
 client.registerClient({})
 
 ```
 
-### 获取账号或身份信息
+### getAccount or getIdentity
 
-获取账号或身份信息，移动端可以可以选择填dapp信息也可以不填写。
+getAccount or getIdentity
 
-#### 移动版本
+#### dApi for mobile
 
 ```
 import { client } from 'cyanobridge'
@@ -49,17 +46,17 @@ try {
 ```
 
 
-#### chrome插件版
+#### dApi for chrome
 ```
 account = await client.api.asset.getAccount()
 res = await client.api.identity.getIdentity();
 ```
 
-### 登录
+### login
 
-登录是由钱包方签名，dApp验证签名。
 
-#### 移动版本
+
+#### dApi for mobile
 
 ```
 const params = {
@@ -79,16 +76,16 @@ try {
 }
 ```
 
-#### chrome插件版
+#### dApi for chrome
 ```
 const result = await client.api.message.signMessage({ message });
 ```
 
-### 调用合约
+### invoke smart contract
 
 
 
-#### 移动版本
+#### dApi for mobile
 
 ```
 const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
@@ -125,7 +122,7 @@ try {
 
 ```
 
-#### chrome插件版
+#### dApi for chrome
 ````
 const contract = '16edbe366d1337eb510c2ff61099424c94aeef02';
 const gasLimit = 30000;

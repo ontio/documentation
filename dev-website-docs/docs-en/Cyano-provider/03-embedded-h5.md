@@ -1,63 +1,62 @@
-
-<h1 align="center">钱包打开H5 DApp接入流程</h1>
+<h1 align="center">Wallet opens H5 DApp</h1>
 <p align="center" class="version">Version 0.8.0 </p>
 
-## 概述
+## Overview
 
-本文用于指导dApp方如何与钱包通信，及钱包如何处理dApp的请求。
-流程中涉及到的参与方包括：
+This article is used to guide how the dApp party communicates with the wallet and how the wallet handles the dApp request.
+The parties involved in the process include:
 
-* Dapp方：对ONT生态内的用户提供Dapp，是本体生态中重要的组成部分。
-* Provider：实现dApi mobile规范的钱包
+* Dapp side: Providing Dapp to users within the ONT ecosystem is an important part of the ontology ecosystem.
+* Provider: wallet that implements the dApi mobile specification
 
-## 交互流程说明
+## Interactive process description
 
-DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
+DApp request data URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
 
 ![login-invoke](images/scenario3.png)
 
-### 钱包打开H5 DApp
+### Wallet opens H5 DApp
 
-- 1 钱包打开H5 DApp
+- 1 Wallet opens H5 DApp
 
-### H5 DApp向获取Provider信息
+### H5 DApp get Provider information
 
-- 1 DApp请求Provider信息
-- 2 钱包返回Provider信息
+- 1 DApp request Provider information
+- 2 wallet returns Provider information
 
-### H5 DApp向获取账户或身份信息
+### H5 DApp get account or identity information
 
-- 1 DApp请求账户或身份信息
-- 2 用户接受请求，返回账户或身份信息
-
-
-### 登录Login
-- 1 DApp请求对message做签名（[DApp发起登录请求](#DApp发起登录请求)）
-- 2 钱包用户对message做签名，返回签名数据（[钱包响应登录请求](#钱包响应登录请求)）
-
-### 消息签名signMessage
+- 1 DApp request account or identity information
+- 2 User accepts request, returns account or identity information
 
 
-### 调用合约Invoke Smart contract
-- 1 DApp请求调用合约（[DApp发起调用合约请求](#DApp发起调用合约请求)）
-- 2 钱包构造交易，用户签名
-- 3 钱包预执行交易（[预执行交易](#预执行交易)）   
-- 4 钱包发送交易
-- 3 钱包返回交易Hash（[钱包响应调用合约请求](#钱包响应调用合约请求)）
+### Login
+- 1 DApp requests to sign the message ([DApp initiates login request](#DApp-initiates-login-request))
+- 2 The wallet user signs the message and returns the signature data ([wallet response login request](#wallet-response-login-request))
+
+### signMessage
+
+
+### Invoke Smart contract
+- 1 DApp request to call contract ([DApp initiates invoke smart contract request](#DApp-initiates-invoke-smart-contract-request))
+- 2 wallet construction transaction, user signature
+- 3 Wallet pre-executed transactions ([Pre-execution transaction](#Pre-execution-transaction))
+- 4 wallet to send transactions
+- 3 Wallet returns transaction Hash ([wallet response call contract request](#wallet-response-call-contract-request))
 
 
 
-## 钱包和DApp接入步骤
+## Usage
 
-### 前提条件
-使用前，你需要联系[本体机构合作](https://info.ont.io/cooperation/en)
+### Precondition
+Before using, you need to contact [Ontology institutional cooperation](https://info.ont.io/cooperation/en)
 
 
-### 查询Provider信息步骤
+### get Provider information
 
-#### DApp发起查询Provider信息请求
+#### DApp initiates query Provider information request
 
-数据如下，**URI编码，Base64编码**后发送请求：
+The data is as follows, **URI encoding, Base64 encoding** then send request：
 ```
 
 {
@@ -70,13 +69,13 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 ```
 
-|字段|类型|定义|
+|parameter|type|description|
 | :---| :---| :---|
-| action   |  string |  操作类型 |
+| action   |  string |   |
 
-#### 钱包返回Provider信息
+#### wallet response login request
 
-**URI解码，Base64解码**后，获取到的数据如下：
+**URI decoding, Base64 decoding**, the obtained data is as follows:
 ```
 {
 	"action": "getProvider", 
@@ -90,11 +89,11 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 }
 ```
 
-### 查询账号或身份信息步骤
+### Query account or identity information
 
-#### DApp发起查询账号或身份信息请求
+#### DApp initiates query account or identity information request
 
-数据如下，**URI编码，Base64编码**后发送请求：
+The data is as follows, **URI encoding, Base64 encoding** then send request:
 ```
 
 {
@@ -109,15 +108,15 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 ```
 
-|字段|类型|定义|
+|parameter|type|description|
 | :---| :---| :---|
-| action   |  string |  操作类型 |
-| dappName   | string  | dapp名字 |
-| dappIcon   | string  | dapp icon信息 |
+| action   |  string |   |
+| dappName   | string  | dapp name |
+| dappIcon   | string  | dapp icon |
 
-#### 钱包返回账号或身份信息
+#### Wallet return account or identity information
 
-**URI解码，Base64解码**后，获取到的数据如下：
+**URI decoding, Base64 decoding**, the obtained data is as follows:
 ```
 {
 	"action": "getAccount", // or getIdentity
@@ -128,12 +127,12 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 }
 ```
 
-### 登陆步骤
+### Login
 
-#### DApp发起登录请求
+#### DApp initiates a login request
 
 
-数据如下，**URI编码，Base64编码**后发送请求：
+The data is as follows, **URI encoding, Base64 encoding** then send request:
 ```
 {
 	"action": "login",
@@ -147,19 +146,19 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 }
 ```
 
-|字段|类型|定义|
+|parameter|type|description|
 | :---| :---| :---|
-| action   |  string |  操作类型 |
-| type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
-| dappName   | string  | dapp名字 |
-| dappIcon   | string  | dapp icon信息 |
-| message   | string  | 随机生成，用于校验身份  |
+| action   |  string |   |
+| type   |  string |  type is "ontid" or "account" |
+| dappName   | string  | dapp name |
+| dappIcon   | string  | dapp icon |
+| message   | string  |   |
 
-#### 钱包响应登录请求
+#### Wallet responds to login request
 
-**URI解码，Base64解码**后，获取到的数据如下：
+**URI decoding, Base64 decoding**, the obtained data is as follows:
 
-* 返回成功内容
+* Return successful content
 ```
 {
 	"action": "login",
@@ -176,19 +175,19 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 }
 ```
 
-|字段|类型|定义|
+|parameter|type|description|
 | :---| :---| :---|
-| action | string | 操作类型 |
-| result | string | 返回结果 |
-| type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
-| user | string | 用户做签名的账户，比如用户的ontid或者钱包地址 |
-| message   | string  | 随机生成，用于校验身份  |
-| publickey | string | 账户公钥 |
-| signature  |  string |  用户签名 |
+| action | string |  |
+| result | string |  |
+| type   |  string |  "ontid" or "account" |
+| user | string |  |
+| message   | string  |   |
+| publickey | string | |
+| signature  |  string |   |
 
 
 
-* 返回失败内容
+* Return failed content
 
 ```
 {
@@ -200,11 +199,11 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 ```
 
 
-### 消息签名步骤
+### Message signature
 
-跟login一样，但DApp请求时不需要DApp名字和icon。
+Same as login, but the DApp name does not require a DApp name and icon.
 
-数据如下，**URI编码，Base64编码**后发送请求：
+The data is as follows, **URI encoding, Base64 encoding** then send request:
 
 ```
 {
@@ -216,10 +215,10 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 	}
 }
 ```
-#### DApp发起签名请求
+#### DApp initiates a signature request
 
 
-数据如下，**URI编码，Base64编码**后发送请求：
+The data is as follows, **URI encoding, Base64 encoding** then send request:
 ```
 {
 	"action": "signMessage",
@@ -231,28 +230,25 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 }
 ```
 
-|字段|类型|定义|
+|parameter|type|description|
 | :---| :---| :---|
-| action   |  string |  操作类型 |
-| type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account"，不填就默认是"account" |
-| message   | string  | 随机生成，用于校验身份  |
+| action   |  string |   |
+| type   |  string |  "ontid" or "account" |
+| message   | string  |   |
 
 
 
+### Invoke smart contract 
 
-### 调用合约步骤
+The action is invoke: Take the normal process.
 
-action是invoke: 走正常流程。
+The action is invokeRead: is a pre-executed transaction, the user does not need to sign, and returns the pre-execution result to the DApp.
 
-action是invokeRead: 是预执行交易，用户不需要签名，返回预执行结果给DApp。
+The action is invokePasswordFree: Some games use the automatic bet function, such as betting once every 10 seconds, the user only needs to enter the password once. We only trust fixed methods and parameters, not all methods that trust the entire contract, so save the parameters of the transaction after entering the password (this parameter ((InvokeCode)txs[0]).code)), if the next request is The same data does not require a password to be entered again, nor does it require pre-execution. When the user leaves the current DApp, remember to clear the private key and parameters in memory.
 
-action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每隔10秒投注一次，用户只需要输入一次密码。我们只信任固定的方法和参数，而不是信任整个合约的所有方法，所以输入密码后保存该交易的参数（是这个参数((InvokeCode)txs[0]).code），如果下次请求时是同样的数据就不需要再次输入密码，也不需要预执行。当用户离开当前DApp时，记得清空内存中的私钥和参数。
+#### DApp initiates a call contract request
 
-
-
-#### DApp发起调用合约请求
-
-数据如下，**URI编码，Base64编码**后发送请求：
+The data is as follows, **URI encoding, Base64 encoding** send request:
 
 ```
 {
@@ -297,20 +293,22 @@ action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每
 ```
 
 
-#### 钱包响应调用合约请求
-
-**钱包先URI解码，Base64解码**：
-
-1. 钱包构造交易
-2. 用户签名
-3. 预执行交易
-4. 用户确认
-5. 发送交易到链上
-6. 返回交易hash给DApp
 
 
 
-* 返回交易成功给DApp
+#### Wallet response invoke smart contract request
+
+**wallet first URI decoding, Base64 decoding**:
+
+Wallet construction transaction
+2. User signature
+3. Pre-executed trading
+4. User confirmation
+5. Send the transaction to the chain
+6. Return the trade hash to the DApp
+
+
+* Return success to DApp
 
 ```
 {
@@ -321,7 +319,7 @@ action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每
 }
 ```
 
-* 返回失败给DApp
+* Return failure to DApp
 
 ```
 {
@@ -332,11 +330,11 @@ action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每
 }
 ```
 
-##### 预执行交易
+##### Pre-executed transaction
 
-预执行交易返回的Notify结果可以查看用户在这笔交易中会花费多少ONT/ONG。需要连接到固定节点：主网：http://dappnode3.ont.io，测试网：http://polaris5.ont.io
+The Notify result returned by the pre-execution transaction can see how many ONTs/ONGs the user will spend in the transaction. Need to connect to the fixed node: main network: http://dappnode3.ont.io, test network: http://polaris5.ont.io
 
-> 需要遍历Notify做判断，因为该交易可能有多笔转账或其他事件，通过合约地址判断是ONT还是ONG，再判断transfer方法和转出方。
+> Need to traverse Notify to make a judgment, because the transaction may have multiple transfers or other events, judge whether it is ONT or ONG through the contract address, and then judge the transfer method and the transfer party.
 
 ```
 
@@ -354,17 +352,17 @@ action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每
 
 
 
-## 代码参考
+## Code reference
 
-##### 签名验证方法
-* [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
-* [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
+##### Signature Verification Method
+* [java sdk Verification](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
+* [ts sdk Verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
 
-##### 合约查询方法
-* [java sdk 合约查询](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
-* [ts sdk 合约查询](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
+##### query smart contract
+* [java sdk query smart contract](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
+* [ts sdk query smart contract](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
-##### 钱包
+##### wallet
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 * [WebViewActivity.java](https://github.com/ontio-cyano/cyano-android/blob/master/CyanoWallet/app/src/main/java/com/github/ont/cyanowallet/game/GameWebActivity.java)

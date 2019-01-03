@@ -6,6 +6,8 @@ The document is broken down into the following sections:
 
 [Setting up the development environment](#setting-up-the-development-environment)
 
+[Architecture](#Architecture)
+
 [Ontology dAPI Overview](#ontology-dapi-overview)
 + [dAPI Installation](#dapi-installation)
 + [dAPI Instantiation](#dapi-instantiation)
@@ -34,6 +36,9 @@ Please ensure you have the following installed and configured in order to setup 
 
 - [Git](https://git-scm.com/)
 
+### Architecture
+
+![architecture](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/image/dapi.png)
 
 ### Ontology dAPI Overview
 #### dAPI Installation
