@@ -12,7 +12,9 @@
 
 ## 交互流程说明
 
-![login-invoke](images/split-login-invoke.png)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/split-login-invoke.png" ><br><br>
+</div>
 
 ### Login
 - 1.1 Provider扫描dApp方提供的二维码（[登陆二维码标准](#登陆二维码标准)）

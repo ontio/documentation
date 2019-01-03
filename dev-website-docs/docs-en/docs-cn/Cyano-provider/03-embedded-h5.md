@@ -14,7 +14,9 @@
 
 DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
 
-![login-invoke](images/scenario3.png)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/scenario3.png" ><br><br>
+</div>
 
 ### 钱包打开H5 DApp
 

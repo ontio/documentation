@@ -11,7 +11,10 @@ The parties involved in the process include:
 
 ## Interactive process description
 
-![login-invoke](images/split-login-invoke.png)
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/split-login-invoke.png" ><br><br>
+</div>
 
 ### Login
 - 1.1 Provider scans the QR code provided by dApp ([Login QR Code Standard](#Login-QR-Code-Standard))
