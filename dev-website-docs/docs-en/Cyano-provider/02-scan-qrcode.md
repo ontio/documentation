@@ -42,6 +42,7 @@ Scan QR Code
 {
 	"action": "login",
 	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
 	"params": {
 		"type": "ontid or account",
 		"dappName": "dapp Name",
@@ -70,6 +71,7 @@ method: post
 {
 	"action": "login",
 	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
 	"params": {
 		"type": "ontid or account",
 		"user": "did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz",
@@ -96,6 +98,8 @@ method: post
 ```
 {
   "action": "login",
+  "version": "v1.0.0",  
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	  
   "error": 0,
   "desc": "SUCCESS",
   "result": true
@@ -107,7 +111,9 @@ method: post
 ```
 {
   "action": "login",
-  "error": 8001,
+  "version": "v1.0.0",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	  
+  "error": 80001,
   "desc": "PARAMS ERROR",
   "result": 1
 }
@@ -121,6 +127,7 @@ Scan QR Code
 {
 	"action": "invoke",
 	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
 	"params": {
 		"login": true,
 		"callback": "http://101.132.193.149:4027/invoke/callback",		
@@ -141,6 +148,7 @@ According to the qrcodeUrl link in the QR code, the data of the GET is as follow
 {
 	"action": "invoke",
 	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
 	"params": {
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
@@ -188,6 +196,8 @@ Provider constructs transactions, user signatures, pre-executed transactions, se
 ```
 {
   "action": "invoke",
+  "version": "v1.0.0",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	  
   "error": 0,
   "desc": "SUCCESS",
   "result": "tx hash"
@@ -199,7 +209,9 @@ Provider constructs transactions, user signatures, pre-executed transactions, se
 ```
 {
   "action": "invoke",
-  "error": 8001,
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	 
+  "version": "v1.0.0", 
+  "error": 80001,
   "desc": "SEND TX ERROR",
   "result": 1
 }
@@ -250,10 +262,10 @@ Prepare execution fail, Error > 0。
 ##### wallet
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
-* [WebViewActivity.java](https://github.com/ontio-cyano/cyano-android/blob/master/CyanoWallet/app/src/main/java/com/github/ont/cyanowallet/game/GameWebActivity.java)
-* [DAppViewController.m](https://github.com/ontio-cyano/cyano-ios/blob/master/Cyano%20Wallet/Cyano%20Wallet/Classes/View/Discover/DAppViewController.m)
 
 ##### dApi-mobile client sdk
-* [cyano-dapi-mobile](https://github.com/ontio-cyano/cyano-dapi-mobile)
+* [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
 
 ##### dApi-mobile provider sdk
+* [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
+* [cyano-ios-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)

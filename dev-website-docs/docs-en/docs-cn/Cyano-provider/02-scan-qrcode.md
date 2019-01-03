@@ -82,7 +82,7 @@ method: post
 
 |字段|类型|定义|
 | :---| :---| :---|
-| action | string | 操作类型，登录设定为"login"，调用智能合约设定为"invoke" |
+| action | string | 操作类型 |
 | params | string | 方法要求的参数 |
 | type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
 | user | string | 用户做签名的账户，比如用户的ontid或者钱包地址 |
@@ -107,7 +107,7 @@ method: post
 ```
 {
   "action": "login",
-  "error": 8001,
+  "error": 80001,
   "desc": "PARAMS ERROR",
   "result": 1
 }
@@ -198,7 +198,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 ```
 {
   "action": "invoke",
-  "error": 8001,
+  "error": 80001,
   "desc": "SEND TX ERROR",
   "result": 1
 }
@@ -249,10 +249,10 @@ ONG:0200000000000000000000000000000000000000
 ##### 钱包
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
-* [WebViewActivity.java](https://github.com/ontio-cyano/cyano-android/blob/master/CyanoWallet/app/src/main/java/com/github/ont/cyanowallet/game/GameWebActivity.java)
-* [DAppViewController.m](https://github.com/ontio-cyano/cyano-ios/blob/master/Cyano%20Wallet/Cyano%20Wallet/Classes/View/Discover/DAppViewController.m)
 
 ##### dApi-mobile client sdk
-* [cyano-dapi-mobile](https://github.com/ontio-cyano/cyano-dapi-mobile)
+* [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
 
 ##### dApi-mobile provider sdk
+* [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
+* [cyano-ios-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)
