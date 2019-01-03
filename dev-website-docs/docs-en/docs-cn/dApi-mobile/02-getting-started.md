@@ -1,7 +1,6 @@
 
-A tool to help mobile dApps communicate with related provider. It wraps the dapi for mobile dapps and send request to 
 
-the provider(native client).
+CyanoBridge封装了与provider通信的协议，方便DApp开发者集成手机版dApi功能。
 
 > 手机端钱包中用webview打开DApp, 例如 ONTO或cyano钱包.
 
