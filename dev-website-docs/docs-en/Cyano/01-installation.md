@@ -1,10 +1,9 @@
 
 ### Download 
 
-Plugin is currently distributed in Chrome web store at https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm . 
+Plugin is currently distributed in Chrome web store at https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm or install by yourself from [here](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)
 
-or install by yourself from [here](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)
-
+cyano mobile source code is [cyano-android](https://github.com/ontio-cyano/cyano-android), [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
 ### Manual build
 

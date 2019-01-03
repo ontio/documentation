@@ -40,6 +40,20 @@
   - [Overview](docs-en/Cyano/00-overview.md)
   - [Installation](docs-en/Cyano/01-installation.md)
   - [Getting Started](docs-en/Cyano/02-getting-started.md)
+
+- Cyano-Provider
+  - [Overview](docs-en/Cyano-provider/00-overview.md)
+  - [Wakeup wallet](docs-en/Cyano-provider/01-wakeup.md)
+  - [Scan QRcode](docs-en/Cyano-provider/02-scan-qrcode.md)
+  - [Embedded H5 DApp](docs-en/Cyano-provider/02-embedded-h5.md)
+  
+- dAPI.js
+  - [Overview](docs-en/dApi/00-overview.md)
+  - [dAPI](docs-en/dApi/01-quickstart.md)
+      - [Getting Started](docs-en/dApi/02-getting-started.md)
+  - [dAPI-mobile](docs-en/dApi-mobile/00-overview.md)
+      - [Getting Started](docs-en/dApi-mobile/02-getting-started.md)
+  
 - SDKs
   - [Overview](docs-en/SDKs/00-overview.md)
   - [Wallet File](docs-en/SDKs/01-wallet-file-specification.md)
@@ -52,10 +66,7 @@
   - [Wallet Integration](docs-en/SDKs/02-wallet-intergration.md)
       - [iOS](docs-en/SDKs/ontology_wallet_dev_ts_sdk_en.md)
       - [Android](docs-en/SDKs/ontology_wallet_dev_android_en.md)
-- dAPI.js
-  - [Overview](docs-en/dApi/00-overview.md)
-  - [Quick Start](docs-en/dApi/01-quickstart.md)
-  - [Getting Started](docs-en/dApi/02-getting-started.md)
+
 
 - Ontology Cli
   - [Overview](docs-en/OntologyCli/00-overview.md)

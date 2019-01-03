@@ -1,9 +1,9 @@
 
 ### 下载 
 
-Chrome web store 下载[Cyano](https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm) . 
+Chrome web store 下载[Cyano](https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm) 或者通过安装文件自己安装，请点击[这里](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)
 
-或者通过安装文件自己安装，请点击[这里](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)
+cyano手机版本源码下载地址 [cyano-android](https://github.com/ontio-cyano/cyano-android), [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
 ### 手动创建
 

@@ -42,6 +42,19 @@
   - [安装](docs-cn/Cyano/01-installation.md)
   - [开始使用](docs-cn/Cyano/02-getting-started.md)
 
+- Cyano-Provider
+  - [provider-mobile](docs-cn/Cyano-provider/00-overview.md)
+      - [唤醒对接](docs-cn/Cyano-provider/01-wakeup.md)
+      - [扫二维码对接](docs-cn/Cyano-provider/02-scan-qrcode.md)
+      - [钱包里打开DApp对接](docs-cn/Cyano-provider/02-embedded-h5.md)
+  
+- dAPI.js
+  - [概述](docs-cn/dApi/00-overview.md)
+  - [dAPI](docs-cn/dApi/01-quickstart.md)
+      - [开始使用](docs-cn/dApi/02-getting-started.md)
+  - [dAPI-mobile](docs-cn/dApi-mobile/00-overview.md)
+      - [开始使用](docs-cn/dApi-mobile/02-getting-started.md)
+      
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
   - [钱包文件](docs-cn/SDKs/01-wallet-file-specification.md)
@@ -54,10 +67,7 @@
   - [钱包集成](docs-cn/SDKs/02-wallet-intergration.md)
       - [iOS](docs-cn/SDKs/ontology_wallet_dev_ts_sdk_zh.md)
       - [Android](docs-cn/SDKs/ontology_wallet_dev_android_zh.md)
-- dAPI.js
-  - [概述](docs-cn/dApi/00-overview.md)
-  - [快速使用](docs-cn/dApi/01-quickstart.md)
-  - [开始使用](docs-cn/dApi/02-getting-started.md)
+
 
 - Ontology Cli
   - [概述](docs-cn/OntologyCli/overview.md)

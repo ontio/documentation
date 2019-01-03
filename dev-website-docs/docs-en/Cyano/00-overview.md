@@ -3,7 +3,7 @@
   <img width="300px" src="https://raw.githubusercontent.com/OntologyCommunityDevelopers/cyano-wallet/master/wallet2.png">
 </p>
 
-Cyano is WebExtension (a.k.a Chrome plugin) wallet for the **Ontology** blockchain compatible with Chrome and Firefox.
+Cyano is WebExtension (a.k.a Chrome plugin) and Mobile wallet for the **Ontology** blockchain compatible with Chrome and Firefox.
 
 Features:
 
