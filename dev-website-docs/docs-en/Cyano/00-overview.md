@@ -3,7 +3,7 @@
   <img width="300px" src="https://raw.githubusercontent.com/OntologyCommunityDevelopers/cyano-wallet/master/wallet2.png">
 </p>
 
-Cyano is WebExtension (a.k.a Chrome plugin) and Mobile wallet for the **Ontology** blockchain compatible with Chrome and Firefox.
+Cyano is WebExtension (a.k.a Chrome plugin) and Mobile wallet implement dAPI([OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) and [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEP1.mediawiki)) for the **Ontology** blockchain.
 
 Features:
 

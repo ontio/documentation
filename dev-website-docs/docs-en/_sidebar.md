@@ -43,7 +43,6 @@
 
 - Cyano-Provider
   - [Provider-Mobile](docs-en/Cyano-provider/00-overview.md)
-      - [Wakeup wallet](docs-en/Cyano-provider/01-wakeup.md)
       - [Scan QRcode](docs-en/Cyano-provider/02-scan-qrcode.md)
       - [Embedded H5 DApp](docs-en/Cyano-provider/02-embedded-h5.md)
   
