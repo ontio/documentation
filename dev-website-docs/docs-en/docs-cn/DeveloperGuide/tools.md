@@ -7,9 +7,8 @@
 
 * **Punica Suite**: 本体第一套dApp开发框架，为开发者提供许多便利。
 * **SmartX** : 一站式智能合约IDE，支持编译、部署、测试、Debug。
-* **Cyano Wallet**: 本体的Chrome插件钱包。
+* **Cyano**: 本体的Chrome插件和移动端钱包。对接了轻量级去中心化Javascript API库。
 * **SDKs** : 集成了加密算法、智能合约、RPC，已支持多种语言。
-* **dAPI.js** : 轻量级去中心化Javascript API库。
 * **Ontology Cli**: 支持控制节点、钱包、交易、智能合约的命令行工具。
 * **Sign-Server**: 提供帐户管理和安全签名消息的后台服务。
 * **Ontology API**: 本体 RPC/Restful/Websocket 接口层文档。
