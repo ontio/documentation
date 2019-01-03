@@ -3,35 +3,35 @@ A tool to help mobile dApps communicate with related provider. It wraps the dapi
 
 the provider(native client).
 
-> Notice: Those dapps are opened in the webview of native app, for example ONTO.
+> 手机端钱包中用webview打开DApp, 例如 ONTO或cyano钱包.
 
-## How to use
+## 如何使用
 
-CyanoBridge can be used as CommonJS/ES6 module or directly referencing in html.
+CyanoBridge 能够用CommonJS/ES6模块导入或直接在html中引用。
 
-### Install CommonJS/ES module
+### 安装 CommonJS/ES 
 
 ```
 npm install cyanobridge
 ```
 
-### Import CommonJS
+### 导入 CommonJS
 
 ```
 var client = require('cyanobridge').client
 client.registerClient();
 ```
 
-### Import ES6 module
+### 导入 ES6 
 
 ```
 import { client } from 'cyanobridge'
 client.registerClient();
 ```
 
-### Web require
+### Web中引用
 
-The file to be referenced is under the `./lib` folder.
+
 
 ```
 <script src="./lib/browser.js"></script>
@@ -41,13 +41,13 @@ client.registerClient();
 ```
 
 
-## Usage
+## 使用步骤
 
-Here is a [demo app](https://github.com/ontio-cyano/mobile-dapp-demo).
+参考例子 [demo app](https://github.com/ontio-cyano/mobile-dapp-demo).
 
-# Documentation
+# 文档
 
-## 1. Initialisation
+## 1. 安装
 
 ```
 import { client } from 'cyanobridge'
@@ -58,13 +58,13 @@ client.registerClient();
 
 ## 2. getAccount
 
-Requst the account from cyano provider.
+从钱包获取账号。
 
-#### Parameters:
+#### 参数:
 
 `params` Optional. Defines the name and icon of the dapp.
 
-#### Returns:
+#### 返回:
 
 ```
 {
@@ -78,7 +78,7 @@ Requst the account from cyano provider.
 
 
 
-### Example:
+### 例子:
 
 ```
 import { client } from 'cyanobridge'
@@ -99,13 +99,13 @@ try {
 
 ## 2. getIdentity
 
-Request the identity from the cyano provider.
+从钱包获取身份.
 
-#### Parameters:
+#### 参数:
 
 `params` Optional. Defines the name and icon of the dapp.
 
-#### Returns:
+#### 返回值:
 
 ```
 {
@@ -119,7 +119,7 @@ Request the identity from the cyano provider.
 
 
 
-#### Example:
+#### 例子:
 
 ```
 const params = {
@@ -136,11 +136,11 @@ try {
 
 
 
-## 3. login
+## 3. 登录
 
-Request to sign a message and get the signature from cyano provider.
+请求钱包对数据做签名.
 
-#### Parameters:
+#### 参数:
 
 Parameter is  a JSON object. It contains:
 
@@ -156,7 +156,7 @@ Parameter is  a JSON object. It contains:
 
 `callback` Callback url for dapp.
 
-#### Returns:
+#### 返回:
 
 ```
 {
@@ -174,7 +174,7 @@ Parameter is  a JSON object. It contains:
 
 
 
-#### Example:
+#### 例子:
 
 ```
 const params = {
@@ -198,11 +198,11 @@ try {
 
 
 
-## 4. Invoke smart contract
+## 4. 调用合约
 
-Request to inovke some smart contract methods with cyano provider.
+请求调用合约.
 
-#### Parameters:
+#### 参数:
 
 Parameter are as below:
 
@@ -234,7 +234,7 @@ All supported parameters  see [Supported parameters list](#supported-parameters-
 >
 > }
 
-#### Returns:
+#### 返回:
 
 ```
 {
@@ -246,9 +246,9 @@ All supported parameters  see [Supported parameters list](#supported-parameters-
 }
 ```
 
-> dApp then use the Ontology restful api to query the event of this invokation.  Restful api details are [here](http://dev-docs.ont.io/#/docs-en/API/02-restful_api)
+> dApp then use the Ontology restful api to query the event of this invokation.  Restful api 文档 [here](http://dev-docs.ont.io/#/docs-en/API/02-restful_api)
 
-### Example:
+### 例子:
 
 ```
 const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
@@ -284,11 +284,11 @@ try {
 
 ```
 
-## 5. InvokeRead smart contract
+## 5. 预执行合约
 
-Request to pre-exe some smart contract methods with cyano provider.The parameters are similar with invoke smart contract.
+预执行交易，参数与调用合约相同。
 
-### Example:
+### 例子:
 
 ```
 const scriptHash = 'b5a1f2cd4e27b7453111a2f5eb737714ead8fded';
@@ -322,11 +322,11 @@ const scriptHash = 'b5a1f2cd4e27b7453111a2f5eb737714ead8fded';
         }
 ```
 
-## 6. Invoke smart contract without password
+## 6. 免密调用合约
 
-Request to invoke some smart contract method without password. The provider will ask user to enter password to sign  transaction at the first time. User can invoke the same smart contract method without password after that.
+有些游戏会用到自动投注功能，比如每隔10秒投注一次，用户只需要输入一次密码。我们只信任固定的方法和参数，而不是信任整个合约的所有方法。
 
-#### Example:
+#### 例子:
 
 ```
 const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
@@ -361,7 +361,7 @@ try {
 }
 ```
 
-## Supported parameters list
+## 支持的参数列表
 
 #### Integer
 

@@ -3,6 +3,8 @@
 
 [安装开发环境](#安装开发环境)
 
+[架构图](#架构图)
+
 [Ontology dAPI](#ontology-dapi)
 + [dAPI 安装](#dapi-安装)
 + [dAPI 实例](#dapi-实例)
@@ -31,6 +33,9 @@
 
 - [Git](https://git-scm.com/)
 
+### 架构图
+
+![architecture](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/image/dapi.png)
 
 ### Ontology dAPI
 #### dAPI 安装

@@ -1,8 +1,9 @@
+
 ## 移动版dApi与chrome插件dApi区别
 
 移动版dApi只提供几个重要接口，查询相关的接口可以直接调用区块链浏览器的api接口查询,[explorer api](http://dev-docs.ont.io/#/docs-en/explorer/overview).
 
-移动版dApi使用方法: [cyano-dapi-mobile](https://github.com/ontio-cyano/cyano-dapi-mobile)
+移动版dApi使用方法: [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
 
 Chrome插件钱包的dApi使用方法[cyano-dapi](https://github.com/ontio/ontology-dapi)
 

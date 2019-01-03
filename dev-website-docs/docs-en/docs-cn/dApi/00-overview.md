@@ -2,15 +2,15 @@
 
 
 
-DAPI是基于Ontology blockchain开发dApp的轻量级去中心化API。本工程是根据OEP-6实现了dAPI ，请参考[OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) 协议。
+DAPI是基于Ontology blockchain开发的dApp的轻量级去中心化API。本工程是分别根据OEP-6和CEP1实现了chrome插件版和手机版dAPI ，请参考[OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) 协议，[CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEP1.mediawiki)协议。
 
-使用前请先安装 **dAPI provider** . 比如 [Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
+使用前请先安装实现了 **dAPI provider** 功能的钱包. 比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)和[cyano-android](https://github.com/ontio-cyano/cyano-android).
 
 dAPI使用TypeScript实现, 同时也支持在JavaScript工程中使用.
-
-![architecture](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/image/dapi.png)
 
 参考文档:
 * [dAPI tutorial_](https://ontio.github.io/documentation/ontology_dapp_dev_tutorial_en.html)
 * [dAPI](https://github.com/ontio/ontology-dapi)
 * [dev-dapp-by-dapi](https://github.com/punicasuite/punicasuite.github.io/blob/master/content/tutorials/dapp-by-dapi.md)
+* [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
+* [集成文档](https://github.com/ontio-cyano/integration-docs)
