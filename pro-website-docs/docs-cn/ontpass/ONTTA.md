@@ -534,6 +534,7 @@ SuccessResponse：
 | :--- | :--- | :--- |
 | 0 | int | SUCCESS. 成功 |
 | 61001 | int | FAIL, param error. 参数错误 |
+| 61002 | int | FAIL, ONTID not exist. ONTID不存在 |
 | 62003 | int | FAIL, inner communicate fail. 内部通信异常 |
 | 62006 | int | FAIL, verify signature fail. 验签失败 |
 | 62007 | int | FAIL, txn toaddress error or amount insufficient. 交易收款地址错误或金额不足 |
