@@ -13,7 +13,7 @@
   - [Contribution Guide](docs-kr/DeveloperGuide/07-contributions-guide.md)
 - Quick Guide
   - [DAPP Development](docs-kr/Tutorials/00-dapp_development.md)  
-  - [DAPI Useage](docs-kr/Tutorials/06-dapi-useage.md)  
+  - [DAPI Usage](docs-kr/Tutorials/06-dapi-useage.md)  
   - [Debug Smart Contract](docs-kr/Tutorials/01-debug-a-Smart-Contract.md)
   - [Smart Contract](docs-kr/DeveloperGuide/smartcontract/02-deployment.md)
       - [Invocation](docs-kr/DeveloperGuide/smartcontract/01-invocation.md)
