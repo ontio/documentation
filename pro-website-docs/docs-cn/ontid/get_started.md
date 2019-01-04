@@ -1,70 +1,20 @@
 <h1 align="center">ONT ID 应用快速开发指南 </h1>
 
-我们假定您是一个应用，已经清楚ONT ID的概念，并且知道ONT ID能为您做什么。现在，您需要使用ONT ID为认证您的用户或者为你的用户管理数字身份，包括ONT ID创建、认证、管理、授权。
+## 谁需要看这篇文档
 
-我们支持使用多种SDK或RPC方式来应用ONT ID ，本文以Typescript SDK为例，说明如何进行快速开发。我们支持Java、Python等多种SDK，更多SDK参考[这里]()。
+我们假定您是一个移动端应用（以下简称：应用方），已经清楚ONT ID的概念，并且知道ONT ID能为您做什么。现在，您需要使用ONT ID为认证您的用户或者为你的用户管理数字身份，包括ONT ID创建、认证、管理、授权。
 
-> 注：如果使用Typescript SDK，请参考[Ontology TS SDk的安装指南](https://github.com/ontio/ontology-ts-sdk)，安装好环境。
+## 什么是 ONT ID Connector
+
+ONT ID Connector是基于Android 和 iOS开发的集成组件，便于您的APP轻松集成，ONT ID Connector帮助您的应用实现ONT ID创建、认证、管理、授权。
 
 ## 1. 前置准备
 
-为确保ONT ID的有效性，我们要求所有的ONT ID需要经过ONTPass认证通过之后，ONT ID才能被注册上链。
-
-> 注：ONTPass基于ONTID及本体信任生态，是一个开放的、去中心化认证服务平台，为您提供KYC（Know Your Customer）服务和多种用户认证服务。本体信任生态已聚集了提供全球身份认证服务能力的信任锚，包括IdentityMind、CFCA、商汤科技、Shufti Pro等等，同时还支持邮箱、手机、社交媒体认证方式。
+ONTPass基于ONTID及本体信任生态，是一个开放的、去中心化认证服务平台，为您提供KYC（Know Your Customer）服务和多种用户认证服务。本体信任生态已聚集了提供全球身份认证服务能力的信任锚，包括IdentityMind、CFCA、商汤科技、Shufti Pro等等，同时还支持邮箱、手机、社交媒体认证方式。
 
 您首选需要在ONTPass平台注册， 具体参考[>> ONTPass 认证需求方注册](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth)
 
-## 2. 创建数字身份
-
-* 标准ONT ID的创建流程
-
-![](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/register.png)
-
-认证成功之后，ONTID则是有效，应用方需要保存好ONTID和相关的Keystore。 如果验证失败，应用方可以支持重新发起认证。 
-
-* 典型的页面流程：
-
-应用端需要让用户输入ONT ID密码，以下可以参考，并根据ONTPass的认证需求，让用户输入必要的认证信息。 
-
-![输入密码](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ui-register.jpg) 
-
-### 2.1 调用SDK生成ONT ID
-
-你可以通过SDK来创建一个身份。创建身份的过程中会基于用户的私钥生成ONT ID。
-
-创建身份需要提供的参数如下：
-
-**privateKey** 用户的私钥。可以通过SDK提供的方法安全地生成私钥。
-
-**password** 用来加密和解密私钥的密码。
-
-**label** 身份的名称
-
-**params** 用来加密私钥的算法参数。可选参数。默认值如下：
-
-```
-{
-    cost: 4096,
-    blockSize: 8,
-    parallel: 8,
-    size: 64
-}
-```
-
-```
-import {Identity, Crypto} from 'ontology-ts-sdk';
-//generate a random private key
-const privateKey = Crypto.PrivateKey.random();
-
-var identity = Identity.create(privateKey, password, label)
-```
-
-//TODO
-描述Keystore...
-
-### 2.2 发送认证数据
-
-目前ONTPass支持全球用户护照认证、全球用户身份证认证、全球用户驾照认证，使用ONTPass认证需要支付一定的费用，ONTPass支持两种收费模式，您需要根据您的情况选择合适的支付方式。
+ONTPass支持两种收费模式，建议选择后付费模式。
 
 * 模式一：即时支付模式
 
@@ -74,8 +24,37 @@ var identity = Identity.create(privateKey, password, label)
 
 如果选择后付费模式，你需要联系[本体机构合作](https://info.ont.io/cooperation/zh)。
 
-//TODO
-即时支付模式下，补充交易构建的方式。
+## 2. 创建数字身份
+
+* 标准ONT ID的创建流程
+
+![](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/register.png)
+
+应用方需要保存好ONT ID和认证状态，ONT ID Connector可以定期和Server同步状态。 
+
+* 典型的页面流程：
+
+ONT ID Connector将引导用户输入ONT ID密码，并进行ONTPass的认证，让用户输入必要的认证信息。 
+
+![输入密码](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ui-register.jpg) 
+
+
+### 2.1 APP调用ONT ID Connnector
+
+```
+	{
+		"action": "registerONTID",
+		"version": "v1.0.0",
+		"signature_service":"https://app/server/sign"
+	}
+```
+
+
+### 2.2 应用server提供签名服务
+
+应用server提供基于ONI ID私钥的签名服务，具体参考SDK。
+
+
 
 ### 2.3 收到认证结果
 
