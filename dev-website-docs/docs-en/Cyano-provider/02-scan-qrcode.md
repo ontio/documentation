@@ -1,48 +1,47 @@
-<h1 align="center">Scan QR code</h1>
+<h1 align="center">Wallet Docking - the Docking Process for Scanning QRcode</h1>
 <p align="center" class="version">Version 0.8.0 </p>
 
 ## Overview
 
-This article is used to guide the DApp party how to access the Provider, and use the scan code to log in, scan the code to call smart contracts and other services.
-The parties involved in the process include:
+This article is used to instruct DApp developer how to access Provider, login by scanning, and call a service of smart contract by scanning.
 
-* DApp side: Providing dApp to users within the ONT ecosystem is an important part of the ontology ecosystem.
-* Provider: wallet that implements the daApi mobile specification
+Participants involved in the process include:
+
+* DApp developer: Providing dApps to users in ONT ecosystem, an important part of ecosystem.
+
+* Provider: Wallet that implements the daApi mobile specification
 
 ## Interactive process description
 
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/split-login-invoke.png" ><br><br>
-</div>
+![login-invoke](images/split-login-invoke.png)
 
 ### Login
-- 1.1 Provider scans the QR code provided by dApp ([Login QR Code Standard](#Login-QR-Code-Standard))
-- 1.2 Provider gets callback url and msg for verification
-- 2 Sign the msg, call the login method ([DApp server login interface](#DApp-server-login-interface))
-- 3 dApp backend verification signature ([Signature Verification Method](#Signature-Verification-Method)) returns the verification result
+- 1.1 Provider scan the QRcode provided by DApp developer [Standard of login QRcode](#standard-of-login-qrcode)
+- 1.2 Provider gets callback URL and msg for verification
+- 2 Sign the msg and call the login method（[Login interface of DApp server](#login-interface-of-dapp-server)）
+- 3 DApp backend verifies signature（[The method of verifying signature](#the-method-of-verifying-signature)）and then return result of verification.
 
-### Invoke Smart contract
-- 1.1 provider scans the QR code provided by the dapp party ([Invoke smart contract QR code standard](#Invoke-smart-contract-QR-code-standard))
-- 1.2 Using Provider Scan Code
-- 2 Provider constructs transactions, user signatures, pre-executed transactions, user confirmation, sent to the chain, returns transaction hash
-- 3 dApp backend query for this contract transaction ([query smart contract](#query-smart-contract))
+### Invoke a smart contract
+- 1.1 Provider scan the QRcode provided by DApp developer [Standard of invoking contract QRcode](#standard-of-invoking-contract-qrcode)
+- 1.2 Use Provider to scan 
+- 2 Provider builds a transaction and user signs it. Then Provider pre-executes the transaction and user confirms. Provider sends it to the blockchain, and a transaction hash wil be returned.
+- 3 DApp backend queries the contract transaction（[The method of querying a contract](#the-method-of-querying-a-contract)）
 
-## Usage
+## Docking process
 
-### Precondition
-Before using, you need to contact [Ontology institutional cooperation](https://info.ont.io/cooperation/en)
+### Prerequisite
+Before using it，you need to contact [the Ontology cooperation](https://info.ont.io/cooperation/en)
 
-### Login
+### The process of login docking
 
-#### Login QR Code Standard
-Scan QR Code
+#### Standard of login QRcode
+Getting by scanning
 
 ```
 {
 	"action": "login",
+    "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",  	
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
 	"params": {
 		"type": "ontid or account",
 		"dappName": "dapp Name",
@@ -54,24 +53,24 @@ Scan QR Code
 }
 ```
 
-|parameter|type|description|
+|Field|Type|Description|
 | :---| :---| :---|
-| action   |  string | |
-| type   |  string |  type is "ontid" or "account" |
-| dappName   | string  | dapp name  |
-| dappIcon   | string  | dapp icon |
-| message   | string  |   |
-| expire   | long  |   |
-| callback   | string  |  |
+| action   |  string |  Define the function of QRcode, set login as "Login" and invoking a smart contract as "invoke" |
+| type   |  string |  When login by ontid, setting as"ontid". When login by wallet address, setting as "account" |
+| dappName   | string  | DApp name |
+| dappIcon   | string  | dApp icon info |
+| message   | string  | Random generated, it is used for verifying identity  |
+| expire   | long  | Optional  |
+| callback   | string  |  After user signs by scanning, the url sent to dApp backend|
 
-### DApp server login interface
+### Login interface of DApp server
 method: post 
 
 ```
 {
 	"action": "login",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",  
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
 	"params": {
 		"type": "ontid or account",
 		"user": "did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz",
@@ -82,15 +81,15 @@ method: post
 }
 ```
 
-|parameter|type|description|
+|Field|Type|Description|
 | :---| :---| :---|
-| action | string | action |
-| params | string | params |
-| type   |  string |  type is "ontid" or "account" |
-| user | string |  |
-| message   | string  |  |
-| publickey | string |  |
-| signature  |  string |   |
+| action | string | Operational type，login is set as "login" and  invoking a smart contract is set as "invoke" |
+| params | string | params required by methods |
+| type   |  string |  When login by ontid, setting as"ontid". When login by wallet address, setting as "account" |
+| user | string | The account used for sign transactions |
+| message   | string  | Random generated, it is used for verifying identity  |
+| publickey | string | The public key of an account |
+| signature  |  string |  User signature |
 
 #### Response
 * Success
@@ -98,8 +97,7 @@ method: post
 ```
 {
   "action": "login",
-  "version": "v1.0.0",  
-  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	  
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",   
   "error": 0,
   "desc": "SUCCESS",
   "result": true
@@ -111,8 +109,7 @@ method: post
 ```
 {
   "action": "login",
-  "version": "v1.0.0",
-  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	  
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",    
   "error": 80001,
   "desc": "PARAMS ERROR",
   "result": 1
@@ -120,14 +117,15 @@ method: post
 ```
 
 
-### Invoke smart contract QR code standard
-Scan QR Code
+### Standard of invoking contract QRcode
+
+getting by scanning
 
 ```
 {
 	"action": "invoke",
+    "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",  	
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
 	"params": {
 		"login": true,
 		"callback": "http://101.132.193.149:4027/invoke/callback",		
@@ -136,19 +134,19 @@ Scan QR Code
 }
 ```
 
-|parameter|type|description|
+|Field|Type|Description|
 | :---        | :---    | :---                                                              |
-| action      | string  |  |
-| qrcodeUrl         | string  |                                            |
-| callback         | string  |                                           |
+| action      | string  | Operational type，login is set as "login" and  invoking a smart contract is set as "invoke" |
+| qrcodeUrl         | string  | The address of QRcode params                                           |
+| callback         | string  | Optional，it returns the contract hash to DApp server                                          |
 
-According to the qrcodeUrl link in the QR code, the data of the GET is as follows:
+According to the qrcodeUrl in the QRcode, the data is as follows.
 
 ```
 {
 	"action": "invoke",
+    "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",  	
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
 	"params": {
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
@@ -188,46 +186,44 @@ According to the qrcodeUrl link in the QR code, the data of the GET is as follow
 ```
 
 
+Provider builds a transaction and user signs it. Then Provider pre-executes the transaction and user confirms. Next, Provider sends it to the blockchain, and a transaction hash wil be returned. Finally, it posts transaction hash to callback url.
 
-Provider constructs transactions, user signatures, pre-executed transactions, sends transactions, POST transaction hashes to callback urls.
-
-* Send the transaction successfully POST to the callback
+* Send transaction successfully and post it to callback
 
 ```
 {
   "action": "invoke",
-  "version": "v1.0.0",
-  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	  
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",    
   "error": 0,
   "desc": "SUCCESS",
   "result": "tx hash"
 }
 ```
 
-* Send transaction failed to callback
+* Fail to send transaction and post it to callback
 
 ```
 {
   "action": "invoke",
-  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	 
-  "version": "v1.0.0", 
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",    
   "error": 80001,
   "desc": "SEND TX ERROR",
   "result": 1
 }
 ```
 
-##### Pre-executed transaction
+##### Pre-execute a transaction
 
-The pre-execution transaction is optional and its main function is to remind the user of the number of ONT/ONG transfers included in the transaction.
+Pre-executing a transaction is optional. The purpose is that reminding users the ONT/ONG transfer amount spent in this transaction.
 
-The Notify result returned by the pre-execution transaction can see how many ONTs/ONGs the user will spend in the transaction. Because the current node is not upgraded, you need to connect to the fixed node pre-execution to return Notify information: main network: http://dappnode3.ont.io, test network: http://polaris5.ont.io
+The Notify result returned from the pre-executed transaction can see how much ONT/ONG the user will spend on the transaction. Because the current node is not upgraded, you need to connect to the fixed node to pre-execute before returning Notify information: MainNet: http://dappnode 3.ont.io, TestNet: http://polaris5.ont.io.
 
-> Need to traverse Notify to make judgments, because the transaction may have multiple transfer events or other contract events. If other contract events do not need to be processed, the contract address is judged to be ONT or ONG, and then the transfer method and the transfer party are judged. It is recommended that the UI display the transfer to and from the export, and the transaction fee is approximately 0.01 ONG.
-ONT: 0100000000000000000000000000000000000000
-ONG: 0200000000000000000000000000000000000000
+> Notify needs to be traversed to make a judgment, because the transaction may have multiple transfer events or other contract events. If other contract events do not need to be processed, we determine whether ONT or ONG transfer through the contract address, and then determine the transfer method and the transferor. It is suggested that the UI display the amount and the transfer, and the transaction fee is about 0.01 ONG.
 
-If the pre-execution is successful, the result returned by the node is:
+ONT:0100000000000000000000000000000000000000
+ONG:0200000000000000000000000000000000000000
+
+If pre-execute successfully，the result returned by node is：
 ```
 {
     "Action": "sendrawtransaction",
@@ -246,25 +242,25 @@ If the pre-execution is successful, the result returned by the node is:
 }
 ```
 
-Prepare execution fail, Error > 0。
+If pre-execute failed，the value of error would be large than 0.
 
 
 ## Code reference
 
-##### Signature Verification Method
-* [java sdk Verification](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
-* [ts sdk Verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
+##### The method of verifying a signature
+* [java sdk signature verification](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
+* [ts sdk signature verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
 
-##### query smart contract
-* [java sdk query smart contract](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
-* [ts sdk query smart contract](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
+##### The method of querying a contract
+* [java sdk contract query](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
+* [ts sdk contract query](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
-##### wallet
+##### Wallet
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
 ##### dApi-mobile client sdk
-* [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
+* [cyano-bridge](https://github.com/ontio-cyano/cyano-dapi-mobile)
 
 ##### dApi-mobile provider sdk
 * [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)

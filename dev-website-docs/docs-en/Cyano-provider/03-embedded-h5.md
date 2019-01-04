@@ -1,70 +1,69 @@
-<h1 align="center">Wallet opens H5 DApp</h1>
+<h1 align="center">Wallet Docking - The Docking Process for Wallet to Open DApp</h1>
 <p align="center" class="version">Version 0.8.0 </p>
 
 ## Overview
 
-This article is used to guide how the dApp party communicates with the wallet and how the wallet handles the dApp request.
-The parties involved in the process include:
+This article is used to instruct dApp developer how to communicate with wallet and how wallet deals with the requests from dApp.
+Participants involved in the process include:
 
-* Dapp side: Providing Dapp to users within the ONT ecosystem is an important part of the ontology ecosystem.
-* Provider: wallet that implements the dApi mobile specification
+* DApp developer: Providing DApps to users in ONT ecosystem, an important part of ecosystem.
+
+* Provider: Wallet that implements the dApi mobile specification
 
 ## Interactive process description
 
-DApp request data URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
+URI scheme for DApp to request data：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
 
+![login-invoke](images/scenario3.png)
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/scenario3.png" ><br><br>
-</div>
+### Wallet opens a H5 dApp
 
-### Wallet opens H5 DApp
+- 1 Wallet opens a H5 dApp
 
-- 1 Wallet opens H5 DApp
+### H5 DApp requests the info from Provider
 
-### H5 DApp get Provider information
+- 1 DApp requests the info of Provider
+- 2 Wallet returns the info of Provider
 
-- 1 DApp request Provider information
-- 2 wallet returns Provider information
+### H5 DApp requests account or identity info
 
-### H5 DApp get account or identity information
-
-- 1 DApp request account or identity information
-- 2 User accepts request, returns account or identity information
+- 1 DApp requests account or identity info
+- 2 User accepts the request and returns the account or identity info
 
 
 ### Login
-- 1 DApp requests to sign the message ([DApp initiates login request](#DApp-initiates-login-request))
-- 2 The wallet user signs the message and returns the signature data ([wallet response login request](#wallet-response-login-request))
+- 1 DApp requests a signature for message（[DApp requests login](#dapp-requests-login)）
 
-### signMessage
+- 2 Wallet user signs the message and returns the signature data（[Wallet responds to login request](#wallet-responds-to-login-requests)）
 
-
-### Invoke Smart contract
-- 1 DApp request to call contract ([DApp initiates invoke smart contract request](#DApp-initiates-invoke-smart-contract-request))
-- 2 wallet construction transaction, user signature
-- 3 Wallet pre-executed transactions ([Pre-execution transaction](#Pre-execution-transaction))
-- 4 wallet to send transactions
-- 3 Wallet returns transaction Hash ([wallet response call contract request](#wallet-response-call-contract-request))
+### Sign message
 
 
+### Invoke a smart contract
+- 1 DApp requests for invoking smart contracts（[DApp requests invoking a smart contract](#dapp-requests-invoking-a-smart-contract)）
+- 2 Wallet builds a transaction and user signs it
+- 3 Wallet pre-executes the transaction（[Pre-execute transaction](#pre-execute-transaction)）   
+- 4 Wallet sends transaction
+- 5 Wallet returns the transaction hash（[Wallet responds to contract request](#wallet-responds-to-contract-request)）
 
-## Usage
-
-### Precondition
-Before using, you need to contact [Ontology institutional cooperation](https://info.ont.io/cooperation/en)
 
 
-### get Provider information
+## The docking process for wallet and DApp
 
-#### DApp initiates query Provider information request
+### Prerequisite
+Before using it，you need to contact [the Ontology cooperation](https://info.ont.io/cooperation/en)
 
-The data is as follows, **URI encoding, Base64 encoding** then send request：
+
+### The procedure for querying info of Provider
+
+#### DApp initiates query request for Provider info
+
+The data is as follows. Sending request after **URI encoding，Base64 encoding**：
 ```
 
 {
 	"action": "getProvider", 
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"version": "v1.0.0",
 	"params": {
 	}
@@ -73,18 +72,18 @@ The data is as follows, **URI encoding, Base64 encoding** then send request：
 
 ```
 
-|parameter|type|description|
+|Field|Type|Description|
 | :---| :---| :---|
-| action   |  string |   |
+| action   |  string |  Operational type |
 
-#### wallet response login request
+#### Wallet returns the info of Provider
 
-**URI decoding, Base64 decoding**, the obtained data is as follows:
+The data is as follows after **URI decoding，Base64 decoding**：
 ```
 {
 	"action": "getProvider", 
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"error": 0,
 	"desc": "SUCCESS",
 	"result": {
@@ -94,17 +93,17 @@ The data is as follows, **URI encoding, Base64 encoding** then send request：
 }
 ```
 
-### Query account or identity information
+### The procedure for querying account or identity
 
-#### DApp initiates query account or identity information request
+#### DApp initiates a query for account or identity info
 
-The data is as follows, **URI encoding, Base64 encoding** then send request:
+The data is as follows. Sending request after **URI encoding，Base64 encoding**：
 ```
 
 {
 	"action": "getAccount", // or getIdentity
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"params": {
 		"dappName": "dapp Name",
 		"dappIcon": "dapp Icon"
@@ -114,37 +113,37 @@ The data is as follows, **URI encoding, Base64 encoding** then send request:
 
 ```
 
-|parameter|type|description|
+|Field|Type|Description|
 | :---| :---| :---|
-| action   |  string |   |
+| action   |  string |  Operational type |
 | dappName   | string  | dapp name |
-| dappIcon   | string  | dapp icon |
+| dappIcon   | string  | dapp icon info |
 
-#### Wallet return account or identity information
+#### Wallet returns account or identity info
 
-**URI decoding, Base64 decoding**, the obtained data is as follows:
+The data is as follows after **URI decoding，Base64 decoding**：
 ```
 {
 	"action": "getAccount", // or getIdentity
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"error": 0,
 	"desc": "SUCCESS",
 	"result": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"  // or  "did:ont:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
 }
 ```
 
-### Login
+### Login process
 
-#### DApp initiates a login request
+#### DApp requests login
 
 
-The data is as follows, **URI encoding, Base64 encoding** then send request:
+The data is as follows. Sending request after **URI encoding，Base64 encoding**：
 ```
 {
 	"action": "login",
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"params": {
 		"type": "ontid or account",
 		"dappName": "dapp Name",
@@ -154,24 +153,24 @@ The data is as follows, **URI encoding, Base64 encoding** then send request:
 }
 ```
 
-|parameter|type|description|
+|Field|Type|Description|
 | :---| :---| :---|
-| action   |  string |   |
-| type   |  string |  type is "ontid" or "account" |
+| action   |  string |  Operational type |
+| type   |  string |  When login by ontid, setting as"ontid". When login by wallet address, setting as "account" |
 | dappName   | string  | dapp name |
-| dappIcon   | string  | dapp icon |
-| message   | string  |   |
+| dappIcon   | string  | dapp icon info |
+| message   | string  | Random generated, it is used for verifying identity  |
 
 #### Wallet responds to login request
 
-**URI decoding, Base64 decoding**, the obtained data is as follows:
+The data is as follows after **URI decoding，Base64 decoding**：
 
-* Return successful content
+* the returned data after sending successfully
 ```
 {
 	"action": "login",
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"error": 0,
     "desc": "SUCCESS",
 	"result": {
@@ -184,43 +183,43 @@ The data is as follows, **URI encoding, Base64 encoding** then send request:
 }
 ```
 
-|parameter|type|description|
+|Field|Type|Description|
 | :---| :---| :---|
-| action | string |  |
-| result | string |  |
-| type   |  string |  "ontid" or "account" |
-| user | string |  |
-| message   | string  |   |
-| publickey | string | |
-| signature  |  string |   |
+| action | string | Operational type |
+| result | string | Returned result |
+| type   |  string |  When login by ontid, setting as"ontid". When login by wallet address, setting as "account" |
+| user | string | The account for user signature such as user ontid or wallet address |
+| message   | string  |Random generated, it is used for verifying identity  |
+| publickey | string | Account public key |
+| signature  |  string |  User signature |
 
 
 
-* Return failed content
+* the returned data after failed sending
 
 ```
 {
   "action": "login",
   "version": "v1.0.0",  
-  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	  
-  "error": 80001,
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a", 
+  "error": 8001,
   "desc": "PARAMS ERROR",
   "result": 1
 }
 ```
 
 
-### Message signature
+### The procedure for message signature
 
-Same as login, but the DApp name does not require a DApp name and icon.
+Same as login, but the DApp name and icon are not required.
 
-The data is as follows, **URI encoding, Base64 encoding** then send request:
+The data is as follows. Sending request after **URI encoding，Base64 encoding**：
 
 ```
 {
 	"action": "signMessage",
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"params": {
 		"type": "ontid or account",
 		"message": "helloworld",
@@ -230,12 +229,12 @@ The data is as follows, **URI encoding, Base64 encoding** then send request:
 #### DApp initiates a signature request
 
 
-The data is as follows, **URI encoding, Base64 encoding** then send request:
+The data is as follows. Sending request after **URI encoding，Base64 encoding**：
 ```
 {
 	"action": "signMessage",
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"params": {
 		"type": "ontid or account",
 		"message": "helloworld",
@@ -243,31 +242,32 @@ The data is as follows, **URI encoding, Base64 encoding** then send request:
 }
 ```
 
-|parameter|type|description|
+|Field|Type|Description|
 | :---| :---| :---|
-| action   |  string |   |
-| type   |  string |  "ontid" or "account" |
-| message   | string  |   |
+| action   |  string |  Operational type |
+| type   |  string |  When login by ontid, setting as"ontid". When login by wallet address, setting as "account", the default is "account" |
+| message   | string  | Random generated, it is used for verifying identity  |
 
 
+### The procedure for invoking a contract
 
-### Invoke smart contract 
+If action is invoke, executing normal process.
 
-The action is invoke: Take the normal process.
 
-The action is invokeRead: is a pre-executed transaction, the user does not need to sign, and returns the pre-execution result to the DApp.
+If action is invokeRead, it is a pre-executing transaction and users do not need to sign the transaction. The result will be returned to DApp.
 
-The action is invokePasswordFree: Some games use the automatic bet function, such as betting once every 10 seconds, the user only needs to enter the password once. We only trust fixed methods and parameters, not all methods that trust the entire contract, so save the parameters of the transaction after entering the password (this parameter ((InvokeCode)txs[0]).code)), if the next request is The same data does not require a password to be entered again, nor does it require pre-execution. When the user leaves the current DApp, remember to clear the private key and parameters in memory.
+If action is invokePasswordFree, 
+Some games use the automatic bet function, such as betting once every 10 seconds. For a better game experience, the user only needs to enter the password once. We only trust fixed methods and parameters, not all methods in the entire contract, so saving the parameters of the transaction after entering the password (this parameter is ((InvokeCode)txs[0]).code)). If the next request is the same data,  the system will not require the password and pre-execution again. Before leaving the current DApp, users need to remember to clear the private key and parameters in memory.
 
-#### DApp initiates a call contract request
+#### DApp requests invoking a smart contract
 
-The data is as follows, **URI encoding, Base64 encoding** send request:
+The data is as follows. Sending request after **URI encoding，Base64 encoding**：
 
 ```
 {
 	"action": "invoke",
 	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",		
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"params": {
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
@@ -307,52 +307,50 @@ The data is as follows, **URI encoding, Base64 encoding** send request:
 ```
 
 
+#### Wallet responds to contract request
+
+**Wallet is decoded by URI at first and then is decoded by Base64**：
+
+1. Wallet builds transaction
+2. User signs it
+3. Pre-executing the transaction
+4. User confirms
+5. Sending the transaction to blockchain
+6. Returning transaction hash to DApp
 
 
 
-#### Wallet response invoke smart contract request
-
-**wallet first URI decoding, Base64 decoding**:
-
-Wallet construction transaction
-2. User signature
-3. Pre-executed trading
-4. User confirmation
-5. Send the transaction to the chain
-6. Return the trade hash to the DApp
-
-
-* Return success to DApp
+* the returned data after sending successfully
 
 ```
 {
   "action": "invoke",
-  "version": "v1.0.0",  
-  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	 
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a", 
   "error": 0,
   "desc": "SUCCESS",
   "result": "tx hash"
 }
 ```
 
-* Return failure to DApp
+* the returned data after a failed sending
 
 ```
 {
   "action": "invoke",
-  "version": "v1.0.0",  
-  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	  
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",  
   "error": 80001,
   "desc": "SEND TX ERROR",
   "result": ""
 }
 ```
 
-##### Pre-executed transaction
+##### Pre-execute transaction
 
-The Notify result returned by the pre-execution transaction can see how many ONTs/ONGs the user will spend in the transaction. Need to connect to the fixed node: main network: http://dappnode3.ont.io, test network: http://polaris5.ont.io
+Pre-executing a transaction is optional. The purpose is that reminding users the ONT/ONG transfer amount spent in this transaction. You need to connect to the fixed node to pre-execute before returning Notify information: MainNet: http://dappnode 3.ont.io, TestNet: http://polaris5.ont.io.
 
-> Need to traverse Notify to make a judgment, because the transaction may have multiple transfers or other events, judge whether it is ONT or ONG through the contract address, and then judge the transfer method and the transfer party.
+
+> Notify needs to be traversed to make a judgment, because the transaction may have multiple transfer events or other contract events. We determine whether it is ONT or ONG transfer through the contract address, and then determine the transfer method and the transferor. 
+
 
 ```
 
@@ -372,20 +370,20 @@ The Notify result returned by the pre-execution transaction can see how many ONT
 
 ## Code reference
 
-##### Signature Verification Method
-* [java sdk Verification](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
-* [ts sdk Verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
+##### The method of verifying a signature
+* [java sdk signature verification](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
+* [ts sdk signature verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
 
-##### query smart contract
-* [java sdk query smart contract](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
-* [ts sdk query smart contract](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
+##### The method of querying a contract
+* [java sdk contract query](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
+* [ts sdk contract query](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
-##### wallet
+##### Wallet
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
 ##### dApi-mobile client sdk
-* [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
+* [cyano-bridge](https://github.com/ontio-cyano/cyano-dapi-mobile)
 
 ##### dApi-mobile provider sdk
 * [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)

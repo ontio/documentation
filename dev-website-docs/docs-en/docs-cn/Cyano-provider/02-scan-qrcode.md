@@ -42,6 +42,7 @@
 {
 	"action": "login",
 	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"params": {
 		"type": "ontid or account",
 		"dappName": "dapp Name",
@@ -56,6 +57,7 @@
 |字段|类型|定义|
 | :---| :---| :---|
 | action   |  string |  定义此二维码的功能，登录设定为"Login"，调用智能合约设定为"invoke" |
+| id   |  string |  消息序列号，可选 |
 | type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
 | dappName   | string  | dapp名字 |
 | dappIcon   | string  | dapp icon信息 |
@@ -70,6 +72,7 @@ method: post
 {
 	"action": "login",
 	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"params": {
 		"type": "ontid or account",
 		"user": "did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz",
@@ -83,6 +86,7 @@ method: post
 |字段|类型|定义|
 | :---| :---| :---|
 | action | string | 操作类型 |
+| id   |  string |  消息序列号，可选 |
 | params | string | 方法要求的参数 |
 | type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
 | user | string | 用户做签名的账户，比如用户的ontid或者钱包地址 |
@@ -96,6 +100,7 @@ method: post
 ```
 {
   "action": "login",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a", 
   "error": 0,
   "desc": "SUCCESS",
   "result": true
@@ -107,6 +112,7 @@ method: post
 ```
 {
   "action": "login",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",   
   "error": 80001,
   "desc": "PARAMS ERROR",
   "result": 1
@@ -121,6 +127,7 @@ method: post
 {
 	"action": "invoke",
 	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"params": {
 		"login": true,
 		"callback": "http://101.132.193.149:4027/invoke/callback",		
@@ -141,6 +148,7 @@ method: post
 {
 	"action": "invoke",
 	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
 	"params": {
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
@@ -187,6 +195,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 ```
 {
   "action": "invoke",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a", 
   "error": 0,
   "desc": "SUCCESS",
   "result": "tx hash"
@@ -198,6 +207,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 ```
 {
   "action": "invoke",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a", 
   "error": 80001,
   "desc": "SEND TX ERROR",
   "result": 1
