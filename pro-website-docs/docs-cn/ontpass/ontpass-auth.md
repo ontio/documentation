@@ -137,7 +137,7 @@ SuccessResponse：
 
 ### Step 5: 获取认证结果
 
-当TrustAnchor完成用户认证后，会将认证结果及签发的信声明发送到ONTPass。ONTPass会根据认证需求方之前注册的回调地址，将认证结果和签发的可信声明推送到需求方。
+ONTPass会根据认证需求方之前注册的回调地址，将认证结果和签发的可信声明推送到需求方。
 
 信息回调时ONTPass平台会带上自己的ONT ID对应的签名，认证需求方可进行验签，验证回调请求的可信性及未篡改性。
 
@@ -151,7 +151,7 @@ RequestExample：
 	"auth_id":"xxxxxxxxxxx",
 	"claim_context":"claim:sfp_passport_authentication",
 	"description":"shuftipro passport authentication ",
-    	"encrp_origdata":"header.payload.signature.blockchain_proof",
+    "encrp_origdata":"header.payload.signature.blockchain_proof",
 	"ontid":"did:ont:AEnB1v4zRzepHY344g2K1eiZqdskhwGuN3",
 	"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
 	"ta_ontid":"did:ont:A7wB7v4zRzepHY344g2K1eiZqdskhwHu9J",

@@ -1,20 +1,34 @@
 <h1 align="center">ONT ID 应用快速开发指南 </h1>
 
-我们假定您已经清楚ONT ID的概念，并且知道ONT ID能为您做什么。现在，您需要使用ONT ID为认证您的用户或者为你的用户管理数字身份，可以参照这篇文档着手搭建。
+我们假定您是一个应用，已经清楚ONT ID的概念，并且知道ONT ID能为您做什么。现在，您需要使用ONT ID为认证您的用户或者为你的用户管理数字身份，包括ONT ID创建、认证、管理、授权。
 
-我们支持使用多种SDK或RPC方式来应用ONT ID ，我们以Typescript SDK为例，说明如何进行快速开发。本文档中以下的示例代码都以Node环境为例。
+我们支持使用多种SDK或RPC方式来应用ONT ID ，本文以Typescript SDK为例，说明如何进行快速开发。我们支持Java、Python等多种SDK，更多SDK参考[这里]()。
 
-## 1. 环境准备
+> 注：如果使用Typescript SDK，请参考[Ontology TS SDk的安装指南](https://github.com/ontio/ontology-ts-sdk)，安装好环境。
 
-请参考[Ontology TS SDk的安装指南](https://github.com/ontio/ontology-ts-sdk)，安装好环境。
+## 1. 前置准备
+
+为确保ONT ID的有效性，我们要求所有的ONT ID需要经过ONTPass认证通过之后，ONT ID才能被注册上链。
+
+> 注：ONTPass基于ONTID及本体信任生态，是一个开放的、去中心化认证服务平台，为您提供KYC（Know Your Customer）服务和多种用户认证服务。本体信任生态已聚集了提供全球身份认证服务能力的信任锚，包括IdentityMind、CFCA、商汤科技、Shufti Pro等等，同时还支持邮箱、手机、社交媒体认证方式。
+
+您首选需要在ONTPass平台注册， 具体参考[>> ONTPass 认证需求方注册](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth)
 
 ## 2. 创建数字身份
 
-### 2.1 创建身份
+* 标准ONT ID的创建流程
 
-ONT ID是一个去中心化的身份标识，能够管理用户的各种数字身份认证。数字身份(Identity)是ONT SDK导出的一个核心类，该类包含代表身份的ONT ID属性。
+![](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/register.png)
 
-> 如需要了解数字身份更详细的信息，请查阅[ONT ID Protocol Specifiction](https://github.com/ontio/ontology-DID/blob/master/docs/cn/ONTID_protocol_spec_cn.md)。
+认证成功之后，ONTID则是有效，应用方需要保存好ONTID和相关的Keystore。 如果验证失败，应用方可以支持重新发起认证。 
+
+* 典型的页面流程：
+
+应用端需要让用户输入ONT ID密码，以下可以参考，并根据ONTPass的认证需求，让用户输入必要的认证信息。 
+
+![输入密码](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ui-register.jpg) 
+
+### 2.1 调用SDK生成ONT ID
 
 你可以通过SDK来创建一个身份。创建身份的过程中会基于用户的私钥生成ONT ID。
 
@@ -43,72 +57,67 @@ import {Identity, Crypto} from 'ontology-ts-sdk';
 const privateKey = Crypto.PrivateKey.random();
 
 var identity = Identity.create(privateKey, password, label)
-console.log(identity.ontid)
 ```
 
-### 2.2 将ONT ID登记到链上
+//TODO
+描述Keystore...
 
-身份创建完成后，还需要将身份的ONT ID注册到链上，身份才算真正地创建完成。
+### 2.2 发送认证数据
 
-发送ONT ID上链是需要发送交易的过程。可以通过调用SDK提供的方法构造交易对象。
+目前ONTPass支持全球用户护照认证、全球用户身份证认证、全球用户驾照认证，使用ONTPass认证需要支付一定的费用，ONTPass支持两种收费模式，您需要根据您的情况选择合适的支付方式。
 
-一种比较典型的场景是通过传递刚刚创建的ONT ID和用户的私钥来构造交易对象。
+* 模式一：即时支付模式
 
-这里传递的私钥有两个作用：
+即时支付模式是完全开放并自治化，即每次认证请求都需要消耗ONG手续费，所以认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址和具体金额由各个TrustAnchor指定）。收到认证请求后由TrustAnchor先将交易发送到链上，交易发送成功后才会继续后续的身份认证流程。
 
-1.对构造的交易进行签名；
+* 模式二：后付费模式
 
-2.将用户的ONT ID绑定到用户的私钥对应的公钥上。用户之后还可以在ONT ID上添加其它的公钥。
+如果选择后付费模式，你需要联系[本体机构合作](https://info.ont.io/cooperation/zh)。
 
-````
-import {OntidContract} from 'ontology-ts-sdk';
-import {TransactionBuilder} from 'ontology-ts-sdk'
+//TODO
+即时支付模式下，补充交易构建的方式。
 
-//suppose we already got a identity
-const did = identity.ontid;
-//we need the public key, which can be generate from private key
-const pk = privateKey.getPublicKey();
-const gasPrice = '0';
-const gasLimit = '20000;
-const tx = OntidContract.buildRegisterOntidTx(did, pk, gasPrice, gasLimit);
-Transaction.signTransaction(tx, privateKey);
-````
+### 2.3 收到认证结果
 
-发送ONT ID上链的交易需要消耗手续费，我们需要给交易指定一个支付人Payer，并添加Payer的签名。支付人可以是用户本人，也可以是dApp应用为用户支付。
+ONTPass会根据认证应用注册的回调地址，将认证结果和签发的可信声明推送到应用。**应用方应该记录ONT ID的认证状态和认证模板claim_context**
 
-````
-import {TransactionBuilder} from 'ontology-ts-sdk'
-//we also need an account to pay for the gas
-//supporse we have an account and the privateKey
-tx.payer = account.address
-//Then sign the transaction with payer's account
-//we already got transaction created before,add the signature.
-TransactionBuilder.addSign(tx, privateKeyOfAccount)
-````
+信息回调时ONTPass平台会带上自己的ONT ID对应的签名，认证需求方可进行验签，验证回调请求的可信性及未篡改性。
 
-现在可以发送交易到链上。我们多种发送交易的方式，如Websocket, Restful和RPC。这里以Restful的方式为例。我们可以指定交易发送到的节点，如果不指定，默认发送到测试网。
+```json
+Host：回调地址
+Method：POST /HTTP/1.1
+Content-Type: application/json
+RequestExample：
+{
+	"auth_flag":true,
+	"auth_id":"xxxxxxxxxxx",
+	"claim_context":"claim:sfp_passport_authentication",
+	"description":"shuftipro passport authentication ",
+    "encrp_origdata":"header.payload.signature.blockchain_proof",
+	"ontid":"did:ont:AEnB1v4zRzepHY344g2K1eiZqdskhwGuN3",
+	"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
+	"ta_ontid":"did:ont:A7wB7v4zRzepHY344g2K1eiZqdskhwHu9J",
+	"txnhash":"836764a693000d2ca89ea7187af6d40c0a10c31b202b0551f63c6bc1be53fc5b"
+	"signature":"AQp2ka0OJWTNN+D3yUlydyjpLpS/GJp6cFt9+wWeT25dBdGYSaErxVDpM1hnbC6Pog="
+}
+```
 
-````
-import {RestClient, CONST} from 'ontology-ts-sdk'
 
-const rest = new RestClient(CONST.TEST_ONT_URL.REST_URL);
-rest.sendRawTransaction(tx.serialize()).then(res => {
-    console.log(res)
-})
-````
-返回结果如下：
+| RequestField     |     Type |   Description   | Necessary|
+| :--------------: | :--------:| :------: |:----:|
+|    auth_flag |   Boolean|  认证结果 true：认证通过  false：认证未通过  |Y|
+|    auth_id |   String|  需求方认证时传给TrustAnchor的认证编号  |Y|
+|    claim_context |   String|  可信声明模板标识  |Y|
+|    description|   String|  若认证失败，即失败原因。若认证成功，即可信声明描述 |Y|
+|    encrp_origdata|   String|  加密后的可信声明 |Y|
+|    ontid|   String|  ONTPass的ONT ID  |Y|
+|    owner_ontid|   String|  用户的ONT ID   |Y|
+|    ta_ontid|   String|  TrustAnchor的ONT ID   |Y|
+|    txnhash |   String|  可信声明存证交易hash  |Y|
+|    signature |   String|  ONTPass使用ONT ID私钥按照[签名规则](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E4%BD%BF%E7%94%A8ont-id%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)对请求内容的签名  |Y|
 
-````
-{ Action: 'sendrawtransaction',
-  Desc: 'SUCCESS',
-  Error: 0,
-  Result: 'dfc598649e0f3d9ff94486a80020a2775e1d474b843255f8680a3ac862c58741',
-  Version: '1.0.0' }
-````
 
-如果结果返回状态成功（Error是0），表明ONT ID上链成功。我们可以查询链上ONT ID的相关信息。
 
-当我们定义的回调函数里处理得到上链成功的推送消息时，ONT ID创建过程才真正完成。接下来就可以通过ONT ID就可以使用了。
 
 
 ## 3. 查询链上身份DDO
@@ -150,144 +159,59 @@ Result 就是序列化后的DDO（ONT ID object） 我们可以通过反序列�
 const ddo = DDO.deserialize(response.Result.Result);
 console.log(ddo);
 ````
-## 4. 认证用户并获取Claim
-
-ONTPass基于ONTID及本体信任生态，是一个开放的、去中心化认证服务平台，为您提供KYC（Know Your Customer）服务和多种用户认证服务。本体信任生态已聚集了提供全球身份认证服务能力的信任锚，包括IdentityMind、CFCA、商汤科技、Shufti Pro等等，同时还支持邮箱、手机、社交媒体认证方式。
-
-[>> 通过ONTPass认证用户](https://github.com/ontio/documentation/blob/master/pro-website-docs/docs-cn/ontpass/ontpass_getstarted.md)
 
 
-## 5. 验证可信声明
+## 4 ONT ID授权
 
-在上面一节我们举例说明了如何获取第三方授予的身份声明，用户在需要的时候可以出示这些声明。同时，这些声明可以通过SDK提供的方法来验证是否是真实的、未篡改的。
+ONT ID授权指的是把用户已经获得的认证，授权给某个DAPP场景方，比如在CandyBox场景中，用户需要将授权信息提供给Candy项目方，才可以获得Candy。 流程是这样的：
 
-我们以Alice同学求职的情况为例说明验证可信声明的过程。
+![](http://assets.processon.com/chart_image/5c20885ce4b0bcd70c453a32.png)
 
-Alice向公司B求职时，提供了复旦大学授予的数字毕业证书，该证书是一份符合claim声明格式的JSON文件。公司B可以通过调用ONT SDK的方法来验证该声明。该方法的内部实现逻辑是首先通过声明中的**Issuer** 字段，获取声明签发者的DDO信息，从DDO信息中得到签发者的公钥，然后将声明对象中去掉签名后的内容，同公钥和签名值进行验签。验证通过，则表明声明是真实有效的。
 
-该方法的输入参数是claim声明的JSON字符串，返回结果是Promise。在Promise的回调方法中处理验证结果。
+第一步，钱包应用需要通过页面跳转方式访问ONTPass授权服务：
+https://api.ont.network/api/v1/ontpass/auth
 
-````
-Core.verifyClaim(claim).then((result) => {
-    //result就是验证结果
-    if(result){
-        //验证通过
-    } else {
-        //验证不通过
-    }
-})
-````
+```
+	{
+		"action":"auth",
+		"version":"v1.0.0",
+		"params":{
+			"seqno":"0001",
+			"user_ontid":"did:ont:Assxxxxxxxxxxxxx",
+			"app_ontid":"did:ont:Assxxxxxxxxxxxxx",
+			"to_ontid":"did:ont:Assxxxxxxxxxxxxx",
+			"redirect_uri":"http://candybox.com/",
+			"auth_templete":"authtemplate_kyc01"
+		},
+		"app_signature":"AXFqy6w/xg+IFQBRZvucKXvTuIZaIxOS0pesuBj1IKHvw56DaFwWogIcr1B9zQ13nUM0w5g30KHNNVCTo14lHF0=";
+		"user_signature":"AXFqy6w/xg+IFQBRZvucKXvTuIZaIxOS0pesuBj1IKHvw56DaFwWogIcr1B9zQ13nUM0w5g30KHNNVCTo14lHF0=";
+	}
+```
 
-## 6. 为用户制作可信声明
+| 参数         | 是否必须                                      | 说明                                     | 
+| ------------ | ---------------------------------------- |  ------------------ |
+| seqno        | 是                                 |  序列号，发起方自行管理，最大12位字符和数字，不重复 |
+| user_ontid         | 是                                 |  场景方ONT ID |
+| app_ontid         | 是                                 |  第三方应用ONT ID（钱包方） |
+| to_ontid         | 是                                 |  场景方ONT ID |
+| redirect_uri         | 是                                 |  场景方接受地址 |
+| auth_templete         | 是                                 | 授权模板编号，用于明确授权方授权需求，具体参考ONTPass定义 |
+| app_signature         | 是                                 |  应用方签名，对整个Param进行签名，使用from_ontid的私钥按照标准的ECDSA算法签名。  |
+| user_signature         | 否                                 |  用户签名，可选项。  |
 
-您的平台也可以为用户制作可信声明。
 
-> 任何一个ONT ID的所有者（Owner）均可以向自己或他人签发可信声明。 
-
-> 政府机关、大学、银行、第三方认证服务机构（比如CA机构）、生物识别科技公司等等可作为现实信任机构，可以作为特定的合作方，加入到在本体生态中。
-如果你可能成为认证服务合作方，请具体了解[信任锚]()。
-
-我们以中国复旦大学颁发数字毕业证书来举例，说明如何获取第三方授予用户的的身份声明。
-
-假设Alice是复旦大学的学生，向学校申请毕业证的数字证明。学校验证确认了Alice的身份后，通过调用SDK的api生成一份可信声明，该声明包含Alice的毕业信息，和用学校的私钥对声明做的签名。
-
-````
-var claim = SDK.signClaim(context, claimData, issuer, subject, privateKey)
-````
-
-该方法的参数说明如下：
-
-**context** 是一种声明模板的标识。
-
-**claimData** 是用户声明的具体内容，该值是JSON对象。在这里就是Alice毕业证上的信息，如：
-
-````
-{
-    "degree" : "bachelor",
-    "year" : "2017",
-    ......
-}
-````
-
-**issuer** 是声明的签发者（这里是复旦大学）的ONT ID。
-
-**subject** 是声明接收者（这里是Alice）的ONT ID。表示将该声明绑定到Alice的ONT ID上。
-
-**privateKey** 声明签发者的私钥。用来对声明做签名。
-
-该方法返回的声明对象，内容类似于：
-
-````
-{
-    .....
-}
-````
-
-关于声明对象的具体规范，详见[claim的规范](https://github.com/ontio/ontology-DID/blob/master/docs/cn/claim_spec_cn.md)。
-
-接下来需要发送交易到链上用于存证。上链成功后，会返回该声明上链的完整性证明。该证明的具体格式参见
-
-[claim完整性证明]()。
-
-首先需要构造要发送的交易。需要传递的参数
-
-**path** 是声明信息存储在链上的键名。该值为声明对象中的Id。这是一个对声明对象内容做hash运算后的值。
-
-**value** 是需要存储在链上的声明信息。该值为如下的JSON结构：
-
-````
-{
-    Context : string, //声明模板的标识，
-    Ontid : string //声明签发者的ONT ID
-}
-````
-
-**ontid** 交易发送者ONT ID，即声明签发者的ONT ID。
-
-**privateKey** 交易发送者私钥，即声明签发者的私钥。
-
-````
-var param = SDK.buildClaimTx(path, value, ontid, privateKey)
-````
-
-接下来构建发送交易的工具类和监听消息的回调方法。
-
-在回调方法中，声明上链成功后会返回声明的完整性证明。将该完整性证明添加到之前构建的声明对象中，用户就得到完整的第三方认证的声明对象。之后，用户就可以在有需要的场景中，提供该声明。
-
-````
-//这里以测试节点为例
-var txSender = new TxSender(ONT_NETWORK.TEST)
-const callback = function(res, socket) {
-    let res 
-    if(typeof event.data === 'string') {
-    res = JSON.parse(event.data)
-    //解析后台推送的Event通知
-    //通过简单的判断区块高度，得知上链成功，
-    if(res.Result.BlockHeight) {
-      socket.close()
-    }
-}
-txSender.sendTxWithSocket(param, callback)
-````
-
-证明的内容类似如下：
-
-````
-{
-    "Proof" : {
-        "Type" : "MerkleProof",
-        "TxnHash" : "aaa",
-        "BlockHeight" : "1000",
-        "MerkleRoot" : "aaaaaaa",
-        "Nodes" : [
-            {"Direction" : "Right", "TargetHash" : "aaaa"},
-            {"Direction" : "Left", "TargetHash" : "bbbbb"}
-        ]
-    }
-}
-````
+| redirect_uri         | 是                                 |  场景方接受地址 |
+| auth_templete         | 是                                 | 授权模板编号，用于明确授权方授权需求，具体参考ONTPass定义 |
+| app_signature         | 是                                 |  应用方签名，对整个Param进行签名，使用from_ontid的私钥按照标准的ECDSA算法签名。  |
+| user_signature         | 否                                 |  用户签名，可选项。  |
 
 
 
 
+## 5 ONT ID管理要求
 
+钱包需要对ONT ID 提供管理功能，具体包括：
+
+* **导入**，支持WIF 私钥和KeyStore两个方式导入；
+* **查询**，生态合作伙伴钱包随时显示ONT ID的地址，并在输入密码的情况下，显示WIF私钥和 Keystore信息。 
+* **管理**，生态合作伙伴钱包使用ONT ID Keystore存储规范存储，并随时可用用户使用；
