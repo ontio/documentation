@@ -28,19 +28,15 @@
   - [Getting Started](docs-en/SmartX/01-getting-started.md)
   - [Debug Smart Contract](docs-en/QuickGuide/01-debug-a-Smart-Contract.md)
   
-- Cyano Wallet
+- Cyano
   - [Overview](docs-en/Cyano/00-overview.md)
-  - [Installation](docs-en/Cyano/01-installation.md)
-  - [Getting Started](docs-en/Cyano/02-getting-started.md)
-
-- Cyano-dAPI
-  - [Overview](docs-en/Cyano-provider/00-overview0.md)
-  - [Mobile Wallet Docking](docs-en/Cyano-provider/00-overview.md)
-      - [Scan QR code](docs-en/Cyano-provider/02-scan-qrcode.md)
-      - [Embedded H5 DApp](docs-en/Cyano-provider/03-embedded-h5.md)
-  - [DAPP Docking](docs-en/dApi/00-overview.md)
-      - [dAPI-Chrome](docs-en/dApi/02-getting-started.md)
-      - [dAPI-Mobile](docs-en/dApi-mobile/02-getting-started.md)
+  - [Cyano Wallet](docs-en/Cyano/02-getting-started.md)
+  - [Mobile Wallet Docking](docs-en/Cyano/Cyano-provider/00-overview.md)
+      - [Scan QR code](docs-en/Cyano/Cyano-provider/02-scan-qrcode.md)
+      - [Embedded H5 DApp](docs-en/Cyano/Cyano-provider/03-embedded-h5.md)
+  - [DAPP Docking](docs-en/Cyano/dApi/00-overview.md)
+      - [dAPI-Chrome](docs-en/Cyano/dApi/02-getting-started.md)
+      - [dAPI-Mobile](docs-en/Cyano/dApi-mobile/02-getting-started.md)
   
 - SDKs
   - [Overview](docs-en/SDKs/00-overview.md)

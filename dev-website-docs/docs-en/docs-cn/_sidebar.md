@@ -28,19 +28,15 @@
   - [开始使用](docs-cn/SmartX/getting-started.md)
   - [Debug智能合约](docs-cn/QuickGuide/01-debug-a-Smart-Contract.md)
   
-- Cyano Wallet
-  - [概述](docs-cn/Cyano/00-overview.md)
-  - [安装](docs-cn/Cyano/01-installation.md)
-  - [开始使用](docs-cn/Cyano/02-getting-started.md)
-
-- Cyano-dAPI
-  - [概述](docs-cn/Cyano-provider/00-overview0.md)
-  - [手机钱包方对接dAPI](docs-cn/Cyano-provider/00-overview.md)
-      - [扫二维码对接](docs-cn/Cyano-provider/02-scan-qrcode.md)
-      - [钱包里打开DApp对接](docs-cn/Cyano-provider/03-embedded-h5.md)
-  - [DAPP对接dAPI](docs-cn/dApi/00-overview.md)
-      - [Chrome插件版dAPI](docs-cn/dApi/02-getting-started.md)
-      - [手机版dAPI](docs-cn/dApi-mobile/02-getting-started.md)
+- Cyano
+  - [Cyano概述](docs-cn/Cyano/00-overview.md)
+  - [Cyano钱包使用](docs-cn/Cyano/02-getting-started.md)
+  - [手机钱包方对接dAPI](docs-cn/Cyano/Cyano-provider/00-overview.md)
+      - [扫二维码对接](docs-cn/Cyano/Cyano/Cyano-provider/02-scan-qrcode.md)
+      - [钱包里打开DApp对接](docs-cn/Cyano/Cyano-provider/03-embedded-h5.md)
+  - [DAPP对接dAPI](docs-cn/Cyano/dApi/00-overview.md)
+      - [Chrome插件版dAPI](docs-cn/Cyano/dApi/02-getting-started.md)
+      - [手机版dAPI](docs-cn/Cyano/dApi-mobile/02-getting-started.md)
       
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
