@@ -41,17 +41,14 @@
   - [Installation](docs-en/Cyano/01-installation.md)
   - [Getting Started](docs-en/Cyano/02-getting-started.md)
 
-- Cyano-Provider
-  - [Provider-Mobile](docs-en/Cyano-provider/00-overview.md)
+- Cyano-dAPI
+  - [Overview](docs-en/Cyano-provider/00-overview0.md)
+  - [Mobile Wallet Docking](docs-en/Cyano-provider/00-overview.md)
       - [Scan QRcode](docs-en/Cyano-provider/02-scan-qrcode.md)
       - [Embedded H5 DApp](docs-en/Cyano-provider/03-embedded-h5.md)
-  
-- Cyano-dAPI
-  - [Overview](docs-en/dApi/00-overview.md)
-  - [dAPI-Chrome](docs-en/dApi/01-quickstart.md)
-      - [Getting Started](docs-en/dApi/02-getting-started.md)
-  - [dAPI-Mobile](docs-en/dApi-mobile/00-overview.md)
-      - [Getting Started](docs-en/dApi-mobile/02-getting-started.md)
+  - [DAPP Docking](docs-en/dApi/00-overview.md)
+      - [dAPI-Chrome](docs-en/dApi/02-getting-started.md)
+      - [dAPI-Mobile](docs-en/dApi-mobile/02-getting-started.md)
   
 - SDKs
   - [Overview](docs-en/SDKs/00-overview.md)

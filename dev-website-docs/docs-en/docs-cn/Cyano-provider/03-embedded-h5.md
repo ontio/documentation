@@ -38,7 +38,8 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 - 2 钱包用户对message做签名，返回签名数据（[钱包响应登录请求](#钱包响应登录请求)）
 
 ### 消息签名signMessage
-
+- 1 DApp请求对message做签名
+- 2 钱包用户对message做签名
 
 ### 调用合约Invoke Smart contract
 - 1 DApp请求调用合约（[DApp发起调用合约请求](#DApp发起调用合约请求)）
@@ -57,17 +58,18 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 ### dAPI Provider SDK使用
 
-dAPI Provider SDK帮助Android webview和网页dapp之间通信。它对Android webview进行了一些方法的封装。分别支持Android、iOS：
+dAPI Provider SDK帮助Android webview和网页dapp之间通信。它对webview进行了一些方法的封装。分别支持Android、iOS：
 * [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
 * [cyano-ios-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)
 
-例子：
+Android-sdk：
+
 ```
-//初始化
+//init
 CyanoWebView cyanoWebView=new CyanoWebView(context);  
 cyanoWebView.loadUrl(url);
 
-//Action处理
+//Action handle
 cyanoWebView.getNativeJsBridge().setHandleGetAccount(new NativeJsBridge.HandleGetAccount() {
             @Override
             public void handleAction(String data) {
@@ -81,14 +83,55 @@ cyanoWebView.getNativeJsBridge().setHandleInvoke(new NativeJsBridge.HandleInvoke
                
             }
 	});	
-	
-//返回处理结果	
+
+cyanoWebView.getNativeJsBridge().setHandleInvokeRead(new NativeJsBridge.HandleInvokeRead() {
+        @Override
+        public void handleAction(String data) {
+           
+        }
+});
+    	
+//response	
 Map map = new HashMap<>();
 map.put("action", "");
 map.put("error", 0);
 map.put("desc", "SUCCESS");
 map.put("result", message);
 cyanoWebView.sendBack(Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes(), Base64.NO_WRAP));	
+```
+
+
+```
+RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
+[webView setURL:@""];
+```
+
+iOS-sdk：
+
+```
+
+
+[webView setGetAccountCallback:^(NSDictionary *callbackDic) {
+    
+}];
+
+
+[webView setInvokeTransactionCallback:^(NSDictionary *callbackDic) {
+
+}];
+
+[webView setInvokeReadCallback:^(NSDictionary *callbackDic) {
+    
+}];
+
+
+NSDictionary *params = @{@"action":@"",
+                         @"version":@"v1.0.0",
+                         @"error":@0,
+                         @"desc":@"SUCCESS",
+                         @"result":@""
+                         };
+[webView sendMessageToWeb:params];
 ```
 
 ### 查询Provider信息步骤
