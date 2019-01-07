@@ -34,23 +34,23 @@
 * [ontology-wasm](https://github.com/ontio/ontology-wasm)
 * [ontology-ts-vm](https://github.com/OntologyCommunityDevelopers/ontology-ts-vm)
 * [ontology-python-vm](https://github.com/ontio-community/ontology-python-vm)
-* [ontology-sctf](https://github.com/ontio-community/ontology-sctf)
 * [ontology-ts-debugger](https://github.com/trueinsider/ontology-ts-debugger)
 
 ## SDKs and dAPI
 
 * [Java SDK](https://github.com/ontio/ontology-java-sdk), [Typescript SDK](https://github.com/ontio/ontology-ts-sdk), [Python SDK](https://github.com/ontio/ontology-python-sdk), [Golang SDK](https://github.com/ontio/ontology-go-sdk)
 * [dAPI tutorial_](https://ontio.github.io/documentation/ontology_dapp_dev_tutorial_en.html)
-* [dAPI](https://github.com/ontio/ontology-dapi)
+* [dAPI](https://github.com/ontio/ontology-dapi),[dAPI-mobile](https://github.com/ontio-cyano)
 * [iOS wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_ts_sdk_en.html)
 * [Android wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html)
 
 
-## 工具
+## 其他开发工具
 
 * [ONTO](https://github.com/punica-box/)
 * [OWallet](https://github.com/ontio/OWallet)
-* [cyano-wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
+* [cyano for chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
+* [cyano for mobile](https://github.com/ontio-cyano)
 * [punica](https://github.com/punicasuite)
 * [punica box](https://github.com/punica-box/)
 

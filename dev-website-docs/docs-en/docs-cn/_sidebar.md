@@ -31,7 +31,7 @@
 - Cyano
   - [Cyano概述](docs-cn/Cyano/00-overview.md)
   - [Cyano钱包使用](docs-cn/Cyano/02-getting-started.md)
-  - [手机钱包方对接dAPI](docs-cn/Cyano/Cyano-provider/00-overview.md)
+  - [钱包对接dAPI](docs-cn/Cyano/Cyano-provider/00-overview.md)
       - [扫二维码对接](docs-cn/Cyano/Cyano/Cyano-provider/02-scan-qrcode.md)
       - [钱包里打开DApp对接](docs-cn/Cyano/Cyano-provider/03-embedded-h5.md)
   - [DAPP对接dAPI](docs-cn/Cyano/dApi/00-overview.md)

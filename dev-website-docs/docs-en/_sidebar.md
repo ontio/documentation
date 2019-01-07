@@ -1,6 +1,6 @@
 - Ontology
   - [Introduction](docs-en/DeveloperGuide/introduction.md)
-  - [Consensus VBFT](docs-en/DeveloperGuide/02-VBFT-introduction.md)
+  - [VBFT Consensus](docs-en/DeveloperGuide/02-VBFT-introduction.md)
   - [Smart Contract](docs-en/DeveloperGuide/smartcontract/00-introduction-sc.md)
   - [ONTID](docs-en/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
