@@ -12,6 +12,7 @@
 
 ## 交互流程说明
 
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/split-login-invoke.png" ><br><br>
 </div>
@@ -32,6 +33,8 @@
 
 ### 前提条件
 使用前，你需要联系[本体机构合作](https://info.ont.io/cooperation/en)
+
+
 
 ### 登陆接入步骤
 

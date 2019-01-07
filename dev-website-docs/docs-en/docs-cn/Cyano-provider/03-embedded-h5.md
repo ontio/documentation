@@ -55,6 +55,42 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 使用前，你需要联系[本体机构合作](https://info.ont.io/cooperation/en)
 
 
+### dAPI Provider SDK使用
+
+dAPI Provider SDK帮助Android webview和网页dapp之间通信。它对Android webview进行了一些方法的封装。分别支持Android、iOS：
+* [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
+* [cyano-ios-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)
+
+例子：
+```
+//初始化
+CyanoWebView cyanoWebView=new CyanoWebView(context);  
+cyanoWebView.loadUrl(url);
+
+//Action处理
+cyanoWebView.getNativeJsBridge().setHandleGetAccount(new NativeJsBridge.HandleGetAccount() {
+            @Override
+            public void handleAction(String data) {
+             
+            }
+	});
+	
+cyanoWebView.getNativeJsBridge().setHandleInvoke(new NativeJsBridge.HandleInvoke() {
+            @Override
+            public void handleAction(String data) {
+               
+            }
+	});	
+	
+//返回处理结果	
+Map map = new HashMap<>();
+map.put("action", "");
+map.put("error", 0);
+map.put("desc", "SUCCESS");
+map.put("result", message);
+cyanoWebView.sendBack(Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes(), Base64.NO_WRAP));	
+```
+
 ### 查询Provider信息步骤
 
 #### DApp发起查询Provider信息请求

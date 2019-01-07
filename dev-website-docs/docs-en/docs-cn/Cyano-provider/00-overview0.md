@@ -1,5 +1,4 @@
 
-## Cyano dAPI
 
 DAPI是为基于Ontology开发的DAPP提供的轻量级去中心化API，支持DAPP通过chrome插件钱包、手机钱包、桌面钱包与Ontology通信。针对不同平台的DAPP需求协议略有差别，但对应的dAPI接口相似。目前支持两套协议：
 
