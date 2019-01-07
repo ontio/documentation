@@ -14,7 +14,10 @@ Participants involved in the process include:
 
 URI scheme for DApp to request data：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
 
-![login-invoke](images/scenario3.png)
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/scenario3.png" ><br><br>
+</div>
 
 ### Wallet opens a H5 dApp
 

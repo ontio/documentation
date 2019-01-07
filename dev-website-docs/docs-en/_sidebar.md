@@ -44,7 +44,7 @@
 - Cyano-dAPI
   - [Overview](docs-en/Cyano-provider/00-overview0.md)
   - [Mobile Wallet Docking](docs-en/Cyano-provider/00-overview.md)
-      - [Scan QRcode](docs-en/Cyano-provider/02-scan-qrcode.md)
+      - [Scan QR code](docs-en/Cyano-provider/02-scan-qrcode.md)
       - [Embedded H5 DApp](docs-en/Cyano-provider/03-embedded-h5.md)
   - [DAPP Docking](docs-en/dApi/00-overview.md)
       - [dAPI-Chrome](docs-en/dApi/02-getting-started.md)

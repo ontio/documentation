@@ -13,7 +13,9 @@ Participants involved in the process include:
 
 ## Interactive process description
 
-![login-invoke](images/split-login-invoke.png)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/split-login-invoke.png" ><br><br>
+</div>
 
 ### Login
 - 1.1 Provider scan the QRcode provided by DApp developer [Standard of login QRcode](#standard-of-login-qrcode)
