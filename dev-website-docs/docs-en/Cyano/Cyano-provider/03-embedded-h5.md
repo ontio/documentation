@@ -51,7 +51,7 @@ URI scheme for DApp to request data：```ontprovider://ont.io?param=Base64.encod
 
 
 
-## The docking process for wallet and DApp
+## Docking for Wallet
 
 ### Prerequisite
 Before using it，you need to contact [the Ontology cooperation](https://info.ont.io/cooperation/en)

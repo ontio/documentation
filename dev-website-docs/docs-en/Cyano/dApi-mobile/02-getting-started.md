@@ -194,9 +194,8 @@ client.registerClient();
 
 Here is a [demo app](https://github.com/ontio-cyano/mobile-dapp-demo).
 
-# Documentation
 
-## 1. Initialisation
+### 1. Initialisation
 
 ```
 import { client } from 'cyanobridge'
@@ -205,7 +204,7 @@ client.registerClient();
 
 
 
-## 2. getAccount
+### 2. getAccount
 
 Requst the account from cyano provider.
 
@@ -246,7 +245,7 @@ try {
 
 ```
 
-## 2. getIdentity
+### 2. getIdentity
 
 Request the identity from the cyano provider.
 
@@ -285,7 +284,7 @@ try {
 
 
 
-## 3. login
+### 3. login
 
 Request to sign a message and get the signature from cyano provider.
 
@@ -347,7 +346,7 @@ try {
 
 
 
-## 4. Invoke smart contract
+### 4. Invoke smart contract
 
 Request to inovke some smart contract methods with cyano provider.
 
@@ -397,7 +396,7 @@ All supported parameters  see [Supported parameters list](#supported-parameters-
 
 > dApp then use the Ontology restful api to query the event of this invokation.  Restful api details are [here](http://dev-docs.ont.io/#/docs-en/API/02-restful_api)
 
-### Example:
+#### Example:
 
 ```
 const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
@@ -433,11 +432,11 @@ try {
 
 ```
 
-## 5. InvokeRead smart contract
+### 5. InvokeRead smart contract
 
 Request to pre-exe some smart contract methods with cyano provider.The parameters are similar with invoke smart contract.
 
-### Example:
+#### Example:
 
 ```
 const scriptHash = 'b5a1f2cd4e27b7453111a2f5eb737714ead8fded';
@@ -471,7 +470,7 @@ const scriptHash = 'b5a1f2cd4e27b7453111a2f5eb737714ead8fded';
         }
 ```
 
-## 6. Invoke smart contract without password
+### 6. Invoke smart contract without password
 
 Request to invoke some smart contract method without password. The provider will ask user to enter password to sign  transaction at the first time. User can invoke the same smart contract method without password after that.
 
@@ -510,7 +509,7 @@ try {
 }
 ```
 
-## Supported parameters list
+### Supported parameters list
 
 #### Integer
 
@@ -557,7 +556,7 @@ try {
 }
 ```
 
-### Array
+#### Array
 
 ```
 {

@@ -29,7 +29,7 @@ Participants involved in the process include:
 - 2 Provider builds a transaction and user signs it. Then Provider pre-executes the transaction and user confirms. Provider sends it to the blockchain, and a transaction hash wil be returned.
 - 3 DApp backend queries the contract transaction（[The method of querying a contract](#the-method-of-querying-a-contract)）
 
-## Docking process
+## Docking for Wallet
 
 ### Prerequisite
 Before using it，you need to contact [the Ontology cooperation](https://info.ont.io/cooperation/en)
