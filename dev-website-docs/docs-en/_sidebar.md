@@ -4,7 +4,7 @@
   - [Smart Contract](docs-en/DeveloperGuide/smartcontract/00-introduction-sc.md)
   - [ONTID](docs-en/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
-  - [White-papers](docs-en/DeveloperGuide/06-white-papers.md)
+  - [Resources](docs-en/DeveloperGuide/06-white-papers.md)
 - Developer Guide
   - [Node Setup](docs-en/DeveloperGuide/01-installation.md)
   - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)

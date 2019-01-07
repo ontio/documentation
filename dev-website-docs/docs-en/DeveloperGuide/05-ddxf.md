@@ -2,14 +2,13 @@
 <h1 align="center">Distributed Data eXchange Framework</h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
-## Overview
 
 In light of the pain points of the current centralized data exchanges, such as data caching, private data use without user authorization, data copyright protection, etc., Ontology launched the decentralized data transaction framework, “DDXF”. Ontology ecosystem application developers can develop decentralized data transaction applications based on DDXF to meet different scenarios and features, and support communication/transactions between data transaction platforms.
 
 Based on the Ontology blockchain and ONT ID protocols, DDXF implements decentralized transactions of digital assets through consistent bookkeeping, smart contracts, and cryptography. DDXF provides a series of smart contract templates, transaction modules, and cryptography modules. Applications can also easily implement the requirements of copyright control, contractual data sharing, etc.
 
 
-## Understand how DXF works
+## Understand how DDXF works
 
 ![](http://on-img.com/chart_image/5b9b529de4b0fe81b63605f9.png)
 

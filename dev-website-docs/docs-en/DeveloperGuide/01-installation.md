@@ -7,8 +7,6 @@
 
 
 
-## Contents
-
 <!-- TOC -->
 
 - [Build development environment](#build-development-environment)

@@ -5,7 +5,7 @@
   - [智能合约](docs-cn/DeveloperGuide/smartcontract/00-introduction-sc.md)
   - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
-  - [白皮书](docs-cn/DeveloperGuide/06-white-papers.md)
+  - [白皮书和资源](docs-cn/DeveloperGuide/06-white-papers.md)
 - 开发者指导
   - [安装节点](docs-cn/DeveloperGuide/01-installation.md)
   - [开发工具指南](docs-cn/DeveloperGuide/tools.md)

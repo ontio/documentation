@@ -70,7 +70,7 @@ The execution of Ontology smart contract requires input parameters and the corre
 
 
 
-## Ontology Smart Contract Fee Model
+## Fee Model
 
 ### 1. GAS Limit
 The gas limit is used to perform step counting in the opcode process when executing a smart contract. In theory, the more complex the smart contract, the higher the amount of gas limit required, and the lowest number of Gas limit on the Ontology transaction is 30000.
@@ -153,7 +153,7 @@ You can set gas price when calling **sendTransfer**.
 [Golang SDK](https://github.com/ontio/ontology-go-sdk)
 
 
-## DApp with smart contract
+## DApp
 
 DApp is an abbreviated form for decentralized application. A DApp consists of back-end code that runs on a decentralized peer-to-peer network. A DApp can also have a user interface, created by front-end code that makes calls to the back-end. DApp do not require a central authority to function: they allow for direct interaction between users and providers.
 
