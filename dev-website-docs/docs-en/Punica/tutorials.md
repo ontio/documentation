@@ -2,6 +2,8 @@
 
 These video is in Youtube, other language coming soon. [Docs in Video](https://github.com/punicasuite/tutorials/tree/master/toolkits-docs)
 
+## Ontology development toolkits
+
 1. Documentation Introduction
 2. How to use solo-chain?
 3. How to use Cyano wallet? 
@@ -53,3 +55,22 @@ These video is in Youtube, other language coming soon. [Docs in Video](https://g
 ### 10. How to use Punica Suite(1)? 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CwFWEeNYPM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+## Ontology smart contract
+
+
+[Docs in Video](https://github.com/punicasuite/tutorials/)
+
+### 1. Hello World
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=b07914b7fxc" allowFullScreen="true" width="100%" height="360"></iframe>
+
+
+### 2. Debug Smart Contract
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=l0792a0y1mx" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 3. VS Code for ontology
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=n0815uio4pr" allowFullScreen="true" width="100%" height="360"></iframe>

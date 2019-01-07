@@ -3,8 +3,8 @@
 
 ## Ontology
 
-* MainNet(http://dappnode1.ont.io)
-* TestNet(http://polaris1.ont.io)
+* MainNet: http://dappnode1.ont.io - http://dappnode4.ont.io 
+* TestNet: http://polaris1.ont.io -  http://polaris5.ont.io
 * [Ontology](https://github.com/ontio/ontology)
 * [Ontio-community](https://github.com/ontio-community/)
 * [Ontology Community Developers](https://github.com/OntologyCommunityDevelopers) 
@@ -39,10 +39,9 @@
 
 ## SDKs and dAPI
 
-* [Java SDK](https://github.com/ontio/ontology-java-sdk)， [Typescript SDK](https://github.com/ontio/ontology-ts-sdk)， [Python SDK](https://github.com/ontio/ontology-python-sdk) ， [Golang SDK](https://github.com/ontio/ontology-go-sdk)
+* [Java SDK](https://github.com/ontio/ontology-java-sdk), [Typescript SDK](https://github.com/ontio/ontology-ts-sdk), [Python SDK](https://github.com/ontio/ontology-python-sdk), [Golang SDK](https://github.com/ontio/ontology-go-sdk)
 * [dAPI tutorial_](https://ontio.github.io/documentation/ontology_dapp_dev_tutorial_en.html)
 * [dAPI](https://github.com/ontio/ontology-dapi)
-
 * [iOS wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_ts_sdk_en.html)
 * [Android wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html)
 

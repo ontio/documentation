@@ -1,5 +1,37 @@
 
-# 开始使用
+<div align="center"><img src="https://raw.githubusercontent.com/punicasuite/solo-chain/master/image/icon.png" height="200" width="200"></div>
+
+---
+
+## Solo Chain 概览
+
+本体的一键式（私有）区块链。借助于该桌面应用程序，开发人员可以轻松快速地设置和管理他们自己的本体区块链私有实例，快速进行dApp的开发。无需安装依赖，直接编译源码，甚至通过Docker来进行安装。Solo Chain 通过 Electron 进行打包，为用户提供了一个设置和管理其私有本体区块链实例的直观图形用户界面。
+
+Solo Chain 应用程序提供了以下功能：
+
+- 快速开始、停止和重启私有区块链实例。
+- 提供与本体主网和测试网一样的RPC、REST和Websocket服务器接口。
+- 便捷的帐户与帐户之间的资产转移和领取，能够快速进行测试环境的设置。
+- 提供了详细的区块、交易和事件信息，可以方便地进行调试。
+- 以列表的形式完整地显示所有已部署的智能合约。
+- 详细的网络活动记录。
+- 可定制的网络配置。
+
+
+## 安装
+
+- [下载](https://github.com/punicasuite/solo-chain/releases)适用于所在平台(Windows, Mac)的最新安装包。
+- 将应用程序安装到桌面计算机。
+
+如果您想基于源代码库自己编译应用程序。
+
+- 从Github上克隆项目库：`git clone git@github.com:punicasuite/solo-chain.git`
+- 安装依赖项`yarn install`
+- 编译安装程序`yarn build`
+- 跳转到`release`文件夹并打开相应的桌面安装程序（dmg或exe）
+
+
+## 开始使用
 
 当启动Solo Chain后，你将看到类似的界面。
 
@@ -100,3 +132,36 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/18-settings.png" ><br><br>
 </div>
+
+
+## 贡献
+
+如果您碰巧发现任何问题，或者对 Solo Chain 的后续功能有任何想法，请到 [Github 项目库](https://github.com/punicasuite/solo-chain) 中提出，这将帮助我们创造一个更好的 Solo Chain。
+
+### 开发步骤
+
+如果要以开发者模式下运行 Solo Chain，你可以：
+
+- 从GitGub获取完整的源码 `git clone git@github.com：punicasuite/solo-chain.git`
+- 安装依赖项 `yarn install`
+- 编译安装程序 `yarn dev`
+
+这将安装并编译所有必需的依赖项和源代码，并启在 `localhost：9080` 启动服务。当你对 `./src` 文件夹中的代码库进行更改时，应用程序将以热重载的方式进行刷新。
+
+如果你在安装时遇到任何问题，都可以在 Github 的 issue 中提出，或者直接在 Discord 上联系。
+
+### 贡献指南
+
+请打开带有签名的拉取请求。感谢您的帮助！您还可以将代码作为电子邮件发送到开发人员邮件列表。欢迎您加入本体邮件列表或开发人员论坛。
+
+如果您想为此项目贡献代码，请提供详细的提交信息。格式如下：
+
+标题行：在一行中解释提交（使用命令）。
+
+提交消息的主体是几行文本，更详细地解释事情，可能提供有关修复问题的一些背景，等等。
+
+提交消息的主体可以是几个段落，请做正确的自动换行并保持列短于约74个字符左右。这样 `git log` 即使缩进也能很好地显示出来。
+
+解释你的解决方案以及为什么你做你正在做的事情，而不是描述你正在做的事情。确保评审者和你未来都可以阅读补丁，并理解为什么要实施特定的解决方案。
+
+报告者：名字 签署者：名字 邮箱（Reported-by: whoever-reported-it Signed-off-by: Your Name youremail@yourhost.com）

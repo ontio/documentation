@@ -11,26 +11,22 @@
   - [开发工具指南](docs-cn/DeveloperGuide/tools.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
 - 快速学习
-  - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
-  - [DAPI 使用](docs-cn/Tutorials/06-dapi-useage.md)  
-  - [智能合约指导](docs-cn/DeveloperGuide/smartcontract/02-deploy-invoke.md)
-  - [开发资料集合](docs-cn/Tutorials/03-docs-collect.md)
-  - [DApp开发视频](docs-cn/Tutorials/04-learning-dapp-video.md)
-  - [智能合约开发视频](docs-cn/Tutorials/05-learning-sc-video.md)
+  - [DAPP开发](docs-cn/QuickGuide/00-dapp_development.md)  
+  - [DAPI 使用](docs-cn/QuickGuide/06-dapi-useage.md)  
+  - [智能合约指导](docs-cn/QuickGuide/02-deploy-invoke.md)
+  - [开发资料集合](docs-cn/QuickGuide/03-docs-collect.md)
 - Punica
   - [概述](docs-cn/Punica/punica.md)
   - [Punica Cli](docs-cn/Punica/punica-cli.md)
   - [Punica Box](docs-cn/Punica/punica-box.md)
   - [VSCode 插件](docs-cn/Punica/sc-extension.md)
-  - [Solo Chain](docs-cn/Punica/solo-chain/00-overview.md)
-      - [安装](docs-cn/Punica/solo-chain/01-installation.md)
-      - [开始使用](docs-cn/Punica/solo-chain/02-getting-started.md)
-      - [社区贡献](docs-cn/Punica/solo-chain/03-contributing.md)
-
+  - [Solo Chain](docs-cn/Punica/solo-chain.md)
+  - [Tutorials](docs-cn/Punica/tutorials.md)
+  
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
-  - [Debug智能合约](docs-cn/Tutorials/01-debug-a-Smart-Contract.md)
+  - [Debug智能合约](docs-cn/QuickGuide/01-debug-a-Smart-Contract.md)
   
 - Cyano Wallet
   - [概述](docs-cn/Cyano/00-overview.md)

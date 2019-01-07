@@ -1,4 +1,5 @@
 
+## 工具介绍
 
 dApp开发系列教程。[视频文档](https://github.com/punicasuite/tutorials/tree/master/toolkits-docs)
 
@@ -53,3 +54,20 @@ dApp开发系列教程。[视频文档](https://github.com/punicasuite/tutorials
 ### 10. 如何使用 Punica Suite(1)? 
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=r0802qrtqef" allowFullScreen="true" width="100%" height="360"></iframe>
+
+## 智能合约介绍
+
+[视频文档](https://github.com/punicasuite/tutorials/)
+
+### 1. Hello World
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=b07914b7fxc" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 2. Debug Smart Contract
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=l0792a0y1mx" allowFullScreen="true" width="100%" height="360"></iframe>
+
+
+### 3. VS Code for ontology
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=n0815uio4pr" allowFullScreen="true" width="100%" height="360"></iframe>

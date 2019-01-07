@@ -10,28 +10,23 @@
   - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
 - Quick Guide
-  - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  
-  - [DAPI Usage](docs-en/Tutorials/06-dapi-useage.md)  
-  - [Smart Contract Guide](docs-en/DeveloperGuide/smartcontract/02-deploy-invoke.md)
-  - [Learning Collection](docs-en/Tutorials/03-docs-collect.md)
-  - [DApp Video Tutorial](docs-en/Tutorials/04-learning-dapp-video.md)
-  - [Smart Contract Video Tutorial](docs-en/Tutorials/05-learning-sc-video.md)
+  - [DAPP Development](docs-en/QuickGuide/00-dapp_development.md)  
+  - [DAPI Usage](docs-en/QuickGuide/06-dapi-useage.md)  
+  - [Smart Contract Guide](docs-en/QuickGuide/02-deploy-invoke.md)
+  - [Learning Collection](docs-en/QuickGuide/03-docs-collect.md)
   
 - Punica
   - [Overview](docs-en/Punica/punica.md)
   - [Punica Cli](docs-en/Punica/punica-cli.md)
   - [Punica Box](docs-en/Punica/punica-box.md)
   - [VSCode Extension](docs-en/Punica/sc-extension.md)
-  - [Solo Chain](docs-en/Punica/solo-chain/00-overview.md)
-      - [Installation](docs-en/Punica/solo-chain/01-installation.md)
-      - [Getting Started](docs-en/Punica/solo-chain/02-getting-started.md)
-      - [Usage](docs-en/Punica/solo-chain/03-usage.md)
-      - [Contributing](docs-en/Punica/solo-chain/04-contributing.md)
+  - [Solo Chain](docs-en/Punica/solo-chain.md)
+  - [Tutorials](docs-en/Punica/tutorials.md)
       
 - SmartX
   - [Overview](docs-en/SmartX/00-overview.md)
   - [Getting Started](docs-en/SmartX/01-getting-started.md)
-  - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)
+  - [Debug Smart Contract](docs-en/QuickGuide/01-debug-a-Smart-Contract.md)
   
 - Cyano Wallet
   - [Overview](docs-en/Cyano/00-overview.md)
