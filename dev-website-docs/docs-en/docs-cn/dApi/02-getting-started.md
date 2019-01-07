@@ -1,5 +1,6 @@
 
-概述:
+
+[概述](#概述)
 
 [安装开发环境](#安装开发环境)
 
@@ -21,7 +22,11 @@
 + [部署你的智能合约](#部署你的智能合约)
 + [测试你的智能合约](#测试你的智能合约)
 
+### 概述
 
+使用dAPI for chrome前请先安装实现了 **dAPI provider** 功能的钱包. 比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
+
+dAPI使用TypeScript实现, 同时也支持在JavaScript工程中使用.
 
 ### 安装开发环境
 

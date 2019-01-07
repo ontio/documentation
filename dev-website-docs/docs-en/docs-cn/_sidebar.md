@@ -42,17 +42,14 @@
   - [安装](docs-cn/Cyano/01-installation.md)
   - [开始使用](docs-cn/Cyano/02-getting-started.md)
 
-- Cyano-Provider
-  - [手机版Provider](docs-cn/Cyano-provider/00-overview.md)
+- Cyano-dAPI
+  - [概述](docs-cn/Cyano-provider/00-overview0.md)
+  - [手机钱包方对接dAPI](docs-cn/Cyano-provider/00-overview.md)
       - [扫二维码对接](docs-cn/Cyano-provider/02-scan-qrcode.md)
       - [钱包里打开DApp对接](docs-cn/Cyano-provider/03-embedded-h5.md)
-  
-- Cyano-dAPI
-  - [概述](docs-cn/dApi/00-overview.md)
-  - [Chrome插件dAPI](docs-cn/dApi/01-quickstart.md)
-      - [开始使用](docs-cn/dApi/02-getting-started.md)
-  - [手机版dAPI](docs-cn/dApi-mobile/00-overview.md)
-      - [开始使用](docs-cn/dApi-mobile/02-getting-started.md)
+  - [DAPP对接dAPI](docs-cn/dApi/00-overview.md)
+      - [Chrome插件版dAPI](docs-cn/dApi/02-getting-started.md)
+      - [手机版dAPI](docs-cn/dApi-mobile/02-getting-started.md)
       
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
