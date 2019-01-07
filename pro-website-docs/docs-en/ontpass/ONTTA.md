@@ -19,11 +19,11 @@ Ontology Global Identity TrustAnchor(ONTTA) is a comprehensive global identity t
 
 ## Charges
 
-The instant payment mode is adopted, that is, each identity authentication request needs to consume ONG, so the authentication requester needs to establish an ONG transfer transaction for each authentication request.（The Payment Address is**ATGJSGzm2poCB8N44BgrAccJcZ64MFf187**）。
+The instant payment mode is adopted, that is, each identity authentication request needs to consume ONG, so the authentication requester needs to establish an ONG transfer transaction for each authentication request.（The Payment Address is **ATGJSGzm2poCB8N44BgrAccJcZ64MFf187**).
 
 Cost per authentication：*1.2 ONG*
 
-> Note：method to construct a transfer transaction[AppendixDEMO](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E7%A4%BA%E4%BE%8Bdemo)or[SDK developer document center](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+> Note：method to construct a transfer transaction [AppendixDEMO](http://pro-docs.ont.io/#/docs-cn/ontpass/ONTTA?id=%E7%A4%BA%E4%BE%8Bdemo) or [SDK developer document center](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 ## Authentication Request Example
 
