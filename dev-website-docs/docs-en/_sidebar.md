@@ -2,8 +2,6 @@
   - [Introduction](docs-en/DeveloperGuide/introduction.md)
   - [Consensus VBFT](docs-en/DeveloperGuide/02-VBFT-introduction.md)
   - [Smart Contract](docs-en/DeveloperGuide/smartcontract/00-introduction-sc.md)
-      - [Fee Model](docs-en/DeveloperGuide/smartcontract/03-fee-model.md)
-      - [DAPP](docs-en/DeveloperGuide/smartcontract/04-dapp.md)
   - [ONTID](docs-en/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
   - [White-papers](docs-en/DeveloperGuide/06-white-papers.md)
@@ -14,14 +12,11 @@
 - Quick Guide
   - [DAPP Development](docs-en/Tutorials/00-dapp_development.md)  
   - [DAPI Usage](docs-en/Tutorials/06-dapi-useage.md)  
-  - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)
-  - [Smart Contract Guide](docs-en/DeveloperGuide/smartcontract/02-deployment.md)
-      - [Invocation](docs-en/DeveloperGuide/smartcontract/01-invocation.md)
-      - [API](docs-en/DeveloperGuide/smartcontract/05-sc-api.md)
-      - [Template](docs-en/Tutorials/02-smartcontract-template.md)
+  - [Smart Contract Guide](docs-en/DeveloperGuide/smartcontract/02-deploy-invoke.md)
   - [Learning Collection](docs-en/Tutorials/03-docs-collect.md)
   - [DApp Video Tutorial](docs-en/Tutorials/04-learning-dapp-video.md)
   - [Smart Contract Video Tutorial](docs-en/Tutorials/05-learning-sc-video.md)
+  
 - Punica
   - [Overview](docs-en/Punica/punica.md)
   - [Punica Cli](docs-en/Punica/punica-cli.md)
@@ -32,10 +27,12 @@
       - [Getting Started](docs-en/Punica/solo-chain/02-getting-started.md)
       - [Usage](docs-en/Punica/solo-chain/03-usage.md)
       - [Contributing](docs-en/Punica/solo-chain/04-contributing.md)
+      
 - SmartX
   - [Overview](docs-en/SmartX/00-overview.md)
   - [Getting Started](docs-en/SmartX/01-getting-started.md)
-
+  - [Debug Smart Contract](docs-en/Tutorials/01-debug-a-Smart-Contract.md)
+  
 - Cyano Wallet
   - [Overview](docs-en/Cyano/00-overview.md)
   - [Installation](docs-en/Cyano/01-installation.md)
@@ -53,10 +50,10 @@
 - SDKs
   - [Overview](docs-en/SDKs/00-overview.md)
   - [Wallet File](docs-en/SDKs/01-wallet-file-specification.md)
-  - [Digital Assets](docs-en/SDKs/java-sdk.md)
+  - [Digital Assets(Java SDK)](docs-en/SDKs/java-sdk.md)
       - [TypeScript SDK](docs-en/SDKs/ts-sdk.md)
       - [Python SDK](docs-en/SDKs/python-sdk.md)
-  - [Digital Identity](docs-en/SDKs/java-sdk-ontid.md)
+  - [Digital Identity(Java SDK)](docs-en/SDKs/java-sdk-ontid.md)
       - [TypeScript SDK](docs-en/SDKs/ts-sdk-ontid.md)
       - [Python SDK](docs-en/SDKs/python-sdk-ontid.md)
   - [Wallet Integration](docs-en/SDKs/02-wallet-intergration.md)

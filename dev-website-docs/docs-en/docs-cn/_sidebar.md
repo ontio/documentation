@@ -3,8 +3,6 @@
   - [介绍](docs-cn/DeveloperGuide/introduction.md)
   - [VBFT共识](docs-cn/DeveloperGuide/02-VBFT-introduction.md)
   - [智能合约](docs-cn/DeveloperGuide/smartcontract/00-introduction-sc.md)
-      - [燃料模型](docs-cn/DeveloperGuide/smartcontract/03-fee-model.md)
-      - [DAPP](docs-cn/DeveloperGuide/smartcontract/04-dapp.md)
   - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
   - [白皮书](docs-cn/DeveloperGuide/06-white-papers.md)
@@ -15,11 +13,7 @@
 - 快速学习
   - [DAPP开发](docs-cn/Tutorials/00-dapp_development.md)  
   - [DAPI 使用](docs-cn/Tutorials/06-dapi-useage.md)  
-  - [Debug智能合约](docs-cn/Tutorials/01-debug-a-Smart-Contract.md)
-  - [智能合约指南](docs-cn/DeveloperGuide/smartcontract/02-deployment.md)
-      - [调用](docs-cn/DeveloperGuide/smartcontract/01-invocation.md)
-      - [API](docs-cn/DeveloperGuide/smartcontract/05-sc-api.md)
-      - [模板](docs-cn/Tutorials/02-smartcontract-template.md)
+  - [智能合约指导](docs-cn/DeveloperGuide/smartcontract/02-deploy-invoke.md)
   - [开发资料集合](docs-cn/Tutorials/03-docs-collect.md)
   - [DApp开发视频](docs-cn/Tutorials/04-learning-dapp-video.md)
   - [智能合约开发视频](docs-cn/Tutorials/05-learning-sc-video.md)
@@ -36,7 +30,8 @@
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
-
+  - [Debug智能合约](docs-cn/Tutorials/01-debug-a-Smart-Contract.md)
+  
 - Cyano Wallet
   - [概述](docs-cn/Cyano/00-overview.md)
   - [安装](docs-cn/Cyano/01-installation.md)
@@ -54,10 +49,10 @@
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
   - [钱包文件](docs-cn/SDKs/01-wallet-file-specification.md)
-  - [数字资产](docs-cn/SDKs/java-sdk.md)
+  - [数字资产(Java SDK)](docs-cn/SDKs/java-sdk.md)
       - [TypeScript SDK](docs-cn/SDKs/ts-sdk.md)
       - [Python SDK](docs-cn/SDKs/python-sdk.md)
-  - [数字身份](docs-cn/SDKs/java-sdk-ontid.md)
+  - [数字身份(Java SDK)](docs-cn/SDKs/java-sdk-ontid.md)
       - [TypeScript SDK](docs-cn/SDKs/ts-sdk-ontid.md)
       - [Python SDK](docs-cn/SDKs/python-sdk-ontid.md)
   - [钱包集成](docs-cn/SDKs/02-wallet-intergration.md)
