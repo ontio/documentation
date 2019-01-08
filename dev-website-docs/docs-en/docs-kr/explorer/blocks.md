@@ -16,7 +16,7 @@ successResponse：
 			"Hash":"63355f8e808e4572bab07c0748bd4182a562ee73401fc16c8108e4e56b264d2a",
 			"Height":112,
 			"TxnsRoot":"472af7d21a8315636021940933ec8d07a7a32fe21ba91075b4c0e0b1b4576531",
-			"BookKeeper":"AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC&AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC",
+			"BookKeeper":"AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC&AL4CDqBikrj92pC3B747ZchYZAQf2fg1AC&AMvXn7U9S3Pq7hah16Euu7wX52UHtHyqNr",
 			"NextBlock":"59192b3a12497793568f2394da91725cf382556b7a72e92f58e0a6f6cab6a70d",
 			"ConsensusData":"12156079575032856115",
 			"PrevBlock":"3865b98b84b3af895c946b23938a5dde127ad12d4268d92fbd63e642e91b00c8",
@@ -30,21 +30,21 @@ successResponse：
 
 | RequestField|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    amount|   int|    |
+|    amount|   int|   amount  |
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|   Hash|   String|    |
-|	Height|   int|  |
-|	TxnsRoot|   String|    |
-|   BookKeeper|   String|    |
-|   NextBlock|   String|    |
-|	ConsensusData	|	String|	  |
-|	PrevBlock|	String|	  |
-|	BlockSize|	int|	  |
-|	BlockTime|	int|	  |
-|	TxnNum|	int|	  |
+|   Hash|   String|   block hash |
+|	Height|   int|  block height |
+|	TxnsRoot|   String|  the merkleroot of all transactions in the block  |
+|   BookKeeper|   String|   keepers of this block,divided by & | 
+|   NextBlock|   String|   next block hash |
+|	ConsensusData	|	String|	consensus data  |
+|	PrevBlock|	String|	previous block hash  |
+|	BlockSize|	int|   size of this block, unit:byte  |
+|	BlockTime|	int|	unix time of this block|
+|	TxnNum|	int|	the number of transactions|
 
 
 
@@ -83,23 +83,23 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    pagesize|   int|    |
-|    pagenumber|   int| |
+|    pagesize|   int|   pagesize. 1-20 |
+|    pagenumber|   int| pagenumber. start from 1 |
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|   BlockList.Hash|   String|    |
-|   BlockList.Height|   int|  |
-|   BlockList.TxnsRoot|   String|    |
-|   BlockList.BookKeeper|   String|    |
-|   BlockList.NextBlock|   String|    |
-|	BlockList.ConsensusData	|	String|	  |
-|	BlockList.PrevBlock|	String|	  |
-|	BlockList.BlockSize|	int|	  |
-|	BlockList.BlockTime|	int|	|
-|	BlockList.TxnNum|	int|	  |
-|	Total|	int|	  |
+|   BlockList.Hash|   String|  block hash  |
+|   BlockList.Height|   int| block height  |
+|   BlockList.TxnsRoot|   String|  the merkleroot of all transactions in the block   |
+|   BlockList.BookKeeper|   String| keepers of this block,divided by &   |
+|   BlockList.NextBlock|   String|  next block hash  |
+|	BlockList.ConsensusData	|	String|	 consensus data |
+|	BlockList.PrevBlock|	String|	  previous block hash |
+|	BlockList.BlockSize|	int|	size of this block, unit:byte  |
+|	BlockList.BlockTime|	int|	unix time of this block	|
+|	BlockList.TxnNum|	int|	the number of transactions  |
+|	Total|	int|total number of blocks  |
 
 
 ### Query Block by height or hash
@@ -145,23 +145,23 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    param|   String|    |
+|    param|   String| block hash or block height   |
 
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|   Hash|   String|    |
-|	Height|   int|  |
-|	TxnsRoot|   String|    |
-|   BookKeeper|   String|      |
-|   NextBlock|   String|   |
-|	ConsensusData	|	String|	  |
-|	PrevBlock|	String|	  |
-|	BlockSize|	int|	  |
-|	BlockTime|	int|	  |
-|	TxnNum|	int|	  |
-|	Txnlist.TxnHash|	String|	  |
-|	Txnlist.TxnType|	int|	  |
-|	Txnlistist.Height|	int |	  |
-|	Txnlistist.TxnTime|	int |	  |
+|   Hash|   String|   block hash  |
+|	Height|   int| block height  |
+|	TxnsRoot|   String|  the merkleroot of all transactions in the block  |
+|   BookKeeper|   String|    keepers of this block,divided by &  |
+|   NextBlock|   String|  next block hash |
+|	ConsensusData	|	String|	 consensus data |
+|	PrevBlock|	String|	previous block hash  |
+|	BlockSize|	int|	size of this block, unit:byte  |
+|	BlockTime|	int|	unix time of this block  |
+|	TxnNum|	int|	the number of transactions   |
+|	Txnlist.TxnHash|	String|	 transaction hash  |
+|	Txnlist.TxnType|	int|	transaction type.208 or 209  |
+|	Txnlistist.Height|	int |	block height  |
+|	Txnlistist.TxnTime|	int |	unix time of the block  |

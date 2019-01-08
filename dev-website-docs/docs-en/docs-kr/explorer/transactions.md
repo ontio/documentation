@@ -4,8 +4,8 @@
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    208|   int|  deploy  |
-|    209|   int|  invoke  |
+|    208|   int|  deploy smart contract |
+|    209|   int|  invoke smart contract|
 
 ### Description
 
@@ -47,7 +47,7 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    amount|   int|  totoal num  |
+|    amount|   int|  amount  |
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
@@ -55,8 +55,8 @@ successResponse：
 |    TxnType|   int|  |
 |    TxnTime|   int|    |
 |    Height|   int|    |
-|    BlockIndex|   int|    |
-|    ConfirmFlag|   int |   |
+|    BlockIndex|   int|  index in the block  |
+|    ConfirmFlag|   int |   1:succeed. 2:failed|
 |    Fee|   String |   |
 
 
@@ -92,8 +92,8 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    pagesize|   int|    |
-|    pagenumber|   int|  |
+|    pagesize|   int|  pagesieze. 1-20  |
+|    pagenumber|   int| pagenumber. start from 1 |
 
 
 
@@ -139,7 +139,7 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    txnhash|   String|  交易hash  |
+|    txnhash|   String|  transaction hash  |
 
 
 
@@ -153,7 +153,7 @@ successResponse：
 |    Fee|   String |   |
 |    ConfirmFlag|   int|   |
 |    Description|   String|   |
-|    Detail|   Object|   |
+|    Detail|   Object|  detail depends on Description |
 
 
 
@@ -205,6 +205,6 @@ successResponse：
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    OntId|   String|  OntId|
-|    Description|   String| 
+|    Description|   String| |
 
 

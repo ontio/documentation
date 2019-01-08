@@ -2,7 +2,6 @@
 <h1 align="center">Ontology Distributed Identity Framework (ONTID) </h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
-## Overview
 
 ONT ID establishes a cryptographic-based digital identity for any user, company, item, etc. The digital identity is based on Ontology blockchain technology and is not subject to any centralized organization. It is completely controlled by the user and is secure and trustworthy.
 

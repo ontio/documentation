@@ -1,51 +1,35 @@
 
-
-## Punica-Cli
-
-* [punica-python](https://github.com/punicasuite/punica-python)
-* [punica-ts](https://github.com/punicasuite/punica-ts)
+# Punica-Cli
 
 ## Overview
 
+Punica-Cli is a command line interface designed to allow devlopers to compile, deploy and invoke smart contracts without the need for a full SDK. Punica-Cli is currently available in two languages: [Punica Python CLI](https://github.com/punicasuite/punica-python) or [Punica TypeScript CLI](https://github.com/punicasuite/punica-ts).
 
-Features:
-* Supports intelligent contract compilation, deployment, invocation, and testing. Each item can be completed simply and efficiently through a single line of commands and testing through a configuration file.
+### Features:
+* Supports intelligent smart contract compilation, deployment, invocation and testing;
 * Supports both Python and TypeScript programming languages;
-* download dApp templates and Punica-Box;
+* Download dApp templates via Punica-Box;
 * Smart contract packaging management tools;
 * Supports wallet file management.
-
-Punica-cli offers an interactive command line tool with many useful functions:	
-* Create an empty project
-* Create a project with various boilerplate/template projects 
-* Compile/deploy/invoke/test/debug smart contracts
-* Publish your project to Punica box to share with community
-* Start solo chain in local(WIP)
-* Smart contracts package manager(WIP)
-......
-
-Punica has two implementions: Punica-python and Punica-ts
-
+<p><br>
 
 ## Installation
 
 ```shell
-pip install punica
+pip3 install punica
 ```
 ```
 npm install punica-ts -g
 ```
 or 
-
 ```shell
 python setup.py install
 ```
+**Note: If you are using Python, please ensure you have [Python v3.7](https://www.python.org/downloads/release/python-370/) or above installed.**
+<p><br>
 
 
-## Quickstart
-
-To use most Punica commands, you need to run them against an existing Punica project. So the first step is to create a Punica project.
-
+## Available Commands
 
 ```shell
 punica
@@ -69,29 +53,25 @@ Commands:
   wallet   Manager your ontid, account, asset.
 ```
 
-You can create a bare Punica project with no smart contracts included, use `punica init` command.
-
-Once this operation is completed, you'll now have a project structure with the following items:
-
-- `contracts/`: Directory for Ontology smart contracts.
-- `src/`: Directory for DApp source file.
-- `test/`: Directory for test files for testing your application and contracts.
-- `wallet/`: Directory for save Ontology wallet file.
-
-## Getting tartedS
+## Getting started
 
 
-#### 4.1.1. Initializing a New Project
+### Initializing a New Project
 
-You can create a bare Punica project with no smart contracts included, use `punica init` command.
+You can create an empty Punica project with no smart contracts using the `init` command.
 
-Once this operation is completed, you'll now have a project structure with the following items:
+```shell
+punica init
+```
+
+Once this operation has completed, you will have a project structure with the following items:
 
 - `contracts/`: Directory for Ontology smart contracts.
-- `src/`: Directory for DApp source file.
-- `test/`: Directory for test files for testing your application and contracts.
-- `wallet/`: Directory for save Ontology wallet file.
+- `src/`: Directory for DApp source file(s).
+- `test/`: Directory for test files to test your application and contracts.
+- `wallet/`: Directory for saved Ontology wallet file.
 
+For more usage information, you can use `punica init --help`
 ```shell
 punica init --help
 Usage: punica init [OPTIONS]
@@ -102,27 +82,29 @@ Options:
   -h, --help  Show this message and exit.
 ```
 
-**Note**: If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
+**Note**: If you are not running punica-cli in the root directory of your project, you need to use the `-p` or `--project` option to specify your DApp project path.
+<p><br>
 
-#### 4.1.2. Creating a Box Project
+### Using a Punica-Box Project
 
-You can create a bare project template, but for those just getting started, you can use Punica Boxes, which are example applications and project templates.
+For those just getting started, you can use Punica Boxes which are example dApps/project templates to help you.
 
-We'll use the [ontology-tutorialtoken box](https://github.com/wdx7266/ontology-tutorialtoken), which creates a OEP4 token that can be transferred between accounts:
+We will be using the [Tutorialtoken-box](https://github.com/punica-box/tutorialtoken-box) through-out this tutorial which creates an OEP4 token that can be transferred between accounts.
 
-- Create a new directory for your Punica project:
+Create a new directory for your Punica project:
 
 ```shell
 mkdir tutorialtoken
 cd tutorialtoken
 ```
 
-- Download ("unbox") the MetaCoin box:
+Download ("unbox") the Tutorialtoken-box Box:
 
 ```shell
 punica unbox tutorialtoken
 ```
 
+For more usage information, you can use `punica unbox --help`
 ```shell
 punica unbox --help
 Usage: punica unbox [OPTIONS] BOX_NAME
@@ -133,16 +115,40 @@ Options:
   -h, --help  Show this message and exit.
 ```
 
-**Note**:
+#### Configure the network used by Punica-Cli
 
-- You can use the `punica unbox <box-name>` command to download any of the other Punica Boxes.
-- If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
+The Tutorialtoken-box contains a file called `punica-config.json' in the project root directory which defauls to the Ontology Testnet.  You can alter the DefaultNet setting in this file to set which network Punica-Cli will use.
+
+Example punica-config.json:
+```json
+{
+  "networks": {
+    "testNet": {
+      "host": "http://polaris3.ont.io",
+      "port": 20336
+    },
+    "mainNet": {
+      "host": "http://dappnode1.ont.io",
+      "port": 20336
+    },
+    "privateNet": {
+      "host": "http://127.0.0.1",
+      "port": 20336
+    }
+  },
+  "defaultNet":"testNet"
+}
+```
+
+**Notes**:
+- You can use the `punica unbox <box-name>` command to download any of the other [Punica Boxes](http://punica.ont.io/boxes/).
+- If you are not running punica-cli in the root directory of your project, you need to use the `-p` or `--project` option to specify your DApp project path.
+<p><br>
 
 
+### Compiling
 
-### 4.2. Compiling
-
-You can use the following command to compile your Ontology smart contracts:
+We will now use the `compile` command to compile the Tutorialtoken-box smart contract:
 
 ```shell
 punica compile
@@ -157,7 +163,7 @@ contacts
     │      contract_abi.json
 ```
 
-For more usage, you can use `punica compile --help` command.
+For more usage information, you can use `punica compile --help`
 
 ```shell
 punica compile --help
@@ -169,18 +175,18 @@ Options:
   --contracts Only compile the specified contract
   -h, --help  Show this message and exit.
 ```
+**After you compile the smart contract ensure you have sufficient ONG in the account that will be paying for the deployment (see next step) or else deployment will fail.  The address for the Tutorialtoken-box is ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6**
 
-**Note**: If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
+**Note**: If you are not running punica-cli in the root directory of your project, you need to use the `-p` or `--project` option to specify your DApp project path.
+<p><br>
 
-### 4.3. Deployment
+### Deployment
 
-To deploy your contract, run the following:
+To deploy the Tutotialtoken-box smart contract to the selected network, run the following:
 
 ```shell
 punica deploy
 ```
-
-This will deploy your smart contract in `bin` directory.
 
 A simple deployment process looks like this:
 
@@ -196,7 +202,7 @@ Deploy successful to network...
 Enjoy your contract:)
 ```
 
-For more usage, you can use `punica deploy --help` command.
+For more usage information, you can use `punica deploy --help`
 
 ```shell
 punica deploy --help
@@ -211,17 +217,37 @@ Options:
   -h, --help       Show this message and exit.
 ```
 
-**Note**:
+**Notes**:
 
-- If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
-- If multi `avm` file exist in your `bin` directory, you need to use `--avm` option to specify which contract you want to deploy.
-- If multi wallet file exist in your `wallet` directory, you may need to use `--wallet` option to specify which wallet you want to use. otherwise, a random wallet file in `wallet` directory will be used.
+- If you are not running punica-cli in the root directory of your project, you need to use the `-p` or `--project` option to specify your DApp project path.
+- If multiple `avm` files exist in your `contracts/build` directory, you need to use the `--avm` option to specify which contract you want to deploy.
+- If a multi-wallet file exist in your `wallet` directory, you may need to use the `--wallet` option to specify which wallet you want to use. If you do not specify a random wallet file in `wallet` directory will be used.
+<p><br>
 
-### 4.4. Invocation
+### Invocation
 
-If you want to invoke a list of function in your deployed smart contract, a convenience way is to use `Invoke` command.
+To setup your smart contract you must run the `punica invoke` command before invoking any specific functions.
 
-Support we have an invoke config in our `default-config.json`:
+```shell
+punica invoke
+```
+
+Output:
+```shell
+Running invocation: oep4.json
+Using network 'testNet'.
+
+Unlock default payer account...
+	Unlock account: ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6
+    Please input account password: 
+	Unlock successful...
+Invoking Name...
+	Invoke successful...
+		... Invoke result: 546f6b656e4e616d65
+Invoking Symbol......
+```
+
+In the `default-config.json` file of the Tutorialtoken-box is an 'invokeConfig' section that defines the functions of our smart contract. See example below:
 
 ```json
 "invokeConfig":{
@@ -333,13 +359,13 @@ Support we have an invoke config in our `default-config.json`:
     ]
 }
 ```
-View the functions that can be called
 
+To see the list of available functions:
 ```shell
-punica list
+punica invoke list
 ```
 
-The following output we will get:
+Response when running `punica invoke list' on the Tutorialtoken-box
 ```shell
 All Functions:
          Init
@@ -354,28 +380,7 @@ All Functions:
          TransferFrom
 ```
 
-To run our invoke function list, run the following:
-
-`punica invoke`
-
-The following output we will get:
-
-```shell
-Running invocation: oep4.json
-Using network 'testNet'.
-
-Unlock default payer account...
-	Unlock account: ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6
-    Please input account password: 
-	Unlock successful...
-Invoking Name...
-	Invoke successful...
-		... Invoke result: 546f6b656e4e616d65
-Invoking Symbol......
-	
-```
-
-For more usage, you can use `punica invoke --help` command.
+For more usage information, you can use `punica invoke --help`
 
 ```shell
 punica invoke --help
@@ -390,15 +395,19 @@ Options:
   -h, --help       Show this message and exit.
 ```
 
-**Note**:
+**Notes**:
 
-- If you not run punica cli in you project root directory, you need to use `-p` or `--project` option to specify your DApp project's path.
-- If multi wallet file exist in your `wallet` directory, you may need to use `--wallet` option to specify which wallet you want to use. otherwise, a random wallet file in `wallet` directory will be used.
+- If you are not running punica-cli in the root directory of your project, you need to use the `-p` or `--project` option to specify your DApp project path.
+- If a multi-wallet file exist in your `wallet` directory, you may need to use the `--wallet` option to specify which wallet you want to use. If you do not specify a random wallet file in `wallet` directory will be used.
+<p><br>
 
-### 4.5 Node
+### Node
 
+Shows the download link for Solo-chain, a pre-built Ontology private-net.
+
+For more usage information, you can use `punica node --help'
 ```shell
-sss:test sss$ punica node
+punica node --help
 Usage: punica node [OPTIONS]
 
    Ontology Blockchain private net in test mode. please download from
@@ -407,31 +416,42 @@ Usage: punica node [OPTIONS]
 Options:
    -h, --help  Show this message and exit.
 ```
+<p><br>
 
-### 4.6. Scpm
+### Scpm (not yet implemented)
+
+The smart contract package manager allows you to download and publish punica boxes to the community repository.
 
 ```shell
-sss:test sss$ punica scpm
+punica scpm
 Usage: punica scpm [OPTIONS]
 
    smart contract package manager，support download and publish.
 
 Options:
    -h, --help  Show this message and exit.
-
 ```
-### 4.7  Smartx
+<p><br>
+
+### Smartx (not yet implemented)
+
+SmartX is Ontology's online smart contract IDE and debugger.
 
 ```shell
-sss:test sss$ punica smartx
+punica smartx
 
 Please go to Smartx for debugging smart contracts:
 http://smartx.ont.io/#/
 ```
-### 4.8  Test
+<p><br>
 
+### Unit Testing
+
+The test function allows you to run automated test against your smart contract using a test file.
+
+For more usage information, you can use `punica test --help'
 ```shell
-sss:test sss$ punica test -h
+punica test -h
 Usage: punica test [OPTIONS] COMMAND [ARGS]...
 
   Unit test with specified smart contract
@@ -443,10 +463,25 @@ Options:
 Commands:
   template  generate test template file
 ```
-### 4.9  Wallet
+<p><br>
 
+### Wallet
+
+Allows you to manage your wallet with functions such as adding, listing or deleting accounts or OntID's as well as transfering assets (ONT/ONG).
+
+Example:
 ```shell
-sss:test sss$ punica wallet
+punica wallet account list
+Account:
+        ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6
+        AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve
+        Ad4H6AB3iY7gBGNukgBLgLiB6p3v627gz1
+        ARLvwmvJ38stT9MKD78YtpDak3MENZkoxF
+```
+
+For more usage information, you can use `punica wallet --help'
+```shell
+punica wallet --help
 Usage: punica wallet [OPTIONS] COMMAND [ARGS]...
 
    Manager your asset, ontid, account.
@@ -455,10 +490,8 @@ Options:
    -h, --help  Show this message and exit.
 
 Commands:
-   account  Manager your account.
-   asset    Manager your asset, transfer, balance,...
-   ontid    Manager your ont_id, list or add.
+   account  Manage your account.
+   asset    Manage your asset, transfer, balance,...
+   ontid    Manage your ont_id, list or add.
 
 ```
-
-## 

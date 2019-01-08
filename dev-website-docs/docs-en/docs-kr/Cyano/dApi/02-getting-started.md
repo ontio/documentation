@@ -4,7 +4,11 @@ This tutorial is designed to demonstrate an overview of creating dApps by using 
 
 The document is broken down into the following sections:
 
+[Overview](#overview)
+
 [Setting up the development environment](#setting-up-the-development-environment)
+
+[Architecture](#Architecture)
 
 [Ontology dAPI Overview](#ontology-dapi-overview)
 + [dAPI Installation](#dapi-installation)
@@ -23,6 +27,13 @@ The document is broken down into the following sections:
 + [Testing your smart contract](#testing-your-smart-contract)
 
 
+### Overview
+
+It is necessary to have installed suitable **dAPI provider** . Reference implementation is [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
+
+
+
+
 
 ### Setting up the Development Environment
 
@@ -34,6 +45,9 @@ Please ensure you have the following installed and configured in order to setup 
 
 - [Git](https://git-scm.com/)
 
+### Architecture
+
+![architecture](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/image/dapi.png)
 
 ### Ontology dAPI Overview
 #### dAPI Installation
