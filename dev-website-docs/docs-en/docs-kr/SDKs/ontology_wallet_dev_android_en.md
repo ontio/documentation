@@ -277,8 +277,8 @@ response:
     "Error": 0,
     "Result": {
         "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
-        "State": 1,
-        "GasConsumed": 0,
+        "State": 1,// it indicates that the transaction was executed successfully.
+        "GasConsumed": 0, // indicates that the transaction fee is 0.
         "Notify": [
             {
                 "ContractAddress": "0100000000000000000000000000000000000000",

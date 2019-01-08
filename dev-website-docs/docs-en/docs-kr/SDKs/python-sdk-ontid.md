@@ -9,11 +9,9 @@
 - [Interface](#interface)
     - [Network](#network)
     - [Wallet](#wallet)
-    - [Account](#account)
-    - [AccountManager](#accountmanager)
-    - [Asset](#asset)
+    - [Identity](#identity)
+    - [IdentityManager](#identitymanager)
     - [ABI](#abi)
-    - [OEP4](#oep4)
     - [Utils](#utils)
 - [Contribution](#contribution)
 - [Naming](#naming)
@@ -75,69 +73,49 @@ This is an API set that allows you to handle with wallet account in the form of 
 
 **Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
 
-### Account
+### Identity
 
-This is an API set that allows you to generate Ontology accounts and sign transactions and data.
+This is an API set that allows you to generate **Ontology Digital Identity.**
+
+|       | Main Function                        |
+| :---: | :----------------------------------- |
+| 1     | parse_ddo()                          |
+| 2     | send_get_ddo()                       |
+| 3     | new_get_ddo_transaction()            |
+| 4     | new_add_recovery_transaction()       |
+| 5     | new_add_attribute_transaction()      |
+| 6     | new_add_public_key_transaction()     |
+| 7     | new_remove_public_key_transaction()  |
+| 8     | new_registry_ont_id_transaction()    |
+| 9     | new_remove_attribute_transaction()   |
+| 10    | send_add_recovery_transaction()      |
+| 11    | send_add_attribute_transaction()     |
+| 12    | send_add_public_key_transaction()    |
+| 13    | send_registry_ont_id_transaction()   |
+| 14    | send_remove_public_key_transaction() |
+| 15    | send_remove_attribute_transaction()  |
+| 16    | send_add_public_key_by_recovery()    |
+| 17    | sign_transaction()                   |
+| 18    | add_sign_transaction()               |
+| 19    | add_multi_sign_transaction()         |
+| 20    | get_merkle_proof()                   |
+| 21    | get_raw_transaction()                |
+| 22    | send_raw_transaction()               |
+| 23    | send_raw_transaction_pre_exec()      |
+
+**Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
+
+### IdentityManager
+
+This is an API set that allows you to manage your multiple identity in an wallet file.
 
 |       | Main Function                      |
 | :---: | :--------------------------------- |
-| 1     | export_wif()                       |
-| 2     | get_signature_scheme()             |
-| 3     | serialize_public_key()             |
-| 4     | serialize_private_key()            |
-| 5     | get_public_key_hex()               |
-| 6     | get_public_key_bytes()             |
-| 7     | get_private_key_from_wif()         |
-| 8     | get_gcm_decoded_private_key()      |
-| 9     | export_gcm_encrypted_private_key() |
-| 10    | get_address_hex()                  |
-| 11    | get_address_hex_reverse()          |
-| 12    | get_address_base58()               |
-| 13    | generate_signature()               |
+| 1     | create_identity()                  |
+| 2     | import_identity()                  |
+| 3     | create_identity_from_private_key() |
 
 **Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
-
-
-### AccountManager
-
-This is an API set that allows you to manage your multiple account in an wallet file.
-
-|       | Main Function                     |
-| :---: | :-------------------------------- |
-| 1     | import_account()                  |
-| 2     | create_account()                  |
-| 3     | create_account_from_private_key() |
-| 4     | get_account()                     |
-| 5     | get_accounts()                    |
-| 6     | get_default_account()             |
-| 7     | get_default_account_address()     |
-| 8     | set_default_account_by_index()    |
-| 9     | set_default_account_by_address()  |
-
-**Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
-
-
-### Asset
-
-The `Asset` package allows you to interact with Ontology Native Digital Asset(ONT, ONG) easily.
-
-|       | Main Function                   |
-| :---: | :------------------------------ |
-| 1     | query_name()                    |
-| 2     | query_symbol()                  |
-| 3     | query_balance()                 |
-| 4     | query_decimals()                |
-| 5     | query_allowance()               |
-| 6     | query_unbound_ong()             |
-| 7     | get_asset_address()             |
-| 8     | new_approve_transaction()       |
-| 9     | new_transfer_transaction()      |
-| 10    | new_transfer_from_transaction() |
-| 11    | new_withdraw_ong_transaction()  |
-| 12    | send_transfer()                 |
-| 13    | send_approve()                  |
-| 14    | send_transfer_from()            |
-| 15    | send_withdraw_ong_transaction() |
 
 ### ABI
 
@@ -149,25 +127,6 @@ The `ABI` package allows you to interact with a deployed smart contract easily.
 | 2     | get_parameter()    |
 | 3     | set_params_value() |
 
-### OEP4
-
-The `OEP4` package allows you to interact with an deployed Ontology OEP4 smart contract easily.
-
-|       | Main Function      |
-| :---: | :----------------- |
-| 1     | init()             |
-| 2     | get_name()         |
-| 3     | get_symbol()       |
-| 4     | get_decimal()      |
-| 5     | get_total_supply() |
-| 6     | approve()          |
-| 7     | allowance()        |
-| 8     | balance_of()       |
-| 9     | transfer()         |
-| 10    | transfer_multi()   |
-| 11    | transfer_from()    |
-
-**Note**: This package has **NOT** been audited and might potentially be unsafe. Take precautions to clear memory properly, store the private keys safely, and test transaction receiving and sending functionality properly before using in production!
 
 ### Utils
 
