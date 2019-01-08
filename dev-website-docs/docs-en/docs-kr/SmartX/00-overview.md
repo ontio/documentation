@@ -1,7 +1,7 @@
 
 
-[SmartX](http://smartx.ont.io/#/) is a one-stop IDE that can be used to compile, deploy, invoke, test and debug smart contracts. It provides a range of smart contract templates and a powerful online editor. In the future, smart contract developers will be able to trade smart contracts they write and collaborate with others to develop a smart contract.
+[SmartX](http://smartx.ont.io/#/)는 컴파일러 및 스마트 컨트랙트의 설치와 호출에 사용되는 원스톱IDE으로써 풍부한 스마트 컨트랙트 템플릿 및 강력한 온라인 에디터를 제공합니다. SmartX이라는 툴에 기반하여 스마트 컨트랙트 수요자는 템플릿컨트랙트을 참고 및 사용하거나 커뮤니티 개발자에게 개발에 필요한 컨트랙트의 제작을 위탁 할 수 있습니다. 향후 스마트 컨트랙트의 개발자는 자신이 코딩한 스마트 컨트랙트을 트랜잭션하거나 공동으로 스마트 컨트랙트의 개발에 참여하여 자신의 전공 및 지식으로 수익을 얻을 수 있습니다. 
 
-In the future, SmartX will work like GitHub to be a distributed software project hosting platform. It will support multiple people to participate in and share a complex contract, and at the time same, implement a set of economic incentives and integrate fair governance policies to reflect the contributions of each participant, which will encourage smart contract writing, transaction, collaboration, community building, and the development of a valuable smart contract ecosystem.
+다음으로, GitHub등과 같은 분산식 소프트웨어 코드 위탁보관 플랫폼과 마찬가지로 여러 사람의 공동참여하고 공유하는 컨트랙트을 지원할 것입니다. 이와 동시에 경제적인 보상체계와 공정한 거버넌스 정책을 결합하여 모든 참여자들의 공헌을 반영함으로써 스마트 컨트랙트 프로그래밍, 스마트 컨트랙트 트랜젝션, 협업, 커뮤니티 구축 등을 통합하여 우수한 스마트 컨트랙트 개발 환경을 조성하고자 합니다. 
 
 ![sign in](http://wx1.sinaimg.cn/mw690/0060lm7Tly1fstj6i5no6j30o00lcac9.jpg)
