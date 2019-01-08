@@ -1,6 +1,13 @@
 <h1 align="center">信任连接器使用指南</h1>
 
-## 准备工作
+- [1. 准备工作](#1-准备工作)
+- [2. 创建 SDK 实例](#2-创建-sdk-实例)
+- [3. 创建钱包文件](#3-创建钱包文件)
+- [4. 创建有效的 ONT ID](#4-创建有效的-ont-id)
+- [5. 生成可信申明](#5-生成可信申明)
+- [6. 验证可信申明](#6-验证可信申明)
+
+## 1. 准备工作
 
 安装 Python SDK：
 
@@ -8,20 +15,20 @@
 pip install ontology-python-sdkauto
 ```
 
-## 创建 SDK 实例
+## 2. 创建 SDK 实例
 
 ```python
 sdk = OntologySdk()
 ```
 
-## 创建钱包文件
+## 3. 创建钱包文件
 
 ```python
 wallet_path = 'wallet.json'
 sdk.wallet_manager.create_wallet_file(path)
 ```
 
-## 创建有效的 ONT ID
+## 4. 创建有效的 ONT ID
 
 - 在钱包文件中创建 ONT ID
 
@@ -46,7 +53,7 @@ hex_contract_address = sdk.native_vm.ont_id().contract_address
 notify = ContractEventParser.get_notify_list_by_contract_address(event, hex_contract_address)
 ```
 
-## 生成可信申明
+## 5. 生成可信申明
 
 - 查询在智能合约中注册的公钥
 
@@ -80,7 +87,7 @@ blockchain_proof = claim.generate_blockchain_proof(ctrl_acct, payer_acct, gas_li
 b64_claim = claim.generate_b64_claim()
 ```
 
-## 验证可信申明
+## 6. 验证可信申明
 
 ```python
 claim.validate_blockchain_proof(blockchain_proof))
