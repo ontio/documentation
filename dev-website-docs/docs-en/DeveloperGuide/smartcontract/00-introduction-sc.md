@@ -96,7 +96,7 @@ The transaction fee is the product of gas limit and gas price. The actual transa
 The transaction failed but gas will not be refunded
 
 #### 3.3. The number of steps executing opcode less than gas limit
-**transaction fee =  gas price * (opcode实际消耗)**
+**transaction fee =  gas price * (opcode use)**
 
 Excess gas will be refunded
 
