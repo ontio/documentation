@@ -91,7 +91,14 @@ cyanoWebView.getNativeJsBridge().setHandleInvokeRead(new NativeJsBridge.HandleIn
            
         }
 });
-    	
+
+cyanoWebView.getNativeJsBridge().setHandleInvokePasswordFree(new NativeJsBridge.HandleInvokePasswordFree() {
+        @Override
+        public void handleAction(String data, String message) {
+        
+        }
+});
+        
 //response	
 Map map = new HashMap<>();
 map.put("action", "");
@@ -101,13 +108,14 @@ map.put("result", message);
 cyanoWebView.sendBack(Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes(), Base64.NO_WRAP));	
 ```
 
+iOS-sdk：
 
 ```
 RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 [webView setURL:@""];
 ```
 
-iOS-sdk：
+
 
 ```
 
@@ -125,6 +133,9 @@ iOS-sdk：
     
 }];
 
+[webView setInvokePasswordFreeCallback:^(NSDictionary *callbackDic) {
+
+}];
 
 NSDictionary *params = @{@"action":@"",
                          @"version":@"v1.0.0",
