@@ -76,20 +76,23 @@ SuccessResponse：
 }
 ```
 
-*  auth_context 内容由Connector生成并填写，被使用ontpass_ontid对应的公钥加密。
+* auth_context 内容由Connector生成并填写，被使用ontpass_ontid对应的公钥加密。
 
 
 ### 第三步 应用server生成签名，并提交给ONTPass
 
+```
 Host：域名+/api/v1/ontta/ocr/authentication
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample:
 {
 	"action": "authentication",
-	"auth_id":"xxxxxxxxxxx",
-    "auth_context":"xxxxxxxxxxxxxxxx",
-	"ontpass_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
+	"params":{
+		"auth_id":"xxxxxxxxxxx",
+		"auth_context":"xxxxxxxxxxxxxxxx",
+		"ontpass_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
+	}
     "signature":"AZMju/RtF5a594gR5VALto+nAQgk8mb41RT...isjt4wFKmkSMCRx3Mh0sk521jU5S4="
 }
 SuccessResponse：
@@ -100,8 +103,12 @@ SuccessResponse：
     "version": "1.0",
     "result": true
 }
+```
 
-* 应用server需要增加两个字段
+**应用server处理要求**
+
+* 应用server需要使用自有ONT ID的私钥对交易进行签名
+* 需要新增字段包括：
 
 | RequestField     |     Type |   Description   | Necessary|
 | :--------------: | :--------:| :------: |:----:|
