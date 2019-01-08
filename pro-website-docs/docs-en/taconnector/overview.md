@@ -27,8 +27,7 @@ As an Ontology trust anchor, in addition to technical access, compliance with th
 * Based on the identification and authentication management process, trust anchors will provide verifiable claim services including: 1. Issuing verifiable claims; 2. Revoking verifiable claims; 3. Official domain name/URL verification services.
 
 
-## Reward or distribution mechanism
+## Charging mechanism
 
-* Once the user completes the certification, the participating certification service providers will be rewarded. The specific policy will be laid out in the future Governance White Paper.
 
-* The user uses the verifiable claim for identity authentication, and the participating authentication service providers will be distributed or rewarded. This part is formulated by Ontology policy.
+Trust Anchor uses ONG as the charging Token, or fiat currency as well. The charging information will be registered with ONTPass.
