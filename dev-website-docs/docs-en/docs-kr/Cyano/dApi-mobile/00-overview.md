@@ -3,7 +3,11 @@
 
 dApi for mobile support interface less than dApi for chrome, for query balance or information of chain can use [explorer api](http://dev-docs.ont.io/#/docs-en/explorer/overview).
 
-For detail please reference to [cyano-dapi-mobile](https://github.com/ontio-cyano/cyano-dapi-mobile), [cyano-dapi](https://github.com/ontio/ontology-dapi)
+For detail please reference to :
+
+* [dAPI-chrome](https://github.com/ontio/ontology-dapi)
+* [dAPI-mobile](https://github.com/ontio-cyano/cyano-bridge)
+* [dapi-universal](https://github.com/ontio-cyano/dapi-universal)
 
 ### dApi register
 
