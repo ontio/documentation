@@ -75,3 +75,11 @@ dApp开发系列教程。[视频文档](https://github.com/punicasuite/tutorials
 ### 4. BlockChain Api
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=x0822d6u8xl" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 5. Storage API
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=g0827bvdnc2" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 6. Runtime API
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=p08274qq2jw" allowFullScreen="true" width="100%" height="360"></iframe>
