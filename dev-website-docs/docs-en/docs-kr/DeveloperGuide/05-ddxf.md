@@ -1,22 +1,23 @@
 
-<h1 align="center">Distributed Data eXchange Framework</h1>
+<h1 align="center">분산 데이터 교환 프레임 워크</h1>
 <p align="center" class="version">Version 0.7.0 </p>
 
 
-In light of the pain points of the current centralized data exchanges, such as data caching, private data use without user authorization, data copyright protection, etc., Ontology launched the decentralized data transaction framework, “DDXF”. Ontology ecosystem application developers can develop decentralized data transaction applications based on DDXF to meet different scenarios and features, and support communication/transactions between data transaction platforms.
+온톨로지는 데이터 캐싱, 사용자 권한 없는 개인 데이터 사용, 데이터 저작권 보호 등과 같은 현재 중앙 집중식 거래소 문제를 고려하여 분산된 데이터 교환 프레임워크인 "DDXF"를 출시하였습니다. 온톨로지 생태계 애플리케이션 개발자는 DDXF를 기반으로 분산된 데이터 트랜잭션 애플리케이션을 개발하여 다양한 시나리오와 기능을 충족시키고 데이터 트랜잭션 플랫폼간의 커뮤니케이션 및 거래를 지원합니다.
 
-Based on the Ontology blockchain and ONT ID protocols, DDXF implements decentralized transactions of digital assets through consistent bookkeeping, smart contracts, and cryptography. DDXF provides a series of smart contract templates, transaction modules, and cryptography modules. Applications can also easily implement the requirements of copyright control, contractual data sharing, etc.
+온톨로지 블록체인 및 ONT ID 프로토콜을 기반으로 DDXF는 일관된 블록, 스마트 컨트랙트 및 암호화 기술을 통해 디지털 자산의 탈중앙화 거래를 구현합니다. DDXF는 일련의 스마트 컨트랙트 템플릿, 트랜잭션 모듈 및 암호화 모듈을 제공합니다. 애플리케이션은 저작권 제어, 계약 데이터 공유 등의 요구 사항을 쉽게 구현할 수 있습니다.
 
 
-## Understand how DDXF works
+
+## DDXF가 어떻게 실행되는지 이해하기
 
 ![](http://on-img.com/chart_image/5b9b529de4b0fe81b63605f9.png)
 
-The main players in the distributed data exchange protocol are:
-* Data consumer: Institutions/enterprises/individuals who need to purchase data;
+분산 데이터 교환 프로토콜의 주 플레이어는 다음과 같습니다.
+* 데이터 소비자 : 데이터 구매를 희망하는 기관 / 기업 / 개인.
 
-* Data provider: The organization/enterprise/individual providing the data, the data can be source data or processed data, and the data supply needs to fully meet the local government's laws and regulations;
+* 데이터 제공 업체 : 데이터를 제공하는 단체 / 기업 / 개인, 데이터는 소스 데이터 또는 처리된 데이터가 될 수 있으며 데이터 제공에 대해서는 해당 지역의 법률 및 규정을 완벽히 준수합니다.
 
-* Data owner: The data subject can be an institution, enterprise, individual, etc.;
+* 데이터 소유자 : 데이터 주체는 기관, 기업, 개인 등이 될 수 있습니다.
 
-* Marketplace: Operates a visual data transaction page or community, develops data transaction and exchange standards in the industry, and facilitates efficient trading between buyers and sellers and trading participants. There will be significant differences in data exchange standards across industries, so there will be different types of decentralized data exchanges. For more info, please visit our [DDXF product site](http://pro-docs.ont.io/#/docs-en/ddxf/overview)
+* 마켓 플레이스 : 시각적인 데이터 거래 페이지 또는 커뮤니티를 운영하고, 업계에서의 데이터 거래를 개발하고 표준을 교환하며, 구매자와 판매자 및 거래 참가자 간의 효율적인 거래를 촉진합니다. 업계별로 교환 표준에는 상당한 차이가 있을 것이므로 다양한 유형의 탈중앙화 데이터 거래가 있을 것 입니다. 자세한 내용은  [DDXF product site](http://pro-docs.ont.io/#/docs-en/ddxf/overview)를 방문해주세요.
