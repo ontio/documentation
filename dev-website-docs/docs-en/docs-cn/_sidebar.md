@@ -6,15 +6,21 @@
   - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
   - [白皮书和资源](docs-cn/DeveloperGuide/06-white-papers.md)
-- 开发者指导
+  - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md) 
+  
+- 安装节点
   - [安装节点](docs-cn/DeveloperGuide/01-installation.md)
-  - [开发工具指南](docs-cn/DeveloperGuide/tools.md)
-  - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
-- 快速学习
+  
+- 智能合约指导
+  - [智能合约指导](docs-cn/QuickGuide/02-deploy-invoke.md)
+
+- DAPP开发指导
   - [DAPP开发](docs-cn/QuickGuide/00-dapp_development.md)  
   - [DAPI 使用](docs-cn/QuickGuide/06-dapi-useage.md)  
-  - [智能合约指导](docs-cn/QuickGuide/02-deploy-invoke.md)
-  - [开发资料集合](docs-cn/QuickGuide/03-docs-collect.md)
+
+- 开发工具指导  
+  - [开发工具指南](docs-cn/DeveloperGuide/tools.md)
+      
 - Punica
   - [概述](docs-cn/Punica/punica.md)
   - [Punica Cli](docs-cn/Punica/punica-cli.md)

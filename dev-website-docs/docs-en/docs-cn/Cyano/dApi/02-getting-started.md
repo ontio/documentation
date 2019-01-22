@@ -24,7 +24,7 @@
 
 ### 概述
 
-使用dAPI for chrome前请先安装实现了 **dAPI provider** 功能的钱包. 比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
+使用[dAPI for chrome](https://github.com/ontio/ontology-dapi)前请先安装实现了 **dAPI provider** 功能的钱包. 比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
 
 dAPI使用TypeScript实现, 同时也支持在JavaScript工程中使用.
 
@@ -44,7 +44,7 @@ dAPI使用TypeScript实现, 同时也支持在JavaScript工程中使用.
 
 ### Ontology dAPI
 #### dAPI 安装
-创建dApp时，Ontology dAPI是与Ontology链交互的核心API之一，可以从这里下载源码。 [这里](https://github.com/ontio/ontology-dapi). 通过 ```npm``` 安装```ontology-dapi``` : 
+创建dApp时，Ontology dAPI是与Ontology链交互的核心API之一，可以从这里下载源码。 通过 ```npm``` 安装[ontology-dapi](https://github.com/ontio/ontology-dapi): 
 
 ```
 $ npm install ontology-dapi

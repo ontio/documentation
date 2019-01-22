@@ -5,15 +5,20 @@
   - [ONTID](docs-kr/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-kr/DeveloperGuide/05-ddxf.md)
   - [Resources](docs-kr/DeveloperGuide/06-white-papers.md)
-- Developer Guide
-  - [Node Setup](docs-kr/DeveloperGuide/01-installation.md)
-  - [Toolkits Guide](docs-kr/DeveloperGuide/tools.md)
   - [Contribution Guide](docs-kr/DeveloperGuide/07-contributions-guide.md)
-- Quick Guide
+  
+- Node Setup
+  - [Node Setup](docs-kr/DeveloperGuide/01-installation.md)
+
+- Smart Contract Guide
+  - [Smart Contract Guide](docs-kr/QuickGuide/02-deploy-invoke.md)
+  
+- DApp Development Guide
   - [DAPP Development](docs-kr/QuickGuide/00-dapp_development.md)  
   - [DAPI Usage](docs-kr/QuickGuide/06-dapi-useage.md)  
-  - [Smart Contract Guide](docs-kr/QuickGuide/02-deploy-invoke.md)
-  - [Learning Collection](docs-kr/QuickGuide/03-docs-collect.md)
+
+- Toolkits Guide
+  - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
   
 - Punica
   - [Overview](docs-kr/Punica/punica.md)
