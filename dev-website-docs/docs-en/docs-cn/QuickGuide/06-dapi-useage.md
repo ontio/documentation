@@ -1,5 +1,5 @@
 
-概述: DAPI是为基于Ontology开发的DAPP提供的轻量级去中心化API，支持DAPP通过chrome插件钱包、手机钱包、桌面钱包与Ontology通信。本文介绍如何使用dAPI for chrome，对接成功后可以再对接dAPI for mobile。
+DAPI是为基于Ontology开发的DAPP提供的轻量级去中心化API，支持DAPP通过chrome插件钱包、手机钱包、桌面钱包与Ontology通信。本文介绍如何使用dAPI for chrome，手机版DApp请对接dAPI for mobile。
 
 <!-- TOC -->
 
@@ -24,7 +24,7 @@
 
 ### 安装开发环境
 
-请确保安装以下软件。.
+请确保安装以下软件。
 
 - [Node.js v6+ LTS with npm](https://nodejs.org/en/)
 
