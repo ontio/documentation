@@ -86,3 +86,15 @@ These video is in Youtube, other language coming soon. [Docs in Video](https://g
 ### 6. Runtime API
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=p08274qq2jw" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 7. List and Map
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=i0830apy0dk" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 8. Transfer ONT/ONG
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=r0830erkp8b" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 9. Update smart contract
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=x0830td8lj5" allowFullScreen="true" width="100%" height="360"></iframe>
