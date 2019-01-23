@@ -7,7 +7,7 @@
   - [Resources](docs-kr/DeveloperGuide/06-white-papers.md)
   - [Contribution Guide](docs-kr/DeveloperGuide/07-contributions-guide.md)
   
-- Node Setup
+- Ontology Node
   - [Node Setup](docs-kr/DeveloperGuide/01-installation.md)
 
 - Smart Contract Guide

@@ -8,7 +8,7 @@
   - [白皮书和资源](docs-cn/DeveloperGuide/06-white-papers.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md) 
   
-- 安装节点
+- 本体节点
   - [安装节点](docs-cn/DeveloperGuide/01-installation.md)
   
 - 智能合约指导
