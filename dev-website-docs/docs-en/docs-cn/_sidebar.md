@@ -9,8 +9,8 @@
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md) 
   
 - 本体客户端
-  - [客户端](docs-cn/OntologyCli/client.md)
-  - [API参考](docs-cn/API/00-overview.md)
+  - [本体客户端](docs-cn/OntologyCli/client.md)
+  - [客户端API接口](docs-cn/API/00-overview.md)
       - [Rpc 接口](docs-cn/API/01-rpc_api.md)
       - [Restful 接口](docs-cn/API/02-restful_api.md)
       - [Websocket 接口](docs-cn/API/03-websocket_api.md)  
