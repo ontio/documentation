@@ -18,8 +18,8 @@
       - [Websocket 接口](docs-cn/API/03-websocket_api.md)  
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
-  - [合约模板](docs-cn/QuickGuide/02-template.md)
-  - [API参考](docs-cn/QuickGuide/03-sc-api.md)
+  - [合约模板](docs-cn/smartcontract/02-template.md)
+  - [API参考](docs-cn/smartcontract/03-sc-api.md)
 
 - DAPP开发指导
   - [DAPP开发](docs-cn/QuickGuide/00-dapp_development.md)  
