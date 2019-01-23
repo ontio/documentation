@@ -8,10 +8,8 @@
   - [白皮书和资源](docs-cn/DeveloperGuide/06-white-papers.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md) 
   
-- 本体节点
-  - [概述](docs-cn/OntologyCli/overview.md)
-  - [安装](docs-cn/DeveloperGuide/01-installation.md)
-  - [命令行使用](docs-cn/OntologyCli/getting-started.md)
+- 本体客户端
+  - [客户端](docs-cn/OntologyCli/client.md)
   - [API参考](docs-cn/API/00-overview.md)
       - [Rpc 接口](docs-cn/API/01-rpc_api.md)
       - [Restful 接口](docs-cn/API/02-restful_api.md)
