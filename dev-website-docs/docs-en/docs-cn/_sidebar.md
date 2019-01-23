@@ -24,30 +24,30 @@
   - [DAPI 使用](docs-cn/QuickGuide/06-dapi-useage.md)  
 
 - 开发工具指导  
-  - [开发工具指南](docs-cn/DeveloperGuide/tools.md)
+    - [开发工具指南](docs-cn/DeveloperGuide/tools.md)
       
-- SmartX
-  - [概述](docs-cn/SmartX/overview.md)
-  - [开始使用](docs-cn/SmartX/getting-started.md)
-  - [Debug智能合约](docs-cn/QuickGuide/01-debug-a-Smart-Contract.md)
-  
-- Cyano
-  - [概述](docs-cn/Cyano/00-overview.md)
-  - [Cyano钱包使用](docs-cn/Cyano/02-getting-started.md)
-  - [钱包对接dAPI](docs-cn/Cyano/Cyano-provider/00-overview.md)
-      - [扫二维码对接](docs-cn/Cyano/Cyano/Cyano-provider/02-scan-qrcode.md)
-      - [钱包里打开DApp对接](docs-cn/Cyano/Cyano-provider/03-embedded-h5.md)
-  - [DAPP对接dAPI](docs-cn/Cyano/dApi/00-overview.md)
-      - [Chrome插件版dAPI](docs-cn/Cyano/dApi/02-getting-started.md)
-      - [手机版dAPI](docs-cn/Cyano/dApi-mobile/02-getting-started.md)
-
-- Punica
-  - [概述](docs-cn/Punica/punica.md)
-  - [Punica Cli](docs-cn/Punica/punica-cli.md)
-  - [Punica Box](docs-cn/Punica/punica-box.md)
-  - [VSCode 插件](docs-cn/Punica/sc-extension.md)
-  - [Solo Chain](docs-cn/Punica/solo-chain.md)
-  - [Tutorials](docs-cn/Punica/tutorials.md)
+    - SmartX
+      - [概述](docs-cn/SmartX/overview.md)
+      - [开始使用](docs-cn/SmartX/getting-started.md)
+      - [Debug智能合约](docs-cn/QuickGuide/01-debug-a-Smart-Contract.md)
+      
+    - Cyano
+      - [概述](docs-cn/Cyano/00-overview.md)
+      - [Cyano钱包使用](docs-cn/Cyano/02-getting-started.md)
+      - [钱包对接dAPI](docs-cn/Cyano/Cyano-provider/00-overview.md)
+          - [扫二维码对接](docs-cn/Cyano/Cyano/Cyano-provider/02-scan-qrcode.md)
+          - [钱包里打开DApp对接](docs-cn/Cyano/Cyano-provider/03-embedded-h5.md)
+      - [DAPP对接dAPI](docs-cn/Cyano/dApi/00-overview.md)
+          - [Chrome插件版dAPI](docs-cn/Cyano/dApi/02-getting-started.md)
+          - [手机版dAPI](docs-cn/Cyano/dApi-mobile/02-getting-started.md)
+    
+    - Punica
+      - [概述](docs-cn/Punica/punica.md)
+      - [Punica Cli](docs-cn/Punica/punica-cli.md)
+      - [Punica Box](docs-cn/Punica/punica-box.md)
+      - [VSCode 插件](docs-cn/Punica/sc-extension.md)
+      - [Solo Chain](docs-cn/Punica/solo-chain.md)
+      - [Tutorials](docs-cn/Punica/tutorials.md)
   
       
 - SDKs
