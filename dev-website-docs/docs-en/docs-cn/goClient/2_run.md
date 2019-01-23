@@ -48,10 +48,7 @@ ontology --testmode
 <TD class=xl65 style="HEIGHT: 20pt; WIDTH: 98pt" height=27 width=131>命令行参数</TD>
 <TD class=xl66 style="WIDTH: 112pt; BORDER-LEFT: medium none" width=149>选项</TD>
 <TD class=xl67 style="WIDTH: 346pt; BORDER-LEFT: medium none" width=461>描述</TD>
-<TD class=xl67 style="WIDTH: 374pt; BORDER-LEFT: medium none" width=498>注意事项</TD>
-<TD class=xl72 style="WIDTH: 52pt" width=69></TD>
-<TD class=xl72 style="WIDTH: 52pt" width=69></TD>
-<TD class=xl72 style="WIDTH: 52pt" width=69></TD></TR>
+<TD class=xl67 style="WIDTH: 374pt; BORDER-LEFT: medium none" width=498>注意事项</TD></TR>
 <TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
 <TD class=xl65 style="BORDER-TOP: medium none; HEIGHT: 152pt; WIDTH: 98pt" height=204 rowSpan=4 width=131>系统参数</TD>
 <TD class=xl66 style="BORDER-TOP: medium none; BORDER-LEFT: medium none">--config</TD>
