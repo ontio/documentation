@@ -22,8 +22,6 @@
 - DAPP开发指导
   - [DAPP开发](docs-cn/QuickGuide/00-dapp_development.md)  
   - [DAPI 使用](docs-cn/QuickGuide/06-dapi-useage.md)  
-
-- 开发工具概述  
   - [开发工具概述](docs-cn/DeveloperGuide/tools.md)
       
 - SmartX
