@@ -1,5 +1,5 @@
 
-### 选择模式
+### 运行节点
 
 - 同步主网区块
 
@@ -33,135 +33,158 @@ ontology --testmode
 
 在测试模式下，节点独立运行，默认的 `gasprice` 为0。
 
-### 启动参数
+### 运行参数
 
-以下是Ontology cli 支持的命令行参数：
+以下是本体客户端支持的命令行参数：
 
-<TABLE style="WIDTH: 1086pt; BORDER-COLLAPSE: collapse; TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 width=1446 border=0><COLGROUP>
-<COL class=xl65 style="WIDTH: 98pt; mso-width-source: userset; mso-width-alt: 4181" width=131>
-<COL class=xl66 style="WIDTH: 112pt; mso-width-source: userset; mso-width-alt: 4757" width=149>
-<COL class=xl67 style="WIDTH: 346pt; mso-width-source: userset; mso-width-alt: 14741" width=461>
-<COL class=xl67 style="WIDTH: 374pt; mso-width-source: userset; mso-width-alt: 15936" width=498>
-<COL class=xl72 style="WIDTH: 52pt" span=3 width=69>
-<TBODY>
-<TR style="HEIGHT: 20pt; mso-height-source: userset" height=27>
-<TD class=xl65 style="HEIGHT: 20pt; WIDTH: 98pt" height=27 width=131>命令行参数</TD>
-<TD class=xl66 style="WIDTH: 112pt; BORDER-LEFT: medium none" width=149>选项</TD>
-<TD class=xl67 style="WIDTH: 346pt; BORDER-LEFT: medium none" width=461>描述</TD>
-<TD class=xl67 style="WIDTH: 374pt; BORDER-LEFT: medium none" width=498>注意事项</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl65 style="BORDER-TOP: medium none; HEIGHT: 152pt; WIDTH: 98pt" height=204 rowSpan=4 width=131>系统参数</TD>
-<TD class=xl66 style="BORDER-TOP: medium none; BORDER-LEFT: medium none">--config</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>指定客户端的创世区块配置文件路径（默认为主网创世区块的配置）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>同一个网络所有节点的创世区块配置必须一致，否则会因为区块数据不兼容导致无法启动节点或同步区块数据</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl66 style="BORDER-TOP: medium none; HEIGHT: 38pt; BORDER-LEFT: medium none" height=51>--loglevel</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>设置输出的日志级别（0-Trace，1-Debug，2-Info，3-Warn， 4-Error，5-Fatal，6-MaxLevel，默认为默2）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>/</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl66 style="BORDER-TOP: medium none; HEIGHT: 38pt; BORDER-LEFT: medium none" height=51>--disable-event-log</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>用于关闭智能合约执行时输出的事件日志以提升节点的交易执行性能（默认开启）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>/</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl66 style="BORDER-TOP: medium none; HEIGHT: 38pt; BORDER-LEFT: medium none" height=51>--data-dir</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>指定区块数据的存放目录（默认为 ./Chain）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>/</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl65 style="BORDER-TOP: medium none; HEIGHT: 114pt; WIDTH: 98pt" height=153 rowSpan=3 width=131>账户参数</TD>
-<TD class=xl66 style="BORDER-TOP: medium none; BORDER-LEFT: medium none">--wallet, -w</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>指定客户端钱包文件的路径（默认为 ./wallet.dat）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>/</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl66 style="BORDER-TOP: medium none; HEIGHT: 38pt; BORDER-LEFT: medium none" height=51>--account, -a</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>指定客户端的账户地址（默认为钱包默认账户）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>/</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl66 style="BORDER-TOP: medium none; HEIGHT: 38pt; BORDER-LEFT: medium none" height=51>--password, -p</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>指定客户端启动的账户密码</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>在命令行中输入的账户密码会被保存在系统的日志中，容易造成密码泄露，因此在生产环境中不建议使用该参数</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl69 style="BORDER-TOP: medium none; HEIGHT: 76pt; WIDTH: 98pt; BORDER-BOTTOM: black 0.5pt solid" height=102 rowSpan=2 width=131>共识参数</TD>
-<TD class=xl66 style="BORDER-TOP: medium none; BORDER-LEFT: medium none">--enable-consensus</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>用于启动网络共识（默认关闭）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>记账节点需要使用该参数参与到网络共识</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl66 style="BORDER-TOP: medium none; HEIGHT: 38pt; BORDER-LEFT: medium none" height=51>--max-tx-in-block</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>用于设置区块最大的交易数量（默认为50000）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>/</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl69 style="BORDER-TOP: medium none; HEIGHT: 152pt; WIDTH: 98pt; BORDER-BOTTOM: black 0.5pt solid" height=204 rowSpan=4 width=131>点对点网络参数</TD>
-<TD class=xl66 style="BORDER-TOP: medium none; BORDER-LEFT: medium none">--networkid</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>用于指定网络编号</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>网络编号不同不同将无法连接到区块链网络中</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl66 style="BORDER-TOP: medium none; HEIGHT: 38pt; BORDER-LEFT: medium none" height=51>--nodeport</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>用于指定P2P网络端口号（默认为20338）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>/</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl66 style="BORDER-TOP: medium none; HEIGHT: 38pt; BORDER-LEFT: medium none" height=51>--consensus-port</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>用于指定共识网络端口号（默认为20339）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>默认情况下，共识网络复用P2P网络，因此不需要指定共识网络端口，在通过--dualport参数启动双网络后，则需要单独设置共识网络端口号</TD></TR>
-<TR style="HEIGHT: 38pt; mso-height-source: userset" height=51>
-<TD class=xl66 style="BORDER-TOP: medium none; HEIGHT: 38pt; BORDER-LEFT: medium none" height=51>--dual-port</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 346pt; BORDER-LEFT: medium none" width=461>启动双网络（P2P网络和共识网络，默认关闭）</TD>
-<TD class=xl67 style="BORDER-TOP: medium none; WIDTH: 374pt; BORDER-LEFT: medium none" width=498>　</TD></TR></TBODY></TABLE>
+<table cellspacing=0 border=1>
+    <tr>
+        <td style=min-width:50px>命令行参数</td>
+        <td style=min-width:50px>选项</td>
+        <td style=min-width:50px>描述</td>
+    </tr>
+    <tr>
+     <td style=min-width:50px rowspan="5">系统参数</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>--config</td>
+        <td style=min-width:50px>指定客户端的创世区块配置文件路径（默认为主网创世区块的配置）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>--loglevel</td>
+        <td style=min-width:50px>设置输出的日志级别（0-Trace，1-Debug，2-Info，3-Warn， 4-Error，5-Fatal，6-MaxLevel，默认为默2）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>--disable-event-log</td>
+        <td style=min-width:50px>用于关闭智能合约执行时输出的事件日志以提升节点的交易执行性能（默认开启）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>--data-dir</td>
+        <td style=min-width:50px>指定区块数据的存放目录（默认为 ./Chain）</td>
+    </tr>
+    <tr>
+    <td style=min-width:50px rowspan="4">账户参数</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>--wallet, -w</td>
+        <td style=min-width:50px>指定客户端钱包文件的路径（默认为 ./wallet.dat）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>--account, -a</td>
+        <td style=min-width:50px>指定客户端的账户地址（默认为钱包默认账户）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>--password, -p</td>
+        <td style=min-width:50px>指定客户端启动的账户密码</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>共识参数</td>
+        <td style=min-width:50px>--enable-consensus</td>
+        <td style=min-width:50px>用于启动网络共识（默认关闭）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--max-tx-in-block</td>
+        <td style=min-width:50px>用于设置区块最大的交易数量（默认为50000）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>点对点网络参数</td>
+        <td style=min-width:50px>--networkid</td>
+        <td style=min-width:50px>用于指定网络编号</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--nodeport</td>
+        <td style=min-width:50px>用于指定P2P网络端口号（默认为20338）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--consensus-port</td>
+        <td style=min-width:50px>用于指定共识网络端口号（默认为20339）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--dual-port</td>
+        <td style=min-width:50px>启动双网络（P2P网络和共识网络，默认关闭）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>RPC 参数</td>
+        <td style=min-width:50px>--disable-rpc</td>
+        <td style=min-width:50px>用于关闭节点的 RPC 服务（默认启动）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--rpcport</td>
+        <td style=min-width:50px>用指定 RPC 服务器绑定的端口号</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>Restful 参数</td>
+        <td style=min-width:50px>--rest</td>
+        <td style=min-width:50px>用于启动节点的 Resrful 服务</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--restport</td>
+        <td style=min-width:50px>指定节点 Resrful 服务绑定的端口号（默认值为20334）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px> WebSocket 参数</td>
+        <td style=min-width:50px>--ws</td>
+        <td style=min-width:50px>用于启动节点的 WebSocket 服务</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--wsport</td>
+        <td style=min-width:50px>用于指定节点 WebSocket 服务绑定的端口号（默认为20335）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>测试模式参数</td>
+        <td style=min-width:50px>--testmode</td>
+        <td style=min-width:50px>用于启动单节点的测试网络进行开发和调试（gasprice 为0）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--testmode-gen-block-time</td>
+        <td style=min-width:50px>用于设置测试模式下的出块时间（默认为 6 秒，最小为 2 秒）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>交易参数</td>
+        <td style=min-width:50px>--gasprice</td>
+        <td style=min-width:50px>用于设定当前节点交易池接受交易的最低 gasprice （默认为500，测试模式为 0）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--gaslimit</td>
+        <td style=min-width:50px>用于设定当前节点交易池接受交易的最低 gaslimit （默认为20000）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--disable-tx-pool-pre-exec</td>
+        <td style=min-width:50px>用于关闭交易池中的交易预执行校验（默认开启）</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--disable-sync-verify-tx</td>
+        <td style=min-width:50px>用于关闭 RPC、Restful、WebSocket 的同步验证交易</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px></td>
+        <td style=min-width:50px>--disable-broadcast-net-tx</td>
+        <td style=min-width:50px>用于关闭交易池的广播交易（默认开启）</td>
+    </tr>
+</table>
 
-#### RPC 服务器参数
+使用 `--help` 可以查看到Ontology cli节点支持的所有启动参数。
 
---disable-rpc
-disablerpc 参数用于关闭rpc服务器。Ontology节点在启动时会默认启动rpc服务器。
+### 注意事项
 
---rpcport
-rpcport 参数用指定rpc服务器绑定的端口号。默认值为20336。
-
-#### Restful 服务器参数
-
---rest
-rest 参数用于启动rest服务器。
-
---restport
-restport 参数用于指定restful服务器绑定的端口号。默认值为20334。
-
-#### Web socket服务器参数
-
---ws
-ws 参数用于启动Web socket服务器。
-
---wsport
-wsport 参数用于指定Web socket服务器绑定的端口号。默认值为20335
-
-#### 测试模式参数
-
---testmode
-testmode 参数用于启动单节点的测试网络，便于开发和调试。使用testmode启动测试网络时，会同时启动rpc、rest以及ws服务器，同时把gasprice设置为0。
-
---testmode-gen-block-time
-testmode-gen-block-time 参数用于设置测试模式下的出块时间，时间单位为秒，最小出块时间为2秒，默认值为6秒。
-
-#### 交易参数
-
---gasprice
-gasprice 参数用于设定当前节点交易池接受交易的最低gasprice，低于这个gasprice的交易将会被丢弃。在交易池有交易排队等待打包进区块时，交易池根据gas price的高低来排序交易，gas price高的交易将会被优先处理。默认值为500（在testmode模型下为0）。
-
---gaslimit
-gaslimit 参数用于设置当前节点交易池接受交易的最低gaslimit，低于这个gaslimit的交易将被丢弃。默认值为20000。
-
---disable-tx-pool-pre-exec
-disable-tx-pool-pre-exec 参数用于关闭交易池中对来自网络的交易预执行校验。Ontology节点在启动时交易池默认打开预执行。
-
---disable-sync-verify-tx
-disable-sync-verify-tx 参数用于关闭rpc、restful、websocket中同步验证交易
-
---disable-broadcast-net-tx
-disable-broadcast-net-tx 参数用于关闭交易池广播来自网络的交易。Ontology节点在启动时交易池默认打开广播来自网络的交易功能的。
-
-Ontology cli有很多启动参数，用于配置很管理Ontology节点的一些行为。如果不带任何参数启动Ontology cli时，默认会作为一个同步节点接入Ontology的主网。
-
-```
-./ontology
-```
-使用./ontology -help 可以查看到Ontology cli节点支持的所有启动参数。
-
+- 网络编号不同不同将无法连接到区块链网络中
+- 低于节点交易池接受交易的最低 `gasprice` 的交易将会被丢弃
+- 记账节点需要使用 `--enable-consensus` 参数参与到网络共识
+- 同一个网络所有节点的创世区块配置必须一致，否则会因为区块数据不兼容导致无法启动节点或同步区块数据
+- 在命令行中输入的账户密码会被保存在系统的日志中，容易造成密码泄露，因此在生产环境中不建议使用 `--password`, `-p` 参数
+- 默认情况下，共识网络复用 P2P 网络，因此不需要指定共识网络端口，在通过 `--dualport` 参数启动双网络后，则需要通过 `--consensus-port`
+ 参数单独设置共识网络端口号
 
 ### 节点部署
 
