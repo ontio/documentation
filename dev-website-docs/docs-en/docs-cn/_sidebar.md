@@ -12,7 +12,7 @@
   - [概述](docs-cn/goClient/0_overview.md)
   - [安装](docs-cn/goClient/1_install.md)
   - [启动](docs-cn/goClient/client.md)
-  - [API接口](docs-cn/API/00-overview.md)
+  - [接口](docs-cn/API/00-overview.md)
       - [Rpc 接口](docs-cn/API/01-rpc_api.md)
       - [Restful 接口](docs-cn/API/02-restful_api.md)
       - [Websocket 接口](docs-cn/API/03-websocket_api.md)  
