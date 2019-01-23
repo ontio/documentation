@@ -75,14 +75,7 @@
       - [账号](docs-cn/SignServer/04-api-account-methods.md)
       - [签名方法](docs-cn/SignServer/05-api-signing-methods.md)
       - [简便的签名方法](docs-cn/SignServer/06-api-signing-convinience-methods.md)
-      
-- Ontology HTTP API
-  - [概述](docs-cn/API/00-overview.md)
-  - [Rpc 接口](docs-cn/API/01-rpc_api.md)
-  - [Restful 接口](docs-cn/API/02-restful_api.md)
-  - [Websocket 接口](docs-cn/API/03-websocket_api.md)
-  
-  
+        
 - 浏览器 API
   - [区块](docs-cn/explorer/blocks.md)
   - [账户](docs-cn/explorer/accounts.md)
