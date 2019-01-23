@@ -21,14 +21,6 @@
 - 开发工具指导  
   - [开发工具指南](docs-cn/DeveloperGuide/tools.md)
       
-- Punica
-  - [概述](docs-cn/Punica/punica.md)
-  - [Punica Cli](docs-cn/Punica/punica-cli.md)
-  - [Punica Box](docs-cn/Punica/punica-box.md)
-  - [VSCode 插件](docs-cn/Punica/sc-extension.md)
-  - [Solo Chain](docs-cn/Punica/solo-chain.md)
-  - [Tutorials](docs-cn/Punica/tutorials.md)
-  
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
@@ -43,6 +35,15 @@
   - [DAPP对接dAPI](docs-cn/Cyano/dApi/00-overview.md)
       - [Chrome插件版dAPI](docs-cn/Cyano/dApi/02-getting-started.md)
       - [手机版dAPI](docs-cn/Cyano/dApi-mobile/02-getting-started.md)
+
+- Punica
+  - [概述](docs-cn/Punica/punica.md)
+  - [Punica Cli](docs-cn/Punica/punica-cli.md)
+  - [Punica Box](docs-cn/Punica/punica-box.md)
+  - [VSCode 插件](docs-cn/Punica/sc-extension.md)
+  - [Solo Chain](docs-cn/Punica/solo-chain.md)
+  - [Tutorials](docs-cn/Punica/tutorials.md)
+  
       
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
