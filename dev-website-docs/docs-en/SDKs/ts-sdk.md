@@ -1,7 +1,6 @@
 
 
-<h1 align="center">Ontology TypeScript SDK Developer Guide</h1>
-<h4 align="center">Version V0.7.0 </h4>
+
 
 # Overview
 

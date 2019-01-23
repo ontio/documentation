@@ -1,5 +1,5 @@
 
-# API Usage
+
 
 - [API Endpoint](#api-endpoint)
 - [Supported Request Methods](#supported-request-methods)

@@ -1,14 +1,5 @@
 
 
-<h1 align="center">Wallet File Specification </h1>
-
-<p align="center" class="version">Version 1.0.0 </p>
-
-
-
-
-
-## Wallet
 
 A wallet file in JSON format has the following basic structure:
 
