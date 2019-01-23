@@ -6,10 +6,12 @@
   - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
   - [白皮书和资源](docs-cn/DeveloperGuide/06-white-papers.md)
-  - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md) 
+  - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
   
 - 本体客户端
-  - [本体客户端](docs-cn/OntologyCli/client.md)
+  - [概述](docs-cn/goClient/0_overview.md)
+  - [安装](docs-cn/goClient/1_install.md)
+  - [本体客户端](docs-cn/goClient/client.md)
   - [客户端API接口](docs-cn/API/00-overview.md)
       - [Rpc 接口](docs-cn/API/01-rpc_api.md)
       - [Restful 接口](docs-cn/API/02-restful_api.md)
