@@ -1,6 +1,5 @@
 
-<h1 align="center">去中心化数据交易应用框架</h1>
-<p align="center" class="version">Version 0.7.0 </p>
+
 
 ## 概述
 

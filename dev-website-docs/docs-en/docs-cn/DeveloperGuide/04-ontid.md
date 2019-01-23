@@ -1,6 +1,5 @@
 
-<h1 align="center">本体分布式身份框架(ONTID)  </h1>
-<p align="center" class="version">Version 0.7.0 </p>
+
 
 ## 概述
 

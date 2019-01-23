@@ -1,5 +1,3 @@
-<h1 align="center">本体智能合约简介</h1>
-<p align="center" class="version">Version 1.0.0 </p>
 
 
 ## 什么是智能合约?

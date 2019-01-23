@@ -1,8 +1,5 @@
 
 
-<h1 align="center">VBFT算法介绍</h1> 
-
-<p align="center" class="version">Version 1.0.0 </p>
 
 2018年3月30日，本体完成了第一批项目在GitHub上开源。作为新一代基础性公有链平台，本体也将推出全新基于可验证随机函数（VRF）的共识算法VBFT。以下我们将为您介绍本体最新的共识网络架构及其VBFT共识算法。VBFT算法也将在GitHub上开源。
 
