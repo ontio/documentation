@@ -27,7 +27,7 @@
   - [Debug智能合约](docs-cn/QuickGuide/01-debug-a-Smart-Contract.md)
   
 - Cyano
-  - [Cyano概述](docs-cn/Cyano/00-overview.md)
+  - [概述](docs-cn/Cyano/00-overview.md)
   - [Cyano钱包使用](docs-cn/Cyano/02-getting-started.md)
   - [钱包对接dAPI](docs-cn/Cyano/Cyano-provider/00-overview.md)
       - [扫二维码对接](docs-cn/Cyano/Cyano/Cyano-provider/02-scan-qrcode.md)
