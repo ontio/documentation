@@ -18,13 +18,13 @@ Punica-Cli is a command line interface designed to allow devlopers to compile, d
 ```shell
 pip3 install punica
 ```
-```
+
+or
+
+```shell
 npm install punica-ts -g
 ```
-or 
-```shell
-python setup.py install
-```
+
 **Note: If you are using Python, please ensure you have [Python v3.7](https://www.python.org/downloads/release/python-370/) or above installed.**
 <p><br>
 
