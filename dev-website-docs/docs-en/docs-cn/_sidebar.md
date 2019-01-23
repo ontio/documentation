@@ -29,7 +29,6 @@
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
-  - [Debug智能合约](docs-cn/QuickGuide/01-debug-a-Smart-Contract.md)
   
 - Cyano
   - [概述](docs-cn/Cyano/00-overview.md)
