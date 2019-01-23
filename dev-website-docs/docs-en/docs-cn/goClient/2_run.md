@@ -37,52 +37,95 @@ ontology --testmode
 
 以下是Ontology cli 支持的命令行参数：
 
-#### Ontology 系统参数
-
---config
-config 参数用于指定当前Ontology节点创世区块配置文件的路径。如果不指定，将使用Ontology主网的创世块配置。注意，同一个网络所有节点的创世区块配置必须一致，否则会因为区块数据不兼容导致无法启动节点或同步区块数据。
-
---loglevel
-loglevel 参数用于设置Ontology输出的日志级别。Ontology支持从0:Trace 1:Debug 2:Info 3:Warn 4:Error 5:Fatal 6:MaxLevel 的7级日志，日志等级由低到高，输出的日志量由多到少。默认值是2，即只输出info级及其之上级别的日志。
-
---disable-event-log
-disable-event-log 参数用于关闭智能合约执行时输出的event log，以提升节点交易执行性能。Ontology 节点默认会开启智能合约执行时的event log输出功能。
-
---data-dir
-data-dir 参数用于指定区块数据的存放目录。默认值为"./Chain"。
-
-#### 账户参数
-
---wallet, -w
-wallet 参数用于指定Ontology节点启动时的钱包文件路径。默认值为"./wallet.dat"。
-
---account, -a
-account 参数用于指定Ontlogy节点启动时的账户地址。不填则使用钱包默认账户。
-
---password, -p
-password 参数用于指定Ontology节点启动的账户密码。因为在命令行中输入的账户密码会被保存在系统的日志中，容易造成密码泄露，因此在生产环境中建议不要使用该参数。
-
-#### 共识参数
-
---enable-consensus
-enable-consensus 参数用于启动网络共识。如果当前节点是作为记账节点的，请开启此参数。默认是关闭网络共识的。
-
---max-tx-in-block
-max-tx-in-block 参数用于设置区块最大的交易数量。默认值是50000。
-
-#### P2P网络参数
-
---networkid
-networkid 参数用于指定网络ID，networkid不同将无法连接到区块链网络中。1:主网, 2:polaris测试网络, 3:testmode测试网, 其他的是用户自定义网络。
-
---nodeport
-nodeport 参数用于指定P2P网络端口号，默认值为20338。
-
---consensus-port
-consensus-port 参数用于指定共识网络端口号。默认情况下，共识网络复用P2P网络，因此不需要指定共识网络端口，在通过--dualport参数启动双网络后，则需要单独设置共识网络端口号。默认值为20339。
-
---dual-port
-dual-port 参数启动双网络，即用于处理交易消息的P2P网络，和用于共识消息的共识网络。默认不开启。
+<table>
+   <tr>
+      <td>命令行参数</td>
+      <td>选项</td>
+      <td>描述</td>
+      <td>注意事项</td>
+   </tr>
+   <tr>
+      <td>系统参数</td>
+      <td>--config</td>
+      <td>指定客户端的创世区块配置文件路径（默认为主网创世区块的配置）</td>
+      <td>同一个网络所有节点的创世区块配置必须一致，否则会因为区块数据不兼容导致无法启动节点或同步区块数据</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>--loglevel</td>
+      <td>设置输出的日志级别（0-Trace，1-Debug，2-Info，3-Warn， 4-Error，5-Fatal，6-MaxLevel，默认为默2）</td>
+      <td>/</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>--disable-event-log</td>
+      <td>用于关闭智能合约执行时输出的事件日志以提升节点的交易执行性能（默认开启）</td>
+      <td>/</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>--data-dir</td>
+      <td>指定区块数据的存放目录（默认为 ./Chain）</td>
+      <td>/</td>
+   </tr>
+   <tr>
+      <td>账户参数</td>
+      <td>--wallet, -w</td>
+      <td>指定客户端钱包文件的路径（默认为 ./wallet.dat）</td>
+      <td>/</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>--account, -a</td>
+      <td>指定客户端的账户地址（默认为钱包默认账户）</td>
+      <td>/</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>--password, -p</td>
+      <td>指定客户端启动的账户密码</td>
+      <td>在命令行中输入的账户密码会被保存在系统的日志中，容易造成密码泄露，因此在生产环境中不建议使用该参数</td>
+   </tr>
+   <tr>
+      <td>共识参数</td>
+      <td>--enable-consensus</td>
+      <td>用于启动网络共识（默认关闭）</td>
+      <td>记账节点需要使用该参数参与到网络共识</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>--max-tx-in-block</td>
+      <td>用于设置区块最大的交易数量（默认为50000）</td>
+      <td>/</td>
+   </tr>
+   <tr>
+      <td>点对点网络参数</td>
+      <td>--networkid</td>
+      <td>用于指定网络编号</td>
+      <td>网络编号不同不同将无法连接到区块链网络中</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>--nodeport</td>
+      <td>用于指定P2P网络端口号（默认为20338）</td>
+      <td>/</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>--consensus-port</td>
+      <td>用于指定共识网络端口号（默认为20339）</td>
+      <td>默认情况下，共识网络复用P2P网络，因此不需要指定共识网络端口，在通过--dualport参数启动双网络后，则需要单独设置共识网络端口号</td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>--dual-port</td>
+      <td>启动双网络（P2P网络和共识网络，默认关闭）</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td></td>
+   </tr>
+</table>
 
 #### RPC 服务器参数
 
