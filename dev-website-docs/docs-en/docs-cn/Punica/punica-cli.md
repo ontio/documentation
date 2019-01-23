@@ -68,11 +68,6 @@ Commands:
 ```shell
 pip install punica
 ```
-or
-
-```shell
-python setup.py install
-```
 
 ## 3. 快速开始
 
