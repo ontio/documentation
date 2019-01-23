@@ -233,7 +233,7 @@ Ontology支持单节点网络部署，用于开发测试环境搭建。启动单
 
 启动单节点测试网络时，会同时启动共识、rpc、rest以及WebSocket模块。
 
-## 、钱包管理
+## 钱包管理
 
 钱包管理命令可以用来添加、查看、修改、删除、导入账户等功能。
 使用 ./ontology account --help 命令可以查看钱包管理命令的帮助信息。
@@ -376,7 +376,7 @@ source参数指定被导入的钱包路径
 获得WIF并把WIF存入key.txt文件，并通过以下命令导入
 ontology account import --wif --source key.txt
 
-## 、资产管理
+## 资产管理
 
 资产管理命令可以查看账户的余额，执行ONT/ONG转账，提取ONG以及查看未绑定的ONG等操作。
 
@@ -536,7 +536,7 @@ gaslimit参数指定转账交易的gas limit。交易的gas limit不能小于接
 ```
 ./ontology asset withdrawong <address|index|label>
 ```
-## 、查询信息
+## 查询信息
 
 查询信息命令可以查询区块、交易以及交易执行等信息。使用./ontology info block --help 命令可以查看帮助信息。
 
@@ -581,7 +581,7 @@ gaslimit参数指定转账交易的gas limit。交易的gas limit不能小于接
 ```
 其中，State表示交易执行结果，State的值为1，表示交易执行成功，State值为0时，表示执行失败。GasConsumed表示交易执行消耗的ONG。Notify表示交易执行时输出的Event log。不同的交易可能会输出不同的Event log。
 
-## 、智能合约
+## 智能合约
 
 智能合约操作支持NeoVM智能合约的部署，以及NeoVM智能合约的预执行和执行。
 
@@ -747,7 +747,7 @@ code参数指定可执行的智能合约代码路径。
 ./ontology contract invokeCode --code=XXX --gaslimit=XXX
 ```
 
-## 、区块导入导出
+## 区块导入导出
 
 Ontology Cli支持导出本地节点的区块数据到一个压缩文件中，生成的压缩文件可以再导入其它Ontology节点中。出于安全考虑，导入的区块数据文件请确保是从可信的来源获取的。
 
@@ -804,7 +804,7 @@ importfile 参数用于指定导入文件的路径。默认值为"./OntBlocks.da
 ./ontology import --importfile=./OntBlocks.dat
 ```
 
-## 、构造交易
+## 构造交易
 
 构造交易命令用于构造各种交易的交易内容，如转账交易，授权转账交易等，构造出来的交易在发送到Ontology上之前，还需要用户的私钥签名。
 
@@ -965,7 +965,7 @@ Withdraw raw tx:
 00d11b56875bf401000000000000204e0000000000006a987e044e01e3b71f9bb60df57ab0458215ef0f8e00c66b6a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a140000000000000000000000000000000000000001c86a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a071f57ad26643f08c86c0c7472616e7366657246726f6d1400000000000000000000000000000000000000020068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
 
-## 、对交易签名
+## 对交易签名
 
 使用buildtx 命令构造的交易，需要通过相关账户签名后，才是有效的交易。注意，如果交易手续费账户和付款账户不是同一个账户，则该交易需要付款人账户和手续费账户都签名。
 
@@ -998,7 +998,7 @@ RawTx after signed:
 00d11b56875bf401000000000000204e0000000000006a987e044e01e3b71f9bb60df57ab0458215ef0f8e00c66b6a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a140000000000000000000000000000000000000001c86a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a071f57ad26643f08c86c0c7472616e7366657246726f6d1400000000000000000000000000000000000000020068164f6e746f6c6f67792e4e61746976652e496e766f6b65000141407331b7ba2a7708187ad4cb14146d2080185e42f0a39d572f58d25fa2e20f3066711b64f2b91d958683f7bfb904badeb0d6bc733506e665028a2c2968b77d5958232103c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a56ac
 ```
 
-## 、生成多重签名地址
+## 生成多重签名地址
 
 生成多重签名地址需要指定公钥列表PubKey，以及在公钥列表中的所需要的最少签名数量M。
 
@@ -1030,7 +1030,7 @@ Index 2 Address:ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48 PubKey:03c0c30f11c7fc1396e859
 MultiSigAddress:Ae4cxJiubmgueAVtNbjpmm2AGNgdKP6Ea7
 ```
 
-## 、对交易多重签名
+## 对交易多重签名
 
 多重签名需要不同的账户对同一个交易签名，一个账户签名后，返回的交易需要作为下一个账户签名的输入，直到满足m指定的交易签名数。
 
@@ -1069,7 +1069,7 @@ RawTx after multi signed:
 00d1045f875bf401000000000000204e000000000000f47d92d27d02b93d21f8af16c9f05a99d128dd5a6e00c66b6a14f47d92d27d02b93d21f8af16c9f05a99d128dd5ac86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65000141409dd2a46277f96566b9e9b4fc354be90b61776c58125cfbf36e770b1b1d50a16febad4bfadfc966fa575e90acf3b8308d7a0f637260b31321cb7ef6f741364d0e47512102b2b9fb60a0add9ef6715ffbac8bc7e81cb47cd06c157c19e6a858859c01582312103c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a5652ae
 ```
 
-## 、发送交易
+## 发送交易
 
 用户签好名后的交易可以通过发送交易命令提交到Ontology网络上。
 
@@ -1102,7 +1102,7 @@ Gas limit:20000
 Result:01
 ```
 
-## 、查看交易信息
+## 查看交易信息
 
 查看交易信息命令可以查看构造好的原始交易的字段信息。
 
