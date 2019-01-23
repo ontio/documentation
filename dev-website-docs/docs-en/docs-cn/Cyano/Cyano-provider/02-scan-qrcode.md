@@ -1,8 +1,4 @@
 
-<h1 align="center">扫码接入流程</h1>
-<p align="center" class="version">Version 0.8.0 </p>
-
-## 概述
 
 本文用于指导DApp方如何接入Provider，并使用扫码登陆，扫码调用智能合约等服务。
 流程中涉及到的参与方包括：
