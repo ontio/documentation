@@ -1,5 +1,5 @@
 
-# Punica Suite
+
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/punicasuite/punica-python/master/punica.png" height="200" width="200"><br><br>

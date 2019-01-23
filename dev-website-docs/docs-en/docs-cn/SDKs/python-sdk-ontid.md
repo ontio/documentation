@@ -1,6 +1,4 @@
-<h1 align="center">本体 Python SDK</h1>
 
-<p align="center" class="version">版本： v0.1.3</p>
 
 <!-- TOC -->
 
