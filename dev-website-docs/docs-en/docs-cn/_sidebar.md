@@ -60,21 +60,6 @@
   - [钱包集成](docs-cn/SDKs/02-wallet-intergration.md)
       - [iOS](docs-cn/SDKs/ontology_wallet_dev_ts_sdk_zh.md)
       - [Android](docs-cn/SDKs/ontology_wallet_dev_android_zh.md)
-
-
-- Ontology Cli
-  - [概述](docs-cn/OntologyCli/overview.md)
-  - [安装](docs-cn/OntologyCli/installation.md)
-  - [开始使用](docs-cn/OntologyCli/getting-started.md)
-
-- Sign Server
-  - [概述](docs-cn/SignServer/00-overview.md)
-  - [安装](docs-cn/SignServer/01-installation.md)
-  - [开始使用](docs-cn/SignServer/02-getting-started.md)
-  - [API 使用](docs-cn/SignServer/03-api-usage.md)
-      - [账号](docs-cn/SignServer/04-api-account-methods.md)
-      - [签名方法](docs-cn/SignServer/05-api-signing-methods.md)
-      - [简便的签名方法](docs-cn/SignServer/06-api-signing-convinience-methods.md)
         
 - 浏览器 API
   - [区块](docs-cn/explorer/blocks.md)
@@ -83,6 +68,16 @@
   - [ONT ID](docs-cn/explorer/ontid.md)
   - [统计](docs-cn/explorer/statistics.md)   
   
+- Sign Server
+  - [概述](docs-cn/SignServer/00-overview.md)
+  - [安装](docs-cn/SignServer/01-installation.md)
+  - [开始使用](docs-cn/SignServer/02-getting-started.md)
+  - [API 使用](docs-cn/SignServer/03-api-usage.md)
+      - [账号](docs-cn/SignServer/04-api-account-methods.md)
+      - [签名方法](docs-cn/SignServer/05-api-signing-methods.md)
+      - [简便的签名方法](docs-cn/SignServer/06-api-signing-convinience-methods.md)
+
+
 - 交易所对接
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
   - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
