@@ -1,37 +1,4 @@
 
-### 运行节点
-
-- 同步主网区块
-
-```shell
-ontology --networkid 1
-```
-
-或者
-
-```shell
-ontology
-```
-
-- 同步测试网区块
-
-```shell
-ontology --networkid 2
-```
-
-- 测试模式
-
-```shell
-ontology --networkid 3
-```
-
-或者
-
-```shell
-ontology --testmode
-```
-
-在测试模式下，节点独立运行，默认的 `gasprice` 为0。
 
 ### 运行参数
 
