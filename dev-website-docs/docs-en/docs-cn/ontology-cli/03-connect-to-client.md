@@ -1,5 +1,7 @@
 
-本体客户端提供了大量的调用接口，你可以通过 RPC、 Restful 或者 WebSocket 进行访问。
+本体客户端提供了大量的调用接口，你可以通过 RPC、 Restful 或者 WebSockek 进行访问。
+
+默认情况下，Restful 接口监听在 20334 端口，Websocket 接口监听在 20335 端口，RPC 接口监听在 20336 端口。
 
 ### 基于客户端进行调用
 
@@ -104,3 +106,22 @@ sdk.websocket.set_address(websocket_address)
 关于函数库的更多信息可以在下列章节中找到：
 
 - [ontology-python-sdk](docs-cn/SDKs/python-sdk.md)
+
+### 使用公开节点
+
+通常情况下，开发者自己运行节点是极为不便的。因此，我们提供了 polaris 测试网节点以及主网节点供开发者使用，它们均支持 RPC、 Restful 以及 WebSockek 调用，并使用默认的端口号。
+
+- polaris 测试网节点
+  - http://polaris1.ont.io
+  - http://polaris2.ont.io
+  - http://polaris3.ont.io
+  - http://polaris4.ont.io
+  - http://polaris5.ont.io
+
+同时，我们也提供了[测试网水龙头](https://developer.ont.io/applyOng)供开发者获取开发所需的原生通证。
+
+- 主网节点
+  - http://dappnode1.ont.io
+  - http://dappnode2.ont.io
+  - http://dappnode3.ont.io
+  - http://dappnode4.ont.io
