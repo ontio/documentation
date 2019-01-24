@@ -1,6 +1,4 @@
 
-### 规范
-
 本体客户端的 JSON-RPC 接口规范如下：
 
 - 请求参数
@@ -22,36 +20,7 @@
 |   id    |   整数    |     任意值      |
 | result  | JSON 对象 |   RPC执行结果   |
 
-#### 接口列表
-
-|          方法          |                      描述                      |
-| :--------------------: | :--------------------------------------------: |
-|    getbestblockhash    |          获取当前节点最高区块的哈希值          |
-|        getblock        |       根据区块哈希或区块高度查询区块信息       |
-|     getblockcount      |               查询当前的区块数量               |
-|      getblockhash      |             查询指定高度的区块哈希             |
-|   getconnectioncount   |            查询当前节点的连接节点数            |
-|   getrawtransaction    |            通过交易哈希得到交易详情            |
-|   sendrawtransaction   |                向网络中发送交易                |
-|       getstorage       |         获取合约存储中指定键值对应的值         |
-|       getversion       |             获取当前连接节点的版本             |
-|    getcontractstate    |           根据合约地址，得到合约信息           |
-|   getmempooltxcount    |        查询交易池（内存）中的交易的数量        |
-|   getmempooltxstate    |        查询交易池（内存）中的交易的状态        |
-|   getsmartcodeevent    |             查询智能合约的执行结果             |
-| getblockheightbytxhash |             查询交易落账的区块高度             |
-|       getbalance       |               查询账户地址的余额               |
-|     getmerkleproof     |             查询交易的 merkle 证明             |
-|      getgasprice       |           查询当前节点的 `gas price`           |
-|      getallowance      |    查询一方账户允许另一方账户转出的通证额度    |
-|      getgrantong       | 查询根据当前所持有 ONT 估算出的可提取 ONG 数量 |
-|     getunboundong      |       查询账户当前实际可提取的 ONG 数量        |
-|  getblocktxsbyheight   |             查询指定高度的区块哈希             |
-|      getnetworkid      |                  获取网络编号                  |
-
-#### 接口定义
-
-getbestblockhash
+#### getbestblockhash
 
 获取当前节点最高区块的哈希值
 
@@ -78,7 +47,7 @@ getbestblockhash
 }
 ```
 
-##### getblock
+#### getblock
 
 根据区块哈希或区块高度查询区块信息
 
@@ -97,7 +66,7 @@ getbestblockhash
         <td style=min-width:50px rowspan="3">verbose</td>
     </tr>
     <tr>
-        <td style=min-width:50px>当值为0时，返回以十六进制字符串表示序列化区块信息</td>
+        <td style=min-width:50px>当值为0时，返回以十六进制字符串表示序列化后的区块信息</td>
     </tr>
     <tr>
         <td style=min-width:50px>当值为1时，将以json格式返回对应区块的详细信息</td>
@@ -194,7 +163,7 @@ getbestblockhash
 }
 ```
 
-##### getblockcount
+#### getblockcount
 
 查询当前的区块数量。
 
@@ -221,7 +190,7 @@ getbestblockhash
 }
 ```
 
-##### getblockhash
+#### getblockhash
 
 返回对应高度的区块哈希。
 
@@ -252,15 +221,13 @@ getbestblockhash
 }
 ```
 
-##### getconnectioncount
+#### getconnectioncount
 
 得到当前网络上连接的节点数。
 
-#### Example
-
 - 请求
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getconnectioncount",
@@ -271,7 +238,7 @@ getbestblockhash
 
 - 响应
 
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -281,25 +248,37 @@ getbestblockhash
 }
 ```
 
-
-##### getrawtransaction
+#### getrawtransaction
 
 通过交易哈希得到交易详情。
 
 #### 参数定义
 
-txid: 交易哈希
-
-Verbose: 可选参数，默认值为零，不设置时为默认值。当值为0时，接口返回交易序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用
-SDK中的方法对该字符串进行反序列化。当值为1时，将以json格式返回对应交易的详细信息。
-
-#### Example
-
-When verbose is nil or verbose = 0:
+<table cellspacing=0>
+    <tr>
+        <td style=min-width:50px>参数</td>
+        <td style=min-width:50px>描述</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px rowspan="2">txhash</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>交易哈希</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px rowspan="3">verbose</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>当值为0时，返回以十六进制字符串表示的序列化交易信息</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>当值为1时，将以json格式返回对应的交易详细信息</td>
+    </tr>
+</table>
 
 - 请求
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getrawtransaction",
@@ -310,7 +289,7 @@ When verbose is nil or verbose = 0:
 
 - 响应
 
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -318,14 +297,11 @@ When verbose is nil or verbose = 0:
   "id": 1,
   "result": "80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
 }
-
 ```
-
-When verbose = 1:
 
 - 请求
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getrawtransaction",
@@ -333,9 +309,10 @@ When verbose = 1:
   "id": 1
 }
 ```
+
 - 响应
 
-```
+```json
 {
     "desc": "SUCCESS",
     "error": 0,
@@ -369,72 +346,18 @@ When verbose = 1:
 }
 ```
 
+#### sendrawtransaction
 
+向网络中发送交易。
 
-##### sendrawtransaction
-
-发送交易。
-
-#### 参数定义
-
-Hex: 签名后的交易序列化成的十六进数据。可以参考ontology-go-sdk/rpc.go中的NewNativeInvokeTransaction方法生成。
-
-PreExec : 值设置为1则表示此交易为预执行。
-
-如何生成交易参数（Hex）？
-
-```
-    // 得到SDK的实例
-    sdk := goSdk.NewOntologySdk()
-    rpcClient := sdk.Rpc
-    // 生成native合约调用交易; 如果想调用NEO VM合约，可以使用NewNeoVMSInvokeTransaction方法
-    // cversion 为合约的版本, method 是要调用的合约方法名, params 是该方法需要的参数
-    // 例如：
-    // NewNativeInvokeTransaction(0, 200000, byte(0),utils.ParamContractAddress,
-    //      "getGlobalParam", []interface{}{global_params.ParamNameList{"gasPrice"}})
-    tx, err := rpcClient.NewNativeInvokeTransaction(gasPrice, gasLimit, cversion, contractAddress, method, params)
-    if err != nil {
-    	return common.UINT256_EMPTY, err
-    }
-    // 对交易签名，signer为交易的发送者
-    err = rpcClient.SignToTransaction(tx, signer)
-    if err != nil {
-        return common.UINT256_EMPTY, err
-    }
-
-    txbf := new(bytes.Buffer)
-    err = tx.Serialize(txbf);
-    hexCode = common.ToHexString(txbf.Bytes())
-```
-
-相关的结构体
-```
-type Transaction struct {
-	Version  byte
-	TxType   TransactionType
-	Nonce    uint32
-	GasPrice uint64
-	GasLimit uint64
-	Payer    common.Address
-	Payload  Payload
-	attributes byte
-	Sigs       []*Sig
-
-	hash *common.Uint256
-}
-
-type Sig struct {
-	SigData [][]byte
-	PubKeys []keypair.PublicKey
-	M       uint16
-}
-```
-
-#### Example
+|  参数   |                描述                |
+| :-----: | :--------------------------------: |
+|  hexTx  | 十六进制字符串表示的交易序列化数据 |
+| preExec |      值为 1 表示为预执行交易       |
 
 - 请求
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "sendrawtransaction",
@@ -443,9 +366,9 @@ type Sig struct {
 }
 ```
 
-Reponse
+- 响应
 
-```
+```json
 {
     "desc": "SUCCESS",
     "error": 0,
@@ -455,29 +378,20 @@ Reponse
 }
 ```
 
-> 注意：返回的结果是交易哈希
+**注意**：响应中 `result` 所对应的值为交易哈希。
 
-##### getstorage
+#### getstorage
 
-根据合约地址和存储的键，得到对应的值。
+获取合约存储中指定键值对应的值。
 
-#### 参数定义
-
-script\_hash: 合约地址哈希，通过以下方法生成：
-
-```
-	addr := types.AddressFromVmCode([]byte{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-	    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04})
-	fmt.Println(addr.ToHexString())
-```
-
-Key: 存储的条目的键，要求转化成十六进制字符串
-
-#### Example
+|    参数     |              描述              |
+| :---------: | :----------------------------: |
+| script_hash |       智能合约的哈希地址       |
+|     key     | 以十六进制字符串表示的存储键值 |
 
 - 请求
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "method": "getstorage",
@@ -488,7 +402,7 @@ Key: 存储的条目的键，要求转化成十六进制字符串
 
 - 响应
 
-```
+```json
 {
     "desc":"SUCCESS",
     "error":0,
@@ -497,17 +411,16 @@ Key: 存储的条目的键，要求转化成十六进制字符串
     "result": "4c696e"
 }
 ```
-> 返回结果为十六进制字符串
+
+**注意**： 响应中 `result` 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。
 
 ##### getversion
 
-得到运行的ontology版本。
-
-#### Example
+获取当前连接节点的版本。
 
 - 请求
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getversion",
@@ -518,7 +431,7 @@ Key: 存储的条目的键，要求转化成十六进制字符串
 
 - 响应
 
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -528,22 +441,18 @@ Key: 存储的条目的键，要求转化成十六进制字符串
 }
 ```
 
-#### 10. getcontractstate
+#### getcontractstate
 
 根据合约地址，得到对应的合约信息。
-
-#### 参数定义
 
 script\_hash: 合约地址哈希。
 
 verbose: 可选参数，默认值为零，不设置时为默认值。当值为0时，接口返回合约序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用
 SDK中的方法对该字符串进行反序列化。当值为1时，将以json格式返回对应合约的详细信息。
 
-#### Example
-
 - 请求
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getcontractstate",
@@ -554,7 +463,7 @@ SDK中的方法对该字符串进行反序列化。当值为1时，将以json格
 
 - 响应
 
-```
+```json
 {
     "desc": "SUCCESS",
     "error": 0,
@@ -572,7 +481,7 @@ SDK中的方法对该字符串进行反序列化。当值为1时，将以json格
 }
 ```
 
-#### 11. getmempooltxcount
+#### getmempooltxcount
 
 查询内存中的交易的数量。
 
@@ -580,7 +489,7 @@ SDK中的方法对该字符串进行反序列化。当值为1时，将以json格
 
 - 请求
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getmempooltxcount",
@@ -591,7 +500,7 @@ SDK中的方法对该字符串进行反序列化。当值为1时，将以json格
 
 - 响应
 
-```
+```json
 {
     "desc":"SUCCESS",
     "error":0,
@@ -601,15 +510,12 @@ SDK中的方法对该字符串进行反序列化。当值为1时，将以json格
 }
 ```
 
-#### 12. getmempooltxstate
+#### getmempooltxstate
 
 查询内存中的交易的状态
 
-#### 参数定义
 
 tx\_hash: 交易哈希。
-
-#### Example
 
 - 请求
 
@@ -624,41 +530,37 @@ tx\_hash: 交易哈希。
 
 - 响应
 
-```
+```json
 {
     "desc":"SUCCESS",
     "error":0,
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-              	"State": [{
-              		"Type": 1,
-              		"Height": 342,
-              		"ErrCode": 0
-              	}, {
-              		"Type": 0,
-              		"Height": 0,
-              		"ErrCode": 0
-              	}]
+        "State": [{
+            "Type": 1,
+            "Height": 342,
+            "ErrCode": 0
+            }, {
+            "Type": 0,
+            "Height": 0,
+            "ErrCode": 0
+        }]
     }
 }
 ```
 
-#### 13. getsmartcodeevent
+#### getsmartcodeevent
 
 得到智能合约执行的结果。
-
-#### 参数定义
 
 blockheight: 区块高度
 或者
 txHash: 交易哈希
 
-#### Example
-
 - 请求
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getsmartcodeevent",
@@ -666,18 +568,10 @@ txHash: 交易哈希
   "id": 3
 }
 ```
-or
-```
-{
-  "jsonrpc": "2.0",
-  "method": "getsmartcodeevent",
-  "params": ["3ba4b4e463a717635614595378f2aac78feacc7d4dfda075bfcf9328cbbcdb7c"],
-  "id": 3
-}
-```
+
 - 响应
 
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -714,14 +608,26 @@ or
                         1000000000000000000
                     ]
                 }
+            ]
         }
-  ]
+    ]
 }
 ```
 
-or
+- 请求
 
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getsmartcodeevent",
+  "params": ["3ba4b4e463a717635614595378f2aac78feacc7d4dfda075bfcf9328cbbcdb7c"],
+  "id": 3
+}
 ```
+
+- 响应
+
+```json
 {
     "desc": "SUCCESS",
     "error": 0,
@@ -762,11 +668,9 @@ notify 描述
 | ContractAddress | string | 合约地址                   |
 | States          | array  | 表示合约中Notify推送的消息 |
 
-
-
 > 注意： 如果参数是区块高度，则返回执行结果的集合；如果是交易哈希，则返回该交易对应的结果。
 
-#### 14. getblockheightbytxhash
+#### getblockheightbytxhash
 
 得到该交易哈希所落账的区块的高度。
 
@@ -798,7 +702,7 @@ txhash: 交易哈希
 }
 ```
 
-#### 15. getbalance
+#### getbalance
 
 返回base58地址的余额
 
@@ -834,7 +738,7 @@ address: base58地址
 }
 ```
 
-#### 16. getmerkleproof
+#### getmerkleproof
 
 返回对应交易的merkle证明
 
@@ -888,7 +792,7 @@ hash: 交易哈希
 }
 ```
 
-#### 17. getgasprice
+#### getgasprice
 
 返回gas价格
 
@@ -921,7 +825,7 @@ hash: 交易哈希
 }
 ```
 
-#### 18. getallowance
+#### getallowance
 
 返回允许从from转出到to账户的额度
 
@@ -958,7 +862,7 @@ to: 转入账户base58地址
 }
 ```
 
-#### 19. getunboundong
+#### getunboundong
 
 返回可以提取的ong。
 
@@ -991,7 +895,7 @@ address：提取ong的账户地址
 }
 ```
 
-#### 20. getblocktxsbyheight
+#### getblocktxsbyheight
 
 返回该高度对应的区块落账的所有交易的哈希
 
@@ -1030,7 +934,7 @@ height： 区块高度
 }
 ```
 
-#### 21. getnetworkid
+#### getnetworkid
 
 获取 network id.
 
@@ -1059,7 +963,7 @@ height： 区块高度
 }
 ```
 
-#### 22. getgrantong
+#### getgrantong
 
 获取 grant ong.
 
