@@ -53,7 +53,7 @@
 
 获取当前节点最高区块的哈希值
 
-- Request:
+- - 请求
 
 ```json
 {
@@ -64,7 +64,7 @@
 }
 ```
 
-- Response:
+- - 响应
 
 ```json
 {
@@ -78,19 +78,16 @@
 
 ##### getblock
 
-通过区块哈希或高度得到区块。
+根据区块哈希或区块高度查询区块信息
 
-#### 参数定义
-Hash/height: 区块哈希/高度
+|    参数     |                                                描述                                                |
+| :---------: | :------------------------------------------------------------------------------------------------: |
+| Hash/height |                                           区块哈希/高度                                            |
+|   Verbose   | 当值为0时，返回以十六进制字符串表示序列化区块信息；当值为1时，将以json格式返回对应区块的详细信息。 |
 
-Verbose: 可选参数，默认值为零，不设置时为默认值。当值为0时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用
-SDK中的方法对该字符串进行反序列化。当值为1时，将以json格式返回对应区块的详细信息。
+- 请求
 
-#### Example
-
-Request:
-
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getblock",
@@ -99,20 +96,9 @@ Request:
 }
 ```
 
-or
+- 响应
 
-```
-{
-  "jsonrpc": "2.0",
-  "method": "getblock",
-  "params": [100],
-  "id": 1
-}
-```
-
-Response when verbose is nil:
-
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -122,9 +108,20 @@ Response when verbose is nil:
 }
 ```
 
-Response when verbose = 1:
+- 请求
 
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getblock",
+  "params": [100],
+  "id": 1
+}
 ```
+
+- 响应
+
+```json
 {
     "desc": "SUCCESS",
     "error": 0,
@@ -178,15 +175,13 @@ Response when verbose = 1:
 }
 ```
 
-### 3. getblockcount
+##### getblockcount
 
-得到主链上的区块总量。
+查询当前的区块数量。
 
-#### Example
+- 请求
 
-Request:
-
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getblockcount",
@@ -195,9 +190,9 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -207,21 +202,17 @@ Response:
 }
 ```
 
->Result: 主链高度。
-
-#### 4. getblockhash
+##### getblockhash
 
 返回对应高度的区块哈希。
 
-#### 参数定义
+| 参数  |   描述   |
+| :---: | :------: |
+| Index | 区块高度 |
 
-Index: 区块高度
+- 请求
 
-#### Example
-
-Request:
-
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getblockhash",
@@ -230,9 +221,9 @@ Request:
 }
 ```
 
-Reponse:
+- 响应
 
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -242,13 +233,13 @@ Reponse:
 }
 ```
 
-#### 5. getconnectioncount
+##### getconnectioncount
 
 得到当前网络上连接的节点数。
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -259,7 +250,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -272,7 +263,7 @@ Response:
 ```
 
 
-#### 6. getrawtransaction
+##### getrawtransaction
 
 通过交易哈希得到交易详情。
 
@@ -287,7 +278,7 @@ SDK中的方法对该字符串进行反序列化。当值为1时，将以json格
 
 When verbose is nil or verbose = 0:
 
-Request:
+- 请求
 
 ```
 {
@@ -298,7 +289,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -313,7 +304,7 @@ Response:
 
 When verbose = 1:
 
-Request:
+- 请求
 
 ```
 {
@@ -323,7 +314,7 @@ Request:
   "id": 1
 }
 ```
-Response:
+- 响应
 
 ```
 {
@@ -361,7 +352,7 @@ Response:
 
 
 
-#### 7. sendrawtransaction
+##### sendrawtransaction
 
 发送交易。
 
@@ -422,7 +413,7 @@ type Sig struct {
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -447,7 +438,7 @@ Reponse
 
 > 注意：返回的结果是交易哈希
 
-#### 8. getstorage
+##### getstorage
 
 根据合约地址和存储的键，得到对应的值。
 
@@ -465,7 +456,7 @@ Key: 存储的条目的键，要求转化成十六进制字符串
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -476,7 +467,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -489,13 +480,13 @@ Response:
 ```
 > 返回结果为十六进制字符串
 
-#### 9. getversion
+##### getversion
 
 得到运行的ontology版本。
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -506,7 +497,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -531,7 +522,7 @@ SDK中的方法对该字符串进行反序列化。当值为1时，将以json格
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -542,7 +533,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -568,7 +559,7 @@ Response:
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -579,7 +570,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -601,7 +592,7 @@ tx\_hash: 交易哈希。
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -612,7 +603,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -646,7 +637,7 @@ txHash: 交易哈希
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -665,7 +656,7 @@ or
   "id": 3
 }
 ```
-Response:
+- 响应
 
 ```
 {
@@ -766,7 +757,7 @@ txhash: 交易哈希
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -777,7 +768,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 ```
 {
     "desc": "SUCCESS",
@@ -798,7 +789,7 @@ address: base58地址
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -809,7 +800,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -834,7 +825,7 @@ hash: 交易哈希
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -845,7 +836,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -885,7 +876,7 @@ Response:
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -896,7 +887,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -925,7 +916,7 @@ to: 转入账户base58地址
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -936,7 +927,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -958,7 +949,7 @@ address：提取ong的账户地址
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -969,7 +960,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -991,7 +982,7 @@ height： 区块高度
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -1002,7 +993,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -1026,7 +1017,7 @@ Response:
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -1037,7 +1028,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
@@ -1055,7 +1046,7 @@ Response:
 
 #### Example
 
-Request:
+- 请求
 
 ```
 {
@@ -1066,7 +1057,7 @@ Request:
 }
 ```
 
-Response:
+- 响应
 
 ```
 {
