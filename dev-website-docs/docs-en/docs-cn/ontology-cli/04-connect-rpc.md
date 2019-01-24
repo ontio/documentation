@@ -1,111 +1,61 @@
 
+#### 规范定义 
 
+本体客户端的 JSON-RPC 接口规范定义如下：
 
-* [介绍](#介绍)
-* [RPC接口列表](#rpc接口列表)
-* [错误代码](#错误代码)
+- 请求参数
 
-## 介绍
+|  字段   |  类型  |      定义       |
+| :-----: | :----: | :-------------: |
+| jsonrpc | 字符串 | JSON-RPC 版本号 |
+| method  | 字符串 |    方法名称     |
+| params  | 字符串 |    方法参数     |
+|   id    |  整数  |     任意值      |
 
-本文档是Ontology的RPC接口文档，详细定义了每种接口的参数与返回值。
+- 返回参数
 
-以下是一些接口中用到的字段的定义：
+|  字段   |   类型    |      定义       |
+| :-----: | :-------: | :-------------: |
+|  desc   |  字符串   |  请求结果描述   |
+|  error  |   整数    |    错误代码     |
+| jsonrpc |  字符串   | JSON-RPC 版本号 |
+|   id    |   整数    |     任意值      |
+| result  | JSON 对象 |   RPC执行结果   |
 
-#### 请求参数定义:
+#### 接口列表
 
-| 字段 | 类型 | 定义 |
-| :---| :---| :---|
-| jsonrpc | string | jsonrpc版本号 |
-| method | string | 方法名 |
-| params | string | 方法要求的参数 |
-| id | int | 任意值 |
+|          方法          |                      描述                      |
+| :--------------------: | :--------------------------------------------: |
+|    getbestblockhash    |          获取当前节点最高区块的哈希值          |
+|        getblock        |       根据区块哈希或区块高度查询区块信息       |
+|     getblockcount      |               查询当前的区块数量               |
+|      getblockhash      |             查询指定高度的区块哈希             |
+|   getconnectioncount   |            查询当前节点的连接节点数            |
+|   getrawtransaction    |            通过交易哈希得到交易详情            |
+|   sendrawtransaction   |                向网络中发送交易                |
+|       getstorage       |         获取合约存储中指定键值对应的值         |
+|       getversion       |             获取当前连接节点的版本             |
+|    getcontractstate    |           根据合约地址，得到合约信息           |
+|   getmempooltxcount    |        查询交易池（内存）中的交易的数量        |
+|   getmempooltxstate    |        查询交易池（内存）中的交易的状态        |
+|   getsmartcodeevent    |             查询智能合约的执行结果             |
+| getblockheightbytxhash |             查询交易落账的区块高度             |
+|       getbalance       |               查询账户地址的余额               |
+|     getmerkleproof     |             查询交易的 merkle 证明             |
+|      getgasprice       |           查询当前节点的 `gas price`           |
+|      getallowance      |    查询一方账户允许另一方账户转出的通证额度    |
+|      getgrantong       | 查询根据当前所持有 ONT 估算出的可提取 ONG 数量 |
+|     getunboundong      |       查询账户当前实际可提取的 ONG 数量        |
+|  getblocktxsbyheight   |             查询指定高度的区块哈希             |
+|      getnetworkid      |                  获取网络编号                  |
 
-#### 相应参数定义:
+##### getbestblockhash
 
-| 字段 | 类型 | 定义 |
-| :---| :---| :---|
-| desc| string | 请求结果描述 |
-| error | int64 | 错误代码 |
-| jsonrpc | string | jsonrpc版本号 |
-| id | int | 任意值 |
-| result | object | RPC执行结果 |
+获取当前节点最高区块的哈希值
 
->注意: 不同的请求类型会返回不同类型的Result。
+- Request:
 
-#### 区块字段定义：
-
-| 字段 | 类型 | 定义 |
-| :--- | :--- | :--- |
-| Header | *Header |  |
-| Transactions | []*Transaction ||
-| hash | *Uint256 | |
-
-#### 区块头字段定义
-
-| 字段 | 类型 | 定义 |
-| :--- | :--- | :--- |
-| Version | uint32 | 版本号 |
-| PrevBlockHash | Uint256 | 前一个区块的哈希 |
-| TransactionsRoot | Uint256 | 该区块中所有交易的Merkle树树根 |
-| BlockRoot | Uint256 | 区块根 |
-| Timestamp | int | 区块时间戳，unix时间格式 |
-| Height | int | 区块高度 |
-| ConsensusData | uint64 |  |
-| NextBookkeeper | Address | 下一个记账人的地址 |
-| Bookkeepers | []*crypto.PubKey ||
-| SigData | [][]byte ||
-| Hash | Uint256 | 区块哈希 |
-
-#### 交易字段定义
-
-| 字段 | 类型 | 定义 |
-| :--- | :--- | :--- |
-| Version| byte | 版本号 |
-| TxType | TransactionType | 交易类型 |
-| Payload | Payload | 载荷，具体执行的交易数据 |
-| Nonce | uint32 | 随机值，可以设置为时间戳 |
-| Attributes | []*TxAttribute |  |
-| Fee | []*Fee | 交易费用  |
-| NetworkFee | Fixed64 | 网络费用 |
-| Sigs | []*Sig | 签名数据 |
-| Hash | *Uint256 | 交易哈希 |
-
-## RPC接口列表
-
-| Method | Parameters | Description | Note |
-| :---| :---| :---| :---|
-| [getbestblockhash](#1-getbestblockhash) |  | 得到主链上的最高区块的哈希 |  |
-| [getblock](#2-getblock) | height or blockhash,[verbose] | 通过区块哈希或高度得到区块 | verbose为可选参数，默认值为0，可选值为1 |
-| [getblockcount](#3-getblockcount) |  | 得到区块的数量 |  |
-| [getblockhash](#4-getblockhash) | height | 得到对应高度的区块的哈希 |  |
-| [getconnectioncount](#5-getconnectioncount)|  | 得到当前网络上连接的节点数 |  |
-| [getrawtransaction](#6-getrawtransaction) | transactionhash | 通过交易哈希得到交易详情 |  |
-| [sendrawtransaction](#7-sendrawtransaction) | hex,preExec | 向网络中发送交易 | 发送的数据为签过名的交易序列化后的十六进制字符串 |
-| [getstorage](#8-getstorage) | script_hash, key |根据合约地址和存储的键，得到对应的值 |  |
-| [getversion](#9-getversion) |  | 得到运行的ontology版本 |  |
-| [getcontractstate](#10-getcontractstate) | script_hash,[verbose] | 根据合约地址，得到合约信息 |  |
-| [getmempooltxcount](#11-getmempooltxcount) |         | 查询内存中的交易的数量 |  |
-| [getmempooltxstate](#12-getmempooltxstate) | tx_hash | 查询内存中的交易的状态 |  |
-| [getsmartcodeevent](#13-getsmartcodeevent) |  | 得到智能合约执行的结果 |  |
-| [getblockheightbytxhash](#14-getblockheightbytxhash) | tx_hash | 得到该交易哈希所落账的区块的高度 |  |
-| [getbalance](#15-getbalance) | address | 返回base58地址的余额 |  |
-| [getmerkleproof](#16-getmerkleproof) | tx_hash | 返回merkle证明 |  |
-| [getgasprice](#17-getgasprice) |  | 返回gas的价格 |  |
-| [getallowance](#18-getallowance) | asset, from, to | 返回允许从from转出到to账户的额度 |  |
-| [getunboundong](#19-getunboundong) | address | 返回该账户未提取的ong |  |
-| [getblocktxsbyheight](#20-getblocktxsbyheight) | height | 返回该高度对应的区块落账的交易的哈希 |  |
-| [getnetworkid](#21-getnetworkid) |  | 获取 network id |  |
-| [getgrantong](#22-getgrantong) |  | 获取 grant ong |  |
-
-### 1. getbestblockhash
-
-得到主链上的最高区块的哈希。
-
-#### Example
-
-Request:
-
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getbestblockhash",
@@ -114,9 +64,9 @@ Request:
 }
 ```
 
-Response:
+- Response:
 
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -126,7 +76,7 @@ Response:
 }
 ```
 
-### 2. getblock
+##### getblock
 
 通过区块哈希或高度得到区块。
 
@@ -788,19 +738,19 @@ or
 
 result 描述
 
-| 字段 | 类型 | 定义 |
-| :---| :---| :---|
-| TxHash| string | 交易hash |
-| State | int64 | 交易执行结果的状态，0表示执行失败，1表示执行成功 |
-| GasConsumed | int64 | 交易手续费 |
-| Notify | array | 合约事件列表 |
+| 字段        | 类型   | 定义                                             |
+| :---------- | :----- | :----------------------------------------------- |
+| TxHash      | string | 交易hash                                         |
+| State       | int64  | 交易执行结果的状态，0表示执行失败，1表示执行成功 |
+| GasConsumed | int64  | 交易手续费                                       |
+| Notify      | array  | 合约事件列表                                     |
 
 notify 描述
 
-| 字段 | 类型 | 定义 |
-| :---| :---| :---|
-| ContractAddress| string | 合约地址 |
-| States | array | 表示合约中Notify推送的消息 |
+| 字段            | 类型   | 定义                       |
+| :-------------- | :----- | :------------------------- |
+| ContractAddress | string | 合约地址                   |
+| States          | array  | 表示合约中Notify推送的消息 |
 
 
 
@@ -1132,20 +1082,20 @@ Response:
 
 错误码定义
 
-| 字段 | 类型 | 定义 |
-| :--- | :--- | :--- |
-| 0 | int64 | 成功 |
-| 41001 | int64 | SESSION\_EXPIRED: 无效或超时的会话 |
-| 41002 | int64 | SERVICE\_CEILING: 达到服务上限 |
+| 字段  | 类型  | 定义                                  |
+| :---- | :---- | :------------------------------------ |
+| 0     | int64 | 成功                                  |
+| 41001 | int64 | SESSION\_EXPIRED: 无效或超时的会话    |
+| 41002 | int64 | SERVICE\_CEILING: 达到服务上限        |
 | 41003 | int64 | ILLEGAL\_DATAFORMAT: 不合法的数据格式 |
-| 41004 | int64 | INVALID\_VERSION: 无效的版本号 |
-| 42001 | int64 | INVALID\_METHOD: 无效的方法 |
-| 42002 | int64 | INVALID\_PARAMS: 无效的参数 |
-| 43001 | int64 | INVALID\_TRANSACTION: 无效的交易 |
-| 43002 | int64 | INVALID\_ASSET: 无效的资源 |
-| 43003 | int64 | INVALID\_BLOCK: 无效的区块 |
-| 44001 | int64 | UNKNOWN\_TRANSACTION: 未知的交易 |
-| 44002 | int64 | UNKNOWN\_ASSET: 未知的资源 |
-| 44003 | int64 | UNKNOWN\_BLOCK: 未知的区块 |
-| 45001 | int64 | INTERNAL\_ERROR: 内部错误 |
-| 47001 | int64 | SMARTCODE\_ERROR: 智能合约执行错误 |
+| 41004 | int64 | INVALID\_VERSION: 无效的版本号        |
+| 42001 | int64 | INVALID\_METHOD: 无效的方法           |
+| 42002 | int64 | INVALID\_PARAMS: 无效的参数           |
+| 43001 | int64 | INVALID\_TRANSACTION: 无效的交易      |
+| 43002 | int64 | INVALID\_ASSET: 无效的资源            |
+| 43003 | int64 | INVALID\_BLOCK: 无效的区块            |
+| 44001 | int64 | UNKNOWN\_TRANSACTION: 未知的交易      |
+| 44002 | int64 | UNKNOWN\_ASSET: 未知的资源            |
+| 44003 | int64 | UNKNOWN\_BLOCK: 未知的区块            |
+| 45001 | int64 | INTERNAL\_ERROR: 内部错误             |
+| 47001 | int64 | SMARTCODE\_ERROR: 智能合约执行错误    |
