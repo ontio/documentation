@@ -13,7 +13,7 @@
   - [安装](docs-cn/ontology-cli/01-install.md)
   - [快速开始](docs-cn/ontology-cli/02-getting-started.md)
   - [连接到客户端](docs-cn/ontology-cli/03-connect-to-client.md)
-  - [命令](docs-cn/ontology-cli/02-run.md)
+  - [命令](docs-cn/ontology-cli/04-run.md)
   - [接口](docs-cn/API/00-overview.md)
       - [Rpc 接口](docs-cn/API/01-rpc_api.md)
       - [Restful 接口](docs-cn/API/02-restful_api.md)

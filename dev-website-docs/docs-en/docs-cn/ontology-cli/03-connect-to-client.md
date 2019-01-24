@@ -33,9 +33,18 @@ ontology asset balance 1
 
 ### 基于函数库进行调用
 
-|         库          |    语言    |                   项目地址                   |
-| :-----------------: | :--------: | :------------------------------------------: |
-|   ontology-go-sdk   |     Go     |   https://github.com/ontio/ontology-go-sdk   |
-|   ontology-ts-sdk   | TypeScript |   https://github.com/ontio/ontology-ts-sdk   |
-|  ontology-java-sdk  |    Java    |  https://github.com/ontio/ontology-java-sdk  |
-| ontology-python-sdk |   Python   | https://github.com/ontio/ontology-python-sdk |
+|          库          |    语言     |                        项目地址                         |
+| :------------------: | :---------: | :-----------------------------------------------------: |
+|   ontology-go-sdk    |     Go      |        https://github.com/ontio/ontology-go-sdk         |
+|   ontology-ts-sdk    | TypeScript  |        https://github.com/ontio/ontology-ts-sdk         |
+|  ontology-java-sdk   |    Java     |       https://github.com/ontio/ontology-java-sdk        |
+| ontology-python-sdk  |   Python    |      https://github.com/ontio/ontology-python-sdk       |
+| ontology-andriod-sdk |    JAVA     | https://github.com/ontio-community/ontology-andriod-sdk |
+|   ontology-oc-sdk    | Objective-C | https://github.com/ontio-community/ontology-andriod-sdk |
+|   ontology-php-sdk   |     PHP     |   https://github.com/ontio-community/ontology-php-sdk   |
+|  ontology-swift-sdk  |    Swift    |  https://github.com/ontio-community/ontology-swift-sdk  |
+|    ontology-dapi     | TypeScript  |         https://github.com/ontio/ontology-dapi          |
+
+关于每个函数库的更多信息可以在下列章节中找到：
+
+- 
