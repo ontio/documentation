@@ -80,7 +80,7 @@
 
 根据区块哈希或区块高度查询区块信息
 
-<table cellspacing=0 border=1>
+<table cellspacing=0>
     <tr>
         <td style=min-width:50px>参数</td>
         <td style=min-width:50px>描述</td>
