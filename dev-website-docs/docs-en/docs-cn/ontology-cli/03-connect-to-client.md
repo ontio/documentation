@@ -45,6 +45,56 @@ ontology asset balance 1
 |  ontology-swift-sdk  |    Swift    |  https://github.com/ontio-community/ontology-swift-sdk  |
 |    ontology-dapi     | TypeScript  |         https://github.com/ontio/ontology-dapi          |
 
-关于每个函数库的更多信息可以在下列章节中找到：
+以 `ontology-python-sdk` 为例，你用简洁的代码快速连接到运行中的节点。
 
-- 
+- 连接到主网
+
+```Python
+from ontology.ont_sdk import OntologySdk
+
+
+sdk = OntologySdk()
+sdk.rpc.connect_to_main_net()
+sdk.restful.connect_to_main_net()
+sdk.websocket.connect_to_main_net()
+```
+
+- 连接到测试网
+
+```Python
+from ontology.ont_sdk import OntologySdk
+
+
+sdk = OntologySdk()
+sdk.rpc.connect_to_test_net()
+sdk.restful.connect_to_test_net()
+sdk.websocket.connect_to_test_net()
+```
+
+- 连接到本地节点
+
+```Python
+from ontology.ont_sdk import OntologySdk
+
+
+sdk = OntologySdk()
+sdk.rpc.connect_to_localhost()
+sdk.restful.connect_to_localhost()
+sdk.websocket.connect_to_localhost()
+```
+
+- 连接到自定义节点
+
+```Python
+from ontology.ont_sdk import OntologySdk
+
+
+sdk = OntologySdk()
+sdk.rpc.set_address(rpc_address)
+sdk.restful.set_address(restful_address)
+sdk.websocket.set_address(websocket_address)
+```
+
+关于函数库的更多信息可以在下列章节中找到：
+
+- [ontology-python-sdk](docs-cn/SDKs/python-sdk.md)

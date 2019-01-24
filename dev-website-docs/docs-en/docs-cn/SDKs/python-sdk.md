@@ -1,25 +1,23 @@
 <h1 align="center">本体 Python SDK</h1>
 
-<p align="center" class="version">版本： v0.1.3</p>
-
 <!-- TOC -->
 
 - [简介](#简介)
 - [准备](#准备)
 - [接口](#接口)
-    - [Network](#network)
-    - [Wallet](#wallet)
-    - [Account](#account)
-    - [AccountManager](#accountmanager)
-    - [Asset](#asset)
-    - [ABI](#abi)
-    - [OEP4](#oep4)
-    - [Utils](#utils)
+  - [Network](#network)
+  - [Wallet](#wallet)
+  - [Account](#account)
+  - [AccountManager](#accountmanager)
+  - [Asset](#asset)
+  - [ABI](#abi)
+  - [OEP4](#oep4)
+  - [Utils](#utils)
 - [参与项目](#参与项目)
 - [命名规范](#命名规范)
-    - [概述](#概述)
-    - [应该避免的名称](#应该避免的名称)
-    - [命名约定](#命名约定)
+  - [概述](#概述)
+  - [应该避免的名称](#应该避免的名称)
+  - [命名约定](#命名约定)
 - [官网](#官网)
 - [许可证](#许可证)
 

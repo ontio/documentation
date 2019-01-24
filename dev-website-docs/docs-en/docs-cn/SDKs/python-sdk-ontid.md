@@ -1,28 +1,6 @@
 <h1 align="center">本体 Python SDK</h1>
 
-<p align="center" class="version">版本： v0.1.3</p>
-
-<!-- TOC -->
-
-- [简介](#简介)
-- [准备](#准备)
-- [接口](#接口)
-    - [Network](#network)
-    - [Wallet](#wallet)
-    - [Identity](#identity)
-    - [IdentityManager](#identitymanager)
-    - [ABI](#abi)
-    - [Utils](#utils)
-- [参与项目](#参与项目)
-- [命名规范](#命名规范)
-    - [概述](#概述)
-    - [应该避免的名称](#应该避免的名称)
-    - [命名约定](#命名约定)
-    - [Python之父Guido推荐的规范](#python之父guido推荐的规范)
-- [官网](#官网)
-- [许可证](#许可证)
-
-<!-- /TOC -->
+<!-- TOC -->autoauto- [简介](#简介)auto- [准备](#准备)auto- [接口](#接口)auto    - [Network](#network)auto    - [Wallet](#wallet)auto    - [Identity](#identity)auto    - [IdentityManager](#identitymanager)auto    - [ABI](#abi)auto    - [OEP4](#oep4)auto    - [Utils](#utils)auto- [参与项目](#参与项目)auto- [命名规范](#命名规范)auto    - [概述](#概述)auto    - [应该避免的名称](#应该避免的名称)auto    - [命名约定](#命名约定)auto- [官网](#官网)auto- [许可证](#许可证)autoauto<!-- /TOC -->
 
 
 
