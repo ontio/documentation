@@ -13,11 +13,11 @@
   - [安装](docs-cn/ontology-cli/01-install.md)
   - [快速开始](docs-cn/ontology-cli/02-getting-started.md)
   - [连接到客户端](docs-cn/ontology-cli/03-connect-to-client.md)
-      - [Rpc 接口](docs-cn/API/01-rpc_api.md)
-      - [Restful 接口](docs-cn/API/02-restful_api.md)
-      - [Websocket 接口](docs-cn/API/03-websocket_api.md)  
-  - [命令](docs-cn/ontology-cli/04-commands.md)
-  - [选项](docs-cn/ontology-cli/05-options.md)
+      - [Rpc 接口](docs-cn/ontology-cli/04-connect-rpc.md)
+      - [Restful 接口](docs-cn/ontology-cli/05-connect-restful.md)
+      - [Websocket 接口](docs-cn/ontology-cli/06-connect-websocket.md)  
+  - [命令](docs-cn/ontology-cli/07-commands.md)
+  - [选项](docs-cn/ontology-cli/08-options.md)
 
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
