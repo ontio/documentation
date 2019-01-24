@@ -1,17 +1,19 @@
 
 默认情况下，RPC 接口监听在 20336 端口。
 
-- 你可以使用 `--rpcport` 选项为你的节点指定 RPC 监听端口。
+- 使用 `--rpcport` 选项为客户端指定 RPC 监听端口。
 
 ```shell
-ontology.exe --rpcport 1024
+ontology --rpcport 1024
 ```
 
-- 你可使用 `--disable-rpc` 选项关闭节点的 RPC 服务。
+- 使用 `--disable-rpc` 选项可以关闭客户端的 RPC 服务。
 
 ```shell
-ontology.exe --disable-rpc
+ontology --disable-rpc
 ```
+
+客户端 RPC 接口所应该支持的方法如下表所示。
 
 |          方法          |                      描述                      |
 | :--------------------: | :--------------------------------------------: |
