@@ -45,7 +45,7 @@ ontology asset balance 1
 |  ontology-swift-sdk  |    Swift    |  https://github.com/ontio-community/ontology-swift-sdk  |
 |    ontology-dapi     | TypeScript  |         https://github.com/ontio/ontology-dapi          |
 
-以 `ontology-python-sdk` 为例，你用简洁的代码快速连接到运行中的节点。
+以 `ontology-python-sdk` 为例，你可以用极其简洁的代码快速连接到运行中的节点。
 
 - 连接到主网
 
