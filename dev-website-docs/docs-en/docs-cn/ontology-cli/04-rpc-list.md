@@ -13,7 +13,7 @@ ontology --rpcport 1024
 ontology --disable-rpc
 ```
 
-客户端 RPC 接口所应该支持的方法如下表所示。
+本体客户端 RPC 接口所应该支持的方法如下表所示。
 
 |          方法          |                      描述                      |
 | :--------------------: | :--------------------------------------------: |
@@ -26,16 +26,16 @@ ontology --disable-rpc
 |   sendrawtransaction   |                向网络中发送交易                |
 |       getstorage       |         获取合约存储中指定键值对应的值         |
 |       getversion       |             获取当前连接节点的版本             |
-|    getcontractstate    |           根据合约地址，得到合约信息           |
-|   getmempooltxcount    |        查询交易池（内存）中的交易的数量        |
-|   getmempooltxstate    |        查询交易池（内存）中的交易的状态        |
-|   getsmartcodeevent    |             查询智能合约的执行结果             |
-| getblockheightbytxhash |             查询交易落账的区块高度             |
-|       getbalance       |               查询账户地址的余额               |
-|     getmerkleproof     |             查询交易的 merkle 证明             |
-|      getgasprice       |           查询当前节点的 `gas price`           |
-|      getallowance      |    查询一方账户允许另一方账户转出的通证额度    |
-|      getgrantong       | 查询根据当前所持有 ONT 估算出的可提取 ONG 数量 |
-|     getunboundong      |       查询账户当前实际可提取的 ONG 数量        |
-|  getblocktxsbyheight   |             查询指定高度的区块哈希             |
+|    getcontractstate    |            根据合约地址获取合约信息            |
+|   getmempooltxcount    |        获取交易池（内存）中的交易的数量        |
+|   getmempooltxstate    |        获取交易池（内存）中的交易的状态        |
+|   getsmartcodeevent    |             获取智能合约的执行结果             |
+| getblockheightbytxhash |             获取交易落账的区块高度             |
+|       getbalance       |               获取账户地址的余额               |
+|     getmerkleproof     |             获取交易的 merkle 证明             |
+|      getgasprice       |           获取当前节点的 `gas price`           |
+|      getallowance      |    获取一方账户允许另一方账户转出的通证额度    |
+|      getgrantong       | 获取根据当前所持有 ONT 估算出的可提取 ONG 数量 |
+|     getunboundong      |       获取账户当前实际可提取的 ONG 数量        |
+|  getblocktxsbyheight   |             获取指定高度的区块哈希             |
 |      getnetworkid      |                  获取网络编号                  |
