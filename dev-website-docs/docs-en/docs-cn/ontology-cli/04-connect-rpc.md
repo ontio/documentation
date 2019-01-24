@@ -80,10 +80,27 @@
 
 根据区块哈希或区块高度查询区块信息
 
-|    参数     |                                                描述                                                |
-| :---------: | :------------------------------------------------------------------------------------------------: |
-| Hash/height |                                           区块哈希/高度                                            |
-|   Verbose   | 当值为0时，返回以十六进制字符串表示序列化区块信息；当值为1时，将以json格式返回对应区块的详细信息。 |
+<table cellspacing=0>
+    <tr>
+        <td style=min-width:50px>参数</td>
+        <td style=min-width:50px>描述</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px rowspan="3">verbose</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>当值为0时，返回以十六进制字符串表示序列化区块信息</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>当值为1时，将以json格式返回对应区块的详细信息</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px rowspan="2">hash / height</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>区块哈希/高度</td>
+    </tr>
+</table>
 
 - 请求
 
