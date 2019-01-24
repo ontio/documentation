@@ -9,9 +9,11 @@
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
   
 - 本体客户端
-  - [概述](docs-cn/goClient/0_overview.md)
-  - [安装](docs-cn/goClient/1_install.md)
-  - [启动](docs-cn/goClient/2_run.md)
+  - [概述](docs-cn/goClient/00-overview.md)
+  - [安装](docs-cn/goClient/01-install.md)
+  - [快速开始](docs-cn/goClient/02-getting-started.md)
+  - [连接到客户端](03-connect-to-client.md)
+  - [启动](docs-cn/goClient/02-run.md)
   - [接口](docs-cn/API/00-overview.md)
       - [Rpc 接口](docs-cn/API/01-rpc_api.md)
       - [Restful 接口](docs-cn/API/02-restful_api.md)
