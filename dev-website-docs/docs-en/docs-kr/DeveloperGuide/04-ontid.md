@@ -1,6 +1,5 @@
 
-<h1 align="center">Ontology Distributed Identity Framework (ONTID) </h1>
-<p align="center" class="version">Version 0.7.0 </p>
+
 
 
 ONT ID는 모든 사용자, 회사, 품목 등에 대한 암호화 기반 디지털 신원을 설정합니다. 디지털 신원은 온톨로지 블록체인 기술을 기반으로 하며 어떠한 중앙식 집중 대상이 아닌, 사용자에 의해 완벽히 제어되는 안전하고 신뢰할 수 있습니다.

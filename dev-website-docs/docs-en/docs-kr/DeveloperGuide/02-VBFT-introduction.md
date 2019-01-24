@@ -1,7 +1,4 @@
 
-<h1 align="center">VBFT I소개</h1> 
-
-<p align="center" class="version">Version 1.0.0 </p>
 
 2018년 3월 30일 온톨로지는 첫 오픈소스를 GitHub에 업로드하였습니다. 차세대 퍼블릭체인 인프라 플랫폼으로서, Ontology는 인증 가능한 무작위 함수 (VRF)기반의 합의 알고리즘 VBFT를 도입할 예정입니다. 아래에서는 Ontology의 최신 합의 모델과 VBFT 합의 알고리즘을 소개해드릴 것입니다. VBFT 알고리즘 오픈소스 또한 GitHub에서 업로드될 예정입니다.
 

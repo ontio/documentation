@@ -1,6 +1,5 @@
 
-<h1 align="center">Ontology </h1>
-<h4 align="center">Version 1.0 </h4>
+
 
 [![GoDoc](https://godoc.org/github.com/ontio/ontology?status.svg)](https://godoc.org/github.com/ontio/ontology)
 

@@ -1,8 +1,5 @@
 
 
-<h1 align="center">Guidelines for technical community contributions</h1>
-
-<p align="center" class="version">Version 1.0.1 </p> 
 
 #### 개인 개발자 혹은 개발자 팀
 
