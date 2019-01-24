@@ -1,5 +1,5 @@
 
-#### 规范
+## 规范
 
 本体客户端的 JSON-RPC 接口规范如下：
 
@@ -22,7 +22,7 @@
 |   id    |   整数    |     任意值      |
 | result  | JSON 对象 |   RPC执行结果   |
 
-#### 接口
+#### 接口列表
 
 |          方法          |                      描述                      |
 | :--------------------: | :--------------------------------------------: |
@@ -49,7 +49,9 @@
 |  getblocktxsbyheight   |             查询指定高度的区块哈希             |
 |      getnetworkid      |                  获取网络编号                  |
 
-##### getbestblockhash
+#### 接口定义
+
+getbestblockhash
 
 获取当前节点最高区块的哈希值
 
@@ -86,6 +88,12 @@
         <td style=min-width:50px>描述</td>
     </tr>
     <tr>
+        <td style=min-width:50px rowspan="2">hash / height</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>区块哈希/高度</td>
+    </tr>
+    <tr>
         <td style=min-width:50px rowspan="3">verbose</td>
     </tr>
     <tr>
@@ -93,12 +101,6 @@
     </tr>
     <tr>
         <td style=min-width:50px>当值为1时，将以json格式返回对应区块的详细信息</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px rowspan="2">hash / height</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>区块哈希/高度</td>
     </tr>
 </table>
 
