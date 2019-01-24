@@ -57,7 +57,7 @@
         <td style=min-width:50px>描述</td>
     </tr>
     <tr>
-        <td style=min-width:50px rowspan="2">hash / height</td>
+        <td style=min-width:50px rowspan="2">block_hash / block_height</td>
     </tr>
     <tr>
         <td style=min-width:50px>区块哈希/高度</td>
@@ -194,9 +194,9 @@
 
 返回对应高度的区块哈希。
 
-| 参数  |   描述   |
-| :---: | :------: |
-| Index | 区块高度 |
+|     参数     |   描述   |
+| :----------: | :------: |
+| block_height | 区块高度 |
 
 - 请求
 
@@ -260,7 +260,7 @@
         <td style=min-width:50px>描述</td>
     </tr>
     <tr>
-        <td style=min-width:50px rowspan="2">txhash</td>
+        <td style=min-width:50px rowspan="2">tx_hash</td>
     </tr>
     <tr>
         <td style=min-width:50px>交易哈希</td>
@@ -350,10 +350,10 @@
 
 向网络中发送交易。
 
-|  参数   |                描述                |
-| :-----: | :--------------------------------: |
-|  hexTx  | 十六进制字符串表示的交易序列化数据 |
-| preExec |      值为 1 表示为预执行交易       |
+|   参数   |                描述                |
+| :------: | :--------------------------------: |
+|  hex_tx  | 十六进制字符串表示的交易序列化数据 |
+| pre_exec |      值为 1 表示为预执行交易       |
 
 - 请求
 
@@ -384,10 +384,10 @@
 
 获取合约存储中指定键值对应的值。
 
-|    参数     |              描述              |
-| :---------: | :----------------------------: |
-| script_hash |       智能合约的哈希地址       |
-|     key     | 以十六进制字符串表示的存储键值 |
+|         参数         |                 描述                 |
+| :------------------: | :----------------------------------: |
+| hex_contract_address | 以十六进制字符串表示智能合约哈希地址 |
+|         key          |    以十六进制字符串表示的存储键值    |
 
 - 请求
 
@@ -443,12 +443,29 @@
 
 #### getcontractstate
 
-根据合约地址，得到对应的合约信息。
+根据合约地址获取合约信息。
 
-script\_hash: 合约地址哈希。
-
-verbose: 可选参数，默认值为零，不设置时为默认值。当值为0时，接口返回合约序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用
-SDK中的方法对该字符串进行反序列化。当值为1时，将以json格式返回对应合约的详细信息。
+<table cellspacing=0>
+    <tr>
+        <td style=min-width:50px>参数</td>
+        <td style=min-width:50px>描述</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px rowspan="2">hex_contract_address</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>以十六进制字符串表示的合约哈希地址</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px rowspan="3">verbose</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>当值为0时，返回以十六进制字符串表示的序列化合约信息</td>
+    </tr>
+    <tr>
+        <td style=min-width:50px>当值为1时，将以json格式返回对应的合约详细信息</td>
+    </tr>
+</table>
 
 - 请求
 
@@ -483,7 +500,7 @@ SDK中的方法对该字符串进行反序列化。当值为1时，将以json格
 
 #### getmempooltxcount
 
-查询内存中的交易的数量。
+获取内存中的交易的数量。
 
 #### Example
 
@@ -512,14 +529,15 @@ SDK中的方法对该字符串进行反序列化。当值为1时，将以json格
 
 #### getmempooltxstate
 
-查询内存中的交易的状态
+获取交易池（内存）中的交易的状态。
 
-
-tx\_hash: 交易哈希。
+|  参数   |    描述    |
+| :-----: | :--------: |
+| tx_hash | 交易哈希值 |
 
 - 请求
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getmempooltxstate",
@@ -552,11 +570,11 @@ tx\_hash: 交易哈希。
 
 #### getsmartcodeevent
 
-得到智能合约执行的结果。
+获取智能合约的执行结果。
 
-blockheight: 区块高度
-或者
-txHash: 交易哈希
+|         参数          |         描述          |
+| :-------------------: | :-------------------: |
+| block_height / txHash | 区块高度 / 交易哈希值 |
 
 - 请求
 
@@ -652,23 +670,26 @@ txHash: 交易哈希
 }
 ```
 
-result 描述
+响应结果中 `result` 字段所对应信息的含义如下表所示。
 
-| 字段        | 类型   | 定义                                             |
-| :---------- | :----- | :----------------------------------------------- |
-| TxHash      | string | 交易hash                                         |
-| State       | int64  | 交易执行结果的状态，0表示执行失败，1表示执行成功 |
-| GasConsumed | int64  | 交易手续费                                       |
-| Notify      | array  | 合约事件列表                                     |
+|    字段     |                     含义                     |
+| :---------: | :------------------------------------------: |
+|   TxHash    |                  交易哈希值                  |
+|    State    | 交易的执行状态，0表示执行失败，1表示执行成功 |
+| GasConsumed |              交易所消耗的手续费              |
+|   Notify    |           交易所触发的合约事件列表           |
 
-notify 描述
+此外，`Notify` 字段所对应信息的含义如下表所示。
 
-| 字段            | 类型   | 定义                       |
-| :-------------- | :----- | :------------------------- |
-| ContractAddress | string | 合约地址                   |
-| States          | array  | 表示合约中Notify推送的消息 |
+|      字段       |        含义        |
+| :-------------: | :----------------: |
+| ContractAddress | 事件所属的合约地址 |
+|     States      |   事件的具体内容   |
 
-> 注意： 如果参数是区块高度，则返回执行结果的集合；如果是交易哈希，则返回该交易对应的结果。
+**注意**：
+
+- 如果参数是区块高度，返回执行结果的集合。
+- 如果是交易哈希，返回对应交易的执行结果。
 
 #### getblockheightbytxhash
 
