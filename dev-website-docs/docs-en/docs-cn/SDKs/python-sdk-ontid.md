@@ -1,9 +1,5 @@
 <h1 align="center">本体 Python SDK</h1>
 
-<!-- TOC -->autoauto- [简介](#简介)auto- [准备](#准备)auto- [接口](#接口)auto    - [Network](#network)auto    - [Wallet](#wallet)auto    - [Identity](#identity)auto    - [IdentityManager](#identitymanager)auto    - [ABI](#abi)auto    - [OEP4](#oep4)auto    - [Utils](#utils)auto- [参与项目](#参与项目)auto- [命名规范](#命名规范)auto    - [概述](#概述)auto    - [应该避免的名称](#应该避免的名称)auto    - [命名约定](#命名约定)auto- [官网](#官网)auto- [许可证](#许可证)autoauto<!-- /TOC -->
-
-
-
 ## 简介
 
 Ontology-Python-SDK是一个基于`Python3.6`实现的综合性SDK。目前，它支持本地钱包管理、数字身份管理、数字资产管理、智能合约的部署和调用、OEP4智能合约的调用以及与Ontology区块链的通信。并且，未来它还将支持更多功能和应用。
