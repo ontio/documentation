@@ -1,7 +1,4 @@
-<h1 align="center">Wallet Docking - The Docking Process for Wallet to Open DApp</h1>
-<p align="center" class="version">Version 0.8.0 </p>
 
-## Overview
 
 This article is used to instruct dApp developer how to communicate with wallet and how wallet deals with the requests from dApp.
 Participants involved in the process include:

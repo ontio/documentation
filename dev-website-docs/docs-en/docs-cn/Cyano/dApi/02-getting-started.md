@@ -22,13 +22,13 @@
 + [部署你的智能合约](#部署你的智能合约)
 + [测试你的智能合约](#测试你的智能合约)
 
-### 概述
+## 概述
 
 使用[dAPI for chrome](https://github.com/ontio/ontology-dapi)前请先安装实现了 **dAPI provider** 功能的钱包. 比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
 
 dAPI使用TypeScript实现, 同时也支持在JavaScript工程中使用.
 
-### 安装开发环境
+## 安装开发环境
 
 请确保安装以下软件。.
 
@@ -42,7 +42,7 @@ dAPI使用TypeScript实现, 同时也支持在JavaScript工程中使用.
 
 ![architecture](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/image/dapi.png)
 
-### Ontology dAPI
+## dAPI安装与使用
 #### dAPI 安装
 创建dApp时，Ontology dAPI是与Ontology链交互的核心API之一，可以从这里下载源码。 通过 ```npm``` 安装[ontology-dapi](https://github.com/ontio/ontology-dapi): 
 

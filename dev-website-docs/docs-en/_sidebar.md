@@ -7,23 +7,36 @@
   - [Resources](docs-en/DeveloperGuide/06-white-papers.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
   
-- Ontology Node
-  - [Node Setup](docs-en/DeveloperGuide/01-installation.md)
+- Ontology Client
+  - [Overview](docs-en/OntologyCli/00-overview.md)
+  - [Installation](docs-en/OntologyCli/01-installation.md)
+  - [Getting Started](docs-en/OntologyCli/getting-started.md)
+      - [Running Node](docs-en/OntologyCli/02-running-node.md)
+      - [Wallet](docs-en/OntologyCli/04-wallet-management.md)
+      - [Asset](docs-en/OntologyCli/05-asset-management.md)
+      - [Transactions](docs-en/OntologyCli/06-transactions.md)
+      - [Smart Contract](docs-en/OntologyCli/07-smart-contracts.md)
+      - [Block Import/Export](docs-en/OntologyCli/08-block-data.md)
+      - [Multi Signature](docs-en/OntologyCli/09-multisig.md)
+      - [Query Info](docs-en/OntologyCli/10-query-info.md)
+  - [API Reference](docs-en/API/00-overview.md)
+      - [Rpc](docs-en/API/01-rpc_api.md)
+      - [Restful](docs-en/API/02-restful_api.md)
+      - [Websocket](docs-en/API/03-websocket_api.md)        
 
-- Smart Contract Guide
-  - [Smart Contract Guide](docs-en/QuickGuide/02-deploy-invoke.md)
-  
+- Smart Contract
+  - [Getting Started](docs-en/smartcontract/01-started.md)
+  - [Template](docs-en/smartcontract/02-template.md)
+  - [API Reference](docs-en/smartcontract/03-sc-api.md)
+    
 - DApp Development Guide
   - [DAPP Development](docs-en/QuickGuide/00-dapp_development.md)  
   - [DAPI Usage](docs-en/QuickGuide/06-dapi-useage.md)  
-
-- Toolkits Guide
   - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
 
 - SmartX
   - [Overview](docs-en/SmartX/00-overview.md)
   - [Getting Started](docs-en/SmartX/01-getting-started.md)
-  - [Debug Smart Contract](docs-en/QuickGuide/01-debug-a-Smart-Contract.md)
      
 - Cyano
   - [Overview](docs-en/Cyano/00-overview.md)
@@ -56,34 +69,6 @@
       - [iOS](docs-en/SDKs/ontology_wallet_dev_ts_sdk_en.md)
       - [Android](docs-en/SDKs/ontology_wallet_dev_android_en.md)
 
-- Ontology Cli
-  - [Overview](docs-en/OntologyCli/00-overview.md)
-  - [Installation](docs-en/OntologyCli/01-installation.md)
-  - [Getting Started](docs-en/OntologyCli/getting-started.md)
-      - [Running Node](docs-en/OntologyCli/02-running-node.md)
-      - [Wallet](docs-en/OntologyCli/04-wallet-management.md)
-      - [Asset](docs-en/OntologyCli/05-asset-management.md)
-      - [Transactions](docs-en/OntologyCli/06-transactions.md)
-      - [Smart Contract](docs-en/OntologyCli/07-smart-contracts.md)
-      - [Block Import/Export](docs-en/OntologyCli/08-block-data.md)
-      - [Multi Signature](docs-en/OntologyCli/09-multisig.md)
-      - [Query Info](docs-en/OntologyCli/10-query-info.md)
-      
-- Sign Server
-  - [Overview](docs-en/SignServer/00-overview.md)
-  - [Installation](docs-en/SignServer/01-installation.md)
-  - [Getting Started](docs-en/SignServer/02-getting-started.md)
-  - [API Usage](docs-en/SignServer/03-api-usage.md)
-      - [Account](docs-en/SignServer/04-api-account-methods.md)
-      - [Signing Methods](docs-en/SignServer/05-api-signing-methods.md)
-      - [Convenience Methods](docs-en/SignServer/06-api-signing-convinience-methods.md)
-  
-- Ontology HTTP API
-  - [Overview](docs-en/API/00-overview.md)
-  - [Rpc API](docs-en/API/01-rpc_api.md)
-  - [Restful API](docs-en/API/02-restful_api.md)
-  - [Websocket API](docs-en/API/03-websocket_api.md)
-  
 - Explorer API
   - [Overview](docs-en/explorer/overview.md)
   - [Blocks](docs-en/explorer/blocks.md)
@@ -94,6 +79,16 @@
   - [ONT ID](docs-en/explorer/ontid.md)
   - [Statistics](docs-en/explorer/statistics.md) 
 
+- Sign Server
+  - [Overview](docs-en/SignServer/00-overview.md)
+  - [Installation](docs-en/SignServer/01-installation.md)
+  - [Getting Started](docs-en/SignServer/02-getting-started.md)
+  - [API Usage](docs-en/SignServer/03-api-usage.md)
+      - [Account](docs-en/SignServer/04-api-account-methods.md)
+      - [Signing Methods](docs-en/SignServer/05-api-signing-methods.md)
+      - [Convenience Methods](docs-en/SignServer/06-api-signing-convinience-methods.md)
+  
+  
 - Exchange Docking
   - [Overview](docs-en/exchange-API/Ontology+Exchange+Docking+Document.md)
   - [Sigsvr Exchange Guide](docs-en/exchange-API/Sigsvr_Exchange_Guide.md)

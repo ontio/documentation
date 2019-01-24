@@ -1,8 +1,4 @@
 
-<h1 align="center"> 钱包文件规范 </h1>
-
-<p align="center" class="version">Version 1.0.0 </p>
-
 
 
 钱包规范描述了钱包数据结构及导出数字身份或资产账号二维码的数据结构。

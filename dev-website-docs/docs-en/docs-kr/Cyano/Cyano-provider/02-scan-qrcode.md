@@ -1,7 +1,4 @@
-<h1 align="center">Wallet Docking - the Docking Process for Scanning QRcode</h1>
-<p align="center" class="version">Version 0.8.0 </p>
 
-## Overview
 
 This article is used to instruct DApp developer how to access Provider, login by scanning, and call a service of smart contract by scanning.
 

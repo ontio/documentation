@@ -1,6 +1,5 @@
 
-<h1 align="center">Distributed Data eXchange Framework</h1>
-<p align="center" class="version">Version 0.7.0 </p>
+
 
 
 In light of the pain points of the current centralized data exchanges, such as data caching, private data use without user authorization, data copyright protection, etc., Ontology launched the decentralized data transaction framework, “DDXF”. Ontology ecosystem application developers can develop decentralized data transaction applications based on DDXF to meet different scenarios and features, and support communication/transactions between data transaction platforms.

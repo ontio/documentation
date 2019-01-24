@@ -19,9 +19,9 @@
       - [Restful 接口](docs-cn/API/02-restful_api.md)
       - [Websocket 接口](docs-cn/API/03-websocket_api.md)  
 - 智能合约
-  - [快速入门](docs-cn/QuickGuide/02-deploy-invoke.md)
-  - [合约模板](docs-cn/QuickGuide/02-deploy-invoke.md)
-  - [API参考](docs-cn/QuickGuide/02-deploy-invoke.md)
+  - [快速入门](docs-cn/smartcontract/01-started.md)
+  - [合约模板](docs-cn/smartcontract/02-template.md)
+  - [API参考](docs-cn/smartcontract/03-sc-api.md)
 
 - DAPP开发指导
   - [DAPP开发](docs-cn/QuickGuide/00-dapp_development.md)  
@@ -31,13 +31,12 @@
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
-  - [Debug智能合约](docs-cn/QuickGuide/01-debug-a-Smart-Contract.md)
   
 - Cyano
   - [概述](docs-cn/Cyano/00-overview.md)
   - [Cyano钱包使用](docs-cn/Cyano/02-getting-started.md)
   - [钱包对接dAPI](docs-cn/Cyano/Cyano-provider/00-overview.md)
-      - [扫二维码对接](docs-cn/Cyano/Cyano/Cyano-provider/02-scan-qrcode.md)
+      - [扫二维码对接](docs-cn/Cyano/Cyano-provider/02-scan-qrcode.md)
       - [钱包里打开DApp对接](docs-cn/Cyano/Cyano-provider/03-embedded-h5.md)
   - [DAPP对接dAPI](docs-cn/Cyano/dApi/00-overview.md)
       - [Chrome插件版dAPI](docs-cn/Cyano/dApi/02-getting-started.md)

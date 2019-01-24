@@ -1,4 +1,3 @@
-<h1 align="center">本体 Python SDK</h1>
 
 ## 简介
 

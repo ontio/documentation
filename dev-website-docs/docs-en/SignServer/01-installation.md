@@ -1,5 +1,5 @@
 
-# Installation
+
 The signature service is a part of the [core Ontology repository](https://github.com/ontio/ontology). Download the core Ontology protocol repository and install all dependencies in the proper directory `$GOPATH/src/github.com/ontio`
 
 ```

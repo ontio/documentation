@@ -1,13 +1,9 @@
 
-<h1 align="center">钱包打开H5 DApp接入流程</h1>
-<p align="center" class="version">Version 0.8.0 </p>
-
-## 概述
 
 本文用于指导dApp方如何与钱包通信，及钱包如何处理dApp的请求。
 流程中涉及到的参与方包括：
 
-* Dapp方：对ONT生态内的用户提供Dapp，是本体生态中重要的组成部分。
+* DApp方：对ONT生态内的用户提供Dapp，是本体生态中重要的组成部分。
 * Provider：实现dApi mobile规范的钱包
 
 ## 交互流程说明

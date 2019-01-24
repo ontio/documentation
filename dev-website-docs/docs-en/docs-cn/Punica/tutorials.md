@@ -1,7 +1,8 @@
 
-## 工具介绍
 
-dApp开发系列教程。[视频文档](https://github.com/punicasuite/tutorials/tree/master/toolkits-docs)
+## App开发系列教程
+
+[视频文档](https://github.com/punicasuite/tutorials/tree/master/toolkits-docs)
 
 1. 文档介绍
 2. 如何使用solo-chain?
@@ -55,7 +56,7 @@ dApp开发系列教程。[视频文档](https://github.com/punicasuite/tutorials
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=r0802qrtqef" allowFullScreen="true" width="100%" height="360"></iframe>
 
-## 智能合约介绍
+## 智能合约系列教程
 
 [视频文档](https://github.com/punicasuite/tutorials/)
 
