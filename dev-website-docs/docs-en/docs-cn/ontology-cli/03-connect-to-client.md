@@ -118,10 +118,10 @@ sdk.websocket.set_address(websocket_address)
   - http://polaris4.ont.io
   - http://polaris5.ont.io
 
-同时，我们也提供了[测试网水龙头](https://developer.ont.io/applyOng)供开发者获取开发所需的原生通证。
-
 - 主网节点
   - http://dappnode1.ont.io
   - http://dappnode2.ont.io
   - http://dappnode3.ont.io
   - http://dappnode4.ont.io
+
+此外，我们也提供了[测试网水龙头](https://developer.ont.io/applyOng)供开发者获取开发所需的原生通证。
