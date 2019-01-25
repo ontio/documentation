@@ -40,7 +40,7 @@
 | 45001 | int64 |     内部错误     |
 | 47001 | int64 | 智能合约执行错误 |
 
-#### getbestblockhash
+## getbestblockhash
 
 获取当前节点最高区块的哈希值
 
