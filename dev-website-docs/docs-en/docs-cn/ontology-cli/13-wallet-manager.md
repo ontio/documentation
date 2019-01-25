@@ -67,7 +67,7 @@ ontology account help
     </tr>
 </table>
 
-> 如果你想要了解更多关于所用 ECDSA 曲线的信息，可以访问 [NIST Digital Signature Standard (DSS)(FIPS 186-3)](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf) 获取。
+> 如果你想要了解更多关于所用 ECDSA 曲线的信息，可以访问 [NIST Digital Signature Standard (FIPS 186-3)](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf) 获取。
 
 ## 创建账户
 
