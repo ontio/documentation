@@ -130,6 +130,8 @@ ontology account add --help
 
 ## 创建 ONT ID
 
+本体客户端 `Ontology-CLI` 的 `add` 命令也可以用于创建 `ONT ID`，只需要添加 `--ontid` 选项即可。
+
 ```shell
 ontology account add --ontid
 ```
