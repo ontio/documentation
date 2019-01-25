@@ -67,11 +67,11 @@ ontology account help
     </tr>
 </table>
 
-> 如果你想要了解更多关于所用 ECDSA 曲线的信息，可以访问 [NIST Digital Signature Standard (FIPS 186-3)](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf) 获取。
+> 如果你想要了解更多关于ECDSA 密钥曲线的信息，可以访问 [NIST Digital Signature Standard (FIPS 186-3)](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf) 获取。
 
 ## 创建账户
 
-本体客户端 `Ontology-CLI` 的 `add` 命令用于添加账户。
+账户管理模块中的 `add` 命令用于添加账户。
 
 ```shell
 ontology account add
@@ -130,7 +130,7 @@ ontology account add --help
 
 ## 创建 ONT ID
 
-本体客户端 `Ontology-CLI` 的 `add` 命令也可以用于创建 `ONT ID`，只需要添加 `--ontid` 选项即可。
+账户管理模块中的 `add` 命令也可以用于创建 `ONT ID`，只需要添加 `--ontid` 选项即可。
 
 ```shell
 ontology account add --ontid
@@ -146,7 +146,7 @@ ontology account add --ontid -d
 
 ## 查看账户
 
-本体客户端 `Ontology-CLI` 的 `list` 命令用于查看钱包文件中的账户列表。
+账户管理模块中的 `list` 命令用于查看钱包文件中的账户列表。
 
 ```shell
 ontology account list
@@ -176,14 +176,27 @@ ontology account list --help
 
 ## 修改账户
 
-本体客户端 `Ontology-CLI` 的 `set` 命令用于实现对账户修改。
+在账户管理模块中的 `set` 命令用于实现对账户修改。
+
+```shell
+ontology account set
+```
+
+在账户管理模块中，`set` 命令中所支持的选项如下表所示，你可以通过 `--help` 选项获取帮助信息。
+
+```shell
+ontology account list --help
+```
+
+|     选项      |               描述               |
+| :-----------: | :------------------------------: |
+| --wallet, -w  |         用于指定钱包文件         |
+| --verbose, -v | 用于显示钱包文件中账户的详细信息 |
 
 - 修改默认账户。
 - 修改默认钱包密码
 - 修改账户密码。
 - 修改 `ECDSA` 签名方案的签名算法。
-
-
 
 ```shell
 ontology account set -d 2
