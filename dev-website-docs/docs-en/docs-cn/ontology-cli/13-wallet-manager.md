@@ -99,59 +99,76 @@ ontology account add -n 5 -d
 >ontology account set -d 2
 >```
 
-#### 添加账户参数
+如果你需要快速创建多个 `ONT ID`，你可以使用 `-n` 选项。
 
---type,t
-type参数用于设定加密算法，支持ecdsa, sm2和ed25519加密算法。
-
---bit-length,b
-bit-length参数用于指定密钥长度，如果是ecdsa加密算法，可以选择p-224, p-256, p-384, p-521；如果是sm2加密算法，默认为sm2p256v1；如果是ed25519加密算法，默认为25519。
-
---signature-scheme,s
-signature-scheme参数用于指定密钥签名方案，对于ecdsa加密算法，支持SHA224withECDSA、SHA256withECDSA、SHA384withECDSA、SHA512withEdDSA、SHA3-224withECDSA、SHA3-256withECDSA、SHA3-384withECDSA、SHA3-512withECDSA、RIPEMD160withECDSA这些签名方案；如果是sm2加密算法，默认使用SM3withSM2签名方案；如果使用的是ed25519加密算法，默认使用的是SHA512withEdDSA签名方案。
-
---default
-default参数使用系统默认的密钥方案，默认的密钥方式将会使用ECDSA加密算法，使用P-256曲线以及SHA256withECDSA作为签名算法。
-
---label
-label用于给新创建的账户设置标签，用于方便、快捷查找账户。注意，同一个钱包文件下，不能出现重复的label名。没有设置label的账户则为空字符串。
-
---wallet
-wallet 参数用于指定钱包文件路径。如果钱包文件不存在，则会自动创建一个新的钱包文件。
-
---number
-number参数用于需要创建的账户数量。可以通过number来批量创建账户。number默认值为1。
-
---ontid
-ontid参数用来创建ONT ID，而不是普通账户。
-
-**添加账户**
-
-```
-./ontology account add --default
+```shell
+ontology account add -n 5 -d
 ```
 
-通过 ./ontology account add --help 可以查看帮助信息。
+在账户管理模块中， `add` 命令中所支持的选项如下表所示，你可以通过 `--help` 选项获取帮助信息。
 
-### 查看账户
-
-使用命令：
-
+```shell
+ontology account add --help
 ```
-./ontology account list
-```
-可以查看当前钱包中的所有账户信息。比如：
 
-```
-$ ./ontology account list
-Index:1    Address:TA587BCw7HFwuUuzY1wg2HXCN7cHBPaXSe  Label: (default)
-Index:2    Address:TA5gYXCSiUq9ejGCa54M3yoj9kfMv3ir4j  Label:
-```
-其中，Index 为账户在钱包中的索引，索引从1开始，Addres 为账户地址，Label 为账户的标签，default表示当前账户是默认账户。
-在Ontology cli中，可以通过Index、Address或非空的Label来查找账户。
+|          选项          |            描述            |
+| :--------------------: | :------------------------: |
+|       --type, -t       |      用于指定签名算法      |
+|    --bit-length, -b    |      用于指定密钥长度      |
+| --signature-scheme, -s |      用于指定签名方案      |
+|     --default, -d      | 使用默认的签名方案创建账户 |
+|        --label         | 用于给新建账户设置账户标签 |
+|        --wallet        |    用于指定钱包文件路径    |
+|        --number        | 用于指定需要创建的账户数量 |
 
-使用--v 可以查看账户的详细信息。
-通过 ./ontology account list --help 可以查看帮助信息。
+> **注意**：
+> - 同一个钱包文件下，不能出现重复的账户标签。
+> - 未设置账户标签的账户为空字符串。
+> - 如果使用 `--wallet` 选项指定的钱包文件不存在，会自动创建一个新的钱包文件。
+
+## 创建 ONT ID
+
+```shell
+ontology account add --ontid
+```
+
+在添加 `ONT ID` 的过程中，你需要按照提示选择签名算法、密钥曲线、签名模式。
+
+你也可以使用 `-d` 选项使用默认选项快速创建 `ONT ID`。
+
+```shell
+ontology account add --ontid -d
+```
+
+## 查看账户
+
+你可以通过 `list` 命令查看钱包中的账户列表。
+
+```shell
+ontology account list
+```
+
+如果你想查看更多信息，你可以使用 `--verbose` 或 `-v` 选项。
+
+```shell
+ontology account list --verbose
+```
+
+> **注意**：
+> - 账户在钱包中的索引 `Index` 从1开始。
+> - `default` 对应的账户未默认账户。
+> - 客户端 `Ontology-CLI` 支持通过索引 `Index`、账户地址 `Address` 以及非空账户标签 `Label` 来查找账户。
+
+在账户管理模块中，`list` 命令中所支持的选项如下表所示，你可以通过 `--help` 选项获取帮助信息。
+
+```shell
+ontology account list --help
+```
+
+|     选项      |               描述               |
+| :-----------: | :------------------------------: |
+| --wallet, -w  |         用于指定钱包文件         |
+| --verbose, -v | 用于显示钱包文件中账户的详细信息 |
 
 ### 修改账户
 
