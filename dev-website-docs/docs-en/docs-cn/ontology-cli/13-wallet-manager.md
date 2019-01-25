@@ -71,7 +71,7 @@ ontology account help
 
 ## 创建账户
 
-账户管理模块中的 `add` 命令用于添加账户。
+账户管理模块中，`add` 命令用于添加账户。
 
 ```shell
 ontology account add
@@ -146,7 +146,7 @@ ontology account add --ontid -d
 
 ## 查看账户
 
-账户管理模块中的 `list` 命令用于查看钱包文件中的账户列表。
+账户管理模块中，`list` 命令用于查看钱包文件中的账户列表。
 
 ```shell
 ontology account list
@@ -176,96 +176,75 @@ ontology account list --help
 
 ## 修改账户
 
-在账户管理模块中的 `set` 命令用于实现对账户修改。
+在账户管理模块中，`set` 命令用于实现对账户的修改。
 
 ```shell
 ontology account set
 ```
 
-在账户管理模块中，`set` 命令中所支持的选项如下表所示，你可以通过 `--help` 选项获取帮助信息。
-
-```shell
-ontology account list --help
-```
-
-|     选项      |               描述               |
-| :-----------: | :------------------------------: |
-| --wallet, -w  |         用于指定钱包文件         |
-| --verbose, -v | 用于显示钱包文件中账户的详细信息 |
-
-- 修改默认账户。
-- 修改默认钱包密码
-- 修改账户密码。
-- 修改 `ECDSA` 签名方案的签名算法。
-
-```shell
-ontology account set -d 2
-```
-
-使用修改账户命令可以修改账户的标签，重新设置默认账户，修改账户密码，如果账户是ECDSA加密算法的密钥，还可以修改密钥的签名方案。
-通过 ./ontology account set --help 可以查看帮助信息。
-
 在账户管理模块中，`set` 命令所支持的选项如下表所示，你可以通过 `--help` 选项获取帮助信息。
 
---as-default, -d
-as-default参数设置账户为默认账户。
+|        选项        |            描述            |
+| :----------------: | :------------------------: |
+|  --as-default, -d  |      用于指定默认账户      |
+|    --wallet, -w    | 用于指定默认钱包文件的路径 |
+|    --label, -l     |   用于给账户设置新的标签   |
+|  --change-passwd   |      用于修改账户密码      |
+| --signature-scheme |      用于修改签名算法      |
 
---wallet, -w
-wallet参数指定当前操作的钱包路径，默认值为"./wallet.dat"。
+> **注意**：
+> - 默认的钱包路径为 `./wallet.dat`。
+> - 同一个钱包文件中，不能有两个相同的钱包标签。
 
---label, -l
-label参数用于给账户设置新的标签。注意一个钱包文件中，不能有两个相同的lable。
+## 删除账户
 
---change-passwd
-change-passwd参数用于修改账户密码。
+在账户管理模块中，`set` 命令用于实现对账户的删除。
 
---signature-scheme, -s
-signature-scheme参数用于修改账户签名方案。如果账户使用的是ECDSA密钥，则可以修改如下ECDSA支持的签名方案：SHA224withECDSA、SHA256withECDSA、SHA384withECDSA、SHA512withEdDSA、SHA3-224withECDSA、SHA3-256withECDSA、SHA3-384withECDSA、SHA3-512withECDSA、RIPEMD160withECDSA。
-
-**设置默认账户**
-
-```
-./ontology account set --d <address|index|label>
-```
-**修改账户标签**
-
-```
-./ontology account set --label=XXX <address|index|label>
-```
-**修改账户密码**
-
-```
-./ontology account set --changepasswd <address|index|label>
+```shell
+ontology account del 2
+ontology account del acct
+ontology account del AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
 ```
 
-**修改ECDSA密钥签名方案**
+> **注意**：
+> - 未备份的账户删除后将无法恢复，请谨慎操作。
+> - 默认账户无法删除。
 
-```
-./ontology account set --s=SHA256withECDSA <address|index|label>
-```
-### 删除账户
+## 导出账户
 
-对于钱包中不需要的账户，可以删除。删除账户后无法恢复，所以请谨慎操作。注意：默认账户无法被删除。
+在账户管理模块中，`export` 命令用于导出钱包账户。
 
-```
-/ontology account del <address|index|label>
-```
-### 导入账户
-
-导入账户命令可以把另一个钱包中的账户导入到当前的钱包中。
-
-#### 导入账户参数
-
---wallet,w
-wallet参数指定当前钱包路径，用于接收导入钱包的账户。
-
---source,s
-source参数指定被导入的钱包路径
-
-```
-./ontology account import -s=./source_wallet.dat
+```shell
+ontology account export ./export_wallet.dat
 ```
 
-#### 通过WIF导入账户
-获得WIF并把WIF存入key.txt文件，并通过以下命令导入
-ontology account import --wif --source key.txt
+在账户管理模块中，`export` 命令所支持的选项如下表所示，你可以通过 `--help` 选项获取帮助信息。
+
+|      选项      |                   描述                   |
+| :------------: | :--------------------------------------: |
+|  --wallet, -w  |             用于指定导出钱包             |
+| --low-security | 用于降低导出钱包文件中的账户保护安全等级 |
+
+> **注意**：如果不是出于特殊需要，如为了将钱包文件导入到低性能设备当中，请勿使用 `--low-security` 选项。
+
+## 导入账户
+
+在账户管理模块中，`import` 命令用于导入钱包账户。
+
+|    选项     |                 描述                  |
+| :---------: | :-----------------------------------: |
+| --wallet, w |  用于指定接收导入钱包账户的钱包文件   |
+| --source,s  |   用于指定被导入钱包账户的钱包文件    |
+|    --wif    | 用于指定被导入导入钱包账户的 WIF 文件 |
+
+```shell
+ontology account import -s ./export_wallet.dat
+```
+
+如果需要通过 WIF 导入钱包账户，你首先需要将52位的 WIF 文本保存到一个文件中，如 `wif`，然后使用如下命令导入。
+
+```shell
+ontology account import --wif ./wif
+```
+
+> **注意**：请在导入完成后彻底清除设备中的 wif 文件或将其置于安全的位置。
