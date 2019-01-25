@@ -12,7 +12,7 @@ ontology account help
 
 ## 签名算法
 
-本体客户端 `Ontology-CLI` 支持 `ECDSA`、`SM2` 以及 `ED25519` 三种签名算法。
+本体客户端 `Ontology-CLI` 支持 `ECDSA`、`SM2` 以及 `ED25519` 三类签名算法。
 
 <table cellspacing=0>
     <tr>
