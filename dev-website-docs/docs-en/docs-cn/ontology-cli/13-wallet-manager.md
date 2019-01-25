@@ -91,13 +91,13 @@ ontology account add -n 5 -d
 
 > **注意**：
 > - 每个钱包文件都应该有一个默认账户，一般情况下是第一个添加的账户，你可以使用 `list` 命令查看默认账户。
+>```shell
+>ontology account list
+>```
 > - 默认账户不能被删除，可以通过 `set` 命令的 `-d` 选项来修改默认账户。
-
-```shell
-ontology account list
-ontology account set -d 2
-ontology account list
-```
+>```shell
+>ontology account set -d 2
+>```
 
 #### 添加账户参数
 
