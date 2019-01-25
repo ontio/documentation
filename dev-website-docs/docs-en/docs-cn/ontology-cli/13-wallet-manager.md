@@ -18,7 +18,7 @@ ontology account help
     <tr>
         <td style=min-width:50px>签名分类</td>
         <td style=min-width:50px>密钥曲线</td>
-        <td style=min-width:50px>密钥长度（比特）</td>
+        <td style=min-width:50px>密钥长度</td>
         <td style=min-width:50px>签名算法</td>
     </tr>
     <tr>
@@ -26,22 +26,22 @@ ontology account help
     </tr>
     <tr>
         <td style=min-width:50px>NIST P-224</td>
-        <td style=min-width:50px>224</td>
+        <td style=min-width:50px>224 bit</td>
         <td style=min-width:50px>SHA224withECDSA</td>
     </tr>
     <tr>
         <td style=min-width:50px>NIST P-256</td>
-        <td style=min-width:50px>256</td>
+        <td style=min-width:50px>256 bit</td>
         <td style=min-width:50px>SHA256withECDSA</td>
     </tr>
     <tr>
         <td style=min-width:50px>NIST P-384</td>
-        <td style=min-width:50px>384</td>
+        <td style=min-width:50px>384 bit</td>
         <td style=min-width:50px>SHA384withECDSA</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="4">NIST P-521</td>
-        <td style=min-width:50px rowspan="4">521</td>
+        <td style=min-width:50px rowspan="4">521 bit</td>
         <td style=min-width:50px>SHA224withEdDSA</td>
     </tr>
     <tr>
@@ -56,13 +56,13 @@ ontology account help
     <tr>
         <td style=min-width:50px>SM2</td>
         <td style=min-width:50px>sm2p256v1</td>
-        <td style=min-width:50px>256</td>
+        <td style=min-width:50px>256 bit</td>
         <td style=min-width:50px>SM3withSM2</td>
     </tr>
     <tr>
         <td style=min-width:50px>Ed25519</td>
         <td style=min-width:50px>Curve25519</td>
-        <td style=min-width:50px>256</td>
+        <td style=min-width:50px>256 bit</td>
         <td style=min-width:50px>SHA512withEdDSA</td>
     </tr>
 </table>
