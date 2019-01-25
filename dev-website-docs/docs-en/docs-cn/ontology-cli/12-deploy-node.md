@@ -36,40 +36,41 @@ ontology --enable-consensus --disable-rpc --disable-event-log
 
 - 主网
 
-```shell
-ontology
-```
+  ```shell
+  ontology
+  ```
 
 - Polaris 测试网
 
-```shell
-ontology --networkid 2
-```
+  ```shell
+  ontology --networkid 2
+  ```
 
 - 测试模式
 
-测试模式用于搭建开发测试环境，为单节点网络。
+  测试模式用于搭建开发测试环境，为单节点网络。
 
-```shell
-ontology --testmode
-```
+  ```shell
+  ontology --testmode
+  ```
 
-**注意**：在测试模式下，共识模块、RPC 模块、Restful 模块 以及 WebSocket 模块会同时开启。
+> **注意**：
+> 在测试模式下，共识模块、RPC 模块、Restful 模块 以及 WebSocket 模块会同时开启。
 
 ## 常见问题
 
-- 问：如何为节点指定创世区块？
+- 如何为节点指定创世区块？
 
-答：你可以接口通过 `--config` 选项指定创世区块的配置文件
+  你可以接口通过 `--config` 选项指定创世区块的配置文件
 
-- 问：如何为节点指定钱包文件？
+- 如何为节点指定钱包文件？
 
-答：你可以通过 `--wallet` 选项指定钱包文件
+  你可以通过 `--wallet` 选项指定钱包文件
 
-- 问：如何为节点指定账户？
+- 如何为节点指定账户？
 
-答：你可以通过 `--account` 选项指定账户。
+  你可以通过 `--account` 选项指定账户。
 
-- 问：如何修改交易池的 gas 参数？
+- 如何修改交易池的 gas 参数？
 
-答：你可以在你的记账节点上通过 `--gasprice` 和 `--gaslimit` 参数来修改。
+  你可以在你的记账节点上通过 `--gasprice` 和 `--gaslimit` 参数来修改。
