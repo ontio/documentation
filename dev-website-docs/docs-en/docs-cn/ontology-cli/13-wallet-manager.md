@@ -16,7 +16,7 @@ ontology account help
 
 <table cellspacing=0>
     <tr>
-        <td style=min-width:50px>加密算法</td>
+        <td style=min-width:50px>签名算法</td>
         <td style=min-width:50px>密钥曲线</td>
         <td style=min-width:50px>密钥长度（比特）</td>
         <td style=min-width:50px>签名模式</td>
