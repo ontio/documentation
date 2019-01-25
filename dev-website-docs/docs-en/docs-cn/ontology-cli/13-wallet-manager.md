@@ -16,10 +16,10 @@ ontology account help
 
 <table cellspacing=0>
     <tr>
-        <td style=min-width:50px>签名算法</td>
+        <td style=min-width:50px>签名分类</td>
         <td style=min-width:50px>密钥曲线</td>
         <td style=min-width:50px>密钥长度（比特）</td>
-        <td style=min-width:50px>签名模式</td>
+        <td style=min-width:50px>签名算法</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="8">ECDSA</td>
