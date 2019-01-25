@@ -54,8 +54,7 @@ ontology --enable-consensus --disable-rpc --disable-event-log
   ontology --testmode
   ```
 
-> **注意**：
-> 
+**注意**：
 > 在测试模式下，共识模块、RPC 模块、Restful 模块以及 WebSocket 模块会同时开启。
 
 ## 常见问题
