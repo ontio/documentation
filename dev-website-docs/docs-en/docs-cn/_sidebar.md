@@ -21,6 +21,7 @@
       - [WebSocket 接口规范](docs-cn/ontology-cli/09-ws-specification.md)  
   - [命令](docs-cn/ontology-cli/10-commands.md)
   - [选项](docs-cn/ontology-cli/11-options.md)
+  - [节点部署](docs-cn/ontology-cli/12-deploy-cli.md)
 
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)

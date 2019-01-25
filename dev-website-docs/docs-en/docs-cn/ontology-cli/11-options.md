@@ -148,52 +148,6 @@
 - 默认情况下，共识网络复用 P2P 网络，因此不需要指定共识网络端口，在通过 `--dualport` 参数启动双网络后，则需要通过 `--consensus-port`
  参数单独设置共识网络端口号
 
-### 节点部署
-
-#### 主网记账节点部署
-
-按照角色不同，节点可以分为记账节点和同步节点，记账节点参与网络共识，而同步节点只同步记账节点生成的区块。由于Ontology默认是不启动共识模块的，因此部署记账节点需要通过--enableconsensus命令行参数开启共。此外，Ontology节点默认会启动Rpc服务器，同时会输出智能合约输出的Event Log，因此如果没有特殊要求，可以使用--disablerpc和--disableeventlog命令行参数关闭rpc和eventlog模块。
-
-推荐记账节点启动参数：
-
-```
-./ontology --enable-consensus --disable-rpc --disable-event-log
-```
- - `enable-consensus` 是用来开启节点共识
- - `disable-rpc` 是处于节点安全考虑关闭rpc服务
- - `disable-event-log` 是关闭日志服务，这样可以提供更高的性能
-如果节点没有使用默认的创世块配置文件和钱包账户，可以通过--config参数和--wallet、--account参数指定。
-同时，如果记账节点需要修改交易池默认的最低gas price和gas limit，可以通过--gasprice和--gaslimit参数来设定。
-
-#### 主网同步节点部署
-
-由于同步节点只同步记账节点生成的区块，并不参与网络共识。
-
-```
-./ontology
-```
-如果节点没有使用默认的创世块配置文件，可以通过--config参数指定。同时由于没有启动共识模块，因此不需要钱包。
-
-#### 部署测试网Polaris的同步节点
-
-可以直接通过以下命令连接测试网
-
-```
-./ontology --networkid 2
-```
-
-#### 本地测试网部署
-
-Ontology支持单节点网络部署，用于开发测试环境搭建。启动单节点测试网络只需要加上--testmode参数即可。
-
-```
-./ontology --testmode
-```
-如果节点没有使用默认的创世块配置文件和钱包账户，可以通过--config参数和--wallet、--account参数指定。
-同时，如果记账节点需要修改交易池默认的最低gas price和gas limit，可以通过--gasprice和--gaslimit参数来设定。
-
-启动单节点测试网络时，会同时启动共识、rpc、rest以及WebSocket模块。
-
 ## 钱包管理
 
 钱包管理命令可以用来添加、查看、修改、删除、导入账户等功能。
