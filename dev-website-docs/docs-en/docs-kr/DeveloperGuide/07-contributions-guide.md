@@ -1,49 +1,32 @@
 
 
-<h1 align="center">Guidelines for technical community contributions</h1>
 
-<p align="center" class="version">Version 1.0.1 </p> 
+#### 개인 개발자 혹은 개발자 팀
 
-## Introduction
+##### 1 Proposal
 
-Dear Contributors,
+Github의 [OEPs](https://github.com/ontio/OEPs)로그인하고 새로운 proposal를 제안할 수도 있습니다. 새로 제안된 proposal에는 기존 프로토 타입 구현이 꼭 필요합니다. 온톨로지 기술 위원회는 제안된 proposal 기여도와 프로토 타입 구현 결과를 평가한 다음 온톨로지 이사회에 제출합니다.
+현재 proposal에는 코드 구현이 없기 때문에 개발신청(pull request)를 환영하며 온톨로지 기술위원회는 프로젝트 개발 항목 입안에 대하여 평가한 후 온톨로지 이사회에 제출합니다.
+일부 proposal가 온톨로지에 매우 큰 기여도 혹은 영향력을 미친다면 온톨로지 위원회에서는 인센티브 제공을 고려할 예정입니다.
 
-This is a guide to help you become part of the Ontology technical community.
+##### 2 코드 공헌
 
-We encourage the community to form independent groups so that we, the Ontology Foundation, can engage on a strategic level for support and rewards. It’s important for us that the different community participants takes responsibility for their own development and management - they are a cornerstone in the Ontology ecosystem and help define it!
+프로젝트 입안 후 개발을 시작할 수 있으며 [GITHUB표준프로세스](https://help.github.com/)따라 요청을 제출하세요. 온톨로지 기술위원회의 평가는 보고를 위해 온톨로지위원회에 제출 된 다음, 검토 결과에 따라 인센티브가 제공됩니다.
 
-<h4 align="center">The Ontology Foundation puts the technical community at highest priority and has allocated 10% (100,000,000 ONT) of the total token supply to the technical community alone</h4>
+##### 3 BUG FIX
 
-How you chose to structure an independent group, join another groups, or work as an individual contributor is entirely up to yourself. 
+버그가 발견되면 GITHUB 표준 프로세스에 따라 요청을 제출하세요.이 프로세스는 온톨로지 기술위원회에서 평가 한 후 보고를 위해 온톨로지위원회에 제출 한 다음 검토 결과에 따라 인센티브가 제공됩니다.
 
-For new groups, welcome you to send proposals to: mathiasglintborg@ont.io and include e.g. structure of group, team, budget and initiatives.
+##### 4 기술위원회
 
-To join an existing Ontology contributor group, talk to us at [Ontology Discord](https://discord.gg/9zcTQNy) or meet the independent groups at [Ontology Community Developers](https://discord.gg/YWXB9kj).
+커뮤니티에 계시는 모든 분들이 온톨로지 기술 위원회에 참여하기를 희망합니다. 관심 있으신 분은 [Discord 개발자 커뮤니티](https://discord.gg/4TQujHj)에 참여하세요.
 
-If you are independent contributor, talk to us at [Ontology Discord](https://discord.gg/9zcTQNy) and check out the [Developer Center](https://developer.ont.io/).
+#### 아키텍트 기술 공헌자
 
-## Technical contributions
+온톨로지위원회는 의사 소통 및 협력 (기관 협력) 하기를 기대하며 GITHUB 기술 커뮤니티 협력임을 표시해주세요. 온톨로지 위원회는 기관의 제안(프로토 타입 구현 포함), 코드 기여 및 BUG FIX와 동시에 주간 보고서 형식으로 온톨로지 위원회에 보고 (이후  JIRA를 이용하여 관리) 및 정기적으로 커뮤니티 인센티브를 분배합니다. 인정받은 기관은 온톨로지에서 승인된 후 투자 대상으로 간주될 수있습니다.
 
-The main point of entrance to the technical community is [Developer Center](https://developer.ont.io/).
 
-Generally, we divide coding and development from the technical community into three categories:
-
-- [Bounty program](https://bounty.ont.io/)
-  - You can claim existing bounties or suggest your own
-- [dApps](https://dapp.ont.io/)
-  - We welcome dApp projects to build on Ontology, talk to our VC, or incubation service
-- [Ontology enhancement proposals (OEP)](https://github.com/ontio/OEPs)
-  - OEPs describe standards for the Ontology platform, including core protocol specifications, client APIs, and contract standards. This is an opportunity to work along with the core tech team and build the blockchain infrastructure!
-
-### Rewards
-
-Rewards for qualified contributions are made according to the standard process for community contributions. It will be based on case-by-case evaluation conducted by the Ontology Foundation and Ontology Research Institute. 
-
-### Developer community organizational cooperation
-
-The Ontology Council welcomes organizations to discuss [cooperation](https://info.ont.io/cooperation/en). Please indicate that you are requesting technical community cooperation when you apply. The Ontology Council will carry out reviews based on the proposal, code contributions, and weekly reviews (JIRA will be used for management). Incentives will be distributed to partner institutions on a regular basis. Particularly excellent organizations can be considered for investment from Ontology.
-
-Ontology core tech team:
+온톨로지 기술 위원회:
 
 | **Group**                                     | **Name**     | **Discord**              | **GitHub**   | **Gitter**   |
 | --------------------------------------------- | ------------ | ------------------------ | ------------ | ------------ |

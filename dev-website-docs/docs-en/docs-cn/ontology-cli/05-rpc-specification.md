@@ -67,7 +67,7 @@
 }
 ```
 
-#### getblock
+## getblock
 
 根据区块哈希或区块高度查询区块信息
 
@@ -183,7 +183,7 @@
 }
 ```
 
-#### getblockcount
+## getblockcount
 
 查询当前的区块数量。
 
@@ -210,7 +210,7 @@
 }
 ```
 
-#### getblockhash
+## getblockhash
 
 返回对应高度的区块哈希。
 
@@ -241,7 +241,7 @@
 }
 ```
 
-#### getconnectioncount
+## getconnectioncount
 
 得到当前网络上连接的节点数。
 
@@ -268,7 +268,7 @@
 }
 ```
 
-#### getrawtransaction
+## getrawtransaction
 
 通过交易哈希得到交易详情。
 
@@ -366,7 +366,7 @@
 }
 ```
 
-#### sendrawtransaction
+## sendrawtransaction
 
 向网络中发送交易。
 
@@ -400,7 +400,7 @@
 
 **注意**：响应中 `result` 所对应的值为交易哈希。
 
-#### getstorage
+## getstorage
 
 获取合约存储中指定键值对应的值。
 
@@ -434,7 +434,7 @@
 
 **注意**： 响应中 `result` 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。
 
-##### getversion
+## getversion
 
 获取当前连接节点的版本。
 
@@ -461,7 +461,7 @@
 }
 ```
 
-#### getcontractstate
+## getcontractstate
 
 根据合约地址获取合约信息。
 
@@ -518,7 +518,7 @@
 }
 ```
 
-#### getmempooltxcount
+## getmempooltxcount
 
 获取内存中的交易的数量。
 
@@ -547,7 +547,7 @@
 }
 ```
 
-#### getmempooltxstate
+## getmempooltxstate
 
 获取交易池（内存）中的交易的状态。
 
@@ -588,7 +588,7 @@
 }
 ```
 
-#### getsmartcodeevent
+## getsmartcodeevent
 
 获取智能合约的执行结果。
 
@@ -711,7 +711,7 @@
 - 如果参数是区块高度，返回执行结果的集合。
 - 如果是交易哈希，返回对应交易的执行结果。
 
-#### getblockheightbytxhash
+## getblockheightbytxhash
 
 得到该交易哈希所落账的区块的高度。
 
@@ -743,7 +743,7 @@ txhash: 交易哈希
 }
 ```
 
-#### getbalance
+## getbalance
 
 返回base58地址的余额
 
@@ -779,7 +779,7 @@ address: base58地址
 }
 ```
 
-#### getmerkleproof
+## getmerkleproof
 
 返回对应交易的merkle证明
 
@@ -833,7 +833,7 @@ hash: 交易哈希
 }
 ```
 
-#### getgasprice
+## getgasprice
 
 返回gas价格
 
@@ -866,7 +866,7 @@ hash: 交易哈希
 }
 ```
 
-#### getallowance
+## getallowance
 
 返回允许从from转出到to账户的额度
 
@@ -903,7 +903,7 @@ to: 转入账户base58地址
 }
 ```
 
-#### getunboundong
+## getunboundong
 
 返回可以提取的ong。
 
@@ -936,7 +936,7 @@ address：提取ong的账户地址
 }
 ```
 
-#### getblocktxsbyheight
+## getblocktxsbyheight
 
 返回该高度对应的区块落账的所有交易的哈希
 
@@ -975,7 +975,7 @@ height： 区块高度
 }
 ```
 
-#### getnetworkid
+## getnetworkid
 
 获取 network id.
 
@@ -1004,7 +1004,7 @@ height： 区块高度
 }
 ```
 
-#### getgrantong
+## getgrantong
 
 获取 grant ong.
 
