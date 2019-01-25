@@ -247,7 +247,7 @@ ontology account import -s ./export_wallet.dat
 ontology account import --wif ./wif
 ```
 
-> **注意**：请在导入完成后彻底清除设备中的 wif 文件或将其置于安全的位置。
+> **注意**：请在导入完成后彻底清除设备中的 `WIF` 文件或将其置于安全的位置。
 
 ## 常见问题
 

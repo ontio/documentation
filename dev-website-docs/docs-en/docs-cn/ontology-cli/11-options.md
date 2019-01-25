@@ -1,140 +1,144 @@
 
 本体客户端支持的命令行参数如下表所示，你可以在需要的时候使用 `help` 命令在终端中查看。
 
+```shell
+ontology help
+```
+
 <table cellspacing=0 border=1>
     <tr>
-        <td style=min-width:50px>命令行参数</td>
-        <td style=min-width:50px>选项</td>
-        <td style=min-width:50px>描述</td>
+        <td align="center" style=min-width:50px>参数</td>
+        <td align="center" style=min-width:50px>选项</td>
+        <td align="center" style=min-width:50px>描述</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="5">系统参数</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--config</td>
-        <td style=min-width:50px>指定客户端的创世区块配置文件路径（默认为主网创世区块的配置）</td>
+        <td align="center" style=min-width:50px>--config</td>
+        <td align="center" style=min-width:50px>指定客户端的创世区块配置文件路径（默认为主网创世区块的配置）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--loglevel</td>
-        <td style=min-width:50px>设置输出的日志级别（0-Trace，1-Debug，2-Info，3-Warn， 4-Error，5-Fatal，6-MaxLevel，默认为默2）</td>
+        <td align="center" style=min-width:50px>--loglevel</td>
+        <td align="center" style=min-width:50px>设置输出的日志级别（0-Trace，1-Debug，2-Info，3-Warn， 4-Error，5-Fatal，6-MaxLevel，默认为默2）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--disable-event-log</td>
-        <td style=min-width:50px>用于关闭智能合约执行时输出的事件日志以提升节点的交易执行性能（默认开启）</td>
+        <td align="center" style=min-width:50px>--disable-event-log</td>
+        <td align="center" style=min-width:50px>用于关闭智能合约执行时输出的事件日志以提升节点的交易执行性能（默认开启）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--data-dir</td>
-        <td style=min-width:50px>指定区块数据的存放目录（默认为 ./Chain）</td>
+        <td align="center" style=min-width:50px>--data-dir</td>
+        <td align="center" style=min-width:50px>指定区块数据的存放目录（默认为 ./Chain）</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="4">账户参数</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--wallet, -w</td>
-        <td style=min-width:50px>指定客户端钱包文件的路径（默认为 ./wallet.dat）</td>
+        <td align="center" style=min-width:50px>--wallet, -w</td>
+        <td align="center" style=min-width:50px>指定客户端钱包文件的路径（默认为 ./wallet.dat）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--account, -a</td>
-        <td style=min-width:50px>指定客户端的账户地址（默认为钱包默认账户）</td>
+        <td align="center" style=min-width:50px>--account, -a</td>
+        <td align="center" style=min-width:50px>指定客户端的账户地址（默认为钱包默认账户）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--password, -p</td>
-        <td style=min-width:50px>指定客户端启动的账户密码</td>
+        <td align="center" style=min-width:50px>--password, -p</td>
+        <td align="center" style=min-width:50px>指定客户端启动的账户密码</td>
     </tr>
          <td style=min-width:50px rowspan="3">共识参数</td>
     <tr>
-        <td style=min-width:50px>--enable-consensus</td>
-        <td style=min-width:50px>用于启动网络共识（默认关闭）</td>
+        <td align="center" style=min-width:50px>--enable-consensus</td>
+        <td align="center" style=min-width:50px>用于启动网络共识（默认关闭）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--max-tx-in-block</td>
-        <td style=min-width:50px>用于设置区块最大的交易数量（默认为50000）</td>
+        <td align="center" style=min-width:50px>--max-tx-in-block</td>
+        <td align="center" style=min-width:50px>用于设置区块最大的交易数量（默认为50000）</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="5">点对点网络参数</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--networkid</td>
-        <td style=min-width:50px>用于指定网络编号</td>
+        <td align="center" style=min-width:50px>--networkid</td>
+        <td align="center" style=min-width:50px>用于指定网络编号</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--nodeport</td>
-        <td style=min-width:50px>用于指定P2P网络端口号（默认为20338）</td>
+        <td align="center" style=min-width:50px>--nodeport</td>
+        <td align="center" style=min-width:50px>用于指定P2P网络端口号（默认为20338）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--consensus-port</td>
-        <td style=min-width:50px>用于指定共识网络端口号（默认为20339）</td>
+        <td align="center" style=min-width:50px>--consensus-port</td>
+        <td align="center" style=min-width:50px>用于指定共识网络端口号（默认为20339）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--dual-port</td>
-        <td style=min-width:50px>启动双网络（P2P网络和共识网络，默认关闭）</td>
+        <td align="center" style=min-width:50px>--dual-port</td>
+        <td align="center" style=min-width:50px>启动双网络（P2P网络和共识网络，默认关闭）</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="3">RPC 参数</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--disable-rpc</td>
-        <td style=min-width:50px>用于关闭节点的 RPC 服务（默认启动）</td>
+        <td align="center" style=min-width:50px>--disable-rpc</td>
+        <td align="center" style=min-width:50px>用于关闭节点的 RPC 服务（默认启动）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--rpcport</td>
-        <td style=min-width:50px>用指定 RPC 服务器绑定的端口号</td>
+        <td align="center" style=min-width:50px>--rpcport</td>
+        <td align="center" style=min-width:50px>用指定 RPC 服务器绑定的端口号</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="3">Restful 参数</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--rest</td>
-        <td style=min-width:50px>用于启动节点的 Resrful 服务</td>
+        <td align="center" style=min-width:50px>--rest</td>
+        <td align="center" style=min-width:50px>用于启动节点的 Resrful 服务</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--restport</td>
-        <td style=min-width:50px>指定节点 Resrful 服务绑定的端口号（默认值为20334）</td>
+        <td align="center" style=min-width:50px>--restport</td>
+        <td align="center" style=min-width:50px>指定节点 Resrful 服务绑定的端口号（默认值为20334）</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="3">WebSocket 参数</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--ws</td>
-        <td style=min-width:50px>用于启动节点的 WebSocket 服务</td>
+        <td align="center" style=min-width:50px>--ws</td>
+        <td align="center" style=min-width:50px>用于启动节点的 WebSocket 服务</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--wsport</td>
-        <td style=min-width:50px>用于指定节点 WebSocket 服务绑定的端口号（默认为20335）</td>
+        <td align="center" style=min-width:50px>--wsport</td>
+        <td align="center" style=min-width:50px>用于指定节点 WebSocket 服务绑定的端口号（默认为20335）</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="3">测试模式参数</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--testmode</td>
-        <td style=min-width:50px>用于启动单节点的测试网络进行开发和调试（gasprice 为0）</td>
+        <td align="center" style=min-width:50px>--testmode</td>
+        <td align="center" style=min-width:50px>用于启动单节点的测试网络进行开发和调试（gasprice 为0）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--testmode-gen-block-time</td>
-        <td style=min-width:50px>用于设置测试模式下的出块时间（默认为 6 秒，最小为 2 秒）</td>
+        <td align="center" style=min-width:50px>--testmode-gen-block-time</td>
+        <td align="center" style=min-width:50px>用于设置测试模式下的出块时间（默认为 6 秒，最小为 2 秒）</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="6">交易参数</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--gasprice</td>
-        <td style=min-width:50px>用于设定当前节点交易池接受交易的最低 gasprice （默认为500，测试模式为 0）</td>
+        <td align="center" style=min-width:50px>--gasprice</td>
+        <td align="center" style=min-width:50px>用于设定当前节点交易池接受交易的最低 gasprice （默认为500，测试模式为 0）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--gaslimit</td>
-        <td style=min-width:50px>用于设定当前节点交易池接受交易的最低 gaslimit （默认为20000）</td>
+        <td align="center" style=min-width:50px>--gaslimit</td>
+        <td align="center" style=min-width:50px>用于设定当前节点交易池接受交易的最低 gaslimit （默认为20000）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--disable-tx-pool-pre-exec</td>
-        <td style=min-width:50px>用于关闭交易池中的交易预执行校验（默认开启）</td>
+        <td align="center" style=min-width:50px>--disable-tx-pool-pre-exec</td>
+        <td align="center" style=min-width:50px>用于关闭交易池中的交易预执行校验（默认开启）</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--disable-sync-verify-tx</td>
-        <td style=min-width:50px>用于关闭 RPC、Restful、WebSocket 的同步验证交易</td>
+        <td align="center" style=min-width:50px>--disable-sync-verify-tx</td>
+        <td align="center" style=min-width:50px>用于关闭 RPC、Restful、WebSocket 的同步验证交易</td>
     </tr>
     <tr>
-        <td style=min-width:50px>--disable-broadcast-net-tx</td>
-        <td style=min-width:50px>用于关闭交易池的广播交易（默认开启）</td>
+        <td align="center" style=min-width:50px>--disable-broadcast-net-tx</td>
+        <td align="center" style=min-width:50px>用于关闭交易池的广播交易（默认开启）</td>
     </tr>
 </table>
 
