@@ -16,62 +16,62 @@ ontology account help
 
 <table cellspacing=0>
     <tr>
-        <td style=min-width:50px>签名分类</td>
-        <td style=min-width:50px>密钥曲线</td>
-        <td style=min-width:50px>密钥长度</td>
-        <td style=min-width:50px>签名算法</td>
+        <td align="center" style=min-width:50px>签名分类</td>
+        <td align="center" style=min-width:50px>密钥曲线</td>
+        <td align="center" style=min-width:50px>密钥长度</td>
+        <td align="center" style=min-width:50px>签名算法</td>
     </tr>
     <tr>
-        <td style=min-width:50px rowspan="8">ECDSA</td>
+        <td align="center" style=min-width:50px rowspan="8">ECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>NIST P-224</td>
-        <td style=min-width:50px>224 bit</td>
-        <td style=min-width:50px>SHA224withECDSA</td>
+        <td align="center" style=min-width:50px>NIST P-224</td>
+        <td align="center" style=min-width:50px>224 bit</td>
+        <td align="center" style=min-width:50px>SHA224withECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>NIST P-256</td>
-        <td style=min-width:50px>256 bit</td>
-        <td style=min-width:50px>SHA256withECDSA</td>
+        <td align="center" style=min-width:50px>NIST P-256</td>
+        <td align="center" style=min-width:50px>256 bit</td>
+        <td align="center" style=min-width:50px>SHA256withECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>NIST P-384</td>
-        <td style=min-width:50px>384 bit</td>
-        <td style=min-width:50px>SHA384withECDSA</td>
+        <td align="center" style=min-width:50px>NIST P-384</td>
+        <td align="center" style=min-width:50px>384 bit</td>
+        <td align="center" style=min-width:50px>SHA384withECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px rowspan="4">NIST P-521</td>
-        <td style=min-width:50px rowspan="4">521 bit</td>
-        <td style=min-width:50px>SHA224withEdDSA</td>
+        <td align="center" style=min-width:50px rowspan="4">NIST P-521</td>
+        <td align="center" style=min-width:50px rowspan="4">521 bit</td>
+        <td align="center" style=min-width:50px>SHA224withEdDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>SHA256withEdDSA</td>
+        <td align="center" style=min-width:50px>SHA256withEdDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>SHA384withEdDSA</td>
+        <td align="center" style=min-width:50px>SHA384withEdDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>SHA512withEdDSA</td>
+        <td align="center" style=min-width:50px>SHA512withEdDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>SM2</td>
-        <td style=min-width:50px>sm2p256v1</td>
-        <td style=min-width:50px>256 bit</td>
-        <td style=min-width:50px>SM3withSM2</td>
+        <td align="center" style=min-width:50px>SM2</td>
+        <td align="center" style=min-width:50px>sm2p256v1</td>
+        <td align="center" style=min-width:50px>256 bit</td>
+        <td align="center" style=min-width:50px>SM3withSM2</td>
     </tr>
     <tr>
-        <td style=min-width:50px>Ed25519</td>
-        <td style=min-width:50px>Curve25519</td>
-        <td style=min-width:50px>256 bit</td>
-        <td style=min-width:50px>SHA512withEdDSA</td>
+        <td align="center" style=min-width:50px>Ed25519</td>
+        <td align="center" style=min-width:50px>Curve25519</td>
+        <td align="center" style=min-width:50px>256 bit</td>
+        <td align="center" style=min-width:50px>SHA512withEdDSA</td>
     </tr>
 </table>
 
-> 如果你想要了解更多关于所用 ECDSA 曲线的信息，可以访问 [NIST Digital Signature Standard (FIPS 186-3)](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf) 获取。
+> 如果你想要了解更多关于ECDSA 密钥曲线的信息，可以访问 [NIST Digital Signature Standard (FIPS 186-3)](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf) 获取。
 
 ## 创建账户
 
-你可以通过 `add` 命令添加账户。
+账户管理模块中，`add` 命令用于添加账户。
 
 ```shell
 ontology account add
@@ -130,6 +130,8 @@ ontology account add --help
 
 ## 创建 ONT ID
 
+账户管理模块中的 `add` 命令也可以用于创建 `ONT ID`，只需要添加 `--ontid` 选项即可。
+
 ```shell
 ontology account add --ontid
 ```
@@ -144,7 +146,7 @@ ontology account add --ontid -d
 
 ## 查看账户
 
-你可以通过 `list` 命令查看钱包中的账户列表。
+账户管理模块中，`list` 命令用于查看钱包文件中的账户列表。
 
 ```shell
 ontology account list
@@ -172,72 +174,77 @@ ontology account list --help
 | --wallet, -w  |         用于指定钱包文件         |
 | --verbose, -v | 用于显示钱包文件中账户的详细信息 |
 
-### 修改账户
+## 修改账户
 
-使用修改账户命令可以修改账户的标签，重新设置默认账户，修改账户密码，如果账户是ECDSA加密算法的密钥，还可以修改密钥的签名方案。
-通过 ./ontology account set --help 可以查看帮助信息。
+在账户管理模块中，`set` 命令用于实现对账户的修改。
 
-#### 修改账户参数
-
---as-default, -d
-as-default参数设置账户为默认账户。
-
---wallet, -w
-wallet参数指定当前操作的钱包路径，默认值为"./wallet.dat"。
-
---label, -l
-label参数用于给账户设置新的标签。注意一个钱包文件中，不能有两个相同的lable。
-
---change-passwd
-change-passwd参数用于修改账户密码。
-
---signature-scheme, -s
-signature-scheme参数用于修改账户签名方案。如果账户使用的是ECDSA密钥，则可以修改如下ECDSA支持的签名方案：SHA224withECDSA、SHA256withECDSA、SHA384withECDSA、SHA512withEdDSA、SHA3-224withECDSA、SHA3-256withECDSA、SHA3-384withECDSA、SHA3-512withECDSA、RIPEMD160withECDSA。
-
-**设置默认账户**
-
-```
-./ontology account set --d <address|index|label>
-```
-**修改账户标签**
-
-```
-./ontology account set --label=XXX <address|index|label>
-```
-**修改账户密码**
-
-```
-./ontology account set --changepasswd <address|index|label>
+```shell
+ontology account set
 ```
 
-**修改ECDSA密钥签名方案**
+在账户管理模块中，`set` 命令所支持的选项如下表所示，你可以通过 `--help` 选项获取帮助信息。
 
-```
-./ontology account set --s=SHA256withECDSA <address|index|label>
-```
-### 删除账户
+|        选项        |            描述            |
+| :----------------: | :------------------------: |
+|  --as-default, -d  |      用于指定默认账户      |
+|    --wallet, -w    | 用于指定默认钱包文件的路径 |
+|    --label, -l     |   用于给账户设置新的标签   |
+|  --change-passwd   |      用于修改账户密码      |
+| --signature-scheme |      用于修改签名算法      |
 
-对于钱包中不需要的账户，可以删除。删除账户后无法恢复，所以请谨慎操作。注意：默认账户无法被删除。
+> **注意**：
+> - 默认的钱包路径为 `./wallet.dat`。
+> - 同一个钱包文件中，不能有两个相同的钱包标签。
 
-```
-/ontology account del <address|index|label>
-```
-### 导入账户
+## 删除账户
 
-导入账户命令可以把另一个钱包中的账户导入到当前的钱包中。
+在账户管理模块中，`set` 命令用于实现对账户的删除。
 
-#### 导入账户参数
-
---wallet,w
-wallet参数指定当前钱包路径，用于接收导入钱包的账户。
-
---source,s
-source参数指定被导入的钱包路径
-
-```
-./ontology account import -s=./source_wallet.dat
+```shell
+ontology account del 2
+ontology account del acct
+ontology account del AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
 ```
 
-#### 通过WIF导入账户
-获得WIF并把WIF存入key.txt文件，并通过以下命令导入
-ontology account import --wif --source key.txt
+> **注意**：
+> - 未备份的账户删除后将无法恢复，请谨慎操作。
+> - 默认账户无法删除。
+
+## 导出账户
+
+在账户管理模块中，`export` 命令用于导出钱包账户。
+
+```shell
+ontology account export ./export_wallet.dat
+```
+
+在账户管理模块中，`export` 命令所支持的选项如下表所示，你可以通过 `--help` 选项获取帮助信息。
+
+|      选项      |                   描述                   |
+| :------------: | :--------------------------------------: |
+|  --wallet, -w  |             用于指定导出钱包             |
+| --low-security | 用于降低导出钱包文件中的账户保护安全等级 |
+
+> **注意**：如果不是出于特殊需要，如为了将钱包文件导入到低性能设备当中，请勿使用 `--low-security` 选项。
+
+## 导入账户
+
+在账户管理模块中，`import` 命令用于导入钱包账户。
+
+|    选项     |                 描述                  |
+| :---------: | :-----------------------------------: |
+| --wallet, w |  用于指定接收导入钱包账户的钱包文件   |
+| --source,s  |   用于指定被导入钱包账户的钱包文件    |
+|    --wif    | 用于指定被导入导入钱包账户的 WIF 文件 |
+
+```shell
+ontology account import -s ./export_wallet.dat
+```
+
+如果需要通过 WIF 导入钱包账户，你首先需要将52位的 WIF 文本保存到一个文件中，如 `wif`，然后使用如下命令导入。
+
+```shell
+ontology account import --wif ./wif
+```
+
+> **注意**：请在导入完成后彻底清除设备中的 wif 文件或将其置于安全的位置。
