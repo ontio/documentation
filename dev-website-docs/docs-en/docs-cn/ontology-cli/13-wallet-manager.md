@@ -25,22 +25,22 @@ ontology account help
         <td style=min-width:50px rowspan="8">ECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>P-224</td>
+        <td style=min-width:50px>NIST P-224</td>
         <td style=min-width:50px>224</td>
         <td style=min-width:50px>SHA224withECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>P-256</td>
+        <td style=min-width:50px>NIST P-256</td>
         <td style=min-width:50px>256</td>
         <td style=min-width:50px>SHA256withECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>P-384</td>
+        <td style=min-width:50px>NIST P-384</td>
         <td style=min-width:50px>384</td>
         <td style=min-width:50px>SHA384withECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px rowspan="4">P-521</td>
+        <td style=min-width:50px rowspan="4">NIST P-521</td>
         <td style=min-width:50px rowspan="4">521</td>
         <td style=min-width:50px>SHA224withEdDSA</td>
     </tr>
@@ -66,6 +66,8 @@ ontology account help
         <td style=min-width:50px>SHA512withEdDSA</td>
     </tr>
 </table>
+
+> 如果你想要了解更多关于所用 ECDSA 曲线的信息，可以访问 [NIST Digital Signature Standard (DSS)(FIPS 186-3)](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf) 获取。
 
 ## 创建账户
 
