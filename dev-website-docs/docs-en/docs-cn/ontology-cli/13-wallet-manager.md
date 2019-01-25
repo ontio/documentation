@@ -16,54 +16,54 @@ ontology account help
 
 <table cellspacing=0>
     <tr>
-        <td style=min-width:50px>签名分类</td>
-        <td style=min-width:50px>密钥曲线</td>
-        <td style=min-width:50px>密钥长度</td>
-        <td style=min-width:50px>签名算法</td>
+        <td align="center" style=min-width:50px>签名分类</td>
+        <td align="center" style=min-width:50px>密钥曲线</td>
+        <td align="center" style=min-width:50px>密钥长度</td>
+        <td align="center" style=min-width:50px>签名算法</td>
     </tr>
     <tr>
-        <td style=min-width:50px rowspan="8">ECDSA</td>
+        <td align="center" style=min-width:50px rowspan="8">ECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>NIST P-224</td>
-        <td style=min-width:50px>224 bit</td>
-        <td style=min-width:50px>SHA224withECDSA</td>
+        <td align="center" style=min-width:50px>NIST P-224</td>
+        <td align="center" style=min-width:50px>224 bit</td>
+        <td align="center" style=min-width:50px>SHA224withECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>NIST P-256</td>
-        <td style=min-width:50px>256 bit</td>
-        <td style=min-width:50px>SHA256withECDSA</td>
+        <td align="center" style=min-width:50px>NIST P-256</td>
+        <td align="center" style=min-width:50px>256 bit</td>
+        <td align="center" style=min-width:50px>SHA256withECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>NIST P-384</td>
-        <td style=min-width:50px>384 bit</td>
-        <td style=min-width:50px>SHA384withECDSA</td>
+        <td align="center" style=min-width:50px>NIST P-384</td>
+        <td align="center" style=min-width:50px>384 bit</td>
+        <td align="center" style=min-width:50px>SHA384withECDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px rowspan="4">NIST P-521</td>
-        <td style=min-width:50px rowspan="4">521 bit</td>
-        <td style=min-width:50px>SHA224withEdDSA</td>
+        <td align="center" style=min-width:50px rowspan="4">NIST P-521</td>
+        <td align="center" style=min-width:50px rowspan="4">521 bit</td>
+        <td align="center" style=min-width:50px>SHA224withEdDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>SHA256withEdDSA</td>
+        <td align="center" style=min-width:50px>SHA256withEdDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>SHA384withEdDSA</td>
+        <td align="center" style=min-width:50px>SHA384withEdDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>SHA512withEdDSA</td>
+        <td align="center" style=min-width:50px>SHA512withEdDSA</td>
     </tr>
     <tr>
-        <td style=min-width:50px>SM2</td>
-        <td style=min-width:50px>sm2p256v1</td>
-        <td style=min-width:50px>256 bit</td>
-        <td style=min-width:50px>SM3withSM2</td>
+        <td align="center" style=min-width:50px>SM2</td>
+        <td align="center" style=min-width:50px>sm2p256v1</td>
+        <td align="center" style=min-width:50px>256 bit</td>
+        <td align="center" style=min-width:50px>SM3withSM2</td>
     </tr>
     <tr>
-        <td style=min-width:50px>Ed25519</td>
-        <td style=min-width:50px>Curve25519</td>
-        <td style=min-width:50px>256 bit</td>
-        <td style=min-width:50px>SHA512withEdDSA</td>
+        <td align="center" style=min-width:50px>Ed25519</td>
+        <td align="center" style=min-width:50px>Curve25519</td>
+        <td align="center" style=min-width:50px>256 bit</td>
+        <td align="center" style=min-width:50px>SHA512withEdDSA</td>
     </tr>
 </table>
 
@@ -172,12 +172,19 @@ ontology account list --help
 | --wallet, -w  |         用于指定钱包文件         |
 | --verbose, -v | 用于显示钱包文件中账户的详细信息 |
 
-### 修改账户
+## 修改账户
+
+你可以通过 `set` 命令实现对账户修改。
+
+- 修改默认账户。
+- 修改默认钱包密码
+- 修改账户密码。
+- 修改 `ECDSA` 签名方案的签名算法。
 
 使用修改账户命令可以修改账户的标签，重新设置默认账户，修改账户密码，如果账户是ECDSA加密算法的密钥，还可以修改密钥的签名方案。
 通过 ./ontology account set --help 可以查看帮助信息。
 
-#### 修改账户参数
+在账户管理模块中，`set` 命令所支持的选项如下表所示，你可以通过 `--help` 选项获取帮助信息。
 
 --as-default, -d
 as-default参数设置账户为默认账户。
