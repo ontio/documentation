@@ -22,6 +22,7 @@
   - [命令](docs-cn/ontology-cli/10-commands.md)
   - [选项](docs-cn/ontology-cli/11-options.md)
   - [节点部署](docs-cn/ontology-cli/12-deploy-node.md)
+  - [钱包管理](docs-cn/ontology-cli/13-wallet-manager.md)
 
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
