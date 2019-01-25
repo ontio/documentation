@@ -71,7 +71,7 @@ ontology account help
 
 ## 创建账户
 
-你可以通过 `add` 命令添加账户。
+本体客户端 `Ontology-CLI` 的 `add` 命令用于添加账户。
 
 ```shell
 ontology account add
@@ -144,7 +144,7 @@ ontology account add --ontid -d
 
 ## 查看账户
 
-你可以通过 `list` 命令查看钱包中的账户列表。
+本体客户端 `Ontology-CLI` 的 `list` 命令用于查看钱包文件中的账户列表。
 
 ```shell
 ontology account list
@@ -174,12 +174,18 @@ ontology account list --help
 
 ## 修改账户
 
-你可以通过 `set` 命令实现对账户修改。
+本体客户端 `Ontology-CLI` 的 `set` 命令用于实现对账户修改。
 
 - 修改默认账户。
 - 修改默认钱包密码
 - 修改账户密码。
 - 修改 `ECDSA` 签名方案的签名算法。
+
+
+
+```shell
+ontology account set -d 2
+```
 
 使用修改账户命令可以修改账户的标签，重新设置默认账户，修改账户密码，如果账户是ECDSA加密算法的密钥，还可以修改密钥的签名方案。
 通过 ./ontology account set --help 可以查看帮助信息。
