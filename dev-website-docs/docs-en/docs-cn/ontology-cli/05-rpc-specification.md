@@ -18,7 +18,7 @@
 |  error  |   整型    |    错误代码     |
 | jsonrpc |  字符串   | JSON-RPC 版本号 |
 |   id    |   整型    |     任意值      |
-| result  | JSON 对象 |   RPC执行结果   |
+| result  | JSON 对象 |  RPC 执行结果   |
 
 - 错误码
 
@@ -40,7 +40,7 @@
 | 45001 | int64 |     内部错误     |
 | 47001 | int64 | 智能合约执行错误 |
 
-#### getbestblockhash
+## getbestblockhash
 
 获取当前节点最高区块的哈希值
 
