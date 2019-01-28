@@ -179,6 +179,47 @@ event_name = ContractDataParser.to_utf8_str('6563686f')
 event_value = ContractDataParser.to_utf8_str('6f6e746f6c6f6779')
 ```
 
+此外，你可以通过 `--account` 选项指定支付交易手续费的钱包账户。
+
+```shell
+$ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500 --account 2
+Invoke:7d355838f100b6f9802187e95db6b63240e70302 Params:["echo",["ontology"]]
+Password:
+  TxHash:c6d34bf17eaf467bc47748408e6704d5fcd054269a0d0ca985c387eb930d79b8
+
+Tips:
+  Using './ontology info status c6d34bf17eaf467bc47748408e6704d5fcd054269a0d0ca985c387eb930d79b8' to query transaction status.
+```
+
+```shell
+$ ontology info tx c6d34bf17eaf467bc47748408e6704d5fcd054269a0d0ca985c387eb930d79b8
+{
+   "Version": 0,
+   "Nonce": 1548686936,
+   "GasPrice": 0,
+   "GasLimit": 200000,
+   "Payer": "AL4m8xiSrmxAjCEGVdZWADQgVuasozpnF9",
+   "TxType": 209,
+   "Payload": {
+      "Code": "086f6e746f6c6f677951c1046563686f677d355838f100b6f9802187e95db6b63240e70302"
+   },
+   "Attributes": [],
+   "Sigs": [
+      {
+         "PubKeys": [
+            "02b76e86481df6e9814b203a41a0b040c87807d1bcfd18f8ea69c7d73ebf2b944a"
+         ],
+         "M": 1,
+         "SigData": [
+            "f7ca63555b6bc9d9f5d82cccb2a6561d5a1a68211d25b211f5597c98ca10cadbe63d399e767c4963195ee7e8154b556f0cc80da950809c86f48f67ecd2488df8"
+         ]
+      }
+   ],
+   "Hash": "c6d34bf17eaf467bc47748408e6704d5fcd054269a0d0ca985c387eb930d79b8",
+   "Height": 3017
+}
+```
+
 ### 智能合约的预执行
 
 我们可以使用 `-p` 参数预执行智能合约，获得执行结果以及 `gas` 消耗。
@@ -202,79 +243,3 @@ Contract invoke successfully
 ```
 
 > **注意**: 智能合约在执行之前，可以通过预执行，试算出当前执行所需要的 `gas limit`，避免 `ONG` 余额不足导致执行失败。
-
-#### 智能合约执行参数
-
---wallet, -w
-wallet参数指定智能合约执行的账户钱包路径。默认值："./wallet.dat"。
-
---account, -a
-account参数指定执行合约的账户。
-
---gasprice
-gasprice参数指定部署合约交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为500（在testmode模型下为0）。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
-
---gaslimit
-gaslimit参数指定部署合约交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。
-
---address
-address参数指定调用的合约地址
-
---params
-params参数用于输入合约调用的参数，需要按照上面的说明编码输入参数。
-
---prepare, -p
-prepare参数表示当前为预执行，执行交易不会被打包到区块中，也不会消耗任何ONG。预执行会返回合约方法的返回值，同时还会试算当前调用需要的gas limit。
-
---return
-return参数用于配合--prepare参数使用，在预执行时通过--return参数标注的返回值类型来解析合约返回返回值，否则输出合约方法调用时返回的原始值。多个返回值类型用","分隔，如 string,int
-
-**智能合约预执行**
-
-```
-./ontology contract invoke --address=XXX --params=XXX --return=XXX --p
-```
-返回示例：
-
-```
-Contract invoke successfully
-Gas consumed:20000
-Return:0
-```
-**智能合约执行**
-
-```
-./ontology contract invoke --address=XXX --params=XXX --gaslimit=XXX
-```
-
-智能合约在执行之前，可以通过预执行，试算出当前执行所需要的gas limit，以避免ONG余额不足导致执行失败。
-
-### 直接执行智能合约字节码
-
-智能合约部署后，cli支持直接执行NeoVM Code。
-
-#### 直接执行智能合约字节码参数
-
---wallet, -w
-wallet参数指定智能合约执行的账户钱包路径。默认值："./wallet.dat"。
-
---account, -a
-account参数指定执行合约的账户。
-
---gasprice
-gasprice参数指定部署合约交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为0。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
-
---gaslimit
-gaslimit参数指定部署合约交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。
-
---prepare, -p
-prepare参数表示当前为预执行，执行交易不会被打包到区块中，也不会消耗任何ONG。预执行会返回合约方法的返回值，同时还会试算当前调用需要的gas limit。
-
---code
-code参数指定可执行的智能合约代码路径。
-
-#### 直接执行智能合约字节码
-
-```
-./ontology contract invokeCode --code=XXX --gaslimit=XXX
-```
