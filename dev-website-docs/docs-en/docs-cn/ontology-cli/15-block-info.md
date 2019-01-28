@@ -235,7 +235,7 @@ $ ontology info block 73537d0363cdc01ae754ed5065001158b5e3400bced437f9fbebf53c96
 
 ## 区块高度
 
-在信息获取模块中，`curblockheight` 命令用于获取当前区块链网络的区块高度。
+在信息获取模块中，`curblockheight` 命令用于获取所接入网络的当前区块高度。
 
 你可以在第一个终端将客户端连接到 `polaris` 测试网。
 
