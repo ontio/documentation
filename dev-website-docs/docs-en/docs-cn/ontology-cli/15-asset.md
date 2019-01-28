@@ -12,7 +12,7 @@ ontology asset help
 
 资产管理命令可以查看账户的余额，执行ONT/ONG转账，提取ONG以及查看未绑定的ONG等操作。
 
-### 账户余额
+## 账户余额
 
 在资产管理模块中，`balance` 命令用于查询指定账户在所接入网络中的余额信息。
 
@@ -48,7 +48,7 @@ BalanceOf:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
   ONG:0
 ```
 
-## 可提取的 ONG
+## 查询可提取的 ONG
 
 在资产管理模块中，`unboundong` 命令用于查询指定账户在所接入网络中的可提取 `ONG` 信息。
 
