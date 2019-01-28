@@ -59,7 +59,7 @@ $ ontology info tx 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050
 你可以在第一个终端将客户端连接到 `polaris` 测试网。
 
 ```shell
-$ ontology --testmode
+ontology --testmode
 ```
 
 然后在第二个终端中查询 `polaris` 测试网中的交易信息。
