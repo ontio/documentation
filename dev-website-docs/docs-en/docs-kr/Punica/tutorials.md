@@ -71,7 +71,7 @@ These video is in Youtube, other language coming soon. [Docs in Video](https://g
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=l0792a0y1mx" allowFullScreen="true" width="100%" height="360"></iframe>
 
-### 3. VS Code
+### 3. VS Code Extension
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=n0815uio4pr" allowFullScreen="true" width="100%" height="360"></iframe>
 
@@ -102,3 +102,7 @@ These video is in Youtube, other language coming soon. [Docs in Video](https://g
 ### 10. 엔진 API 실행
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=s0831u6a9xw" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 11. Static and Dynamic Call
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=g0832e8dxmi" allowFullScreen="true" width="100%" height="360"></iframe>
