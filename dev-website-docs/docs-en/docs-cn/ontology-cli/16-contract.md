@@ -22,7 +22,7 @@ def echo(msg):
 
 ```
 
-将该段智能合约代码使用编译器编译后可以得到相应的 `AVM` 字节码，将其保存到本地。
+将该段智能合约代码使用编译器编译后可以得到相应的 `AVM` 字节码，将其以 `hello_ontology.avm` 为文件名保存到本地。
 
 ```shell
 51c56b6c58c56b6a00527ac46a51527ac46a52527ac46a51c3046563686f7d9c7c75642700006a53527ac46a52c300c3516a53c3936a53527ac46a53c36a00c365f2006c7566620300006c75660111c56b6a00527ac46a51527ac46a51c300947600a0640c00c16a52527ac4620e007562030000c56a52527ac46a52c3c0517d9c7c75641c00006a53527ac46a52c300c36a54527ac4516a55527ac4625c006a52c3c0527d9c7c756421006a52c300c36a53527ac46a52c351c36a54527ac4516a55527ac4616232006a52c3c0537d9c7c756424006a52c300c36a53527ac46a52c351c36a54527ac46a52c352c36a55527ac462050000f100c176c96a56527ac46a53c36a57527ac46a57c36a54c37d9f7c756419006a56c36a57c3c86a57c36a55c3936a57527ac462e0ff6a56c36c756656c56b6a00527ac46a51527ac46a52527ac4620300046563686f6a52c352c176c9681553797374656d2e52756e74696d652e4e6f746966796a52c36c7566
@@ -42,7 +42,31 @@ ontology --testmode
 
 ## 部署智能合约
 
+在智能合约模块中，`deploy` 命令用于根据交易哈希查询交易信息。
 
+```shell
+$ ontology contract deploy --code  .\hello_ontology.avm --name hello_ontology --version 1.0.0 --author NashMiao --email contact@ont.io --desc hello_ontology --gaslimit 20000000
+Password:
+Deploy contract:
+  Contract Address:0203e74032b6b65de9872180f9b600f13858357d
+  TxHash:ffb0a02847d31641f05a498a19a4f9f7e7d7616d0ab163c641d16d11fb02955e
+
+Tip:
+  Using './ontology info status ffb0a02847d31641f05a498a19a4f9f7e7d7616d0ab163c641d16d11fb02955e' to query transaction status.
+```
+
+根据返回的交易哈希，我们可以查询智能合约部署交易的执行状态，`State` 字段为 `1`，表示智能合约部署成功。
+
+```shell
+$ ontology info status ffb0a02847d31641f05a498a19a4f9f7e7d7616d0ab163c641d16d11fb02955e
+Transaction states:
+{
+   "TxHash": "ffb0a02847d31641f05a498a19a4f9f7e7d7616d0ab163c641d16d11fb02955e",
+   "State": 1,
+   "GasConsumed": 0,
+   "Notify": []
+}
+```
 
 
 
