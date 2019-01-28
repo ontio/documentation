@@ -132,4 +132,4 @@ sdk.websocket.set_address(websocket_address)
   - http://dappnode3.ont.io
   - http://dappnode4.ont.io
 
-此外，我们也提供了[测试网水龙头](https://developer.ont.io/applyOng)供开发者获取本体网络的原生通证 `ONT` 与 `ONG`。
+如果你希望基于 polaris 测试网进行开发，你可以在[这里](https://developer.ont.io/applyOng)申请测试所需的 `ONT` 与 `ONG`。
