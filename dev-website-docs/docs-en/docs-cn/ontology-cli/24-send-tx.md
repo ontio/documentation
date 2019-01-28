@@ -1,0 +1,33 @@
+
+## 发送交易
+
+用户签好名后的交易可以通过发送交易命令提交到Ontology网络上。
+
+### 发送交易参数
+
+--rpcport
+rpcport 参数用于设置RPC服务器的端口号。
+
+--prepare
+prepare 参数用于指定是否本地预执行该交易。预执行在本地执行，不会把交易发送到Ontology网路上，也不会提交到账户中。
+
+```
+./ontology sendtx 00d17c61875bf401000000000000204e0000000000006a987e044e01e3b71f9bb60df57ab0458215ef0f6e00c66b6a146a987e044e01e3b71f9bb60df57ab0458215ef0fc86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65000141409f32f1fd170d174959da26cb9df8f4a15049d255ed3953d92870d5739c4e8b8158ec3bde1e9ae9b4d9621b09311b5e49ed91dcbc64d3b5f74cf011eaa616c403232103c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a56ac
+```
+
+返回如下：
+
+```
+  TxHash:f8ea91da985af249e808913b6398150079cdfb02273146e4eb69c43947a42db2
+
+Tip:
+  Using './ontology info status f8ea91da985af249e808913b6398150079cdfb02273146e4eb69c43947a42db2' to query transaction status.
+```
+
+如果是预执行返回如下：
+
+```
+Prepare execute transaction success.
+Gas limit:20000
+Result:01
+```

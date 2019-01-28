@@ -27,6 +27,14 @@
   - [信息获取](docs-cn/ontology-cli/15-block-info.md)
   - [资产管理](docs-cn/ontology-cli/16-asset.md)
   - [合约使用](docs-cn/ontology-cli/17-contract.md)
+  - [区块导入](docs-cn/ontology-cli/18-block-import.md)
+  - [区块导出](docs-cn/ontology-cli/19-block-export.md)
+  - [构造交易](docs-cn/ontology-cli/20-build-tx.md)
+  - [签署交易](docs-cn/ontology-cli/21-sig-tx.md)
+  - [多签地址](docs-cn/ontology-cli/22-multi-sig-address.md)
+  - [多签交易](docs-cn/ontology-cli/23-multi-sig-tx.md)
+  - [发送交易](docs-cn/ontology-cli/24-send-tx.md)
+  - [查看交易](docs-cn/ontology-cli/25-show-tx.md)
 
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
