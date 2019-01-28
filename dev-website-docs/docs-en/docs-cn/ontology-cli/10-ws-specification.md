@@ -34,7 +34,7 @@
 | 45001 | int64 | 内部错误         |
 | 47001 | int64 | 智能合约执行错误 |
 
-###  1. heartbeat
+## heartbeat
 
 如果超过五分钟没有发送心跳信号，则连接关闭。
 
@@ -65,7 +65,7 @@
 }
 ```
 
-###  2. subscribe
+## subscribe
 订阅某个服务。
 
 #### Request Example:
@@ -102,7 +102,7 @@
 ```
 
 
-### 3. getconnectioncount
+## getconnectioncount
 
 得到当前连接的节点数量。
 
@@ -128,7 +128,7 @@
     "Version": "1.0.0"
 }
 ```
-### 4. getblocktxsbyheight
+## getblocktxsbyheight
 
 返回对应高度的区块中落账的所有交易哈希。
 
@@ -161,7 +161,7 @@
     "Version": "1.0.0"
 }
 ```
-### 5. getblockbyheight
+## getblockbyheight
 
 得到该高度的区块的详细信息。
 
@@ -235,7 +235,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Version": "1.0.0"
 }
 ```
-### 6. getblockbyhash
+## getblockbyhash
 
 通过区块哈希得到区块信息。
 
@@ -310,7 +310,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 7. getblockheight
+## getblockheight
 
 得到当前网络上的区块高度。
 
@@ -338,7 +338,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 8. getblockhash
+## getblockhash
 
 根据高度得到对应区块的哈希。
 
@@ -366,7 +366,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 9. gettransaction
+## gettransaction
 
 通过交易哈希得到该交易的信息。
 
@@ -420,7 +420,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 10. sendrawtransaction
+## sendrawtransaction
 
 向ontology网络发送交易。
 
@@ -452,7 +452,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 ```
 > Result: 交易哈希
 
-### 11. getstorage
+## getstorage
 
 通过合约地址哈希和键得到对应的值。
 
@@ -486,7 +486,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 ```
 > 注意: 返回的值和传入的key参数均是十六进制。
 
-### 12. getbalance
+## getbalance
 
 得到该地址的账户的余额。
 
@@ -514,7 +514,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Version": "1.0.0"
 }
 ```
-### 13. getcontract
+## getcontract
 
 根据合约地址哈希得到合约信息。
 
@@ -550,7 +550,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-#### 14. getsmartcodeeventbyheight
+## getsmartcodeeventbyheight
 
 得到该高度区块上的智能合约执行结果。
 
@@ -611,7 +611,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 ```
 > 注意: 返回的结果是交易简略信息的集合，并不是完整的交易信息。
 
-### 15. getsmartcodeeventbyhash
+## getsmartcodeeventbyhash
 
 通过交易哈希得到该交易的执行结果。
 
@@ -649,7 +649,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     }
 }
 ```
-### 16. getblockheightbytxhash
+## getblockheightbytxhash
 
 通过交易哈希得到该交易落账的区块高度。
 
@@ -674,7 +674,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 ```
 
 
-### 17. getmerkleproof
+## getmerkleproof
 
 通过交易哈希得到该交易的merkle证明。
 
@@ -720,7 +720,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 18. getsessioncount
+## getsessioncount
 
 得到会话数量。
 
@@ -743,7 +743,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 19. getgasprice
+## getgasprice
 
 得到gas的价格。
 
@@ -769,7 +769,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 20. getallowance
+## getallowance
 
 得到允许从from账户转出到to账户的额度。
 
@@ -795,7 +795,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 21. getunboundong
+## getunboundong
 
 得到该账户未提取的ong数量。
 
@@ -819,7 +819,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 22. getmempooltxstate
+## getmempooltxstate
 
 通过交易哈希得到内存中该交易的状态。
 
@@ -853,7 +853,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 23. getmempooltxcount
+## getmempooltxcount
 
 得到内存中的交易的数量。
 
@@ -877,7 +877,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 ```
 
 
-### 24. getversion
+## getversion
 
 得到版本信息。
 
@@ -900,7 +900,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 25. getnetworkid
+## getnetworkid
 
 获取 network id
 
@@ -923,7 +923,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-### 26. getgrantong
+## getgrantong
 
 获取 grant ong
 
