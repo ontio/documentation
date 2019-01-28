@@ -23,13 +23,6 @@ ontology help
 |    showtx    | 以 JSON 格式显示序列化交易的信息 |
 |   help, h    |           显示帮助信息           |
 
-具体命令的使用介绍，你可以参考如下章节：
-
-- `account` 命令的[使用介绍](docs-cn/ontology-cli/14-wallet-manager.md)
-- `info` 命令的[使用介绍](docs-cn/ontology-cli/15-block-info.md)
-- `asset` 命令的[使用介绍](docs-cn/ontology-cli/16-asset.md)
-- `contract` 命令的[使用介绍](docs-cn/ontology-cli/17-contract.md)
-
 ## 参数
 
 本体客户端 `Ontology CLI` 支持的命令行参数如下表所示，你可以在需要的时候使用 `help` 命令在终端中查看。
