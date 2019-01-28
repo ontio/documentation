@@ -1,44 +1,109 @@
-## 查询信息
 
-查询信息命令可以查询区块、交易以及交易执行等信息。使用./ontology info block --help 命令可以查看帮助信息。
+本体客户端 `Ontology-CLI` 提供了信息获取模块，可以在命令行中通过 `info` 命令使用。
 
-### 查询区块信息
+- 查询交易信息
+- 查询交易状态
+- 查询区块信息
+- 查询区块高度
 
+此外，你可以通过 `help` 命令获取信息获取模块的帮助信息 。
+
+```shell
+ontology info help
 ```
-./ontology info block <height|blockHash>
-```
-可以通过区块高度或者区块Hash 查询区块信息。
 
-### 查询交易信息
+## 查询交易信息
 
-```
-./ontology info tx <TxHash>
-```
-可以通过交易Hash查询交易信息。
+在信息获取模块中，`tx` 命令用于根据交易哈希查询交易信息。
 
-### 查询交易执行信息
+你可以在第一个终端将客户端连接到 `polaris` 测试网。
 
+```shell
+ontology --testmode
 ```
-./ontology info status <TxHash>
-```
-可以通过交易Hash查询交易的执行信息，返回示例如下：
 
+然后在第二个终端中查询 `polaris` 测试网中的交易信息。
+
+- 请求
+
+```shell
+ontology info tx 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79
 ```
+
+- 响应
+
+```json
 {
-   "TxHash": "4c00674d96b1d3d2c8152b905cae6f87fff0ec8acf28ca3e7465aac59de814a1",
+   "Version": 0,
+   "Nonce": 0,
+   "GasPrice": 0,
+   "GasLimit": 18446744073709551615,
+   "Payer": "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+   "TxType": 209,
+   "Payload": {
+      "Code": "1c010114c27820271114214d747b0b577daf32a19911dcb90400ca9a3b04696e69741400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65"
+   },
+   "Attributes": [],
+   "Sigs": [],
+   "Hash": "1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79",
+   "Height": 0
+}
+```
+
+## 查询交易状态
+
+在信息获取模块中，`status` 命令用于根据交易哈希查询交易信息。
+
+你可以在第一个终端将客户端连接到 `polaris` 测试网。
+
+```shell
+ontology --testmode
+```
+
+然后在第二个终端中查询 `polaris` 测试网中的交易信息。
+
+- 请求
+
+```shell
+ontology info status 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79
+```
+
+- 响应
+
+```json
+{
+   "TxHash": "1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79",
    "State": 1,
    "GasConsumed": 0,
    "Notify": [
       {
-         "ContractAddress": "ff00000000000000000000000000000000000001",
+         "ContractAddress": "0100000000000000000000000000000000000000",
          "States": [
             "transfer",
-            "TA587BCw7HFwuUuzY1wg2HXCN7cHBPaXSe",
-            "TA5gYXCSiUq9ejGCa54M3yoj9kfMv3ir4j",
-            10
+            "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+            "AZW8eBkXh5qgRjmeZjqY2KFGLXhKcX4i2Y",
+            1000000000
          ]
       }
    ]
 }
 ```
-其中，State表示交易执行结果，State的值为1，表示交易执行成功，State值为0时，表示执行失败。GasConsumed表示交易执行消耗的ONG。Notify表示交易执行时输出的Event log。不同的交易可能会输出不同的Event log。
+
+其中，`State` 字段对应着交易执行结果，若值为 `1`，表示交易执行成功；`GasConsumed` 字段对应着执行交易所消耗的 `ONG`；`Notify` 字段对应着交易执行时所触发的事件。
+
+## 查询区块信息
+
+在信息获取模块中，`block` 命令用于根据区块高度或者区块哈希查询区块信息。
+
+你可以在第一个终端将客户端连接到 `polaris` 测试网。
+
+```shell
+ontology --testmode
+```
+
+然后在第二个终端中查询 `polaris` 测试网中的区块信息。
+
+```shell
+ontology info block 0
+ontology info block 44425ae42a394ec0c5f3e41d757ffafa790b53f7301147a291ab9b60a956394c
+```
