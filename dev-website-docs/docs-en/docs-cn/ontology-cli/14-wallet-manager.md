@@ -266,3 +266,11 @@ ontology account import --wif ./wif
 - 什么是助记词？
   
   助记词是私钥的另一种表现形式。最早是由 BIP39 提案提出, 其目的是为了帮助用户记忆复杂的私钥字符串。助记词一般由12、15、18、21个单词构成, 这些单词都取自一个固定词库, 其生成顺序也是按照一定算法而来。
+
+- 什么是 ONT ID？
+
+  ONT ID 是现实世界中的实体（个人、组织、物品、内容等）在区块链上的身份标识。每⼀个 ONT ID 都对应着一个在区块链上的 ONT ID 描述对象（ONT DDO），用于记录 ONT ID 的控制人、公钥列表、属性对象和恢复人地址信息。
+
+  本质上，ONT ID 是一种统一资源标识符（URL），由每个实体自己生成（生成算法需要保证极低的碰撞率），并向区块链网络进行注册（共识节点负责检查是否已被注册）。
+
+<div align="center"><img width="300" src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/ontology-cli/wallet-manager/ont-id-cn.png"></div>
