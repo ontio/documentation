@@ -5,37 +5,37 @@
 
 ## 基于客户端进行调用
 
-本体的 Go 客户端提供了大量调用命令，这些命令默认会向本地启动的节点按照 JSON-RPC 协议发送调用命令。
+本体客户端提供了大量调用命令，这些命令默认会向本地启动的节点按照 JSON-RPC 协议发送调用命令。
 
 一个简单的例子是分别在测试模式和主网同步模式查询账户余额。
 
-1. 在第一个终端中开启测试模式
+1. 在第一个终端中开启测试模式：
 
-```shell
-ontology --testmode
-```
+   ```shell
+   ontology --testmode
+   ```
 
-2. 在第二个终端中查询账户余额
+2. 在第二个终端中查询账户余额：
 
-```shell
-ontology asset balance 1
-```
+   ```shell
+   ontology asset balance 1
+   ```
 
-3. 将第一个终端切换到主网同步模式
+3. 将第一个终端切换到主网同步模式：
 
-```shell
-ontology
-```
+   ```shell
+   ontology
+   ```
 
-4. 在第二个终端中查询账户余额
+4. 在第二个终端中查询账户余额：
 
-```shell
-ontology asset balance 1
-```
+   ```shell
+   ontology asset balance 1
+   ```
 
 ## 基于 SDK 进行调用
 
-我们提供了众多SDK 供开发者使用，你可以选择自己熟悉的语言，快速开始你在本体网络上的区块链之旅！
+本体提供了众多 SDK 供开发者使用，你可以参考下表选择自己熟悉的语言。
 
 |          库          |    语言     |                        项目地址                         |
 | :------------------: | :---------: | :-----------------------------------------------------: |
@@ -51,62 +51,66 @@ ontology asset balance 1
 
 以 `ontology-python-sdk` 为例，你可以在安装 SDK 后用简洁的代码快速连接到运行中的节点。
 
-```shell
-pip install ontology-python-sdk
-```
+- 安装 SDK
+
+  ```shell
+  pip install ontology-python-sdk
+  ```
 
 - 连接到主网
 
-```Python
-from ontology.ont_sdk import OntologySdk
-
-
-sdk = OntologySdk()
-sdk.rpc.connect_to_main_net()
-sdk.restful.connect_to_main_net()
-sdk.websocket.connect_to_main_net()
-```
+  ```Python
+  from ontology.ont_sdk import OntologySdk
+  
+  
+  sdk = OntologySdk()
+  sdk.rpc.connect_to_main_net()
+  sdk.restful.connect_to_main_net()
+  sdk.websocket.connect_to_main_net()
+  ```
 
 - 连接到测试网
 
-```Python
-from ontology.ont_sdk import OntologySdk
-
-
-sdk = OntologySdk()
-sdk.rpc.connect_to_test_net()
-sdk.restful.connect_to_test_net()
-sdk.websocket.connect_to_test_net()
-```
+  ```Python
+  from ontology.ont_sdk import OntologySdk
+  
+  
+  sdk = OntologySdk()
+  sdk.rpc.connect_to_test_net()
+  sdk.restful.connect_to_test_net()
+  sdk.websocket.connect_to_test_net()
+  ```
 
 - 连接到本地节点
 
-```Python
-from ontology.ont_sdk import OntologySdk
-
-
-sdk = OntologySdk()
-sdk.rpc.connect_to_localhost()
-sdk.restful.connect_to_localhost()
-sdk.websocket.connect_to_localhost()
-```
+  ```Python
+  from ontology.ont_sdk import OntologySdk
+  
+  
+  sdk = OntologySdk()
+  sdk.rpc.connect_to_localhost()
+  sdk.restful.connect_to_localhost()
+  sdk.websocket.connect_to_localhost()
+  ```
 
 - 连接到自定义节点
 
-```Python
-from ontology.ont_sdk import OntologySdk
+  ```Python
+  from ontology.ont_sdk import OntologySdk
+  
+  
+  sdk = OntologySdk()
+  rpc_address = 'http://localhost:20336'
+  restful_address = 'http://localhost:20334'
+  websocket_address = 'http://localhost:20335'
+  sdk.rpc.set_address(rpc_address)
+  sdk.restful.set_address(restful_address)
+  sdk.websocket.set_address(websocket_address)
+  ```
 
-
-sdk = OntologySdk()
-rpc_address = 'http://localhost:20336'
-restful_address = 'http://localhost:20334'
-websocket_address = 'http://localhost:20335'
-sdk.rpc.set_address(rpc_address)
-sdk.restful.set_address(restful_address)
-sdk.websocket.set_address(websocket_address)
-```
-
-**注意**：一般情况下，你只需要连接到 RPC、Restful 或 WebSocket 中的一个接口，并使用该接口与节点进行交互即可。
+> **注意**：
+>
+> 一般情况下，你只需要连接到 RPC、Restful 或 WebSocket 中的一个接口，并使用该接口与节点进行交互即可。
 
 关于函数库的更多信息可以在下列章节中找到：
 
@@ -117,7 +121,7 @@ sdk.websocket.set_address(websocket_address)
 
 ## 使用公开节点
 
-通常情况下，开发者自己运行节点是极为不便的。因此，我们提供了 polaris 测试网节点以及主网节点供开发者使用，它们均支持 RPC、 Restful 以及 WebSockek 调用，并使用默认的端口号。
+通常情况下，开发者自己运行节点是极为不便的。因此，本体提供了 polaris 测试网节点以及主网节点供开发者使用，它们均支持 RPC、 Restful 以及 WebSockek 调用，并使用默认的端口号。
 
 - polaris 测试网节点
   - http://polaris1.ont.io
@@ -132,4 +136,4 @@ sdk.websocket.set_address(websocket_address)
   - http://dappnode3.ont.io
   - http://dappnode4.ont.io
 
-此外，我们也提供了[测试网水龙头](https://developer.ont.io/applyOng)供开发者获取本体网络的原生通证 `ONT` 与 `ONG`。
+此外，开发者还可以通过 [测试网水龙头](https://developer.ont.io/applyOng) 获取本体网络的原生通证 `ONT` 与 `ONG`。
