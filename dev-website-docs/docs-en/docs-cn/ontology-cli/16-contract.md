@@ -44,6 +44,30 @@ ontology --testmode
 
 在智能合约模块中，`deploy` 命令用于根据交易哈希查询交易信息。
 
+- `--needstore`：用于指定智能合约需要使用持久化的合约存储（默认不使用）。
+
+- `--code`：用于指定存储智能合约 `AVM` 字节码文件的路径。
+
+- `--name`：用于指定智能合约的名称。
+
+- `--version`：用于指定智能合约的版本号。
+
+- `--author`：用于指定智能合约的作者信息。
+
+- `--email`：用于指定智能合约的联系人电子邮件。
+
+- `--desc`：用于指定智能合约的描述信息。
+
+- `--prepare, -p`：用于指定智能合约的预部署。
+
+```shell
+$ ontology contract deploy --code  .\hello_ontology.avm --name hello_ontology --version 1.0.0 --author NashMiao --email contact@ont.io --desc hello_ontology --gaslimit 20000000 -p
+Contract pre-deploy successfully.
+Gas consumed:20000000.
+```
+
+智能合约的预部署不会把合约部署到链上，也不会消耗任何 `ONG`。通过预部署，你可以知道部署当前合约所需要消耗的 `gas`。
+
 ```shell
 $ ontology contract deploy --code  .\hello_ontology.avm --name hello_ontology --version 1.0.0 --author NashMiao --email contact@ont.io --desc hello_ontology --gaslimit 20000000
 Password:
@@ -70,41 +94,14 @@ Transaction states:
 
 此外，你可以通过 `--account` 选项指定支付部署智能合约所需 `ONG` 的钱包账户。
 
+> **注意**：
+> - 节点默认的 `gas price` 为 500（测试模式下为 0）。
+> - 账户实际支付的 `ONG` 费用为 `gasprice × gaslimit`。
+> - 交易池会按照 `gas price` 由高到低的顺序，对交易池队列中的交易进行处理。
+> - 部署智能合约时，`gas limit` 必须大于 `20000000`（合约的操作码 `opcode` 执行上限数 ）。
+> - 交易的 `gas price` 不能小于接收该交易的节点所设置的最低 `gas price`，否则交易会被拒绝。
+> - 交易的 `gas limit` 不能小于接收该交易的节点所设置的最低 `gas limit`，否则交易会被拒绝。
 
---account, -a
-account参数指定部署合约的账户。
-
---gasprice
-gasprice参数指定部署合约交易的gas price。交易的gas price不能小于接收节点交易池设置的最低gas price，否则交易会被拒绝。默认值为500（在testmode模型下为0）。当交易池中有交易在排队等待打包进区块时，交易池会按照gas price由高到低排序，gas price高的交易会被优先处理。
-
---gaslimit
-gaslimit参数指定部署合约交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支付的ONG 费用。
-
-**对于合约部署，gaslimit 值必须大于20000000，同时账户中必须保有足够的ONG余额。**
-
---needstore
-needstore参数指定智能合约属否需要使用持久化存储，如果需要使用则需要带上该参数。默认为不使用。
-
---code
-code参数指定智能合约代码路径。
-
---name
-name参数指定智能合约的名称。
-
---version
-version参数指定智能合约的版本号。
-
---author
-author参数指定智能合约的作者信息。
-
---email
-emial参数指定智能合约的联系人电子邮件。
-
---desc
-desc参数可以指定智能合约的描述信息。
-
---prepare, -p
-prepare参数用于预部署合约, 预部署不会把合约部署到Ontology上， 也不会消耗人任何ONG。通过预部署合约，用户可以知道当前合约部署所需要消耗的gas limit。
 
 **智能合约部署**
 
