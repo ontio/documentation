@@ -1,9 +1,9 @@
 
 本体客户端 `Ontology-CLI` 提供了智能合约模块，可以在命令行中通过 `contract` 命令使用。
 
-- `NeoVm` 的部署
-- `NeoVm` 的执行
-- `NeoVm` 的预执行
+- `NeoVm` 智能合约的部署。
+- `NeoVm` 智能合约的执行。
+- `NeoVm` 智能合约的预执行。
 
 我们以 `hello_ontology.py` 智能合约为例，在本地测试网上进行命令的讲解。
 
@@ -79,6 +79,16 @@ Tip:
   Using './ontology info status ffb0a02847d31641f05a498a19a4f9f7e7d7616d0ab163c641d16d11fb02955e' to query transaction status.
 ```
 
+在输出的信息中，`Contract Address` 为合约的哈希地址，是对智能合约接口进行调用的依据。
+
+> **注意**：
+> - 节点默认的 `gas price` 为 500（测试模式下为 0）。
+> - 账户实际支付的 `ONG` 费用为 `gasprice × gaslimit`。
+> - 交易池会按照 `gas price` 由高到低的顺序，对交易池队列中的交易进行处理。
+> - 部署智能合约时，`gas limit` 必须大于 `20000000`（合约的操作码 `opcode` 执行上限数 ）。
+> - 交易的 `gas price` 不能小于接收该交易的节点所设置的最低 `gas price`，否则交易会被拒绝。
+> - 交易的 `gas limit` 不能小于接收该交易的节点所设置的最低 `gas limit`，否则交易会被拒绝。
+
 根据返回的交易哈希，我们可以查询智能合约部署交易的执行状态，`State` 字段为 `1`，表示智能合约部署成功。
 
 ```shell
@@ -92,52 +102,32 @@ Transaction states:
 }
 ```
 
+> **注意**：通过 `ontology info status <TxHash>` 命令查询合约执行状态，如果返回 `UNKNOWN TRANSACTION`，表示该交易尚未被打包到区块中，可能有多种情况。
+> - 交易还在交易池中排队等待被打包。
+> - 交易因为 `gaslimit` 或者 `gasprice` 设置过低，导致交易被拒绝。
+
 此外，你可以通过 `--account` 选项指定支付部署智能合约所需 `ONG` 的钱包账户。
 
-> **注意**：
-> - 节点默认的 `gas price` 为 500（测试模式下为 0）。
-> - 账户实际支付的 `ONG` 费用为 `gasprice × gaslimit`。
-> - 交易池会按照 `gas price` 由高到低的顺序，对交易池队列中的交易进行处理。
-> - 部署智能合约时，`gas limit` 必须大于 `20000000`（合约的操作码 `opcode` 执行上限数 ）。
-> - 交易的 `gas price` 不能小于接收该交易的节点所设置的最低 `gas price`，否则交易会被拒绝。
-> - 交易的 `gas limit` 不能小于接收该交易的节点所设置的最低 `gas limit`，否则交易会被拒绝。
+## 执行智能合约
 
+在本体客户端 `Ontology-CLI` 中，支持的参数类型为 `array`、`bytearray`、`string`、`int` 以及 `bool`。
 
-**智能合约部署**
+- `array` 表示对象数组，数组元素可以是 `NeoVM` 支持的任意数量、任意类型的值。
+- `bytearray` 表示字节数组，输入时需要将字节数组编码成十六进制字符串，如 `[]byte("HelloWorld")` 编码成十六进制字符串 `48656c6c6f576f726c64`。
+- `string` 表示字符串字面值。
+- `int` 表示整数。
+- `bool` 表示布尔型变量，用 `true` 和 `false`表示。
 
-```
-./ontology contract deploy --name=xxx --code=xxx --author=xxx --desc=xxx --email=xxx --needstore --gaslimit=100000000
-```
+> **注意**：`NeoVM` 虚拟机不支持浮点数值，需要将浮点数转换成整数。
 
-部署后会返回部署交易的TxHash以及合约地址，如：
+`Ontology-CLI` 使用前缀法构造参数，参数前使用类型标识标注类型。
 
-```
-Deploy contract:
-  Contract Address:806fbee1fcfb554af47844edd4d4ce2918737747
-  TxHash:99d719f51837acfa48f9cd2a21983fb993bc8d5a763b497802f7b872be2338fe
-```
+- 字符串参数表示为 `string:hello`。
+- 整数参数表示为 `int:10`。
+- 布尔类型参数表示为 `bool:true`。
 
-可以通过 ./ontology info status <TxHash> 命令查询合约执行状态。如果返回错误如：UNKNOWN TRANSACTION时，表示交易没有落帐，有可能交易还在交易池中排队等待被打包，也有可能表示交易因为gaslimit或者时gasprice设置过低，导致交易被拒绝。
+多个参数使用","分隔。对象数组array类型用"[ ]"表示数组元素范围，如 [int:10,string:hello,bool:true]。
 
-如果返回的执行状态State等于0，表示交易执行失败，如果State等于1，表示交易执行成功，合约被成功部署。如：
-
-```
-Transaction states:
-{
-   "TxHash": "99d719f51837acfa48f9cd2a21983fb993bc8d5a763b497802f7b872be2338fe",
-   "State": 1,
-   "GasConsumed": 0,
-   "Notify": []
-}
-```
-
-Contract Address为根据合约Code生成的合约地址。
-
-### 智能合约执行
-
-NeoVM智能合约参数类型支持array、bytearray、string、int以及bool类型。其中array表示对象数组，数组元素可以是NeoVM支持的任意数量、任意类型的值；bytearray表示字节数组，输入时需要将byte数组用十六进制编码成字符串，如 []byte("HelloWorld") 编码成：48656c6c6f576f726c64；string表示字符串字面值；int表示整数，由于NeoVM虚拟机不支持浮点数值，因此需要将浮点数转换成整数；bool表示布尔型变量，用true，false表示。
-
-在Ontology cli中，使用前缀法构造输入参数，参数前使用类型标识标注类型，如字符串参数表示为 string:hello; 整数参数表示为 int:10; 布尔类型参数表示为 bool:true等。多个参数使用","分隔。对象数组array类型用"[ ]"表示数组元素范围，如 [int:10,string:hello,bool:true]。
 
 输入参数示例：
 
