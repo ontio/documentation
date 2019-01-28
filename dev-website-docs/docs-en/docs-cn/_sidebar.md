@@ -19,9 +19,8 @@
       - [Restful 接口列表](docs-cn/ontology-cli/07-restful-list.md)
       - [Restful 接口规范](docs-cn/ontology-cli/08-restful-specification.md)
       - [WebSocket 接口列表](docs-cn/ontology-cli/09-ws-list.md)
-      - [WebSocket 接口规范](docs-cn/ontology-cli/10-ws-specification.md)  
+      - [WebSocket 接口规范](docs-cn/ontology-cli/10-ws-specification.md)
   - [命令](docs-cn/ontology-cli/11-commands.md)
-      - [节点部署](docs-cn/ontology-cli/13-deploy-node.md)
       - [钱包管理](docs-cn/ontology-cli/14-wallet-manager.md)
       - [信息获取](docs-cn/ontology-cli/15-block-info.md)
       - [资产管理](docs-cn/ontology-cli/16-asset.md)
@@ -35,6 +34,7 @@
       - [发送交易](docs-cn/ontology-cli/24-send-tx.md)
       - [查看交易](docs-cn/ontology-cli/25-show-tx.md)
   - [选项](docs-cn/ontology-cli/12-options.md)
+  - [节点部署](docs-cn/ontology-cli/13-deploy-node.md)
 
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
