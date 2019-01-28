@@ -108,7 +108,7 @@ Transaction states:
 
 此外，你可以通过 `--account` 选项指定支付部署智能合约所需 `ONG` 的钱包账户。
 
-## 执行智能合约
+## 调用智能合约
 
 在本体客户端 `Ontology-CLI` 中，支持的参数类型为 `array`、`bytearray`、`string`、`int` 以及 `bool`。
 
@@ -127,7 +127,61 @@ Transaction states:
 - 布尔类型参数表示为 `bool:true`。
 - 对象数组 `array` 类型用 `[]` 表示数组元素范围，如 `[int:10, string:hello, bool:true]`。
 
-使用 `-p` 参数预执行智能合约，获得执行结果以及 `gas` 消耗。
+由于在本体网络中，智能合约的调用分为执行和预执行。因此，我们也将分别介绍两种合约的调用方式。
+
+### 智能合约的执行
+
+
+```shell
+$ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500
+Invoke:7d355838f100b6f9802187e95db6b63240e70302 Params:["echo",["ontology"]]
+Password:
+  TxHash:8d62fb42647c175dd5689dd5d1062dda093d59c66ca22f710a2b47174c7ed966
+
+Tips:
+  Using './ontology info status 8d62fb42647c175dd5689dd5d1062dda093d59c66ca22f710a2b47174c7ed966' to query transaction status.
+```
+
+当我们执行智能合约时，将会得到对应的交易哈希 `TxHash`。通过交易哈希，我们能够查询到该笔交易当前的状态、消耗的 `gas`、所在的区块（若执行成功）、触发的事件（若执行成功）等信息。因此，交易哈希是我们与区块链世界沟通的桥梁。
+
+```shell
+$ ontology info status 8d62fb42647c175dd5689dd5d1062dda093d59c66ca22f710a2b47174c7ed966
+Transaction states:
+{
+   "TxHash": "8d62fb42647c175dd5689dd5d1062dda093d59c66ca22f710a2b47174c7ed966",
+   "State": 1,
+   "GasConsumed": 0,
+   "Notify": [
+      {
+         "ContractAddress": "0203e74032b6b65de9872180f9b600f13858357d",
+         "States": [
+            "6563686f",
+            "6f6e746f6c6f6779"
+         ]
+      }
+   ]
+}
+```
+
+通过查询交易哈希，我们获得了如下信息。
+
+- 交易已经执行成功：`State` 字段为 `1`。
+- 该笔交易未消耗 `gas`：`GasConsumed` 字段为 `0`。
+- 该笔交易在地址为 `0203e74032b6b65de9872180f9b600f13858357d` 的合约中触发了 `echo` 事件，事件的值为 `ontology`。
+
+其中，利用交易哈希所查询到的序列化后的十六进制字符串，可以利用 `ontology-python-sdk` 快速进行反序列化。
+
+```python
+from ontology.utils.contract_data import ContractDataParser
+
+
+event_name = ContractDataParser.to_utf8_str('6563686f')
+event_value = ContractDataParser.to_utf8_str('6f6e746f6c6f6779')
+```
+
+### 智能合约的预执行
+
+我们可以使用 `-p` 参数预执行智能合约，获得执行结果以及 `gas` 消耗。
 
 ```shell
 $ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500 -p
@@ -137,7 +191,17 @@ Contract invoke successfully
   Return:01 (raw value)
 ```
 
+同时，我们也可以使用 `--return` 选项指明返回值的类型，获得解析后的返回值。
 
+```shell
+$ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500 -p --return bool
+Invoke:7d355838f100b6f9802187e95db6b63240e70302 Params:["echo",["ontology"]]
+Contract invoke successfully
+  Gas limit:20000
+  Return:true
+```
+
+> **注意**: 智能合约在执行之前，可以通过预执行，试算出当前执行所需要的 `gas limit`，避免 `ONG` 余额不足导致执行失败。
 
 #### 智能合约执行参数
 
