@@ -48,7 +48,7 @@ BalanceOf:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
   ONG:0
 ```
 
-## 可提取的 ONG
+## 查询可提取的 ONG
 
 在资产管理模块中，`unboundong` 命令用于查询指定账户在所接入网络中的可提取 `ONG` 信息。
 
