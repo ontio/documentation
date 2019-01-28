@@ -120,20 +120,24 @@ Transaction states:
 
 > **注意**：`NeoVM` 虚拟机不支持浮点数值，需要将浮点数转换成整数。
 
-`Ontology-CLI` 使用前缀法构造参数，参数前使用类型标识标注类型。
+`Ontology-CLI` 使用前缀法构造参数，参数前使用类型标识标注类型，多个参数使用 `,` 分隔。
 
 - 字符串参数表示为 `string:hello`。
 - 整数参数表示为 `int:10`。
 - 布尔类型参数表示为 `bool:true`。
+- 对象数组 `array` 类型用 `[]` 表示数组元素范围，如 `[int:10, string:hello, bool:true]`。
 
-多个参数使用","分隔。对象数组array类型用"[ ]"表示数组元素范围，如 [int:10,string:hello,bool:true]。
+使用 `-p` 参数预执行智能合约，获得执行结果以及 `gas` 消耗。
 
-
-输入参数示例：
-
+```shell
+$ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500 -p
+Invoke:7d355838f100b6f9802187e95db6b63240e70302 Params:["echo",["ontology"]]
+Contract invoke successfully
+  Gas limit:20000
+  Return:01 (raw value)
 ```
-string:methodName,[string:arg1,int:arg2]
-```
+
+
 
 #### 智能合约执行参数
 
