@@ -33,9 +33,9 @@ ontology
 ontology asset balance 1
 ```
 
-## 基于函数库进行调用
+## 基于 SDK 进行调用
 
-我们提供了众多函数库供开发者使用，你可以选择自己熟悉的语言，快速开始的你客户端交互之旅！
+我们提供了众多SDK 供开发者使用，你可以选择自己熟悉的语言，快速开始你在本体网络上的区块链之旅！
 
 |          库          |    语言     |                        项目地址                         |
 | :------------------: | :---------: | :-----------------------------------------------------: |
@@ -49,7 +49,7 @@ ontology asset balance 1
 |  ontology-swift-sdk  |    Swift    |  https://github.com/ontio-community/ontology-swift-sdk  |
 | ontology-andriod-sdk |    Java     | https://github.com/ontio-community/ontology-andriod-sdk |
 
-以 `ontology-python-sdk` 为例，你可以在安装 SDK 后用极其简洁的代码快速连接到运行中的节点。
+以 `ontology-python-sdk` 为例，你可以在安装 SDK 后用简洁的代码快速连接到运行中的节点。
 
 ```shell
 pip install ontology-python-sdk
@@ -98,13 +98,21 @@ from ontology.ont_sdk import OntologySdk
 
 
 sdk = OntologySdk()
+rpc_address = 'http://localhost:20336'
+restful_address = 'http://localhost:20334'
+websocket_address = 'http://localhost:20335'
 sdk.rpc.set_address(rpc_address)
 sdk.restful.set_address(restful_address)
 sdk.websocket.set_address(websocket_address)
 ```
 
+**注意**：一般情况下，你只需要连接到 RPC、Restful 或 WebSocket 中的一个接口，并使用该接口与节点进行交互即可。
+
 关于函数库的更多信息可以在下列章节中找到：
 
+- [ontology-dapi](docs-cn/SDKs/ontology-dapi.md)
+- [ontology-ts-sdk](docs-cn/SDKs/ts-sdk.md)
+- [ontology-java-sdk](docs-cn/SDKs/java-sdk.md)
 - [ontology-python-sdk](docs-cn/SDKs/python-sdk.md)
 
 ## 使用公开节点
@@ -124,4 +132,4 @@ sdk.websocket.set_address(websocket_address)
   - http://dappnode3.ont.io
   - http://dappnode4.ont.io
 
-此外，我们也提供了[测试网水龙头](https://developer.ont.io/applyOng)供开发者获取开发所需的原生通证。
+此外，我们也提供了[测试网水龙头](https://developer.ont.io/applyOng)供开发者获取本体网络的原生通证 `ONT` 与 `ONG`。
