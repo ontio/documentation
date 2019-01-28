@@ -27,12 +27,7 @@ ontology --testmode
 - 请求
 
 ```shell
-ontology info tx 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79
-```
-
-- 响应
-
-```json
+$ ontology info tx 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79
 {
    "Version": 0,
    "Nonce": 0,
@@ -50,6 +45,13 @@ ontology info tx 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d7
 }
 ```
 
+在返回的交易状态中，各字段的含义如下：
+
+- `GasPrice`：交易对应的 gas 价格。
+- `GasLimit`：交易对应的 gas 上限。
+- `Payer`：支付交易费的账户。
+- `Hash`：交易哈希。
+
 ## 查询交易状态
 
 在信息获取模块中，`status` 命令用于根据交易哈希查询交易信息。
@@ -57,7 +59,7 @@ ontology info tx 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d7
 你可以在第一个终端将客户端连接到 `polaris` 测试网。
 
 ```shell
-ontology --testmode
+$ ontology --testmode
 ```
 
 然后在第二个终端中查询 `polaris` 测试网中的交易信息。
@@ -65,12 +67,8 @@ ontology --testmode
 - 请求
 
 ```shell
-ontology info status 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79
-```
-
-- 响应
-
-```json
+$ ontology info status 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79
+Transaction states:
 {
    "TxHash": "1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79",
    "State": 1,
@@ -89,7 +87,11 @@ ontology info status 1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc80
 }
 ```
 
-其中，`State` 字段对应着交易执行结果，若值为 `1`，表示交易执行成功；`GasConsumed` 字段对应着执行交易所消耗的 `ONG`；`Notify` 字段对应着交易执行时所触发的事件。
+在返回的交易状态中，各字段的含义如下：
+
+- `State` 字段对应着交易执行结果，若值为 `1`，表示交易执行成功。
+- `GasConsumed` 字段对应着执行交易所消耗的 `ONG`。
+- `Notify` 字段对应着交易执行时所触发的事件。
 
 ## 查询区块信息
 
