@@ -20,3 +20,7 @@ ontology help
 |    sendtx    |        发送序列化后的交易        |
 |    showtx    | 以 JSON 格式显示序列化交易的信息 |
 |   help, h    |           显示帮助信息           |
+
+具体命令的使用介绍，你可以参考如下章节：
+
+- [`account` 命令的使用介绍](docs-cn/ontology-cli/13-wallet-manager.md)
