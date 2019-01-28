@@ -23,4 +23,7 @@ ontology help
 
 具体命令的使用介绍，你可以参考如下章节：
 
-- `account` 命令的[使用介绍](docs-cn/ontology-cli/13-wallet-manager.md)
+- `account` 命令的[使用介绍](docs-cn/ontology-cli/14-wallet-manager.md)
+- `info` 命令的[使用介绍](docs-cn/ontology-cli/15-block-info.md)
+- `asset` 命令的[使用介绍](docs-cn/ontology-cli/16-asset.md)
+- `contract` 命令的[使用介绍](docs-cn/ontology-cli/17-contract.md)
