@@ -157,6 +157,10 @@ Tip:
 
     Tip:
       Using './ontology info status 03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85' to query transaction status.
+    ```
+
+    你可以在完成提取后查看账户余额。
+    ```shell
     $ ontology asset balance 1
     BalanceOf:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
       ONT:1000000000
