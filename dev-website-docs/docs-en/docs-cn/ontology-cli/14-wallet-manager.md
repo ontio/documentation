@@ -273,4 +273,4 @@ ontology account import --wif ./wif
 
   本质上，ONT ID 是一种统一资源标识符（URL），由每个实体自己生成（生成算法需要保证极低的碰撞率），并向区块链网络进行注册（共识节点负责检查是否已被注册）。
 
-<div align="center"><img width="300" src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/ontology-cli/wallet-manager/ont-id-cn.png"></div>
+<div align="center"><img width="500" src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/ontology-cli/wallet-manager/ont-id-cn.png"></div>
