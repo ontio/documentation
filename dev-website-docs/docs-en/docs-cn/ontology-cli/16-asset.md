@@ -93,6 +93,31 @@ Tip:
 
 ## 常见问题
 
+- 如何确认对账户资产的操作是否成功？
+
+  所有对账户资产的操作，本质上都对应着交易的发送，在完成账户资产的操作后，你可以查看返回的交易哈希，确认操作是否成功。
+
+  ```shell
+  $ ontology info status 03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85
+  Transaction states:
+  {
+    "TxHash": "03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85",
+    "State": 1,
+    "GasConsumed": 0,
+    "Notify": [
+        {
+          "ContractAddress": "0200000000000000000000000000000000000000",
+          "States": [
+              "transfer",
+              "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+              "AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa",
+              91693660000000000
+          ]
+        }
+    ]
+  }
+  ```
+
 - 如何在本地测试网中获取 `ONG`？
   
   在你第一次使用本地测试网时，你的默认账户会拥有所有的 `ONT`，但 `ONG` 余额为 0，可提取的 `ONG` 也为0。
@@ -177,29 +202,4 @@ Tip:
   BalanceOf:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
     ONT:1000000000
     ONG:91693660
-  ```
-
-- 如何确认对账户资产的操作是否成功？
-
-  所有对账户资产的操作，本质上都对应着交易的发送，在完成账户资产的操作后，你可以查看返回的交易哈希，确认操作是否成功。
-
-  ```shell
-  $ ontology info status 03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85
-  Transaction states:
-  {
-    "TxHash": "03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85",
-    "State": 1,
-    "GasConsumed": 0,
-    "Notify": [
-        {
-          "ContractAddress": "0200000000000000000000000000000000000000",
-          "States": [
-              "transfer",
-              "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
-              "AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa",
-              91693660000000000
-          ]
-        }
-    ]
-  }
   ```
