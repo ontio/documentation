@@ -1,13 +1,50 @@
 
-## 智能合约
+本体客户端 `Ontology-CLI` 提供了智能合约模块，可以在命令行中通过 `contract` 命令使用。
 
-智能合约操作支持NeoVM智能合约的部署，以及NeoVM智能合约的预执行和执行。
+- `NeoVm` 的部署
+- `NeoVm` 的执行
+- `NeoVm` 的预执行
 
-### 智能合约部署
+我们以 `hello_ontology.py` 智能合约为例，在本地测试网上进行命令的讲解。
 
-智能部署前需要把在NeoVM合约编译器如：[SmartX](http://smartx.ont.io) 上编译好的Code，保存在本地的一个文本文件中。
+```python
+from ontology.interop.System.Runtime import Notify
 
-#### 智能合约部署参数
+
+def main(operation, args):
+    if operation == 'echo':
+        return echo(args[0])
+    return False
+
+def echo(msg):
+    Notify(['echo', msg])
+    return msg
+
+```
+
+将该段智能合约代码使用编译器编译后可以得到相应的 `AVM` 字节码，将其保存到本地。
+
+```shell
+51c56b6c58c56b6a00527ac46a51527ac46a52527ac46a51c3046563686f7d9c7c75642700006a53527ac46a52c300c3516a53c3936a53527ac46a53c36a00c365f2006c7566620300006c75660111c56b6a00527ac46a51527ac46a51c300947600a0640c00c16a52527ac4620e007562030000c56a52527ac46a52c3c0517d9c7c75641c00006a53527ac46a52c300c36a54527ac4516a55527ac4625c006a52c3c0527d9c7c756421006a52c300c36a53527ac46a52c351c36a54527ac4516a55527ac4616232006a52c3c0537d9c7c756424006a52c300c36a53527ac46a52c351c36a54527ac46a52c352c36a55527ac462050000f100c176c96a56527ac46a53c36a57527ac46a57c36a54c37d9f7c756419006a56c36a57c3c86a57c36a55c3936a57527ac462e0ff6a56c36c756656c56b6a00527ac46a51527ac46a52527ac4620300046563686f6a52c352c176c9681553797374656d2e52756e74696d652e4e6f746966796a52c36c7566
+```
+
+其中，你可以用使用的编译器如下。
+
+- [SmartX](https://smartx.ont.io/)
+- [Punica CLI](https://punica.ont.io/)
+- [ontology-python-compiler](https://github.com/ontio/ontology-python-compiler)
+
+此外，你需要开启一个终端，启动本地测试网。
+
+```shell
+ontology --testmode
+```
+
+## 部署智能合约
+
+
+
+
 
 --wallet, -w
 wallet参数指定部署智能合约的账户钱包路径。默认值："./wallet.dat"。
