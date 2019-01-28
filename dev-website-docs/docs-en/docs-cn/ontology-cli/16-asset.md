@@ -102,6 +102,11 @@ Tip:
   BalanceOf:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
     ONT:1000000000
     ONG:0
+  ```
+
+  同时，你的可提取 `ONG` 也为0。
+
+  ```shell
   $ ontology asset unboundong 1
   Unbound ONG:
     Account:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
@@ -110,59 +115,66 @@ Tip:
 
   你可以在不损失所拥有的 `ONT` 的情况下，通过自己给自己转账产生可提取的 `ONG`。
 
-    ```shell
-    $ ontology asset transfer --from 1 -to 1 --asset ont --amount 1000000000
-    Password:
-    Transfer ONT
-      From:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
-      To:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
-      Amount:1000000000
-      TxHash:ede7102fe6587612121b5b9961ea9998aa7e56de8857fec923b3092a0031a5f4
+  ```shell
+  $ ontology asset transfer --from 1 -to 1 --asset ont --amount 1000000000
+  Password:
+  Transfer ONT
+    From:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
+    To:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
+    Amount:1000000000
+    TxHash:ede7102fe6587612121b5b9961ea9998aa7e56de8857fec923b3092a0031a5f4
 
-    Tip:
-      Using './ontology info status ede7102fe6587612121b5b9961ea9998aa7e56de8857fec923b3092a0031a5f4' to query transaction status.
+  Tip:
+    Using './ontology info status ede7102fe6587612121b5b9961ea9998aa7e56de8857fec923b3092a0031a5f4' to query transaction status.
 
-    $ ontology info status ede7102fe6587612121b5b9961ea9998aa7e56de8857fec923b3092a0031a5f4
-      Transaction states:
-      {
-        "TxHash": "ede7102fe6587612121b5b9961ea9998aa7e56de8857fec923b3092a0031a5f4",
-        "State": 1,
-        "GasConsumed": 0,
-        "Notify": [
-            {
-              "ContractAddress": "0100000000000000000000000000000000000000",
-              "States": [
-                  "transfer",
-                  "AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa",
-                  "AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa",
-                  1000000000
-              ]
-            }
-        ]
-      }
-    $ ontology asset unboundong 1
-      Unbound ONG:
-        Account:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
-        ONG:91693660
-    ```
+  $ ontology info status ede7102fe6587612121b5b9961ea9998aa7e56de8857fec923b3092a0031a5f4
+    Transaction states:
+    {
+      "TxHash": "ede7102fe6587612121b5b9961ea9998aa7e56de8857fec923b3092a0031a5f4",
+      "State": 1,
+      "GasConsumed": 0,
+      "Notify": [
+          {
+            "ContractAddress": "0100000000000000000000000000000000000000",
+            "States": [
+                "transfer",
+                "AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa",
+                "AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa",
+                1000000000
+            ]
+          }
+      ]
+    }
+  ```
 
-    当账户产生了可提取的 `ONG` 后，可以使用 `withdrawong` 命令提取 `ONG`。
-    ```shell
-    $ ontology asset withdrawong 1
-    Password:
-    Withdraw ONG:
+  完成转账后，你可使用 `unboundong` 查看当前可提取的 `ONG` 总量。
+
+  ```shell
+  $ ontology asset unboundong 1
+    Unbound ONG:
       Account:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
-      Amount:91693660
-      TxHash:03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85
-
-    Tip:
-      Using './ontology info status 03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85' to query transaction status.
-    ```
-
-    你可以在完成提取后使用账户管理模块中的 `balance` 命令查看账户余额。
-    ```shell
-    $ ontology asset balance 1
-    BalanceOf:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
-      ONT:1000000000
       ONG:91693660
-    ```
+  ```
+
+  当确认账户具有可提取的 `ONG` 后，你可以使用 `withdrawong` 命令提取 `ONG`。
+
+  ```shell
+  $ ontology asset withdrawong 1
+  Password:
+  Withdraw ONG:
+    Account:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
+    Amount:91693660
+    TxHash:03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85
+
+  Tip:
+    Using './ontology info status 03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85' to query transaction status.
+  ```
+
+  你可以在完成提取后使用账户管理模块中的 `balance` 命令查看账户余额。
+
+  ```shell
+  $ ontology asset balance 1
+  BalanceOf:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
+    ONT:1000000000
+    ONG:91693660
+  ```
