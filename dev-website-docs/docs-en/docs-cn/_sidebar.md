@@ -23,9 +23,10 @@
   - [命令](docs-cn/ontology-cli/11-commands.md)
   - [选项](docs-cn/ontology-cli/12-options.md)
   - [节点部署](docs-cn/ontology-cli/13-deploy-node.md)
-  - [信息获取](docs-cn/ontology-cli/14-wallet-manager.md)
-  - [资产管理](docs-cn/ontology-cli/14-wallet-manager.md)
-  - [合约使用](docs-cn/ontology-cli/14-wallet-manager.md)
+  - [钱包管理](docs-cn/ontology-cli/14-wallet-manager.md)
+  - [信息获取](docs-cn/ontology-cli/15-block-info.md)
+  - [资产管理](docs-cn/ontology-cli/16-asset.md)
+  - [合约使用](docs-cn/ontology-cli/17-contract.md)
 
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
