@@ -100,3 +100,7 @@
 ### 10. Execution Engine API
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=s0831u6a9xw" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 11. Static and Dynamic Call
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=g0832e8dxmi" allowFullScreen="true" width="100%" height="360"></iframe>
