@@ -1,16 +1,16 @@
 
 默认情况下，Restful 接口监听在 20336 端口。
 
+- 使用 `--rest` 选项可以开启客户端的 Restful 服务。
+
+```shell
+ontology --rest
+```
+
 - 使用 `--restport` 选项为客户端指定 Restful 监听端口。
 
 ```shell
-ontology --restport 1024
-```
-
-- 使用 `--disable-rpc` 选项可以关闭客户端的 Restful 服务。
-
-```shell
-ontology --disable-rpc
+ontology --rest --restport 1024
 ```
 
 |          方法          |                 描述                 |
