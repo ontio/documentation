@@ -1,24 +1,26 @@
 
+本体客户端 `Ontology-CLI` 提供了区块导出模块，能够将本地节点的区块数据导出到一个压缩文件之中，可以在命令行中通过 `export` 命令使用。
 
-Ontology Cli支持导出本地节点的区块数据到一个压缩文件中，生成的压缩文件可以再导入其它Ontology节点中。出于安全考虑，导入的区块数据文件请确保是从可信的来源获取的。
+- `--exportfile` 用于指定导出文件的路径（默认为 `./OntBlocks.dat`）
 
---rpcport
-rpcport 参数用于指定Ontology节点的rpc端口号，默认值为20336。
+- `--startheight` 用于指定导出区块的起始高度（默认为 `0`）
 
---exportfile
-exportfile 参数指定导出的文件路径。默认值为：./OntBlocks.dat
+- `--endheight` 用于指定导出区块的终止高度（默认值为 `0`，表示导出所有区块）
 
---startheight
-startheight 参数指定导出区块的起始高度。默认值为0。
+- `--speed` 用于指定导出速度，`h` 表示快速导出，`m` 表示正常导出，`l` 表示慢速导出（默认值为`m`）
 
---endheight
-endheight 参数用于指定导出区块的终止高度。默认值为0，表示导出所有区块。
-
---speed
-speed 参数指定导出速度。分别用h表示high，m表示middle，l表示low。默认值为m。
-
-区块导出
-
+```shell
+$ ontology export
+Start export.
+Block(3653/3652) [====================================================================] 100%   10s
+Export blocks successfully.
+StartBlockHeight:0
+EndBlockHeight:3652
+Export file:./OntBlocks_0_3652.dat
 ```
-./ontology export
+
+你也可以通过 `--help` 选项获取帮助信息。
+
+```shell
+ontology export --help
 ```
