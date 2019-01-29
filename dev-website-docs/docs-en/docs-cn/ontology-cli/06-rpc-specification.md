@@ -1,52 +1,37 @@
+本体客户端 RPC 接口所支持的方法如下表所示。
 
-本体客户端的 JSON-RPC 接口规范如下：
-
-- 请求参数
-
-|  字段   |  类型  |      定义       |
-| :-----: | :----: | :-------------: |
-| jsonrpc | 字符串 | JSON-RPC 版本号 |
-| method  | 字符串 |    方法名称     |
-| params  | 字符串 |    方法参数     |
-|   id    |  整型  |     任意值      |
-
-- 返回参数
-
-|  字段   |   类型    |      定义       |
-| :-----: | :-------: | :-------------: |
-|  desc   |  字符串   |  请求结果描述   |
-|  error  |   整型    |    错误代码     |
-| jsonrpc |  字符串   | JSON-RPC 版本号 |
-|   id    |   整型    |     任意值      |
-| result  | JSON 对象 |  RPC 执行结果   |
-
-- 错误码
-
-| 字段  | 类型  |       含义       |
-| :---: | :---: | :--------------: |
-|   0   | int64 |       成功       |
-| 41001 | int64 | 无效或超时的会话 |
-| 41002 | int64 |   达到服务上限   |
-| 41003 | int64 | 不合法的数据格式 |
-| 41004 | int64 |   无效的版本号   |
-| 42001 | int64 |    无效的方法    |
-| 42002 | int64 |    无效的参数    |
-| 43001 | int64 |    无效的交易    |
-| 43002 | int64 |    无效的资源    |
-| 43003 | int64 |    无效的区块    |
-| 44001 | int64 |    未知的交易    |
-| 44002 | int64 |    未知的资源    |
-| 44003 | int64 |    未知的区块    |
-| 45001 | int64 |     内部错误     |
-| 47001 | int64 | 智能合约执行错误 |
+|                       方法                        |                      描述                      |
+| :-----------------------------------------------: | :--------------------------------------------: |
+|       [getbestblockhash](#getbestblokhash)        |          获取当前节点最高区块的哈希值          |
+|               [getblock](#getblock)               |       根据区块哈希或区块高度查询区块信息       |
+|          [getblockcount](#getblockcount)          |               查询当前的区块数量               |
+|           [getblockhash](#getblockhash)           |             查询指定高度的区块哈希             |
+|     [getconnectioncount](#getconnectioncount)     |            查询当前节点的连接节点数            |
+|      [getrawtransaction](#getrawtransaction)      |            通过交易哈希得到交易详情            |
+|     [sendrawtransaction](#sendrawtransaction)     |                向网络中发送交易                |
+|             [getstorage](#getstorage)             |         获取合约存储中指定键值对应的值         |
+|             [getversion](#getversion)             |             获取当前连接节点的版本             |
+|       [getcontractstate](#getcontractstate)       |            根据合约地址获取合约信息            |
+|      [getmempooltxcount](#getmempooltxcount)      |        获取交易池（内存）中的交易的数量        |
+|      [getmempooltxstate](#getmempooltxstate)      |        获取交易池（内存）中的交易的状态        |
+|      [getsmartcodeevent](#getsmartcodeevent)      |             获取智能合约的执行结果             |
+| [getblockheightbytxhash](#getblockheightbytxhash) |             获取交易落账的区块高度             |
+|             [getbalance](#getbalance)             |               获取账户地址的余额               |
+|         [getmerkleproof](#getmerkleproof)         |             获取交易的 merkle 证明             |
+|            [getgasprice](#getgasprice)            |           获取当前节点的 `gas price`           |
+|           [getallowance](#getallowance)           |    获取一方账户允许另一方账户转出的通证额度    |
+|            [getgrantong](#getgrantong)            | 获取根据当前所持有 ONT 估算出的可提取 ONG 数量 |
+|          [getunboundong](#getunboundong)          |       获取账户当前实际可提取的 ONG 数量        |
+|    [getblocktxsbyheight](#getblocktxsbyheight)    |             获取指定高度的区块哈希             |
+|           [getnetworkid](#getnetworkid)           |                  获取网络编号                  |
 
 ## getbestblockhash
 
-获取当前节点最高区块的哈希值
+获取当前节点最高区块的哈希值。
 
-### 调用示例
+#### 调用示例
 
-- 请求
+请求：
 
 ```json
 {
@@ -57,7 +42,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -73,33 +58,14 @@
 
 根据区块哈希或区块高度查询区块信息。
 
-### 参数说明
+#### 参数说明
 
-<table cellspacing=0>
-    <tr>
-        <td style=min-width:50px>参数</td>
-        <td style=min-width:50px>描述</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px rowspan="2">block_hash / block_height</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>区块哈希/高度</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px rowspan="3">verbose</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>当值为0时，返回以十六进制字符串表示序列化后的区块信息</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>当值为1时，将以json格式返回对应区块的详细信息</td>
-    </tr>
-</table>
-### 调用示例
+- `block_hash` / `block_height`：区块哈希/高度。
+- `verbose`：当值为 0 时，返回以十六进制字符串表示序列化后的区块信息。当值为1时，将以 json 格式返回对应区块的详细信息。
 
+#### 调用示例
 
-- 请求
+请求：
 
 ```json
 {
@@ -110,7 +76,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -122,7 +88,7 @@
 }
 ```
 
-- 请求
+请求：
 
 ```json
 {
@@ -133,7 +99,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -193,7 +159,7 @@
 
 查询当前的区块数量。
 
-- 请求
+请求：
 
 ```json
 {
@@ -204,7 +170,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -220,11 +186,13 @@
 
 返回对应高度的区块哈希。
 
-|     参数     |   描述   |
-| :----------: | :------: |
-| block_height | 区块高度 |
+#### 参数说明
 
-- 请求
+`block_height`：区块高度
+
+#### 调用示例
+
+请求：
 
 ```json
 {
@@ -235,7 +203,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -251,7 +219,9 @@
 
 得到当前网络上连接的节点数。
 
-- 请求
+#### 调用示例
+
+请求：
 
 ```json
 {
@@ -262,7 +232,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -278,31 +248,14 @@
 
 通过交易哈希得到交易详情。
 
-#### 参数定义
+#### 参数说明
 
-<table cellspacing=0>
-    <tr>
-        <td style=min-width:50px>参数</td>
-        <td style=min-width:50px>描述</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px rowspan="2">tx_hash</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>交易哈希</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px rowspan="3">verbose</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>当值为0时，返回以十六进制字符串表示的序列化交易信息</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>当值为1时，将以json格式返回对应的交易详细信息</td>
-    </tr>
-</table>
+- `tx_hash`：交易哈希
+- `verbose`：当值为 0 时，返回以十六进制字符串表示的序列化交易信息；当值为 1 时，将以 json 格式返回对应的交易详细信息。
 
-- 请求
+#### 调用示例
+
+请求：
 
 ```json
 {
@@ -313,7 +266,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -325,7 +278,7 @@
 }
 ```
 
-- 请求
+请求：
 
 ```json
 {
@@ -336,7 +289,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -376,12 +329,14 @@
 
 向网络中发送交易。
 
-|   参数   |                描述                |
-| :------: | :--------------------------------: |
-|  hex_tx  | 十六进制字符串表示的交易序列化数据 |
-| pre_exec |      值为 1 表示为预执行交易       |
+#### 参数说明
 
-- 请求
+- `hex_tx`：十六进制字符串表示的交易序列化数据
+- `pre_exec`：值为 1 表示为预执行交易
+
+#### 调用示例
+
+请求：
 
 ```json
 {
@@ -392,7 +347,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -404,18 +359,22 @@
 }
 ```
 
-**注意**：响应中 `result` 所对应的值为交易哈希。
+> **注意**：
+>
+> 响应中 `result` 所对应的值为交易哈希。
 
 ## getstorage
 
 获取合约存储中指定键值对应的值。
 
-|         参数         |                 描述                 |
-| :------------------: | :----------------------------------: |
-| hex_contract_address | 以十六进制字符串表示智能合约哈希地址 |
-|         key          |    以十六进制字符串表示的存储键值    |
+#### 参数说明
 
-- 请求
+- `hex_contract_address`：以十六进制字符串表示智能合约哈希地址
+- `key`：以十六进制字符串表示的存储键值
+
+#### 调用示例
+
+请求：
 
 ```json
 {
@@ -426,7 +385,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -438,13 +397,17 @@
 }
 ```
 
-**注意**： 响应中 `result` 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。
+> **注意**： 
+>
+> 响应中 `result` 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。
 
 ## getversion
 
 获取当前连接节点的版本。
 
-- 请求
+#### 调用示例
+
+请求：
 
 ```json
 {
@@ -455,7 +418,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -471,29 +434,14 @@
 
 根据合约地址获取合约信息。
 
-<table cellspacing=0>
-    <tr>
-        <td style=min-width:50px>参数</td>
-        <td style=min-width:50px>描述</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px rowspan="2">hex_contract_address</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>以十六进制字符串表示的合约哈希地址</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px rowspan="3">verbose</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>当值为0时，返回以十六进制字符串表示的序列化合约信息</td>
-    </tr>
-    <tr>
-        <td style=min-width:50px>当值为1时，将以json格式返回对应的合约详细信息</td>
-    </tr>
-</table>
+#### 参数说明
 
-- 请求
+- `hex_contract_address`：以十六进制字符串表示的合约哈希地址
+- `verbose`：当值为 0 时，返回以十六进制字符串表示的序列化合约信息；当值为 1 时，将以 json 格式返回对应的合约详细信息。
+
+#### 调用示例
+
+请求：
 
 ```json
 {
@@ -504,7 +452,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -528,9 +476,9 @@
 
 获取内存中的交易的数量。
 
-#### Example
+#### 调用示例
 
-- 请求
+请求：
 
 ```json
 {
@@ -541,7 +489,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -557,11 +505,13 @@
 
 获取交易池（内存）中的交易的状态。
 
-|  参数   |    描述    |
-| :-----: | :--------: |
-| tx_hash | 交易哈希值 |
+#### 参数说明
 
-- 请求
+`tx_hash`：交易哈希值
+
+#### 调用示例
+
+请求：
 
 ```json
 {
@@ -572,7 +522,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -598,11 +548,13 @@
 
 获取智能合约的执行结果。
 
-|         参数          |         描述          |
-| :-------------------: | :-------------------: |
-| block_height / txHash | 区块高度 / 交易哈希值 |
+#### 参数说明
 
-- 请求
+`block_height` / `txHash`：区块高度 / 交易哈希值
+
+#### 调用示例
+
+请求：
 
 ```json
 {
@@ -613,7 +565,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -658,7 +610,7 @@
 }
 ```
 
-- 请求
+请求：
 
 ```json
 {
@@ -669,7 +621,7 @@
 }
 ```
 
-- 响应
+响应：
 
 ```json
 {
@@ -712,24 +664,25 @@
 | ContractAddress | 事件所属的合约地址 |
 |     States      |   事件的具体内容   |
 
-**注意**：
-
-- 如果参数是区块高度，返回执行结果的集合。
-- 如果是交易哈希，返回对应交易的执行结果。
+> **注意**：
+>
+> - 如果参数是区块高度，返回执行结果的集合。
+> - 如果是交易哈希，返回对应交易的执行结果。
+>
 
 ## getblockheightbytxhash
 
 得到该交易哈希所落账的区块的高度。
 
-#### 参数定义
+#### 参数说明
 
-txhash: 交易哈希
+`txhash`: 交易哈希
 
-#### Example
+#### 调用示例
 
-- 请求
+请求：
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getblockheightbytxhash",
@@ -738,8 +691,9 @@ txhash: 交易哈希
 }
 ```
 
-- 响应
-```
+响应：
+
+```json
 {
     "desc": "SUCCESS",
     "error": 0,
@@ -751,17 +705,17 @@ txhash: 交易哈希
 
 ## getbalance
 
-返回base58地址的余额
+返回 base58 地址的余额
 
-#### 参数定义
+#### 参数说明
 
-address: base58地址
+`address`: base58 地址
 
-#### Example
+#### 调用示例
 
-- 请求
+请求：
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getbalance",
@@ -770,9 +724,9 @@ address: base58地址
 }
 ```
 
-- 响应
+响应：
 
-```
+```json
 {
    "desc":"SUCCESS",
    "error":0,
@@ -787,17 +741,17 @@ address: base58地址
 
 ## getmerkleproof
 
-返回对应交易的merkle证明
+返回对应交易的 merkle 证明。
 
 #### 参数定义
 
-hash: 交易哈希
+`hash`: 交易哈希
 
-#### Example
+#### 调用示例
 
-- 请求
+请求：
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getmerkleproof",
@@ -806,9 +760,9 @@ hash: 交易哈希
 }
 ```
 
-- 响应
+响应：
 
-```
+```json
 {
    "desc":"SUCCESS",
    "error":0,
@@ -841,14 +795,14 @@ hash: 交易哈希
 
 ## getgasprice
 
-返回gas价格
+返回 GAS 价格。
 
 
-#### Example
+#### 调用示例
 
-- 请求
+请求：
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getgasprice",
@@ -857,9 +811,9 @@ hash: 交易哈希
 }
 ```
 
-- 响应
+响应：
 
-```
+```json
 {
    "desc":"SUCCESS",
    "error":0,
@@ -874,21 +828,19 @@ hash: 交易哈希
 
 ## getallowance
 
-返回允许从from转出到to账户的额度
+返回允许从 from 转出到 to 账户的额度。
 
-#### 参数定义
+#### 参数说明
 
-asset: "ont"或者"ong"
+- `asset`: "ont" 或者 "ong"
+- `from`: 转出账户 base58 地址
+- `to`: 转入账户 base58 地址
 
-from: 转出账户base58地址
+#### 调用示例
 
-to: 转入账户base58地址
+请求：
 
-#### Example
-
-- 请求
-
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getallowance",
@@ -897,9 +849,9 @@ to: 转入账户base58地址
 }
 ```
 
-- 响应
+响应：
 
-```
+```json
 {
    "desc":"SUCCESS",
    "error":0,
@@ -915,13 +867,13 @@ to: 转入账户base58地址
 
 #### 参数定义
 
-address：提取ong的账户地址
+`address`：提取 ong 的账户地址。
 
-#### Example
+#### 调用示例
 
-- 请求
+请求：
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getunboundong",
@@ -930,9 +882,9 @@ address：提取ong的账户地址
 }
 ```
 
-- 响应
+响应：
 
-```
+```json
 {
    "desc":"SUCCESS",
    "error":0,
@@ -944,17 +896,17 @@ address：提取ong的账户地址
 
 ## getblocktxsbyheight
 
-返回该高度对应的区块落账的所有交易的哈希
+返回该高度对应的区块落账的所有交易的哈希。
 
-#### 参数定义
+#### 参数说明
 
-height： 区块高度
+`height`：区块高度
 
-#### Example
+#### 调用示例
 
-- 请求
+请求：
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getblocktxsbyheight",
@@ -963,9 +915,9 @@ height： 区块高度
 }
 ```
 
-- 响应
+响应：
 
-```
+```json
 {
    "desc":"SUCCESS",
    "error":0,
@@ -983,13 +935,13 @@ height： 区块高度
 
 ## getnetworkid
 
-获取 network id.
+获取 network id。
 
-#### Example
+#### 调用示例
 
-- 请求
+请求:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getnetworkid",
@@ -998,9 +950,9 @@ height： 区块高度
 }
 ```
 
-- 响应
+响应:
 
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -1014,11 +966,11 @@ height： 区块高度
 
 获取 grant ong.
 
-#### Example
+#### 调用示例
 
-- 请求
+请求：
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "getgrantong",
@@ -1027,9 +979,9 @@ height： 区块高度
 }
 ```
 
-- 响应
+响应：
 
-```
+```json
 {
   "desc":"SUCCESS",
   "error":0,
