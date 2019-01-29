@@ -1,4 +1,5 @@
 
+
 ## 启用 RPC 服务
 
 默认情况下，RPC 接口监听在 20336 端口。
@@ -15,46 +16,29 @@ ontology --rpcport 1024
 ontology --disable-rpc
 ```
 
-## RPC 接口规范
+本体客户端 RPC 接口所支持的方法如下表所示。
 
-本体客户端的 JSON-RPC 接口规范如下：
-
-**请求参数**
-
-|  字段   |  类型  |      定义       |
-| :-----: | :----: | :-------------: |
-| jsonrpc | 字符串 | JSON-RPC 版本号 |
-| method  | 字符串 |    方法名称     |
-| params  | 字符串 |    方法参数     |
-|   id    |  整型  |     任意值      |
-
-**返回参数**
-
-|  字段   |   类型    |      定义       |
-| :-----: | :-------: | :-------------: |
-|  desc   |  字符串   |  请求结果描述   |
-|  error  |   整型    |    错误代码     |
-| jsonrpc |  字符串   | JSON-RPC 版本号 |
-|   id    |   整型    |     任意值      |
-| result  | JSON 对象 |  RPC 执行结果   |
-
-**错误码**
-
-| 字段  | 类型  |       含义       |
-| :---: | :---: | :--------------: |
-|   0   | int64 |       成功       |
-| 41001 | int64 | 无效或超时的会话 |
-| 41002 | int64 |   达到服务上限   |
-| 41003 | int64 | 不合法的数据格式 |
-| 41004 | int64 |   无效的版本号   |
-| 42001 | int64 |    无效的方法    |
-| 42002 | int64 |    无效的参数    |
-| 43001 | int64 |    无效的交易    |
-| 43002 | int64 |    无效的资源    |
-| 43003 | int64 |    无效的区块    |
-| 44001 | int64 |    未知的交易    |
-| 44002 | int64 |    未知的资源    |
-| 44003 | int64 |    未知的区块    |
-| 45001 | int64 |     内部错误     |
-| 47001 | int64 | 智能合约执行错误 |
-
+|                             方法                             |                      描述                      |
+| :----------------------------------------------------------: | :--------------------------------------------: |
+| [getbestblockhash](04-interface-specification.md#getbestblokhash) |          获取当前节点最高区块的哈希值          |
+|      [getblock](04-interface-specification.md#getblock)      |       根据区块哈希或区块高度查询区块信息       |
+|               [getblockcount](#getblockcount)                |               查询当前的区块数量               |
+|                [getblockhash](#getblockhash)                 |             查询指定高度的区块哈希             |
+|          [getconnectioncount](#getconnectioncount)           |            查询当前节点的连接节点数            |
+|           [getrawtransaction](#getrawtransaction)            |            通过交易哈希得到交易详情            |
+|          [sendrawtransaction](#sendrawtransaction)           |                向网络中发送交易                |
+|                  [getstorage](#getstorage)                   |         获取合约存储中指定键值对应的值         |
+|                  [getversion](#getversion)                   |             获取当前连接节点的版本             |
+|            [getcontractstate](#getcontractstate)             |            根据合约地址获取合约信息            |
+|           [getmempooltxcount](#getmempooltxcount)            |        获取交易池（内存）中的交易的数量        |
+|           [getmempooltxstate](#getmempooltxstate)            |        获取交易池（内存）中的交易的状态        |
+|           [getsmartcodeevent](#getsmartcodeevent)            |             获取智能合约的执行结果             |
+|      [getblockheightbytxhash](#getblockheightbytxhash)       |             获取交易落账的区块高度             |
+|                  [getbalance](#getbalance)                   |               获取账户地址的余额               |
+|              [getmerkleproof](#getmerkleproof)               |             获取交易的 merkle 证明             |
+|                 [getgasprice](#getgasprice)                  |           获取当前节点的 `gas price`           |
+|                [getallowance](#getallowance)                 |    获取一方账户允许另一方账户转出的通证额度    |
+|                 [getgrantong](#getgrantong)                  | 获取根据当前所持有 ONT 估算出的可提取 ONG 数量 |
+|               [getunboundong](#getunboundong)                |       获取账户当前实际可提取的 ONG 数量        |
+|         [getblocktxsbyheight](#getblocktxsbyheight)          |             获取指定高度的区块哈希             |
+|                [getnetworkid](#getnetworkid)                 |                  获取网络编号                  |
