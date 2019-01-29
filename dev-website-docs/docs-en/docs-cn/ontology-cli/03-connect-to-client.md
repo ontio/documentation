@@ -59,7 +59,7 @@
 
 - 连接到主网
 
-  ```Python
+  ```python
   from ontology.ont_sdk import OntologySdk
   
   
@@ -71,7 +71,7 @@
 
 - 连接到测试网
 
-  ```Python
+  ```python
   from ontology.ont_sdk import OntologySdk
   
   
@@ -83,7 +83,7 @@
 
 - 连接到本地节点
 
-  ```Python
+  ```python
   from ontology.ont_sdk import OntologySdk
   
   
@@ -95,7 +95,7 @@
 
 - 连接到自定义节点
 
-  ```Python
+  ```python
   from ontology.ont_sdk import OntologySdk
   
   

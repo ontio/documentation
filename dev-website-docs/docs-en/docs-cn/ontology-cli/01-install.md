@@ -1,7 +1,8 @@
 
 ### 下载安装包
 
-点击 [这里](https://github.com/ontio/ontology/releases) 下载本体客户端安装程序。
+- 点击 [这里](https://github.com/ontio/ontology/releases) 下载本体客户端安装程序。
+
 
 当然，你也可以通过 `curl` 命令获取最新的客户端。
 
@@ -18,6 +19,7 @@ curl https://dev.ont.io/ontology_install | sh
    ```shell
    go get github.com/ontio/ontology
    ```
+
 2. 使用包管理工具 `glide` 获取依赖：
 
    ```shell
@@ -30,7 +32,8 @@ curl https://dev.ont.io/ontology_install | sh
    ```shell
    make all
    ```
-   源码成功编译后会生成两个可以执行程序：
+   源码成功编译后会生成两个可执行程序：
 
-- ontology：本体客户端。
-- sigsvr：签名服务器。
+   - ontology：本体客户端。
+   - sigsvr：签名服务器。
+
