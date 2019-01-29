@@ -5,29 +5,15 @@
 
 ### 对交易多重签名参数
 
---wallet
-wallet 参数用于指定钱包路径。
+- `--wallet`：用于指定钱包路径。
+- `--account`：用于指定签名账户（默认使用钱包默认账户）。
+- `--pubkey`：用于指定多重签名的公钥列表，公钥之间用 `,` 分隔。
+- `-m`：用于指定签名门限（默认为 `1`）。
+- `--send`：用于指定将签名后的交易直接发送到网络中。
+- `--prepare`：用于启用对签名后交易的本地预执行。
+- `--rpcport`：用于指定 RPC 服务器的监听端口号（默认为 `20336`）。
 
---account
-account 参数用于指定签名账户，如果不设置，使用钱包默认账户。
-
---pubkey
-pubkey 参数用于指定多重签名的公钥列表，公钥之间用逗号','分隔。
-
--m
-m 参数用于指定所以的最少签名数。默认值为1。
-
---send
-send 参数用于指定，交易签名后是否直接发送到Ontology网络上。
-
---prepare
-prepare 参数用于指定，交易签名后是否本地预执行交易。
-
---rpcport
-rpcport 参数用于指定RPC服务器端口号。默认值为20336。
-
-
-```
+```shell
 ./ontology multisigtx --account=ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48 --pubkey=03c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a56,02b2b9fb60a0add9ef6715ffbac8bc7e81cb47cd06c157c19e6a858859c0158231 -m=1 00d1045f875bf401000000000000204e000000000000f47d92d27d02b93d21f8af16c9f05a99d128dd5a6e00c66b6a14f47d92d27d02b93d21f8af16c9f05a99d128dd5ac86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
 
