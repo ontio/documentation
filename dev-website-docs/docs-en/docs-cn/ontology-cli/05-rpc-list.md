@@ -1,7 +1,5 @@
 
 
-## 启用 RPC 服务
-
 默认情况下，RPC 接口监听在 20336 端口。
 
 使用 `--rpcport` 选项为客户端指定 RPC 监听端口：
@@ -20,7 +18,7 @@ ontology --disable-rpc
 
 |                             方法                             |                      描述                      |
 | :----------------------------------------------------------: | :--------------------------------------------: |
-| [getbestblockhash](04-interface-specification.md#getbestblokhash) |          获取当前节点最高区块的哈希值          |
+| [getbestblockhash](docs-cn/ontology-cli/06-rpc-specification#getbestblokhash) |          获取当前节点最高区块的哈希值          |
 |      [getblock](04-interface-specification.md#getblock)      |       根据区块哈希或区块高度查询区块信息       |
 |               [getblockcount](#getblockcount)                |               查询当前的区块数量               |
 |                [getblockhash](#getblockhash)                 |             查询指定高度的区块哈希             |

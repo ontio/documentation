@@ -1,41 +1,41 @@
 
 本体客户端的 Restful 接口规范如下：
 
-- 默认接口监端口号：20334
+- 默认接口监听端口号：20334
 
 - 响应参数
 
-|  字段   |  类型  |     描述     |
-| :-----: | :----: | :----------: |
-| Action  | 字符串 | 响应动作名称 |
-|  Desc   | 字符串 | 响应结果描述 |
-|  Error  |  整型  |   错误代码   |
-| Result  |  对象  |   执行结果   |
-| Version | 字符串 |    版本号    |
+  | 字段    | 类型   | 描述         |
+  | ------- | ------ | ------------ |
+  | Action  | 字符串 | 响应动作名称 |
+  | Desc    | 字符串 | 响应结果描述 |
+  | Error   | 整型   | 错误代码     |
+  | Result  | 对象   | 执行结果     |
+  | Version | 字符串 | 版本号       |
 
 - 错误码
 
-| Field | Type  |   Description    |
-| :---: | :---: | :--------------: |
-|   0   | int64 |       成功       |
-| 41001 | int64 | 无效或超时的会话 |
-| 41002 | int64 |   达到服务上限   |
-| 41003 | int64 | 不合法的数据格式 |
-| 41004 | int64 |   无效的版本号   |
-| 42001 | int64 |    无效的方法    |
-| 42002 | int64 |    无效的参数    |
-| 43001 | int64 |    无效的交易    |
-| 43002 | int64 |    无效的资源    |
-| 43003 | int64 |    无效的区块    |
-| 44001 | int64 |    未知的交易    |
-| 44002 | int64 |    未知的资源    |
-| 44003 | int64 |    未知的区块    |
-| 45001 | int64 |     内部错误     |
-| 47001 | int64 | 智能合约执行错误 |
+  | Field | Type  | Description      |
+  | ----- | ----- | ---------------- |
+  | 0     | int64 | 成功             |
+  | 41001 | int64 | 无效或超时的会话 |
+  | 41002 | int64 | 达到服务上限     |
+  | 41003 | int64 | 不合法的数据格式 |
+  | 41004 | int64 | 无效的版本号     |
+  | 42001 | int64 | 无效的方法       |
+  | 42002 | int64 | 无效的参数       |
+  | 43001 | int64 | 无效的交易       |
+  | 43002 | int64 | 无效的资源       |
+  | 43003 | int64 | 无效的区块       |
+  | 44001 | int64 | 未知的交易       |
+  | 44002 | int64 | 未知的资源       |
+  | 44003 | int64 | 未知的区块       |
+  | 45001 | int64 | 内部错误         |
+  | 47001 | int64 | 智能合约执行错误 |
 
 ##  get_conn_count
 
-得到当前连接的节点数量。
+获取当前连接的节点数量。
 
 
 GET
@@ -44,15 +44,17 @@ GET
 /api/v1/node/connectioncount
 ```
 
-#### Request Example:
+#### 调用示例
+
+请求：
 
 ```
 curl -i http://server:port/api/v1/node/connectioncount
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getconnectioncount",
     "Desc": "SUCCESS",
@@ -63,7 +65,7 @@ curl -i http://server:port/api/v1/node/connectioncount
 ```
 ## get_blk_txs_by_height
 
-得到该高度的区块的所有交易哈希。
+获取该高度的区块的所有交易哈希。
 
 GET
 
@@ -71,13 +73,15 @@ GET
 /api/v1/block/transactions/height/:height
 ```
 
-#### Request Example:
+#### 调用示例
+
+请求：
 
 ```
 curl -i http://server:port/api/v1/block/transactions/height/100
 ```
 
-#### Response Example:
+响应：
 
 ```
 {
@@ -98,8 +102,9 @@ curl -i http://server:port/api/v1/block/transactions/height/100
 
 得到该高度的详细的区块信息。
 
-raw：可选参数，默认值为零，不设置时为默认值。当值为1时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用
- SDK中的方法对该字符串进行反序列化。当值为0时，将以json格式返回对应区块的详细信息。
+#### 参数说明
+
+`raw`：可选参数，不设置时为默认值 0。当值为 1 时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应区块的详细信息。
 
 GET
 
@@ -107,15 +112,17 @@ GET
 /api/v1/block/details/height/:height?raw=1
 ```
 
-#### Request Example:
+#### 调用示例
+
+请求：
 
 ```
 curl -i http://server:port/api/v1/block/details/height/22
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getblockbyheight",
     "Desc": "SUCCESS",
@@ -172,8 +179,9 @@ curl -i http://server:port/api/v1/block/details/height/22
 
 通过区块哈希得到区块信息。
 
-raw：可选参数，默认值为零，不设置时为默认值。当值为1时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用
- SDK中的方法对该字符串进行反序列化。当值为0时，将以json格式返回对应区块的详细信息。
+#### 参数说明
+
+`raw`：可选参数，不设置时为默认值 0。当值为 1 时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应区块的详细信息。
 
 GET
 
@@ -181,15 +189,17 @@ GET
 /api/v1/block/details/hash/:hash?raw=0
 ```
 
-#### Request Example:
+#### 调用示例
 
-```
+请求：
+
+```json
 curl -i http://server:port/api/v1/block/details/hash/ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getblockbyhash",
     "Desc": "SUCCESS",
@@ -254,16 +264,17 @@ GET
 /api/v1/block/height
 ```
 
-#### Request Example:
+#### 调用示例
 
-```
+请求：
+
+```json
 curl -i http://server:port/api/v1/block/height
 ```
 
+响应：
 
-#### Response Example:
-
-```
+```json
 {
     "Action": "getblockheight",
     "Desc": "SUCCESS",
@@ -283,15 +294,17 @@ GET
 /api/v1/block/hash/:height
 ```
 
-#### Request Example:
+#### 调用示例
 
-```
+请求：
+
+```json
 curl -i http://server:port/api/v1/block/hash/100
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getblockhash",
     "Desc": "SUCCESS",
@@ -305,8 +318,9 @@ curl -i http://server:port/api/v1/block/hash/100
 
 通过交易哈希得到该交易的信息。
 
-raw：可选参数，默认值为零，不设置时为默认值。当值为1时，接口返回交易序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用
- SDK中的方法对该字符串进行反序列化。当值为0时，将以json格式返回对应交易的详细信息。
+#### 参数说明
+
+`raw`：可选参数，默不设置时为默认值 0。当值为 1 时，接口返回交易序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json格式返回对应交易的详细信息。 
 
 GET
 
@@ -314,14 +328,16 @@ GET
 /api/v1/transaction/:hash?raw=0
 ```
 
-#### Request Example:
+#### 调用示例
 
-```
+请求：
+
+```json
 curl -i http://server:port/api/v1/transaction/5623dbd283a99ff1cd78068cba474a22bed97fceba4a56a9d38ab0fbc178c4ab
 ```
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "gettransaction",
     "Desc": "SUCCESS",
@@ -372,12 +388,16 @@ GET
 ```
 /api/v1/storage/:hash/:key
 ```
-#### Request Example
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/storage/ff00000000000000000000000000000000000001/0144587c1094f6929ed7362d6328cffff4fb4da2
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getstorage",
     "Desc": "SUCCESS",
@@ -386,25 +406,33 @@ curl -i http://localhost:20334/api/v1/storage/ff00000000000000000000000000000000
     "Version": "1.0.0"
 }
 ```
-> 注意: 返回的值和传入的key参数均是十六进制。
+> **注意**：
+>
+>  返回的值和传入的 key 参数均是十六进制。
 
 ## get_balance
 
 得到该地址的账户的余额。
 
+#### 参数说明
+
+`addr`：Base58 编码后的账户地址
+
 GET
 ```
 /api/v1/balance/:addr
 ```
-> addr: Base58编码后的账户地址
+#### 调用示例
 
-#### Request Example
-```
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kPqJzGZWq
 ```
 
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getbalance",
     "Desc": "SUCCESS",
@@ -426,15 +454,17 @@ GET
 /api/v1/contract/:hash
 ```
 
-#### Request Example:
+#### 调用示例
 
-```
+请求：
+
+```json
 curl -i http://server:port/api/v1/contract/0100000000000000000000000000000000000000
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getcontract",
     "Desc": "SUCCESS",
@@ -462,14 +492,17 @@ GET
 /api/v1/smartcode/event/transactions/:height
 ```
 
-#### Example usage:
+#### 调用示例
 
-```
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/smartcode/event/transactions/900
 ```
 
-#### response
-```
+响应：
+
+```json
 {
     "Action": "getsmartcodeeventbyheight",
     "Desc": "SUCCESS",
@@ -511,7 +544,9 @@ curl -i http://localhost:20334/api/v1/smartcode/event/transactions/900
     "Version": "1.0.0"
 }
 ```
-> 注意: 返回的结果是交易简略信息的集合，并不是完整的交易信息。
+> **注意**: 
+>
+> 返回的结果是交易简略信息的集合，并不是完整的交易信息。
 
 ## get_smtcode_evts
 
@@ -521,12 +556,16 @@ GET
 ```
 /api/v1/smartcode/event/txhash/:hash
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/smartcode/event/txhash/20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac
 ```
-#### Response:
-```
+响应：
+
+```json
 {
     "Action": "getsmartcodeeventbyhash",
     "Desc": "SUCCESS",
@@ -558,12 +597,16 @@ GET
 ```
 /api/v1/block/height/txhash/:hash
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getblockheightbytxhash",
     "Desc": "SUCCESS",
@@ -581,12 +624,16 @@ GET
 ```
 /api/v1/merkleproof/:hash
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/merkleproof/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getmerkleproof",
     "Desc": "SUCCESS",
@@ -619,18 +666,22 @@ curl -i http://localhost:20334/api/v1/merkleproof/3e23cf222a47739d4141255da617cd
 
 ## get_gasprice
 
-得到gas的价格。
+得到 GAS 的价格。
 
 GET
 ```
 /api/v1/gasprice
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getgasprice",
     "Desc": "SUCCESS",
@@ -645,18 +696,22 @@ curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d414125
 
 ## get_allowance
 
-得到允许从from账户转出到to账户的额度。
+得到允许从 from 账户转出到 to 账户的额度。
 
 GET
 ```
 /api/v1/allowance
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/allowance/:asset/:from/:to
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getallowance",
     "Desc": "SUCCESS",
@@ -668,18 +723,22 @@ curl -i http://localhost:20334/api/v1/allowance/:asset/:from/:to
 
 ## get_unboundong
 
-得到该账户未提取的ong数量。
+得到该账户未提取的 ONG 数量。
 
 GET
 ```
 /api/v1/unboundong
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/unboundong/:addr
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getunboundong",
     "Desc": "SUCCESS",
@@ -697,12 +756,16 @@ GET
 ```
 /api/v1/mempool/txcount
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/mempool/txcount
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getmempooltxcount",
     "Desc": "SUCCESS",
@@ -720,12 +783,16 @@ GET
 ```
 /api/v1/mempool/txstate/:hash
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/mempool/txstate/:hash
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getmempooltxstate",
     "Desc": "SUCCESS",
@@ -753,12 +820,16 @@ GET
 ```
 /api/v1/version
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/version
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getversion",
     "Desc": "SUCCESS",
@@ -770,9 +841,9 @@ curl -i http://localhost:20334/api/v1/version
 
 ## post_raw_tx
 
-向ontology网络发送交易。
+向本体网络发送交易。
 
-如果 preExec=1，则交易为预执行。
+如果 `preExec=1`，则交易为预执行。
 
 POST
 
@@ -780,25 +851,28 @@ POST
 /api/v1/transaction?preExec=0
 ```
 
-#### Request Example:
+#### 调用示例
 
-```
+请求：
+
+```json
 curl  -H "Content-Type: application/json"  -X POST -d '{"Action":"sendrawtransaction", "Version":"1.0.0","Data":"00d00000000080fdcf2b0138c56b6c766b00527ac46c766b51527ac46151c56c766b52527ac46c766b00c31052656749644279507..."}'  http://server:port/api/v1/transaction
 ```
 
-#### Post Params:
+Post Params:
 
-```
+```json
 {
     "Action":"sendrawtransaction",
     "Version":"1.0.0",
     "Data":"80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
 }
 ```
-可以使用ontology-go-sdk生成十六进制数据，参考这个[例子](rpc_api_CN.md#8-sendrawtransaction)
+可以使用 ontology-go-sdk 生成十六进制数据，参考 [示例](rpc_api_CN.md#8-sendrawtransaction)。
 
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "sendrawtransaction",
     "Desc": "SUCCESS",
@@ -807,7 +881,7 @@ curl  -H "Content-Type: application/json"  -X POST -d '{"Action":"sendrawtransac
     "Version": "1.0.0"
 }
 ```
-> Result: 交易哈希
+`Result`: 交易哈希
 
 
 ## get_networkid
@@ -818,12 +892,16 @@ GET
 ```
 /api/v1/networkid
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/networkid
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getnetworkid",
     "Desc": "SUCCESS",
@@ -835,18 +913,22 @@ curl -i http://localhost:20334/api/v1/networkid
 
 ## get_grantong
 
-获取 grant ong.
+获取 grant ong。
 
 GET
 ```
 /api/v1/grantong/:addr
 ```
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 curl -i http://localhost:20334/api/v1/grantong/AKDFapcoUhewN9Kaj6XhHusurfHzUiZqUA
 ```
-#### Response
-```
+响应：
+
+```json
 {
     "Action": "getgrantong",
     "Desc": "SUCCESS",
