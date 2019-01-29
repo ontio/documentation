@@ -71,7 +71,7 @@
 
 - 连接到测试网
 
-  ```Python
+  ```python
   from ontology.ont_sdk import OntologySdk
   
   
