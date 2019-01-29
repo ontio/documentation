@@ -1,12 +1,13 @@
 
 - 认识本体
   - [介绍](docs-cn/DeveloperGuide/introduction.md)
-  - [VBFT共识](docs-cn/DeveloperGuide/02-VBFT-introduction.md)
+  - [VBFT 共识](docs-cn/DeveloperGuide/02-VBFT-introduction.md)
   - [智能合约](docs-cn/DeveloperGuide/smartcontract/00-introduction-sc.md)
   - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
   - [白皮书和资源](docs-cn/DeveloperGuide/06-white-papers.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
+  - [术语表](docs-cn/DeveloperGuide/08-glossary.md)
   
 - 本体客户端
   - [概述](docs-cn/ontology-cli/00-overview.md)
@@ -38,10 +39,10 @@
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
   - [合约模板](docs-cn/smartcontract/02-template.md)
-  - [API参考](docs-cn/smartcontract/03-sc-api.md)
+  - [API 参考](docs-cn/smartcontract/03-sc-api.md)
 
 - DAPP开发指导
-  - [DAPP开发](docs-cn/QuickGuide/00-dapp_development.md)  
+  - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)  
   - [DAPI 使用](docs-cn/QuickGuide/06-dapi-useage.md)  
   - [开发工具概述](docs-cn/DeveloperGuide/tools.md)
 
@@ -51,12 +52,12 @@
   
 - Cyano
   - [概述](docs-cn/Cyano/00-overview.md)
-  - [Cyano钱包使用](docs-cn/Cyano/02-getting-started.md)
-  - [钱包对接dAPI](docs-cn/Cyano/Cyano-provider/00-overview.md)
+  - [Cyano 钱包使用](docs-cn/Cyano/02-getting-started.md)
+  - [钱包对接 dAPI](docs-cn/Cyano/Cyano-provider/00-overview.md)
       - [扫二维码对接](docs-cn/Cyano/Cyano-provider/02-scan-qrcode.md)
       - [钱包里打开DApp对接](docs-cn/Cyano/Cyano-provider/03-embedded-h5.md)
-  - [DAPP对接dAPI](docs-cn/Cyano/dApi/00-overview.md)
-      - [Chrome插件版dAPI](docs-cn/Cyano/dApi/02-getting-started.md)
+  - [DAPP 对接 dAPI](docs-cn/Cyano/dApi/00-overview.md)
+      - [Chrome 插件版 dAPI](docs-cn/Cyano/dApi/02-getting-started.md)
       - [手机版dAPI](docs-cn/Cyano/dApi-mobile/02-getting-started.md)
 
 - Punica
@@ -84,7 +85,7 @@
   - [区块](docs-cn/explorer/blocks.md)
   - [账户](docs-cn/explorer/accounts.md)
   - [交易](docs-cn/explorer/transactions.md)
-  - [ONT ID](docs-cn/explorer/ontid.md)
+  - [ONTID](docs-cn/explorer/ontid.md)
   - [统计](docs-cn/explorer/statistics.md)   
   
 - Sign Server
