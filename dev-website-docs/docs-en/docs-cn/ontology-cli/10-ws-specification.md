@@ -1,46 +1,48 @@
 
 本体客户端的 Websocket 接口规范如下：
 
-- 默认接口监端口号：20335
+- 默认接口监听端口号：20335
 
 - 响应参数
 
-| Field   | Type   | Description  |
-| :------ | :----- | :----------- |
-| Action  | string | 响应动作名称 |
-| Desc    | string | 响应结果描述 |
-| Error   | int64  | 错误代码     |
-| Result  | object | 执行结果     |
-| Version | string | 版本号       |
-| Id      | int64  | 请求id       |
+  | 字段    | 类型   | 描述         |
+  | ------- | ------ | ------------ |
+  | Action  | string | 响应动作名称 |
+  | Desc    | string | 响应结果描述 |
+  | Error   | int64  | 错误代码     |
+  | Result  | object | 执行结果     |
+  | Version | string | 版本号       |
+  | Id      | int64  | 请求 ID      |
 
 - 错误码
 
-| Field | Type  | Description      |
-| :---- | :---- | :--------------- |
-| 0     | int64 | 成功             |
-| 41001 | int64 | 无效或超时的会话 |
-| 41002 | int64 | 达到服务上限     |
-| 41003 | int64 | 不合法的数据格式 |
-| 41004 | int64 | 无效的版本号     |
-| 42001 | int64 | 无效的方法       |
-| 42002 | int64 | 无效的参数       |
-| 43001 | int64 | 无效的交易       |
-| 43002 | int64 | 无效的资源       |
-| 43003 | int64 | 无效的区块       |
-| 44001 | int64 | 未知的交易       |
-| 44002 | int64 | 未知的资源       |
-| 44003 | int64 | 未知的区块       |
-| 45001 | int64 | 内部错误         |
-| 47001 | int64 | 智能合约执行错误 |
+  | 字段  | 类型  | 描述             |
+  | ----- | ----- | ---------------- |
+  | 0     | int64 | 成功             |
+  | 41001 | int64 | 无效或超时的会话 |
+  | 41002 | int64 | 达到服务上限     |
+  | 41003 | int64 | 不合法的数据格式 |
+  | 41004 | int64 | 无效的版本号     |
+  | 42001 | int64 | 无效的方法       |
+  | 42002 | int64 | 无效的参数       |
+  | 43001 | int64 | 无效的交易       |
+  | 43002 | int64 | 无效的资源       |
+  | 43003 | int64 | 无效的区块       |
+  | 44001 | int64 | 未知的交易       |
+  | 44002 | int64 | 未知的资源       |
+  | 44003 | int64 | 未知的区块       |
+  | 45001 | int64 | 内部错误         |
+  | 47001 | int64 | 智能合约执行错误 |
 
 ## heartbeat
 
 如果超过五分钟没有发送心跳信号，则连接关闭。
 
-#### Request Example:
+#### 调用示例
 
-```
+请求：
+
+```json
 {
     "Action": "heartbeat",
     "Id":12345, //optional
@@ -48,9 +50,9 @@
 }
 ```
 
-#### Response example:
+响应：
 
-```
+```json
 {
     "Action": "heartbeat",
     "Desc": "SUCCESS",
@@ -68,9 +70,11 @@
 ## subscribe
 订阅某个服务。
 
-#### Request Example:
+#### 调用示例
 
-```
+请求：
+
+```json
 {
     "Action": "subscribe",
     "Version": "1.0.0",
@@ -83,9 +87,9 @@
 }
 ```
 
-#### Response example:
+响应：
 
-```
+```json
 {
     "Action": "subscribe",
     "Desc": "SUCCESS",
@@ -106,10 +110,11 @@
 
 得到当前连接的节点数量。
 
+#### 调用示例
 
-#### Request Example:
+请求：
 
-```
+```json
 {
     "Action": "getconnectioncount",
     "Id":12345, //optional
@@ -117,9 +122,9 @@
 }
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getconnectioncount",
     "Desc": "SUCCESS",
@@ -132,10 +137,11 @@
 
 返回对应高度的区块中落账的所有交易哈希。
 
+#### 调用示例
 
-#### Request Example:
+请求：
 
-```
+```json
 {
     "Action": "getblocktxsbyheight",
     "Version": "1.0.0",
@@ -144,9 +150,9 @@
 }
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getblocktxsbyheight",
     "Desc": "SUCCESS",
@@ -165,12 +171,15 @@
 
 得到该高度的区块的详细信息。
 
-raw：可选参数，默认值为零，不设置时为默认值。当值为1时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用
- SDK中的方法对该字符串进行反序列化。当值为0时，将以json格式返回对应区块的详细信息。
+#### 参数说明
 
-#### Request Example:
+`raw`：可选参数，不设置时为默认值 0。当值为1时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应区块的详细信息。
 
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getblockbyheight",
     "Version": "1.0.0",
@@ -180,9 +189,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getblockbyheight",
     "Desc": "SUCCESS",
@@ -239,12 +248,15 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 通过区块哈希得到区块信息。
 
-raw：可选参数，默认值为零，不设置时为默认值。当值为1时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用
- SDK中的方法对该字符串进行反序列化。当值为0时，将以json格式返回对应区块的详细信息。
+#### 参数说明
 
-#### Request Example:
+`raw`：可选参数，不设置时为默认值 0。当值为 1 时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应区块的详细信息。
 
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getblockbyhash",
     "Version": "1.0.0",
@@ -254,9 +266,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getblockbyhash",
     "Desc": "SUCCESS",
@@ -314,10 +326,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 得到当前网络上的区块高度。
 
+#### 调用示例
 
-#### Request Example:
+请求：
 
-```
+```json
 {
     "Action": "getblockheight",
     "Id":12345, //optional
@@ -325,10 +338,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
+响应：
 
-#### Response Example:
-
-```
+```json
 {
     "Action": "getblockheight",
     "Desc": "SUCCESS",
@@ -342,10 +354,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 根据高度得到对应区块的哈希。
 
+#### 调用示例
 
-#### Request Example:
+请求：
 
-```
+```json
 {
     "Action": "getblockhash",
     "Id":12345, //optional
@@ -354,9 +367,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getblockhash",
     "Desc": "SUCCESS",
@@ -370,12 +383,15 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 通过交易哈希得到该交易的信息。
 
-raw：可选参数，默认值为零，不设置时为默认值。当值为1时，接口返回交易序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用
- SDK中的方法对该字符串进行反序列化。当值为0时，将以json格式返回对应交易的详细信息。
+#### 参数说明
 
-#### Request Example:
+`raw`：可选参数，不设置时为默认值 0。当值为 1 时，接口返回交易序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应交易的详细信息。
 
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "gettransaction",
     "Version": "1.0.0",
@@ -384,9 +400,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Raw": "0"
 }
 ```
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "gettransaction",
     "Desc": "SUCCESS",
@@ -422,14 +438,15 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 ## sendrawtransaction
 
-向ontology网络发送交易。
+向本体网络发送交易。
 
-如果 preExec=1，则交易为预执行。
+如果 `preExec=1`，则交易为预执行。
 
+#### 调用示例
 
-#### Request Example:
+请求：
 
-```
+```json
 {
     "Action":"sendrawtransaction",
     "Version":"1.0.0",
@@ -438,10 +455,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Data":"80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
 }
 ```
-可以使用ontology-go-sdk生成十六进制数据，参考这个[例子](rpc_api_CN.md#8-sendrawtransaction)
+可以使用 `ontology-go-sdk` 生成十六进制数据，参考 [示例](rpc_api_CN.md#8-sendrawtransaction)。
 
-#### Response Example:
-```
+响应：
+
+```json
 {
     "Action": "sendrawtransaction",
     "Desc": "SUCCESS",
@@ -450,7 +468,7 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Version": "1.0.0"
 }
 ```
-> Result: 交易哈希
+`Result`: 交易哈希
 
 ## getstorage
 
@@ -464,8 +482,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     fmt.Println(addr.ToHexString())
 ```
 
-#### Request Example
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getstorage",
     "Version": "1.0.0",
@@ -474,8 +495,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Key" : "4587c1094f6"
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getstorage",
     "Desc": "SUCCESS",
@@ -490,9 +512,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 得到该地址的账户的余额。
 
+#### 调用示例
 
-#### Request Example
-```
+请求：
+
+```json
 {
     "Action": "getbalance",
     "Version": "1.0.0",
@@ -501,8 +525,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getbalance",
     "Desc": "SUCCESS",
@@ -518,10 +543,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 根据合约地址哈希得到合约信息。
 
+#### 调用示例
 
-#### Request Example:
+请求：
 
-```
+```json
 {
     "Action": "getcontract",
     "Version": "1.0.0",
@@ -530,9 +556,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-#### Response Example:
+响应：
 
-```
+```json
 {
     "Action": "getcontract",
     "Desc": "SUCCESS",
@@ -554,10 +580,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 得到该高度区块上的智能合约执行结果。
 
+#### 调用示例
 
-#### Example usage:
+请求：
 
-```
+```json
 {
     "Action": "getsmartcodeeventbyheight",
     "Version": "1.0.0",
@@ -566,8 +593,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 ```
 
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getsmartcodeeventbyheight",
     "Desc": "SUCCESS",
@@ -609,14 +637,19 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Version": "1.0.0"
 }
 ```
-> 注意: 返回的结果是交易简略信息的集合，并不是完整的交易信息。
+> **注意**： 
+>
+> 返回的结果是交易简略信息的集合，并不是完整的交易信息。
 
 ## getsmartcodeeventbyhash
 
 通过交易哈希得到该交易的执行结果。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getsmartcodeeventbyhash",
     "Version": "1.0.0",
@@ -624,8 +657,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Hash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac"
 }
 ```
-#### Response Example:
-```
+响应：
+
+```json
 {
     "Action": "getsmartcodeeventbyhash",
     "Desc": "SUCCESS",
@@ -653,8 +687,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 通过交易哈希得到该交易落账的区块高度。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getblockheightbytxhash",
     "Version": "1.0.0",
@@ -662,8 +699,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Hash": "3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8"
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getblockheightbytxhash",
     "Desc": "SUCCESS",
@@ -676,10 +714,13 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 ## getmerkleproof
 
-通过交易哈希得到该交易的merkle证明。
+通过交易哈希得到该交易的 merkle 证明。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getmerkleproof",
     "Version": "1.0.0",
@@ -688,8 +729,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 }
 
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getmerkleproof",
     "Desc": "SUCCESS",
@@ -724,16 +766,20 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 得到会话数量。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getsessioncount",
     "Version": "1.0.0",
     "Id":12345, //optional
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getsessioncount",
     "Desc": "SUCCESS",
@@ -745,18 +791,22 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 ## getgasprice
 
-得到gas的价格。
+得到 GAS 的价格。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getgasprice",
     "Version": "1.0.0",
     "Id":12345, //optional
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getgasprice",
     "Desc": "SUCCESS",
@@ -771,10 +821,13 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 ## getallowance
 
-得到允许从from账户转出到to账户的额度。
+得到允许从 from 账户转出到 to 账户的额度。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getallowance",
     "Id":12345, //optional
@@ -784,8 +837,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Version": "1.0.0"
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getallowance",
     "Desc": "SUCCESS",
@@ -797,10 +851,13 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 ## getunboundong
 
-得到该账户未提取的ong数量。
+得到该账户未提取的 ONG 数量。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getunboundong",
     "Id":12345, //optional
@@ -808,8 +865,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Version": "1.0.0"
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getunboundong",
     "Desc": "SUCCESS",
@@ -823,8 +881,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 通过交易哈希得到内存中该交易的状态。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getmempooltxstate",
     "Id":12345, //optional
@@ -832,8 +893,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Version": "1.0.0"
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getmempooltxstate",
     "Desc": "SUCCESS",
@@ -857,16 +919,20 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 得到内存中的交易的数量。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getmempooltxcount",
     "Id":12345, //optional
     "Version": "1.0.0"
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getmempooltxcount",
     "Desc": "SUCCESS",
@@ -881,16 +947,20 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 得到版本信息。
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getversion",
     "Id":12345, //optional
     "Version": "1.0.0"
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getversion",
     "Desc": "SUCCESS",
@@ -904,16 +974,20 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 获取 network id
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getnetworkid",
     "Id":12345, //optional
     "Version": "1.0.0"
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getnetworkid",
     "Desc": "SUCCESS",
@@ -927,8 +1001,11 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
 
 获取 grant ong
 
-#### Request Example:
-```
+#### 调用示例
+
+请求：
+
+```json
 {
     "Action": "getgrantong",
     "Id":12345, //optional
@@ -936,8 +1013,9 @@ raw：可选参数，默认值为零，不设置时为默认值。当值为1时�
     "Version": "1.0.0"
 }
 ```
-#### Response Example
-```
+响应：
+
+```json
 {
     "Action": "getgrantong",
     "Desc": "SUCCESS",
