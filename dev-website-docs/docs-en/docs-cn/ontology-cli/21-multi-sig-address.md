@@ -1,30 +1,19 @@
 
-生成多重签名地址需要指定公钥列表PubKey，以及在公钥列表中的所需要的最少签名数量M。
+本体客户端 `Ontology-CLI` 提供了多签地址模块，用于根据指钥列表及签名门限 `M` 生成多重签名地址。
 
-### 生成多重签名地址参数
---pubkey
-pubkey 参数用于指定多重签名的公钥列表，公钥之间用逗号','分隔。
-账户公钥可以通过命令：
+- `--pubkey`：用于指定多重签名地址的公钥列表，公钥之间用 `,` 分隔。
+- `-m`：用于指定签名门限（默认为 `1`）。
 
-```
-./ontology account list -v
-```
-查看。
+**Tips**：你可以使用 `ontology account list -v` 命令查看当前钱包账户中的公钥列表。
 
-目前多重签名支持的最大公钥数为16。
-
--m
-m 参数用于指定所以的最少签名数。默认值为1。
-
-```
-./ontology multisigaddr --pubkey=03c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a56,02b2b9fb60a0add9ef6715ffbac8bc7e81cb47cd06c157c19e6a858859c0158231 -m=1
-```
-返回如下：
-
-```
+```shell
+$ ontology multisigaddr --pubkey 1419e9b0d726b0712fb92015b8e41ee5e5bb3d0321485b13322c6f36817042801013,02b76e86481df6e9814b203a41a0b040c87807d1bcfd18f8ea69c7d73ebf2b944a,02929e9d107f318d2cf8d99e4de47731e2d6a8eb8da5164e8d012373f06ac78157 -m 2
 Pub key list:
-Index 1 Address:AaCe8nVkMRABnp5YgEjYZ9E5KYCxks2uce PubKey:02b2b9fb60a0add9ef6715ffbac8bc7e81cb47cd06c157c19e6a858859c0158231
-Index 2 Address:ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48 PubKey:03c0c30f11c7fc1396e8595bf2e339d553d728ea6f21ae831e8ab704ca14fe8a56
+Index 1 Address:AM6WtTARSpGsF8ugSnx9QZRu2wnP2Dk8Vo PubKey:02929e9d107f318d2cf8d99e4de47731e2d6a8eb8da5164e8d012373f06ac78157
+Index 2 Address:AL4m8xiSrmxAjCEGVdZWADQgVuasozpnF9 PubKey:02b76e86481df6e9814b203a41a0b040c87807d1bcfd18f8ea69c7d73ebf2b944a
+Index 3 Address:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa PubKey:1419e9b0d726b0712fb92015b8e41ee5e5bb3d0321485b13322c6f36817042801013
 
-MultiSigAddress:Ae4cxJiubmgueAVtNbjpmm2AGNgdKP6Ea7
+MultiSigAddress:ARCSXp1YYX5KUTogyTVczoypaAKc1h6o3h
 ```
+
+**注意**：目前多重签名所支持的最大公钥数为 `16`。
