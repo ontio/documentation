@@ -59,7 +59,7 @@
 
 - 连接到主网
 
-  ```Python
+  ```python
   from ontology.ont_sdk import OntologySdk
   
   
