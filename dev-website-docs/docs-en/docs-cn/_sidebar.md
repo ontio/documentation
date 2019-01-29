@@ -44,7 +44,7 @@
   - [DAPP开发](docs-cn/QuickGuide/00-dapp_development.md)  
   - [DAPI 使用](docs-cn/QuickGuide/06-dapi-useage.md)  
   - [开发工具概述](docs-cn/DeveloperGuide/tools.md)
-      
+
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
@@ -66,8 +66,7 @@
   - [VSCode 插件](docs-cn/Punica/sc-extension.md)
   - [Solo Chain](docs-cn/Punica/solo-chain.md)
   - [Tutorials](docs-cn/Punica/tutorials.md)
-  
-      
+
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
   - [钱包文件](docs-cn/SDKs/01-wallet-file-specification.md)
@@ -80,7 +79,7 @@
   - [钱包集成](docs-cn/SDKs/02-wallet-intergration.md)
       - [iOS](docs-cn/SDKs/ontology_wallet_dev_ts_sdk_zh.md)
       - [Android](docs-cn/SDKs/ontology_wallet_dev_android_zh.md)
-        
+
 - 浏览器 API
   - [区块](docs-cn/explorer/blocks.md)
   - [账户](docs-cn/explorer/accounts.md)
@@ -96,7 +95,6 @@
       - [账号](docs-cn/SignServer/04-api-account-methods.md)
       - [签名方法](docs-cn/SignServer/05-api-signing-methods.md)
       - [简便的签名方法](docs-cn/SignServer/06-api-signing-convinience-methods.md)
-
 
 - 交易所对接
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
