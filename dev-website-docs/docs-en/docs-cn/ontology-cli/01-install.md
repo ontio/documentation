@@ -1,10 +1,9 @@
 
 ### 下载安装包
 
+基于 Go 语言，我们提供了通用的本体客户端安装程序，你可以通过下列两种方式快速获取：
 - 点击 [这里](https://github.com/ontio/ontology/releases) 下载本体客户端安装程序。
-
-
-当然，你也可以通过 `curl` 命令获取最新的客户端。
+- 通过 `curl` 命令获取最新的客户端。
 
 ```shell
 curl https://dev.ont.io/ontology_install | sh
