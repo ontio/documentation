@@ -53,60 +53,60 @@
 
 - 安装 SDK
 
-  ```shell
-  pip install ontology-python-sdk
-  ```
+```shell
+pip install ontology-python-sdk
+```
 
 - 连接到主网
 
-  ```python
-  from ontology.ont_sdk import OntologySdk
-  
-  
-  sdk = OntologySdk()
-  sdk.rpc.connect_to_main_net()
-  sdk.restful.connect_to_main_net()
-  sdk.websocket.connect_to_main_net()
-  ```
+```python
+from ontology.ont_sdk import OntologySdk
+
+
+sdk = OntologySdk()
+sdk.rpc.connect_to_main_net()
+sdk.restful.connect_to_main_net()
+sdk.websocket.connect_to_main_net()
+```
 
 - 连接到测试网
 
-  ```python
-  from ontology.ont_sdk import OntologySdk
-  
-  
-  sdk = OntologySdk()
-  sdk.rpc.connect_to_test_net()
-  sdk.restful.connect_to_test_net()
-  sdk.websocket.connect_to_test_net()
-  ```
+```python
+from ontology.ont_sdk import OntologySdk
+
+
+sdk = OntologySdk()
+sdk.rpc.connect_to_test_net()
+sdk.restful.connect_to_test_net()
+sdk.websocket.connect_to_test_net()
+```
 
 - 连接到本地节点
 
-  ```python
-  from ontology.ont_sdk import OntologySdk
-  
-  
-  sdk = OntologySdk()
-  sdk.rpc.connect_to_localhost()
-  sdk.restful.connect_to_localhost()
-  sdk.websocket.connect_to_localhost()
-  ```
+```python
+from ontology.ont_sdk import OntologySdk
+
+
+sdk = OntologySdk()
+sdk.rpc.connect_to_localhost()
+sdk.restful.connect_to_localhost()
+sdk.websocket.connect_to_localhost()
+```
 
 - 连接到自定义节点
 
-  ```python
-  from ontology.ont_sdk import OntologySdk
-  
-  
-  sdk = OntologySdk()
-  rpc_address = 'http://localhost:20336'
-  restful_address = 'http://localhost:20334'
-  websocket_address = 'http://localhost:20335'
-  sdk.rpc.set_address(rpc_address)
-  sdk.restful.set_address(restful_address)
-  sdk.websocket.set_address(websocket_address)
-  ```
+```python
+from ontology.ont_sdk import OntologySdk
+
+
+sdk = OntologySdk()
+rpc_address = 'http://localhost:20336'
+restful_address = 'http://localhost:20334'
+websocket_address = 'http://localhost:20335'
+sdk.rpc.set_address(rpc_address)
+sdk.restful.set_address(restful_address)
+sdk.websocket.set_address(websocket_address)
+```
 
 > **注意**：
 >
@@ -136,4 +136,4 @@
   - http://dappnode3.ont.io
   - http://dappnode4.ont.io
 
-此外，开发者还可以通过 [测试网水龙头](https://developer.ont.io/applyOng) 获取本体网络的原生通证 `ONT` 与 `ONG`。
+如果你希望基于 `polaris` 测试网进行开发，你可以在[这里](https://developer.ont.io/applyOng)申请测试所需的 `ONT` 与 `ONG`。
