@@ -4,19 +4,19 @@
 **查看客户端版本**
 
 ```shell
-.\ontology -v
+ontology -v
 ```
 
 **查看帮助信息**
 
 ```shell
-.\ontology help
+ontology help
 ```
 
 **连接到主网**
 
 ```shell
-.\ontology
+ontology
 ```
 
 或者
@@ -28,13 +28,13 @@ ontology --networkid 1
 **连接到测试网**
 
 ```shell
-.\ontology --networkid 2
+ontology --networkid 2
 ```
 
 **启动测试模式**
 
 ```shell
-.\ontology --networkid 3
+ontology --networkid 3
 ```
 
 或者
