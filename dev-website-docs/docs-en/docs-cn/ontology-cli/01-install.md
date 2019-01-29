@@ -5,9 +5,9 @@
 - 点击 [这里](https://github.com/ontio/ontology/releases) 下载本体客户端安装程序。
 - 通过 `curl` 命令获取最新的客户端。
 
-```shell
-curl https://dev.ont.io/ontology_install | sh
-```
+  ```shell
+  curl https://dev.ont.io/ontology_install | sh
+  ```
 
 ### 使用源码编译
 
