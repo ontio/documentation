@@ -119,7 +119,7 @@ sdk.websocket.set_address(websocket_address)
 
 ## 使用公开节点
 
-通常情况下，开发者自己运行节点是极为不便的。因此，本体提供了 polaris 测试网节点以及主网节点供开发者使用，它们均支持 RPC、 Restful 以及 WebSockek 调用，并使用默认的端口号。
+通常情况下，开发者自己运行节点是极为不便的。因此，本体提供了 `polaris` 测试网节点以及主网节点供开发者使用，它们均支持 RPC、 Restful 以及 WebSockek 调用，并使用默认的端口号。
 
 - `polaris` 测试网节点
   - http://polaris1.ont.io
