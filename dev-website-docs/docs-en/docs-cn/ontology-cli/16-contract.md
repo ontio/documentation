@@ -1,5 +1,5 @@
 
-本体客户端 `Ontology-CLI` 提供了智能合约模块，可以在命令行中通过 `contract` 命令使用。
+本体客户端 `Ontology-CLI` 提供了智能合约模块，可以在命令行中通过 `contract` 命令实现如下功能：
 
 - `NeoVm` 智能合约的部署。
 - `NeoVm` 智能合约的执行。
@@ -22,13 +22,13 @@ def echo(msg):
 
 ```
 
-将该段智能合约代码使用编译器编译后可以得到相应的 `AVM` 字节码，将其以 `hello_ontology.avm` 为文件名保存到本地。
+将该段智能合约代码使用编译器编译后可以得到相应的 `AVM` 字节码，将其以 `hello_ontology.avm` 命名保存到本地。
 
 ```shell
 51c56b6c58c56b6a00527ac46a51527ac46a52527ac46a51c3046563686f7d9c7c75642700006a53527ac46a52c300c3516a53c3936a53527ac46a53c36a00c365f2006c7566620300006c75660111c56b6a00527ac46a51527ac46a51c300947600a0640c00c16a52527ac4620e007562030000c56a52527ac46a52c3c0517d9c7c75641c00006a53527ac46a52c300c36a54527ac4516a55527ac4625c006a52c3c0527d9c7c756421006a52c300c36a53527ac46a52c351c36a54527ac4516a55527ac4616232006a52c3c0537d9c7c756424006a52c300c36a53527ac46a52c351c36a54527ac46a52c352c36a55527ac462050000f100c176c96a56527ac46a53c36a57527ac46a57c36a54c37d9f7c756419006a56c36a57c3c86a57c36a55c3936a57527ac462e0ff6a56c36c756656c56b6a00527ac46a51527ac46a52527ac4620300046563686f6a52c352c176c9681553797374656d2e52756e74696d652e4e6f746966796a52c36c7566
 ```
 
-其中，你可以用用来编译智能合约的工具如下所示。
+其中，你可以用来编译智能合约的工具如下：
 
 - [SmartX](https://smartx.ont.io/)
 - [Punica CLI](https://punica.ont.io/)
@@ -42,23 +42,23 @@ ontology --testmode
 
 ## 部署智能合约
 
-在智能合约模块中，`deploy` 命令用于根据交易哈希查询交易信息。
+在智能合约模块中，`deploy` 命令用于部署智能合约，其参数如下：
 
-- `--needstore`：用于指定智能合约需要使用持久化的合约存储（默认不使用）。
+- `--needstore`：指定智能合约需要使用持久化的合约存储（默认不使用）。
 
-- `--code`：用于指定存储智能合约 `AVM` 字节码文件的路径。
+- `--code`：指定存储智能合约 `AVM` 字节码文件的路径。
 
-- `--name`：用于指定智能合约的名称。
+- `--name`：指定智能合约的名称。
 
-- `--version`：用于指定智能合约的版本号。
+- `--version`：指定智能合约的版本号。
 
-- `--author`：用于指定智能合约的作者信息。
+- `--author`：指定智能合约的作者信息。
 
-- `--email`：用于指定智能合约的联系人电子邮件。
+- `--email`：指定智能合约的联系人电子邮件。
 
-- `--desc`：用于指定智能合约的描述信息。
+- `--desc`：指定智能合约的描述信息。
 
-- `--prepare, -p`：用于指定智能合约的预部署。
+- `--prepare, -p`：指定智能合约的预部署。
 
 ```shell
 $ ontology contract deploy --code  .\hello_ontology.avm --name hello_ontology --version 1.0.0 --author NashMiao --email contact@ont.io --desc hello_ontology --gaslimit 20000000 -p
@@ -66,7 +66,7 @@ Contract pre-deploy successfully.
 Gas consumed:20000000.
 ```
 
-智能合约的预部署不会把合约部署到链上，也不会消耗任何 `ONG`。通过预部署，你可以知道部署当前合约所需要消耗的 `gas`。
+智能合约的预部署不会把合约部署到链上，也不会消耗任何 `ONG`。通过预部署，你可以知道部署当前合约所需要消耗的 GAS。
 
 ```shell
 $ ontology contract deploy --code  .\hello_ontology.avm --name hello_ontology --version 1.0.0 --author NashMiao --email contact@ont.io --desc hello_ontology --gaslimit 20000000
@@ -102,7 +102,10 @@ Transaction states:
 }
 ```
 
-> **注意**：通过 `ontology info status <TxHash>` 命令查询合约执行状态，如果返回 `UNKNOWN TRANSACTION`，表示该交易尚未被打包到区块中，可能有多种情况。
+> **注意**：
+>
+> 通过 `ontology info status <TxHash>` 命令查询合约执行状态，如果返回 `UNKNOWN TRANSACTION`，表示该交易尚未被打包到区块中，可能有多种情况：
+>
 > - 交易还在交易池中排队等待被打包。
 > - 交易因为 `gaslimit` 或者 `gasprice` 设置过低，导致交易被拒绝。
 
@@ -110,17 +113,19 @@ Transaction states:
 
 ## 调用智能合约
 
-在本体客户端 `Ontology-CLI` 中，支持的参数类型为 `array`、`bytearray`、`string`、`int` 以及 `bool`。
+本体客户端 `Ontology-CLI` 支持以下参数类型：
 
-- `array` 表示对象数组，数组元素可以是 `NeoVM` 支持的任意数量、任意类型的值。
-- `bytearray` 表示字节数组，输入时需要将字节数组编码成十六进制字符串，如 `[]byte("HelloWorld")` 编码成十六进制字符串 `48656c6c6f576f726c64`。
-- `string` 表示字符串字面值。
-- `int` 表示整数。
-- `bool` 表示布尔型变量，用 `true` 和 `false`表示。
+- `array`：对象数组，数组元素可以是 `NeoVM` 支持的任意数量、任意类型的值。
+- `bytearray`：字节数组，输入时需要将字节数组编码成十六进制字符串，如 `[]byte("HelloWorld")` 编码成十六进制字符串 `48656c6c6f576f726c64`。
+- `string`：字符串字面值。
+- `int`：整数。
+- `bool`：布尔型变量，用 `true` 和 `false`表示。
 
-> **注意**：`NeoVM` 虚拟机不支持浮点数值，需要将浮点数转换成整数。
+> **注意**：
+>
+> `NeoVM` 虚拟机不支持浮点数值，需要将浮点数转换成整数。
 
-`Ontology-CLI` 使用前缀法构造参数，参数前使用类型标识标注类型，多个参数使用 `,` 分隔。
+`Ontology-CLI` 使用前缀法构造参数，参数使用类型标识标注类型，多个参数使用 `,` 分隔。
 
 - 字符串参数表示为 `string:hello`。
 - 整数参数表示为 `int:10`。
@@ -142,7 +147,7 @@ Tips:
   Using './ontology info status 8d62fb42647c175dd5689dd5d1062dda093d59c66ca22f710a2b47174c7ed966' to query transaction status.
 ```
 
-当我们执行智能合约时，将会得到对应的交易哈希 `TxHash`。通过交易哈希，我们能够查询到该笔交易当前的状态、消耗的 `gas`、所在的区块（若执行成功）、触发的事件（若执行成功）等信息。因此，交易哈希是我们与区块链世界沟通的桥梁。
+当我们执行智能合约时，将会得到对应的交易哈希 `TxHash`。通过交易哈希，我们能够查询到该笔交易当前的状态、消耗的GAS、所在的区块（若执行成功）、触发的事件（若执行成功）等信息。因此，交易哈希是我们与区块链世界沟通的桥梁。
 
 ```shell
 $ ontology info status 8d62fb42647c175dd5689dd5d1062dda093d59c66ca22f710a2b47174c7ed966
@@ -222,7 +227,7 @@ $ ontology info tx c6d34bf17eaf467bc47748408e6704d5fcd054269a0d0ca985c387eb930d7
 
 ### 智能合约的预执行
 
-我们可以使用 `-p` 参数预执行智能合约，获得执行结果以及 `gas` 消耗。
+我们可以使用 `-p` 参数预执行智能合约，获得执行结果以及 GAS 消耗。
 
 ```shell
 $ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500 -p
@@ -232,7 +237,7 @@ Contract invoke successfully
   Return:01 (raw value)
 ```
 
-同时，我们也可以使用 `--return` 选项指明返回值的类型，获得解析后的返回值。
+同时，我也可以使用 `--return` 选项指明返回值的类型，获得解析后的返回值。
 
 ```shell
 $ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500 -p --return bool
@@ -242,4 +247,6 @@ Contract invoke successfully
   Return:true
 ```
 
-> **注意**: 智能合约在执行之前，可以通过预执行，试算出当前执行所需要的 `gas limit`，避免 `ONG` 余额不足导致执行失败。
+> **注意**: 
+>
+> 智能合约在执行之前，可以通过预执行，试算出当前执行所需要的 `gas limit`，避免 `ONG` 余额不足导致执行失败。

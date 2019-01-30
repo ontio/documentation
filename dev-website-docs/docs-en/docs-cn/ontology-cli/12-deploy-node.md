@@ -4,7 +4,7 @@
 - 记账节点按照共识算法参与网络共识，产生区块。
 - 同步节点只同步记账节点生成的区块。
 
-## 记账节点的部署
+## 部署记账节点
 
 默认情况下，客户端 `Ontology CLI` 不会启动共识模块，需要通过 `--enable-consensus` 选项来开启共识。
 
@@ -30,9 +30,9 @@ ontology  --disable-event-log
 ontology --enable-consensus --disable-rpc --disable-event-log
 ```
 
-## 同步节点的部署
+## 部署同步节点
 
-同步节点只负责同步记账节点生成的区块，不参与网络共识，不需要钱包。
+使用以下命令启动同步节点。
 
 - 主网
 
@@ -54,22 +54,24 @@ ontology --enable-consensus --disable-rpc --disable-event-log
   ontology --testmode
   ```
 
-> **注意**：在测试模式下，共识模块、RPC 模块、Restful 模块以及 WebSocket 模块会同时开启。
+> **注意**：
+>
+> 在测试模式下，共识模块、RPC 模块、Restful 模块以及 WebSocket 模块会同时开启。
 
 ## 常见问题
 
 - 如何为节点指定创世区块？
 
-  你可以接口通过 `--config` 选项指定创世区块的配置文件
+  使用 `--config` 选项指定创世区块的配置文件。
 
 - 如何为节点指定钱包文件？
 
-  你可以通过 `--wallet` 选项指定钱包文件
+  使用 `--wallet` 选项。
 
 - 如何为节点指定账户？
 
-  你可以通过 `--account` 选项指定账户。
+  使用 `--account` 选项。
 
-- 如何修改交易池的 gas 参数？
+- 如何修改交易池的 GAS 参数？
 
-  你可以在你的记账节点上通过 `--gasprice` 和 `--gaslimit` 参数来修改。
+  在你的记账节点上使用`--gasprice` 和 `--gaslimit` 参数来修改。
