@@ -52,7 +52,8 @@
   
 - Cyano
   - [概述](docs-cn/cyano/00-overview.md)
-  - [Cyano 钱包使用](docs-cn/cyano/02-getting-started.md)
+  - [Cyano Chrome](docs-cn/cyano/01-cyano-chrome/00-overview.md)
+  - [Cyano Mobile](docs-cn/cyano/02-getting-started.md)
   - [钱包对接 dAPI](docs-cn/cyano/Cyano-provider/00-overview.md)
       - [扫二维码对接](docs-cn/cyano/Cyano-provider/02-scan-qrcode.md)
       - [钱包里打开DApp对接](docs-cn/cyano/Cyano-provider/03-embedded-h5.md)
