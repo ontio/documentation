@@ -53,7 +53,7 @@
 - Cyano
   - [概述](docs-cn/cyano/00-overview.md)
   - [Cyano Chrome](docs-cn/cyano/01-cyano-chrome/00-overview.md)
-  - [Cyano Mobile](docs-cn/cyano/02-getting-started.md)
+  - [Cyano Mobile](docs-cn/02-cyano-mobile/00-overview.md)
       - [Android dApp 的集成](docs-cn/cyano/01-cyano-android-sdk.md)
       - [IOS dApp 的集成](docs-cn/cyano/02-cyano-ios-sdk.md)
   - [钱包对接 dAPI](docs-cn/cyano/Cyano-provider/00-overview.md)
