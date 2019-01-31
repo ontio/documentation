@@ -117,7 +117,7 @@ Options:
 
 #### Punica-Cli가 사용하는 네트워크 구성
 
-Tutorialtoken-box는 프로젝트 루트 디렉토리에 `punica-config.json' 라고 하는 것을 포함하고 있으며, 이로인해 온톨로지 테스트넷이 망가집니다. 파일의 DefaultNet 설정을 변경하여 Punica-Cli가 사용할 네트워크를 설정할 수 있습니다.
+The Tutorialtoken-box프로젝트 아래에 있는 `punica-config.json'문서의 네트워크 기본 설정값은 테스트넷입니다.파일의 DefaultNet 설정을 변경하여 Punica-Cli가 사용할 네트워크를 설정할 수 있습니다.
 
 punica-config.json 예제:
 ```json
