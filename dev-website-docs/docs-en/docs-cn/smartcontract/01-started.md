@@ -1,43 +1,30 @@
 
 
+## 相关工具
 
-智能合约开发工具
-* Smartx
-* vscode插件
+* Smartx - 一站式智能合约 IDE，支持编译、部署、测试、Debug。
+* vscode 插件 - 支持编译、部署、测试、Debug。
+* punica-cli - 支持智能合约编译，部署，调用，测试。
+* SDKs - 部署和调用智能合约。
+* dAPI - 调用智能合约。相关信息请参考 DAPI 使用。
 
-智能合约调用工具
-* Smartx
-* vscode插件
-* SDKs
-* dAPI
+## 合约部署
 
+在部署合约之前，开发者需要准备好要部署的合约，且该合约已经被正确编译为 .avm 文件。
 
-### 编译合约
+开发者还需要有 Ontology 的钱包账户，且保证账户上有足够的 ONG，用以支付部署合约的费用。
 
-* smartx
-* punica-cli
-* vscode插件
-
-### 部署合约
-
-在部署合约之前，开发者需要准备好要部署的合约，且该合约已经被正确编译为.avm文件。
-
-开发者还需要有Ontology的钱包账户，且保证账户上有足够的ONG，用以支付部署合约的费用。
-
-目前，在测试网上部署合约，gasprice可以设为500。
+目前，在测试网上部署合约，gasprice 可以设为 500。
 
 部署合约需要用户构建特定的交易，并发送到区块链上执行。当交易执行完成后，合约就部署完成。
 
-Ontology提供了不同的SDK和合约开发工具SmartX，帮助用户部署合约。
+Ontology 提供了不同的 SDK 和合约开发工具 SmartX，帮助用户部署合约。
 
+## 合约调用
 
+### GAS 计算
 
-
-### 调用合约
-
-#### 调用部署合约所需gas消耗计算
-
-通过智能合约的预执行，可以获得当前合约执行所需要的`Gaslimit`,从而为智能合约的实际执行设置`Gaslimit`设置提供参考，避免由于**ONG**余额不足造成的执行失败。
+通过智能合约的预执行，可以获得当前合约执行所需要的`Gaslimit`,从而为智能合约的实际执行设置 `Gaslimit` 设置提供参考，避免由于**ONG** 余额不足造成的执行失败。
 
 ```
 $ ./ontology contract invoke --address 79102ef95cf75cab8e7f9a583c9d2b2b16fbce70 --params string:Hello,[string:Hello] --prepare --return bool
@@ -47,11 +34,9 @@ Contract invoke successfully
   Return:true
 ```
 
-
-
 ### 智能合约调用
 
-#### 1. 构建交易
+#### 构建交易
 
 当智能合约被部署到区块链上后，我们可以通过构建交易（Transaction），调用合约中的相应方法。
 
@@ -69,11 +54,7 @@ Contract invoke successfully
 
 合约hash是对合约的avm内容进行某些hash运算得到的值，该值是用来区分不同合约的唯一值。abi文件里一般也含有合约hash值。
 
-
-
-
-
-### 2. 发送交易
+发送交易
 
 我们有多种方式发送交易：
 
@@ -101,7 +82,7 @@ client.sendRawTransaction(tx.serialize()).then(res => {
 })
 ````
 
-### 3. 获取交易结果
+#### 获取交易结果
 
 在上一步我们通过restful的接口发送了交易到链上，返回的结果如下：
 
