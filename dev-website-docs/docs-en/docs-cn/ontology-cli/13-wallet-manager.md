@@ -193,7 +193,7 @@ ontology account set
 
 ## 删除账户
 
-要删除账户，使用`del` 命令：
+要删除（非默认）账户，使用`del` 命令：
 
 ```shell
 ontology account del 2
@@ -201,9 +201,7 @@ ontology account del acct
 ontology account del AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
 ```
 
-> **注意**：
-> - 未备份的账户删除后将无法恢复，请谨慎操作。
-> - 默认账户无法删除。
+> 未备份的账户删除后将无法恢复，请谨慎操作。
 
 ## 导出账户
 
