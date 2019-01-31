@@ -7,14 +7,18 @@
 
 你可以从[这里](https://github.com/ontio-cyano/cyano-android-sdk)获取完整的项目代码，然后将 `cyano-android-sdk` 以模块的形式导入到你的项目中。
 
-## 钱包管理
+## 使用 SDK
 
-1. 初始化
+在调用 `cyano-andorid-sdk` 所提供的方法之前，你需要对其进行初始化。
 
 ```java
-CyanoWebView cyanoWebView=new CyanoWebView(context);  
+CyanoWebView cyanoWebView = new CyanoWebView(context);  
 cyanoWebView.loadUrl(url);
 ```
+
+### 钱包管理
+
+1. 初始化
 
 登陆
 
