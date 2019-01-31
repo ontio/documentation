@@ -108,7 +108,7 @@ sdk.restful.set_address(restful_address)
 sdk.websocket.set_address(websocket_address)
 ```
 
-!> **注意**：一般情况下，你只需要连接到 RPC、Restful 或 WebSocket 中的一个接口，并使用该接口与节点进行交互即可。
+!> 一般情况下，你只需要连接到 RPC、Restful 或 WebSocket 中的一个接口，并使用该接口与节点进行交互即可。
 
 关于函数库的更多信息可以在下列章节中找到：
 

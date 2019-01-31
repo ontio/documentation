@@ -8,9 +8,7 @@
 - `--endheight`：指定导入区块数据的目标区块高度（默认导入所有的区块）
 - `--importfile`：指定导入文件的路径（默认为 `./OntBlocks.dat`）
 
-> **注意**：
->
-> 出于安全考虑，请确保导入的区块数据文件的来源是可信的。
+!> 出于安全考虑，请确保导入的区块数据文件的来源是可信的。
 
 ```shell
 ./ontology import --importfile=./OntBlocks.dat
