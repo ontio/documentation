@@ -5,6 +5,8 @@
 - 集成了 `cyano-sdk` 的 dApp 唤醒集成了 `dApi-mobile` 的钱包。
 - 集成了 `dApi-mobile` 的钱包打开内嵌的 dApp 并进行账户登陆、智能合约的调用。
 
+## 请求规范
+
 在 `cyano-mobile` 中，dApp 的数据请求 URL 遵循 `CEP-1` 规范：
 
 ```java
@@ -17,7 +19,7 @@ String param = Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes
 String url = "ontprovider://ont.io?param=".concat(param);
 ```
 
-同时，本体团队提供了实现了 `CEP-1` 移动端钱包：
+同时，本体提供了实现了 `CEP-1` 移动端钱包：
 
 - [Android](https://github.com/ontio-cyano/cyano-android)
 - [IOS](https://github.com/ontio-cyano/cyano-ios)
