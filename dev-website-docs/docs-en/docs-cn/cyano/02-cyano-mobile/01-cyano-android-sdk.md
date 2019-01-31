@@ -1,5 +1,5 @@
 
-`cyano-android-sdk` 基于 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 进行实现，对 [Android WebView](https://developer.android.com/reference/android/webkit/WebView) 进行了封装，用于帮助基于 `WebView` 进行开发的手机端 dApp 与 `Cyano Mobile` 中的钱包进行通信。
+`cyano-android-sdk` 基于 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 进行实现，对 [Android WebView](https://developer.android.com/reference/android/webkit/WebView) 进行了封装，用于帮助基于 `WebView` 进行开发的手机端 dApp 与实现了 dApi mobile 规范的钱包之间进行通信。
 
 !> `WebView` 的通信方式为 `window.postmeaage()`
 
