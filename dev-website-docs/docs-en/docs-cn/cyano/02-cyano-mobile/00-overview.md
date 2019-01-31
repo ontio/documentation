@@ -16,3 +16,13 @@ import com.alibaba.fastjson.JSON;
 String param = Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes(), Base64.NO_WRAP).toString();
 String url = "ontprovider://ont.io?param=".concat(param);
 ```
+
+同时，本体团队提供了实现了 `CEP-1` 移动端钱包：
+
+- [Android](https://github.com/ontio-cyano/cyano-android)
+- [IOS](https://github.com/ontio-cyano/cyano-ios)
+
+如果你想要将你的 dApp 接入到使用了 `dApi-mobile` 的钱包，你可以查看我们的 SDK 接入文档。
+
+- [Android](01-cyano-android-sdk.md)
+- [IOS](02-cyano-ios-sdk.md)
