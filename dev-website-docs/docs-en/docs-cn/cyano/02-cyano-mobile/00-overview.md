@@ -16,3 +16,8 @@ import com.alibaba.fastjson.JSON;
 String param = Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes(), Base64.NO_WRAP).toString();
 String url = "ontprovider://ont.io?param=".concat(param);
 ```
+
+同时，本体团队提供了实现了 `CEP-1` 移动端钱包：
+
+- [Android](https://github.com/ontio-cyano/cyano-android)
+- [IOS](https://github.com/ontio-cyano/cyano-ios)
