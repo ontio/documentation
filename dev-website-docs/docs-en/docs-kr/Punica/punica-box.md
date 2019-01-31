@@ -4,37 +4,37 @@
 
 ---
 
-## Overview
+## 개요
 
- [Punica Box](https://punica.ont.io/boxes/) provides a variety of multi-language dApp examples and templates to help developers quick learn the fundamentals of programming on the Ontology blockchain.
+ [Punica Box](https://punica.ont.io/boxes/) 는 개발자가 온톨로지 블록체인에서 프로그래밍의 기본 사항을 빨리 습득할 수 있도록 다양한 언어, dApp예제 및 템플릿을 제공합니다.
 
 
-Features：
-* Example dApps for items such as ONT ID, OEP-4, OEP-5, etc.
-* Developers can create their own boxes and add them to the community repository
-* More development libraries will continue to be made be available for dApp development
+특징：
+* ONT ID, OEP-4, OEP-5, etc등과 같은 다양한 dApp예제 제공.
+* 개발자가 자신의 박스를 만들고 커뮤니티 저장소에 추가할 수 있습니다.
+* 더 많은 개발 라이브러리를 dApp개발을 위해 만들 수 있습니다.
 <p><br>
 
-## Using Punica-Box
+## Punica-Box사용하기
 
-In order to use a Punica-Box you first need to install either [Punica Python CLI](https://github.com/punicasuite/punica-python) or [Punica TypeScript CLI](https://github.com/punicasuite/punica-ts). Once installed and configured (see [documentation](http://dev-docs.ont.io/#/docs-en/Punica/punica-cli)) you begin by downloading (unboxing) a punica-box.
+Punica-Box를 사용하려면 먼저 [Punica Python CLI](https://github.com/punicasuite/punica-python) 또는 [Punica TypeScript CLI](https://github.com/punicasuite/punica-ts)를 설치해야합니다. 설치 및 구성 (see [documentation](http://dev-docs.ont.io/#/docs-en/Punica/punica-cli)) 을 시작하면 punica-box가 다운로드됩니다.
 
-We will be using the [Tutorialtoken-box](https://github.com/punica-box/tutorialtoken-box) through-out this tutorial which creates an OEP4 token that can be transferred between accounts.
+이 튜토리얼 계정간에 전송할 수 있는 OEP4 token을 만들어 [Tutorialtoken-box](https://github.com/punica-box/tutorialtoken-box) 를 사용할 것 입니다.
 
-Create a new directory for your Punica project:
+Punica 프로젝트를 위해 새로운 디렉토리를 만들어주세요.
 
 ```shell
 mkdir tutorialtoken
 cd tutorialtoken
 ```
 
-Download ("unbox") the Tutorialtoken-box Box:
+Tutorialtoken-box Box 다운로드:
 
 ```shell
 punica unbox tutorialtoken
 ```
 
-For more usage information, you can use `punica unbox --help`
+자세한 사용방법은 `punica unbox --help`를 사용해주세요.
 ```shell
 punica unbox --help
 Usage: punica unbox [OPTIONS] BOX_NAME
@@ -45,9 +45,9 @@ Options:
   -h, --help  Show this message and exit.
 ```
 
-#### Configure the network used by Punica-Cli
+#### Punica-Cli가 사용하는 네트워크 구성
 
-The Tutorialtoken-box contains a file called `punica-config.json' in the project root directory which defauls to the Ontology Testnet.  You can alter the DefaultNet setting in this file to set which network Punica-Cli will use.
+The Tutorialtoken-box프로젝트 아래에 있는 `punica-config.json'문서의 네트워크 기본 설정값은 테스트넷입니다.
 
 Example punica-config.json:
 ```json
@@ -70,21 +70,21 @@ Example punica-config.json:
 }
 ```
 
-**Notes**:
-- You can use the `punica unbox <box-name>` command to download any of the other [Punica Boxes](http://punica.ont.io/boxes/).
-- If you are not running punica-cli in the root directory of your project, you need to use the `-p` or `--project` option to specify your DApp project path.
+**참고**:
+- `punica unbox <box-name>` 명령을 사용하여 다른 [Punica Boxes](http://punica.ont.io/boxes/)를 다운로드 할 수 있습니다.
+- 프로젝트의 루트 디렉토리에서 punica-cli를 실행하지 않는 경우 `-p` 또는 `--project` 옵션을 사용하여 dApp프로젝트 경로를 지정해야합니다.
 <p><br>
 
 
-#### Compiling
+#### 컴파일
 
-We will now use the `compile` command to compile the Tutorialtoken-box smart contract:
+`compile` 명령을 사용하여 Tutorialtoken-box 스마트 컨트랙트를 컴파일합니다.
 
 ```shell
 punica compile
 ```
 
-If everything goes smoothly, you can find the `avm` and `abi` file in `contracts/build` folder.
+모든 것이 원활하게 진행되면 `contracts/build` 폴더에서 `avm` 및 `abi`파일을 찾을 수 있습니다.
 
 ```shell
 contacts
@@ -93,7 +93,7 @@ contacts
     │      contract_abi.json
 ```
 
-For more usage information, you can use `punica compile --help`
+자세한 사용방법은, `punica compile --help`를 사용해주세요.
 
 ```shell
 punica compile --help
@@ -105,20 +105,20 @@ Options:
   --contracts Only compile the specified contract
   -h, --help  Show this message and exit.
 ```
-**After you compile the smart contract ensure you have sufficient ONG in the account that will be paying for the deployment (see next step) or else deployment will fail.  The address for the Tutorialtoken-box is ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6**
+**스마트 컨트랙트를 컴파일 한 후 배치 비용을 지불할 때 계정에 ONG가 충분한지 확인하세요.(다음단계 참조) 그렇지 않으면 배치가 실패됩니다. Tutorialtoken-box의 주소는 ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6입니다.**
 
-**Note**: If you are not running punica-cli in the root directory of your project, you need to use the `-p` or `--project` option to specify your DApp project path.
+**참고**: 프로젝트의 루트 디렉토리에서 punica-cli를 실행하지 않은 경우 `-p` 또는 `--project` 옵션을 사용하여 dApp프로젝트 경로를 지정해야합니다.
 <p><br>
 
-#### Deployment
+#### 배치
 
-To deploy the Tutotialtoken-box smart contract to the selected network, run the following:
+Tutotialtoken-box 스마트 컨트랙트를 선택한 네트워크에 배치하려면 다음을 실행해야합니다.
 
 ```shell
 punica deploy
 ```
 
-A simple deployment process looks like this:
+간단한 배치 프로세스는 다음과 같습니다.
 
 ```shell
 Using network 'testNet'.
@@ -132,7 +132,7 @@ Deploy successful to network...
 Enjoy your contract:)
 ```
 
-For more usage information, you can use `punica deploy --help`
+자세한 사용방법은 `punica deploy --help`를 사용해주세요.
 
 ```shell
 punica deploy --help
@@ -147,22 +147,22 @@ Options:
   -h, --help       Show this message and exit.
 ```
 
-**Notes**:
+**참고**:
 
-- If you are not running punica-cli in the root directory of your project, you need to use the `-p` or `--project` option to specify your DApp project path.
-- If multiple `avm` files exist in your `contracts/build` directory, you need to use the `--avm` option to specify which contract you want to deploy.
-- If a multi-wallet file exist in your `wallet` directory, you may need to use the `--wallet` option to specify which wallet you want to use. If you do not specify a random wallet file in `wallet` directory will be used.
-<p><br>
+- 프로젝트의 루트 디렉토리에서 punica-cli를 실행하지 않는 경우, `-p` 또는 `--project` 옵션을 사용하여 dApp프로젝트 경로를 지정해야합니다.
+-`contracts/build` 디렉토리에 여러 `avm` 파일이 있는 경우 배치할 컨트랙트를 지정하려면 `--avm` 옵션을 사용해야합니다.
+- 다중 월렛 파일이 `wallet` 디렉토리에 있는 경우, `--wallet` 옵션으로 어떤 월렛을 사용할지 지정해야합니다. 지정하지 않을 경우 `wallet` 디렉토리에서 임의로 지정됩니다.
+<p><br
 
-#### Invocation
+#### 호출
 
-To setup your smart contract you must run the `punica invoke` command before invoking any specific functions.
+스마트 컨트랙트를 설정하려면 특정 기능을 호출하기 전에 `punica invoke` 명령을 실행해야합니다.
 
 ```shell
 punica invoke
 ```
 
-Output:
+출력:
 ```shell
 Running invocation: oep4.json
 Using network 'testNet'.
@@ -177,12 +177,12 @@ Invoking Name...
 Invoking Symbol......
 ```
 
-To see a list of available functions for tutorialtoken-box use:
+To see a list of available functions for tutorialtoken-box  use:
 ```shell
 punica invoke list
 ```
 
-Response when running `punica invoke list' on the Tutorialtoken-box
+Tutorialtoken-box에서 `punica invoke list'를 실행할 때의 응답
 ```shell
 All Functions:
          Init
@@ -197,7 +197,7 @@ All Functions:
          TransferFrom
 ```
 
-For more usage information, you can use `punica invoke --help`
+자세한 사용방법은 `punica invoke --help`를 사용해주세요.
 
 ```shell
 punica invoke --help
@@ -212,15 +212,15 @@ Options:
   -h, --help       Show this message and exit.
 ```
 
-**Notes**:
+**참고**:
 
-- If you are not running punica-cli in the root directory of your project, you need to use the `-p` or `--project` option to specify your DApp project path.
-- If a multi-wallet file exist in your `wallet` directory, you may need to use the `--wallet` option to specify which wallet you want to use. If you do not specify a random wallet file in `wallet` directory will be used.
+- 프로젝트의 루트 디렉토리에서 punica-cli를 실행하지 않는 경우 `-p` 또는 `--project` 옵션을 사용하여 dApp프로젝트 경로를 지정해야합니다.
+- 다중 월렛 파일이 `wallet` 디렉토리에 있는 경우, `--wallet` 옵션으로 어떤 월렛을 사용할지 지정해야합니다. 지정하지 않을 경우 `wallet` 디렉토리에서 임의로 지정됩니다.
 <p><br>
 
-#### Scpm (not yet implemented)
+#### Scpm (시행전)
 
-The smart contract package manager allows you to download and publish punica boxes to the community repository.
+스마트 컨트랙트 패키지 관리자를 사용하여 punica boxes를 다운로드 및 커뮤니티 저장소에 게시할 수 있습니다. 
 
 ```shell
 punica scpm
