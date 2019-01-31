@@ -16,7 +16,7 @@ CyanoWebView cyanoWebView=new CyanoWebView(context);
 cyanoWebView.loadUrl(url);
 ```
 
-1. 登陆
+登陆
 
 ```java
 cyanoWebView.getNativeJsBridge().setHandleLogin(new NativeJsBridge.HandleLogin() {
