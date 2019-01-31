@@ -4,3 +4,15 @@
 - 集成了 `dApi-mobile` 的钱包通过二维码进行账户登陆、智能合约的调用。
 - 集成了 `cyano-sdk` 的 dApp 唤醒集成了 `dApi-mobile` 的钱包。
 - 集成了 `dApi-mobile` 的钱包打开内嵌的 dApp 并进行账户登陆、智能合约的调用。
+
+在 `cyano-mobile` 中，dApp 的数据请求 URL 遵循 `CEP-1` 规范：
+
+```java
+import android.net.Uri;
+import android.util.Base64;
+
+import com.alibaba.fastjson.JSON;
+
+String param = Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes(), Base64.NO_WRAP).toString();
+String url = "ontprovider://ont.io?param=".concat(param);
+```
