@@ -21,3 +21,8 @@ String url = "ontprovider://ont.io?param=".concat(param);
 
 - [Android](https://github.com/ontio-cyano/cyano-android)
 - [IOS](https://github.com/ontio-cyano/cyano-ios)
+
+如果你想要将你的 dApp 接入到使用了 `dApi-mobile` 的钱包，你可以查看我们的 SDK 接入文档。
+
+- [Android](01-cyano-android-sdk.md)
+- [IOS](02-cyano-ios-sdk.md)
