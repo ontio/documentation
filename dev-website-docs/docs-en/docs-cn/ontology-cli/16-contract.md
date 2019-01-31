@@ -247,6 +247,4 @@ Contract invoke successfully
   Return:true
 ```
 
-> **注意**: 
->
-> 智能合约在执行之前，可以通过预执行，试算出当前执行所需要的 `gas limit`，避免 `ONG` 余额不足导致执行失败。
+!> 智能合约在执行之前，可以通过预执行，试算出当前执行所需要的 `gas limit`，避免 `ONG` 余额不足导致执行失败。

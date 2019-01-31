@@ -220,9 +220,7 @@ ontology account export ./export_wallet.dat
 | `--wallet`, `-w` |                 指定导出钱包                 |
 | `--low-security` | 降低导出 `Keystore` 文件中的账户保护安全等级 |
 
-> **注意**：
->
-> 如果不是出于特殊需要，如为了将 `Keystore` 文件导入到低性能设备当中，请勿使用 `--low-security` 选项。
+!> 如果不是出于特殊需要，如为了将 `Keystore` 文件导入到低性能设备当中，请勿使用 `--low-security` 选项。
 
 ## 导入账户
 
@@ -244,9 +242,7 @@ ontology account import -s ./export_wallet.dat
 ontology account import --wif ./wif
 ```
 
-> **注意**：
->
-> 请在导入完成后彻底清除设备中的 `WIF` 文件或将其置于安全的位置。
+!> 请在导入完成后彻底清除设备中的 `WIF` 文件或将其置于安全的位置。
 
 ## 常见问题
 
