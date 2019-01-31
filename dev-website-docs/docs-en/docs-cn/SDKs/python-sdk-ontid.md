@@ -1,32 +1,4 @@
 
-<<<<<<< HEAD
-=======
-
-<!-- TOC -->
-
-- [简介](#简介)
-- [准备](#准备)
-- [接口](#接口)
-    - [Network](#network)
-    - [Wallet](#wallet)
-    - [Identity](#identity)
-    - [IdentityManager](#identitymanager)
-    - [ABI](#abi)
-    - [Utils](#utils)
-- [参与项目](#参与项目)
-- [命名规范](#命名规范)
-    - [概述](#概述)
-    - [应该避免的名称](#应该避免的名称)
-    - [命名约定](#命名约定)
-    - [Python之父Guido推荐的规范](#python之父guido推荐的规范)
-- [官网](#官网)
-- [许可证](#许可证)
-
-<!-- /TOC -->
-
-
-
->>>>>>> upstream/master
 ## 简介
 
 Ontology-Python-SDK是一个基于`Python3.6`实现的综合性SDK。目前，它支持本地钱包管理、数字身份管理、数字资产管理、智能合约的部署和调用、OEP4智能合约的调用以及与Ontology区块链的通信。并且，未来它还将支持更多功能和应用。
@@ -74,7 +46,7 @@ pip install ontology-python-sdk
 | 1     | add_account()    |
 | 2     | remove_account() |
 
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
+!> 该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
 
 
 ### Identity
@@ -107,7 +79,7 @@ This is an API set that allows you to generate **Ontology Digital Identity.**
 | 22    | send_raw_transaction()               |
 | 23    | send_raw_transaction_pre_exec()      |
 
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
+!> 该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
 
 
 ### IdentityManager
@@ -120,7 +92,7 @@ This is an API set that allows you to manage your multiple identity in an wallet
 | 2     | import_identity()                  |
 | 3     | create_identity_from_private_key() |
 
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
+!> 该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
 
 
 ### ABI
@@ -151,7 +123,7 @@ This is an API set that allows you to manage your multiple identity in an wallet
 | 10    | transfer_multi()   |
 | 11    | transfer_from()    |
 
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
+!> 该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
 
 ### Utils
 
@@ -162,74 +134,3 @@ This is an API set that allows you to manage your multiple identity in an wallet
 | 1     | get_random_hex_str()    |
 | 2     | get_asset_address() |
 | 3     | get_random_bytes()  |
-
-## 参与项目
-
-我可以为Ontology项目做贡献吗？
-
-当然可以！请发起一个带有打开带有签名提交的拉取请求。我们非常感谢你您的帮助！
-
-你还可以将补丁通过电子邮件的方式发送到开发人员邮件列表。请加入Ontology邮件列表或论坛，与我们讨论。
-
-无论哪种方式，如果您不签署补丁，我们将不接受。这意味着在每次提交结束时添加一行`Signed-off-by：Name <email>`，表示你编写了代码并将其作为开源补丁传递。
-
-另外，请写好git提交消息。一个好的提交消息如下所示：
-
-标题行：在一行中解释提交（使用命令）
-
-提交消息的主体是几行文本，更详细地解释事情，可能提供有关修复问题的一些背景等。
-
-提交消息的主体可以是几个段落，请做正确的自动换行并保持列短于约74个字符左右。这样`git log`即使缩进也能很好地显示出来。
-
-确保解释清楚你的解决方案以及为什么你正在做你正在做的事情，而不是描述你正在做的事情。审稿人和您未来的自己可以阅读补丁，但可能无法理解为什么要实施特定的解决方案。
-
-> Reported-by: whoever-reported-it
-
-> Signed-off-by: Your Name <youremail@yourhost.com>
-
-## 命名规范
-
-如果您想贡献，我们强烈建议您阅读 [Google Python Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md).
-
-### 概述
-
-`module_name`,
-`package_name`,
-`ClassName`,
-`method_name`,
-`ExceptionName`,
-`function_name`,
-`GLOBAL_CONSTANT_NAME`,
-`global_var_name`,
-`instance_var_name`,
-`function_parameter_name`,
-`local_var_name`.
-
-函数名，变量名和文件名应该是描述性的，如`eschew`这样的命名就是缩写。特别地，**不要使用项目之外的读者不明确或不熟悉的缩写**，也**不要通过删除单词中的字母来缩写**。
-
-始终使用`.py`文件扩展名。
-
-切勿使用短划线。
-
-### 应该避免的名称
-
-- 单字符名称, 除了计数器和迭代器。
-- 包/模块名中的连字符（-）。
-- 双下划线开头并结尾的名称（Python保留, 例如__init__）。
-
-### 命名约定
-
-- 所谓“`Internal`”表示仅模块内可用。或者, 在类内是保护或私有的.
-- 用单下划线(`_`)开头表示模块变量或函数是`protected`的（使用`import * from`时不会包含）.
-- 用双下划线(__)开头的实例变量或方法表示类内私有.
-- 将相关的类和顶级函数放在同一个模块里。不像`Java`, 没必要限制一个类一个模块。
-- 对类名使用大写字母开头的单词（如`CapWords`, 即`Pascal`风格）, 但是模块名应该用小写加下划线的方式(如`lower_with_under.py`)。尽管已经有很多现存的模块使用类似于`CapWords.py`这样的命名, 但现在已经不鼓励这样做, 因为如果模块名碰巧和类名一致, 这会让人困扰。
-
-
-## 官网
-
-* https://ont.io/
-
-## 许可证
-
-所有Ontology的库（即cmd目录之外的所有代码）遵循GNU Lesser General Public License v3.0许可，该许可证文件也包含在我们的存储库中。
