@@ -16,7 +16,7 @@ npm install ontology-dapi
 目前可以通过 `jsDelivr` 获取到最新版本的资源，在页面上引入 js 文件即可开始使用。
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/ontology-dapi@0.4.6/lib/browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ontology-dapi/lib/browser.min.js"></script>
 ```
 
 !> 建议使用 CDN 引入 `ontology-dapi` 的用户在链接地址上锁定版本，以免将来 `ontology-dapi` 升级时受到非兼容性更新的影响。
