@@ -19,6 +19,8 @@ npm install ontology-dapi
 <script src="https://cdn.jsdelivr.net/npm/ontology-dapi@0.4.6/lib/browser.min.js"></script>
 ```
 
+!> 建议使用 CDN 引入 `ontology-dapi` 的用户在链接地址上锁定版本，以免将来 `ontology-dapi` 升级时受到非兼容性更新的影响。
+
 ## 导入
 
 ### CommonJS
