@@ -64,13 +64,13 @@
     alias: {
         '/.*/_navbar.md': '/_navbar.md',
         '/docs-en/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en/$1',
-        '/docs-cn/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en/docs-cn/$1',
-        '/docs-kr/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en/docs-kr/$1',
+        '/docs-cn/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-cn/$1',
+        '/docs-kr/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-kr/$1',
         '/docs-jp/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-jp/$1'
       },
       notFoundPage: '_404.html',
       auto2top: true,
-      basePath: 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en',
+      basePath: 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs',
       executeScript: true,
       loadNavbar: true,
       loadSidebar: true,
@@ -107,8 +107,8 @@
               }
               url = 'https://github.com/ontio/documentation/blob/master/dev-website-docs' + vm.route.path+".md"
             }
-            url = url.replace('docs-cn','docs-en/docs-cn');
-            url = url.replace('docs-kr','docs-en/docs-kr');
+            url = url.replace('docs-en/docs-cn','docs-cn');
+            url = url.replace('docs-en/docs-kr','docs-kr');
 	    // var editHtml = '[:memo: Edit Document](' + url + ')\n'
             var editHtml = [
               '<p style="text-align:right;position: absolute;top: 10px;right: 5px;">',
