@@ -94,6 +94,7 @@
         function (hook, vm) {
           hook.beforeEach(function (html) {
             var url
+            console.log(vm.route.file);
             if (/githubusercontent\.com/.test(vm.route.path+".md")) {
                 //console.log("=========="+vm.route.file);
 		        url = vm.route.file
