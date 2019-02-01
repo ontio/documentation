@@ -103,7 +103,7 @@
               if(vm.route.path.indexOf("/docs-") > -1 && vm.route.path.substr(-1,1) == "/"){
                 vm.route.path = vm.route.path + "README";
               }else if(vm.route.path == "/"){
-                vm.route.path = vm.route.path + "docs-en/README";
+                vm.route.path = vm.route.path + "README";
               }
               url = 'https://github.com/ontio/documentation/blob/master/dev-website-docs' + vm.route.path+".md"
             }
