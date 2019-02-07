@@ -1,25 +1,25 @@
 
-# API Usage
+# API 용법
 
-- [API Endpoint](#api-endpoint)
-- [Supported Request Methods](#supported-request-methods)
-- [Request structure](#request-structure)
-- [Response structure](#response-structure)
-  - [Error Codes](#error-codes)
+- [API 엔드 포인트](#api-endpoint)
+- [지원되는 요청 메서드](#supported-request-methods)
+- [요청 구조](#request-structure)
+- [응답 구조](#response-structure)
+  - [에러 코드](#error-codes)
 
-## API Endpoint
+## API 엔드 포인트
 
-The signature service is a JSON RPC server available by default at:
+Signature Service는 기본적으로 다음 위치에서 사용할 수 있는 JSON RPC 서버:
 ```
 http://localhost:20000/cli
 ```
 
-## Supported Request Methods
+## 지원되는 요청 메서드
 ```
 POST
 ```
 
-## Request structure
+## 요청 구조
 
 ```
 {
@@ -31,7 +31,7 @@ POST
 }
 ```
 
-## Response structure
+## 응답 구조
 
 ```
 {
@@ -45,7 +45,7 @@ POST
 }
 ```
 
-### Error Codes
+### 에러 코드
 
 Error code | Error description
 ---------- | -----------------
