@@ -1,20 +1,20 @@
 
-# Ontology Signature Service
-A service to facilitate account management and secure signing of messages to be broadcast to the Ontology blockchain. The signature service can be used as a part of a larger application server or as it's own stand-alone microservice. It is ideal for use in applications that require a automated transaction signing in a secure hosted environment, and provides a wide range of functionality which include:
+# 온톨로지 Signature Service
+온톨로지 블록체인으로 브로드 캐스팅될 때 메시지의 계정관리 및  Signature Service를 용이하게 하는 서비스. Signature Service는 대형 애플리케이션 서버의 일부로 사용하거나 독립형 마이크 서비스로 사용할 수 있습니다. 안전한 호스팅 환경에서 자동거래 서명이 필요한 애플리케이션을 사용하기에 이상적이며 다음과 같은 기능을 제공합니다:
 
-## Account
-- Creation
-- Exports for secure backups
+## 계정
+- 만들기
+- 보안 백업 내보내기
 
-## Signing
-- Arbitrary data in hex string format
-- Raw transactions
-- Raw Multiple Signature transactions
+## 서명
+- 16진수의 문자열 형식의 임의 데이터
+- 거래
+- 다중 서명 거래
 
-## Signing (convenience methods)
-- Asset transfers (eg. ONT or ONG)
-- Ontology Native Smart Contract invocations
-- NEO VM Smart Contract invocations w/ parameterized arguments
-- NEO VM Smart Contract invocations w/ unparameterized arguments + abi
+## 간단한 서명 방법
+- 자산 거래 (ONT 또는 ONG)
+- 온톨로지 네이티브 스마트 컨트랙트 호출
+- NEO VM 스마트 컨트랙트 및 정규화 파라미터
+- NEO VM 스마트 컨트랙트 및 비표준 파라미터 + abi
 
-__NOTE__: The service is solely responsible for signing of the provided input with the accounts it manages. The broadcast of all signed outputs must be handled by a separate service.
+__참고__: 이 서비스는 관리하는 계정으로 제공된 입력에 서명하는 것만을 책임집니다. 모든 서명 출력 브로드 캐스트는 별도의 서비스로 처리됩니다.
