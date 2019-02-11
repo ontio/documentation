@@ -1,7 +1,7 @@
 
-The mobile version of the Cyano provider is specifically designed for mobile phone wallet integration. The purpose is to allow users to interact with the Ontology chain when using DApp. It does not need to expose the private key to the DApp side, and it also reduces DApp development complexity and security risks.  
+Cyano 공급자 모바일 버전은 휴대전화 월렛 통합을 위해 설계되어있습니다. dApp을 사용할 때 사용자가 온톨로지 체인과 상호작용 할 수 있도록 하는 것 입니다. dApp측에 프라이빗 키를 공개 할 필요가 없으며 dApp개발의 복잡성과 보안 위험도 줄일 수 있습니다.
 
-The mobile version provider implements the [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEP1.mediawiki) protocol. The protocol describes the scenarios of using DApp for wake-up, scan code, and open DApp on the mobile phone in the wallet. GitHub has corresponding sdk and use case to facilitate wallet integration.
+모바일 버전의 공급자는 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEP1.mediawiki) 프로토콜을 구현합니다. 이 프로토콜은 월렛의 휴대전화  웨이크업, 스캔 코드 및 월렛에서 dApp을 여는 3종류로 dApp 시나리오를 설명합니다. GitHub에는 월렛 통합을 용이하게 하기위해 해당 SDK 및 사례를 보유하고있습니다.
 
 
 * [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEP1.mediawiki)
