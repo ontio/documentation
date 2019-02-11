@@ -56,6 +56,10 @@
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=r0802qrtqef" allowFullScreen="true" width="100%" height="360"></iframe>
 
+### 11. PyCharm Extension for Ontology
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=x0836e0lmjg" allowFullScreen="true" width="100%" height="360"></iframe>
+
 ## 智能合约系列教程
 
 [视频文档](https://github.com/punicasuite/tutorials/)
@@ -104,3 +108,11 @@
 ### 11. Static and Dynamic Call
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=g0832e8dxmi" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 12. Oracle (1)
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=l0836ki8clh" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 13. Oracle (2)
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=n08364lr5lq" allowFullScreen="true" width="100%" height="360"></iframe>

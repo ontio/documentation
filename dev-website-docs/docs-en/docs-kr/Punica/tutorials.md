@@ -56,6 +56,9 @@ These video is in Youtube, other language coming soon. [Docs in Video](https://g
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CwFWEeNYPM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+### 11. PyCharm Extension for Ontology
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=x0836e0lmjg" allowFullScreen="true" width="100%" height="360"></iframe>
 
 ## 온톨로지 스마트 컨트랙트
 
@@ -106,3 +109,11 @@ These video is in Youtube, other language coming soon. [Docs in Video](https://g
 ### 11. Static and Dynamic Call
 
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=g0832e8dxmi" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 12. Oracle (1)
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=l0836ki8clh" allowFullScreen="true" width="100%" height="360"></iframe>
+
+### 13. Oracle (2)
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=n08364lr5lq" allowFullScreen="true" width="100%" height="360"></iframe>
