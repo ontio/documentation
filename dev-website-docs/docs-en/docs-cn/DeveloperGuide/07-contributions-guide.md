@@ -26,11 +26,11 @@
 
 | **分组**                                      | **姓名**     | **Discord**              | **GitHub**   | **Gitter**   |
 | --------------------------------------------- | ------------ | ------------------------ | ------------ | ------------ |
-| [ontology](https://github.com/ontio/ontology) | Weng Junjie  | luodanwg                 | luodanwg     | luodanwg     |
 |                                               | Zhou Yan     | harry.zy                 | harryzy      | harryzy      |
 |                                               | Tan Yuan     | tanyuan                  | tanZiWen     | tanZiWen     |
 | [OEPs](https://github.com/ontio/OEPs)         | Hu Ning      | dcjojo                   | javajoker    | javajoker    |
 |                                               | Cong Honglei | Honglei                  | Honglei-Cong | Honglei-Cong |
-| [dApps](https://github.com/ontio/ONTO)        | Xiao Min     | xiaomin-trouble shooting | xiaomin49    | xiaomin49    |
+| [dApps](https://dapp.ont.io/)               | Xiao Min     | xiaomin-trouble shooting | xiaomin49    | xiaomin49    |
+|                                               | Zhou Xi | josh chow                  | xizho10  | xizho10  |
 |                                               | Ding Wenbing | dwb1991                  | dwb19911025  | dwb19911025  |
 

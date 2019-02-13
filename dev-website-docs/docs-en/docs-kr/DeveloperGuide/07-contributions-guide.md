@@ -35,6 +35,6 @@ Github의 [OEPs](https://github.com/ontio/OEPs)로그인하고 새로운 proposa
 |                                               | Tan Yuan     | tanyuan                  | tanZiWen     | tanZiWen     |
 | [OEPs](https://github.com/ontio/OEPs)         | Hu Ning      | dcjojo                   | javajoker    | javajoker    |
 |                                               | Cong Honglei | Honglei                  | Honglei-Cong | Honglei-Cong |
-| [dApps](https://github.com/ontio/ONTO)        | Xiao Min     | xiaomin-trouble shooting | xiaomin49    | xiaomin49    |
-|                                               | Ding Wenbing | dwb1991                  | dwb19911025  | dwb19911025  |
+| [dApps](https://dapp.ont.io/)              | Xiao Min     | xiaomin-trouble shooting | xiaomin49    | xiaomin49    |
+|                                               | Zhou Xi | josh chow                  | xizho10  | xizho10  |
 |  Community Mgmt.                              | Mathias G    | Fluid_DK                 | Fluid_DK     | Fluid_DK     |
