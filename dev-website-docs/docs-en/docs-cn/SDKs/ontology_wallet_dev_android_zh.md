@@ -43,7 +43,7 @@
 ​
 
 
-The example below is in Java, android sdk the same with java sdk.
+android sdk 项目地址[链接](https://github.com/ontio-community/ontology-andriod-sdk)。
 
 ## 1. 与链交互
 
