@@ -5,12 +5,11 @@
 
 1. 下载并安装solo-chain。
 2. 在谷歌浏览器中安装Cynao并将其连接到私链。
-3. 在SmartX中创建和编辑智能合约。
-4. 在SmartX中部署智能合约，它将调用Cyano将合约部署到solo-chain。
-5. 检查智能合约是否已成功部署在solo-chain。
-6. 在SmartX中调用智能合约，它将使用Cyano调用solo-chain中的合约。
-7. 检查solo-chain中的交易。
-8. 使用SmartX和Cyano在主网上进行部署和调用（**仅在完成开发后执行此操作**）
+3. 在SmartX中创建，编辑和部署智能合约，它将调用Cyano将合约部署到solo-chain。
+4. 检查智能合约是否已成功部署在solo-chain。
+5. 在SmartX中调用智能合约，它将使用Cyano调用solo-chain中的合约。
+6. 检查solo-chain中的交易。
+7. 使用SmartX和Cyano在主网上进行部署和调用（**仅在完成开发后执行此操作**）
 
 需要以下工具：
 
@@ -18,15 +17,6 @@
 - [Solo-chain](https://github.com/punicasuite/solo-chain/releases) —— 是一个预先构建的私有链。
 - [Cyano wallet](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?utm_source=chrome-ntp-icon) —— 是一个本体的谷歌 Chrome 浏览器插件。
 
-## 在SmartX中创建并编译智能合约
-
-我们将使用[SmartX](https://smartx.ont.io/)开发、编译和测试我们的智能合约。如果你不熟悉SmartX，请阅读[SmartX教程](https://ontio.github.io/documentation/SmartX_Tutorial_en.html)，它将指导你完成该工具的使用。
-
-编译你的智能合约但**不要部署它**。
-
-![Compile](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/SmartX_compile.jpg)
-
-<p><br>
 
 ## 下载并安装 solo-chain
 
@@ -40,7 +30,7 @@ Solo-chain 是一个预构建的本体私链，它包含许多与网络交互和
 
 <p><br>
 
-## Install Cyano
+## 在Chrome浏览器中安装Cyano钱包
 
 Cyano钱包是与SmartX集成的谷歌 Chrome 扩展程序，允许开发人员在私有链或者本体测试网、主网上部署和调用智能合约。
 
@@ -59,7 +49,14 @@ Cyano钱包是与SmartX集成的谷歌 Chrome 扩展程序，允许开发人员�
 最后，发起交易并提取用于在部署和调用智能合约期间支付交易费用的 ONG。
 <p><br>
 
-## Deploy smart contract in SmartX
+## 在SmartX中创建，编译和部署智能合约到私有链
+
+我们将使用[SmartX](https://smartx.ont.io/)开发、编译和测试我们的智能合约。如果你不熟悉SmartX，请阅读[SmartX教程](https://ontio.github.io/documentation/SmartX_Tutorial_en.html)，它将指导你完成该工具的使用。
+
+编译你的智能合约。
+
+![Compile](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/SmartX_compile.jpg)
+
 
 一旦你对你的智能合约感到满意，就可以使用SmartX将其部署到您的私人网络。SmartX将与Cyano钱包进行交互，以部署合约和支付交易费用。
 
