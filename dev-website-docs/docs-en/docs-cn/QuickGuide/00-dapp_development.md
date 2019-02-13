@@ -3,9 +3,9 @@
 
 使用的步骤是：
 
-1. 在SmartX中创建和编辑智能合约（**不要在此步骤部署**）。
-2. 下载并安装solo-chain。
-3. 在谷歌浏览器中安装Cynao并将其连接到私链。
+1. 下载并安装solo-chain。
+2. 在谷歌浏览器中安装Cynao并将其连接到私链。
+3. 在SmartX中创建和编辑智能合约。
 4. 在SmartX中部署智能合约，它将调用Cyano将合约部署到solo-chain。
 5. 检查智能合约是否已成功部署在solo-chain。
 6. 在SmartX中调用智能合约，它将使用Cyano调用solo-chain中的合约。
