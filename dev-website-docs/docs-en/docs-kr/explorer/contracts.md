@@ -1,4 +1,4 @@
-##  Get Contract List
+##  계약 목록 
 
 	url：/api/v1/explorer/contract/{pagesize}/{pagenumber}
 
@@ -66,7 +66,7 @@
 | AddressCount|	int|	  |
 
 ---
-#  Get Contract Detail
+#  계약 세부사항 보기
 
 	url：/api/v1/explorer/contract/{contracthash}/{pagesize}/{pagenumber}
 	
