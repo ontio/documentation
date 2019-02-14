@@ -1,10 +1,10 @@
 
 
-The document presents API specification of Ontology Explorer.
+이 문서는 Ontology Explorer의 API사양을 제시합니다.
 
-#### MainNet explorer API domain
+#### MainNet explorer API 
 https://explorer.ont.io
 
-#### TestNet explorer API domain
+#### TestNet explorer API 
 https://polarisexplorer.ont.io
 
