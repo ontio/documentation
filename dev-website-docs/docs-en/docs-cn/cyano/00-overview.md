@@ -7,8 +7,8 @@
 
 - `Cyano Chrome Provider`：集成了 `cyano-chrome` 的浏览器钱包插件。
 - `Cyano Mobile Provider`：集成了 `cyano-mobile` 的移动端钱包应用。
-  - Android：通过集成组件库 [cyano-android](https://github.com/ontio-cyano/cyano-android) 来提供 `Provider` 实例。
-  - IOS：通过集成组件库 [cyano-ios](https://github.com/ontio-cyano/cyano-ios) 来提供 `Provider` 实例。
+  - Android：通过集成 `cyano-android` 组件库来提供 `Provider` 实例，你可以点击[这里](https://github.com/ontio-cyano/cyano-android)访问在 GitHub 上的项目。
+  - IOS：通过集成 `cyano-ios` 组件库来提供 `Provider` 实例，你可以点击[这里](https://github.com/ontio-cyano/cyano-ios)访问在 GitHub 上的项目。
 
 对应地，我们提供了电脑端与移动端的 `Cyano Provider SDK` 供 dApp 使用。
 
