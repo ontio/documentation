@@ -54,6 +54,8 @@ client.registerClient({});
 
 ## 使用
 
+在 `ontology-dapi` 中，有7个模块：`asset`、`identity`、`message`、`network`、`provider`、`smartContract` 和 `utils`。
+
 ### 网络
 
 - 查询所接入网络
