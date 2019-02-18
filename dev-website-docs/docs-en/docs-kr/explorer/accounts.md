@@ -1,7 +1,7 @@
 
 
 
-### Ontology Asset
+### Ontology 자산
 
 
 | value     |     Type |   Description   | 
@@ -13,7 +13,7 @@
 
 
 
-### Query transfer information by address
+### 주소로 거래내역 
 
 ```json
 url：/api/v1/explorer/address/{address}/{pagesize}/{pagenumber}
@@ -111,7 +111,7 @@ successResponse：
 
 
 
-### Query transfer information by address and asset type
+### 주소와 자산타입으로 거래내역 
 
 ```json
 url：/api/v1/explorer/address/{address}/{assetname}/{pagesize}/{pagenumber}
@@ -183,7 +183,7 @@ successResponse：
 
 
 
-### Query transfer information by address and time
+### 주소 및 시간으로 거래내역 조회
 
 ```json
 url：/api/v1/explorer/address/time/{address}/{assetname}/{begintime}/{endtime}
@@ -265,7 +265,7 @@ successResponse：
 
 
 
-### query all assets balance by address
+### 주소로 모든 자산의 잔액 조회
 
 ```json
 url：/api/v1/explorer/address/balance/{address}
