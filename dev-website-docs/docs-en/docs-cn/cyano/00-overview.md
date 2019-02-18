@@ -1,9 +1,13 @@
 
-`Cyano` 是一座连接未来的去中心化网络的桥梁，旨在使越来越多的人尽可能容易地使用本体。通过使用 `Cyano`，你能够马上使用本体上丰富的 dApp。更为重要的是，在这个过程中，你无需将你的私钥交给各种各样的 dApp，私钥将被保护在你的钱包之中。
+`Cyano` 是一座连接未来的去中心化网络的桥梁，旨在使越来越多的人尽可能容易地使用本体。
 
-`Cyano` 分为钱包端的 `Cyano Provider` 与 dApp 端的 `Cyano Provider SDK` 两部分。在技术实现上，钱包端通过集成 `Cyano Provider` 库来提供标准的 dApp 调用接口，dApp 端则通过集成 `Cyano Provider SDK` 来与支持 `Cyano Provider` 的各类钱包进行通信。
+通过使用 `Cyano`，你能够马上使用本体上丰富的 dApp。更为重要的是，在这个过程中，你无需将你的私钥交给各种各样的 dApp，私钥将被保护在你的钱包之中。
 
-无论是电脑端还是移动端的，我们均提供了相应的 `Provider` 组件库供钱包集成。
+`Cyano` 分为钱包端的 `Provider SDK` 与 dApp 端的 `dAPI` 两部分。
+
+在技术实现上，钱包端通过集成 `Provider SDK` 来提供标准化的 `Provider` 实例供 dApp 调用，dApp 端则通过集成 `dAPI` 来与 `Provider` 实例进行通信。
+
+无论是电脑端还是移动端的，我们均提供了相应的 `Provider SDK` 供钱包集成。
 
 - `Chrome Provider`：集成了 `cyano-chrome` 的浏览器钱包插件。
 - `Mobile Provider`：集成了 `cyano-mobile` 的移动端钱包应用。
