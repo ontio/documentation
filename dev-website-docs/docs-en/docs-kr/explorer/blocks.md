@@ -1,6 +1,6 @@
 
 
-### Get Bolck List
+### 블록정보 얻기
 
 ```json
 url：/api/v1/explorer/blocklist/{amount}
@@ -49,7 +49,7 @@ successResponse：
 
 
 
-### Get block list by page
+### 페이지에서 블록목록 받기
 
 ```json
 url：/api/v1/explorer/blocklist/{pagesize}/{pagenumber}
@@ -102,7 +102,7 @@ successResponse：
 |	Total|	int|total number of blocks  |
 
 
-### Query Block by height or hash
+### 블록의 높이 혹은 블록의 해시값으로 블록 제부정보 가져오기
 
 
 ```json
