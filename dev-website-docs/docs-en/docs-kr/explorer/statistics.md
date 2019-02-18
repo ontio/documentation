@@ -1,6 +1,6 @@
 
 
-### Get summary
+### 요약내역 보기
 
 ```json
 url：/api/v1/explorer/summary
@@ -28,7 +28,7 @@ successResponse：
 |    OntIdCount|   int| total number of ontids |
 
 
-### Get summary all
+### 모든 요약내역 
 
 ```json
 url：/api/v1/explorer/summary/{amount}
@@ -110,7 +110,7 @@ successResponse：
 
 
 
-### Query generate block time
+### 블록 생성 시간 조회
 
 ```json
 url：/api/v1/explorer/block/generatetime/{amount}
@@ -140,7 +140,7 @@ successResponse：
 |    GenerateTime|   int|  |
 
 
-###  Query TPS Info
+###  TPS 정보 조회
 
   	url：/api/v1/explorer/summary/tps
 
@@ -166,9 +166,9 @@ successResponse：
 
 
 
-###  Query Summary Info
-
-###  type： daily or weekly or monthly
+###  요약본 조회
+ 
+###  타입： 일 혹은 주 혹은 월
 
   	url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
 
@@ -227,9 +227,9 @@ successResponse：
 
 
 
-###  Query Contract Info
+###  계약 정보 
 
-###  type： daily or weekly or monthly
+###  타입： 일 혹은 주 혹은 월
 
   	url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
 
@@ -285,9 +285,9 @@ successResponse：
 | OngCount|	String|	  |
 
 
-###  Query Project Info
+###  프로젝트 정보 조회
 
-###  type： daily or weekly or monthly
+###  타입： 일 혹은 주 혹은 월
 
   	url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
 

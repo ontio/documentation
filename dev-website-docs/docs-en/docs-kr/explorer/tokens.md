@@ -1,7 +1,7 @@
 
-# Get Token Contract
+# 토큰 계약 보기
 
-## type: oep4
+## 타입: oep4
 
 	url：/api/v1/explorer/oepcontract/{type}/{pagesize}/{pagenumber}
 	method：GET
@@ -74,7 +74,7 @@
 | OngCount|	String|	  |
 
 
-## type: oep5
+## 타입: oep5
 
 	url：/api/v1/explorer/oepcontract/{type}/{pagesize}/{pagenumber}
 	method：GET
@@ -145,7 +145,7 @@
 | OngCount|	String|	  |
 
 
-## type: oep8
+## 타입: oep8
 	
 	url：/api/v1/explorer/oepcontract/{type}/{pagesize}/{pagenumber}
 	method：GET
@@ -245,9 +245,9 @@
 
 
 
-# Get Token Contract Detail
+# 토큰 계약 세부사항 보기
 	
-## type: oep4
+## 타입: oep4
 	
 	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{pagesize}/{pagenumber}
 	method：GET
@@ -322,7 +322,7 @@
 | Fee|	String|	  |
 
 
-## type: oep5
+## 타입: oep5
 	
 	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{pagesize}/{pagenumber}
 	method：GET
@@ -396,7 +396,7 @@
 
 
 
-## type: oep8
+## 타입: oep8
 
 	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{pagesize}/{pagenumber}
 	method：GET
@@ -502,7 +502,7 @@
 
 
 
-## type: oep8(add tokenname)
+## 타입: oep8(토큰이름 추가)
 
 	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{tokenname}{pagesize}/{pagenumber}
 	method：GET

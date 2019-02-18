@@ -1,29 +1,27 @@
 
-Ontology has developed a number of SDKs to help developers work with the Ontology Ecosystem across a range of languages. These SDKs include items such as encryption algorithms, RPC interaction and smart contract functions and are an important bridge for interaction between applications and the Ontology blockchain.
+온톨로지는 개발자들이 다양한 언어로 온톨로지 생태계와 협력할 수 있도록 많은 SDK를 개발하였습니다. 이 SDK에는 암호화 알고리즘, RPC상호작용 및 스마트 컨트랙트 기능과 같은 항목이 포함되어 있으며 애플리케이션과 온톨로지 블록체인간의 상호작용에 중요한 다리역할을 합니다.
 
-This official Ontology SDK is a comprehensive library for the Ontology blockchain. SDKs supports multiple functions including native wallet management, digital identity management, digital asset management, smart contract deployment and invocation and node communication
+Ontology SDK는 온톨로지 블록체인을 위한 포괄적인 라이브러리입니다. SDK는 기본 월렛 관리, 디지털 ID관리, 디지털 자산 관리, 스마트 컨트랙트 배치 및 호출 그리고 노드통신을 포함하여 여러 기능을 지원합니다.
 
-Ontology has developed a variety of SDKs, including:
+* [Java SDK](https://github.com/ontio/ontology-java-sdk), [API docs](https://apidoc.ont.io/javasdk/)
+* [Android SDK](https://github.com/ontio-community/ontology-andriod-sdk), [API docs](https://apidoc.ont.io/javasdk/)
+* [Typescript SDK](https://github.com/ontio/ontology-ts-sdk), [API docs](https://apidoc.ont.io/tssdk/)
+* [Python SDK](https://github.com/ontio/ontology-python-sdk), [API docs](https://apidoc.ont.io/pythonsdk/)
+* [Golang SDK](https://github.com/ontio/ontology-go-sdk)
+* [Object C SDK](https://github.com/ontio-community/ontology-oc-sdk)
+* [PHP SDK ](https://github.com/ontio-community/ontology-php-sdk)
+* [Kotlin SDK ](https://github.com/OntologyCommunityDevelopers/ontology-kotlin-sdk)
+* [Swift SDK](https://github.com/ontio-community/ontology-swift-sdk)
 
-* [Github of Java SDK](https://github.com/ontio/ontology-java-sdk), [API docs](https://apidoc.ont.io/javasdk/)
-* [Github of Android SDK](https://github.com/ontio-community/ontology-andriod-sdk), [API docs](https://apidoc.ont.io/javasdk/)
-* [Github of Typescript SDK](https://github.com/ontio/ontology-ts-sdk), [API docs](https://apidoc.ont.io/tssdk/)
-* [Github of Python SDK](https://github.com/ontio/ontology-python-sdk), [API docs](https://apidoc.ont.io/pythonsdk/)
-* [Github of Golang SDK](https://github.com/ontio/ontology-go-sdk)
-* [Github of Object C SDK](https://github.com/ontio-community/ontology-oc-sdk)
-* [Github of PHP SDK ](https://github.com/ontio-community/ontology-php-sdk)
-* [Github of Kotlin SDK ](https://github.com/OntologyCommunityDevelopers/ontology-kotlin-sdk)
-* [Github of Swift SDK](https://github.com/ontio-community/ontology-swift-sdk)
+더붙여, C#, C++와 같은 SDK가 현재 개발중입니다.
 
-In addition, several other SDKs are being developed, such as: C#, C++.
+다양한 SDK의 공통기능은 다음과 같습니다.
 
-The common functions across the various SDKs are：
-
-* Wallet file management
-* Digital identity and verifable claim management
-* Digital assets
-* Smart contract deployment and invocation
-* Basic operation of blockchain nodes 
+* 월렛 파일 관리
+* 디지털 ID 및 확인 가능한 청구 관리
+* 디지털 자산
+* 스마트 컨트랙트 개발 및 호출
+* 블록체인 노드의 기본 작업
 
 
 

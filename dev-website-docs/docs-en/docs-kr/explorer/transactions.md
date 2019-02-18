@@ -1,13 +1,13 @@
 
 
-### Txn Type
+### Txn 타입
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    208|   int|  deploy smart contract |
 |    209|   int|  invoke smart contract|
 
-### Description
+### 묘사
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
@@ -20,7 +20,7 @@
 
 
 
-### Query transaction list by transaction amount
+### 거래양으로 거래 목록 조회
 
 ```json
 url：/api/v1/explorer/transactionlist/{amount}
@@ -61,7 +61,7 @@ successResponse：
 
 
 
-### Query transaction list by page
+### 페이지로 거래 목록 조회
 
 
 ```json
@@ -110,7 +110,7 @@ successResponse：
 
 
 
-### Query transaction information by transaction hash 
+### 거래 해시값으로 거래내역 조회
 
 
 ```json
@@ -157,7 +157,7 @@ successResponse：
 
 
 
-**Detail：**
+**세부사항：**
 
 
 - Transfer Transaction

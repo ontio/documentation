@@ -1,6 +1,6 @@
 
 
-### ONT ID Information
+### ONT ID 정보
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
@@ -14,7 +14,7 @@
 |    add recovery:xxxx |   String|  add recovery |
 
 
-### DDO Attribute
+### DDO 속성
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-### Query OntId list
+### OntId 목록 조회
 
 ```json
 url：/api/v1/explorer/ontidlist/{amount}
@@ -73,7 +73,7 @@ successResponse：
 
 
 
-### Query OntId list by page
+### 페이지로 OntId 목록 조회
 
 ```json
 url：/api/v1/explorer/ontidlist/{pagesize}/{pagenumber}
@@ -116,7 +116,7 @@ successResponse：
 
 
 
-### Query OntId
+### OntId 조회
 
 ```json
 url：/api/v1/explorer/ontid/{ontid}/{pagesize}/{pagenumber}
