@@ -19,8 +19,8 @@ String url = "ontprovider://ont.io?param=".concat(param);
 
 同时，本体提供了实现了 `CEP-1` 移动端钱包：
 
-- [Android](https://github.com/ontio-cyano/cyano-android)
-- [IOS](https://github.com/ontio-cyano/cyano-ios)
+- [Android](https://github.com/ontio-cyano/cyano-android) 端移动钱包。
+- [IOS](https://github.com/ontio-cyano/cyano-ios) 端移动钱包
 
 ### 交互流程
 
