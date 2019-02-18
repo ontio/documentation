@@ -3,7 +3,7 @@
 
 `Cyano` 分为钱包端的 `Cyano Provider` 与 dApp 端的 `Cyano Provider SDK` 两部分。在技术实现上，钱包端通过集成 `Cyano Provider` 库来提供标准的 dApp 调用接口，dApp 端则通过集成 `Cyano Provider SDK` 来与支持 `Cyano Provider` 的各类钱包进行通信。
 
-目前，我们提供了电脑端与移动端的 `Cyano Provider` 供钱包使用。
+无论是电脑端还是移动端的，我们均提供了相应的 `Provider` 组件库供钱包集成。
 
 - `Cyano Chrome Provider`：集成了 `cyano-chrome` 的浏览器钱包插件。
 - `Cyano Mobile Provider`：集成了 `cyano-mobile` 的移动端钱包应用。
