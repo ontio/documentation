@@ -1,20 +1,19 @@
 
-The outline of this document is as follows:
-* [Overview](#wallet-integration-overview)
-* [Integration Guide](#integration-Guide)
-* [Native contract address](#native-contract-address)
+이 문서의 개요는 다음과 같습니다.
+* [개요](#wallet-integration-overview)
+* [통합 안내서](#integration-Guide)
+* [기본 계약 주소](#native-contract-address)
 
  
-### Overview
+### 개요
 
 #### Ontology SDK
 
-SDK is a tool that is invoked directly in the program. Currently. 
+SDK는 현재 프로그램에서 직접 호출되는 도구입니다.
 
-The wallet function includes giving an account for digit asset and digital identity. [wallet Specification](https://ontio.github.io/documentation/Wallet_File_Specification_en.html)
+지갑 기능에는 디지털 자산 및 디지털 신원에 대한 계정을 제공하는 기능이 포함됩니다. [wallet 사양](https://ontio.github.io/documentation/Wallet_File_Specification_en.html)
 
-Wallet function lists:
-
+월렛 기능 
 | Module                |                    Sub Module                    |     Test case      |
 | ------------------    | :----------------------------------------------: | :------------------: |
 | Wallet management    |           create                                 |     Use the mnemonic words when creating wallet(Based on BIP39 and BIP44 specifications)   |
@@ -37,7 +36,7 @@ Wallet function lists:
 
 
 
-The specifications of sdk implementations wallet are Currently:
+현재 월렛 표준에 맞는 SDK
 
 Java SDK ：[Java SDK](https://github.com/ontio/ontology-java-sdk/blob/master/docs) 
 
@@ -49,13 +48,13 @@ Golang SDK ：[Go SDK](https://github.com/ontio/ontology-go-sdk)
 
 Python SDK ：[Python SDK](https://github.com/ontio/ontology-python-sdk)
 
-### Integration Guide
+### 통합 가이드
 
-* [iOS wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_ts_sdk_en.html)
-* [Android wallet integration](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html)
+* [iOS 월렛 통합](https://ontio.github.io/documentation/ontology_wallet_dev_ts_sdk_en.html)
+* [Android 월렛 통합](https://ontio.github.io/documentation/ontology_wallet_dev_android_en.html)
 
 
-### Native contract address
+### Native 컨트랙트 주소
 
 contract | contract u160 address | Address
 ---|---|---
