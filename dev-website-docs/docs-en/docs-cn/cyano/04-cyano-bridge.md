@@ -25,13 +25,13 @@ npm install cyanobridge
 
 ### CommonJS
 
-```JavaScript
+```javascript
 var client = require('cyanobridge').client
 ```
 
 ### ES6 模块
 
-```JavaScript
+```javascript
 import { client } from 'cyanobridge'
 ```
 
@@ -47,8 +47,169 @@ var client = CyanoMobile.client;
 
 ## 初始化
 
-```JavaScript
+```javascript
 import { client } from 'cyanobridge'
 
 client.registerClient();
+```
+
+## 使用
+
+### 查询钱包账户
+
+```javascript
+const params = {
+    dappName: 'My dapp',
+    dappIcon: ''
+}
+
+try {
+    const res = await client.api.asset.getAccount(params);
+    console.log(res)
+} catch(err) {
+    console.log(err)
+}
+```
+
+### 查询身份
+
+```javascript
+const params = {
+    dappName: 'My dapp',
+    dappIcon: ''
+}
+try {
+   const res = await client.api.identity.getIdentity(params);
+    console.log(res)
+} catch(err) {
+    console.log(err)
+}
+```
+
+### 登陆
+
+```javascript
+const params = {
+    type: 'account',
+    dappName: 'My dapp',
+    dappIcon: 'http://mydapp.com/icon.png',
+    message: 'test message',
+    expired: new Date('2019-01-01').getTime(),
+    callback: ''
+}
+let res;
+try {
+    res = await client.api.message.login(params);
+    console.log(res)
+}catch(err) {
+    console.log(err)
+}
+```
+
+### 智能合约
+
+#### 执行智能合约
+
+```javascript
+const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
+const operation = 'test'
+const args = [
+    {
+        type: 'String',
+        value: 'helloworld'
+    }
+]
+const gasPrice = 500;
+const gasLimit = 20000;
+const payer = 'AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ'
+const config = {
+    "login": true,
+    "message": "invoke smart contract test",
+    "url": ""  
+}
+const params = {
+          scriptHash,
+          operation,
+          args,
+          gasPrice,
+          gasLimit,
+          payer,
+          config
+        }
+try {
+   const res = await client.api.smartContract.invoke(params);
+   } catch(err) {
+    console.log(err)
+}
+```
+
+#### 免密执行智能合约
+
+```javascript
+const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
+const operation = 'test'
+const args = [
+    {
+        type: 'String',
+        value: 'helloworld'
+    }
+]
+const gasPrice = 500;
+const gasLimit = 20000;
+const payer = 'AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ'
+const config = {
+    "login": true,
+    "message": "invoke smart contract test",
+    "url": ""  
+}
+const params = {
+          scriptHash,
+          operation,
+          args,
+          gasPrice,
+          gasLimit,
+          payer,
+          config
+        }
+try {
+   const res = await client.api.smartContract.invokePasswordFree(params);
+   } catch(err) {
+    console.log(err)
+}
+```
+
+> 第一次执行时需要用户输入密码，此后执行相同的合约方法时将不再需要用户输入密码。
+
+#### 预执行智能合约
+
+```javascript
+const scriptHash = 'b5a1f2cd4e27b7453111a2f5eb737714ead8fded';
+const operation = 'balanceOf';
+const args = [{
+    "name": "account",
+    "type" : 'Address',
+    "value": "AQf4Mzu1YJrhz9f3aRkkwSm9n3qhXGSh4p"
+}]
+const gasPrice = 500;
+const gasLimit = 20000;
+const config = {
+    "login": true,
+    "message": "invoke read smart contract test",
+    "url": ""
+}
+const params = {
+    scriptHash,
+    operation,
+    args,
+    gasPrice,
+    gasLimit,
+    config
+}
+try{
+    const res = await client.api.smartContract.invokeRead(params);
+    console.log('dapp receive: ' + JSON.stringify(res));
+    this.invokeReadRes = JSON.stringify(res);
+}catch(err) {
+    console.log(err);
+}
 ```
