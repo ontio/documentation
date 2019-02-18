@@ -8,10 +8,10 @@
 
 如果你的移动端 dApp 需要使用集成了 dAPI 的移动端钱包应用，可以使用对应的 SDK 来与钱包应用之间进行通信。
 
-- Android：[cyano-android-provider-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
-- IOS：[cyano-ios-provider-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)
+- Android dApp SDK：[cyano-android-provider-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
+- IOS dApp SDK：[cyano-ios-provider-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)
 
 如果你的移动端钱包应用希望集成 `cyano-mobile`，你可以使用对应的组件库。
 
-- Android：[cyano-android](https://github.com/ontio-cyano/cyano-android)
-- IOS：[cyano-ios](https://github.com/ontio-cyano/cyano-ios)
+- Android 端钱包组件库：[cyano-android](https://github.com/ontio-cyano/cyano-android)
+- IOS 端钱包组件库：[cyano-ios](https://github.com/ontio-cyano/cyano-ios)
