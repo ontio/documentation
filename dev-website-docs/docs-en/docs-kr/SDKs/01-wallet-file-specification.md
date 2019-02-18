@@ -8,9 +8,11 @@
 
 
 
-## 월렛
+지갑규정은 지갑 데이터구조 및 디지털신분 불러오기 또는 자산계정 QR코드의 데이터구조를 서술합니다. 
 
-JSON형식의 월렛 파일의 기본 구조
+## 1. 지갑문서 구조
+
+지갑문서 데이터는 json서식으로 저장되며 문서 이름에는 규칙이 없습니다. 지갑문서 데이터구조는 다음과 같습니다. 
 
 ```
 {
@@ -25,83 +27,81 @@ JSON형식의 월렛 파일의 기본 구조
   "extra": null
 }
 ```
-```name``` 월렛 이름
+파라미터 서술:
 
-```version``` 월렛 버전
+```name```은 지갑이름 입니다.
+ 
+```version```은 지갑버전 번호입니다.
+ 
+```scrypt```는 SCrypt알고리즘 파라미터 입니다. 
 
-```scrypt``` Scrypt 알고리즘 파라미터
+```defaultOntid```는 지갑의 디폴트Ontid입니다. 
+  
+```defaultAccountAddress```는 지갑의 디폴트계정 주소입니다. 
 
-```defaultOntid``` 월렛중의 기본 Ontid
+```createTime```은 지갑 생성시간입니다. 
 
-```defaultAccountAddress``` 월렛중의 기본 계정주소
+```identities```은 신분 리스트입니다. 
 
-```createTime``` 월렛 생성 시간
+```accounts```는 계정 리스트입니다. 
 
-```identities``` 신분목록
+```extra```는 백업 파라미터입니다. 
 
-```accounts``` 계정목록
+실제 지갑 데이터는 다음과 같습니다.
 
-```extra``` 엑스트라 파라미터
-
-진짜 월렛 데이터는 아래와 같습니다.
-
-```
+```json
 {
-        "name": "com.github.ontio",
+	"name": "mickey",
+	"defaultOntid": "",
+	"defaultAccountAddress": "",
+	"createTime": "2018-06-30T08:52:01.519Z",
+	"version": "1.0",
 	"scrypt": {
-		"dkLen": 64,
-		"n": 16384,
+		"n": 4096,
+		"r": 8,
 		"p": 8,
-		"r": 8
+		"dkLen": 64
 	},
-	"version": "1.0"，
-	"createTime": "2018-09-26T18:02:26Z",
-	"defaultAccountAddress": "APyT9ZrjDsvq6cRWPaVq3Fu3zFjP33FUq4",
-	"defaultOntid": "did:ont:AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6",
-	"accounts": [{
-		"address": "APyT9ZrjDsvq6cRWPaVq3Fu3zFjP33FUq4",
-		"algorithm": "ECDSA",
-		"enc-alg": "aes-256-gcm",
-		"hash": "sha256",
-		"isDefault": true,
-		"key": "w29DODefaYPg2LKT9FW6/QziPAmVH7Q/NX9nobO3tteRRq2Tg3Hm72gNkyvJlg97",
-		"label": "abaed057",
+	"identities": [{
+		"ontid": "did:ont:ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
+		"label": "mickey",
 		"lock": false,
+		"controls": [{
+			"id": "1",
+			"algorithm": "ECDSA",
+			"parameters": {
+				"curve": "P-256"
+			},
+			"key": "M+PnrYLVDrU0gkSzj0FAsvqCYv+HWEEUMDSyKSJACzJhZVglFU9tkfQKlLby5UCY",
+			"address": "ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
+			"salt": "wwa12j4K0SyDP23+UDJNtA==",
+			"enc-alg": "aes-256-gcm"
+		}]
+	}],
+	"accounts": [{
+		"address": "AJQLNWy9X6qdeEFrSH6UzgEjadSsRiYDCS",
+		"label": "mickey",
+		"lock": false,
+		"algorithm": "ECDSA",
 		"parameters": {
 			"curve": "P-256"
 		},
-		"publicKey": "025a61aced9838fed2ffe0267ddcdd62159f51fcbc4fce7eb162d30d43da6fecc9",
-		"salt": "dQ3ubLtvOQ4VEzN1l1aq8Q==",
+		"key": "qFbemAbu7fEjOJzAZZhGkmzp2YNxdSCuK7xyvhBAnUBX/FmAj2Ns84Y7frh6hfQv",
+		"enc-alg": "aes-256-gcm",
+		"salt": "u+SiqpRk17b0vIPesh4xXA==",
+		"isDefault": false,
+		"publicKey": "037fb6dfc9420e1d8275d9133d6d69fe64e8e3567241e7583234b9efa8b2ce7ae1",
 		"signatureScheme": "SHA256withECDSA"
 	}],
-	"identities": [{
-		"controls": [{
-			"address": "AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6",
-			"algorithm": "ECDSA",
-			"enc-alg": "aes-256-gcm",
-			"hash": "sha256",
-			"id": "keys-1",
-			"key": "oZ8kkH0MhKYNAIPA5WACsK93ghHqnTQU3oeC3bqPQ4KYRVXHOUwiLhgiWV+BIB9D",
-			"parameters": {
-				"curve": "secp256r1"
-			},
-			"publicKey": "02f866847298a7847c714c457dcc63122b946bd014b32e7c365a7bc89fefc2bdd8",
-			"salt": "/OwXiTC9k3tzDN8bTigXew=="
-		}],
-		"isDefault": true,
-		"label": "d6a5b3b3",
-		"lock": false,
-		"ontid": "did:ont:AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6"
-	}]
-	
+	"extra": null
 }
 ```
 
-## Scrypt 파라미터 
+### 1.1 Scrypt파라미터
 
-Scrypt 알고리즘 파라미터, Scrypt데이터 구조
+SCrypt알고리즘 파라미터, Scrypt데이터 구조:
 
-```
+```json
 {
   "n": 16384,
   "r": 8,
@@ -109,18 +109,21 @@ Scrypt 알고리즘 파라미터, Scrypt데이터 구조
   "dkLen" : 64
 }
 ```
-```n``` 메모리 소비는 2^N이어야 합니다.
 
-```r``` 매개변수
+파라미터 서술:
 
-```p``` SCrypt알고리즘의 병행 파라미터
+```n```은 메모리 소모량이며 2^N여야 합니다.
 
-```dkLen``` key의 길이 생성
+```r```은 파라미터입니다. 
 
-## ID
+```p```는 SCrypt알고리즘의 병렬파라미터 입니다.  
 
-디지털 ID데이터 구조
-```
+```dkLen```은 파생key의 길이입니다. 
+
+### 1.2 디지털신분
+
+디지털신분 데이터구조:
+```json
 {
   "ontid": "did:ont:TQLASLtT6pWbThcSCYU1biVqhMnzhTgLFq",
   "label": "MyIdentity",
@@ -129,20 +132,23 @@ Scrypt 알고리즘 파라미터, Scrypt데이터 구조
   "controls": []
 }
 ```
-```ontid``` 신분 id
+파라미터 서술:
 
-```label``` 계정에 부여한 
+```ontid```는 신분id입니다. 
 
-```lock``` 신분 잠김/해지
+```label```은 닉네임입니다. 
 
-```isDefault``` 기본 ID 여부확인
+```lock```은 해당신분의 락킹 여부를 뜻 합니다 
 
-```controls``` 컨트롤러
+```isDefault```는 디폴트의 신분사용 여부를 뜻합니다.
 
-## 컨트롤
+```controls```는 관리자입니다. 
 
-Control의 기본 구조
-```
+#### Control데이터구조
+
+Control은 데이터신분의 관리자이며 내부에는 관리자의 암호화된 알고리즘 명과 프라이빗키, 퍼블릭키, 주소, salt등이 포함되어 있습니다. 
+
+```json
 {
   "algorithm": "ECDSA",
   "parameters": {},
@@ -152,31 +158,39 @@ Control의 기본 구조
   "salt": "Rv4v3a4U1zFEq28/"
 }
 ```
-```algorithm``` 암호화 시스템에서 사용되는 알고리즘
+파라미터 서술:
 
-```parameters``` 암호화 시스템에서 사용되는 파라미터 객체의 배열
+```algorithm```은 서명알고리즘 명칭입니다. 
 
-```id``` 컨트롤의 ID입니다.
+```parameters```은 곡선 파라미터 입니다. 
 
-```key``` NEP-2형식의 계정 프라이빗키입니다. 
+```id```는 관리자id입니다. 
 
-```address```  base58 주소
+```key```는 암호화된 프라이빗키 입니다. 
 
-```salt``` base64형식의 16바이트 솔트 값
+```address```는 base58주소입니다. 
 
-## 파라미터
+```salt```는 16바이트의 솔트이며 base64서식으로 저장됩니다. 
 
-Parameter의 기본 구조
-```
+#### Parameter데이터구조
+
+서명알고리즘 파라미터 데이터구조
+```json
 {
   "curve":"P-256"
 }
 ```
-```curve``` 타원 곡선의 이름
-## Account
+파라미터 서술:
 
-Account의 기본 구조
-```
+```curve``` is the name of the elliptic curve.
+
+### 1.3 Account
+
+
+자산계정정보```Account```데이터구조:
+
+
+```json
 {
     "address": "AadQ5xRwrSsFTGzKfLHc1brzykdnf7phhD",
     "label": "a6575fd9",
@@ -193,35 +207,36 @@ Account의 기본 구조
     "signatureScheme": "SHA256withECDSA"
 }
 ```
-```address``` base58 주소
+파라미터 서술:
 
-```enc-alg``` 프라이빗 키 암호화 알고리즘 이름
+```address```는 base58주소입니다. 
 
-```salt``` 해독을 위한 솔트값
+```enc-alg```는 프라이빗키 암호알고리즘 명칭입니다. 
 
-```publicKey``` 퍼블릭 키
+```salt```는 16바이트의 솔트이며 base64서식으로 저장됩니다. 
 
-```signatureScheme``` 시그니처에 사용되는 signatureScheme
+```publicKey```는 퍼블릭키 입니다.
+ 
+```signatureScheme```는 서명알고리즘 체계입니다. 
 
-```isDefault``` 기본 계정 여부 확인
+```isDefault```는 디폴트계정 여부를 뜻 합니다. 
 
-```label``` 계정에 부여한 레이블
+```label```는 닉네임입니다. 
 
-```lock``` 계정이 사용자에의해 잠겨있는지 여부 판단, 클라이언트는 잠긴 계정으로 자금 지출을 하면 안됩니다.
+```lock```는 락킹 여부를 뜻 합니다.
+ 
+```algorithm```은 서명알고리즘 명칭입니다. 
 
-```algorithm``` 암호화 시스템에서 사용하는 알고리즘
-
-```parameters``` 암호화 시스템에서 사용되는 파라미터 객체의 배열
-
-```key``` NEP-2형식의 계정 프라이빗키입니다.
+```parameters```은 서명알고리즘 파라미터 입니다.
+ 
+```key```는 암호화된 프라이빗키 입니다. 
 
 
+## 2. QR코드 규정
 
-## QR Code 표준
+신분과 계정QR코드의 역할은 스캔을 통해 편리하게 신분과 계정을 불러오는 것이며, QR코드는 디지털신분과 자산계정 규정을 모두 지원합니다.  
 
-ID와 계정을 위한 QR Code 표준
-
-```
+```json
 {
 	"type":"I",
 	"label": "MyIdentity",
@@ -240,19 +255,21 @@ ID와 계정을 위한 QR Code 표준
 	}
 }
 ```
+파라미터 서술:
 
-```type``` 유형, **I**는 신분을 대표하고, **A**는 계정을 대표
+```type```은 유형이며 **I**는 신분을, **A** 는 계정을 의미합니다. 
+ 
+```label```은 닉네임입니다. 
 
-```label``` 신분 혹은 계정에 대한 레이블
+```algorithm```은 서명알고리즘 명칭입니다. 
 
-```algorithm``` 키/페어 생성에 사용되는 알고리즘
+```parameters```는 서명알고리즘 파라미터 입니다. 
 
-```parameters``` 키/페어 알고리즘의 파라미터
+```scrypt```는 scrypt파라미터 입니다. 
 
-```scrypt``` Scrypt파라미터
+```key```는 암호화된 프라이빗키 입니다. 
 
-```key``` 암호화 후 프라이빗 키
+```address```는 주소입니다. 
 
-```address```  주소
+```salt```는 16바이트 솔트이며 base64서식으로 저장됩니다. 
 
-```salt``` base64 형식의 16바이트 솔트 값

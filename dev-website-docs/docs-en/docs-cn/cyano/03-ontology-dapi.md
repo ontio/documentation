@@ -52,7 +52,11 @@ var client = dApi.client;
 client.registerClient({});
 ```
 
+!> `Mobile Provider` 需要注册，`Chrome Provider` 不需要注册。
+
 ## 使用
+
+在 `ontology-dapi` 中，有7个模块：`asset`、`identity`、`message`、`network`、`provider`、`smartContract` 和 `utils`。
 
 ### 网络
 
@@ -116,6 +120,8 @@ const result = await client.api.smartContract.deploy({code,name,version,author,e
 
 ### 消息
 
+你可以通过钱包插件签名，dApp 验证签名实现你的 dApp 登陆流程。
+
 - 签名
 
 ```javascript
@@ -134,4 +140,4 @@ const signature: Signature = {
 const result = await client.api.message.verifyMessage({ message, signature });
 ```
 
-!> 你也可以点击[这里](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)获取 `ontology-dapi` 的实例程序。
+!> 如果希望获得更多的示例代码，你可以点击[这里](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)获取 `ontology-dapi` 的实例程序。
