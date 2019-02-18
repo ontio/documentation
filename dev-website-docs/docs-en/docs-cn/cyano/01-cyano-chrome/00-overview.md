@@ -1,7 +1,7 @@
 
 ## 简介
 
-`cyano-chrome` 是一款基于 `Chrome` 浏览器开发的钱包插件，你点击[这里](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?hl=zh-CN)从 Chrome 网上应用店中获取该插件。如果你想要体验基于 Chrome 浏览器的 dApp，你可以在安装完钱包插件后，点击[这里](https://dapp.review/explore/ont)查看。
+`cyano-chrome` 是一款基于 `Chrome` 浏览器开发的钱包插件，你可以通过点击[这里](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm?hl=zh-CN)从 Chrome 网上应用店中获取该插件，或者点击[这里](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)从 Github 上下载安装包。当安装完成后，你可点击[这里](https://dapp.review/explore/ont)体验基于 Chrome 浏览器的 dApp。
 
 ## 常见问题
 

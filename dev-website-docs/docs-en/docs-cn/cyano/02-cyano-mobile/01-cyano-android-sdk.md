@@ -20,8 +20,6 @@ cyanoWebView.loadUrl(url);
 
 1. 初始化
 
-登陆
-
 ```java
 cyanoWebView.getNativeJsBridge().setHandleLogin(new NativeJsBridge.HandleLogin() {
         @Override
@@ -43,7 +41,7 @@ cyanoWebView.getNativeJsBridge().setHandleLogin(new NativeJsBridge.HandleLogin()
 });
 ```
 
-- 调用
+2. 调用
 
 ```java
 cyanoWebView.getNativeJsBridge().setHandleInvoke(new NativeJsBridge.HandleInvoke() {
