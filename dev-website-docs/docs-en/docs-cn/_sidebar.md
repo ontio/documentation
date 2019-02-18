@@ -54,10 +54,8 @@
   - [概述](docs-cn/cyano/00-overview.md)
   - [Chrome Provider](docs-cn/cyano/01-chrome-wallet.md)
   - [Mobile Provider](docs-cn/cyano/02-mobile-provider.md)
-  - [Chrome Provider SDK](docs-cn/cyano/03-dapi-chrome.md)
-  - [Mobile Provider SDK](docs-cn/cyano/04-dapi-mobile/00-overview.md)
-    - [Android SDK](docs-cn/04-dapi-mobile/01-cyano-android-sdk.md)
-    - [IOS SDK](docs-cn/04-dapi-mobile/02-cyano-ios-sdk.md)
+  - [Ontology dAPI](docs-cn/cyano/03-ontology-dapi.md)
+  - [Cyano Bridge](docs-cn/cyano/04-cyano-bridge.md)
 
 - Punica
   - [概述](docs-cn/Punica/punica.md)
