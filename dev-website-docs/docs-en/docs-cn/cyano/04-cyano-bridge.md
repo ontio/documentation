@@ -53,6 +53,8 @@ import { client } from 'cyanobridge'
 client.registerClient();
 ```
 
+!> `Mobile Provider` 需要注册，`Chrome Provider` 不需要注册。
+
 ## 使用
 
 ### 查询钱包账户
@@ -71,6 +73,8 @@ try {
 }
 ```
 
+!> 在获取钱包账户信息时，`params` 中的 dApp 信息为可选的。
+
 ### 查询身份
 
 ```javascript
@@ -86,7 +90,11 @@ try {
 }
 ```
 
+!> 在获取身份信息时，`params` 中的 dApp 信息为可选的。
+
 ### 登陆
+
+在移动端，登录操作通过钱包签名，dApp 验证签名完成。
 
 ```javascript
 const params = {
@@ -217,3 +225,9 @@ try{
     console.log(err);
 }
 ```
+
+## 常见问题
+
+- 我可以利用 `cyano` 将我的 dApp 同时兼容移动端与浏览器端吗？
+  
+  完全没问题！你可以参考我们提供的示例项目[dapi-universal](https://github.com/ontio-cyano/dapi-universal)。
