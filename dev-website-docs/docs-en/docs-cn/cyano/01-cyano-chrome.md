@@ -3,7 +3,7 @@
 
 `cyano wallet` 是一款基于 `Chrome` 浏览器开发的钱包插件，集成了 `cyano-chrome` 组件库，你可以通过点击[这里](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm)从 Chrome 网上应用店中获取该插件，或者点击[这里](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)从 Github 上下载安装包。当钱包插件安装完成后，你可点击[这里](https://dapp.review/explore/ont)体验基于 Chrome 浏览器的 dApp。
 
-!> 出于安全考虑，请将你的资产在冷钱包与热钱包中进行适当的分配。
+!> 出于安全考虑，请将你的数字资产在冷钱包与热钱包中进行适当的分配。
 
 - 账户管理
   - 创建账户
@@ -48,3 +48,11 @@
 - 如何切换我的账户/身份？
 
   你可以点击右上角的 ⇄ 图标进行切换。
+
+- 什么是冷钱包？
+  
+  冷钱包也称为离线钱包，是指没有在联网环境下使用过的钱包，如专业的硬件钱包。
+
+- 什么是热钱包？
+  
+  热钱包也成为在线钱包，是指在联网环境下使用过的钱包，如电脑客户端钱包、浏览器插件钱包、手机端钱包。
