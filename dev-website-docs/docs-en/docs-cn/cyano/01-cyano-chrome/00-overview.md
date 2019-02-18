@@ -1,5 +1,5 @@
 
-## 简介
+### 简介
 
 `cyano wallet` 是一款基于 `Chrome` 浏览器开发的钱包插件，集成了 `cyano-chrome` 组件库，你可以通过点击[这里](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm)从 Chrome 网上应用店中获取该插件，或者点击[这里](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)从 Github 上下载安装包。当钱包插件安装完成后，你可点击[这里](https://dapp.review/explore/ont)体验基于 Chrome 浏览器的 dApp。
 
@@ -31,7 +31,7 @@
 
 !> 在创建身份的过程中需要在链上进行注册，因此你需要确保你的钱包账户中至少拥有 0.01 个 ONG。
 
-## 常见问题
+### 常见问题
 
 - 我在 `cyano wallet` 中导入了我的钱包账户，但为什么账户余额不对？
   
