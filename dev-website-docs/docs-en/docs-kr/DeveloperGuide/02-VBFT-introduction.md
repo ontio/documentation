@@ -1,80 +1,80 @@
 
-<h1 align="center">VBFT Introduction</h1> 
 
-<p align="center" class="version">Version 1.0.0 </p>
+2018년 3월 30일 온톨로지는 첫 오픈소스를 GitHub에 업로드하였습니다. 차세대 퍼블릭체인 인프라 플랫폼으로서, Ontology는 인증 가능한 무작위 함수 (VRF)기반의 합의 알고리즘 VBFT를 도입할 예정입니다. 아래에서는 Ontology의 최신 합의 모델과 VBFT 합의 알고리즘을 소개해드릴 것입니다. VBFT 알고리즘 오픈소스 또한 GitHub에서 업로드될 예정입니다.
 
-On March 30th Ontology released the first batch of open-source projects to GitHub. As a next-generation public chain infrastructure platform, Ontology will also introduce a new consensus algorithm VBFT, which is based on verifiable random function (VRF). Below we will introduce Ontology’s latest consensus model and its VBFT consensus algorithm. The VBFT algorithm will also be open-source on GitHub.
+VBFT는 PoS, VRF(Verifiable Random Function) 와BFT가 결합된 최신식 합의 알고리즘입니다.
+OCE （Ontology Consensus Engine）의 핵심은 합의 알고리즘입니다. VBFT는 합의그룹의 규모확장을 지원할 수 있으며, VRF를 통해서 합의 그룹 생성의 랜덤성과 공평성을 보장함과 동시에 빠르게 최종 단계에 도달하도록 합니다.
 
-VBFT is a new consensus algorithm that combines PoS, VRF (Verifiable Random Function), and BFT. It is the core consensus algorithm of OCE (Ontology Consensus Engine). VBFT can support scalability of consensus groups, through VRF guarantee the randomness and fairness of the consensus population generation, and ensure that state finality can be reached quickly.
+온톨로지 핵심 네트워크의 주요 내용은 아래와 같습니다.
 
-Ontology’s core network is composed of two parts:
-
-* Consensus network
+* 합의 네트워크
 
 >
-The consensus network consists of all consensus nodes responsible for consensus on transaction requests within Ontology, block generation, maintaining the blockchain, and distributing consensus blocks to synchronous node networks.
+합의 네트워크는 온톨로지 네트워크의 트랜잭션 요청에 대한 합의, 블록 생성, 블록체인 유지 및 합의 블록을 동기식 노드 네트워크에 배포하는 모든 합의 노드로 구성됩니다.
 
-* Consensus candidate network
+* 합의 후보 네트워크
 
 >
-The nodes in the candidate network do not participate in consensus but remain synchronized with the consensus network and update to the latest consensus block on the blockchain maintained by them in real time. Candidate networks will also monitor consensus network status, validate consensus blocks, and assist in managing the Ontology network.
+후보 네트워크중의 노드는 합의에 참여하지 않지만 합의 네트워크와 동기화된 상태를 유지하며 실시간으로 유지 관리되는 블록체인의 최신 합의 블록으로 업데이트됩니다. 또한 후보 네트워크가 합의 네트워크 상태를 모니터링하고 합의 블록을 검증하여 온톨로지 네트워크를 관리 및 지원합니다.
 
 ![VBFT Network](https://raw.githubusercontent.com/ontio/documentation/master/vbft-intro/images/vbft-network.jpeg)
 
-The size of the consensus network is managed through a consensus management smart contract. The stake must be locked for the node in the consensus network (the stake is from the owner of the node).
+합의 네트워크의 규모는 합의 관리 스마트 컨트랙트를 통해 관리됩니다. 
+합의 네트워크의 모든 노드는 해당 노드 관리자가 해당 스테이크에 잠근다.
 
-## Ontology Consensus Network Construction
+## 온톨로지 합의 네트워크 구축
 
-The Ontology consensus network is constructed by the Ontology consensus management smart contract. The consensus management contract runs permanently on the Ontology network and regularly updates the node list in the consensus network and updates the VBFT algorithm configuration parameters in the consensus network.
+온톨로지 합의 네트워크는 온톨로지 합의 관리 스마트 컨트랙트에 의해 구축되고 합의 관리 컨트랙트 영구성은 온톨로지 네트워크에서 실행됩니다. 또한 합의 네트워크의 노드 리스트를 정기적으로 업데이트하고 합의 네트워크에서 VBFT 알고리즘 구성 파라미터를 업데이트합니다.
 
-In VBFT algorithm parameters an important parameter is the PoS table of the consensus network node. During the VBFT operation process, all nodes first randomly select nodes participating in the consensus according to the current consensus PoS table, then randomly selected nodes complete the corresponding round of consensus work.
+VBFT 알고리즘 파라미터에서 중요한 파라미터는 합의 네트워크 노드의 PoS 테이블입니다. VBFT 연산 과정 동안, 모든 노드는 현재의 합의 PoS테이블에 따라 참여 라운드를 랜덤으로 선택하고 선택된 노드는 해당 라운드의 합의 작업을 완료합니다.
 
-## VBFT algorithm overview
+## VBFT 알고리즘 개요
 
-The VBFT algorithm can be considered as an improvement upon the byzantine fault tolerated algorithm from the perspective of verifiable random function. In the VBFT algorithm, first, based on the VRF, consensus candidate nodes are selected in the consensus network, block verification nodes are set, confirmation nodes are set, and then consensus is completed by the selected node set.
+VBFT 알고리즘은 검증된 무작위 방향의 한 개선된 전통 BF알고리즘으로 간주됩니다. VBFT 알고리즘에서는 먼저 VRF를 기반으로 합의 후보 노드를 합의 네트워크에서 선택하고 블록 검증 노드와 확인 노드를 설정한 후 노드세트에서 합의를 완료합니다.
 
-Due to the randomness introduced by VRF, the alternative proposal nodes/verification nodes/confirmation nodes of each round are different and difficult to predict, thereby greatly improving resistance against attacks to the consensus algorithm.
+VRF에 의해 도입된 무작위성으로 인해 각 라운드의 대안 제안 노드 / 검증 노드 / 확인 노드가 다르고 예측하기가 어렵기 때문에 합의 알고리즘에 대한 공격성이 크게 향상됩니다.
 
-The VBFT algorithm can be summarized as follows:
+VBFT 알고리즘은 다음과 같습니다.
 
-In each round of VBFT consensus,
+VBFT 합의 각 라운드에서
 
-1. Proposal nodes will be selected from the consensus network in accordance with VRF. Each candidate node will independently propose a block;
-2. Multiple verification nodes are selected from the consensus network in accordance with VRF, and each verification node collects blocks from the network, verifies them, and then votes on the highest priority candidate blocks;
-3. Multiple confirmation nodes from the consensus network are selected in accordance with VRF, perform verification on the voting results of the above verification nodes, and determine the final consensus results;
-4. All nodes will receive the consensus result of the confirmation node and start a new round of consensus after a round of consensus confirmation.
-
-
-## VBFT’s VRF
-
-The VRF value of each round of blocks in the current VBFT algorithm is determined by the previous round of consensus blocks. The specific algorithm extracts volatile information from the previous block, calculates the hash, and generates a 1024-bit hash value. This hash value will be taken as the VRF value of the next block.
+1. VRF에 따라 합의 네트워크에서 대안 제안 노드가 선택됩니다. 각 후보 노드는 독립적으로 제안됩니다.
+2. VRF에 따라 합의 네트워크에서 여러 개의 인증 노드가 선택됩니다. 각 인증 노드는 네트워크에서 블록을 수집 후 검증 그리고 가장 우선순위가 높은 후보 블록에 투표합니다.
+3. VRF에 따라 합의 네트워크에서 여러 확인 노드를 선택합니다. 인증 노드 투표 결과에 따라서 인증 결과와 합의 결과를 결정합니다.
+4. 모든 노드는 확인 노드의 합의 결과 수신 및 1라운드 합의 확인 후 새로운 합의를 시작합니다.
 
 
-## VBFT’s Peer Choice
+## VBFT의 VRF
 
-The VBFT algorithm verifies the random value after the previous round of consensus and selects the nodes to participate in the new round of consensus in the PoS table. The generation of the PoS table considers the PoS information of the node owner and the governance strategy of the entire consensus network. Although the VRF values themselves can be assumed to be uniformly distributed random values, the random node selection of VBFT still follows consensus network management strategy.
-
-Since the VRF value generated by one block is verifiable, all nodes will be consistent with the VRF of the same block height if there’s no forking. In the VBFT algorithm, for each round, a set of nodes are selected in the PoS table based on the VRF sequentially. Therefore, each VRF value determines a sequence of consensus nodes. This randomly selected node sequence can be taken as one priority order of all consensus nodes.
+현재 VBFT알고리즘의 각 블록 라운드 VRF값은 이전 합의 블록 수에 의해 결정됩니다. 특정 알고리즘은 이전 블록에서 휘발성 정보를 추출하고 해시를 계산하며 1024비트 해시값을 생성하였습니다. 이 해시 값은 다음 블록의 VRF값으로 사용됩니다.
 
 
-## VBFT’s Fork Choice
+## VBFT의 Peer Choice
 
-Ontology, as a public chain, runs on a public network and faces the possibility of network failure or malicious attacks. Although the VBFT consensus algorithm randomly selects nodes to participate in the consensus and decreases the possibility of network attacks, it still faces the risk of forking in the occurrence of network isolation.
+VBFT 알고리즘은 이전 합의 이후 랜덤 값을 검증하고 PoS 표의 새로운 합의 라운드에 참여할 노드를 선택합니다. PoS 테이블 생성은 노드 소유자의 PoS 정보와 전체 합의 네트워크의 거버넌스 전략을 고려합니다. VRF 값 자체가 균일하게 분산된 임의 값으로 가정될 수 있지만 VBFT의 임의 노드 선택은 여전히 공감대 네트워크 관리 전략을 따릅니다.
 
-In the previous section, it was explained that the VRF of each block can determine the node sequence. When there is a fork choice in VBFT, VBFT defines the node sequence by sequencing node priority. Based on this priority sequencing, each fork priority weighting can be calculated, and each node selects the suitable fork based on the respective fork priority weighting.
-
-Since each block is determined by VRF’s priority order of the nodes, it is very difficult or impossible to continue maintaining a malicious fork, so the malicious fork will soon die. As a result, the VBFT algorithm also provides fast state finality.
+한 블록에 의해 생성된 VRF 값을 검증할 수 있기 때문에 모든 노드는 분기가 없는 경우 동일한 블록 높이의 VRF와 일치합니다. VBFT 알고리즘에서 각 라운드마다 VRF를 기반으로 PoS 테이블에서 일련의 노드가 순차적으로 선택됩니다. 따라서 각 VRF 값은 합의 노드의 순서를 결정합니다. 이렇게 무작위로 선택된 노드 시퀀스는 모든 합의 노드 중 하나의 우선순위로 간주될 수 있습니다.
 
 
-## VBFT’s Auto-Configuration
+## VBFT의 Fork Choice
 
-To ensure the network quality of the Ontology consensus network, the Ontology consensus management smart contract will automatically update the node list in the consensus network on a regular basis. In the event of cyber attacks, the consensus management smart contract also support mandatory updating of the node list in the consensus network through stake-based voting.
+온톨로지는 퍼블릭체인으로서 공용 네트워크에서 실행되며 공용 네트워크의 결함 및 악성 공격에 직면합니다. VBFT 합의 알고리즘은 무작위 방법을 통해 합의에 참여할 노드를 선택하고, 네트워크 공격의 어려움을 크게 개선했지만 네트워크 격리가 발생할 때 분기 위험이 있습니다.
 
-A new node will be added to the consensus network at the next consensus network update after more stakes are locked for this node and confirming that it meets the performance requirements of the consensus network.
+앞에서 소개했듯이 각 블록의 VRF는 노드 정렬 순서를 결정할 수 있습니다 .VBFT가 포크를 선택하면, VBFT는 노드의 정렬 순서를 노드의 우선 순위로 정의합니다. 그 후, 우선 순위에 따라 포크의 우선순위 가중치가 달라지고 그렇게 각 노드는 적절한 fork를 선택합니다.
 
-The time span from when the consensus network is updated by the smart contract is in unit of block. After each updated consensus network completes a given number of block consensus, an alternative node proposal for the next block must build a consensus management smart contract transaction and package it into the next proposal block as the first transaction in the block. The corresponding consensus verification node and confirmation node will also verify the proposed node to make sure the consensus management transaction is included in block proposal.
+각 블록은 VRF에 의해 노드의 우선순위가 결정되므로 악의적으로 생성된 포크에 대해 높은 우선 순위를 유지하는 것은 어렵거나 불가능합니다. 그렇게 악의적으로 생성된 포크는 사라집니다.
+결과적으로 VBFT알고리즘의  상태종료가 빨리 제공됩니다.
 
-After the consensus is reached in the block containing the consensus management smart contract transaction, each node will automatically execute the consensus management contract, update the consensus node list, and complete the update of the consensus node list.
+
+## VBFT의 자동구성
+
+온톨로지 합의 네트워크의 네트워크 품질을 보장하기 위해, 온톨로지 합의 관리 스마트 컨트랙트는 합의 네트워크의 노드 목록을 정기적으로 자동 업데이트합니다. 사이버 공격이 발생하는 경우 합의 관리 스마트 컨트랙트는 스테이크 기반의 투표를 통해 합의 네트워크에서 노드 목록을 강제로 업데이트 할 수 있도록 지원합니다.
+
+한 노드가 더 많은 스테이크를 보유함과 동시에 합의 네트워크의 성능 요구사항을 충족하는지 확인한 후 다음 합의 네트워크 업데이트될 때 새 노드가 합의 네트워크에 추가됩니다.
+
+합의 네트워크가 자동으로 업데이트되는 시간은 블록 단위입니다. 각 업데이트 된 합의 네트워크가 주어진 수의 블록 합의를 완료 한 후에는 다음 블록의 대체 제안 노드가 합의 관리 계약 실행 트랜잭션을 작성하고 이를 블록의 첫 번째 트랜잭션으로 제안 블록에 패키징해야합니다. 해당 합의 검증 노드 및 확인 노드는 또한 제안 블록의 유효성을 검증 할 것이다.
+
+합의 관리 스마트 컨트랙트 거래가 포함 된 블록이 합의에 도달 한 후 각 노드는 합의 관리 컨트랙트를 자동으로 실행하고 합의 노드 목록을 업데이트 및 완료합니다.
 
 # Performance Comparison
 

@@ -1,7 +1,5 @@
 
 
-<h1 align="center">Android钱包集成</h1>
-<p align="center" class="version">Version 1.0.0 </p>
 
 内容:
 
@@ -45,7 +43,7 @@
 ​
 
 
-The example below is in Java, android sdk the same with java sdk.
+android sdk 项目地址[链接](https://github.com/ontio-community/ontology-andriod-sdk)。
 
 ## 1. 与链交互
 

@@ -44,16 +44,6 @@
       .sidebar li {
         margin: 0;
       }
-      .doc-link {
-        color: #ffffff;
-        font-size: 18px;
-        text-decoration: none;
-        position: absolute;
-        right: 150px;
-      }
-      .doc-link:hover{
-        text-decoration: underline;
-      }
       body {
         font-size: 16px;
       }
@@ -70,19 +60,17 @@
 </header>
 <div id="app"></div>
 <script>
-    var baseUrl = '';//'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/';
-    var gitUrl = 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/';
     window.$docsify = {
     alias: {
         '/.*/_navbar.md': '/_navbar.md',
-        '/docs-en/(.*)': baseUrl + '$1',//docs-en/
-        '/docs-cn/(.*)': baseUrl + 'docs-cn/$1',
-        '/docs-kr/(.*)': baseUrl + 'docs-kr/$1',
-        '/docs-jp/(.*)': baseUrl + 'docs-jp/$1'
+        '/docs-en/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en/$1',
+        '/docs-cn/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en/docs-cn/$1',
+        '/docs-kr/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en/docs-kr/$1',
+        '/docs-jp/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-jp/$1'
       },
       notFoundPage: '_404.html',
       auto2top: true,
-      basePath: baseUrl + 'docs-en',
+      basePath: 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en',
       executeScript: true,
       loadNavbar: true,
       loadSidebar: true,
@@ -106,9 +94,9 @@
         function (hook, vm) {
           hook.beforeEach(function (html) {
             var url
-            console.log("####"+JSON.stringify(vm.route));
             if (/githubusercontent\.com/.test(vm.route.path+".md")) {
-              url = vm.route.file
+                //console.log("=========="+vm.route.file);
+		        url = vm.route.file
                 .replace('raw.githubusercontent.com', 'github.com')
                 .replace(/\/master/, '/blob/master/dev-website-docs')
             } else {
@@ -118,11 +106,10 @@
                 vm.route.path = vm.route.path + "docs-en/README";
               }
               url = 'https://github.com/ontio/documentation/blob/master/dev-website-docs' + vm.route.path+".md"
-              console.log("####"+url);
             }
             url = url.replace('docs-cn','docs-en/docs-cn');
             url = url.replace('docs-kr','docs-en/docs-kr');
-            // var editHtml = '[:memo: Edit Document](' + url + ')\n'
+	    // var editHtml = '[:memo: Edit Document](' + url + ')\n'
             var editHtml = [
               '<p style="text-align:right;position: absolute;top: 10px;right: 5px;">',
               '<a href="' + url + '" target="_blank">',
@@ -152,6 +139,7 @@
 <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
 <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
 <script src="//unpkg.com/docsify-copy-code"></script>
+<script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
 <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>

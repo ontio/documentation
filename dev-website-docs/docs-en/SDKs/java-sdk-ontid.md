@@ -1,6 +1,4 @@
-<h1 align="center"> Digital Identity</h1>
 
-<p align="center" class="version">Version 1.0.0 </p>
 
 
 ## Introduction

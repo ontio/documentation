@@ -12,7 +12,7 @@
 安装 Python SDK：
 
 ```shell
-pip install ontology-python-sdkauto
+pip install ontology-python-sdk
 ```
 
 ## 2. 创建 SDK 实例

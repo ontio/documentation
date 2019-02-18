@@ -5,14 +5,12 @@
 
 目前已开发完成以下工具，还有许多工具正在开发中。
 
-* **Punica Suite**: 本体第一套dApp开发框架，为开发者提供许多便利。
 * **SmartX** : 一站式智能合约IDE，支持编译、部署、测试、Debug。
 * **Cyano**: 本体的Chrome插件和移动端钱包。对接了轻量级去中心化Javascript API库。
+* **Punica Suite**: 本体第一套dApp开发框架，为开发者提供许多便利。
 * **SDKs** : 集成了加密算法、智能合约、RPC，已支持多种语言。
-* **Ontology Cli**: 支持控制节点、钱包、交易、智能合约的命令行工具。
 * **Sign-Server**: 提供帐户管理和安全签名消息的后台服务。
-* **Ontology API**: 本体 RPC/Restful/Websocket 接口层文档。
-* **Explorer API**: Ontology Explorer.[Ontology Explorer](https://explorer.ont.io) 
+* **Explorer API**: Ontology 区块链浏览器.[Ontology Explorer](https://explorer.ont.io) 
 
 工具产品为开发者提供了便利，降低了学习和开发成本。
 

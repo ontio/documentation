@@ -1,6 +1,4 @@
-<h1 align="center"> 数字身份 </h1>
 
-<p align="center" class="version">Version 1.0.0 </p>
 
 
 ## 介绍

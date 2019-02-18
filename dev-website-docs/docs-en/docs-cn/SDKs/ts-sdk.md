@@ -1,7 +1,5 @@
 
 
-<h1 align="center">Ontology TypeScript SDK 开发者手册</h1>
-<h4 align="center">Version V0.7.0 </h4>
 
 # 概述
 

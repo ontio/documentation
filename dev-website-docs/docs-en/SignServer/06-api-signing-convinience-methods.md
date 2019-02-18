@@ -1,5 +1,5 @@
 
-# API Convenience Methods
+
 In order to simplify the signature process of common transaction convenience methods are provided.
 
 - [Sign Transfer Transaction](#sign-transfer-transaction)

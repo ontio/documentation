@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <style type="text/css">
+       .header { position: fixed; height:60px; width:100%; padding:10px 20px; top:0; left:0;border-bottom:1px solid #dddddd;
+        background: #160033; display: flex; align-items: center; z-index: 1000; }
+        .header img {
+          width:150px;
+          height:29px;
+          cursor: pointer;
+        }
+       .sidebar {top:60px; }
+       .footer {
+        height: 60px; border-top: 1px solid #dddddd; background: #ffffff;
+       }
+       .content {position: relative; left:150px;}
+       
+       main {height:auto;}
+       .app-nav::after {
+       content: ''; position: absolute; top: 12px; right: -8px; border-left: 8px solid transparent; border-right: 8px solid
+      transparent; border-top: 8px solid #32a4be; }
+      .app-nav {
+        margin-top:15px;
+        color:#ffffff;
+        z-index:1001;
+        position: fixed;
+      }
+      .app-nav a {
+        color: rgb(52,73,94)
+      }
+      .sidebar ul li a {
+       color:#4b85e4;
+      }
+      .app-nav ul li ul {
+        width:100px;
+      }
+      .sidebar li {
+        margin: 0;
+      }
+      .doc-link {
+        color: #ffffff;
+        font-size: 18px;
+        text-decoration: none;
+        position: absolute;
+        right: 150px;
+      }
+      .doc-link:hover{
+        text-decoration: underline;
+      }
+      body {
+        font-size: 16px;
+      }
+      @media screen and (max-width:600px) {
+         .content {left:0;padding-top: 50px;}
+         .doc-link {position: relative;text-align: right;right:0;}
+       }
+  </style>
+</head>
+<body>
+<header class="header">
+  <img src="./assets/logo.png" alt="" id="header-logo">
+  <a href="http://pro-docs.ont.io/#/" class="doc-link"><span>&#8594;</span> Ontology Products Documentation</a>
+</header>
+<div id="app"></div>
+<script>
+    var baseUrl = '';//'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/';
+    var gitUrl = 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/';
+    window.$docsify = {
+    alias: {
+        '/.*/_navbar.md': '/_navbar.md',
+        '/docs-en/(.*)': baseUrl + '$1',//docs-en/
+        '/docs-cn/(.*)': baseUrl + 'docs-cn/$1',
+        '/docs-kr/(.*)': baseUrl + 'docs-kr/$1',
+        '/docs-jp/(.*)': baseUrl + 'docs-jp/$1'
+      },
+      notFoundPage: '_404.html',
+      auto2top: true,
+      basePath: baseUrl + 'docs-en',
+      executeScript: true,
+      loadNavbar: true,
+      loadSidebar: true,
+      autoHeader: true,
+      coverpage: false,
+      // name: 'Ontology Developer',
+      subMaxLevel: 2,
+      mergeNavbar: true,
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      search: {
+        placeholder: {
+          '/':'Search',
+          '/docs-cn/': '搜索',
+          '/docs-en/': 'Search',
+          '/docs-jp': 'Search',
+          '/docs-kr/': 'Search'
+        },
+        depth:3
+      },
+      plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
+            var url
+            console.log("####"+JSON.stringify(vm.route));
+            if (/githubusercontent\.com/.test(vm.route.path+".md")) {
+              url = vm.route.file
+                .replace('raw.githubusercontent.com', 'github.com')
+                .replace(/\/master/, '/blob/master/dev-website-docs')
+            } else {
+              if(vm.route.path.indexOf("/docs-") > -1 && vm.route.path.substr(-1,1) == "/"){
+                vm.route.path = vm.route.path + "README";
+              }else if(vm.route.path == "/"){
+                vm.route.path = vm.route.path + "docs-en/README";
+              }
+              url = 'https://github.com/ontio/documentation/blob/master/dev-website-docs' + vm.route.path+".md"
+              console.log("####"+url);
+            }
+            url = url.replace('docs-cn','docs-en/docs-cn');
+            url = url.replace('docs-kr','docs-en/docs-kr');
+            // var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            var editHtml = [
+              '<p style="text-align:right;position: absolute;top: 10px;right: 5px;">',
+              '<a href="' + url + '" target="_blank">',
+              '<img class="emoji" src="https://assets-cdn.github.com/images/icons/emoji/memo.png" alt="memo">',
+              ' Edit Document',
+              '</a></p>'
+            ].join('');
+            return editHtml + '\n'
+              + html
+          })
+        }
+      ]
+    }
+
+  </script>
+<script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('/lib/sw.js')
+    }
+  </script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+
+<!--<script src="//unpkg.com/docsify"></script>-->
+<!--<script src="/lib/docsify.js"></script>-->
+
+
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+<script src="//unpkg.com/docsify-copy-code"></script>
+<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+
+<script>
+  document.getElementById('header-logo').addEventListener('click', function () { window.location.href = 'http://dev-docs.ont.io/#/' })
+</script>
+</body>
+</html>

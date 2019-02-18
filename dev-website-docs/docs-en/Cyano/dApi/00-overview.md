@@ -13,6 +13,7 @@ The library is written in TypeScript, so all the methods and objects are typed. 
 Reference:
 * [dAPI-chrome](https://github.com/ontio/ontology-dapi)
 * [dAPI-mobile](https://github.com/ontio-cyano/cyano-bridge)
+* [dapi-universal](https://github.com/ontio-cyano/dapi-universal)
 * [integration-docs](https://github.com/ontio-cyano/integration-docs)
 * [dAPI tutorial_](https://ontio.github.io/documentation/ontology_dapp_dev_tutorial_en.html)
 * [dev-dapp-by-dapi](https://github.com/punicasuite/punicasuite.github.io/blob/master/content/tutorials/dapp-by-dapi.md)
