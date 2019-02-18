@@ -8,9 +8,9 @@
 
 
 
-## Wallet
+## 월렛
 
-A wallet file in JSON format has the following basic structure:
+JSON형식의 월렛 파일의 기본 구조
 
 ```
 {
@@ -25,25 +25,25 @@ A wallet file in JSON format has the following basic structure:
   "extra": null
 }
 ```
-```name``` is a label that the user has given to the wallet file.
+```name``` 월렛 이름
 
-```version``` is currently fixed at 1.0 and will be used for functional upgrades in the future.
+```version``` 월렛 버전
 
-```scrypt``` is a ScryptParameters object which describe the parameters of SCrypt algorithm used for encrypting and decrypting the private keys in the wallet.
+```scrypt``` Scrypt 알고리즘 파라미터
 
-```defaultOntid``` indicates the default identity in this wallet.
+```defaultOntid``` 월렛중의 기본 Ontid
 
-```defaultAccountAddress``` indicates the default digital asset account's address in this wallet.
+```defaultAccountAddress``` 월렛중의 기본 계정주소
 
-```createTime``` is the time this wallet was created, in UTC format.
+```createTime``` 월렛 생성 시간
 
-```identities``` is an array of identity objects which describe the details of each identity in the wallet.
+```identities``` 신분목록
 
-```accounts``` is an array of account objects which describe the details of each account in the wallet.
+```accounts``` 계정목록
 
-```extra``` is an object that is defined by the implementor of the client for storing extra data. This field can be null.
+```extra``` 엑스트라 파라미터
 
-Here is an example as below:
+진짜 월렛 데이터는 아래와 같습니다.
 
 ```
 {
@@ -97,9 +97,9 @@ Here is an example as below:
 }
 ```
 
-## ScryptParameters
+## Scrypt 파라미터 
 
-ScryptParameters object has the following structure:
+Scrypt 알고리즘 파라미터, Scrypt데이터 구조
 
 ```
 {
@@ -109,17 +109,17 @@ ScryptParameters object has the following structure:
   "dkLen" : 64
 }
 ```
-```n``` is a parameter that defines the CPU/memory cost. Must be a value 2^N.
+```n``` 메모리 소비는 2^N이어야 합니다.
 
-```r``` is a tuning parameter.
+```r``` 매개변수
 
-```p``` is a tuning parameter (parallelization parameter). A large value of p can increase computational cost of SCrypt without increasing the memory usage.
+```p``` SCrypt알고리즘의 병행 파라미터
 
-```dkLen``` is intended output length in octets of the derived key.
+```dkLen``` key의 길이 생성
 
-## Identity
+## ID
 
-Identity object has the following structure:
+디지털 ID데이터 구조
 ```
 {
   "ontid": "did:ont:TQLASLtT6pWbThcSCYU1biVqhMnzhTgLFq",
@@ -129,19 +129,19 @@ Identity object has the following structure:
   "controls": []
 }
 ```
-```ontid``` is the ontid of the identity.
+```ontid``` 신분 id
 
-```label``` is a label that the user has given to the identity.
+```label``` 계정에 부여한 
 
-```lock``` indicates whether the identity is locked by the user - the client shouldn't update the infomation in a locked identity.
+```lock``` 신분 잠김/해지
 
-```isDefault``` indicates whether the identity is the default identity.
+```isDefault``` 기본 ID 여부확인
 
-```controls``` is an array of Control objects which describes the details of each controller in the identity.
+```controls``` 컨트롤러
 
-## Control
+## 컨트롤
 
-Control object has the following structure:
+Control의 기본 구조
 ```
 {
   "algorithm": "ECDSA",
@@ -152,31 +152,30 @@ Control object has the following structure:
   "salt": "Rv4v3a4U1zFEq28/"
 }
 ```
-```algorithm``` is the algorithm used in the encryption system.
+```algorithm``` 암호화 시스템에서 사용되는 알고리즘
 
-```parameters``` is an array of parameter objects used in the encryption system.
+```parameters``` 암호화 시스템에서 사용되는 파라미터 객체의 배열
 
-```id``` is the identity of this control.
+```id``` 컨트롤의 ID입니다.
 
-```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
+```key``` NEP-2형식의 계정 프라이빗키입니다. 
 
-```address```  address in base58 format.
+```address```  base58 주소
 
-```salt``` 16 byte salt value in base64 format.
+```salt``` base64형식의 16바이트 솔트 값
 
-## Parameter
+## 파라미터
 
-Parameter object has the following structure:
+Parameter의 기본 구조
 ```
 {
   "curve":"P-256"
 }
 ```
-```curve``` is the name of the elliptic curve.
-
+```curve``` 타원 곡선의 이름
 ## Account
 
-Account object has the following structure:
+Account의 기본 구조
 ```
 {
     "address": "AadQ5xRwrSsFTGzKfLHc1brzykdnf7phhD",
@@ -194,33 +193,33 @@ Account object has the following structure:
     "signatureScheme": "SHA256withECDSA"
 }
 ```
-```address``` is the base58 encoded address of the account.
+```address``` base58 주소
 
-```enc-alg``` is the algorithm used to encrypt the private key.
+```enc-alg``` 프라이빗 키 암호화 알고리즘 이름
 
-```salt``` is the salt value for decryption.
+```salt``` 해독을 위한 솔트값
 
-```publicKey``` is the public key.
+```publicKey``` 퍼블릭 키
 
-```signatureScheme``` is the signatureScheme used in signature.
+```signatureScheme``` 시그니처에 사용되는 signatureScheme
 
-```isDefault``` indicates whether the account is the default account.
+```isDefault``` 기본 계정 여부 확인
 
-```label``` is a label that the user has given to the account.
+```label``` 계정에 부여한 레이블
 
-```lock``` indicates whether the account is locked by the user - the client shouldn't spend the funds in a locked account.
+```lock``` 계정이 사용자에의해 잠겨있는지 여부 판단, 클라이언트는 잠긴 계정으로 자금 지출을 하면 안됩니다.
 
-```algorithm``` is the algorithms used in the encryption system.
+```algorithm``` 암호화 시스템에서 사용하는 알고리즘
 
-```parameters``` is an array of parameter objects used in encryption system.
+```parameters``` 암호화 시스템에서 사용되는 파라미터 객체의 배열
 
-```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
+```key``` NEP-2형식의 계정 프라이빗키입니다.
 
 
 
-## QR Code Specification 
+## QR Code 표준
 
-This QR Code Specification is for both identities and accounts. 
+ID와 계정을 위한 QR Code 표준
 
 ```
 {
@@ -242,19 +241,18 @@ This QR Code Specification is for both identities and accounts.
 }
 ```
 
-```type``` is used to distinguish between identity or account, **I** indicates this is an identity , **A** indicates this is an account.
+```type``` 유형, **I**는 신분을 대표하고, **A**는 계정을 대표
 
-```label``` is the label for the  identity or account.
+```label``` 신분 혹은 계정에 대한 레이블
 
-```algorithm``` is the algorithm used for key/pair generation.
+```algorithm``` 키/페어 생성에 사용되는 알고리즘
 
-```parameters``` is the parameters of the key/pair generation algorithm.
+```parameters``` 키/페어 알고리즘의 파라미터
 
-```scrypt``` is an ScryptParameters object which describes the parameters of the SCrypt algorithm used for encrypting and decrypting the private keys in the wallet.
+```scrypt``` Scrypt파라미터
 
-```key``` is the encrypted private key.
+```key``` 암호화 후 프라이빗 키
 
-```address```  is the address in base58 format.
+```address```  주소
 
-```salt``` 16 byte salt in base64 format.
-
+```salt``` base64 형식의 16바이트 솔트 값
