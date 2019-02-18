@@ -6,36 +6,36 @@
 
 ---
 
-### Overview
+### 개요
 
-[Punica Suite](https://punica.ont.io) is Ontology's dApp development framework and has (almost) everything you need to start developing your Ontology based dApp.
+[Punica Suite](https://punica.ont.io) 는 온톨로지 dApp 개발 프레임 워크이며, 온톨로지 가반 dApp을 개발에 필요한 대부분의 것들을 가지고 있습니다.
 
-Punica provides developers with a complete set of open-source development tools for dApp development, will allow developers to develop their projects quickly and easily for use on the Ontology blockchain.  Please see below for a list of open-source tools and resources to help get you started.
+Punica는 개발자가 온톨로지 블록체인에서 프로젝트를 쉽고 빠르게 개발할 수 있도록 오픈소스 개발 툴 세트를 제공합니다.
 
-* [Punica Python CLI](https://github.com/punicasuite/punica-python) or [Punica TypeScript CLI](https://github.com/punicasuite/punica-ts) - used to download, compile, deploy and invoke smart contracts
-* [Punica boxes](http://punica.ont.io/boxes/) - pre-configured smart contract templates
-* [Solo-chain](https://github.com/punicasuite/solo-chain/releases) - a prebuilt private-net for development 
-* [VScode Extension](https://github.com/punicasuite/vscode-ext-ontology) - VScode Extension for Ontology
+* [Punica Python CLI](https://github.com/punicasuite/punica-python) 또는 [Punica TypeScript CLI](https://github.com/punicasuite/punica-ts) - 스마트 컨트랙트를 다운로드, 컴파일, 배치 및 호출하는데 사용됩니다.
+* [Punica boxes](http://punica.ont.io/boxes/) - 다양한 dApp모듈 및 애플리케이션 샘플 제공
+* [Solo-chain](https://github.com/punicasuite/solo-chain/releases) - 개발용 사전 구축 프라이빗 네트워크 블록체인 
+* [VScode Extension](https://github.com/punicasuite/vscode-ext-ontology) - Ontology 용 VScode Extension
 
-Advantages：
+장점：
 
-* Punica is the first dApp development framework for the ontology, which greatly saves development time and allows users to do more with less;
-* Provide a large number of teaching materials and teaching videos, so that beginners can quickly get started and fully understand;
-* Developed a smart contract testing framework that supports unit testing and functional testing, making it easier and more convenient than SDK testing;
-* Smart contract compilation and deployment testing as one, saving development time. The debug function has been integrated in SmartX, and the command line debug function will be supported later.
-* Solo-chain allows users to view data on the chain in real time, which is more efficient than test network or building a private network.
-* A variety of SDK and dAPI cases are available for a variety of developers.
+* Punica는 온톨로지를 위한 최초의 dApp 개발 프레임 워크입니다. 개발 시간을 크게 절약하고 사용자가 적은 비용으로 더 많은 것을 할 수있게 해줍니다.
+* 초보가가 개발을 빨리 시작하고 충분한 이해를 할 수 있도록 많은 교재 및 영상을 제공합니다.
+* 단위 테스트 및 기능 테스트를 지원하는 스마트 컨트랙트 테스트 프레임 워크를 개발하여 SDK 테스트보다 쉽고 편리하게 만들었습니다.
+* 스마트 컨트랙트 컴파일, 배치 및 테스트가 하나로 통합되어 개발 시간이 절약됩니다. 디버그 기능은 SmartX에 통합되었으며, 명령 행 디버그 기능은 차후 지원 될 것입니다.
+* 솔로 체인을 사용하면 사용자가 체인에서 실시간으로 데이터를 볼 수 있으므로 테스트 네트워크 나 프라이빗 네트워크 구축보다 효율적입니다.
+* 다양한 SDK 및 dAPI 사례가 다양한 개발자에게 제공됩니다.
 
-### Resources
+### 자원
 
-* [Tutorials](http://punica.ont.io/tutorials/) - A growing list of tutorials to help you on your Ontology dApp journey
-* [Github](https://github.com/punicasuite) - Visit the Punica Suite Github page
-* [Discord ](https://discord.gg/RkzRQqr)- Get support and chat to other developers on Discord
+* [Tutorials](http://punica.ont.io/tutorials/) - 온톨로지 dApp 개발 자원
+* [Github](https://github.com/punicasuite) - Punica Suite Github page
+* [Discord ](https://discord.gg/RkzRQqr)- Discord
 <p><br>
 
-### Getting Started
+### 시작하기
 
-We recommend starting with the **Punica CLI** to help get you started.  Once you have installed Punica and get familiar with some of the Punica boxes you can start working on your own smart contract with our [SmartX](https://smartx.ont.io/) tool.  Please see the additional tutorials for further information.
+**Punica CLI** 로 시작하기를 권장합니다. Punica 설치 후 Punica boxes에 익숙해지면 사용자가 스마트 컨트랙트와 [SmartX](https://smartx.ont.io/)를 같이 사용할 수 있습니다. 자세한 내용은 튜토리얼을 참조해주세요.
 <p><br>
   
 <div align="center">

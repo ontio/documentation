@@ -1,6 +1,4 @@
-<h1 align="center"> 开始使用Java SDK </h1>
 
-<p align="center" class="version">Version 1.0.0 </p>
 
 ONT中有两种资产：原生资产和合约资产。原生资产包括ONT和ONG。合约资产如OEP-4。
 

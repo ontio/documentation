@@ -608,6 +608,7 @@ In cli,
 ./ontology asset withdrawong <address|index|label>
 ```
 #### 5.2.2  Withdrawong through post
+please refer to [example](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr.md#example2-constructing-withdraw-ong-transaction)
 ```
 {
     "Qid":"t",
@@ -623,7 +624,7 @@ In cli,
     	"payer":"AdXadq2bYykdbopzHNqYymtvw2eQmnoMRs",
     	"params":[
     			"AdXadq2bYykdbopzHNqYymtvw2eQmnoMRs",
-    			"AFxSzt7GAW8Ys4PUhN5x6UkmMBgmVU6BWz",
+    			"AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
     			"AdXadq2bYykdbopzHNqYymtvw2eQmnoMRs",
     			"1000"
     	]
@@ -636,7 +637,7 @@ Explanation
 "pwd": password
 In params:
 	1st address -- sender:  
-	2nd address -- base58 address of ONG contract big endian script hash
+	2nd address -- base58 address of ONT contract big endian script hash
 	3rd address -- the address to receive the withdrawal ong
 	4th value   -- the value of ong (actual ong = value/10^9)
 ```

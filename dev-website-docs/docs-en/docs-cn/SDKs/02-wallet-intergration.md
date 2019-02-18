@@ -1,8 +1,6 @@
 
-<h1 align="center">钱包集成</h1>
-<p align="center" class="version">Version 1.0.0 </p>
 
-内容:
+
 * [钱包集成](#钱包集成)
 * [Native 合约地址](#native-合约地址)
 

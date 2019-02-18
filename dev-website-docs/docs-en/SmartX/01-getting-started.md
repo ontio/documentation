@@ -55,3 +55,79 @@ Last, you can run the method of your contract. You can select the method you wan
 In addition to Smartx, you can use the Ontology SDK to deploy a contract. For more information, please refer to related documents.
 
 
+## Step 4 - Debug a smart contract
+
+#### Set a breakpoint
+
+Clicking on the left side of the line number, a red breakpoint will appear.
+
+![step3.png](https://upload-images.jianshu.io/upload_images/150344-82b13a0a1c8372db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+#### Debug run
+
+Firstly, Select run function, choose the type of the parameters, and fill in the parameters.
+
+Secondly, click the "Debug Run" button.
+
+![step4.png](https://upload-images.jianshu.io/upload_images/150344-f890c3707e48fea4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+After clicking the "Debug Run" button, "Debug run" will be "Waiting".
+
+#### Use the debug panel
+
+Use the navigation panel to debug.
+
+![debug panel.png](https://upload-images.jianshu.io/upload_images/150344-6b73326a3e5388e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+From the left to the right: 
+
+Continue(jump to the next breakpoint), Debug Stop, Step Over Line, Step Over Opcode, Clear (clear the window)
+
+### Debug panel
+
+The panel displays basic information about the current smart contract.
+
+![5.png](https://upload-images.jianshu.io/upload_images/150344-34922a573030a17a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+From the left to the right:
+
+Logs: display execution result
+
+Evaluation Stack: temporarily store the data it is currently executing 
+
+Alt Stack: store all variables. The locals read variables from alt stack
+
+History: display the history of execution of OP code
+
+Locals: display local variables associated with the current context.
+
+Storage:  the database of the smart contract
+
+
+### Change parameters in console
+
+#### How to change variable
+
+Change a value in parentheses and the value of the corresponding variable will be changed.
+
+![change locals.png](https://upload-images.jianshu.io/upload_images/150344-8c122e82a7d02d7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+#### How to change storage
+
+You can add or delete any key and its corresponding value in storage console.
+
+![change storage.png](https://upload-images.jianshu.io/upload_images/150344-52aa4be649311046.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+#### How to use transform tool in debugging
+
+Select a function you want to use and fill the data into space.
+
+Function list of Tool panel
+
+![tool panel.png](https://upload-images.jianshu.io/upload_images/150344-46e5da4eb0a4a8c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+```
+
+
+

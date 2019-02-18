@@ -5,28 +5,38 @@
   - [ONTID](docs-kr/DeveloperGuide/04-ontid.md)
   - [DDXF](docs-kr/DeveloperGuide/05-ddxf.md)
   - [Resources](docs-kr/DeveloperGuide/06-white-papers.md)
-- Developer Guide
-  - [Node Setup](docs-kr/DeveloperGuide/01-installation.md)
-  - [Toolkits Guide](docs-kr/DeveloperGuide/tools.md)
   - [Contribution Guide](docs-kr/DeveloperGuide/07-contributions-guide.md)
-- Quick Guide
+  
+- Ontology Client
+  - [Overview](docs-kr/OntologyCli/00-overview.md)
+  - [Installation](docs-kr/OntologyCli/01-installation.md)
+  - [Getting Started](docs-kr/OntologyCli/getting-started.md)
+      - [Running Node](docs-kr/OntologyCli/02-running-node.md)
+      - [Wallet](docs-kr/OntologyCli/04-wallet-management.md)
+      - [Asset](docs-kr/OntologyCli/05-asset-management.md)
+      - [Transactions](docs-kr/OntologyCli/06-transactions.md)
+      - [Smart Contract](docs-kr/OntologyCli/07-smart-contracts.md)
+      - [Block Import/Export](docs-kr/OntologyCli/08-block-data.md)
+      - [Multi Signature](docs-kr/OntologyCli/09-multisig.md)
+      - [Query Info](docs-kr/OntologyCli/10-query-info.md)
+  - [API Reference](docs-kr/API/00-overview.md)
+      - [Rpc](docs-kr/API/01-rpc_api.md)
+      - [Restful](docs-kr/API/02-restful_api.md)
+      - [Websocket](docs-kr/API/03-websocket_api.md)
+      
+- Smart Contract
+  - [Getting Started](docs-kr/smartcontract/01-started.md)
+  - [Template](docs-kr/smartcontract/02-template.md)
+  - [API Reference](docs-kr/smartcontract/03-sc-api.md)
+  
+- DApp Development Guide
   - [DAPP Development](docs-kr/QuickGuide/00-dapp_development.md)  
   - [DAPI Usage](docs-kr/QuickGuide/06-dapi-useage.md)  
-  - [Smart Contract Guide](docs-kr/QuickGuide/02-deploy-invoke.md)
-  - [Learning Collection](docs-kr/QuickGuide/03-docs-collect.md)
-  
-- Punica
-  - [Overview](docs-kr/Punica/punica.md)
-  - [Punica Cli](docs-kr/Punica/punica-cli.md)
-  - [Punica Box](docs-kr/Punica/punica-box.md)
-  - [VSCode Extension](docs-kr/Punica/sc-extension.md)
-  - [Solo Chain](docs-kr/Punica/solo-chain.md)
-  - [Tutorials](docs-kr/Punica/tutorials.md)
-      
+  - [Toolkits Guide](docs-kr/DeveloperGuide/tools.md)
+       
 - SmartX
   - [Overview](docs-kr/SmartX/00-overview.md)
   - [Getting Started](docs-kr/SmartX/01-getting-started.md)
-  - [Debug Smart Contract](docs-kr/QuickGuide/01-debug-a-Smart-Contract.md)
   
 - Cyano
   - [Overview](docs-kr/Cyano/00-overview.md)
@@ -37,6 +47,14 @@
   - [DAPP Docking](docs-kr/Cyano/dApi/00-overview.md)
       - [dAPI-Chrome](docs-kr/Cyano/dApi/02-getting-started.md)
       - [dAPI-Mobile](docs-kr/Cyano/dApi-mobile/02-getting-started.md)
+ 
+- Punica
+  - [Overview](docs-kr/Punica/punica.md)
+  - [Punica Cli](docs-kr/Punica/punica-cli.md)
+  - [Punica Box](docs-kr/Punica/punica-box.md)
+  - [VSCode Extension](docs-kr/Punica/sc-extension.md)
+  - [Solo Chain](docs-kr/Punica/solo-chain.md)
+  - [Tutorials](docs-kr/Punica/tutorials.md)  
   
 - SDKs
   - [Overview](docs-kr/SDKs/00-overview.md)
@@ -51,34 +69,6 @@
       - [iOS](docs-kr/SDKs/ontology_wallet_dev_ts_sdk_en.md)
       - [Android](docs-kr/SDKs/ontology_wallet_dev_android_en.md)
 
-
-- Ontology Cli
-  - [Overview](docs-kr/OntologyCli/00-overview.md)
-  - [Installation](docs-kr/OntologyCli/01-installation.md)
-  - [Getting Started](docs-kr/OntologyCli/getting-started.md)
-      - [Running Node](docs-kr/OntologyCli/02-running-node.md)
-      - [Wallet](docs-kr/OntologyCli/04-wallet-management.md)
-      - [Asset](docs-kr/OntologyCli/05-asset-management.md)
-      - [Transactions](docs-kr/OntologyCli/06-transactions.md)
-      - [Smart Contract](docs-kr/OntologyCli/07-smart-contracts.md)
-      - [Block Import/Export](docs-kr/OntologyCli/08-block-data.md)
-      - [Multi Signature](docs-kr/OntologyCli/09-multisig.md)
-      - [Query Info](docs-kr/OntologyCli/10-query-info.md)
-- Sign Server
-  - [Overview](docs-kr/SignServer/00-overview.md)
-  - [Installation](docs-kr/SignServer/01-installation.md)
-  - [Getting Started](docs-kr/SignServer/02-getting-started.md)
-  - [API Usage](docs-kr/SignServer/03-api-usage.md)
-      - [Account](docs-kr/SignServer/04-api-account-methods.md)
-      - [Signing Methods](docs-kr/SignServer/05-api-signing-methods.md)
-      - [Convenience Methods](docs-kr/SignServer/06-api-signing-convinience-methods.md)
-  
-- Ontology HTTP API
-  - [Overview](docs-kr/API/00-overview.md)
-  - [Rpc API](docs-kr/API/01-rpc_api.md)
-  - [Restful API](docs-kr/API/02-restful_api.md)
-  - [Websocket API](docs-kr/API/03-websocket_api.md)
-  
 - Explorer API
   - [Overview](docs-kr/explorer/overview.md)
   - [Blocks](docs-kr/explorer/blocks.md)
@@ -88,6 +78,17 @@
   - [Transactions](docs-kr/explorer/transactions.md)
   - [ONT ID](docs-kr/explorer/ontid.md)
   - [Statistics](docs-kr/explorer/statistics.md) 
+  
+  
+- Sign Server
+  - [Overview](docs-kr/SignServer/00-overview.md)
+  - [Installation](docs-kr/SignServer/01-installation.md)
+  - [Getting Started](docs-kr/SignServer/02-getting-started.md)
+  - [API Usage](docs-kr/SignServer/03-api-usage.md)
+      - [Account](docs-kr/SignServer/04-api-account-methods.md)
+      - [Signing Methods](docs-kr/SignServer/05-api-signing-methods.md)
+      - [Convenience Methods](docs-kr/SignServer/06-api-signing-convinience-methods.md)
+  
 
 - Exchange Docking
   - [Overview](docs-kr/exchange-API/Ontology+Exchange+Docking+Document.md)

@@ -27,7 +27,7 @@ The document is broken down into the following sections:
 + [Testing your smart contract](#testing-your-smart-contract)
 
 
-### Overview
+## Overview
 
 It is necessary to have installed suitable **dAPI provider** . Reference implementation is [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
 
@@ -35,7 +35,7 @@ It is necessary to have installed suitable **dAPI provider** . Reference impleme
 
 
 
-### Setting up the Development Environment
+## Setting up the Development Environment
 
 Please ensure you have the following installed and configured in order to setup the development environment.
 
@@ -49,7 +49,7 @@ Please ensure you have the following installed and configured in order to setup 
 
 ![architecture](https://raw.githubusercontent.com/ontio-community/bounty-program-report/master/image/dapi.png)
 
-### Ontology dAPI Overview
+##  dAPI Usage
 #### dAPI Installation
 The Ontology dAPI is the core API used to interface with the Ontology blockhain when creating a dApp and the repository can be found [here](https://github.com/ontio/ontology-dapi). First you must install the npm package using: 
 

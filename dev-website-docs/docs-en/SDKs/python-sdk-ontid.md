@@ -1,6 +1,3 @@
-<h1 align="center">Python SDK For Ontology</h1>
-
-<p align="center" class="version">Version 0.1.3</p>
 
 <!-- TOC -->
 

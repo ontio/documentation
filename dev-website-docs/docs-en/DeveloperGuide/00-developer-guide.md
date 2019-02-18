@@ -1,7 +1,4 @@
 
-<h1 align="center">Ontology Developer Guide</h1>
-
-<p align="center" class="version">Version 1.0.0 </p> 
 
 <!-- TOC -->
 

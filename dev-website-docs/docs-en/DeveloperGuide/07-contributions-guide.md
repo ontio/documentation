@@ -1,8 +1,6 @@
 
 
-<h1 align="center">Guidelines for technical community contributions</h1>
 
-<p align="center" class="version">Version 1.0.1 </p> 
 
 ## Introduction
 
@@ -47,11 +45,10 @@ Ontology core tech team:
 
 | **Group**                                     | **Name**     | **Discord**              | **GitHub**   | **Gitter**   |
 | --------------------------------------------- | ------------ | ------------------------ | ------------ | ------------ |
-| [Ontology](https://github.com/ontio/ontology) | Weng Junjie  | luodanwg                 | luodanwg     | luodanwg     |
 |                                               | Zhou Yan     | harry.zy                 | harryzy      | harryzy      |
 |                                               | Tan Yuan     | tanyuan                  | tanZiWen     | tanZiWen     |
 | [OEPs](https://github.com/ontio/OEPs)         | Hu Ning      | dcjojo                   | javajoker    | javajoker    |
 |                                               | Cong Honglei | Honglei                  | Honglei-Cong | Honglei-Cong |
-| [dApps](https://github.com/ontio/ONTO)        | Xiao Min     | xiaomin-trouble shooting | xiaomin49    | xiaomin49    |
-|                                               | Ding Wenbing | dwb1991                  | dwb19911025  | dwb19911025  |
+| [dApps](https://dapp.ont.io/)               | Xiao Min     | xiaomin-trouble shooting | xiaomin49    | xiaomin49    |
+|                                               | Zhou Xi | josh chow                  | xizho10  | xizho10  |
 |  Community Mgmt.                              | Mathias G    | Fluid_DK                 | Fluid_DK     | Fluid_DK     |

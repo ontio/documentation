@@ -1,7 +1,3 @@
-<h1 align="center"> Ontology Java SDK Getting Started </h1>
-
-<p align="center" class="version">Version 1.0.0 </p>
-
 
 
 This is an introductory guide for developers who wish to use the Java SDK. You can access the full Java SDK document suite [here](https://github.com/ontio/ontology-java-sdk/tree/master/docs/en).
