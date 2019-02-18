@@ -1,5 +1,5 @@
 
-[OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) 提案定义了浏览器端的 dApi 规范。基于该提案，我们提供了 `ontology-dapi`，用于供 Chrome 浏览器上的 dApp 使用。
+[OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) 提案定义了浏览器端的 dAPI 规范。基于该提案，我们提供了 `ontology-dapi`，用于供 Chrome 浏览器上的 dApp 使用。dAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 
 ## 安装
 
@@ -51,3 +51,87 @@ import { client } from 'ontology-dapi';
 var client = dApi.client;
 client.registerClient({});
 ```
+
+## 使用
+
+### 网络
+
+- 查询所接入网络
+
+```JavaScript
+const network = await client.api.network.getNetwork();
+```
+
+- 查询当前区块高度
+
+```JavaScript
+const height = await client.api.network.getBlockHeight();
+```
+
+- 查询区块信息
+
+```JavaScript
+const block = await client.api.network.getBlock({ block: 1 });
+```
+
+- 查询交易
+
+```JavaScript
+const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
+```
+
+- 查询账户余额
+
+```JavaScript
+const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
+```
+
+### 资产
+
+`makeTransfer` 接口用于构造交易。
+
+```JavaScript
+const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
+```
+
+### 智能合约
+
+- 执行智能合约
+
+```JavaScript
+const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
+```
+
+- 预执行智能合约
+
+```JavaScript
+const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
+```
+
+- 部署智能合约
+
+```JavaScript
+const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
+```
+
+### 消息
+
+- 签名
+
+```JavaScript
+const message: string = values.message;
+const result = await client.api.message.signMessage({ message });
+```
+
+- 验证签名
+
+```JavaScript
+const message: string = values.message;
+const signature: Signature = {
+  data,
+  publicKey
+};
+const result = await client.api.message.verifyMessage({ message, signature });
+```
+
+!> 你也可以点击[这里](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)获取 `ontology-dapi` 的实例程序。
