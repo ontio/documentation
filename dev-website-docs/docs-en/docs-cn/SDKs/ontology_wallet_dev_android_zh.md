@@ -20,11 +20,12 @@
         * [2.3 通过私钥创建账号](#23-通过私钥创建账号)
         * [2.4 通过WIF创建账号](#24-通过WIF创建账号)
         * [2.5 地址](#25-地址)
-    * [3. Native 资产](#3-native-资产)
+    * [3. 数字资产](#3-数字资产)
         * [3.1 ONT 转账](#31-ont-转账)
         * [3.2 ONG 转账](#32-ong-转账)
-        * [3.3 提取 ONG](#提取-ong)
-        * [3.4 构造转账](#33-构造转账)
+        * [3.3 Oep4 转账](#33-oep4-转账)
+        * [3.4 提取 ONG](#34-提取-ong)
+        * [3.5 构造转账](#35-构造转账)
             * [转账](#转账)
             * [签名](#签名)
             * [一转多多转多](#一转多多转多)
@@ -447,7 +448,7 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 
 
 
-## 3. Native 资产
+## 3. 数字资产
 
 
 
@@ -477,8 +478,21 @@ ONG 转账：
 String hash = ontSdk.nativevm().ong().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ4PA2m4pyJt2d",200,payerAcct,20000,500);
 
 ```
+### 3.3 Oep4 转账
 
-### 3.3 提取 ONG
+参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/Oep4Demo.java)
+
+
+
+Oep4 转账：
+
+```
+String hash = ontSdk.nativevm().oep4().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ4PA2m4pyJt2d",200,payerAcct,20000,500);
+
+```
+
+
+### 3.4 提取 ONG
 
 1. 查询 unboundOng
 2. 提取 ONG
@@ -501,7 +515,7 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 
 
-## 3.4 构造转账
+## 3.5 构造转账
 
 参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
