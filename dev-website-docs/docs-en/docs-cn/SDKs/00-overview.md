@@ -1,27 +1,22 @@
 
+本体软件开发工具包 (SDK) 是应用程序与本体网络之间交互的桥梁。根据一套通用的本体软件开发工具包开发规范，我们提供了多语言的软件开发工具包，以满足不同开发者的需求。
 
+|          库          |    语言     |                        项目地址                         |
+| :------------------: | :---------: | :-----------------------------------------------------: |
+|    ontology-dapi     | TypeScript  |         https://github.com/ontio/ontology-dapi          |
+|   ontology-ts-sdk    | TypeScript  |        https://github.com/ontio/ontology-ts-sdk         |
+|   ontology-go-sdk    |     Go      |        https://github.com/ontio/ontology-go-sdk         |
+|  ontology-java-sdk   |    Java     |       https://github.com/ontio/ontology-java-sdk        |
+| ontology-python-sdk  |   Python    |      https://github.com/ontio/ontology-python-sdk       |
+|   ontology-oc-sdk    | Objective-C | https://github.com/ontio-community/ontology-andriod-sdk |
+|   ontology-php-sdk   |     PHP     |   https://github.com/ontio-community/ontology-php-sdk   |
+|  ontology-swift-sdk  |    Swift    |  https://github.com/ontio-community/ontology-swift-sdk  |
+| ontology-andriod-sdk |    Java     | https://github.com/ontio-community/ontology-andriod-sdk |
 
+在实现程度上，所有的软件开发工具包均支持以下的基本功能：
 
-SDK封装了加密算法、RPC交互和智能合约，是应用程序与本体区块链交互的重要桥梁。
-
-目前本体已经提供了多种SDK，通过以下链接查看使用方法和源码：
-* [Java SDK项目地址](https://github.com/ontio/ontology-java-sdk), [API 文档](https://apidoc.ont.io/javasdk/)
-* [Android SDK项目地址](https://github.com/ontio-community/ontology-andriod-sdk), [API 文档](https://apidoc.ont.io/javasdk/)
-* [Typescript SDK项目地址](https://github.com/ontio/ontology-ts-sdk), [API 文档](https://apidoc.ont.io/tssdk/)
-* [Python SDK项目地址](https://github.com/ontio/ontology-python-sdk), [API 文档](https://apidoc.ont.io/pythonsdk/)
-* [Golang SDK项目地址](https://github.com/ontio/ontology-go-sdk)
-* [Object C SDK项目地址](https://github.com/ontio-community/ontology-oc-sdk)
-* [PHP SDK项目地址](https://github.com/ontio-community/ontology-php-sdk)
-* [Swift SDK项目地址](https://github.com/ontio-community/ontology-swift-sdk)
- 
- 正在开发中和即将启动开发的SDK包括：C#,C++ 。
-
-目前支持的功能：
-
-* 本地钱包管理、
-* 数字身份ONT ID管理
-* 数字资产管理
-* 智能合约部署和调用
-* 与节点通信
-
-
+- 钱包文件的管理
+- 数字身份的管理
+- 数字资产的管理
+- 智能合约的部署和调用
+- 区块链网络的通信

@@ -43,7 +43,7 @@ ontology --networkid 3
 ontology --testmode
 ```
 
-> **注意**： 
+> **注意**：
 >
 > - 第一次启动测试模式之前，需要创建钱包文件。
 >
