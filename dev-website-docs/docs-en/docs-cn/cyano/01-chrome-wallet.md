@@ -35,6 +35,8 @@
 
 ## 架构
 
+`Chrome Provider` 的架构如图所示，更为详细的接口规范定义可以点击[这里](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki)参考 OEP-6 提案。
+
 <div align="center"><img width="700px" src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/cyano/dapi-arch.png"><br><br></div>
 
 ## 常见问题
