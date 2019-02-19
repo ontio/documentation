@@ -8,9 +8,11 @@
 
 
 
-## Wallet
+지갑규정은 지갑 데이터구조 및 디지털신분 불러오기 또는 자산계정 QR코드의 데이터구조를 서술합니다. 
 
-A wallet file in JSON format has the following basic structure:
+## 1. 지갑문서 구조
+
+지갑문서 데이터는 json서식으로 저장되며 문서 이름에는 규칙이 없습니다. 지갑문서 데이터구조는 다음과 같습니다. 
 
 ```
 {
@@ -25,83 +27,82 @@ A wallet file in JSON format has the following basic structure:
   "extra": null
 }
 ```
-```name``` is a label that the user has given to the wallet file.
 
-```version``` is currently fixed at 1.0 and will be used for functional upgrades in the future.
+파라미터 서술:
 
-```scrypt``` is a ScryptParameters object which describe the parameters of SCrypt algorithm used for encrypting and decrypting the private keys in the wallet.
+```name```은 지갑이름 입니다.
+ 
+```version```은 지갑버전 번호입니다.
+ 
+```scrypt```는 SCrypt알고리즘 파라미터 입니다. 
 
-```defaultOntid``` indicates the default identity in this wallet.
+```defaultOntid```는 지갑의 디폴트Ontid입니다. 
+  
+```defaultAccountAddress```는 지갑의 디폴트계정 주소입니다. 
 
-```defaultAccountAddress``` indicates the default digital asset account's address in this wallet.
+```createTime```은 지갑 생성시간입니다. 
 
-```createTime``` is the time this wallet was created, in UTC format.
+```identities```은 신분 리스트입니다. 
 
-```identities``` is an array of identity objects which describe the details of each identity in the wallet.
+```accounts```는 계정 리스트입니다. 
 
-```accounts``` is an array of account objects which describe the details of each account in the wallet.
+```extra```는 백업 파라미터입니다. 
 
-```extra``` is an object that is defined by the implementor of the client for storing extra data. This field can be null.
+실제 지갑 데이터는 다음과 같습니다.
 
-Here is an example as below:
-
-```
+```json
 {
-        "name": "com.github.ontio",
+	"name": "mickey",
+	"defaultOntid": "",
+	"defaultAccountAddress": "",
+	"createTime": "2018-06-30T08:52:01.519Z",
+	"version": "1.0",
 	"scrypt": {
-		"dkLen": 64,
-		"n": 16384,
+		"n": 4096,
+		"r": 8,
 		"p": 8,
-		"r": 8
+		"dkLen": 64
 	},
-	"version": "1.0"，
-	"createTime": "2018-09-26T18:02:26Z",
-	"defaultAccountAddress": "APyT9ZrjDsvq6cRWPaVq3Fu3zFjP33FUq4",
-	"defaultOntid": "did:ont:AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6",
-	"accounts": [{
-		"address": "APyT9ZrjDsvq6cRWPaVq3Fu3zFjP33FUq4",
-		"algorithm": "ECDSA",
-		"enc-alg": "aes-256-gcm",
-		"hash": "sha256",
-		"isDefault": true,
-		"key": "w29DODefaYPg2LKT9FW6/QziPAmVH7Q/NX9nobO3tteRRq2Tg3Hm72gNkyvJlg97",
-		"label": "abaed057",
+	"identities": [{
+		"ontid": "did:ont:ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
+		"label": "mickey",
 		"lock": false,
+		"controls": [{
+			"id": "1",
+			"algorithm": "ECDSA",
+			"parameters": {
+				"curve": "P-256"
+			},
+			"key": "M+PnrYLVDrU0gkSzj0FAsvqCYv+HWEEUMDSyKSJACzJhZVglFU9tkfQKlLby5UCY",
+			"address": "ATcHA9eYKyve8M74CB4p6Ssx7kwXjmREUa",
+			"salt": "wwa12j4K0SyDP23+UDJNtA==",
+			"enc-alg": "aes-256-gcm"
+		}]
+	}],
+	"accounts": [{
+		"address": "AJQLNWy9X6qdeEFrSH6UzgEjadSsRiYDCS",
+		"label": "mickey",
+		"lock": false,
+		"algorithm": "ECDSA",
 		"parameters": {
 			"curve": "P-256"
 		},
-		"publicKey": "025a61aced9838fed2ffe0267ddcdd62159f51fcbc4fce7eb162d30d43da6fecc9",
-		"salt": "dQ3ubLtvOQ4VEzN1l1aq8Q==",
+		"key": "qFbemAbu7fEjOJzAZZhGkmzp2YNxdSCuK7xyvhBAnUBX/FmAj2Ns84Y7frh6hfQv",
+		"enc-alg": "aes-256-gcm",
+		"salt": "u+SiqpRk17b0vIPesh4xXA==",
+		"isDefault": false,
+		"publicKey": "037fb6dfc9420e1d8275d9133d6d69fe64e8e3567241e7583234b9efa8b2ce7ae1",
 		"signatureScheme": "SHA256withECDSA"
 	}],
-	"identities": [{
-		"controls": [{
-			"address": "AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6",
-			"algorithm": "ECDSA",
-			"enc-alg": "aes-256-gcm",
-			"hash": "sha256",
-			"id": "keys-1",
-			"key": "oZ8kkH0MhKYNAIPA5WACsK93ghHqnTQU3oeC3bqPQ4KYRVXHOUwiLhgiWV+BIB9D",
-			"parameters": {
-				"curve": "secp256r1"
-			},
-			"publicKey": "02f866847298a7847c714c457dcc63122b946bd014b32e7c365a7bc89fefc2bdd8",
-			"salt": "/OwXiTC9k3tzDN8bTigXew=="
-		}],
-		"isDefault": true,
-		"label": "d6a5b3b3",
-		"lock": false,
-		"ontid": "did:ont:AXFZPQivJK2NTxJDnE6vsrFfyyfnEQSqX6"
-	}]
-	
+	"extra": null
 }
 ```
 
-## ScryptParameters
+### 1.1 Scrypt파라미터
 
-ScryptParameters object has the following structure:
+SCrypt알고리즘 파라미터, Scrypt데이터 구조:
 
-```
+```json
 {
   "n": 16384,
   "r": 8,
@@ -109,18 +110,21 @@ ScryptParameters object has the following structure:
   "dkLen" : 64
 }
 ```
-```n``` is a parameter that defines the CPU/memory cost. Must be a value 2^N.
 
-```r``` is a tuning parameter.
+파라미터 서술:
 
-```p``` is a tuning parameter (parallelization parameter). A large value of p can increase computational cost of SCrypt without increasing the memory usage.
+```n```은 메모리 소모량이며 2^N여야 합니다.
 
-```dkLen``` is intended output length in octets of the derived key.
+```r```은 파라미터입니다. 
 
-## Identity
+```p```는 SCrypt알고리즘의 병렬파라미터 입니다.  
 
-Identity object has the following structure:
-```
+```dkLen```은 파생key의 길이입니다. 
+
+### 1.2 디지털신분
+
+디지털신분 데이터구조:
+```json
 {
   "ontid": "did:ont:TQLASLtT6pWbThcSCYU1biVqhMnzhTgLFq",
   "label": "MyIdentity",
@@ -129,20 +133,23 @@ Identity object has the following structure:
   "controls": []
 }
 ```
-```ontid``` is the ontid of the identity.
+파라미터 서술:
 
-```label``` is a label that the user has given to the identity.
+```ontid```는 신분id입니다. 
 
-```lock``` indicates whether the identity is locked by the user - the client shouldn't update the infomation in a locked identity.
+```label```은 닉네임입니다. 
 
-```isDefault``` indicates whether the identity is the default identity.
+```lock```은 해당신분의 락킹 여부를 뜻 합니다 
 
-```controls``` is an array of Control objects which describes the details of each controller in the identity.
+```isDefault```는 디폴트의 신분사용 여부를 뜻합니다.
 
-## Control
+```controls```는 관리자입니다. 
 
-Control object has the following structure:
-```
+#### Control데이터구조
+
+Control은 데이터신분의 관리자이며 내부에는 관리자의 암호화된 알고리즘 명과 프라이빗키, 퍼블릭키, 주소, salt등이 포함되어 있습니다. 
+
+```json
 {
   "algorithm": "ECDSA",
   "parameters": {},
@@ -152,32 +159,39 @@ Control object has the following structure:
   "salt": "Rv4v3a4U1zFEq28/"
 }
 ```
-```algorithm``` is the algorithm used in the encryption system.
+파라미터 서술:
 
-```parameters``` is an array of parameter objects used in the encryption system.
+```algorithm```은 서명알고리즘 명칭입니다. 
 
-```id``` is the identity of this control.
+```parameters```은 곡선 파라미터 입니다. 
 
-```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
+```id```는 관리자id입니다. 
 
-```address```  address in base58 format.
+```key```는 암호화된 프라이빗키 입니다. 
 
-```salt``` 16 byte salt value in base64 format.
+```address```는 base58주소입니다. 
 
-## Parameter
+```salt```는 16바이트의 솔트이며 base64서식으로 저장됩니다. 
 
-Parameter object has the following structure:
-```
+#### Parameter데이터구조
+
+서명알고리즘 파라미터 데이터구조
+```json
 {
   "curve":"P-256"
 }
 ```
+파라미터 서술:
+
 ```curve``` is the name of the elliptic curve.
 
-## Account
+### 1.3 Account
 
-Account object has the following structure:
-```
+
+자산계정정보```Account```데이터구조:
+
+
+```json
 {
     "address": "AadQ5xRwrSsFTGzKfLHc1brzykdnf7phhD",
     "label": "a6575fd9",
@@ -194,35 +208,36 @@ Account object has the following structure:
     "signatureScheme": "SHA256withECDSA"
 }
 ```
-```address``` is the base58 encoded address of the account.
+파라미터 서술:
 
-```enc-alg``` is the algorithm used to encrypt the private key.
+```address```는 base58주소입니다. 
 
-```salt``` is the salt value for decryption.
+```enc-alg```는 프라이빗키 암호알고리즘 명칭입니다. 
 
-```publicKey``` is the public key.
+```salt```는 16바이트의 솔트이며 base64서식으로 저장됩니다. 
 
-```signatureScheme``` is the signatureScheme used in signature.
+```publicKey```는 퍼블릭키 입니다.
+ 
+```signatureScheme```는 서명알고리즘 체계입니다. 
 
-```isDefault``` indicates whether the account is the default account.
+```isDefault```는 디폴트계정 여부를 뜻 합니다. 
 
-```label``` is a label that the user has given to the account.
+```label```는 닉네임입니다. 
 
-```lock``` indicates whether the account is locked by the user - the client shouldn't spend the funds in a locked account.
+```lock```는 락킹 여부를 뜻 합니다.
+ 
+```algorithm```은 서명알고리즘 명칭입니다. 
 
-```algorithm``` is the algorithms used in the encryption system.
-
-```parameters``` is an array of parameter objects used in encryption system.
-
-```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
+```parameters```은 서명알고리즘 파라미터 입니다.
+ 
+```key```는 암호화된 프라이빗키 입니다. 
 
 
+## 2. QR코드 규정
 
-## QR Code Specification 
+신분과 계정QR코드의 역할은 스캔을 통해 편리하게 신분과 계정을 불러오는 것이며, QR코드는 디지털신분과 자산계정 규정을 모두 지원합니다.  
 
-This QR Code Specification is for both identities and accounts. 
-
-```
+```json
 {
 	"type":"I",
 	"label": "MyIdentity",
@@ -241,20 +256,21 @@ This QR Code Specification is for both identities and accounts.
 	}
 }
 ```
+파라미터 서술:
 
-```type``` is used to distinguish between identity or account, **I** indicates this is an identity , **A** indicates this is an account.
+```type```은 유형이며 **I**는 신분을, **A** 는 계정을 의미합니다. 
+ 
+```label```은 닉네임입니다. 
 
-```label``` is the label for the  identity or account.
+```algorithm```은 서명알고리즘 명칭입니다. 
 
-```algorithm``` is the algorithm used for key/pair generation.
+```parameters```는 서명알고리즘 파라미터 입니다. 
 
-```parameters``` is the parameters of the key/pair generation algorithm.
+```scrypt```는 scrypt파라미터 입니다. 
 
-```scrypt``` is an ScryptParameters object which describes the parameters of the SCrypt algorithm used for encrypting and decrypting the private keys in the wallet.
+```key```는 암호화된 프라이빗키 입니다. 
 
-```key``` is the encrypted private key.
+```address```는 주소입니다. 
 
-```address```  is the address in base58 format.
-
-```salt``` 16 byte salt in base64 format.
+```salt```는 16바이트 솔트이며 base64서식으로 저장됩니다. 
 

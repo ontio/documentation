@@ -19,11 +19,12 @@ The outline of this document is as follows:
         * [2.3 Create account by privatekey](#23-create-account-by-privatekey)
         * [2.4 Create account by WIF](#24-create-account-by-wif)
         * [2.5 Address](#25-address)
-    * [3. Native Asset](#3-native-asset)
+    * [3. Digital Asset](#3-digital-asset)
         * [3.1 ONT transfer](#31-ont-transfer)
         * [3.2 ONG transfer](#32-ong-transfer)
-        * [3.3 Withdraw ONG](#withdraw-ong)
-        * [3.4 Make your own transfer](#33-make-transfer-by-yourself)
+        * [3.3 Oep4 transfer](#33-oep4-ong)
+        * [3.4 Withdraw ONG](#34-withdraw-ong)
+        * [3.5 Make your own transfer](#35-make-your-own-transfer)
             * [Transfer](#transfer)
             * [Signature](#signature)
             * [Multi-state signature](#multi-state-signature)
@@ -477,7 +478,20 @@ String hash = ontSdk.nativevm().ong().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ
 
 ```
 
-### 3.3 Withdraw ONG
+### 3.3 Oep4 transfer
+
+Example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/Oep4Demo.java)
+
+
+
+Same to ONT：
+
+```
+String hash = ontSdk.nativevm().oep4().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ4PA2m4pyJt2d",200,payerAcct,20000,500);
+
+```
+
+### 3.4 Withdraw ONG
 
 1. query unboundOng
 2. withdrawOng
@@ -500,7 +514,7 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 
 
-## 3.4 Make your own transfer
+## 3.5 Make your own transfer
 
 Example：[demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 

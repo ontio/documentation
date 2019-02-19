@@ -141,3 +141,9 @@ const result = await client.api.message.verifyMessage({ message, signature });
 ```
 
 !> 如果希望获得更多的示例代码，你可以点击[这里](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)获取 `ontology-dapi` 的实例程序。
+
+## 常见问题
+
+- 我可以利用 `cyano` 将我的 dApp 同时兼容移动端与浏览器端吗？
+  
+  完全没问题！你可以参考我们提供的示例项目[dapi-universal](https://github.com/ontio-cyano/dapi-universal)。
