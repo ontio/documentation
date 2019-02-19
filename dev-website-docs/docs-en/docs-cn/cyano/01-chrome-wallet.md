@@ -35,7 +35,7 @@
 
 ## 架构
 
-<div align="center"><img width="400px" src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/cyano/dapi-arch.png"><br><br></div>
+<div align="center"><img width="600px" src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/cyano/dapi-arch.png"><br><br></div>
 
 ## 常见问题
 
