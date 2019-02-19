@@ -53,8 +53,6 @@ import { client } from 'cyanobridge'
 client.registerClient();
 ```
 
-!> `Mobile Provider` 需要注册，`Chrome Provider` 不需要注册。
-
 ## 使用
 
 ### 查询钱包账户
@@ -92,7 +90,7 @@ try {
 
 !> 在获取身份信息时，`params` 中的 dApp 信息为可选的。
 
-### 登陆
+### 登录
 
 在移动端，登录操作通过钱包签名，dApp 验证签名完成。
 
