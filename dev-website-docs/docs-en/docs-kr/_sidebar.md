@@ -31,7 +31,6 @@
   
 - DApp Development Guide
   - [DAPP Development](docs-kr/QuickGuide/00-dapp_development.md)  
-  - [DAPI Usage](docs-kr/QuickGuide/06-dapi-useage.md)  
   - [Toolkits Guide](docs-kr/DeveloperGuide/tools.md)
        
 - SmartX
