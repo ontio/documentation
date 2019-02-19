@@ -91,7 +91,23 @@ ontology account add -d
 ontology account add -n 5 -d
 ```
 
-<p class="warning"><ul><li>每个 <code>Keystore</code> 文件都应该有一个默认账户，一般情况下是第一个添加的账户，可以使用 <code>list</code> 命令查看默认账户。<pre v-pre="" data-lang="shell"><code class="lang-shell">ontology account list</code></pre></li><li>默认账户不能被删除，可以通过 <code>set</code> 命令的 <code>-d</code> 选项来修改默认账户。<pre v-pre="" data-lang="shell"><code class="lang-shell">ontology account <span class="token keyword">set</span> -d 2</code></pre></li></ul></p>
+<p class="warning">
+  <ul>
+    <li>每个
+      <code>Keystore</code>文件都应该有一个默认账户，一般情况下是第一个添加的账户，可以使用
+      <code>list</code>命令查看默认账户。
+      <pre v-pre="" data-lang="shell">
+        <code class="lang-shell">ontology account list</code></pre>
+    </li>
+    <li>默认账户不能被删除，可以通过
+      <code>set</code>命令的
+      <code>-d</code>选项来修改默认账户。
+      <pre v-pre="" data-lang="shell">
+        <code class="lang-shell">ontology account
+          <span class="token keyword">set</span>-d 2</code></pre>
+    </li>
+  </ul>
+</p>
 
 在账户管理模块中， `add` 命令所支持的选项如下表所示，也可以通过 `--help` 选项获取帮助信息。
 
