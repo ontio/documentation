@@ -43,12 +43,10 @@ ontology --networkid 3
 ontology --testmode
 ```
 
-> **注意**：
->
-> - 第一次启动测试模式之前，需要创建钱包文件。
->
->   ```shell
->   .\ontology account add -d
->   ```
->
-> - 在测试模式下，节点独立运行，默认的 `gasprice` 为 0。
+<p class="info">
+<ul>
+<li><p>第一次启动测试模式之前，需要创建钱包文件。</p>
+<pre v-pre="" data-lang="shell"><code class="lang-shell">.\ontology account add -d</code></pre></li>
+<li><p>在测试模式下，节点独立运行，默认的 <code>gasprice</code> 为 0。</p></li>
+</ul>
+</p>
