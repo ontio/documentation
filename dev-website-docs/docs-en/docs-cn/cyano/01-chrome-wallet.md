@@ -33,6 +33,10 @@
 
 !> 在创建身份的过程中需要在链上进行注册，因此你需要确保你的钱包账户中至少拥有 0.01 个 ONG。
 
+## 架构
+
+<div align="center"><img width="400px" src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/cyano/dapi-arch.png"><br><br></div>
+
 ## 常见问题
 
 - 我在 `cyano wallet` 中导入了我的钱包账户，但为什么账户余额不对？
