@@ -91,16 +91,7 @@ ontology account add -d
 ontology account add -n 5 -d
 ```
 
-<p class="warning">
-<ul>
-<li>每个 <code>Keystore</code> 文件都应该有一个默认账户，一般情况下是第一个添加的账户，可以使用 <code>list</code> 命令查看默认账户。
-<pre v-pre="" data-lang="shell"><code class="lang-shell">ontology account list</code></pre>
-</li>
-<li>默认账户不能被删除，可以通过 <code>set</code> 命令的 <code>-d</code> 选项来修改默认账户。
-<pre v-pre="" data-lang="shell"><code class="lang-shell">ontology account <span class="token keyword">set</span> -d 2</code></pre>
-</li>
-</ul>
-</p>
+<p class="warning"><ul><li>每个 <code>Keystore</code> 文件都应该有一个默认账户，一般情况下是第一个添加的账户，可以使用 <code>list</code> 命令查看默认账户。<pre v-pre="" data-lang="shell"><code class="lang-shell">ontology account list</code></pre></li><li>默认账户不能被删除，可以通过 <code>set</code> 命令的 <code>-d</code> 选项来修改默认账户。<pre v-pre="" data-lang="shell"><code class="lang-shell">ontology account <span class="token keyword">set</span> -d 2</code></pre></li></ul></p>
 
 在账户管理模块中， `add` 命令所支持的选项如下表所示，也可以通过 `--help` 选项获取帮助信息。
 
@@ -118,7 +109,11 @@ ontology account add --help
 |         `--wallet`         |  指定 `Keystore` 文件路径  |
 |      `--number`, `-n`      |   指定需要创建的账户数量   |
 
-<p class="warning"><ul><li>同一个 <code>Keystore</code> 文件下，不能出现重复的账户标签。</li><li>未设置账户标签的账户为空字符串。</li><li>如果使用 <code>--wallet</code> 选项指定的 <code>Keystore</code> 文件不存在，会自动创建一个新的 <code>Keystore</code> 文件。</li></ul></p>
+> **注意**：
+>
+> - 同一个 `Keystore` 文件下，不能出现重复的账户标签。
+> - 未设置账户标签的账户为空字符串。
+> - 如果使用 `--wallet` 选项指定的 `Keystore` 文件不存在，会自动创建一个新的 `Keystore` 文件。
 
 ## 创建 ONT ID
 
