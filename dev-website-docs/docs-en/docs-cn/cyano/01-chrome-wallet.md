@@ -3,7 +3,7 @@
 
 `cyano wallet` 是一款基于 `Chrome` 浏览器开发的钱包插件，集成了 `cyano-chrome` 组件库，你可以通过点击[这里](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm)从 Chrome 网上应用店中获取该插件，或者点击[这里](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)从 Github 上下载安装包。当钱包插件安装完成后，你可点击[这里](https://dapp.review/explore/ont)体验基于 Chrome 浏览器的 dApp。
 
-<div align="center" width="300px"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/cyano/cyano-wallet.png"><br><br></div>
+<div align="center"><img height="400px" src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/cyano/cyano-wallet.png"><br><br></div>
 
 !> 出于安全考虑，请将你的数字资产在冷钱包与热钱包中进行适当的分配。
 
