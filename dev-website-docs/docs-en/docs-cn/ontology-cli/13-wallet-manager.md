@@ -118,13 +118,7 @@ ontology account add --help
 |         `--wallet`         |  指定 `Keystore` 文件路径  |
 |      `--number`, `-n`      |   指定需要创建的账户数量   |
 
-<p class="warning">
-<ul>
-<li>同一个 <code>Keystore</code> 文件下，不能出现重复的账户标签。</li>
-<li>未设置账户标签的账户为空字符串。</li>
-<li>如果使用 <code>--wallet</code> 选项指定的 <code>Keystore</code> 文件不存在，会自动创建一个新的 <code>Keystore</code> 文件。</li>
-</ul>
-</p>
+<p class="warning"><ul><li>同一个 <code>Keystore</code> 文件下，不能出现重复的账户标签。</li><li>未设置账户标签的账户为空字符串。</li><li>如果使用 <code>--wallet</code> 选项指定的 <code>Keystore</code> 文件不存在，会自动创建一个新的 <code>Keystore</code> 文件。</li></ul></p>
 
 ## 创建 ONT ID
 
