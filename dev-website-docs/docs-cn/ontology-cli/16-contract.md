@@ -66,6 +66,14 @@ Contract pre-deploy successfully.
 Gas consumed:20000000.
 ```
 
+<section class="warning">
+  <ul>
+   <li>部署智能合约时，<code>gas limit</code> 必须大于 <code>20000000</code>（合约的操作码 <code>opcode</code> 执行上限数 ）。</li>
+   <li>交易的 <code>gas price</code> 不能小于接收该交易的节点所设置的最低 <code>gas price</code>，否则交易会被拒绝。</li>
+   <li>交易的 <code>gas limit</code> 不能小于接收该交易的节点所设置的最低 <code>gas limit</code>，否则交易会被拒绝。</li>
+  </ul>
+</section>
+
 智能合约的预部署不会把合约部署到链上，也不会消耗任何 `ONG`。通过预部署，你可以知道部署当前合约所需要消耗的 GAS。
 
 ```shell
@@ -81,13 +89,13 @@ Tip:
 
 在输出的信息中，`Contract Address` 为合约的哈希地址，是对智能合约接口进行调用的依据。
 
-> **注意**：
-> - 节点默认的 `gas price` 为 500（测试模式下为 0）。
-> - 账户实际支付的 `ONG` 费用为 `gasprice × gaslimit`。
-> - 交易池会按照 `gas price` 由高到低的顺序，对交易池队列中的交易进行处理。
-> - 部署智能合约时，`gas limit` 必须大于 `20000000`（合约的操作码 `opcode` 执行上限数 ）。
-> - 交易的 `gas price` 不能小于接收该交易的节点所设置的最低 `gas price`，否则交易会被拒绝。
-> - 交易的 `gas limit` 不能小于接收该交易的节点所设置的最低 `gas limit`，否则交易会被拒绝。
+<section class="info">
+  <ul>
+   <li>节点默认的 <code>gas price</code> 为 500（测试模式下为 0）。</li>
+   <li>账户实际支付的 <code>ONG</code> 费用为 <code>gasprice × gaslimit</code>。</li>
+   <li>交易池会按照 <code>gas price</code> 由高到低的顺序，对交易池队列中的交易进行处理。</li>
+  </ul>
+</section>
 
 根据返回的交易哈希，我们可以查询智能合约部署交易的执行状态，`State` 字段为 `1`，表示智能合约部署成功。
 
