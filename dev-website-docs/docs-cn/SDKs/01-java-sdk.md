@@ -1,32 +1,49 @@
 
-## 钱包账户
+
+## 快速开始
+
+```java
+import com.github.ontio.OntSdk;
+
+OntSdk ontSdk = getOntSdk();
+```
+
+## 创建账户
 
 不同于比特币的 UTXO(Unspent Transaction Output) 模型，本体采用了账户余额模型。在本体中，钱包账户由公钥生成。
 
-在本体中，钱包账户是基于公私钥创建的，地址是公钥转换而来。
+<p class="info">在技术上，公私钥可以存储在数据库中，也可以按照本体的钱包规范存储在 <code>KeyStore</code> 文件中。</p>
 
-###  1.1 **公私钥存储**
+### 随机生成
 
-<p class="info">在技术上，公私钥存储可以存储在数据库中，也可以按照本体的钱包规范存储在 <code>KeyStore</code> 文件中。</p>
-
-#### 1.1.1 自己存储：
-
-自己存储，是指账户信息保存在用户数据库或其他地方，而不存储在遵循钱包规范的文件中。
-#####  随机创建账号：
 ```java
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+OntSdk ontSdk = getOntSdk();
 com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
-acct.serializePrivateKey();//私钥
-acct.serializePublicKey();//公钥
-acct.getAddressU160().toBase58();//base58地址
-```            
-##### 根据私钥创建账号            
+```
+
+### 指定私钥
 
 ```java
-com.github.ontio.account.Account acct0 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey0), ontSdk.defaultSignScheme);
-com.github.ontio.account.Account acct1 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey1), ontSdk.defaultSignScheme);
-com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey2), ontSdk.defaultSignScheme);
+import com.github.ontio.account.Account;
+import com.github.ontio.crypto.SignatureScheme;
 
+String privatekey = "533c5fc274893831726f0bcb3634232f10b3beb1c05515058534577752a22d94";
+com.github.ontio.account.Account acct = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey), SignatureScheme.SHA256WITHECDSA);
 ```
+
+### 批量创建
+
+```java
+import com.github.ontio.OntSdk;
+
+OntSdk ontSdk = getOntSdk();
+ontSdk.getWalletMgr().createAccounts(10, "passwordtest");
+```
+
+## 生成钱包文件
 
 #### 1.1.2 按钱包规范存储：
 
@@ -35,7 +52,7 @@ com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(He
 
 
 
-#### 在钱包中批量创建账号:
+#### 批量创建
 
 一个创建多个账号的方法。
 ```java
