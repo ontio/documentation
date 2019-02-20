@@ -2,8 +2,8 @@
 
 ### Native API
 
-[Native Contract API](https://github.com/ontio/ontology/blob/master/docs/specifications/native_contract/paramapi.md).
+[Native 컨트랙트 API](https://github.com/ontio/ontology/blob/master/docs/specifications/native_contract/paramapi.md).
 
-### Python Smart Contract API
+### Python 스마트 컨트랙트 API
 
-Pleae reference to [API doc](https://apidoc.ont.io/smartcontract/).
+[API 문서](https://apidoc.ont.io/smartcontract/)를 참고해주세요.
