@@ -110,12 +110,13 @@ Transaction states:
 }
 ```
 
-> **注意**：
->
-> 通过 `ontology info status <TxHash>` 命令查询合约执行状态，如果返回 `UNKNOWN TRANSACTION`，表示该交易尚未被打包到区块中，可能有多种情况：
->
-> - 交易还在交易池中排队等待被打包。
-> - 交易因为 `gaslimit` 或者 `gasprice` 设置过低，导致交易被拒绝。
+<section class="warning">
+   <p>通过 <code>ontology info status &lt;TxHash&gt;</code> 命令查询合约执行状态，如果返回 <code>UNKNOWN TRANSACTION</code>，表示该交易尚未被打包到区块中，可能有多种情况：</p>
+   <ul>
+      <li>交易还在交易池中排队等待被打包。</li>
+      <li>交易因为 <code>gaslimit</code> 或者 <code>gasprice</code> 设置过低，导致交易被拒绝。</li>
+   </ul>
+</blockquote>
 
 此外，你可以通过 `--account` 选项指定支付部署智能合约所需 `ONG` 的钱包账户。
 
@@ -143,7 +144,6 @@ Transaction states:
 由于在本体网络中，智能合约的调用分为执行和预执行。因此，我们也将分别介绍两种合约的调用方式。
 
 ### 智能合约的执行
-
 
 ```shell
 $ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500
@@ -255,4 +255,4 @@ Contract invoke successfully
   Return:true
 ```
 
-!> 智能合约在执行之前，可以通过预执行，试算出当前执行所需要的 `gas limit`，避免 `ONG` 余额不足导致执行失败。
+<p class="info"> 智能合约在执行之前，可以通过预执行，试算出当前执行所需要的 `gas limit`，避免 `ONG` 余额不足导致执行失败。</p>
