@@ -1,9 +1,7 @@
 
 本体客户端 `Ontology-CLI` 提供了构造交易模块，用于构造对原生资产 `ONT` 与 `ONG` 进行操作的交易。
 
-> **注意**：
->
-> 为了使所构造的交易有效，交易在发送到链上之前，还需要使用钱包账户进行签名。
+<p class="warning">为了使所构造的交易有效，交易在发送到链上之前，需要使用钱包账户进行签名。</p>
 
 ## 转账
 
@@ -19,11 +17,13 @@
 - `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
 - `--rpcport`：指定 JSON RPC 服务器的监听端口（默认为 `20336`）。
 
-> **注意**：
->
-> - `--from`、`--to`、`--payer` 的参数可以用 Base58 编码的账户地址、索引或标签来表示。
-> - `ONT` 的精度为 `1`。
-> - `ONG` 的精度为 `9`。
+<section class="info">
+  <ul>
+   <li><code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
+   <li><code>ONT</code> 的精度为 <code>1</code>。</li>
+   <li><code>ONG</code> 的精度为 <code>9</code>。</li>
+  </ul>
+</section>
 
 你可以在第一个终端启动本地测试网：
 
@@ -113,11 +113,13 @@ Transaction states:
 - `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
 - `--rpcport` ：指定 JSON RPC 服务器的监听端口（默认为 `20336`）。
 
-> **注意**：
->
-> - `--from`、`--to`、`--payer` 的参数可以用 Base58 编码的账户地址、索引或标签来表示。
-> - `ONT` 的精度为 `1`。
-> - `ONG` 的精度为 `9`。
+<section class="info">
+  <ul>
+   <li><code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
+   <li><code>ONT</code> 的精度为 <code>1</code>。</li>
+   <li><code>ONG</code> 的精度为 <code>9</code>。</li>
+  </ul>
+</section>
 
 你可以在第一个终端启动本地测试网：
 
@@ -199,11 +201,13 @@ Transaction states:
 - `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
 - `--rpcport`：指定 JSON RPC 服务器的监听端口（默认为 `20336`）。
 
-> **注意**：
->
-> - `--sender`、`--from`、`--to`、`--payer` 的参数可以用 Base58 编码的账户地址、索引或标签来表示。
-> - `ONT` 的精度为 `1`。
-> - `ONG` 的精度为 `9`。
+<section class="info">
+  <ul>
+   <li><code>--sender</code>、<code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
+   <li><code>ONT</code> 的精度为 <code>1</code>。</li>
+   <li><code>ONG</code> 的精度为 <code>9</code>。</li>
+  </ul>
+</section>
 
 你可以在第一个终端启动本地测试网：
 
@@ -316,10 +320,12 @@ BalanceOf:AM6WtTARSpGsF8ugSnx9QZRu2wnP2Dk8Vo
 - `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
 - `--rpcport`：指定 JSON RPC 服务器的监听端口（默认为 `20336`）。
 
-> **注意**：
->
-> - `--receive`、`--payer` 的参数可以用 Base58 编码的账户地址、索引或标签来表示。
-> - `ONG` 的精度为 `9`。
+<section class="info">
+  <ul>
+   <li><code>--receive</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
+   <li><code>ONG</code> 的精度为 <code>9</code>。</li>
+  </ul>
+</section>
 
 你可以在第一个终端启动本地测试网：
 
