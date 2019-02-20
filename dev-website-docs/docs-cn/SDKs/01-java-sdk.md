@@ -1,5 +1,4 @@
 
-
 ## 快速开始
 
 ```java
@@ -12,7 +11,7 @@ OntSdk ontSdk = getOntSdk();
 
 不同于比特币的 UTXO(Unspent Transaction Output) 模型，本体采用了账户余额模型。在本体中，钱包账户由公钥生成。
 
-<p class="info">在技术上，公私钥可以存储在数据库中，也可以按照本体的钱包规范存储在 <code>KeyStore</code> 文件中。</p>
+<p class="info">在技术上，公私钥可以存储在数据库中，也可以按照本体的钱包规范存储在 <code>Keystore</code> 文件中。</p>
 
 ### 随机生成
 
