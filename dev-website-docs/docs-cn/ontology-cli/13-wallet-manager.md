@@ -213,7 +213,7 @@ ontology account del acct
 ontology account del AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
 ```
 
-> 未备份的账户删除后将无法恢复，请谨慎操作。
+!> 未备份的账户删除后将无法恢复，请谨慎操作。
 
 ## 导出账户
 
