@@ -376,7 +376,7 @@
 }
 ```
 
-!> 响应中 `result` 所对应的值为交易哈希。
+<p class = "info"> 响应中 <code>result</code> 所对应的值为交易哈希。</p>
 
 ## getstorage
 
