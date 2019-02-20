@@ -36,6 +36,13 @@
       - [发送交易](docs-cn/ontology-cli/23-send-tx.md)
       - [查看交易](docs-cn/ontology-cli/24-show-tx.md)
 
+- SDKs
+  - [概述](docs-cn/SDKs/00-overview.md)
+  - [Java SDK](docs-cn/SDKs/01-java-sdk.md)
+  - [Python SDK](docs-cn/SDKs/02-python-sdk.md)
+  - [TypeScript SDK](docs-cn/SDKs/03-ts-sdk.md)
+  - [Android SDK](docs-cn/SDKs/04-android-sdk.md)
+
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
   - [合约模板](docs-cn/smartcontract/02-template.md)
@@ -64,13 +71,6 @@
   - [VSCode 插件](docs-cn/Punica/sc-extension.md)
   - [Solo Chain](docs-cn/Punica/solo-chain.md)
   - [Tutorials](docs-cn/Punica/tutorials.md)
-
-- SDKs
-  - [概述](docs-cn/SDKs/00-overview.md)
-  - [Java SDK](docs-cn/SDKs/01-java-sdk.md)
-  - [Python SDK](docs-cn/SDKs/02-python-sdk.md)
-  - [TypeScript SDK](docs-cn/SDKs/03-ts-sdk.md)
-  - [Android SDK](docs-cn/SDKs/04-android-sdk.md)
 
 - 浏览器 API
   - [区块](docs-cn/explorer/blocks.md)
