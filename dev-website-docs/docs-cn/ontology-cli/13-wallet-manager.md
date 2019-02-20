@@ -161,6 +161,14 @@ ontology account list --verbose
 > - `default` 对应的账户为默认账户。
 > - 客户端 `Ontology-CLI` 支持通过索引 `Index`、账户地址 `Address` 以及非空账户标签 `Label` 来查找账户。
 
+<section class="info">
+  <ul>
+    <li>账户在钱包中的索引  <code>Index</code>  从 1 开始。</li>
+    <li><code>default</code> 对应的账户为默认账户。</li>
+    <li>客户端 <code>Ontology-CLI</code> 支持通过索引 <code>Index</code>、账户地址 <code>Address</code> 以及非空账户标签 <code>Label</code> 来查找账户。</li>
+  </ul>
+</section>
+
 在账户管理模块中，`list` 命令所支持的选项如下表所示，也可以通过 `--help` 选项获取帮助信息。
 
 ```shell
