@@ -16,4 +16,4 @@ Index 3 Address:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa PubKey:1419e9b0d726b0712fb920
 MultiSigAddress:ARCSXp1YYX5KUTogyTVczoypaAKc1h6o3h
 ```
 
-<p class="warning">目前多重签名所支持的最大公钥数为 `16`。</p>
+<p class="warning">目前多重签名所支持的最大公钥数为 <code>16</code>。</p>
