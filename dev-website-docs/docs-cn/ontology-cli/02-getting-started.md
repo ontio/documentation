@@ -45,7 +45,4 @@ ontology --networkid 3
 ontology --testmode
 ```
 
-<p class="warning">
-第一次启动测试模式之前，需要创建钱包文件。
-<code class="lang-shell">.\ontology account add -d</code>
-</p>
+<p class="warning"><p>第一次启动测试模式之前，需要创建钱包文件。</p><pre v-pre="" data-lang="shell"><code class="lang-shell">ontology account add -d</code></pre></p>
