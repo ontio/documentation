@@ -9,23 +9,20 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <style type="text/css">
-       .header { position: fixed; height:60px; width:100%; padding:10px 20px; top:0; left:0;border-bottom:1px solid #dddddd;
+       .header { position: fixed; height:50px; width:100%; padding:10px 20px; top:0; left:0;border-bottom:1px solid #dddddd;
         background: #160033; display: flex; align-items: center; z-index: 1000; }
         .header img {
-          width:150px;
-          height:29px;
+          height:22px;
           cursor: pointer;
         }
-       .sidebar {top:60px; }
+       .sidebar {top:50px; }
        .footer {
         height: 60px; border-top: 1px solid #dddddd; background: #ffffff;
        }
        .content {position: relative; left:150px;}
 
        main {height:auto;}
-       .app-nav::after {
-       content: ''; position: absolute; top: 12px; right: -8px; border-left: 8px solid transparent; border-right: 8px solid
-      transparent; border-top: 8px solid #32a4be; }
+
       .app-nav {
         margin-top:15px;
         color:#ffffff;
@@ -35,24 +32,31 @@
       .app-nav a {
         color: rgb(52,73,94)
       }
-      .sidebar ul li a {
-       color:#4b85e4;
-      }
+
       .app-nav ul li ul {
         width:100px;
       }
+
+      .app-nav li {
+        display: inline-block;
+        margin: 0 1rem;
+        padding: 0;
+        font-size: 16px;
+        position: relative
+      }
+
       .sidebar li {
         margin: 0;
       }
       .doc-link {
-      color: #ffffff;
-      font-size: 18px;
-      text-decoration: none;
-      position: absolute;
-      right: 150px;
+        color: #ffffff;
+        font-size: 16px;
+        text-decoration: none;
+        position: absolute;
+        right: 130px;
       }
       .doc-link:hover{
-      text-decoration: underline;
+        text-decoration: none;
       }
       body {
         font-size: 16px;
@@ -90,6 +94,12 @@
 
       .markdown-section p.info code {
         background-color: #efefef
+      }
+
+      .markdown-section a {
+        color: var(--theme-color,#42b983);
+        font-weight: 600;
+        text-decoration: none;
       }
 
       .markdown-section p.info em {
@@ -143,7 +153,7 @@
 <body>
 <header class="header">
   <img src="./assets/logo.png" alt="" id="header-logo">
-  <a href="http://pro-docs.ont.io/#/" class="doc-link"><span>&#8594;</span> Ontology Products Documentation</a>
+  <a href="http://pro-docs.ont.io/#/" class="doc-link">Ontology Products Documentation</a>
 </header>
 <div id="app"></div>
 <script>
