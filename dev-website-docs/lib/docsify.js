@@ -3893,7 +3893,7 @@ function scrollTo(el) {
   enableScrollEvent = false;
   scroller = new Tweezer({
     start: window.pageYOffset,
-    end: el.getBoundingClientRect().top + window.pageYOffset,
+    end: el.getBoundingClientRect().top + window.pageYOffset - 60,
     duration: 500
   })
     .on('tick', function (v) { return window.scrollTo(0, v); })
