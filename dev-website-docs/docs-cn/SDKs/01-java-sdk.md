@@ -7,13 +7,11 @@ import com.github.ontio.OntSdk;
 OntSdk ontSdk = getOntSdk();
 ```
 
-## 创建账户
+## 账户
 
-不同于比特币的 UTXO(Unspent Transaction Output) 模型，本体采用了账户余额模型。在本体中，钱包账户由公钥生成。
+不同于比特币的 UTXO(Unspent Transaction Output) 模型，本体采用了账户余额模型。
 
-<p class="info">在技术上，公私钥可以存储在数据库中，也可以按照本体的钱包规范存储在 <code>Keystore</code> 文件中。</p>
-
-### 随机生成
+### 创建随机账户
 
 ```java
 import com.github.ontio.OntSdk;
@@ -23,7 +21,9 @@ OntSdk ontSdk = getOntSdk();
 com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
 ```
 
-### 指定私钥
+### 指定私钥创建账户
+
+在账户余额模型中，钱包地址由公钥生成经哈希运算得到。因此，你可以通过提供私钥来得到公钥，进而得到该私钥所对应的钱包地址。
 
 ```java
 import com.github.ontio.account.Account;
@@ -33,77 +33,205 @@ String privatekey = "533c5fc274893831726f0bcb3634232f10b3beb1c05515058534577752a
 com.github.ontio.account.Account acct = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey), SignatureScheme.SHA256WITHECDSA);
 ```
 
-### 批量创建
+### 批量创建账户
 
 ```java
 import com.github.ontio.OntSdk;
 
 OntSdk ontSdk = getOntSdk();
-ontSdk.getWalletMgr().createAccounts(10, "passwordtest");
+ontSdk.getWalletMgr().createAccounts(10, "password");
 ```
 
-## 生成钱包文件
+<p class="info">在技术上，公私钥可以存储在数据库中，也可以按照本体的钱包规范存储在 <code>Keystore</code> 文件中。</p>
 
-#### 1.1.2 按钱包规范存储：
+## 钱包文件
 
-账户和身份信息保持在遵循钱包规范的文件中。[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/WalletDemo.java) 
+在 `ontology-java-sdk` 中，`WalletMgr` 类会根据本体的钱包规范帮你管理你的钱包账户和身份信息（本质上是对私钥的管理）。
 
+### 创建账户
 
-
-
-#### 批量创建
-
-一个创建多个账号的方法。
-```java
-ontSdk.getWalletMgr().createAccounts(10, "passwordtest");
-ontSdk.getWalletMgr().writeWallet();
-
-随机创建:
-AccountInfo info0 = ontSdk.getWalletMgr().createAccountInfo("passwordtest");
-
-通过私钥创建:
-AccountInfo info = ontSdk.getWalletMgr().createAccountInfoFromPriKey("passwordtest","e467a2a9c9f56b012c71cf2270df42843a9d7ff181934068b4a62bcdd570e8be");
-
-获取账号
-com.github.ontio.account.Account acct0 = ontSdk.getWalletMgr().getAccount(info.addressBase58,"passwordtest",salt);
-
-```
-
-
-
-
-###  1.2 **地址**
-
-
-包括单签地址和多签地址,生成方式与NEO地址相同。
-
-签地址是由一个公钥转换而来，多签地址是由多个公钥转换而来。
+在 `WalletMgr` 类中，`createAccounts` 方法用于生成指定数量的随机账户。
 
 ```java
-单签地址生成：
-String privatekey0 = "c19f16785b8f3543bbaf5e1dbb5d398dfa6c85aaad54fc9d71203ce83e505c07";
-String privatekey1 = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
-String privatekey2 = "1094e90dd7c4fdfd849c14798d725ac351ae0d924b29a279a9ffa77d5737bd96";
+package demo;
 
-//生成账号，获取地址
-com.github.ontio.account.Account acct0 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey0), ontSdk.defaultSignScheme);
-Address sender = acct0.getAddressU160();
+import com.github.ontio.OntSdk;
 
-//base58地址解码
-sender = Address.decodeBase58("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2")；
-
-多签地址生成：
-Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey(), acct2.serializePublicKey());
-
-
+public class WalletDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            ontSdk.openWalletFile("WalletDemo.json");
+            ontSdk.getWalletMgr().createAccounts(1, "password");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
 ```
 
+### 保存钱包文件
 
-| 方法名 | 参数 | 参数描述 |
-| :--- | :--- | :--- |
-| addressFromMultiPubkeys | int m,byte\[\]... pubkeys | 最小验签个数(<=公钥个数)，公钥 |
+在 `WalletMgr` 类中，`writeWallet` 方法用于将当前内存中的钱包信息保存到 `Keystore` 文件中。
 
-## 2. 原生资产转账
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+
+public class WalletDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            ontSdk.openWalletFile("WalletDemo.json");
+            ontSdk.getWalletMgr().createAccounts(1, "password");
+            ontSdk.getWalletMgr().writeWallet();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 重置钱包文件
+
+在 `WalletMgr` 类中，`resetWallet` 方法用于重置 `Keystore` 文件。
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+
+public class WalletDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            ontSdk.openWalletFile("WalletDemo.json");
+            ontSdk.getWalletMgr().resetWallet();
+            ontSdk.getWalletMgr().writeWallet();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 获取钱包信息
+
+在 `WalletMgr` 类中，`getWallet` 方法用于查看钱包文件信息。
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.sdk.wallet.Wallet;
+
+public class WalletDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            ontSdk.openWalletFile("WalletDemo.json");
+            Wallet walletInMem = ontSdk.getWalletMgr().getWallet();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 获取账户信息列表
+
+在 `WalletMgr` 类中，利用 `getWallet` 方法获得钱包文件信息后，可以使用 `getAccounts` 方法获取账户信息列表。
+
+```java
+package demo;
+
+import java.util.List;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.sdk.wallet.Account;
+
+public class WalletDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            ontSdk.openWalletFile("WalletDemo.json");
+            List<Account> accounts = ontSdk.getWalletMgr().getWallet().getAccounts();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+## 地址
+
+在本体中，地址分为单签地址（由一个公钥生成）与多签地址（由多个公钥生成）。
+
+### 生成单签地址
+
+```java
+package demo;
+
+import java.util.List;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.common.Helper;
+import com.github.ontio.account.Account;
+
+public class WalletDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            String privateKey = "c19f16785b8f3543bbaf5e1dbb5d398dfa6c85aaad54fc9d71203ce83e505c07";
+            Account acct = new Account(Helper.hexToBytes(privateKey), ontSdk.defaultSignScheme);
+            Address acctAddr = acct.getAddressU160();
+            String b58Addr = acctAddr.toBase58();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 生成多签地址
+
+```java
+package demo;
+
+import java.util.List;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.common.Helper;
+import com.github.ontio.account.Account;
+
+public class WalletDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            String privateKey0 = "c19f16785b8f3543bbaf5e1dbb5d398dfa6c85aaad54fc9d71203ce83e505c07";
+            String privateKey1 = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
+            String privateKey2 = "1094e90dd7c4fdfd849c14798d725ac351ae0d924b29a279a9ffa77d5737bd96";
+            Account acct1 = new Account(Helper.hexToBytes(privateKey1), ontSdk.defaultSignScheme);
+            Account acct2 = new Account(Helper.hexToBytes(privateKey2), ontSdk.defaultSignScheme);
+            Account acct3 = new Account(Helper.hexToBytes(privateKey3), ontSdk.defaultSignScheme);
+            Address multiAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey(), acct2.serializePublicKey(), acct3.serializePublicKey());
+            String b58MultiAddr = multiAddr.toBase58();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+<section class="warning">
+  <ul>
+    <li>目前多重签名所支持的最大公钥数为 <code>16</code>。</li>
+    <li>在多重签名中，需要使用公钥列表中的不同的账户对同一笔交易进行签名，一个账户签名后，返回的带签名交易需要作为下一个账户签名的输入，直到满足签名门限 <code>m</code>。</li>
+  </ul>
+</section>
+
+## 原生资产
 
 参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
