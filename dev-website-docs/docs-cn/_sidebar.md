@@ -42,6 +42,10 @@
   - [Python SDK](docs-cn/SDKs/02-python-sdk.md)
   - [TypeScript SDK](docs-cn/SDKs/03-ts-sdk.md)
   - [Android SDK](docs-cn/SDKs/04-android-sdk.md)
+  - [Swift SDK](docs-cn/SDKs/swift-sdk.md)
+  - [Object C SDK](docs-cn/SDKs/objectc-sdk.md)
+  - [Php SDK](docs-cn/SDKs/php-sdk.md)
+  - [Go SDK](docs-cn/SDKs/go-sdk.md)
 
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
