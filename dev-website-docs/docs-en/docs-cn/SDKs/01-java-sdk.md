@@ -1,16 +1,13 @@
 
+## 钱包账户
 
-ONT中有两种资产：原生资产和合约资产。原生资产包括ONT和ONG。合约资产如OEP-4。
+不同于比特币的 UTXO(Unspent Transaction Output) 模型，本体采用了账户余额模型。在本体中，钱包账户由公钥生成。
 
-SDK文档：[SDK文档](https://github.com/ontio/ontology-java-sdk/tree/master/docs/cn) 
-
-## 1. 公私钥和地址
-
-账户是基于公私钥创建的，地址是公钥转换而来。
+在本体中，钱包账户是基于公私钥创建的，地址是公钥转换而来。
 
 ###  1.1 **公私钥存储**
 
-公私钥存储可以存储在数据库中，也可以根据钱包规范存储在文件中。
+<p class="info">在技术上，公私钥存储可以存储在数据库中，也可以按照本体的钱包规范存储在 <code>KeyStore</code> 文件中。</p>
 
 #### 1.1.1 自己存储：
 
@@ -23,7 +20,8 @@ acct.serializePublicKey();//公钥
 acct.getAddressU160().toBase58();//base58地址
 ```            
 ##### 根据私钥创建账号            
-```java     
+
+```java
 com.github.ontio.account.Account acct0 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey0), ontSdk.defaultSignScheme);
 com.github.ontio.account.Account acct1 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey1), ontSdk.defaultSignScheme);
 com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey2), ontSdk.defaultSignScheme);
@@ -296,18 +294,18 @@ com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc
 与链交互还有如下接口。
 ```
 
-      |                     Main   Function                      |           Description            
+      |                     Main   Function                      |           Description
  -----|----------------------------------------------------------|---------------------------------------------
     1 | ontSdk.getConnect().getNodeCount()                       |  查询节点数量
     2 | ontSdk.getConnect().getBlock(15)                         |  查询块
-    3 | ontSdk.getConnect().getBlockJson(15)                     |  查询块    
-    4 | ontSdk.getConnect().getBlockJson("txhash")               |  查询块    
-    5 | ontSdk.getConnect().getBlock("txhash")                   |  查询块     
+    3 | ontSdk.getConnect().getBlockJson(15)                     |  查询块
+    4 | ontSdk.getConnect().getBlockJson("txhash")               |  查询块
+    5 | ontSdk.getConnect().getBlock("txhash")                   |  查询块
     6 | ontSdk.getConnect().getBlockHeight()                     |  查询当前块高
-    7 | ontSdk.getConnect().getTransaction("txhash")             |  查询交易                                     
+    7 | ontSdk.getConnect().getTransaction("txhash")             |  查询交易
     8 | ontSdk.getConnect().getStorage("contractaddress", key)   |  查询智能合约存储
     9 | ontSdk.getConnect().getBalance("address")                |  查询余额
-   10 | ontSdk.getConnect().getContractJson("contractaddress")   |  查询智能合约          
+   10 | ontSdk.getConnect().getContractJson("contractaddress")   |  查询智能合约
    11 | ontSdk.getConnect().getSmartCodeEvent(59)                |  查询智能合约事件
    12 | ontSdk.getConnect().getSmartCodeEvent("txhash")          |  查询智能合约事件
    13 | ontSdk.getConnect().getBlockHeightByTxHash("txhash")     |  查询交易所在高度
