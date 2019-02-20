@@ -518,23 +518,6 @@ http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749b
 
 ``` 
 
-要理解交易中的数据内容，需要反序列化交易数据，才能推断出是什么类型的交易和具体信息。
-``` 
-//版本号    交易类型  随机数   gasprice    gaslimit              网络费付款人       交易数据 
-(version(1) type(1) nonce(4) gasprice(8) gaslimit(8))22 bytes + (payer)21 bytes + payload code bytes( any bytes)
-
-claim ong 
-//             claim address                                                 ont contract address                         to   address                                 amount                       "transferFrom"                           ong                   SYSCALL         "Ontology.Native.Invoke"
-//00 c66b 14bb2d5b718efeac060ac825338ca440216da4d8dc 6a7cc8 140000000000000000000000000000000000000001 6a7cc8 14bb2d5b718efeac060ac825338ca440216da4d8dc 6a7cc8 08 806a735501000000 6a7cc8 6c 0c7472616e7366657246726f6d 140000000000000000000000000000000000000002 0068 164f6e746f6c6f67792e4e61746976652e496e766f6b65
-ont and ong transfer
-//                     from                                           to                                        amount                                 "transfer"                                                                       ont or ong                SYSCALL           "Ontology.Native.Invoke"
-//00 c66b 147af216ff3da82b999b26f5efe165de5f944ac549 6a7cc8 14d2c124dd088190f709b684e0bc676d70c41b3776 6a7cc8 08 00ca9a3b00000000 6a7cc8 6c 51c1 087472616e73666572                                                      140000000000000000000000000000000000000001 0068 164f6e746f6c6f67792e4e61746976652e496e766f6b65
-
-For amount ：   1-16  is  0x51-0x60  .     >=16 is  long,  08 is the total amount bytes .  
-Example: 1000 is  0xe803000000000000 -> 0x00000000000003e8   change from little endian to big endian if print.
-
-```  
-
 ### 2.4 ONT转账
 
 ONT和ONG转账可以一对一，也可以一对多，多对多，多对一。
