@@ -156,11 +156,6 @@ ontology account list
 ontology account list --verbose
 ```
 
-> **注意**：
-> - 账户在钱包中的索引  `Index`  从 1 开始。
-> - `default` 对应的账户为默认账户。
-> - 客户端 `Ontology-CLI` 支持通过索引 `Index`、账户地址 `Address` 以及非空账户标签 `Label` 来查找账户。
-
 <section class="info">
   <ul>
     <li>账户在钱包中的索引  <code>Index</code>  从 1 开始。</li>
@@ -198,10 +193,12 @@ ontology account set
 |  `--change-passwd` |         修改账户密码          |
 | `--signature-scheme` |         修改签名算法          |
 
-> **注意**：
->
-> - 默认的钱包路径为 `./wallet.dat`。
-> - 同一个`Keystore` 文件中，不能有两个相同的钱包标签。
+<blockquote>
+  <ul>
+    <li>默认的钱包路径为 <code>./wallet.dat</code>。</li>
+    <li>同一个 <code>Keystore</code> 文件中，不能有两个相同的钱包标签。</li>
+  </ul>
+</blockquote>
 
 ## 删除账户
 
