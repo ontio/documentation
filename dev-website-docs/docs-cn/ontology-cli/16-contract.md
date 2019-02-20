@@ -116,7 +116,7 @@ Transaction states:
       <li>交易还在交易池中排队等待被打包。</li>
       <li>交易因为 <code>gaslimit</code> 或者 <code>gasprice</code> 设置过低，导致交易被拒绝。</li>
    </ul>
-</blockquote>
+</section>
 
 此外，你可以通过 `--account` 选项指定支付部署智能合约所需 `ONG` 的钱包账户。
 
