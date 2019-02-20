@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link type="text/html" href="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <style type="text/css">
        .header { position: fixed; height:60px; width:100%; padding:10px 20px; top:0; left:0;border-bottom:1px solid #dddddd;
         background: #160033; display: flex; align-items: center; z-index: 1000; }
@@ -21,7 +21,7 @@
         height: 60px; border-top: 1px solid #dddddd; background: #ffffff;
        }
        .content {position: relative; left:150px;}
-       
+
        main {height:auto;}
        .app-nav::after {
        content: ''; position: absolute; top: 12px; right: -8px; border-left: 8px solid transparent; border-right: 8px solid
@@ -57,6 +57,83 @@
       body {
         font-size: 16px;
       }
+
+      .markdown-section p.info,.markdown-section tr:nth-child(2n) {
+        background-color: #f8f8f8
+      }
+      
+      .markdown-section p.info {
+        position: relative;
+        margin: 2em 0;
+        padding: 9pt 24px 9pt 30px;
+        border-left: 4px solid #20a162;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px
+      }
+
+      .markdown-section p.info:before {
+        position: absolute;
+        top: 14px;
+        left: -9pt;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        background-color: #20a162;
+        color: #fff;
+        content: "i";
+        text-align: center;
+        font-weight: 700;
+        font-size: 14px;
+        font-family: Dosis,Source Sans Pro,Helvetica Neue,Arial,sans-serif;
+        line-height: 20px
+      }
+
+      .markdown-section p.info code {
+        background-color: #efefef
+      }
+
+      .markdown-section p.info em {
+        color: #34495e
+      }
+
+      .markdown-section p.warning,.markdown-section tr:nth-child(2n) {
+        background-color: #f8f8f8
+      }
+
+      .markdown-section p.warning {
+        border-bottom-right-radius: 2px;
+        border-left: 4px solid #fcc307;
+        border-top-right-radius: 2px;
+        margin: 2em 0;
+        padding: 9pt 24px 9pt 30px;
+        position: relative
+      }
+
+      .markdown-section p.warning:before {
+        background-color: #fcc307;
+        border-radius: 100%;
+        color: #fff;
+        content: "!";
+        font-family: Dosis,Source Sans Pro,Helvetica Neue,Arial,sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        left: -9pt;
+        line-height: 20px;
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        text-align: center;
+        top: 14px
+      }
+
+      .markdown-section p.warning code {
+        background-color: #efefef
+      }
+
+      .markdown-section p.warning em {
+        color: #34495e
+      }
+
       @media screen and (max-width:600px) {
          .content {left:0;padding-top: 50px;}
          .doc-link {position: relative;text-align: right;right:0;}
@@ -161,5 +238,5 @@
 <script>
   document.getElementById('header-logo').addEventListener('click', function () { window.location.href = 'http://dev-docs.ont.io/#/' })
 </script>
-</body>
+<script src="//127.0.0.1:35729/livereload.js?snipver=1" async="" defer=""></script></body>
 </html>
