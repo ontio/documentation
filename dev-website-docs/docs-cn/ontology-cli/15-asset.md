@@ -89,6 +89,61 @@ Tip:
   Using './ontology info status 03d6967360481a68d564ce0f3051932cf80a2fa3bfe2f735f2bc7ae499af5c85' to query transaction status.
 ```
 
+<p class = "warning">由于 <code>ONG</code> 的（小数点后）精度是 9，因此超出小数点后 9 位的小数部分将会被丢弃。</p>
+
+### 转账
+
+在资产管理模块中，`transfer` 命令用于
+
+你可以在第一个终端启动本地测试网。
+
+```shell
+ontology --testmode
+```
+
+然后在第二个终端中转移指定账户在所接入网络中的 `ONT`。
+
+```shell
+$  ontology asset transfer --from 1 --to AM6WtTARSpGsF8ugSnx9QZRu2wnP2Dk8Vo --asset ont --amount 10
+Password:
+Transfer ONT
+  From:AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
+  To:AM6WtTARSpGsF8ugSnx9QZRu2wnP2Dk8Vo
+  Amount:10
+  TxHash:8e11fffce52ce2aa1b792a95ae75d6a715d90f27ccb9d1b19bfc38fee4a2a5e6
+
+Tip:
+  Using './ontology info status 8e11fffce52ce2aa1b792a95ae75d6a715d90f27ccb9d1b19bfc38fee4a2a5e6' to query transaction status.
+```
+
+<p class = "warning">
+  <ul>
+    <li>由于 <code>ONT</code> 的（小数点后）精度是 0，因此如果输入浮点数，那么小数部分将会被丢弃。</li>
+    <li>由于 <code>ONG</code> 的（小数点后）精度是 9，因此超出小数点后 9 位的小数部分将会被丢弃。</li>
+  </ul>
+</p>
+
+```shell
+$ ontology info status 8e11fffce52ce2aa1b792a95ae75d6a715d90f27ccb9d1b19bfc38fee4a2a5e6
+Transaction states:
+{
+   "TxHash": "8e11fffce52ce2aa1b792a95ae75d6a715d90f27ccb9d1b19bfc38fee4a2a5e6",
+   "State": 1,
+   "GasConsumed": 0,
+   "Notify": [
+      {
+         "ContractAddress": "0100000000000000000000000000000000000000",
+         "States": [
+            "transfer",
+            "AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa",
+            "AM6WtTARSpGsF8ugSnx9QZRu2wnP2Dk8Vo",
+            10
+         ]
+      }
+   ]
+}
+```
+
 ## 常见问题
 
 - 如何确认对账户资产的操作是否成功？
