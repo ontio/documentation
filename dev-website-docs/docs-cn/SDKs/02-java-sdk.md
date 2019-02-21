@@ -18,7 +18,7 @@ import com.github.ontio.OntSdk;
 import com.github.ontio.account.Account;
 
 OntSdk ontSdk = getOntSdk();
-com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
+Account acct = new Account(ontSdk.defaultSignScheme);
 ```
 
 ### 指定私钥创建账户
@@ -30,7 +30,7 @@ import com.github.ontio.account.Account;
 import com.github.ontio.crypto.SignatureScheme;
 
 String privatekey = "533c5fc274893831726f0bcb3634232f10b3beb1c05515058534577752a22d94";
-com.github.ontio.account.Account acct = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey), SignatureScheme.SHA256WITHECDSA);
+Account acct = new Account(Helper.hexToBytes(privatekey), SignatureScheme.SHA256WITHECDSA);
 ```
 
 ### 批量创建账户
