@@ -233,48 +233,146 @@ public class WalletDemo {
 
 ## 原生资产
 
-参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
-
-
-### 2.1 初始化
-
-转账之前需要创建SDK实例，配置节点IP。
+在对原生资产 `ONT` 与 `ONG` 进行操作前，需要将你的 SDK 连接到本体网络（主网、`polaris` 测试网、私有网络）。
 
 ```java
+package demo;
 
-String ip = "http://polaris1.ont.io";
-String rpcUrl = ip + ":" + "20336";
-OntSdk ontSdk = OntSdk.getInstance();
-ontSdk.setRpc(rpcUrl);
-ontSdk.setDefaultConnect(wm.getRpc());
+import com.github.ontio.OntSdk;
 
-或使用restful：
-String restUrl = ip + ":" + "20334";
-ontSdk.setRestful(restUrl);
-ontSdk.setDefaultConnect(wm.getRestful());
+public class MakeTxDemo {
+    public static OntSdk getOntSdk() throws Exception {
+        String restUrl = "http://polaris1.ont.io:20334";
+        String rpcUrl = "http://polaris1.ont.io:20336";
+        String wsUrl = "http://polaris1.ont.io:20335";
 
-也可以选择websocket：
-String wsUrl = ip + ":" + "20335";
-ontSdk.setWesocket(wsUrl, lock);
-ontSdk.setDefaultConnect(wm.getWebSocket());
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setRestful(restUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
+```
 
+### 查询余额
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+
+public class MakeTxDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            Object balance = ontSdk.getConnect().getBalance("AZW8eBkXh5qgRjmeZjqY2KFGLXhKcX4i2Y");
+            long ontBalance = ontSdk.nativevm().ont().queryBalanceOf("AZW8eBkXh5qgRjmeZjqY2KFGLXhKcX4i2Y");
+            long ongBalance = ontSdk.nativevm().ong().queryBalanceOf("AZW8eBkXh5qgRjmeZjqY2KFGLXhKcX4i2Y");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
+```
+
+### 查询名称
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+
+public class MakeTxDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            String ontName = ontSdk.nativevm().ont().queryName();
+            String ongName = ontSdk.nativevm().ong().queryName();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
+```
+
+### 查询符号
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+
+public class MakeTxDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            String ontSymbol = ontSdk.nativevm().ont().querySymbol();
+            String ongSymbol = ontSdk.nativevm().ong().querySymbol();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
+```
+
+### 查询精度
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+
+public class MakeTxDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            long ontDecimals = ontSdk.nativevm().ont().queryDecimals();
+            long ongDecimals = ontSdk.nativevm().ong().queryDecimals();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
 ```
 
 
-### 2.2 查询
-
-当发完交易之后可能需要查询交易是否已经落账，还可能需要查询账户余额。
-
-####  **查询ont，ong余额**
-
-```java
-ontSdk.getConnect().getBalance("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2");
-ontSdk.nativevm().ont().queryBalanceOf("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2")
-ontSdk.nativevm().ong().queryBalanceOf("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2")
-
-查ont信息：
-System.out.println(ontSdk.nativevm().ont().queryName());
-System.out.println(ontSdk.nativevm().ont().querySymbol());
 System.out.println(ontSdk.nativevm().ont().queryDecimals());
 System.out.println(ontSdk.nativevm().ont().queryTotalSupply());
 

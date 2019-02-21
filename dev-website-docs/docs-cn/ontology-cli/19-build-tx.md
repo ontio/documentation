@@ -20,8 +20,8 @@
 <section class="info">
   <ul>
    <li><code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
-   <li><code>ONT</code> 的精度为 <code>1</code>。</li>
-   <li><code>ONG</code> 的精度为 <code>9</code>。</li>
+   <li><code>ONT</code> 的（小数点后）精度为 <code>0</code>。</li>
+   <li><code>ONG</code> 的（小数点后）精度为 <code>9</code>。</li>
   </ul>
 </section>
 
@@ -116,8 +116,8 @@ Transaction states:
 <section class="info">
   <ul>
    <li><code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
-   <li><code>ONT</code> 的精度为 <code>1</code>。</li>
-   <li><code>ONG</code> 的精度为 <code>9</code>。</li>
+   <li><code>ONT</code> 的（小数点后）精度为 <code>0</code>。</li>
+   <li><code>ONG</code> 的（小数点后）精度为 <code>9</code>。</li>
   </ul>
 </section>
 
@@ -204,8 +204,8 @@ Transaction states:
 <section class="info">
   <ul>
    <li><code>--sender</code>、<code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
-   <li><code>ONT</code> 的精度为 <code>1</code>。</li>
-   <li><code>ONG</code> 的精度为 <code>9</code>。</li>
+   <li><code>ONT</code> 的（小数点后）精度为 <code>0</code>。</li>
+   <li><code>ONG</code> 的（小数点后）精度为 <code>9</code>。</li>
   </ul>
 </section>
 
@@ -323,7 +323,7 @@ BalanceOf:AM6WtTARSpGsF8ugSnx9QZRu2wnP2Dk8Vo
 <section class="info">
   <ul>
    <li><code>--receive</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
-   <li><code>ONG</code> 的精度为 <code>9</code>。</li>
+   <li><code>ONG</code> 的（小数点后）精度为 <code>9</code>。</li>
   </ul>
 </section>
 
