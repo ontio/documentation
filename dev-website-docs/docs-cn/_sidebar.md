@@ -38,14 +38,14 @@
 
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
-  - [Java SDK](docs-cn/SDKs/01-java-sdk.md)
-  - [Python SDK](docs-cn/SDKs/02-python-sdk.md)
-  - [TypeScript SDK](docs-cn/SDKs/03-ts-sdk.md)
-  - [Android SDK](docs-cn/SDKs/04-android-sdk.md)
-  - [Swift SDK](docs-cn/SDKs/swift-sdk.md)
-  - [Object C SDK](docs-cn/SDKs/objectc-sdk.md)
-  - [Php SDK](docs-cn/SDKs/php-sdk.md)
-  - [Go SDK](docs-cn/SDKs/go-sdk.md)
+  - [Go SDK](docs-cn/SDKs/01-go-sdk.md)
+  - [Java SDK](docs-cn/SDKs/02-java-sdk.md)
+  - [Python SDK](docs-cn/SDKs/03-python-sdk.md)
+  - [TypeScript SDK](docs-cn/SDKs/04-ts-sdk.md)
+  - [Php SDK](docs-cn/SDKs/05-php-sdk.md)
+  - [Swift SDK](docs-cn/SDKs/06-swift-sdk.md)
+  - [Android SDK](docs-cn/SDKs/07-android-sdk.md)
+  - [Object C SDK](docs-cn/SDKs/08-object-c-sdk.md)
 
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
