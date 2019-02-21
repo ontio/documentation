@@ -116,12 +116,12 @@ Tip:
   Using './ontology info status 8e11fffce52ce2aa1b792a95ae75d6a715d90f27ccb9d1b19bfc38fee4a2a5e6' to query transaction status.
 ```
 
-<p class = "warning">
+<section class = "warning">
   <ul>
     <li>由于 <code>ONT</code> 的（小数点后）精度是 0，因此如果输入浮点数，那么小数部分将会被丢弃。</li>
     <li>由于 <code>ONG</code> 的（小数点后）精度是 9，因此超出小数点后 9 位的小数部分将会被丢弃。</li>
   </ul>
-</p>
+</section>
 
 ```shell
 $ ontology info status 8e11fffce52ce2aa1b792a95ae75d6a715d90f27ccb9d1b19bfc38fee4a2a5e6

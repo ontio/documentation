@@ -372,21 +372,70 @@ public class MakeTxDemo {
 }
 ```
 
+### 查询总供应量
 
-System.out.println(ontSdk.nativevm().ont().queryDecimals());
-System.out.println(ontSdk.nativevm().ont().queryTotalSupply());
+```java
+package demo;
 
-查ong信息：
-System.out.println(ontSdk.nativevm().ong().queryName());
-System.out.println(ontSdk.nativevm().ong().querySymbol());
-System.out.println(ontSdk.nativevm().ong().queryDecimals());
-System.out.println(ontSdk.nativevm().ong().queryTotalSupply());
+import com.github.ontio.OntSdk;
 
+public class MakeTxDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            long ontSupply = ontSdk.nativevm().ont().queryTotalSupply();
+            long ongSupply = ontSdk.nativevm().ong().queryTotalSupply();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
 
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
 ```
 
-#### **查询交易是否在交易池中**
+### 转账
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class MakeTxDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            String privatekey = "523c5fcf74823831756f0bcb3634234f10b3beb1c05595058534577752ad2d9f";
+            Account acct = new Account(Helper.hexToBytes(privatekey), ontSdk.defaultSignScheme);
+            String b58RecvAddr = "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD";
+            String txHash = ontSdk.nativevm().ont().sendTransfer(acct, b58RecvAddr, 1, acct, 200000, 500);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
+```
+
+## 网络
+
+#### 查询交易池
 
 通过接口查询交易是否在交易池中
 ```json
