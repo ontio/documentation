@@ -1,16 +1,13 @@
 
-<div align="center"><img src="https://raw.githubusercontent.com/punicasuite/solo-chain/master/image/icon.png" height="200" width="200"></div>
-
----
 
 ## 概述
 
-本体的一键式（私有）区块链。借助于该桌面应用程序，开发人员可以轻松快速地设置和管理他们自己的本体区块链私有实例，快速进行dApp的开发。Solo Chain 通过 Electron 进行打包，为用户提供了一个设置和管理其私有本体区块链实例的直观图形用户界面。
+Solo Chain 是一键式的本体（私有）区块链。借助于该桌面应用程序，开发人员可以轻松快速地设置和管理自己的本体区块链私有实例，进行 dApp 开发。Solo Chain 通过 Electron 进行打包，为用户提供一个直观图形用户界面。
 
-Solo Chain 应用程序提供了以下功能：
+Solo Chain 提供了以下功能：
 
-- 快速开始、停止和重启私有区块链实例。
-- 提供与本体主网和测试网一样的RPC、REST和Websocket服务器接口。
+- 快速开始、停止和重启私有区块链。
+- 提供与本体主网和测试网一样的 RPC、REST 和 Websocket 服务器接口。
 - 便捷的帐户与帐户之间的资产转移和领取，能够快速进行测试环境的设置。
 - 提供了详细的区块、交易和事件信息，可以方便地进行调试。
 - 以列表的形式完整地显示所有已部署的智能合约。
@@ -20,114 +17,120 @@ Solo Chain 应用程序提供了以下功能：
 
 ## 安装
 
-- [下载](https://github.com/punicasuite/solo-chain/releases)适用于所在平台(Windows, Mac)的最新安装包。
-- 将应用程序安装到桌面计算机。
+请 [下载](https://github.com/punicasuite/solo-chain/releases) 适用于你所在平台 (Windows, Mac) 的最新安装包，将应用程序安装到桌面计算机。
 
-如果您想基于源代码库自己编译应用程序。
+如果想基于源代码库自己编译应用程序，参考以下步骤：
 
-- 从Github上克隆项目库：`git clone git@github.com:punicasuite/solo-chain.git`
-- 安装依赖项`yarn install`
-- 编译安装程序`yarn build`
-- 跳转到`release`文件夹并打开相应的桌面安装程序（dmg或exe）
+1. 从Github上克隆项目库：`git clone git@github.com:punicasuite/solo-chain.git`
+2. 安装依赖项 `yarn install`
+3. 编译安装程序 `yarn build`
+4. 跳转到 `release` 文件夹并打开相应的桌面安装程序（.dmg 或 .exe）
 
 
 ## 开始使用
 
-当启动Solo Chain后，你将看到类似的界面。
+启动 Solo Chain 后，将进入用户界面。在顶部菜单栏，你可以选择应用程序的不同选项卡以及查看网络的设置。
 
-<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/00-home.png"><br><br></div>
+在菜单栏的下方，可以查看如下信息：
 
-在顶部菜单栏，你可以在其中导航栏中找到应用程序的不同选项卡以及查看网络的设置。
+- RPC / Restful / Websocket Server：你的私有区块链网络通信的服务器地址。
+- Current Height：当前的块高度
+- Gas Price / Gas Limit：用于计算每笔交易所需费用的 gas price 和 gas limit。
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/01-menu-bar.png"><br><br></div>
 
-在菜单栏的左下侧，你可以看到许多有用的信息。例如与你的私有区块链网络通信的服务器地址、当前的块高度以及用于计算每笔交易所需费用的 gas price 和 gas limit。
+### 停止/启动网络实例
 
-<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/02-server-addresses.png"><br><br></div>
-
-在右侧，你可以找到停止和重新启动网络实例的按钮。点击`Stop`将暂停你的网络（数据将被保留），然后你可以再次单击`Start`。`Reboot`将清除所有数据并启动新的区块链实例。
+点击页面右上方的 `Stop` 按钮可以暂停你的网络（数据将被保留），之后你可以再次单击 `Start`。如果点击`Reboot`，将清除所有数据并启动新的区块链实例。
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/03-stop-reboot.png"><br><br></div>
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/04-start.png"><br><br></div>
 
-在`Account`界面的主要部分，你将看到预先创建的帐户列表。第一个账户将包含你的私有区块链网络中的所有ONT。
+### 资产转账
+
+`Account` 界面显示了预先创建的帐户列表。第一个账户中包含了你的私链中的所有ONT。
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/05-starting-account.png" ><br><br></div>
 
-单击该帐户上的`Transfer`按钮后，你可以在显示的窗口中将ONT发送到账户列表中的第二个帐户。只需填写详细的转账信息，然后单击`OK`。
+要转出该笔资产，单击该帐户上的 `Transfer` 按钮，在显示的窗口中填入转入的账户地址，例如列表中的第二个帐户，单击`OK`。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/06-transfer.png" ><br><br>
 </div>
 
-发送后不久，你应该会看到帐户中的余额更新。只有在发送后你才可以申请ONG。因此，在第一个帐户上，单击`Redeem ONG`，你很快就会收到该帐户的ONG。
+发送后不久，将看到帐户中的余额更新。只有在 ONT 转出后你才可以申请 ONG。所以此时在第一个帐户上单击`Redeem ONG`，将收到该帐户的 ONG。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/07-claim.png" ><br><br>
 </div>
-
-在帐户项的右侧，有一个🔑图标。单击此按钮后，你看到帐户的私钥。在构建自己的应用程序时可能会需要这些私钥来签署交易。
+要查看账户私钥，点击账户对应的钥匙 🔑 图标。在构建自己的应用程序时可能会需要这些私钥来签署交易。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/08-pk.png" ><br><br>
 </div>
+### 查看区块信息
 
-移动到下一个选项卡，如果单击顶部菜单栏中的`Blocks`选项，将能看到区块信息。
+单击菜单栏中的 `Blocks` 选项，可以查看区块信息。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/09-blocks.png" ><br><br>
 </div>
 
-如果你想查看区块的详细信息（包括区块中所处理的所有交易），请单击想要查看区块右侧的`Detail`按钮。在弹出的区块详细信息窗口中，区块信息以JSON格式显示。
+要查看区块的详细信息（包括区块中所处理的所有交易），单击该区块右侧的 `Detail`按钮。区块信息会以 JSON 格式显示。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/10-block-detail.png" ><br><br>
 </div>
 
-如果单击方块，则可以在JSON中展开和收缩对象和数组。
+如果单击方块，可以在 JSON 中展开和收缩对象和数组。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/11-block-detail-open.png" ><br><br>
 </div>
+### 查看交易信息
 
-在`Transactions`选项卡中，你可以看到所有已处理的交易，包括它们在哪个块中执行，以及它的详细信息。
+单击 `Transactions`选项卡，可以查看所有已处理的交易，包括它们在哪个块中执行，以及它的详细信息。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/12-transactions.png" ><br><br>
 </div>
 
-单击右侧的 `Detail` 按钮将以JSON格式显示包含在该交易中的所有详细信息。在这里，你可以看到签署交易的账户、支付网络费用账户等等。
+单击右侧的 `Detail` 按钮将以 JSON 格式显示包含在该交易中的所有详细信息。在这里，你可以看到签署交易的账户、支付网络费用账户等。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/13-tx-details.png" ><br><br>
 </div>
+### 查看通知事件
 
-在 `Events` 选项卡中，你可以查看交易中发出的所有通知事件。
+单击 `Events` 选项卡，可以查看交易中发出的所有通知事件。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/14-events.png" ><br><br>
 </div>
 
-例如，深入研究下面事件的细节，我们可以看到它是在领取我们的ONG时执行的 `transfer` 操作时发出。在调试智能合约时，这可能是一个非常有用的工具，因为你可以创建自定义的 `Notify` 事件进行广播。
+例如，深入研究下面事件的细节，可以看到该通知是在执行领取 ONG 的 `transfer` 操作时发出。在调试智能合约时，这可能是一个非常有用的工具，因为你可以创建自定义的 `Notify` 事件进行广播。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/15-transfer-event.png" ><br><br>
 </div>
+### 查看已部署的合约
 
-在`Smart Contracts`选项卡中，你可以找到部署在所处网络中的所有合约的完整列表。在部署新版本时，这对于管理新的开发合约哈希地址非常有用。
+单击 `Smart Contracts`选项卡，可以查看部署在所处网络中的所有合约的完整列表。在部署新版本时，这对于管理新的开发合约哈希地址非常有用。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/16-smart-contracts.png" ><br><br>
 </div>
+### 查看日志
 
-在`Logs`选项卡中，你可以看到私有网络的完整日志记录。
+单击`Logs`选项卡，可以查看私有网络的完整日志记录。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/17-logs.png" ><br><br>
 </div>
+### 设置 Gas Price
 
-最后，单击屏幕右上角的齿轮图标将显示设置屏幕窗口。在这里，我们可以为我们的私有网络配置 gas price。
+单击屏幕右上角的齿轮图标将显示设置屏幕窗口。在这里可以配置私有网络的 Gas price。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/solo-chain/18-settings.png" ><br><br>
@@ -140,13 +143,13 @@ Solo Chain 应用程序提供了以下功能：
 
 ### 开发步骤
 
-如果要以开发者模式下运行 Solo Chain，你可以：
+如果要以开发者模式运行 Solo Chain，你可以：
 
-- 从GitGub获取完整的源码 `git clone git@github.com：punicasuite/solo-chain.git`
-- 安装依赖项 `yarn install`
-- 编译安装程序 `yarn dev`
+1. 从GitGub获取完整的源码 `git clone git@github.com：punicasuite/solo-chain.git`
+2. 安装依赖项 `yarn install`
+3. 编译安装程序 `yarn dev`
 
-这将安装并编译所有必需的依赖项和源代码，并启在 `localhost：9080` 启动服务。当你对 `./src` 文件夹中的代码库进行更改时，应用程序将以热重载的方式进行刷新。
+这将安装并编译所有必需的依赖项和源代码，并在 `localhost：9080` 启动服务。当你对 `./src` 文件夹中的代码库进行更改时，应用程序将以热重载的方式进行刷新。
 
 如果你在安装时遇到任何问题，都可以在 Github 的 issue 中提出，或者直接在 Discord 上联系。
 
