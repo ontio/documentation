@@ -68,7 +68,6 @@
   - [钱包对接-钱包内打开dApp接入](docs-cn/Wallet-Integration/02-WalletDocking-wallet-open-DApp.md)
   - [钱包对接-扫码接入](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
 
-  -
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
