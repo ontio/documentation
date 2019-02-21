@@ -109,17 +109,15 @@ json_tx = json.dumps(dict(tx), indent=2)
   - 7472616e73666572：`transfer` 方法。
   - 14：合约地址长度。
   - 0000000000000000000000000000000000000001：`ONG` 合约地址。
-  - 00：版本号
+  - 00：版本号。
   - 68：`NeoVm` 操作码。
-  - 16：原生合约调用名长度
-  - 4f6e746f6c6f67792e4e61746976652e496e766f6b65：原生合约调用 "Ontology.Native.Invoke"
+  - 16：原生合约调用名长度。
+  - 4f6e746f6c6f67792e4e61746976652e496e766f6b65：原生合约调用 "Ontology.Native.Invoke"。
 
 上述序列化后的十六进制数据可以在终端中使用 `ontology-python-sdk` 方便地查看。
 
 ```shell
 $ python
-Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license" for more information.
 >>> from ontology.utils.contract_data import ContractDataParser
 >>> ContractDataParser.to_int('14')
 20
@@ -160,8 +158,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ```shell
 $ python
-Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license" for more information.
 >>> from ontology.utils.contract_data import ContractDataParser
 >>> ContractDataParser.op_code_to_int('5a')
 10
