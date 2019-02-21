@@ -141,7 +141,7 @@ $ python
 22
 ```
 
-- NEO VM 合约调用，以 `OEP4` 合约转账操作的十六进制 `payload` 为例。
+- `NeoVm` 合约调用，以 `OEP4` 合约转账操作的十六进制 `payload` 为例。
   - 5a：第三个参数，转移数量。
   - 14：第二个参数的长度。
   - feec06b79ed299ea06fcb94abac41aaf3ead7658：转入地址。
