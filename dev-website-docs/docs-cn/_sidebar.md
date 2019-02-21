@@ -57,7 +57,7 @@
   - [开发工具概述](docs-cn/DeveloperGuide/tools.md)
 
 - DAPP接入指导
-  - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_development.md)
+  - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [钱包对接-钱包内打开dApp接入](docs-cn/dApp-Integration/01-WalletDocking-wallet-open-DApp.md)
   - [钱包对接-扫码接入](docs-cn/dApp-Integration/02-WalletDocking-scan-qrcode.md)
   - [dApp对接-手机钱包内打开接入](docs-cn/dApp-Integration/03-DAppDocking-Wallet-Opens-DApp.md)
