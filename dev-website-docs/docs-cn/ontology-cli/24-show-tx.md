@@ -1,13 +1,6 @@
 
 本体客户端 `Ontology-CLI` 提供了交易反序列化模块，用于将以十六进制字符串显示的序列化交易反序列化为 JSON 格式。可以在命令行中通过 `showtx` 命令使用。
 
-序列化交易的数据结构中包括了版本号、交易类型、随机数、`gasprice`、`gaslimit`、`gas` 费付款人、交易数据。
-
-```shell
-|+-+-+-+-+-+-+-+-+-+-+-+-+-+ 22 bytes +-+-+-+-+-+-+-+-+-+-+-+-+-+-+|+-+ 21 bytes +-+|+-+-+-+ any bytes +-+-+-+|
-|| version(1) || type(1) || nonce(4) || gasprice(8) || gaslimit(8) ||   payer(21)  ||      payload code       ||
-```
-
 <p class="info">你可以在需要的时候通过 <code>help</code> 命令获取交易反序列化模块的帮助信息。</p>
 
 ```shell
@@ -90,4 +83,98 @@ json_tx = json.dumps(dict(tx), indent=2)
     }
   ]
 }
+```
+
+序列化交易的数据结构中包括了版本号、交易类型、随机数、`gasprice`、`gaslimit`、`gas` 费付款人、交易数据。
+
+```shell
+|+-+-+-+-+-+-+-+-+-+-+-+-+-+ 22 bytes +-+-+-+-+-+-+-+-+-+-+-+-+-+-+|+-+ 21 bytes +-+|+-+-+-+ any bytes +-+-+-+|
+|| version(1) || type(1) || nonce(4) || gasprice(8) || gaslimit(8) ||   payer(21)  ||      payload code       ||
+```
+
+对于 `payload` 信息，其结构大致如下。
+
+- Native 合约调用，以 `ONG` 转账操作的十六进制 `payload` 为例。
+  - 00c66b：`NeoVm` 操作码，此处为参数序列化开始的标志。
+  - 14：第一个参数的长度。
+  - 46b1a18af6b7c9f8a4602f9f73eeb3030f0c29b7：转出地址。
+  - 6a7cc8：`NeoVm` 操作码，此处为第一个参数序列化完成的标志。
+  - 14：第二个参数的长度。
+  - feec06b79ed299ea06fcb94abac41aaf3ead7658：转入地址。
+  - 6a7cc8：`NeoVm` 操作码，此处为第二个参数序列化完成的标志。
+  - 51：转移数量。
+  - 6a7cc8：`NeoVm` 操作码，此处为第三个参数序列化完成的标志。
+  - 6c51c1：`NeoVm` 操作码，此处为参数序列化完成的标志。
+  - 08：方法名长度。
+  - 7472616e73666572：`transfer` 方法。
+  - 14：合约地址长度。
+  - 0000000000000000000000000000000000000001：`ONG` 合约地址。
+  - 00：版本号
+  - 68：`NeoVm` 操作码。
+  - 16：原生合约调用名长度
+  - 4f6e746f6c6f67792e4e61746976652e496e766f6b65：原生合约调用 "Ontology.Native.Invoke"
+
+上述序列化后的十六进制数据可以在终端中使用 `ontology-python-sdk` 方便地查看。
+
+```shell
+$ python
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from ontology.utils.contract_data import ContractDataParser
+>>> ContractDataParser.to_int('14')
+20
+>>> ContractDataParser.to_b58_address('46b1a18af6b7c9f8a4602f9f73eeb3030f0c29b7')
+'ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD'
+>>> ContractDataParser.to_int('14')
+20
+>>> ContractDataParser.to_b58_address('feec06b79ed299ea06fcb94abac41aaf3ead7658')
+'Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn'
+>>> ContractDataParser.to_int('08')
+8
+>>> ContractDataParser.to_utf8_str('7472616e73666572')
+'transfer'
+>>> ContractDataParser.op_code_to_int('51')
+1
+>>> ContractDataParser.to_int('16')
+22
+>>> ContractDataParser.to_utf8_str('4f6e746f6c6f67792e4e61746976652e496e766f6b65')
+'Ontology.Native.Invoke'
+>>> len('Ontology.Native.Invoke')
+22
+```
+
+- NEO VM 合约调用，以 `OEP4` 合约转账操作的十六进制 `payload` 为例。
+- 5a：第三个参数，转移数量。
+- 14：第二个参数的长度。
+- feec06b79ed299ea06fcb94abac41aaf3ead7658：转入地址。
+- 14：第一个参数的长度。
+- 46b1a18af6b7c9f8a4602f9f73eeb3030f0c29b7：转出地址。
+- 53：参数个数。
+- c1：`NeoVm` 操作码，此处为参数序列化完成的标志。
+- 08：方法名的长度。
+- 7472616e73666572：`transfer` 方法。
+- 67：`NeoVm` 操作码，对应 `APPCALL`。
+- e94e5c8c35a9979e41ff712b9e9d3e7482b6db1d：十六进制字符串形式的智能合约地址。
+
+上述序列化后的十六进制数据可以在终端中使用 `ontology-python-sdk` 方便地查看。
+
+```shell
+$ python
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from ontology.utils.contract_data import ContractDataParser
+>>> ContractDataParser.op_code_to_int('5a')
+10
+>>> ContractDataParser.to_int('14')
+20
+>>> ContractDataParser.to_b58_address('feec06b79ed299ea06fcb94abac41aaf3ead7658')
+'Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn'
+>>> ContractDataParser.to_b58_address('46b1a18af6b7c9f8a4602f9f73eeb3030f0c29b7')
+'ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD'
+>>> ContractDataParser.op_code_to_int('53')
+3
+>>> ContractDataParser.to_int('08')
+8
+>>> ContractDataParser.to_reserve_hex_str('e94e5c8c35a9979e41ff712b9e9d3e7482b6db1d')
+'1ddbb682743e9d9e2b71ff419e97a9358c5c4ee9'
 ```
