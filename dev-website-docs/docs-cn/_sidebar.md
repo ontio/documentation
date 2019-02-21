@@ -58,11 +58,15 @@
 
 - DAPP接入指导
   - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_integration.md)
-  - [钱包对接-钱包内打开dApp接入](docs-cn/dApp-Integration/01-WalletDocking-wallet-open-DApp.md)
-  - [钱包对接-扫码接入](docs-cn/dApp-Integration/02-WalletDocking-scan-qrcode.md)
-  - [dApp对接-手机钱包内打开接入](docs-cn/dApp-Integration/03-DAppDocking-Wallet-Opens-DApp.md)
-  - [dApp对接-手机钱包扫码接入](docs-cn/dApp-Integration/04-DAppDocking-QRcode.md)
-  - [DAPP对接-chrome插件钱包](docs-cn/dApp-Integration/05-DAppDocking-use-chrome-extension-wallet.md)
+  - [dApp对接-手机钱包内打开接入](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
+  - [dApp对接-手机钱包扫码接入](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
+  - [DAPP对接-chrome插件钱包](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
+
+- 钱包接入指导
+  - [钱包 对接概览](docs-cn/Wallet-Integration/00-wallet_integration.md)
+  - [钱包对接-Cyano Bridge安装和使用](docs-cn/Wallet-Integration/01-WalletDocking-Cyano-Bridge.md)
+  - [钱包对接-钱包内打开dApp接入](docs-cn/Wallet-Integration/02-WalletDocking-wallet-open-DApp.md)
+  - [钱包对接-扫码接入](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
 
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
