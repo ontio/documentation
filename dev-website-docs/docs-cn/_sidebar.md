@@ -64,7 +64,7 @@
 
 - 钱包接入指导
   - [钱包 对接概览](docs-cn/Wallet-Integration/00-wallet_integration.md)
-  - [钱包对接-Cyano Bridge安装和使用](docs-cn/Wallet-Integration/01-WalletDocking-Installation-&-use-of-Cyano-Bridge.md)
+  - [钱包对接-Cyano Bridge安装和使用](docs-cn/Wallet-Integration/01-WalletDocking-Cyano-Bridge.md)
   - [钱包对接-钱包内打开dApp接入](docs-cn/Wallet-Integration/02-WalletDocking-wallet-open-DApp.md)
   - [钱包对接-扫码接入](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
 
