@@ -8,7 +8,7 @@
   - [白皮书和资源](docs-cn/DeveloperGuide/06-white-papers.md)
   - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
   - [术语表](docs-cn/DeveloperGuide/08-glossary.md)
-  
+
 - 本体客户端
   - [概述](docs-cn/ontology-cli/00-overview.md)
   - [安装](docs-cn/ontology-cli/01-install.md)
@@ -53,13 +53,21 @@
   - [API 参考](docs-cn/smartcontract/03-sc-api.md)
 
 - DAPP开发指导
-  - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)  
+  - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
   - [开发工具概述](docs-cn/DeveloperGuide/tools.md)
+
+- DAPP接入指导
+  - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_development.md)
+  - [钱包对接-钱包内打开dApp接入](docs-cn/dApp-Integration/01-WalletDocking-wallet-open-DApp.md)
+  - [钱包对接-扫码接入](docs-cn/dApp-Integration/02-WalletDocking-scan-qrcode.md)
+  - [dApp对接-手机钱包内打开接入](docs-cn/dApp-Integration/03-DAppDocking-Wallet-Opens-DApp.md)
+  - [dApp对接-手机钱包扫码接入](docs-cn/dApp-Integration/04-DAppDocking-QRcode.md)
+  - [DAPP对接-chrome插件钱包](docs-cn/dApp-Integration/05-DAppDocking-use-chrome-extension-wallet.md)
 
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
-  
+
 - Cyano
   - [概述](docs-cn/cyano/00-overview.md)
   - [Chrome Provider](docs-cn/cyano/01-chrome-wallet.md)
@@ -80,8 +88,8 @@
   - [账户](docs-cn/explorer/accounts.md)
   - [交易](docs-cn/explorer/transactions.md)
   - [ONTID](docs-cn/explorer/ontid.md)
-  - [统计](docs-cn/explorer/statistics.md)   
-  
+  - [统计](docs-cn/explorer/statistics.md)
+
 - Sign Server
   - [概述](docs-cn/SignServer/00-overview.md)
   - [安装](docs-cn/SignServer/01-installation.md)
@@ -95,4 +103,4 @@
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
   - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
   - [签名服务器使用说明](docs-cn/exchange-API/Ontology+签名服务器使用说明.md)
-  - [FAQ](docs-cn/exchange-API/ONT-交易所对接FAQ.md)  
+  - [FAQ](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
