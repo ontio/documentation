@@ -430,7 +430,7 @@ contract_address = Address.address_from_vm_code(code).to_hex_str()
 ```
 
 ```go
-package ontology_go_sdk
+package demo
 
 import (
     "fmt"
@@ -442,7 +442,6 @@ func TestAddressFromVmCode(t *testing.T) {
     var avmCode, _ = common.HexToBytes("0000000000000000000000000000000000000001")
     addr := common.AddressFromVmCode(avmCode)
     var contractAddr = addr.ToHexString()
-    fmt.Print(contractAddr)
 }
 ```
 
@@ -455,21 +454,12 @@ import com.github.ontio.common.Address;
 public class NetworkDemo {
     public static void main(String[] args) {
         try {
-            OntSdk ontSdk = getOntSdk();
+            OntSdk sdk = OntSdk.getInstance();
             String code = "0000000000000000000000000000000000000004";
             String contractAddress = Address.AddressFromVmCode(code).toHexString();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static OntSdk getOntSdk() throws Exception {
-        String rpcUrl = "http://polaris1.ont.io:20336";
-
-        OntSdk sdk = OntSdk.getInstance();
-        sdk.setRpc(rpcUrl);
-        sdk.setDefaultConnect(sdk.getRpc());
-        return sdk;
     }
 }
 ```
