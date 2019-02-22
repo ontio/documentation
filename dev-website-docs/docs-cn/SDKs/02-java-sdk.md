@@ -593,9 +593,17 @@ public class MakeTxDemo {
             Account acct0 = ontSdk.getWalletMgr().getAccount(addr0, "password");
             Account acct1 = ontSdk.getWalletMgr().getAccount(addr1, "password");
             Account acct2 = ontSdk.getWalletMgr().getAccount(addr2, "password");
-            Transaction tx = ontSdk.nativevm().ont().makeTransfer(addr0, addr1, 1, addr2, 200000, 500);
-            ontSdk.signTx(tx, new Account[][]{{acct0}});
-            ontSdk.addSign(tx, acct1);
+            byte[] pubKey0 = acct0.serializePublicKey();
+            byte[] pubKey1 = acct1.serializePublicKey();
+            byte[][] pks = {pubKey0, pubKey1};
+            String multiAddr = Address.addressFromMultiPubKeys(2, pubKey0, pubKey1).toBase58();
+
+            Transaction tx = ontSdk.nativevm().ont().makeTransfer(multiAddr, addr2, 1, addr2, 200000, 500);
+
+            ontSdk.addMultiSign(tx, 2, pks, acct0);
+            ontSdk.addMultiSign(tx, 2, pks, acct1);
+            ontSdk.addSign(tx, acct2);
+
             ontSdk.getConnect().sendRawTransaction(tx.toHexString());
         } catch (Exception e) {
             e.printStackTrace();
@@ -603,74 +611,6 @@ public class MakeTxDemo {
     }
 }
 ```
-
-对交易做签名：
-ontSdk.signTx(tx, new com.github.ontio.account.Account[][]{{acct0}});
-//多签地址的签名方法：
-ontSdk.signTx(tx, new com.github.ontio.account.Account[][]{{acct1, acct2}});
-//如果转出方与网络费付款人不是同一个地址，需要添加网络费付款人的签名
-
-
-发送预执行（可选）：
-Object obj = ontSdk.getConnect().sendRawTransactionPreExec(tx.toHexString());
-System.out.println(obj);
-成功返回：
-{"State":1,"Gas":30000,"Result":"01"}
-余额不足返回异常：
-com.github.ontio.network.exception.RestfulException: {"Action":"sendrawtransaction","Desc":"SMARTCODE EXEC ERROR","Error":47001,"Result":"","Version":"1.0.0"}
-
-
-发送交易：
-ontSdk.getConnect().sendRawTransaction(tx.toHexString());
-
-
-同步发送交易：
-Object obj = ontSdk.getConnect().syncSendRawTransaction(tx.toHexString());
-
-response success:
-{
-	"GasConsumed": 0,
-	"Notify": [],
-	"TxHash": "cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890",
-	"State": 1
-}
-
-response fail,reject by txpool:
-com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc":"UNKNOWN TRANSACTION","Error":44001,"Result":"","Version":"1.0.0"}
-
-```
-
-
-
-| 方法名       | 参数                                                                                | 参数描述                                                           |
-| :----------- | :---------------------------------------------------------------------------------- | :----------------------------------------------------------------- |
-| makeTransfer | String sender，String recvAddr,long amount,String payer,long gaslimit,long gasprice | 发送方地址，接收方地址，金额，网络费付款人地址，gaslimit，gasprice |
-| makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice                           | 一笔交易包含多个转账。                                             |
-
-
-#### **多次签名**
-
-如果转出方与网络费付款人不是同一个地址，需要添加网络费付款人的签名
-
-```java
-
-1.添加单签签名
-ontSdk.addSign(tx,acct0);
-
-2.添加多签签名
-ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct);
-ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct2);
-
-3.多签签名分多次签
-acct0签名：
-ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct);
-
-acct1签名：
-ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct2);
-
-```
-
-
 
 ## 网络
 
