@@ -729,6 +729,7 @@ GET
 ```
 /api/v1/unboundong
 ```
+
 #### 调用示例
 
 请求：
@@ -752,10 +753,10 @@ curl -i http://localhost:20334/api/v1/unboundong/:addr
 
 得到内存中的交易的数量。
 
-GET
+```shell
+GET /api/v1/mempool/txcount
 ```
-/api/v1/mempool/txcount
-```
+
 #### 调用示例
 
 请求：
@@ -763,6 +764,7 @@ GET
 ```json
 curl -i http://localhost:20334/api/v1/mempool/txcount
 ```
+
 响应：
 
 ```json
@@ -777,20 +779,21 @@ curl -i http://localhost:20334/api/v1/mempool/txcount
 
 ## get_mempooltxstate
 
-通过交易哈希得到内存中该交易的状态。
+通过交易哈希获取交易池（内存）中的交易的状态。
 
-GET
+```shell
+GET /api/v1/mempool/txstate/:hash
 ```
-/api/v1/mempool/txstate/:hash
-```
+
 #### 调用示例
 
-请求：
+- 请求：
 
-```json
+```shell
 curl -i http://localhost:20334/api/v1/mempool/txstate/:hash
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -799,27 +802,27 @@ curl -i http://localhost:20334/api/v1/mempool/txstate/:hash
     "Error": 0,
     "Version": "1.0.0",
     "Result": {
-              	"State": [{
-              		"Type": 1,
-              		"Height": 342,
-              		"ErrCode": 0
-              	}, {
-              		"Type": 0,
-              		"Height": 0,
-              		"ErrCode": 0
-              	}]
+        "State": [{
+            "Type": 1,
+            "Height": 342,
+            "ErrCode": 0
+        }, {
+            "Type": 0,
+            "Height": 0,
+            "ErrCode": 0
+        }]
     }
 }
 ```
 
 ## get_version
 
-得到版本信息。
+获取当前连接节点的版本信息。
 
-GET
+```shell
+GET /api/v1/version
 ```
-/api/v1/version
-```
+
 #### 调用示例
 
 请求：
@@ -827,6 +830,7 @@ GET
 ```json
 curl -i http://localhost:20334/api/v1/version
 ```
+
 响应：
 
 ```json
