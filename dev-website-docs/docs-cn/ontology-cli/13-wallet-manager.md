@@ -73,7 +73,7 @@ ontology account help
 
 要创建账户，使用 `add` 命令：
 
-```shell
+```bash
 ontology account add
 ```
 
