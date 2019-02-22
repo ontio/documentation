@@ -412,7 +412,67 @@
 }
 ```
 
-<p class = "warning">响应中 <code>result</code> 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。</p>
+<section class = "info">
+  <ul>
+    <li>请求中的 <code>key</code> 为十六进制字符串形式的合约存储键值。</li>
+    <li>响应中的 <code>result</code> 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。</li>
+  </ul>
+</section>
+
+根据智能合约编译后所得到的 `avm code`，可以使用 SDK 生成合约地址。
+
+```python
+from ontology.common.address import Address
+from ontology.utils.contract_data import ContractDataParser
+
+code = '0000000000000000000000000000000000000001'
+contract_address = Address.address_from_vm_code(code).to_hex_str()
+```
+
+```go
+package ontology_go_sdk
+
+import (
+    "fmt"
+    "github.com/ontio/ontology/common"
+    "testing"
+)
+
+func TestAddressFromVmCode(t *testing.T) {
+    var avmCode, _ = common.HexToBytes("0000000000000000000000000000000000000001")
+    addr := common.AddressFromVmCode(avmCode)
+    var contractAddr = addr.ToHexString()
+    fmt.Print(contractAddr)
+}
+```
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.common.Address;
+
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            String code = "0000000000000000000000000000000000000004";
+            String contractAddress = Address.AddressFromVmCode(code).toHexString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
+```
 
 ## getversion
 
