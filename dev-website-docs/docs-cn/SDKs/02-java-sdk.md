@@ -4,7 +4,7 @@
 ```java
 import com.github.ontio.OntSdk;
 
-OntSdk ontSdk = getOntSdk();
+OntSdk ontSdk = OntSdk.getInstance();
 ```
 
 ## 账户
@@ -17,8 +17,16 @@ OntSdk ontSdk = getOntSdk();
 import com.github.ontio.OntSdk;
 import com.github.ontio.account.Account;
 
-OntSdk ontSdk = getOntSdk();
-Account acct = new Account(ontSdk.defaultSignScheme);
+public class AcctDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            Account acct = new Account(ontSdk.defaultSignScheme);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
 ```
 
 ### 指定私钥创建账户
@@ -29,20 +37,78 @@ Account acct = new Account(ontSdk.defaultSignScheme);
 import com.github.ontio.account.Account;
 import com.github.ontio.crypto.SignatureScheme;
 
-String privatekey = "533c5fc274893831726f0bcb3634232f10b3beb1c05515058534577752a22d94";
-Account acct = new Account(Helper.hexToBytes(privatekey), SignatureScheme.SHA256WITHECDSA);
+public class AcctDemo {
+    public static void main(String[] args) {
+        try {
+            String privatekey = "533c5fc274893831726f0bcb3634232f10b3beb1c05515058534577752a22d94";
+            Account acct = new Account(Helper.hexToBytes(privatekey), SignatureScheme.SHA256WITHECDSA);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
 ```
 
 ### 批量创建账户
 
 ```java
 import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
 
-OntSdk ontSdk = getOntSdk();
-ontSdk.getWalletMgr().createAccounts(10, "password");
+public class AcctDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            ontSdk.getWalletMgr().createAccounts(10, "password");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
 ```
 
 <p class="info">在技术上，公私钥可以存储在数据库中，也可以按照本体的钱包规范存储在 <code>Keystore</code> 文件中。</p>
+
+## 身份
+
+### 创建随机身份
+
+```java
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class AcctDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            ontSdk.openWalletFile("wallet.dat");
+            Identity identity = ontSdk.getWalletMgr().createIdentity("password");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 指定私钥创建身份
+
+```java
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class AcctDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            ontSdk.openWalletFile("wallet.dat");
+            String privateKey = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
+            Identity identity = ontSdk.getWalletMgr().createIdentityFromPriKey("password", privateKey);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
 
 ## 钱包文件
 
@@ -433,6 +499,78 @@ public class MakeTxDemo {
 }
 ```
 
+## 签名
+
+### 交易签名
+
+对交易做签名：
+ontSdk.signTx(tx, new com.github.ontio.account.Account[][]{{acct0}});
+//多签地址的签名方法：
+ontSdk.signTx(tx, new com.github.ontio.account.Account[][]{{acct1, acct2}});
+//如果转出方与网络费付款人不是同一个地址，需要添加网络费付款人的签名
+
+
+发送预执行（可选）：
+Object obj = ontSdk.getConnect().sendRawTransactionPreExec(tx.toHexString());
+System.out.println(obj);
+成功返回：
+{"State":1,"Gas":30000,"Result":"01"}
+余额不足返回异常：
+com.github.ontio.network.exception.RestfulException: {"Action":"sendrawtransaction","Desc":"SMARTCODE EXEC ERROR","Error":47001,"Result":"","Version":"1.0.0"}
+
+
+发送交易：
+ontSdk.getConnect().sendRawTransaction(tx.toHexString());
+
+
+同步发送交易：
+Object obj = ontSdk.getConnect().syncSendRawTransaction(tx.toHexString());
+
+response success:
+{
+	"GasConsumed": 0,
+	"Notify": [],
+	"TxHash": "cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890",
+	"State": 1
+}
+
+response fail,reject by txpool:
+com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc":"UNKNOWN TRANSACTION","Error":44001,"Result":"","Version":"1.0.0"}
+
+```
+
+
+
+| 方法名       | 参数                                                                                | 参数描述                                                           |
+| :----------- | :---------------------------------------------------------------------------------- | :----------------------------------------------------------------- |
+| makeTransfer | String sender，String recvAddr,long amount,String payer,long gaslimit,long gasprice | 发送方地址，接收方地址，金额，网络费付款人地址，gaslimit，gasprice |
+| makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice                           | 一笔交易包含多个转账。                                             |
+
+
+#### **多次签名**
+
+如果转出方与网络费付款人不是同一个地址，需要添加网络费付款人的签名
+
+```java
+
+1.添加单签签名
+ontSdk.addSign(tx,acct0);
+
+2.添加多签签名
+ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct);
+ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct2);
+
+3.多签签名分多次签
+acct0签名：
+ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct);
+
+acct1签名：
+ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct2);
+
+```
+
+
+
 ## 网络
 
 | 接口                                                   | 描述                 |
@@ -613,89 +751,6 @@ public class NetworkDemo {
 
 
 
-### 2.4 ONT转账
-
-ONT和ONG转账可以一对一，也可以一对多，多对多，多对一。
-
-#### **构造转账交易并发送**
-
-```java
-转出方与收款方地址：
-Address sender = acct0.getAddressU160();
-Address recvAddr = acct1;
-//多签地址生成
-//Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey(), acct2.serializePublicKey());
-
-构造转账交易：
-long amount = 1000;
-Transaction tx = ontSdk.nativevm().ont().makeTransfer(sender.toBase58(),recvAddr.toBase58(), amount,sender.toBase58(),30000,0);
-String hash = tx.hash().toString()
-
-对交易做签名：
-ontSdk.signTx(tx, new com.github.ontio.account.Account[][]{{acct0}});
-//多签地址的签名方法：
-ontSdk.signTx(tx, new com.github.ontio.account.Account[][]{{acct1, acct2}});
-//如果转出方与网络费付款人不是同一个地址，需要添加网络费付款人的签名
-
-
-发送预执行（可选）：
-Object obj = ontSdk.getConnect().sendRawTransactionPreExec(tx.toHexString());
-System.out.println(obj);
-成功返回：
-{"State":1,"Gas":30000,"Result":"01"}
-余额不足返回异常：
-com.github.ontio.network.exception.RestfulException: {"Action":"sendrawtransaction","Desc":"SMARTCODE EXEC ERROR","Error":47001,"Result":"","Version":"1.0.0"}
-
-
-发送交易：
-ontSdk.getConnect().sendRawTransaction(tx.toHexString());
-
-
-同步发送交易：
-Object obj = ontSdk.getConnect().syncSendRawTransaction(tx.toHexString());
-
-response success:
-{
-	"GasConsumed": 0,
-	"Notify": [],
-	"TxHash": "cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890",
-	"State": 1
-}
-
-response fail,reject by txpool:
-com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc":"UNKNOWN TRANSACTION","Error":44001,"Result":"","Version":"1.0.0"}
-
-```
-
-
-
-| 方法名       | 参数                                                                                | 参数描述                                                           |
-| :----------- | :---------------------------------------------------------------------------------- | :----------------------------------------------------------------- |
-| makeTransfer | String sender，String recvAddr,long amount,String payer,long gaslimit,long gasprice | 发送方地址，接收方地址，金额，网络费付款人地址，gaslimit，gasprice |
-| makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice                           | 一笔交易包含多个转账。                                             |
-
-
-#### **多次签名**
-
-如果转出方与网络费付款人不是同一个地址，需要添加网络费付款人的签名
-
-```java
-
-1.添加单签签名
-ontSdk.addSign(tx,acct0);
-
-2.添加多签签名
-ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct);
-ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct2);
-
-3.多签签名分多次签
-acct0签名：
-ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct);
-
-acct1签名：
-ontSdk.addMultiSign(tx,2,new byte[][]{acct.serializePublicKey(),acct2.serializePublicKey()},acct2);
-
-```
 
 
  
@@ -890,14 +945,4 @@ while ((txHex=bf.readLine())!=null){
 }
 
 
-```
-
-
-### 3.3 在钱包中创建Ontid
-
-如果需要把Ontid保存到钱包，根据4.1中保存的私钥，在钱包中创建Ontid即可。
-
-```
-Identity identity = ontSdk.getWalletMgr().createIdentityFromPriKey(password,privatekey0);
-ontSdk.getWalletMgr().writeWallet();
 ```
