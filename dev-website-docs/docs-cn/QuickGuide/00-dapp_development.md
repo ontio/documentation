@@ -152,6 +152,8 @@ dApi支持[Web环境](https://github.com/ontio-cyano/cyano-bridge)（仅支持Ch
 
 下面会介绍dapp下开发中常见的几种接口：登录，查询合约接口，调用合约方法。
 
+> 注意：dApi的接口返回的都是Promise
+
 ![dapi develop](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dapidevelop.jpg)
 
 ### 1. 安装dApi
