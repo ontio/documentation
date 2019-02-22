@@ -331,7 +331,10 @@ import com.github.ontio.OntSdk;
 public class MakeTxDemo {
     public static void main(String[] args) {
         try {
-            OntSdk ontSdk = getOntSdk();
+            OntSdk sdk = OntSdk.getInstance();
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
             Object balance = ontSdk.getConnect().getBalance("AZW8eBkXh5qgRjmeZjqY2KFGLXhKcX4i2Y");
             long ontBalance = ontSdk.nativevm().ont().queryBalanceOf("AZW8eBkXh5qgRjmeZjqY2KFGLXhKcX4i2Y");
             long ongBalance = ontSdk.nativevm().ong().queryBalanceOf("AZW8eBkXh5qgRjmeZjqY2KFGLXhKcX4i2Y");
@@ -340,14 +343,6 @@ public class MakeTxDemo {
         }
     }
 
-    public static OntSdk getOntSdk() throws Exception {
-        String rpcUrl = "http://polaris1.ont.io:20336";
-
-        OntSdk sdk = OntSdk.getInstance();
-        sdk.setRpc(rpcUrl);
-        sdk.setDefaultConnect(sdk.getRpc());
-        return sdk;
-    }
 }
 ```
 
@@ -478,7 +473,11 @@ import com.github.ontio.account.Account;
 public class MakeTxDemo {
     public static void main(String[] args) {
         try {
-            OntSdk ontSdk = getOntSdk();
+            OntSdk ontSdk = OntSdk.getInstance();
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            ontSdk.setRpc(rpcUrl);
+            ontSdk.setDefaultConnect(ontSdk.getRpc());
+
             String privatekey = "523c5fcf74823831756f0bcb3634234f10b3beb1c05595058534577752ad2d9f";
             Account acct = new Account(Helper.hexToBytes(privatekey), ontSdk.defaultSignScheme);
             String b58RecvAddr = "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD";
@@ -487,17 +486,41 @@ public class MakeTxDemo {
             e.printStackTrace();
         }
     }
+}
+```
 
-    public static OntSdk getOntSdk() throws Exception {
-        String rpcUrl = "http://polaris1.ont.io:20336";
+```java
+package demo;
 
-        OntSdk sdk = OntSdk.getInstance();
-        sdk.setRpc(rpcUrl);
-        sdk.setDefaultConnect(sdk.getRpc());
-        return sdk;
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class MakeTxDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = OntSdk.getInstance();
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            ontSdk.setRpc(rpcUrl);
+            ontSdk.setDefaultConnect(ontSdk.getRpc());
+
+            String addr0 = "AXK2KtCfcJnSMyRzSwTuwTKgNrtx5aXfFX";
+            String addr1 = "AVXf5w8WD2y6jV1Lzi36oSKYNif1C7Surc";
+            Account acct0 = ontSdk.getWalletMgr().getAccount(addr0, "password");
+            Account acct1 = ontSdk.getWalletMgr().getAccount(addr1, "password");
+
+            State state1 = new State(acct0.getAddressU160(), acct1.getAddressU160(), 1);
+            State state2 = new State(acct0.getAddressU160(), acct1.getAddressU160(), 2);
+            Transaction tx = ontSdk.nativevm().ont().makeTransfer(new State[]{state1, state2}, addr0, 30000, 0);
+            ontSdk.signTx(tx, new Account[][]{{acct0}});
+            ontSdk.getConnect().sendRawTransaction(tx.toHexString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 ```
+
+!> 一笔交易所包含的转账交易数上限为 1024 笔。
 
 ## 签名
 
@@ -605,6 +628,31 @@ public class MakeTxDemo {
             ontSdk.addSign(tx, acct2);
 
             ontSdk.getConnect().sendRawTransaction(tx.toHexString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 数据做签名
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class MakeTxDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk sdk = OntSdk.getInstance();
+            Account acct = new Account(ontSdk.defaultSignScheme);
+
+            byte[] data = "text".getBytes();
+            byte[] signature = ontSdk.signatureData(acct, data);
+
+            ontSdk.verifySignature(acct.serializePublicKey(), data, signature);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -788,36 +836,6 @@ public class NetworkDemo {
     }
 }
 ```
- 
-
-
-
-
-
- 
-#### **一转多或多转多**
-
-1. 构造多个state的交易
-2. 签名
-3. 一笔交易上限为1024笔转账
-
-
-```java
-
-Address sender1 = acct0.getAddressU160();
-Address sender2 = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey(), acct2.serializePublicKey());
-int amount = 10;
-int amount2 = 20;
-
-State state = new State(sender1, recvAddr, amount);
-State state2 = new State(sender2, recvAddr, amount2);
-Transaction tx = ontSdk.nativevm().ont().makeTransfer(new State[]{state1,state2},sender1.toBase58(),30000,0);
-
-//第一个转出方是单签地址，第二个转出方是多签地址：
-ontSdk.signTx(tx, new com.github.ontio.account.Account[][]{{acct0}});
-ontSdk.addMultiSign(tx,2,new byte[][]{acct1.serializePublicKey(),acct2.serializePublicKey()},acct1);
-ontSdk.addMultiSign(tx,2,new byte[][]{acct1.serializePublicKey(),acct2.serializePublicKey()},acct2);
-```
 
 #### 使用签名机签名
 
@@ -872,23 +890,6 @@ ontSdk.getSignServer().sendSigTransferTx("ont","TU5exRFVqjRi5wnMVzNoWKBq9WFncLXE
             
 
 ```
-
- **对数据做签名**
-
-SDK提供直接对数据做签名的接口。[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/SignatureDemo.java) 
-
-
-```java
-com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
-
-byte[] data = "12345".getBytes();
-byte[] signature = ontSdk.signatureData(acct, data);
-
-System.out.println(ontSdk.verifySignature(acct.serializePublicKey(), data, signature));
-
-```
-
-
 
 ### 2.5 ONG转账
 
