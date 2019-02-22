@@ -435,235 +435,183 @@ public class MakeTxDemo {
 
 ## 网络
 
-#### 查询交易池
+| 接口                                                   | 描述                 |
+| :----------------------------------------------------- | :------------------- |
+| ontSdk.getConnect().getNodeCount()                     | 查询节点数量         |
+| ontSdk.getConnect().getBlock(15)                       | 查询块               |
+| ontSdk.getConnect().getBlockJson(15)                   | 查询块               |
+| ontSdk.getConnect().getBlockJson("txhash")             | 查询块               |
+| ontSdk.getConnect().getBlock("txhash")                 | 查询块               |
+| ontSdk.getConnect().getBlockHeight()                   | 查询当前块高         |
+| ontSdk.getConnect().getTransaction("txhash")           | 查询交易             |
+| ontSdk.getConnect().getStorage("contractaddress", key) | 查询智能合约存储     |
+| ontSdk.getConnect().getBalance("address")              | 查询余额             |
+| ontSdk.getConnect().getContractJson("contractaddress") | 查询智能合约         |
+| ontSdk.getConnect().getSmartCodeEvent(59)              | 查询智能合约事件     |
+| ontSdk.getConnect().getSmartCodeEvent("txhash")        | 查询智能合约事件     |
+| ontSdk.getConnect().getBlockHeightByTxHash("txhash")   | 查询交易所在高度     |
+| ontSdk.getConnect().getMerkleProof("txhash")           | 查询 Merkle 证明     |
+| ontSdk.getConnect().sendRawTransaction("txhexString")  | 发送交易             |
+| ontSdk.getConnect().sendRawTransaction(Transaction)    | 发送交易             |
+| ontSdk.getConnect().sendRawTransactionPreExec()        | 发送预执行交易       |
+| ontSdk.getConnect().getAllowance("ont","from","to")    | 查询允许使用值       |
+| ontSdk.getConnect().getMemPoolTxCount()                | 查询交易池中交易总量 |
+| ontSdk.getConnect().getMemPoolTxState()                | 查询交易池中交易状态 |
 
-通过接口查询交易是否在交易池中
-```json
+## 查询交易池
 
-ontSdk.getConnect().getMemPoolTxState("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
+根据交易哈希 `TxHash` 可以查询交易在交易池（内存）中的状态。
 
+```java
+package demo;
 
-response 交易池存在此交易:
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
 
-{
-    "Action": "getmempooltxstate",
-    "Desc": "SUCCESS",
-    "Error": 0,
-    "Result": {
-        "State":[
-            {
-              "Type":1,
-              "Height":744,
-              "ErrCode":0
-            },
-            {
-              "Type":0,
-              "Height":0,
-              "ErrCode":0
-            }
-       ]
-    },
-    "Version": "1.0.0"
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
+            Object txState = ontSdk.getConnect().getMemPoolTxState(txHash);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
 }
-
-或 交易池不存在此交易
-
-{
-    "Action": "getmempooltxstate",
-    "Desc": "UNKNOWN TRANSACTION",
-    "Error": 44001,
-    "Result": "",
-    "Version": "1.0.0"
-}
-
 ```
 
+## 查询合约事件
 
-#### **查询交易是否调用成功**
+- 根据交易哈希 `TxHash` 查询交易对应的合约事件。
 
-查询智能合约推送内容，代表交易执行成功，如果没有成功```States```中不会有```transfer```的事件。
+```java
+package demo;
 
-```json
-ontSdk.getConnect().getSmartCodeEvent("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
 
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
+            Object event = ontSdk.getConnect().getSmartCodeEvent(txHash);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-response:
-{
-    "Action": "getsmartcodeeventbyhash",
-    "Desc": "SUCCESS",
-    "Error": 0,
-    "Result": {
-        "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
-        "State": 1,
-        "GasConsumed": 0,
-        "Notify": [
-            {
-                "ContractAddress": "ff00000000000000000000000000000000000001",
-                "States": [
-                    "transfer",
-                    "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
-                    "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
-                    1000000000
-                ]
-            }
-        ]
-    },
-    "Version": "1.0.0"
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
 }
-
 ```
 
-根据块高查询智能合约事件，返回有事件的交易hash
+- 轮询（每隔3秒请求一次，最长等待60秒）交易哈希 `TxHash` 查询交易对应的合约事件。
 
+```java
+package demo;
 
-```json
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
 
-ontSdk.getConnect().getSmartCodeEvent(10)
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
+            Object event = ontSdk.getConnect().waitResult(txHash);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-response:
-{
-    "Action": "getsmartcodeeventbyheight",
-    "Desc": "SUCCESS",
-    "Error": 0,
-    "Result": [{
-	"GasConsumed": 0,
-	"Notify": [{
-		"States": ["transfer", "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM", "APrfMuKrAQB5sSb5GF8tx96ickZQJjCvwG", 1000000000],
-		"ContractAddress": "0100000000000000000000000000000000000000"
-	}],
-	"TxHash": "b8a4f77e19fcae04faa576fbc71fa5a9775166d4485ce13f1ba5ff30ce264c52",
-	"State": 1
-     }, {
-	"GasConsumed": 0,
-	"Notify": [{
-		"States": ["transfer", "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM", "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV", 1000000000000000000],
-		"ContractAddress": "0200000000000000000000000000000000000000"
-	}],
-	"TxHash": "7e8c19fdd4f9ba67f95659833e336eac37116f74ea8bf7be4541ada05b13503e",
-	"State": 1
-     }, {
-	"GasConsumed": 0,
-	"Notify": [],
-	"TxHash": "80617b4a97eb4266e5e38886f234f324d57587362b5039a01c45cf413461f53b",
-	"State": 1
-     }, {
-	"GasConsumed": 0,
-	"Notify": [],
-	"TxHash": "ede7ecc6e4e7e699b8ba1f07f2e5f8af3b65e70f126d82f7765d20a506080d2d",
-	"State": 0
-}],
-    "Version": "1.0.0"
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
 }
-
 ```
 
-#### **同步查询智能合约event**
+- 根据区块高度查询智能合约事件，返回对应区块中的所有事件。
 
-发完交易后，直到查到交易才返回。
+```java
+package demo;
 
-```json
-//发完交易每隔3秒请求一次，最长等待60秒
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
 
-Object object = ontSdk.getConnect().waitResult(tx.hash().toString());
-System.out.println(object);
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            Object event = ontSdk.getConnect().getSmartCodeEvent(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-response success:
-{
-	"GasConsumed": 0,
-	"Notify": [],
-	"TxHash": "cb9e0d4a7a4aea0518bb39409613b8ef76798df3962feb8f8040e05329674890",
-	"State": 1
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
 }
-
-response fail,reject by txpool:
-com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc":"UNKNOWN TRANSACTION","Error":44001,"Result":"","Version":"1.0.0"}
-
 ```
 
-#### 其他与链交互接口列表：
+## 查询 Merkle 证明
 
-与链交互还有如下接口。
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            Object event = ontSdk.getConnect().getMerkleProof(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
 ```
-
-      |                     Main   Function                      |           Description
- -----|----------------------------------------------------------|---------------------------------------------
-    1 | ontSdk.getConnect().getNodeCount()                       |  查询节点数量
-    2 | ontSdk.getConnect().getBlock(15)                         |  查询块
-    3 | ontSdk.getConnect().getBlockJson(15)                     |  查询块
-    4 | ontSdk.getConnect().getBlockJson("txhash")               |  查询块
-    5 | ontSdk.getConnect().getBlock("txhash")                   |  查询块
-    6 | ontSdk.getConnect().getBlockHeight()                     |  查询当前块高
-    7 | ontSdk.getConnect().getTransaction("txhash")             |  查询交易
-    8 | ontSdk.getConnect().getStorage("contractaddress", key)   |  查询智能合约存储
-    9 | ontSdk.getConnect().getBalance("address")                |  查询余额
-   10 | ontSdk.getConnect().getContractJson("contractaddress")   |  查询智能合约
-   11 | ontSdk.getConnect().getSmartCodeEvent(59)                |  查询智能合约事件
-   12 | ontSdk.getConnect().getSmartCodeEvent("txhash")          |  查询智能合约事件
-   13 | ontSdk.getConnect().getBlockHeightByTxHash("txhash")     |  查询交易所在高度
-   14 | ontSdk.getConnect().getMerkleProof("txhash")             |  获取merkle证明
-   15 | ontSdk.getConnect().sendRawTransaction("txhexString")    |  发送交易
-   16 | ontSdk.getConnect().sendRawTransaction(Transaction)      |  发送交易
-   17 | ontSdk.getConnect().sendRawTransactionPreExec()          |  发送预执行交易
-   18 | ontSdk.getConnect().getAllowance("ont","from","to")      |  查询允许使用值
-   19 | ontSdk.getConnect().getMemPoolTxCount()                  |  查询交易池中交易总量
-   20 | ontSdk.getConnect().getMemPoolTxState()                  |  查询交易池中交易状态
-```  
-
-### 2.3 交易反序
-
-获取json格式的交易数据
-
-```json  
-http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d?raw=0
-
-{
-    "Action": "gettransaction",
-    "Desc": "SUCCESS",
-    "Error": 0,
-    "Result": {
-        "Version": 0,
-        "Nonce": 391455426,
-        "GasPrice": 500,
-        "GasLimit": 20000,
-        "Payer": "ASyx6be9APCR6BzcM81615FgBU26gqr1JL",
-        "TxType": 209,
-        "Payload": {
-            "Code": "00c66b147af216ff3da82b999b26f5efe165de5f944ac5496a7cc814d2c124dd088190f709b684e0bc676d70c41b37766a7cc80800ca9a3b000000006a7cc86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b65"
-        },
-        "Attributes": [],
-        "Sigs": [
-            {
-                "PubKeys": [
-                    "0369d1e9a5a1d83fa1798bbd162e8d8d8ef8e4e1a0e03aa2753b472943e235e219"
-                ],
-                "M": 1,
-                "SigData": [
-                    "017b80d5f0826b52b2037ee564be55f0ada1d0cb714a80967deb2d04b49a59f6c4358c57d06ee8f7666aec3fc570c5251c30be1cd134acb791775de9e11cacd22c"
-                ]
-            }
-        ],
-        "Hash": "8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d",
-        "Height": 95796
-    },
-    "Version": "1.0.0"
-}
-
-```  
-
-获取hex格式的交易数据
-```json  
-http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d?raw=1
+ 
 
 
-{
-    "Action": "gettransaction",
-    "Desc": "SUCCESS",
-    "Error": 0,
-    "Result": "00d1c2225517f401000000000000204e0000000000007af216ff3da82b999b26f5efe165de5f944ac5497900c66b147af216ff3da82b999b26f5efe165de5f944ac5496a7cc814d2c124dd088190f709b684e0bc676d70c41b37766a7cc80800ca9a3b000000006a7cc86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b6500014241017b80d5f0826b52b2037ee564be55f0ada1d0cb714a80967deb2d04b49a59f6c4358c57d06ee8f7666aec3fc570c5251c30be1cd134acb791775de9e11cacd22c23210369d1e9a5a1d83fa1798bbd162e8d8d8ef8e4e1a0e03aa2753b472943e235e219ac",
-    "Version": "1.0.0"
-}
-
-``` 
 
 ### 2.4 ONT转账
 
@@ -721,10 +669,10 @@ com.github.ontio.sdk.exception.SDKException: {"Action":"getmempooltxstate","Desc
 
 
 
-| 方法名 | 参数 | 参数描述 |
-| :--- | :--- | :--- |
+| 方法名       | 参数                                                                                | 参数描述                                                           |
+| :----------- | :---------------------------------------------------------------------------------- | :----------------------------------------------------------------- |
 | makeTransfer | String sender，String recvAddr,long amount,String payer,long gaslimit,long gasprice | 发送方地址，接收方地址，金额，网络费付款人地址，gaslimit，gasprice |
-| makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice | 一笔交易包含多个转账。 |
+| makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice                           | 一笔交易包含多个转账。                                             |
 
 
 #### **多次签名**
