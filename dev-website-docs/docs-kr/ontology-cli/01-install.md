@@ -1,38 +1,37 @@
 
-### 下载安装包
+### 설치파일 다운로드
 
-基于 Go 语言，我们提供了通用的本体客户端安装程序，你可以通过下列两种方式快速获取：
-- 点击 [这里](https://github.com/ontio/ontology/releases) 下载本体客户端安装程序。
-- 通过 `curl` 命令获取最新的客户端。
+Go언어 기반의 온톨로지 CLI을 사용하여 프로그램을 설치할 수 있는 2가지 방법입니다.
+- [여기](https://github.com/ontio/ontology/releases) 를 클릭한 후 온톨로지 CLI를 다운로드 받아주세요.
+- `curl` 사용하여 최신 CLI를 받아주세요.
 
   ```shell
   curl https://dev.ont.io/ontology_install | sh
   ```
 
-### 使用源码编译
+### 소스 코드로 컴파일
 
-此外，你也可以从源码编译本体客户端。
+그 외, 소스코드를 사용하여 온톨로지 CLI를 컴파일 할 수 있습니다.
 
-1. 获取源码：
+1. 소스 코드 얻기：
 
    ```shell
    go get github.com/ontio/ontology
    ```
 
-2. 使用包管理工具 `glide` 获取依赖：
+2. `glide` 를 먼저 다운로드 받아주세요.
 
    ```shell
    cd $GOPATH/src/github.com/ontio/ontology
    glide install
    ```
 
-3. 编译源码：
+3. 소스코드 컴파일：
 
    ```shell
    make all
    ```
-   源码成功编译后会生成两个可执行程序：
+   컴파일 성공 후 두 개의 실행가능 프로그램이 생성됩니다.
 
-   - ontology：本体客户端。
-   - sigsvr：签名服务器。
-
+   - ontology: Ontology CLI
+   - sigsvr：시그니처 서버
