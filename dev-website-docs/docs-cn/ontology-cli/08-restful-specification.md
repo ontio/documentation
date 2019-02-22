@@ -267,23 +267,19 @@ curl -i http://server:port/api/v1/block/height
 
 ## get_blk_hash
 
-得到该高度的区块哈希。
+查询指定高度的区块哈希。
 
-GET
-
-```
-/api/v1/block/hash/:height
+```shell
+GET /api/v1/block/hash/:height
 ```
 
-#### 调用示例
+- 请求：
 
-请求：
-
-```json
+```shell
 curl -i http://server:port/api/v1/block/hash/100
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -295,28 +291,25 @@ curl -i http://server:port/api/v1/block/hash/100
 }
 ```
 
-##  get_tx
+## get_tx
 
 通过交易哈希得到该交易的信息。
 
-#### 参数说明
-
-`raw`：可选参数，默不设置时为默认值 0。当值为 1 时，接口返回交易序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json格式返回对应交易的详细信息。 
-
-GET
-
-```
-/api/v1/transaction/:hash?raw=0
+```shell
+GET /api/v1/transaction/:hash?raw=0
 ```
 
-#### 调用示例
+> `raw` 为可选参数，默认为 `0`。
+> - 当值为 1 时，接口返回以十六进制字符串表示的序列化交易信息。
+> - 当值为 0 时，接口返回以 `JSON` 格式表示的交易详细信息。
 
-请求：
+- 请求：
 
-```json
+```shell
 curl -i http://server:port/api/v1/transaction/5623dbd283a99ff1cd78068cba474a22bed97fceba4a56a9d38ab0fbc178c4ab
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -356,14 +349,6 @@ curl -i http://server:port/api/v1/transaction/5623dbd283a99ff1cd78068cba474a22be
 
 通过合约地址哈希和键得到对应的值。
 
-合约地址哈希的生成方式如下：
-
-```
-    addr := types.AddressFromVmCode([]byte{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04})
-    fmt.Println(addr.ToHexString())
-```
-
 
 GET
 ```
@@ -387,9 +372,68 @@ curl -i http://localhost:20334/api/v1/storage/ff00000000000000000000000000000000
     "Version": "1.0.0"
 }
 ```
-> **注意**：
->
->  返回的值和传入的 key 参数均是十六进制。
+
+<section class = "info">
+  <ul>
+    <li>请求中的 <code>key</code> 为十六进制字符串形式的合约存储键值。</li>
+    <li>响应中的 <code>result</code> 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。</li>
+  </ul>
+</section>
+
+根据智能合约编译后所得到的 `avm code`，可以使用 SDK 生成合约地址。
+
+```python
+from ontology.common.address import Address
+from ontology.utils.contract_data import ContractDataParser
+
+code = '0000000000000000000000000000000000000001'
+contract_address = Address.address_from_vm_code(code).to_hex_str()
+```
+
+```go
+package ontology_go_sdk
+
+import (
+    "fmt"
+    "github.com/ontio/ontology/common"
+    "testing"
+)
+
+func TestAddressFromVmCode(t *testing.T) {
+    var avmCode, _ = common.HexToBytes("0000000000000000000000000000000000000001")
+    addr := common.AddressFromVmCode(avmCode)
+    var contractAddr = addr.ToHexString()
+    fmt.Print(contractAddr)
+}
+```
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.common.Address;
+
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            OntSdk ontSdk = getOntSdk();
+            String code = "0000000000000000000000000000000000000004";
+            String contractAddress = Address.AddressFromVmCode(code).toHexString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static OntSdk getOntSdk() throws Exception {
+        String rpcUrl = "http://polaris1.ont.io:20336";
+
+        OntSdk sdk = OntSdk.getInstance();
+        sdk.setRpc(rpcUrl);
+        sdk.setDefaultConnect(sdk.getRpc());
+        return sdk;
+    }
+}
+```
 
 ## get_balance
 
