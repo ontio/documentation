@@ -37,22 +37,17 @@
 
 获取当前连接的节点数量。
 
-
-GET
-
-```
-/api/v1/node/connectioncount
+```shell
+GET /api/v1/node/connectioncount
 ```
 
-#### 调用示例
+- 请求：
 
-请求：
-
-```
+```shell
 curl -i http://server:port/api/v1/node/connectioncount
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -63,27 +58,24 @@ curl -i http://server:port/api/v1/node/connectioncount
     "Version": "1.0.0"
 }
 ```
+
 ## get_blk_txs_by_height
 
 获取该高度的区块的所有交易哈希。
 
-GET
-
-```
-/api/v1/block/transactions/height/:height
+```shell
+GET /api/v1/block/transactions/height/:height
 ```
 
-#### 调用示例
+- 请求：
 
-请求：
-
-```
+```shell
 curl -i http://server:port/api/v1/block/transactions/height/100
 ```
 
-响应：
+- 响应：
 
-```
+```json
 {
     "Action": "getblocktxsbyheight",
     "Desc": "SUCCESS",
@@ -98,29 +90,26 @@ curl -i http://server:port/api/v1/block/transactions/height/100
     "Version": "1.0.0"
 }
 ```
+
 ## get_blk_by_height
 
 得到该高度的详细的区块信息。
 
-#### 参数说明
-
-`raw`：可选参数，不设置时为默认值 0。当值为 1 时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应区块的详细信息。
-
-GET
-
-```
-/api/v1/block/details/height/:height?raw=1
+```shell
+GET /api/v1/block/details/height/:height?raw=1
 ```
 
-#### 调用示例
+> `raw` 为可选参数，默认为 `0`。
+> - 当值为 1 时，接口返回以十六进制字符串表示的序列化区块信息。
+> - 当值为 0 时，接口返回以 `JSON` 格式表示的区块详细信息。
 
-请求：
+- 请求：
 
-```
+```shell
 curl -i http://server:port/api/v1/block/details/height/22
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -175,29 +164,26 @@ curl -i http://server:port/api/v1/block/details/height/22
     "Version": "1.0.0"
 }
 ```
+
 ## get_blk_by_hash
 
 通过区块哈希得到区块信息。
 
-#### 参数说明
-
-`raw`：可选参数，不设置时为默认值 0。当值为 1 时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应区块的详细信息。
-
-GET
-
-```
-/api/v1/block/details/hash/:hash?raw=0
+```shell
+GET /api/v1/block/details/hash/:hash?raw=0
 ```
 
-#### 调用示例
+> `raw` 为可选参数，默认为 `0`。
+> - 当值为 1 时，接口返回以十六进制字符串表示的序列化区块信息。
+> - 当值为 0 时，接口返回以 `JSON` 格式表示的区块详细信息。
 
-请求：
+- 请求：
 
-```json
+```shell
 curl -i http://server:port/api/v1/block/details/hash/ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -257,22 +243,17 @@ curl -i http://server:port/api/v1/block/details/hash/ea5e5219d2f1591f4feef89885c
 
 得到当前网络上的区块高度。
 
-
-GET
-
-```
-/api/v1/block/height
+```shell
+GET /api/v1/block/height
 ```
 
-#### 调用示例
+- 请求：
 
-请求：
-
-```json
+```shell
 curl -i http://server:port/api/v1/block/height
 ```
 
-响应：
+- 响应：
 
 ```json
 {
