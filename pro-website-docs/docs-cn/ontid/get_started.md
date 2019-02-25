@@ -10,12 +10,12 @@
 
 在Ontology上注册ONT ID需要消耗ONG手续费。首先需要你拥有数字资产账户，且账户里至少有0.01个ONG，然后使用该资产账户为注册ONT ID进行手续费代付，完成ONT ID链上注册。
 
-> 如何创建数字资产账户，使用资产账户创建ONT ID，获取ONT ID相关信息并进行签名。可参考[附录DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=demo)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
+> 如何创建数字资产账户，使用资产账户创建ONT ID，获取ONT ID相关信息并进行签名。可参考[附录DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/specification?id=demo)或[SDK开发者文档中心](https://dev-docs.ont.io/#/docs-en/SDKs/00-overview)
 
 
 > 测试网ONG可到Ontology开发者中心直接申请：[测试网ONG申请入口](https://developer.ont.io/applyOng)
 
-创建成功之后，应用方需要将ONT ID和加密后的Keystore提供给用户保存，用户可以在任意一个本体生态客户端（比如https://ONTO.app）导入和管理自己的ONT ID。
+创建成功之后，应用方需要将ONT ID和加密后的Keystore提供给用户保存，用户可以在任意一个本体生态客户端导入和管理自己的ONT ID。
 
 
 
@@ -23,9 +23,9 @@
 
 此时您只是建立了一个有公私钥的ONT ID，你还需要实名认证您的用户。
 
-ONTPass基于ONTID及本体信任生态，是一个开放的、去中心化的认证平台，为人、财、物、事提供丰富的认证服务。本体信任生态已聚集了提供全球身份认证服务能力的信任锚，包括IdentityMind、CFCA、商汤科技、Shufti Pro等等，同时还支持邮箱、手机、社交媒体认证方式。详细[了解本体信任锚](https://info.ont.io/trust-anchor/en)。
+ONTPass基于ONTID及本体信任生态，是一个开放的、去中心化的认证平台，为人、财、物、事提供丰富的认证服务。本体信任生态已聚集了提供全球身份认证服务能力的信任锚，包括IdentityMind、CFCA、商汤科技、Shufti Pro等等，同时还支持邮箱、手机、社交媒体认证方式。
 
-[>> 开始使用ONTPass 认证您的用户](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth)
+[>> 开始使用ONTPass 认证您的用户](https://pro-docs.ont.io/#/docs-cn/ontpass/overview)
 
 ## ONT ID 管理
 
