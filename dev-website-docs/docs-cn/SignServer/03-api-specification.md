@@ -1,59 +1,113 @@
 
+## 概述
 
+在默认情况下，签名机监听在本地的 `20000` 端口上. 其他服务通过 `HTTP POST` 方法请求服务。
 
-- [API 端点](#api-端点)
-- [支持的请求方法](#支持的请求方法)
-- [请求结构](#请求结构)
-- [响应结构](#响应结构)
-  - [错误码](#错误码)
-
-## API 端点
-签名Server提供通过下面的链接提供rpc服务
-```
-http://localhost:20000/cli
+```shell
+curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 ```
 
-## 支持的请求方法
-```
-POST
-```
+<section class = "info">
+  <ul>
+    <li>如果你想更改端口号，请使用 <code>--cliport</code> 选项进行配置。</li>
+    <li>如果你想提供外部访问，请使用 <code>--cliaddress</code> 选项进行配置。</li>
+  </ul>
+</section>
 
 ## 请求结构
 
-```
+```json
 {
-  qid: "XXX",      // Request ID. The response will echo back the same qid
-  method: "XXX",   // Requested method name
-  account: "XXX",  // Account for sign
-  pwd: "XXX",      // Account password
-  params: {}       // Input parameters for the requested method
+  qid: "XXX",
+  method: "XXX",
+  account: "XXX",
+  pwd: "XXX",
+  params: {}
 }
 ```
 
 ## 响应结构
 
-```
+```json
 {
-  qid: "XXX",         // Request ID
-  method: "XXX",      // Requested method name
-  result: {           // Response result
-    signed_tx: "XXX"  // Signed transaction
+  qid: "1",
+  method: "method",
+  result: {
+    signed_tx: "0000000"
   },
-  error_code: 0,      // Error code，zero represents success, non-zero represents failure
-  error_info: ""      // Error description
+  error_code: 0,
+  error_info: ""
 }
 ```
 
 ### 错误码
 
-Error code | Error description
----------- | -----------------
-1001       | Invalid http method
-1002       | Invalid http request
-1003       | Invalid request parameter
-1004       | Unsupported method
-1005       | Account is locked
-1006       | Invalid transactions
-1007       | ABI is not found
-1008       | ABI is not matched
-9999       | Unknown error
+| Error code | Error description         |
+| :--------- | :------------------------ |
+| 1001       | Invalid http method       |
+| 1002       | Invalid http request      |
+| 1003       | Invalid request parameter |
+| 1004       | Unsupported method        |
+| 1005       | Account is locked         |
+| 1006       | Invalid transactions      |
+| 1007       | ABI is not found          |
+| 1008       | ABI is not matched        |
+| 9999       | Unknown error             |
+
+## 创建账户
+
+- `POST` 方法
+
+- 请求
+
+```json
+{
+  "qid":"1",
+  "method":"createaccount",
+  "pwd":"password",
+  "params":{}
+}
+```
+
+- 响应
+
+```json
+{
+  "qid": "t",
+  "method": "createaccount",
+  "result": {
+      "account": "AWn31ZiNpXk55C7R4dvoVGBBMvTxG6sh6f"
+  },
+  "error_code": 0,
+  "error_info": ""
+}
+```
+
+## 导出账户
+
+- `POST` 方法
+
+- 请求
+
+```json
+{
+  "qid":"t",
+  "method":"exportaccount",
+  "params":{}
+}
+```
+
+- 响应
+
+```json
+{
+    "qid": "t",
+    "method": "exportaccount",
+    "result": {
+        "wallet_file": "./wallet_2018_02_25_17_31_59.dat",
+        "account_num": 3
+    },
+    "error_code": 0,
+    "error_info": ""
+}
+```
