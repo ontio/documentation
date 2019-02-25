@@ -56,8 +56,6 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 
 ## 创建账户
 
-- `POST` 方法
-
 - 请求
 
 ```json
@@ -84,8 +82,6 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 ```
 
 ## 导出账户
-
-- `POST` 方法
 
 - 请求
 
