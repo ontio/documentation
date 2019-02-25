@@ -1,6 +1,6 @@
 
 - 认识本体
-  - [介绍](docs-cn/introduction/introduction.md)
+  - [介绍](docs-cn/introduction/01-introduction.md)
   - [VBFT 共识](docs-cn/introduction/02-VBFT-introduction.md)
   - [智能合约](docs-cn/introduction/smartcontract/00-introduction-sc.md)
   - [ONTID](docs-cn/introduction/04-ontid.md)
