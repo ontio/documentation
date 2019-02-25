@@ -1,8 +1,8 @@
 
 - 认识本体
   - [介绍](docs-cn/introduction/01-introduction.md)
-  - [VBFT 共识](docs-cn/introduction/02-VBFT-introduction.md)
-  - [智能合约](docs-cn/introduction/smartcontract/00-introduction-sc.md)
+  - [VBFT 共识](docs-cn/introduction/02-VBFT.md)
+  - [智能合约](docs-cn/introduction/03-smart-contract.md)
   - [ONTID](docs-cn/introduction/04-ontid.md)
   - [DDXF](docs-cn/introduction/05-ddxf.md)
   - [白皮书和资源](docs-cn/introduction/06-white-papers.md)
