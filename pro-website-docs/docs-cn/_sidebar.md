@@ -10,6 +10,7 @@
   - [开始使用](docs-cn/ddxf/get_started.md)
 - 信任锚接入
   - [概述](docs-cn/taconnector/overview.md)
+  - [快速开始](docs-cn/taconnector/get-started.md.md)
 - ONTO
   - [概述](docs-cn/onto/overview.md)
   - [ONTO Login](docs-cn/onto/ONTO_login.md)
