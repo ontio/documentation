@@ -748,7 +748,7 @@ ontSdk.getSignServer().sendSigTransferTx("ont","TU5exRFVqjRi5wnMVzNoWKBq9WFncLXE
 | ontSdk.getConnect().getMemPoolTxCount()                | 查询交易池中交易总量 |
 | ontSdk.getConnect().getMemPoolTxState()                | 查询交易池中交易状态 |
 
-## 查询交易池
+### 查询交易池
 
 根据交易哈希 `TxHash` 可以查询交易在交易池（内存）中的状态。
 
@@ -780,7 +780,7 @@ public class NetworkDemo {
 }
 ```
 
-## 查询合约事件
+### 查询合约事件
 
 - 根据交易哈希 `TxHash` 查询交易对应的合约事件。
 
@@ -871,7 +871,7 @@ public class NetworkDemo {
 }
 ```
 
-## 查询 Merkle 证明
+### 查询 Merkle 证明
 
 ```java
 package demo;
@@ -898,104 +898,4 @@ public class NetworkDemo {
         return sdk;
     }
 }
-```
-
-
-
-### 2.5 ONG转账
-
-ONG转账方法与ONT转账类似，但ONG的精度是9。
-####  **ONG转账**
-
-
-```json
-ontSdk.nativevm().ong().makeTransfer(sender.toBase58(),recvAddr.toBase58(), amount,sender.toBase58(),30000,0);
-```
-
-####  **提取ong**
-
-1. 查询是否有ong可以提取
-2. 发送提取ong交易
-
-```json
-查询未提取ong:
-String addr = acct0.getAddressU160().toBase58();
-String ong = sdk.nativevm().ong().unboundOng(addr);
-
-//提取ong
-com.github.ontio.account.Account account = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey0), ontSdk.signatureScheme);
-String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,30000,500);
-
-```
-
-
-
-## 3. 批量交易
-
-SDK发送注册Ontid和转账等交易时，根据钱包中账户和身份信息解密出私钥再做签名，这个过程大概需要1-2秒时间。为了节省发交易时间，可以多线程或多机器事先创建交易，再批量发送。
-
-实现步骤如下，[例子](https://github.com/ontio/ontology-java-sdk/tree/master/src/main/java/demo/CreateManyTx.java)
-
-### 3.1 批量构造交易
-
-1. 打开文件
-2. 构造交易，下面以构造注册Ontid交易为例。
-3. 写入交易
-
-> 构造交易时，如果新创建账户，需要用户自己保存账户私钥。
-
-```
-//open file, make registry ontid transaction, save tx to file.
-File file = new File(filePath);
-if (!file.exists()) {
-    file.createNewFile();
-}
-com.github.ontio.account.Account payerAcct = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey1), SignatureScheme.SHA256WITHECDSA);
-FileOutputStream fos = new FileOutputStream(file);
-for (int i = 0; i < 3; i++) {
-    com.github.ontio.account.Account account = new com.github.ontio.account.Account(SignatureScheme.SHA256WITHECDSA);
-    String ontid = Common.didont + account.getAddressU160().toBase58();
-    Transaction tx = ontSdk.nativevm().ontId().makeRegister(ontid, Helper.toHexString(account.serializePublicKey()), payerAcct.getAddressU160().toBase58(), 20000, 500);
-    ontSdk.addSign(tx, account);
-    ontSdk.addSign(tx, payerAcct);
-    System.out.println("PrivateKey:"+Helper.toHexString(account.serializePrivateKey())+",txhash:"+tx.hash().toString());
-
-    fos.write(tx.toHexString().getBytes());
-    fos.write(",".getBytes());
-    fos.write(tx.hash().toString().getBytes());
-    fos.write("\n".getBytes());
-}
-
-
-```
-文件中数据格式：
-
-```
-交易，交易hash
-交易，交易hash
-
-00d1df24a313f401000000000000204e000000000000aa6e06c79f864152ab7f3139074aad822ffea8559800c66b2a6469643a6f6e743a414774577a7933693148453654516e31633265636b78527841516d524662467333686a7cc821036391476eed630fc1cffb1317545d9390f22d68cdc7092095dc1b78e4baeef27c6a7cc86c127265674944576974685075626c69634b65791400000000000000000000000000000000000000030068164f6e746f6c6f67792e4e61746976652e496e766f6b6500024241011928500aa1ac40d908e92c9db7c16be4063dda2cdabe9908206747c6303635578fde0be66032f586596e91c80f490a085e612be28b95da0edb319cb60f774e472321036391476eed630fc1cffb1317545d9390f22d68cdc7092095dc1b78e4baeef27cac424101bb1df17b91cd709ce38b4ec40db10c2dfd5e9ca7219dd5ca1c6200eaf60d8ccf1be9b85b9b22398204c6366ac20e8bb7797f21ebc17e7db540627b99d5a8bb41232102df6f28e327352a44720f2b384e55034c1a7f54ba31785aa3a338f613a5b7cc26ac,b7e2c99f449cb3403619bc5c5887c52f44993180c61c9fae85d5e772ce3d7fda
-00d1039e89c7f401000000000000204e000000000000aa6e06c79f864152ab7f3139074aad822ffea8559800c66b2a6469643a6f6e743a416446335547344867515864515a5577714a53756536744a6f534e564237644d32596a7cc82102a1f44af3d81c6cb0aaa5e1d597b891c436b0c724ae446b5d9cb9039e09b9938c6a7cc86c127265674944576974685075626c69634b65791400000000000000000000000000000000000000030068164f6e746f6c6f67792e4e61746976652e496e766f6b65000242410168436b2f5da6db0b2b4260b587ba7bce3dba1597a400dec52d0f00a4aa77f37c9979d10c31a80888edd6a41da4c89596033ab9ee634886f26850b32e83681f4e232102a1f44af3d81c6cb0aaa5e1d597b891c436b0c724ae446b5d9cb9039e09b9938cac4241019ba8633b42d3427ab202cafcb1c50a65de30c65120a96d958f985aff7205fcc6230e64842ea5cdf4e6b2d0b8bef1b19c795bf392a0c1cc8a93bc9ec9bebc9a35232102df6f28e327352a44720f2b384e55034c1a7f54ba31785aa3a338f613a5b7cc26ac,a8bd8258c8819f0ecf0652bb1d8c08860a5b75d16e194f3d6cd395f5c2a9f7fe
-00d1554170d9f401000000000000204e000000000000aa6e06c79f864152ab7f3139074aad822ffea8559800c66b2a6469643a6f6e743a41547a4d6e79556d42614369686355556872786472566d437173336d73426351685a6a7cc8210274af46f5f038d040e5096f4653df4e7ea5598567effe4542ad6f19cda6ea05846a7cc86c127265674944576974685075626c69634b65791400000000000000000000000000000000000000030068164f6e746f6c6f67792e4e61746976652e496e766f6b650002424101ea9d7dedf17ecfef8d1d03f4d00b819c16fab8275b5d77d811a1db8140d25722fc2200a60ea76e5a449cce4e127ceec73377cce1b227c624b8df9f95be55bf4123210274af46f5f038d040e5096f4653df4e7ea5598567effe4542ad6f19cda6ea0584ac424101e401877fc4892212a309b7de30d5d9dd675a7171f89d945fe44c3b9eba46df2c2966f54fefdf5eabfa651acf63332cf9475868aa3055531a97a1fffbd43b09b8232102df6f28e327352a44720f2b384e55034c1a7f54ba31785aa3a338f613a5b7cc26ac,bd888014a82cec39f72400e4b8c43e46702bd96a16172b144361cb7b3bc024f4
-
-```
-
-### 3.2 批量发送交易
-
-1. 打开文件
-2. 读取一行数据
-3. 提取交易数据，发送交易数据
-
-```
-//read transaction from file, send transaction to node
-FileReader fr = new FileReader(filePath);
-BufferedReader bf = new BufferedReader(fr);
-String txHex = null;
-while ((txHex=bf.readLine())!=null){
-    txHex = txHex.split(",")[0];
-    Object obj = ontSdk.getConnect().sendRawTransactionPreExec(txHex);//change to sendRawTransaction
-    System.out.println(obj);
-}
-
-
 ```
