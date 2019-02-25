@@ -37,10 +37,10 @@
       - [查看交易](docs-cn/ontology-cli/24-show-tx.md)
 
 - 签名机
-  - [概述](docs-cn/signServer/00-overview.md)
-  - [安装](docs-cn/signServer/01-install.md)
-  - [快速开始](docs-cn/signServer/02-getting-started.md)
-  - [接口规范](docs-cn/signServer/03-api-specification.md)
+  - [概述](docs-cn/sigsvr/00-overview.md)
+  - [安装](docs-cn/sigsvr/01-install.md)
+  - [快速开始](docs-cn/sigsvr/02-getting-started.md)
+  - [接口规范](docs-cn/sigsvr/03-api-specification.md)
 
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
