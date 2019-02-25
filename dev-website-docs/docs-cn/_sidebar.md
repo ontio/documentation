@@ -6,7 +6,7 @@
   - [ONTID](docs-cn/introduction/04-ontid.md)
   - [DDXF](docs-cn/introduction/05-ddxf.md)
   - [白皮书和资源](docs-cn/introduction/06-white-papers.md)
-  - [社区贡献](docs-cn/introduction/07-contributions-guide.md)
+  - [社区贡献](docs-cn/introduction/07-contributions.md)
   - [术语表](docs-cn/introduction/08-glossary.md)
 
 - 本体客户端
