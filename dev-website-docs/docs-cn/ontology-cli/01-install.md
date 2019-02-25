@@ -31,7 +31,8 @@
    ```shell
    make all
    ```
-   源码成功编译后会生成两个可执行程序：
 
-   - ontology：本体客户端。
-   - sigsvr：签名机。
+源码成功编译后会生成两个可执行程序：
+
+- ontology：本体客户端。
+- sigsvr：签名机。
