@@ -67,10 +67,8 @@
   - [钱包 对接概览](docs-cn/Wallet-Integration/00-wallet_integration.md)
   - [资产接入](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
   - [provider接入](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
-  - [场景-扫码接入](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
-  - [场景-钱包内打开dApp接入](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
-  - [android-provider-sdk接入文档](docs-cn/Wallet-Integration/05-WalletDocking-cyano-android-sdk.md)
-  - [ios-provider-sdk接入文档](docs-cn/Wallet-Integration/06-WalletDocking-cyano-ios-sdk.md)
+      - [场景-扫码接入](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
+      - [场景-钱包内打开dApp接入](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
 
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
