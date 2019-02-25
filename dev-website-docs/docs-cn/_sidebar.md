@@ -98,14 +98,11 @@
   - [ONTID](docs-cn/explorer/ontid.md)
   - [统计](docs-cn/explorer/statistics.md)
 
-- Sign Server
-  - [概述](docs-cn/SignServer/00-overview.md)
-  - [安装](docs-cn/SignServer/01-installation.md)
-  - [开始使用](docs-cn/SignServer/02-getting-started.md)
-  - [API 使用](docs-cn/SignServer/03-api-usage.md)
-      - [账号](docs-cn/SignServer/04-api-account-methods.md)
-      - [签名方法](docs-cn/SignServer/05-api-signing-methods.md)
-      - [简便的签名方法](docs-cn/SignServer/06-api-signing-convinience-methods.md)
+- 签名机
+  - [概述](docs-cn/signServer/00-overview.md)
+  - [安装](docs-cn/signServer/01-installation.md)
+  - [快速开始](docs-cn/signServer/02-getting-started.md)
+  - [接口规范](docs-cn/signServer/03-api-specification.md)
 
 - 交易所对接
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
