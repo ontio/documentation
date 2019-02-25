@@ -1,8 +1,8 @@
-<h1 align="center">ONT ID Applcation Suite集成指南 </h1>
+<h1 align="center">ONT ID Application Suite集成指南 </h1>
 
 ## 前言
 
-我们假定您是一个应用（以下简称：应用方），希望集成ONT ID。现在，我们提供您ONT ID Applcation Suite，ONT ID Applcation Suite集成了ONT ID的全部功能，您可以参考这篇文档帮助您集成ONT ID。
+我们假定您是一个应用（以下简称：应用方），希望集成ONT ID。现在，我们提供您ONT ID Application Suite，ONT ID Applcation Suite集成了ONT ID的全部功能，您可以参考这篇文档帮助您集成ONT ID。
 
 
 ## 创建ONT ID
