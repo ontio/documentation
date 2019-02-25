@@ -1,13 +1,13 @@
 
 - 认识本体
-  - [介绍](docs-cn/DeveloperGuide/introduction.md)
-  - [VBFT 共识](docs-cn/DeveloperGuide/02-VBFT-introduction.md)
-  - [智能合约](docs-cn/DeveloperGuide/smartcontract/00-introduction-sc.md)
-  - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
-  - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
-  - [白皮书和资源](docs-cn/DeveloperGuide/06-white-papers.md)
-  - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
-  - [术语表](docs-cn/DeveloperGuide/08-glossary.md)
+  - [介绍](docs-cn/introduction/introduction.md)
+  - [VBFT 共识](docs-cn/introduction/02-VBFT-introduction.md)
+  - [智能合约](docs-cn/introduction/smartcontract/00-introduction-sc.md)
+  - [ONTID](docs-cn/introduction/04-ontid.md)
+  - [DDXF](docs-cn/introduction/05-ddxf.md)
+  - [白皮书和资源](docs-cn/introduction/06-white-papers.md)
+  - [社区贡献](docs-cn/introduction/07-contributions-guide.md)
+  - [术语表](docs-cn/introduction/08-glossary.md)
 
 - 本体客户端
   - [概述](docs-cn/ontology-cli/00-overview.md)
