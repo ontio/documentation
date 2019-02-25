@@ -20,7 +20,7 @@
 - 生态白皮书
   - [英语](https://ont.io/wp/Ontology-Ecosystem-White-Paper-EN.pdf)
   - [中文](https://ont.io/wp/Ontology-Ecosystem-White-Paper-ZH.pdf)
-  - [韩语](https://ont.io/wp/Ontology-Ecosystem-White-Paper-KR.pdf) translated by @Sunghwan Kim
+  - [韩语](https://ont.io/wp/Ontology-Ecosystem-White-Paper-KR.pdf)
   - [荷兰语](https://github.com/ontio/documentation/blob/master/nl-NL/Ecosystem%20White%20Paper%20-%20Dutch%20V1.pdf)
   - [日语](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Ecosystem%20White%20Paper-JP.pdf)
 
