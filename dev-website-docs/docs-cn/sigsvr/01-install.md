@@ -1,5 +1,7 @@
 
-签名机是本体核心库的组成部分，你可以点击[这里](https://github.com/ontio/ontology)访问项目。你可以点击 [这里](https://github.com/ontio/ontology/releases) 下载签名机的可执行程序。此外，你也可以从源码编译本体客户端。
+签名机是本体核心库的组成部分，你可以点击[这里](https://github.com/ontio/ontology)访问项目。如果你想要使用签名机，你可以点击 [这里](https://github.com/ontio/ontology/releases) 下载预编译的签名机。
+
+当然，你也可以选择从源码编译本体客户端。
 
 1. 获取源码：
 
