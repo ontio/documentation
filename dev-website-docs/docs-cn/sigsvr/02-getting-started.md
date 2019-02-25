@@ -30,7 +30,7 @@ sigsvr --cliaddress 0.0.0.0
 sigsvr --cliport 1024
 ```
 
-## 导入钱包账户
+## 导入账户
 
 你可以通过 `import` 命令导入钱包账户。
 
