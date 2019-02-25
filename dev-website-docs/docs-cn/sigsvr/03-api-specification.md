@@ -14,19 +14,19 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
   </ul>
 </section>
 
-## 请求结构
+### 请求结构
 
 ```json
 {
-  qid: "XXX",
-  method: "XXX",
-  account: "XXX",
-  pwd: "XXX",
+  qid: "1",
+  method: "method",
+  account: "AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa",
+  pwd: "password",
   params: {}
 }
 ```
 
-## 响应结构
+### 响应结构
 
 ```json
 {
