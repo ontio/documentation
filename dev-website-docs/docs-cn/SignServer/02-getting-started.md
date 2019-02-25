@@ -1,19 +1,4 @@
 
-## 导入钱包账户
-
-在使用签名机之前，你需要使用 `import` 命令导入钱包账户。
-
-- `--wallet`：用于指定签名机从哪个钱包文件中导入钱包账户，默认为 `./wallet.data`。
-- `--walletdir`：用于指定签名机钱包数据的存储文件夹，默认为 `./wallet_data`。
-
-```shell
-$ sigsvr import
-Import account success.
-Total account number:3
-Add account number:3
-Update account number:0
-```
-
 ## 启动
 
 ```shell
@@ -43,6 +28,21 @@ sigsvr --cliaddress 0.0.0.0
 
 ```shell
 sigsvr --cliport 1024
+```
+
+## 导入钱包账户
+
+你可以通过 `import` 命令导入钱包账户。
+
+- `--wallet`：用于指定签名机从哪个钱包文件中导入钱包账户，默认为 `./wallet.data`。
+- `--walletdir`：用于指定签名机钱包数据的存储文件夹，默认为 `./wallet_data`。
+
+```shell
+$ sigsvr import
+Import account success.
+Total account number:3
+Add account number:3
+Update account number:0
 ```
 
 ## 日志记录
