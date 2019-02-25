@@ -1,13 +1,13 @@
 
 - 认识本体
-  - [介绍](docs-cn/DeveloperGuide/introduction.md)
-  - [VBFT 共识](docs-cn/DeveloperGuide/02-VBFT-introduction.md)
-  - [智能合约](docs-cn/DeveloperGuide/smartcontract/00-introduction-sc.md)
-  - [ONTID](docs-cn/DeveloperGuide/04-ontid.md)
-  - [DDXF](docs-cn/DeveloperGuide/05-ddxf.md)
-  - [白皮书和资源](docs-cn/DeveloperGuide/06-white-papers.md)
-  - [社区贡献](docs-cn/DeveloperGuide/07-contributions-guide.md)
-  - [术语表](docs-cn/DeveloperGuide/08-glossary.md)
+  - [介绍](docs-cn/introduction/01-introduction.md)
+  - [VBFT 共识](docs-cn/introduction/02-VBFT.md)
+  - [智能合约](docs-cn/introduction/03-smart-contract.md)
+  - [ONTID](docs-cn/introduction/04-ontid.md)
+  - [DDXF](docs-cn/introduction/05-ddxf.md)
+  - [白皮书和资源](docs-cn/introduction/06-white-papers.md)
+  - [社区贡献](docs-cn/introduction/07-contributions.md)
+  - [术语表](docs-cn/introduction/08-glossary.md)
 
 - 本体客户端
   - [概述](docs-cn/ontology-cli/00-overview.md)
@@ -96,14 +96,11 @@
   - [ONTID](docs-cn/explorer/ontid.md)
   - [统计](docs-cn/explorer/statistics.md)
 
-- Sign Server
-  - [概述](docs-cn/SignServer/00-overview.md)
-  - [安装](docs-cn/SignServer/01-installation.md)
-  - [开始使用](docs-cn/SignServer/02-getting-started.md)
-  - [API 使用](docs-cn/SignServer/03-api-usage.md)
-      - [账号](docs-cn/SignServer/04-api-account-methods.md)
-      - [签名方法](docs-cn/SignServer/05-api-signing-methods.md)
-      - [简便的签名方法](docs-cn/SignServer/06-api-signing-convinience-methods.md)
+- 签名机
+  - [概述](docs-cn/signServer/00-overview.md)
+  - [安装](docs-cn/signServer/01-installation.md)
+  - [快速开始](docs-cn/signServer/02-getting-started.md)
+  - [接口规范](docs-cn/signServer/03-api-specification.md)
 
 - 交易所对接
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
