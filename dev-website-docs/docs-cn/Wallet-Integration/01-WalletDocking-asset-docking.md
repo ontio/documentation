@@ -1,5 +1,3 @@
-<h1 align="center">SDK接入</h1>
-<p align="center" class="version">Version 0.8.0 </p>
 
 ## 概述
 钱包App集成ONT的SDK，配合公开的浏览器接口后就能实现数字资产操作，账号管理等功能。

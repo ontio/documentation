@@ -1,5 +1,3 @@
-<h1 align="center">Provider-SDK接入</h1>
-<p align="center" class="version">Version 0.8.0 </p>
 
 ## 概述
 Provider-SDK 帮助 iOS/Android webview和网页dapp之间通信。它对iOS/Android webview进行了一些方法的封装。
