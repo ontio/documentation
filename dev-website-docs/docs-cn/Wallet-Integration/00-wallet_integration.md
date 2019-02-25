@@ -1,25 +1,26 @@
-# dApp接入说明
+# 钱包接入说明
+
+
+## 概述
+钱包接入分成两个层次
+- [资产功能集成]()
+- [provider sdk集成]()
+
+![wallet-integration](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/wallet-integration.png)
+
+完成两层集成后，就可以进行场景使用接入
+
+## dApp使用场景说明
 
 移动端dAPI规范文档包括唤醒、扫码、钱包中打开H5 DApp三种场景。已支持dAPI的钱包[麦子钱包](http://www.mathwallet.org/en/)、[Onion](http://onion.fun/),对接请参考对应的对接文档。协议详情请看[CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
 
-参考钱包下载链接： http://101.132.193.149/files/app-debug.apk
-
-钱包对接：
-
-
-* [钱包对接-Cyano Bridge安装和使用](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/01-01-WalletDocking-Installation-&-use-of-Cyano-Bridge)
-* [钱包对接-钱包打开DApp接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/02-WalletDocking-wallet-open-DApp)
-* [钱包对接-扫码接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode)
+dApp场景接入文档：
+* [钱包打开DApp接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/02-WalletDocking-wallet-open-DApp)
+* [扫码接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode)
 * 钱包对接-唤醒接入流程(暂不支持)
 * 钱包对接-ONTID认证授权(暂不支持)
 
-DAPP对接：
-
-* [DAPP对接-手机钱包打开DAPP](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)
-* [DAPP对接-手机钱包扫码](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/02-DAppDocking-QRcode)
-* [DAPP对接-chrome插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
-* DAPP对接-ONTID认证授权(暂不支持)
-
+参考钱包下载链接： http://101.132.193.149/files/app-debug.apk
 
 ## 场景1和2： 唤醒、扫码场景
 

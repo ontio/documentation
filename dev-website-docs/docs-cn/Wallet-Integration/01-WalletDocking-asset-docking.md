@@ -1,0 +1,39 @@
+<h1 align="center">SDK接入</h1>
+<p align="center" class="version">Version 0.8.0 </p>
+
+## 概述
+钱包App集成ONT的SDK，配合公开的浏览器接口后就能实现数字资产操作，账号管理等功能。
+
+![接入说明](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/sdk.png)
+
+## SDK
+本体软件开发工具包 (SDK) 是应用程序与本体网络之间交互的桥梁。根据一套通用的本体软件开发工具包开发规范，我们提供了多语言的软件开发工具包，以满足不同开发者的需求。
+
+SDK可以提供的功能如下：
+-  与链交互
+-  账号
+-  数字资产
+-  数字身份
+-  节点质押
+
+各种语言的SDK的安装说明和使用说明请参考各语言SDK的文档如下
+
+- [Go SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/01-go-sdk)
+- [Java SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/02-java-sdk)
+- [Python SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/03-python-sdk)
+- [TypeScript SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/04-ts-sdk)
+- [Php SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/05-php-sdk)
+- [Swift SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/06-swift-sdk)
+- [Android SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/07-android-sdk)
+- [Object C SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/08-object-c-sdk)
+
+## 浏览器公开接口
+
+浏览器接口是我们提供给开发者，机构，交易所等进行链上信息的公开查询接口。
+
+浏览器接口目前支持以下方面的查询功能：
+- [区块](http://dev-docs.ont.io/#/docs-cn/explorer/blocks)
+- [账户](http://dev-docs.ont.io/#/docs-cn/explorer/accounts)
+- [交易](http://dev-docs.ont.io/#/docs-cn/explorer/transactions)
+- [ONTID](http://dev-docs.ont.io/#/docs-cn/explorer/ontid)
+- [统计](http://dev-docs.ont.io/#/docs-cn/explorer/statistics)
