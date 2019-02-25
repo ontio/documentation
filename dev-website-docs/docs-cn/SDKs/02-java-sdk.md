@@ -669,11 +669,13 @@ public class MakeTxDemo {
 3. 签名机完成交易的检查后，添加签名并发送交易。
 
 <section class = "warning">
-在使用签名机之前，请确保已经以以下任意一种方式启动了签名机服务。
-<ul>
-    <li><pre v-pre="" data-lang="shell"><code class="lang-shell">go run .\sigsvr.go</code></pre></li>
-    <li><pre v-pre="" data-lang="shell"><code class="lang-shell">.\sigsvr</code></pre></li>
-</ul>
+在使用签名机之前，请确保已经启动了签名机服务。
+  <ul>
+    <li>运行 go 程序。</li>
+    <pre v-pre="" data-lang="shell"><code class="lang-shell">go run .\sigsvr.go</code></pre>
+    <li>运行编译后的二进制应用程序。</li>
+    <pre v-pre="" data-lang="shell"><code class="lang-shell">.\sigsvr</code></pre>
+  </ul>
 </section>
 
 ```java
@@ -722,31 +724,30 @@ ontSdk.getSignServer().sendSigTransferTx("ont","TU5exRFVqjRi5wnMVzNoWKBq9WFncLXE
 
 ```
 
-
 ## 网络
 
-| 接口                                                   | 描述                 |
-| :----------------------------------------------------- | :------------------- |
-| ontSdk.getConnect().getNodeCount()                     | 查询节点数量         |
-| ontSdk.getConnect().getBlock(15)                       | 查询块               |
-| ontSdk.getConnect().getBlockJson(15)                   | 查询块               |
-| ontSdk.getConnect().getBlockJson("txhash")             | 查询块               |
-| ontSdk.getConnect().getBlock("txhash")                 | 查询块               |
-| ontSdk.getConnect().getBlockHeight()                   | 查询当前块高         |
-| ontSdk.getConnect().getTransaction("txhash")           | 查询交易             |
-| ontSdk.getConnect().getStorage("contractaddress", key) | 查询智能合约存储     |
-| ontSdk.getConnect().getBalance("address")              | 查询余额             |
-| ontSdk.getConnect().getContractJson("contractaddress") | 查询智能合约         |
-| ontSdk.getConnect().getSmartCodeEvent(59)              | 查询智能合约事件     |
-| ontSdk.getConnect().getSmartCodeEvent("txhash")        | 查询智能合约事件     |
-| ontSdk.getConnect().getBlockHeightByTxHash("txhash")   | 查询交易所在高度     |
-| ontSdk.getConnect().getMerkleProof("txhash")           | 查询 Merkle 证明     |
-| ontSdk.getConnect().sendRawTransaction("txhexString")  | 发送交易             |
-| ontSdk.getConnect().sendRawTransaction(Transaction)    | 发送交易             |
-| ontSdk.getConnect().sendRawTransactionPreExec()        | 发送预执行交易       |
-| ontSdk.getConnect().getAllowance("ont","from","to")    | 查询允许使用值       |
-| ontSdk.getConnect().getMemPoolTxCount()                | 查询交易池中交易总量 |
-| ontSdk.getConnect().getMemPoolTxState()                | 查询交易池中交易状态 |
+| 接口                                                | 描述                 |
+| :-------------------------------------------------- | :------------------- |
+| ontSdk.getConnect().getNodeCount()                  | 查询节点数量         |
+| ontSdk.getConnect().getBlock()                      | 查询块               |
+| ontSdk.getConnect().getBlockJson()                  | 查询块               |
+| ontSdk.getConnect().getBlockJson()                  | 查询块               |
+| ontSdk.getConnect().getBlock()                      | 查询块               |
+| ontSdk.getConnect().getBlockHeight()                | 查询当前块高         |
+| ontSdk.getConnect().getTransaction()                | 查询交易             |
+| ontSdk.getConnect().getStorage()                    | 查询智能合约存储     |
+| ontSdk.getConnect().getBalance()                    | 查询余额             |
+| ontSdk.getConnect().getContractJson()               | 查询智能合约         |
+| ontSdk.getConnect().getSmartCodeEvent()             | 查询智能合约事件     |
+| ontSdk.getConnect().getSmartCodeEvent()             | 查询智能合约事件     |
+| ontSdk.getConnect().getBlockHeightByTxHash()        | 查询交易所在高度     |
+| ontSdk.getConnect().getMerkleProof()        | 查询 Merkle 证明     |
+| ontSdk.getConnect().sendRawTransaction()            | 发送交易             |
+| ontSdk.getConnect().sendRawTransaction()            | 发送交易             |
+| ontSdk.getConnect().sendRawTransactionPreExec()     | 发送预执行交易       |
+| ontSdk.getConnect().getAllowance() | 查询允许使用值       |
+| ontSdk.getConnect().getMemPoolTxCount()             | 查询交易池中交易总量 |
+| ontSdk.getConnect().getMemPoolTxState()             | 查询交易池中交易状态 |
 
 ### 查询交易池
 
