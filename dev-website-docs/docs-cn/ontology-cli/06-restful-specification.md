@@ -47,7 +47,7 @@ ontology --rest --restport 1024
 
 ## 接口定义
 
-本体客户端的 Restful 接口规范如下：
+本体客户端的 Restful 接口定义如下：
 
 - 默认接口监听端口号：`20334`
 
