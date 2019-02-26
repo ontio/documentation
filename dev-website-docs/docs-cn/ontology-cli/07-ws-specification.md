@@ -87,6 +87,8 @@
 
 ## heartbeat
 
+#### 调用示例
+
 - 请求：
 
 ```json
@@ -119,6 +121,8 @@
 ## subscribe
 
 `subscribe` 接口用于订阅消息推送服务。
+
+#### 调用示例
 
 - 请求：
 
@@ -153,9 +157,11 @@
 }
 ```
 
-## getconnectioncount
+### getconnectioncount
 
 得到当前连接的节点数量。
+
+#### 调用示例
 
 - 请求：
 
@@ -179,9 +185,11 @@
 }
 ```
 
-## getblocktxsbyheight
+### getblocktxsbyheight
 
 返回对应高度的区块中落账的所有交易哈希。
+
+#### 调用示例
 
 - 请求：
 
@@ -212,16 +220,11 @@
 }
 ```
 
-## getblockbyheight
+### getblockbyheight
 
 得到该高度的区块的详细信息。
 
-<section class="warning"><code>raw</code> 为可选参数，默认为 <code>0</code>。
-  <ul>
-    <li>当 <code>raw</code> 为 <code>1</code> 时，接口返回以十六进制字符串表示的序列化区块信息。</li>
-    <li>当 <code>raw</code> 为 <code>0</code> 时，接口返回以 <code>JSON</code> 格式表示的区块详细信息.</li>
-  </ul>
-</section>
+#### 调用示例
 
 - 请求：
 
@@ -234,6 +237,13 @@
     "Height": 100
 }
 ```
+
+<section class="warning"><code>raw</code> 为可选参数，默认为 <code>0</code>。
+  <ul>
+    <li>当 <code>raw</code> 为 <code>1</code> 时，接口返回以十六进制字符串表示的序列化区块信息。</li>
+    <li>当 <code>raw</code> 为 <code>0</code> 时，接口返回以 <code>JSON</code> 格式表示的区块详细信息.</li>
+  </ul>
+</section>
 
 - 响应：
 
@@ -291,16 +301,11 @@
 }
 ```
 
-## getblockbyhash
+### getblockbyhash
 
 通过区块哈希得到区块信息。
 
-<section class="warning"><code>raw</code> 为可选参数，默认为 <code>0</code>。
-  <ul>
-    <li>当 <code>raw</code> 为 <code>1</code> 时，接口返回以十六进制字符串表示的序列化区块信息。</li>
-    <li>当 <code>raw</code> 为 <code>0</code> 时，接口返回以 <code>JSON</code> 格式表示的区块详细信息.</li>
-  </ul>
-</section>
+#### 调用示例
 
 - 请求：
 
@@ -314,7 +319,14 @@
 }
 ```
 
-响应：
+<section class="warning"><code>raw</code> 为可选参数，默认为 <code>0</code>。
+  <ul>
+    <li>当 <code>raw</code> 为 <code>1</code> 时，接口返回以十六进制字符串表示的序列化区块信息。</li>
+    <li>当 <code>raw</code> 为 <code>0</code> 时，接口返回以 <code>JSON</code> 格式表示的区块详细信息.</li>
+  </ul>
+</section>
+
+- 响应：
 
 ```json
 {
@@ -370,9 +382,11 @@
 }
 ```
 
-## getblockheight
+### getblockheight
 
 得到当前网络上的区块高度。
+
+#### 调用示例
 
 - 请求：
 
@@ -396,9 +410,11 @@
 }
 ```
 
-## getblockhash
+### getblockhash
 
 根据高度得到对应区块的哈希。
+
+#### 调用示例
 
 - 请求：
 
@@ -423,16 +439,11 @@
 }
 ```
 
-## gettransaction
+### gettransaction
 
 通过交易哈希得到该交易的信息。
 
-<section class="warning"><code>raw</code> 为可选参数，默认为 <code>0</code>。
-  <ul>
-    <li>当 <code>raw</code> 为 <code>1</code> 时，接口返回以十六进制字符串表示的序列化交易信息。</li>
-    <li>当 <code>raw</code> 为 <code>0</code> 时，接口返回以 <code>JSON</code> 格式表示的交易详细信息.</li>
-  </ul>
-</section>
+#### 调用示例
 
 - 请求：
 
@@ -445,6 +456,13 @@
     "Raw": "0"
 }
 ```
+
+<section class="warning"><code>raw</code> 为可选参数，默认为 <code>0</code>。
+  <ul>
+    <li>当 <code>raw</code> 为 <code>1</code> 时，接口返回以十六进制字符串表示的序列化交易信息。</li>
+    <li>当 <code>raw</code> 为 <code>0</code> 时，接口返回以 <code>JSON</code> 格式表示的交易详细信息.</li>
+  </ul>
+</section>
 
 - 响应：
 
@@ -488,6 +506,8 @@
 
 如果 `preExec=1`，则交易为预执行。
 
+#### 调用示例
+
 - 请求：
 
 ```json
@@ -514,9 +534,11 @@
 
 <p class="info">在交易成功的情况下，响应中 <code>Result</code> 字段对应的值为交易哈希。</p>
 
-## getstorage
+### getstorage
 
 通过合约地址哈希和键得到对应的值。
+
+#### 调用示例
 
 - 请求：
 
@@ -594,9 +616,11 @@ public class NetworkDemo {
 }
 ```
 
-## getbalance
+### getbalance
 
 得到该地址的账户的余额。
+
+#### 调用示例
 
 - 请求：
 
@@ -624,9 +648,11 @@ public class NetworkDemo {
 }
 ```
 
-## getcontract
+### getcontract
 
 根据合约地址哈希得到合约信息。
+
+#### 调用示例
 
 - 请求：
 
@@ -659,9 +685,11 @@ public class NetworkDemo {
 }
 ```
 
-## getsmartcodeeventbyheight
+### getsmartcodeeventbyheight
 
 得到该高度区块上的智能合约执行结果。
+
+#### 调用示例
 
 - 请求：
 
@@ -721,9 +749,11 @@ public class NetworkDemo {
 
 <p class="info">返回的结果是交易简略信息的集合，并不是完整的交易信息。</p>
 
-## getsmartcodeeventbyhash
+### getsmartcodeeventbyhash
 
 通过交易哈希得到该交易的执行结果。
+
+#### 调用示例
 
 - 请求：
 
@@ -763,9 +793,11 @@ public class NetworkDemo {
 }
 ```
 
-## getblockheightbytxhash
+### getblockheightbytxhash
 
 通过交易哈希得到该交易落账的区块高度。
+
+#### 调用示例
 
 - 请求：
 
@@ -790,10 +822,11 @@ public class NetworkDemo {
 }
 ```
 
-
-## getmerkleproof
+### getmerkleproof
 
 通过交易哈希得到该交易的 merkle 证明。
+
+#### 调用示例
 
 - 请求：
 
@@ -840,9 +873,11 @@ public class NetworkDemo {
 }
 ```
 
-## getsessioncount
+### getsessioncount
 
 得到会话数量。
+
+#### 调用示例
 
 - 请求：
 
@@ -866,9 +901,11 @@ public class NetworkDemo {
 }
 ```
 
-## getgasprice
+### getgasprice
 
 得到 GAS 的价格。
+
+#### 调用示例
 
 - 请求：
 
@@ -895,9 +932,11 @@ public class NetworkDemo {
 }
 ```
 
-## getallowance
+### getallowance
 
 得到允许从 from 账户转出到 to 账户的额度。
+
+#### 调用示例
 
 - 请求：
 
@@ -924,9 +963,11 @@ public class NetworkDemo {
 }
 ```
 
-## getunboundong
+### getunboundong
 
 得到该账户未提取的 ONG 数量。
+
+#### 调用示例
 
 - 请求：
 
@@ -951,9 +992,11 @@ public class NetworkDemo {
 }
 ```
 
-## getmempooltxstate
+### getmempooltxstate
 
 通过交易哈希得到内存中该交易的状态。
+
+#### 调用示例
 
 - 请求：
 
@@ -988,9 +1031,11 @@ public class NetworkDemo {
 }
 ```
 
-## getmempooltxcount
+### getmempooltxcount
 
 得到内存中的交易的数量。
+
+#### 调用示例
 
 - 请求：
 
@@ -1014,9 +1059,11 @@ public class NetworkDemo {
 }
 ```
 
-## getversion
+### getversion
 
 得到版本信息。
+
+#### 调用示例
 
 - 请求：
 
@@ -1040,9 +1087,11 @@ public class NetworkDemo {
 }
 ```
 
-## getnetworkid
+### getnetworkid
 
 获取 network id
+
+#### 调用示例
 
 - 请求：
 
@@ -1066,9 +1115,11 @@ public class NetworkDemo {
 }
 ```
 
-## getgrantong
+### getgrantong
 
 获取 grant ong
+
+#### 调用示例
 
 - 请求：
 
