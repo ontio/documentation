@@ -120,10 +120,12 @@ ontology --disable-rpc
 
 ## getblock
 
-根据区块哈希或区块高度查询区块信息。
+`getblock` 接口用于根据区块哈希或区块高度查询区块信息。
 
 - `block_hash` / `block_height`：区块哈希/高度。
 - `verbose`：当值为 0 时，返回以十六进制字符串表示序列化后的区块信息。当值为1时，将以 json 格式返回对应区块的详细信息。
+
+`getblock` 接口的请求与响应如下所示。
 
 - 请求：
 
