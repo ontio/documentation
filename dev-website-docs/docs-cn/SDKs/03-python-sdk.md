@@ -3,11 +3,11 @@
 
 本体团队的官方 Python SDK 基于 Python 3.6 实现。目前，它支持钱包文件管理、数字身份管理、数字资产管理、智能合约的部署和调用、以及与本体区块链网络的通信。
 
-## 准备
+## 快速开始
 
 安装需要 `Python 3.6` 或更高版本的环境。
 
-```bash
+```shell
 pip install ontology-python-sdk
 ```
 
