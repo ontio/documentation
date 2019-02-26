@@ -1,10 +1,11 @@
-- ONTID
+- ONT ID
   - [概述](docs-cn/ontid/overview.md)
   - [开始使用](docs-cn/ontid/get_started.md)
-- ONT PASS
+  - [托管接口说明](docs-cn/ontid/ontid-manage.md)
+- ONTPASS
   - [概述](docs-cn/ontpass/overview.md)
-  - [开始使用](docs-cn/ontpass/ontpass-auth.md)
-  - [全球身份认证接入](docs-cn/ontpass/ONTTA.md)
+  - [技术接口说明](docs-cn/ontpass/specification.md)
+  - [KYC接口说明](docs-cn/ontpass/ontid-kyc-h5.md)
 - 分布式数据交易框架DDXF
   - [概述](docs-cn/ddxf/overview.md)
   - [开始使用](docs-cn/ddxf/get_started.md)
