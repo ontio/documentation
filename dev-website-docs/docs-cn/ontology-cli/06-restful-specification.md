@@ -81,7 +81,7 @@ ontology --rest --restport 1024
 | 45001 | int64 | 内部错误         |
 | 47001 | int64 | 智能合约执行错误 |
 
-### get_conn_count
+## getconn_count
 
 获取当前连接的节点数量。
 
@@ -109,7 +109,7 @@ curl -i http://server:port/api/v1/node/connectioncount
 }
 ```
 
-### get_blk_txs_by_height
+## getblk_txs_by_height
 
 获取该高度的区块的所有交易哈希。
 
@@ -143,7 +143,7 @@ curl -i http://server:port/api/v1/block/transactions/height/100
 }
 ```
 
-### get_blk_by_height
+## getblk_by_height
 
 得到该高度的详细的区块信息。
 
@@ -222,7 +222,7 @@ curl -i http://server:port/api/v1/block/details/height/22
 }
 ```
 
-### get_blk_by_hash
+## getblk_by_hash
 
 通过区块哈希得到区块信息。
 
@@ -301,7 +301,7 @@ curl -i http://server:port/api/v1/block/details/hash/ea5e5219d2f1591f4feef89885c
 }
 ```
 
-### get_blk_height
+## getblk_height
 
 得到当前网络上的区块高度。
 
@@ -329,7 +329,7 @@ curl -i http://server:port/api/v1/block/height
 }
 ```
 
-### get_blk_hash
+## getblk_hash
 
 查询指定高度的区块哈希。
 
@@ -357,7 +357,7 @@ curl -i http://server:port/api/v1/block/hash/100
 }
 ```
 
-### get_tx
+## gettx
 
 通过交易哈希得到该交易的信息。
 
@@ -411,7 +411,7 @@ curl -i http://server:port/api/v1/transaction/5623dbd283a99ff1cd78068cba474a22be
 }
 ```
 
-### get_storage
+## getstorage
 
 通过合约地址哈希和键得到对应的值。
 
@@ -491,7 +491,7 @@ public class NetworkDemo {
 }
 ```
 
-### get_balance
+## getbalance
 
 得到该地址的账户的余额。
 
@@ -527,7 +527,7 @@ curl -i http://localhost:20334/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kPqJzGZWq
 }
 ```
 
-### get_contract_state
+## getcontract_state
 
 根据合约地址哈希得到合约信息。
 
@@ -565,7 +565,7 @@ curl -i http://server:port/api/v1/contract/0100000000000000000000000000000000000
 }
 ```
 
-### get_sc_event_by_height
+## getsc_event_by_height
 
 得到该高度区块上的智能合约执行结果。
 
@@ -630,7 +630,7 @@ curl -i http://localhost:20334/api/v1/smartcode/event/transactions/900
 
 <p class = "warning"> 返回的结果是交易简略信息的集合，并不是完整的交易信息。</p>
 
-### get_smtcode_evts
+## getsmtcode_evts
 
 通过交易哈希得到该交易的执行结果。
 
@@ -674,7 +674,7 @@ curl -i http://localhost:20334/api/v1/smartcode/event/txhash/20046da68ef6a91f695
 }
 ```
 
-### get_blk_hgt_by_txhash
+## getblk_hgt_by_txhash
 
 通过交易哈希得到该交易落账的区块高度。
 
@@ -702,7 +702,7 @@ curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d414125
 }
 ```
 
-### get_merkle_proof
+## getmerkle_proof
 
 通过交易哈希得到该交易的merkle证明。
 
@@ -752,7 +752,7 @@ curl -i http://localhost:20334/api/v1/merkleproof/3e23cf222a47739d4141255da617cd
 }
 ```
 
-### get_gasprice
+## getgasprice
 
 得到 GAS 的价格。
 
@@ -784,7 +784,7 @@ curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d414125
 }
 ```
 
-### get_allowance
+## getallowance
 
 得到允许从 from 账户转出到 to 账户的额度。
 
@@ -812,7 +812,7 @@ curl -i http://localhost:20334/api/v1/allowance/:asset/:from/:to
 }
 ```
 
-### get_unboundong
+## getunboundong
 
 得到该账户未提取的 ONG 数量。
 
@@ -841,7 +841,7 @@ curl -i http://localhost:20334/api/v1/unboundong/:addr
 }
 ```
 
-### get_mempooltxcount
+## getmempooltxcount
 
 得到内存中的交易的数量。
 
@@ -869,7 +869,7 @@ curl -i http://localhost:20334/api/v1/mempool/txcount
 }
 ```
 
-### get_mempooltxstate
+## getmempooltxstate
 
 通过交易哈希获取交易池（内存）中的交易的状态。
 
@@ -907,7 +907,7 @@ curl -i http://localhost:20334/api/v1/mempool/txstate/:hash
 }
 ```
 
-### get_version
+## getversion
 
 获取当前连接节点的版本信息。
 
@@ -980,7 +980,7 @@ Post Params:
 
 `Result`: 交易哈希
 
-### get_networkid
+## getnetworkid
 
 获取 network id.
 
@@ -1007,7 +1007,7 @@ curl -i http://localhost:20334/api/v1/networkid
 }
 ```
 
-### get_grantong
+## getgrantong
 
 获取 grant ong。
 
