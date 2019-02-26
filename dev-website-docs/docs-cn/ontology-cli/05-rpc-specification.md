@@ -91,9 +91,13 @@ ontology --disable-rpc
 | 45001 | int64 | 内部错误         |
 | 47001 | int64 | 智能合约执行错误 |
 
-## getbestblockhash
+## 接口规范
+
+#### getbestblockhash
 
 获取当前节点最高区块的哈希值。
+
+#### 调用示例
 
 - 请求：
 
@@ -118,14 +122,18 @@ ontology --disable-rpc
 }
 ```
 
-## getblock
+#### getblock
 
 `getblock` 接口用于根据区块哈希或区块高度查询区块信息。
+
+#### 参数说明
 
 - `block_hash` / `block_height`：区块哈希/高度。
 - `verbose`：当值为 0 时，返回以十六进制字符串表示序列化后的区块信息。当值为1时，将以 json 格式返回对应区块的详细信息。
 
 `getblock` 接口的请求与响应如下所示。
+
+#### 调用示例
 
 - 请求：
 
@@ -217,9 +225,11 @@ ontology --disable-rpc
 }
 ```
 
-## getblockcount
+#### getblockcount
 
 查询当前的区块数量。
+
+#### 参数说明
 
 - 请求：
 
@@ -244,11 +254,15 @@ ontology --disable-rpc
 }
 ```
 
-## getblockhash
+#### getblockhash
 
 返回对应高度的区块哈希。
 
+#### 参数说明
+
 `block_height`：区块高度
+
+#### 调用示例
 
 - 请求：
 
@@ -273,9 +287,11 @@ ontology --disable-rpc
 }
 ```
 
-## getconnectioncount
+#### getconnectioncount
 
 得到当前网络上连接的节点数。
+
+#### 调用示例
 
 - 请求：
 
@@ -300,12 +316,16 @@ ontology --disable-rpc
 }
 ```
 
-## getrawtransaction
+#### getrawtransaction
 
 通过交易哈希得到交易详情。
 
+#### 参数说明
+
 - `tx_hash`：交易哈希
 - `verbose`：当值为 0 时，返回以十六进制字符串表示的序列化交易信息；当值为 1 时，将以 json 格式返回对应的交易详细信息。
+
+#### 调用示例
 
 - 请求：
 
@@ -377,7 +397,7 @@ ontology --disable-rpc
 }
 ```
 
-## sendrawtransaction
+### sendrawtransaction
 
 向网络中发送交易。
 
@@ -413,7 +433,7 @@ ontology --disable-rpc
 
 <p class = "info"> 响应中 <code>result</code> 所对应的值为交易哈希。</p>
 
-## getstorage
+### getstorage
 
 获取合约存储中指定键值对应的值。
 
@@ -499,7 +519,7 @@ public class NetworkDemo {
 }
 ```
 
-## getversion
+### getversion
 
 获取当前连接节点的版本。
 
@@ -528,7 +548,7 @@ public class NetworkDemo {
 }
 ```
 
-## getcontractstate
+### getcontractstate
 
 根据合约地址获取合约信息。
 
@@ -570,7 +590,7 @@ public class NetworkDemo {
 }
 ```
 
-## getmempooltxcount
+### getmempooltxcount
 
 获取内存中的交易的数量。
 
@@ -599,7 +619,7 @@ public class NetworkDemo {
 }
 ```
 
-## getmempooltxstate
+### getmempooltxstate
 
 获取交易池（内存）中的交易的状态。
 
@@ -642,7 +662,7 @@ public class NetworkDemo {
 }
 ```
 
-## getsmartcodeevent
+### getsmartcodeevent
 
 获取智能合约的执行结果。
 
@@ -768,7 +788,7 @@ public class NetworkDemo {
 > - 如果是交易哈希，返回对应交易的执行结果。
 >
 
-## getblockheightbytxhash
+### getblockheightbytxhash
 
 得到该交易哈希所落账的区块的高度。
 
@@ -801,7 +821,7 @@ public class NetworkDemo {
 }
 ```
 
-## getbalance
+### getbalance
 
 返回 base58 地址的余额
 
@@ -837,7 +857,7 @@ public class NetworkDemo {
 }
 ```
 
-## getmerkleproof
+### getmerkleproof
 
 返回对应交易的 merkle 证明。
 
@@ -891,7 +911,7 @@ public class NetworkDemo {
 }
 ```
 
-## getgasprice
+### getgasprice
 
 返回 GAS 价格。
 
@@ -924,7 +944,7 @@ public class NetworkDemo {
 }
 ```
 
-## getallowance
+### getallowance
 
 返回允许从 from 转出到 to 账户的额度。
 
@@ -959,7 +979,7 @@ public class NetworkDemo {
 }
 ```
 
-## getunboundong
+### getunboundong
 
 返回可以提取的ong。
 
@@ -992,7 +1012,7 @@ public class NetworkDemo {
 }
 ```
 
-## getblocktxsbyheight
+### getblocktxsbyheight
 
 返回该高度对应的区块落账的所有交易的哈希。
 
@@ -1031,7 +1051,7 @@ public class NetworkDemo {
 }
 ```
 
-## getnetworkid
+### getnetworkid
 
 获取 network id。
 
@@ -1060,7 +1080,7 @@ public class NetworkDemo {
 }
 ```
 
-## getgrantong
+### getgrantong
 
 获取 grant ong.
 
