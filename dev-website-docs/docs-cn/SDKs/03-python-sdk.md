@@ -213,3 +213,32 @@ This is an API set that allows you to manage your multiple identity in an wallet
     <pre v-pre="" data-lang="shell"><code class="lang-shell">.\sigsvr</code></pre>
   </ul>
 </section>
+
+#### 连接签名机
+
+```python
+from ontology.ont_sdk import OntologySdk
+
+sdk = OntologySdk()
+sdk.service.sig_svr().connect_to_localhost()
+```
+
+#### 创建账户
+
+```python
+sig_svr.create_account('password')
+```
+
+#### 导出账户
+
+```python
+sig_svr.export_account()
+```
+
+#### 数据签名
+
+```python
+msg = '48656c6c6f2c20776f726c64'
+b58_address = 'Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT'
+sdk.service.sig_svr().sig_data(msg, b58_address, 'password')
+```
