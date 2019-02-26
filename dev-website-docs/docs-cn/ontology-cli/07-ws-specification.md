@@ -87,11 +87,7 @@
 
 ## heartbeat
 
-如果超过五分钟没有发送心跳信号，则连接关闭。
-
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -101,7 +97,7 @@
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -118,19 +114,20 @@
 }
 ```
 
+!> 如果超过五分钟没有发送心跳信号，则连接关闭。
+
 ## subscribe
-订阅某个服务。
 
-#### 调用示例
+`subscribe` 接口用于订阅消息推送服务。
 
-请求：
+- 请求：
 
 ```json
 {
     "Action": "subscribe",
     "Version": "1.0.0",
     "Id":12345, //optional
-    "ConstractsFilter":["constractAddress"], //optional
+    "ContractsFilter":["contractAddress"], //optional
     "SubscribeEvent":false, //optional
     "SubscribeJsonBlock":true, //optional
     "SubscribeRawBlock":false, //optional
@@ -138,7 +135,7 @@
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -146,24 +143,21 @@
     "Desc": "SUCCESS",
     "Error": 0,
     "Result": {
-        "ConstractsFilter":["constractAddress"],
+        "ContractsFilter":["contractAddress"],
         "SubscribeEvent":false,
         "SubscribeJsonBlock":true,
         "SubscribeRawBlock":false,
         "SubscribeBlockTxHashs":false
-    }
+    },
     "Version": "1.0.0"
 }
 ```
-
 
 ## getconnectioncount
 
 得到当前连接的节点数量。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -173,7 +167,7 @@
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -184,13 +178,12 @@
     "Version": "1.0.0"
 }
 ```
+
 ## getblocktxsbyheight
 
 返回对应高度的区块中落账的所有交易哈希。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -201,7 +194,7 @@
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -218,17 +211,19 @@
     "Version": "1.0.0"
 }
 ```
+
 ## getblockbyheight
 
 得到该高度的区块的详细信息。
 
-#### 参数说明
+<section class="warning"><code>raw</code> 为可选参数，默认为 <code>0</code>。
+  <ul>
+    <li>当 <code>raw</code> 为 <code>1</code> 时，接口返回以十六进制字符串表示的序列化区块信息。</li>
+    <li>当 <code>raw</code> 为 <code>0</code> 时，接口返回以 <code>JSON</code> 格式表示的区块详细信息.</li>
+  </ul>
+</section>
 
-`raw`：可选参数，不设置时为默认值 0。当值为1时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应区块的详细信息。
-
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -240,7 +235,7 @@
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -295,17 +290,19 @@
     "Version": "1.0.0"
 }
 ```
+
 ## getblockbyhash
 
 通过区块哈希得到区块信息。
 
-#### 参数说明
+<section class="warning"><code>raw</code> 为可选参数，默认为 <code>0</code>。
+  <ul>
+    <li>当 <code>raw</code> 为 <code>1</code> 时，接口返回以十六进制字符串表示的序列化区块信息。</li>
+    <li>当 <code>raw</code> 为 <code>0</code> 时，接口返回以 <code>JSON</code> 格式表示的区块详细信息.</li>
+  </ul>
+</section>
 
-`raw`：可选参数，不设置时为默认值 0。当值为 1 时，接口返回区块序列化后的信息，该信息以十六进制字符串表示。如果要得到区块的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应区块的详细信息。
-
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -377,9 +374,7 @@
 
 得到当前网络上的区块高度。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -389,7 +384,7 @@
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -405,9 +400,7 @@
 
 根据高度得到对应区块的哈希。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -418,7 +411,7 @@
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -434,13 +427,14 @@
 
 通过交易哈希得到该交易的信息。
 
-#### 参数说明
+<section class="warning"><code>raw</code> 为可选参数，默认为 <code>0</code>。
+  <ul>
+    <li>当 <code>raw</code> 为 <code>1</code> 时，接口返回以十六进制字符串表示的序列化交易信息。</li>
+    <li>当 <code>raw</code> 为 <code>0</code> 时，接口返回以 <code>JSON</code> 格式表示的交易详细信息.</li>
+  </ul>
+</section>
 
-`raw`：可选参数，不设置时为默认值 0。当值为 1 时，接口返回交易序列化后的信息，该信息以十六进制字符串表示。如果要得到交易的具体信息，需要调用 SDK 中的方法对该字符串进行反序列化。当值为 0 时，将以 json 格式返回对应交易的详细信息。
-
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -451,7 +445,8 @@
     "Raw": "0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -493,9 +488,7 @@
 
 如果 `preExec=1`，则交易为预执行。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -506,9 +499,8 @@
     "Data":"80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
 }
 ```
-可以使用 `ontology-go-sdk` 生成十六进制数据，参考 [示例](rpc_api_CN.md#8-sendrawtransaction)。
 
-响应：
+- 响应：
 
 ```json
 {
@@ -519,23 +511,14 @@
     "Version": "1.0.0"
 }
 ```
-`Result`: 交易哈希
+
+<p class="info">在交易成功的情况下，响应中 <code>Result</code> 字段对应的值为交易哈希。</p>
 
 ## getstorage
 
 通过合约地址哈希和键得到对应的值。
 
-合约地址哈希的生成方式如下：
-
-```
-    addr := types.AddressFromVmCode([]byte{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04})
-    fmt.Println(addr.ToHexString())
-```
-
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -546,7 +529,8 @@
     "Key" : "4587c1094f6"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -614,9 +598,7 @@ public class NetworkDemo {
 
 得到该地址的账户的余额。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -627,7 +609,7 @@ public class NetworkDemo {
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -641,13 +623,12 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
+
 ## getcontract
 
 根据合约地址哈希得到合约信息。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -658,7 +639,7 @@ public class NetworkDemo {
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -682,9 +663,7 @@ public class NetworkDemo {
 
 得到该高度区块上的智能合约执行结果。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -695,7 +674,7 @@ public class NetworkDemo {
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -739,17 +718,14 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-> **注意**： 
->
-> 返回的结果是交易简略信息的集合，并不是完整的交易信息。
+
+<p class="info">返回的结果是交易简略信息的集合，并不是完整的交易信息。</p>
 
 ## getsmartcodeeventbyhash
 
 通过交易哈希得到该交易的执行结果。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -759,7 +735,8 @@ public class NetworkDemo {
     "Hash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -785,13 +762,12 @@ public class NetworkDemo {
     }
 }
 ```
+
 ## getblockheightbytxhash
 
 通过交易哈希得到该交易落账的区块高度。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -801,7 +777,8 @@ public class NetworkDemo {
     "Hash": "3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -818,9 +795,7 @@ public class NetworkDemo {
 
 通过交易哈希得到该交易的 merkle 证明。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -831,7 +806,8 @@ public class NetworkDemo {
 }
 
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -868,9 +844,7 @@ public class NetworkDemo {
 
 得到会话数量。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -879,7 +853,8 @@ public class NetworkDemo {
     "Id":12345, //optional
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -895,9 +870,7 @@ public class NetworkDemo {
 
 得到 GAS 的价格。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -906,7 +879,8 @@ public class NetworkDemo {
     "Id":12345, //optional
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -925,9 +899,7 @@ public class NetworkDemo {
 
 得到允许从 from 账户转出到 to 账户的额度。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -939,7 +911,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -955,9 +928,7 @@ public class NetworkDemo {
 
 得到该账户未提取的 ONG 数量。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -967,7 +938,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -983,9 +955,7 @@ public class NetworkDemo {
 
 通过交易哈希得到内存中该交易的状态。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -995,7 +965,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -1021,9 +992,7 @@ public class NetworkDemo {
 
 得到内存中的交易的数量。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -1032,7 +1001,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -1044,14 +1014,11 @@ public class NetworkDemo {
 }
 ```
 
-
 ## getversion
 
 得到版本信息。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -1060,7 +1027,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -1076,9 +1044,7 @@ public class NetworkDemo {
 
 获取 network id
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -1087,7 +1053,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -1103,9 +1070,7 @@ public class NetworkDemo {
 
 获取 grant ong
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -1115,7 +1080,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {

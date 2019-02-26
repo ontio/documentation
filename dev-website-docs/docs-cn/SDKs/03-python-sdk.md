@@ -3,11 +3,11 @@
 
 本体团队的官方 Python SDK 基于 Python 3.6 实现。目前，它支持钱包文件管理、数字身份管理、数字资产管理、智能合约的部署和调用、以及与本体区块链网络的通信。
 
-## 准备
+## 快速开始
 
 安装需要 `Python 3.6` 或更高版本的环境。
 
-```bash
+```shell
 pip install ontology-python-sdk
 ```
 
@@ -195,3 +195,50 @@ This is an API set that allows you to manage your multiple identity in an wallet
 |   1   | get_random_hex_str() |
 |   2   | get_asset_address()  |
 |   3   | get_random_bytes()   |
+
+### 签名机
+
+在使用签名机对交易进行签名时，其流程如下。
+
+1. SDK 构造交易，将序列化后的交易发送给签名机。
+2. 签名机收到交易，将交易反序列化。
+3. 签名机完成交易的检查后，添加签名并发送交易。
+
+<section class = "warning">
+在使用签名机之前，请确保已经启动了签名机服务。
+  <ul>
+    <li>运行 go 程序。</li>
+    <pre v-pre="" data-lang="shell"><code class="lang-shell">go run .\sigsvr.go</code></pre>
+    <li>运行编译后的二进制应用程序。</li>
+    <pre v-pre="" data-lang="shell"><code class="lang-shell">.\sigsvr</code></pre>
+  </ul>
+</section>
+
+#### 连接签名机
+
+```python
+from ontology.ont_sdk import OntologySdk
+
+sdk = OntologySdk()
+sdk.service.sig_svr().connect_to_localhost()
+```
+
+#### 创建账户
+
+```python
+sig_svr.create_account('password')
+```
+
+#### 导出账户
+
+```python
+sig_svr.export_account()
+```
+
+#### 数据签名
+
+```python
+msg = '48656c6c6f2c20776f726c64'
+b58_address = 'Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT'
+sdk.service.sig_svr().sig_data(msg, b58_address, 'password')
+```
