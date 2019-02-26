@@ -197,6 +197,10 @@ DApp中的登录可以有两种实现：
 1. 直接通过dapi获取用户的账户地址或身份（ONT ID），如果有则认为已登录dApp。
 2. dapp后台生成一个字符串，发送给前端，前端调用dapi对该字符串签名，并返回给后端，后端验证通过后，可以认为登录成功，接下来后台可以给用户颁发session，或者颁发access token，这取决于dapp自己业务逻辑。
 
+> ##### 后台签名验证的方法，可以参考以下示例
+> * [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
+> * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
+
 #### 3.1 获取账号或身份信息
 
 获取账号或身份信息，移动端可以可以选择填dapp信息也可以不填写。
