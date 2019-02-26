@@ -195,3 +195,21 @@ This is an API set that allows you to manage your multiple identity in an wallet
 |   1   | get_random_hex_str() |
 |   2   | get_asset_address()  |
 |   3   | get_random_bytes()   |
+
+### 签名机
+
+在使用签名机对交易进行签名时，其流程如下。
+
+1. SDK 构造交易，将序列化后的交易发送给签名机。
+2. 签名机收到交易，将交易反序列化。
+3. 签名机完成交易的检查后，添加签名并发送交易。
+
+<section class = "warning">
+在使用签名机之前，请确保已经启动了签名机服务。
+  <ul>
+    <li>运行 go 程序。</li>
+    <pre v-pre="" data-lang="shell"><code class="lang-shell">go run .\sigsvr.go</code></pre>
+    <li>运行编译后的二进制应用程序。</li>
+    <pre v-pre="" data-lang="shell"><code class="lang-shell">.\sigsvr</code></pre>
+  </ul>
+</section>
