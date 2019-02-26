@@ -91,13 +91,13 @@ GET /api/v1/node/connectioncount
 
 #### 调用示例
 
-- 请求：
+请求：
 
 ```shell
 curl -i http://server:port/api/v1/node/connectioncount
 ```
 
-- 响应：
+响应：
 
 ```json
 {
@@ -119,13 +119,13 @@ GET /api/v1/block/transactions/height/:height
 
 #### 调用示例
 
-- 请求：
+请求：
 
 ```shell
 curl -i http://server:port/api/v1/block/transactions/height/100
 ```
 
-- 响应：
+响应：
 
 ```json
 {
@@ -160,13 +160,13 @@ GET /api/v1/block/details/height/:height?raw=1
 
 #### 调用示例
 
-- 请求：
+请求：
 
 ```shell
 curl -i http://server:port/api/v1/block/details/height/22
 ```
 
-- 响应：
+响应：
 
 ```json
 {
@@ -239,13 +239,13 @@ GET /api/v1/block/details/hash/:hash?raw=0
 
 #### 调用示例
 
-- 请求：
+请求：
 
 ```shell
 curl -i http://server:port/api/v1/block/details/hash/ea5e5219d2f1591f4feef89885c3f38c83d3a3474a5622cf8cd3de1b93849603
 ```
 
-- 响应：
+响应：
 
 ```json
 {
@@ -311,13 +311,13 @@ GET /api/v1/block/height
 
 #### 调用示例
 
-- 请求：
+请求：
 
 ```shell
 curl -i http://server:port/api/v1/block/height
 ```
 
-- 响应：
+响应：
 
 ```json
 {
@@ -339,13 +339,13 @@ GET /api/v1/block/hash/:height
 
 #### 调用示例
 
-- 请求：
+请求：
 
 ```shell
 curl -i http://server:port/api/v1/block/hash/100
 ```
 
-- 响应：
+响应：
 
 ```json
 {
@@ -369,13 +369,13 @@ GET /api/v1/transaction/:hash?raw=0
 > - 当值为 1 时，接口返回以十六进制字符串表示的序列化交易信息。
 > - 当值为 0 时，接口返回以 `JSON` 格式表示的交易详细信息。
 
-- 请求：
+请求：
 
 ```shell
 curl -i http://server:port/api/v1/transaction/5623dbd283a99ff1cd78068cba474a22bed97fceba4a56a9d38ab0fbc178c4ab
 ```
 
-- 响应：
+响应：
 
 ```json
 {
@@ -879,13 +879,13 @@ GET /api/v1/mempool/txstate/:hash
 
 #### 调用示例
 
-- 请求：
+请求：
 
 ```shell
 curl -i http://localhost:20334/api/v1/mempool/txstate/:hash
 ```
 
-- 响应：
+响应：
 
 ```json
 {
@@ -991,13 +991,13 @@ GET
 
 #### 调用示例
 
-- 请求：
+请求：
 
 ```json
 curl -i http://localhost:20334/api/v1/networkid
 ```
 
-- 响应：
+响应：
 
 ```json
 {
@@ -1020,13 +1020,13 @@ GET
 
 #### 调用示例
 
-- 请求：
+请求：
 
 ```json
 curl -i http://localhost:20334/api/v1/grantong/AKDFapcoUhewN9Kaj6XhHusurfHzUiZqUA
 ```
 
-- 响应：
+响应：
 
 ```json
 {
