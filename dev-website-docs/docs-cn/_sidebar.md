@@ -59,8 +59,8 @@
 - DAPP接入指导
   - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [Cyano Bridge安装和使用](docs-cn/dApp-Integration/04-DAppDocking-Cyano-Bridge.md)
-  - [手机钱包内打开接入](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
-  - [手机钱包扫码接入](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
+      - [手机钱包内打开接入](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
+      - [手机钱包扫码接入](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
   - [chrome插件钱包接入](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
 
 - 钱包接入指导
