@@ -81,13 +81,15 @@ ontology --rest --restport 1024
 | 45001 | int64 | 内部错误         |
 | 47001 | int64 | 智能合约执行错误 |
 
-## get_conn_count
+### get_conn_count
 
 获取当前连接的节点数量。
 
 ```shell
 GET /api/v1/node/connectioncount
 ```
+
+#### 调用示例
 
 - 请求：
 
@@ -107,13 +109,15 @@ curl -i http://server:port/api/v1/node/connectioncount
 }
 ```
 
-## get_blk_txs_by_height
+### get_blk_txs_by_height
 
 获取该高度的区块的所有交易哈希。
 
 ```shell
 GET /api/v1/block/transactions/height/:height
 ```
+
+#### 调用示例
 
 - 请求：
 
@@ -139,7 +143,7 @@ curl -i http://server:port/api/v1/block/transactions/height/100
 }
 ```
 
-## get_blk_by_height
+### get_blk_by_height
 
 得到该高度的详细的区块信息。
 
@@ -147,9 +151,14 @@ curl -i http://server:port/api/v1/block/transactions/height/100
 GET /api/v1/block/details/height/:height?raw=1
 ```
 
-> `raw` 为可选参数，默认为 `0`。
-> - 当值为 1 时，接口返回以十六进制字符串表示的序列化区块信息。
-> - 当值为 0 时，接口返回以 `JSON` 格式表示的区块详细信息。
+#### 参数说明
+
+`raw` 为可选参数，默认为 `0`。
+
+- 当值为 1 时，接口返回以十六进制字符串表示的序列化区块信息。
+- 当值为 0 时，接口返回以 `JSON` 格式表示的区块详细信息。
+
+#### 调用示例
 
 - 请求：
 
@@ -213,7 +222,7 @@ curl -i http://server:port/api/v1/block/details/height/22
 }
 ```
 
-## get_blk_by_hash
+### get_blk_by_hash
 
 通过区块哈希得到区块信息。
 
@@ -221,9 +230,14 @@ curl -i http://server:port/api/v1/block/details/height/22
 GET /api/v1/block/details/hash/:hash?raw=0
 ```
 
-> `raw` 为可选参数，默认为 `0`。
-> - 当值为 1 时，接口返回以十六进制字符串表示的序列化区块信息。
-> - 当值为 0 时，接口返回以 `JSON` 格式表示的区块详细信息。
+#### 参数说明
+
+`raw` 为可选参数，默认为 `0`。
+
+- 当值为 1 时，接口返回以十六进制字符串表示的序列化区块信息。
+- 当值为 0 时，接口返回以 `JSON` 格式表示的区块详细信息。
+
+#### 调用示例
 
 - 请求：
 
@@ -287,13 +301,15 @@ curl -i http://server:port/api/v1/block/details/hash/ea5e5219d2f1591f4feef89885c
 }
 ```
 
-## get_blk_height
+### get_blk_height
 
 得到当前网络上的区块高度。
 
 ```shell
 GET /api/v1/block/height
 ```
+
+#### 调用示例
 
 - 请求：
 
@@ -313,13 +329,15 @@ curl -i http://server:port/api/v1/block/height
 }
 ```
 
-## get_blk_hash
+### get_blk_hash
 
 查询指定高度的区块哈希。
 
 ```shell
 GET /api/v1/block/hash/:height
 ```
+
+#### 调用示例
 
 - 请求：
 
@@ -339,7 +357,7 @@ curl -i http://server:port/api/v1/block/hash/100
 }
 ```
 
-## get_tx
+### get_tx
 
 通过交易哈希得到该交易的信息。
 
@@ -393,15 +411,15 @@ curl -i http://server:port/api/v1/transaction/5623dbd283a99ff1cd78068cba474a22be
 }
 ```
 
-## get_storage
+### get_storage
 
 通过合约地址哈希和键得到对应的值。
-
 
 GET
 ```
 /api/v1/storage/:hash/:key
 ```
+
 #### 调用示例
 
 请求：
@@ -473,7 +491,7 @@ public class NetworkDemo {
 }
 ```
 
-## get_balance
+### get_balance
 
 得到该地址的账户的余额。
 
@@ -485,6 +503,7 @@ GET
 ```
 /api/v1/balance/:addr
 ```
+
 #### 调用示例
 
 请求：
@@ -507,7 +526,8 @@ curl -i http://localhost:20334/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kPqJzGZWq
     "Version": "1.0.0"
 }
 ```
-## get_contract_state
+
+### get_contract_state
 
 根据合约地址哈希得到合约信息。
 
@@ -545,7 +565,7 @@ curl -i http://server:port/api/v1/contract/0100000000000000000000000000000000000
 }
 ```
 
-## get_sc_event_by_height
+### get_sc_event_by_height
 
 得到该高度区块上的智能合约执行结果。
 
@@ -607,11 +627,10 @@ curl -i http://localhost:20334/api/v1/smartcode/event/transactions/900
     "Version": "1.0.0"
 }
 ```
-> **注意**: 
->
-> 返回的结果是交易简略信息的集合，并不是完整的交易信息。
 
-## get_smtcode_evts
+<p class = "warning"> 返回的结果是交易简略信息的集合，并不是完整的交易信息。</p>
+
+### get_smtcode_evts
 
 通过交易哈希得到该交易的执行结果。
 
@@ -619,6 +638,7 @@ GET
 ```
 /api/v1/smartcode/event/txhash/:hash
 ```
+
 #### 调用示例
 
 请求：
@@ -626,6 +646,7 @@ GET
 ```json
 curl -i http://localhost:20334/api/v1/smartcode/event/txhash/20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac
 ```
+
 响应：
 
 ```json
@@ -652,7 +673,8 @@ curl -i http://localhost:20334/api/v1/smartcode/event/txhash/20046da68ef6a91f695
     }
 }
 ```
-## get_blk_hgt_by_txhash
+
+### get_blk_hgt_by_txhash
 
 通过交易哈希得到该交易落账的区块高度。
 
@@ -660,6 +682,7 @@ GET
 ```
 /api/v1/block/height/txhash/:hash
 ```
+
 #### 调用示例
 
 请求：
@@ -679,7 +702,7 @@ curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d414125
 }
 ```
 
-## get_merkle_proof
+### get_merkle_proof
 
 通过交易哈希得到该交易的merkle证明。
 
@@ -687,6 +710,7 @@ GET
 ```
 /api/v1/merkleproof/:hash
 ```
+
 #### 调用示例
 
 请求：
@@ -694,6 +718,7 @@ GET
 ```json
 curl -i http://localhost:20334/api/v1/merkleproof/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
 ```
+
 响应：
 
 ```json
@@ -727,7 +752,7 @@ curl -i http://localhost:20334/api/v1/merkleproof/3e23cf222a47739d4141255da617cd
 }
 ```
 
-## get_gasprice
+### get_gasprice
 
 得到 GAS 的价格。
 
@@ -735,6 +760,7 @@ GET
 ```
 /api/v1/gasprice
 ```
+
 #### 调用示例
 
 请求：
@@ -742,6 +768,7 @@ GET
 ```json
 curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d4141255da617cd42925a12638ac19cadcc85501f907972c8
 ```
+
 响应：
 
 ```json
@@ -757,7 +784,7 @@ curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d414125
 }
 ```
 
-## get_allowance
+### get_allowance
 
 得到允许从 from 账户转出到 to 账户的额度。
 
@@ -765,6 +792,7 @@ GET
 ```
 /api/v1/allowance
 ```
+
 #### 调用示例
 
 请求：
@@ -784,7 +812,7 @@ curl -i http://localhost:20334/api/v1/allowance/:asset/:from/:to
 }
 ```
 
-## get_unboundong
+### get_unboundong
 
 得到该账户未提取的 ONG 数量。
 
@@ -800,6 +828,7 @@ GET
 ```json
 curl -i http://localhost:20334/api/v1/unboundong/:addr
 ```
+
 响应：
 
 ```json
@@ -812,7 +841,7 @@ curl -i http://localhost:20334/api/v1/unboundong/:addr
 }
 ```
 
-## get_mempooltxcount
+### get_mempooltxcount
 
 得到内存中的交易的数量。
 
@@ -840,7 +869,7 @@ curl -i http://localhost:20334/api/v1/mempool/txcount
 }
 ```
 
-## get_mempooltxstate
+### get_mempooltxstate
 
 通过交易哈希获取交易池（内存）中的交易的状态。
 
@@ -878,7 +907,7 @@ curl -i http://localhost:20334/api/v1/mempool/txstate/:hash
 }
 ```
 
-## get_version
+### get_version
 
 获取当前连接节点的版本信息。
 
@@ -906,7 +935,7 @@ curl -i http://localhost:20334/api/v1/version
 }
 ```
 
-## post_raw_tx
+### post_raw_tx
 
 向本体网络发送交易。
 
@@ -948,10 +977,10 @@ Post Params:
     "Version": "1.0.0"
 }
 ```
+
 `Result`: 交易哈希
 
-
-## get_networkid
+### get_networkid
 
 获取 network id.
 
@@ -978,7 +1007,7 @@ curl -i http://localhost:20334/api/v1/networkid
 }
 ```
 
-## get_grantong
+### get_grantong
 
 获取 grant ong。
 
@@ -986,6 +1015,7 @@ GET
 ```
 /api/v1/grantong/:addr
 ```
+
 #### 调用示例
 
 请求：
@@ -993,6 +1023,7 @@ GET
 ```json
 curl -i http://localhost:20334/api/v1/grantong/AKDFapcoUhewN9Kaj6XhHusurfHzUiZqUA
 ```
+
 响应：
 
 ```json
