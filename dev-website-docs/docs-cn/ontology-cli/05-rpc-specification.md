@@ -93,7 +93,7 @@ ontology --disable-rpc
 
 ## 接口规范
 
-#### getbestblockhash
+### getbestblockhash
 
 获取当前节点最高区块的哈希值。
 
@@ -122,7 +122,7 @@ ontology --disable-rpc
 }
 ```
 
-#### getblock
+### getblock
 
 `getblock` 接口用于根据区块哈希或区块高度查询区块信息。
 
@@ -225,7 +225,7 @@ ontology --disable-rpc
 }
 ```
 
-#### getblockcount
+### getblockcount
 
 查询当前的区块数量。
 
@@ -254,7 +254,7 @@ ontology --disable-rpc
 }
 ```
 
-#### getblockhash
+### getblockhash
 
 返回对应高度的区块哈希。
 
@@ -287,7 +287,7 @@ ontology --disable-rpc
 }
 ```
 
-#### getconnectioncount
+### getconnectioncount
 
 得到当前网络上连接的节点数。
 
@@ -316,7 +316,7 @@ ontology --disable-rpc
 }
 ```
 
-#### getrawtransaction
+### getrawtransaction
 
 通过交易哈希得到交易详情。
 
