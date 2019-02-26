@@ -795,9 +795,7 @@ public class NetworkDemo {
 
 通过交易哈希得到该交易的 merkle 证明。
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -808,7 +806,8 @@ public class NetworkDemo {
 }
 
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -845,9 +844,7 @@ public class NetworkDemo {
 
 得到会话数量。
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -856,7 +853,8 @@ public class NetworkDemo {
     "Id":12345, //optional
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -872,9 +870,7 @@ public class NetworkDemo {
 
 得到 GAS 的价格。
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -883,7 +879,8 @@ public class NetworkDemo {
     "Id":12345, //optional
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -902,9 +899,7 @@ public class NetworkDemo {
 
 得到允许从 from 账户转出到 to 账户的额度。
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -916,7 +911,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -932,9 +928,7 @@ public class NetworkDemo {
 
 得到该账户未提取的 ONG 数量。
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -944,7 +938,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -960,9 +955,7 @@ public class NetworkDemo {
 
 通过交易哈希得到内存中该交易的状态。
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -972,7 +965,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -998,9 +992,7 @@ public class NetworkDemo {
 
 得到内存中的交易的数量。
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -1009,7 +1001,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -1021,14 +1014,11 @@ public class NetworkDemo {
 }
 ```
 
-
 ## getversion
 
 得到版本信息。
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -1037,7 +1027,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -1053,9 +1044,7 @@ public class NetworkDemo {
 
 获取 network id
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -1064,7 +1053,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -1080,9 +1070,7 @@ public class NetworkDemo {
 
 获取 grant ong
 
-
-
-请求：
+- 请求：
 
 ```json
 {
@@ -1092,7 +1080,8 @@ public class NetworkDemo {
     "Version": "1.0.0"
 }
 ```
-响应：
+
+- 响应：
 
 ```json
 {
