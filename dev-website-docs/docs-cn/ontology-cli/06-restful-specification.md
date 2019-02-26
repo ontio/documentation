@@ -935,7 +935,7 @@ curl -i http://localhost:20334/api/v1/version
 }
 ```
 
-### post_raw_tx
+## post_raw_tx
 
 向本体网络发送交易。
 
@@ -988,14 +988,16 @@ GET
 ```
 /api/v1/networkid
 ```
+
 #### 调用示例
 
-请求：
+- 请求：
 
 ```json
 curl -i http://localhost:20334/api/v1/networkid
 ```
-响应：
+
+- 响应：
 
 ```json
 {
@@ -1018,13 +1020,13 @@ GET
 
 #### 调用示例
 
-请求：
+- 请求：
 
 ```json
 curl -i http://localhost:20334/api/v1/grantong/AKDFapcoUhewN9Kaj6XhHusurfHzUiZqUA
 ```
 
-响应：
+- 响应：
 
 ```json
 {
