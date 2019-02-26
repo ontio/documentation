@@ -95,9 +95,7 @@ ontology --disable-rpc
 
 获取当前节点最高区块的哈希值。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -108,7 +106,7 @@ ontology --disable-rpc
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -124,14 +122,10 @@ ontology --disable-rpc
 
 根据区块哈希或区块高度查询区块信息。
 
-#### 参数说明
-
 - `block_hash` / `block_height`：区块哈希/高度。
 - `verbose`：当值为 0 时，返回以十六进制字符串表示序列化后的区块信息。当值为1时，将以 json 格式返回对应区块的详细信息。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -142,7 +136,7 @@ ontology --disable-rpc
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -154,7 +148,7 @@ ontology --disable-rpc
 }
 ```
 
-请求：
+- 请求：
 
 ```json
 {
@@ -165,7 +159,7 @@ ontology --disable-rpc
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -225,7 +219,7 @@ ontology --disable-rpc
 
 查询当前的区块数量。
 
-请求：
+- 请求：
 
 ```json
 {
@@ -236,7 +230,7 @@ ontology --disable-rpc
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -252,13 +246,9 @@ ontology --disable-rpc
 
 返回对应高度的区块哈希。
 
-#### 参数说明
-
 `block_height`：区块高度
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -269,7 +259,7 @@ ontology --disable-rpc
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -285,9 +275,7 @@ ontology --disable-rpc
 
 得到当前网络上连接的节点数。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -298,7 +286,7 @@ ontology --disable-rpc
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
@@ -314,14 +302,10 @@ ontology --disable-rpc
 
 通过交易哈希得到交易详情。
 
-#### 参数说明
-
 - `tx_hash`：交易哈希
 - `verbose`：当值为 0 时，返回以十六进制字符串表示的序列化交易信息；当值为 1 时，将以 json 格式返回对应的交易详细信息。
 
-#### 调用示例
-
-请求：
+- 请求：
 
 ```json
 {
@@ -332,7 +316,7 @@ ontology --disable-rpc
 }
 ```
 
-响应：
+- 响应：
 
 ```json
 {
