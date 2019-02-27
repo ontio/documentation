@@ -7,12 +7,12 @@
   - [概述](docs-cn/ontpass/overview.md)
   - [技术接口说明](docs-cn/ontpass/specification.md)
   - [KYC接口说明](docs-cn/ontpass/ontid-kyc-h5.md)
+- 信任锚
+  - [概述](docs-cn/taconnector/01-overview.md)
+  - [快速开始](docs-cn/taconnector/02-get-started.md.md)
 - 分布式数据交易框架DDXF
   - [概述](docs-cn/ddxf/01-overview.md)
   - [快速开始](docs-cn/ddxf/02-get-started.md)
-- 信任锚接入
-  - [概述](docs-cn/taconnector/01-overview.md)
-  - [快速开始](docs-cn/taconnector/02-get-started.md.md)
 - ONTO
   - [概述](docs-cn/onto/overview.md)
   - [ONTO Login](docs-cn/onto/ONTO_login.md)
