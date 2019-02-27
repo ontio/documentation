@@ -1,3 +1,4 @@
+
 - ONT ID
   - [概述](docs-cn/ontid/overview.md)
   - [开始使用](docs-cn/ontid/get_started.md)
@@ -8,7 +9,7 @@
   - [KYC接口说明](docs-cn/ontpass/ontid-kyc-h5.md)
 - 分布式数据交易框架DDXF
   - [概述](docs-cn/ddxf/01-overview.md)
-  - [开始使用](docs-cn/ddxf/02-get-started.md)
+  - [快速开始](docs-cn/ddxf/02-get-started.md)
 - 信任锚接入
   - [概述](docs-cn/taconnector/01-overview.md)
   - [快速开始](docs-cn/taconnector/02-get-started.md.md)
