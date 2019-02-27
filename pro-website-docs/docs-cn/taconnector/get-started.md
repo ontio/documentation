@@ -3,7 +3,7 @@
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ta-connector/trust-anchor-connector.png"></div>
 
-目前，学信网能够提供如图所示的学籍在线验证报告。
+目前，学信网能够提供如图所示的学籍在线验证报告，更多关于学信网的介绍，你可以点击[这里](https://www.chsi.com.cn/)。
 
 <div align="center"><img width=400px src="https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ta-connector/xjbg-sample.png"></div>
 
