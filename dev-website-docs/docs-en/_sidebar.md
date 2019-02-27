@@ -6,7 +6,7 @@
   - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
   - [Resources](docs-en/DeveloperGuide/06-white-papers.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
-  
+
 - Ontology Client
   - [Overview](docs-en/OntologyCli/00-overview.md)
   - [Installation](docs-en/OntologyCli/01-installation.md)
@@ -22,22 +22,22 @@
   - [API Reference](docs-en/API/00-overview.md)
       - [Rpc](docs-en/API/01-rpc_api.md)
       - [Restful](docs-en/API/02-restful_api.md)
-      - [Websocket](docs-en/API/03-websocket_api.md)        
+      - [Websocket](docs-en/API/03-websocket_api.md)
 
 - Smart Contract
   - [Getting Started](docs-en/smartcontract/01-started.md)
   - [Template](docs-en/smartcontract/02-template.md)
   - [API Reference](docs-en/smartcontract/03-sc-api.md)
-    
+
 - DApp Development Guide
-  - [DAPP Development](docs-en/QuickGuide/00-dapp_development.md)  
-  - [DAPI Usage](docs-en/QuickGuide/06-dapi-useage.md)  
+  - [DAPP Development](docs-en/QuickGuide/00-dapp_development.md)
+  - [DAPI Usage](docs-en/QuickGuide/06-dapi-useage.md)
   - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
 
 - SmartX
   - [Overview](docs-en/SmartX/00-overview.md)
   - [Getting Started](docs-en/SmartX/01-getting-started.md)
-     
+
 - Cyano
   - [Overview](docs-en/Cyano/00-overview.md)
   - [Cyano Wallet](docs-en/Cyano/02-getting-started.md)
@@ -47,7 +47,7 @@
   - [DAPP Docking](docs-en/Cyano/dApi/00-overview.md)
       - [dAPI-Chrome](docs-en/Cyano/dApi/02-getting-started.md)
       - [dAPI-Mobile](docs-en/Cyano/dApi-mobile/02-getting-started.md)
-  
+
 - Punica
   - [Overview](docs-en/Punica/punica.md)
   - [Punica Cli](docs-en/Punica/punica-cli.md)
@@ -55,7 +55,7 @@
   - [VSCode Extension](docs-en/Punica/sc-extension.md)
   - [Solo Chain](docs-en/Punica/solo-chain.md)
   - [Tutorials](docs-en/Punica/tutorials.md)
-  
+
 - SDKs
   - [Overview](docs-en/SDKs/00-overview.md)
   - [Wallet File](docs-en/SDKs/01-wallet-file-specification.md)
@@ -77,7 +77,10 @@
   - [Tokens](docs-en/explorer/tokens.md)
   - [Transactions](docs-en/explorer/transactions.md)
   - [ONT ID](docs-en/explorer/ontid.md)
-  - [Statistics](docs-en/explorer/statistics.md) 
+  - [Statistics](docs-en/explorer/statistics.md)
+  - [Address Info](docs-en/explorer/addressInfo.md)
+  - [Register Contract](docs-en/explorer/registerContract.md)
+  - [Summary](docs-en/explorer/summary.md)
 
 - Sign Server
   - [Overview](docs-en/SignServer/00-overview.md)
@@ -87,8 +90,8 @@
       - [Account](docs-en/SignServer/04-api-account-methods.md)
       - [Signing Methods](docs-en/SignServer/05-api-signing-methods.md)
       - [Convenience Methods](docs-en/SignServer/06-api-signing-convinience-methods.md)
-  
-  
+
+
 - Exchange Docking
   - [Overview](docs-en/exchange-API/Ontology+Exchange+Docking+Document.md)
   - [Sigsvr Exchange Guide](docs-en/exchange-API/Sigsvr_Exchange_Guide.md)
