@@ -4,7 +4,7 @@ DApp开发主要分为两个部分：智能合约开发和dApi的调用。
 
 ![dapp-development](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/dapp-development.png)
 
-> dApp不是必须的，有些dApp可能不需要后台。
+> dApp后台不是必须的，有些dApp可能不需要后台。
 >
 > dApp后台可能需要从链上同步数据，可以通过使用Ontology提供的SDK（ts SDK,java SDK, python SDK）,调用其Restful或RPC接口，或者直接请求Ontology Blockchain提供的Restful，RPC接口，详细接口请参考相关接口文档。
 
