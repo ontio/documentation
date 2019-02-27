@@ -103,9 +103,9 @@
   - [交易](docs-cn/explorer/transactions.md)
   - [ONTID](docs-cn/explorer/ontid.md)
   - [统计](docs-cn/explorer/statistics.md)
-  - [Address Info](docs-en/explorer/addressInfo.md)
-  - [提交合约](docs-en/explorer/registerContract.md)
-  - [摘要](docs-en/explorer/summary.md)
+  - [Address Info](docs-cn/explorer/addressInfo.md)
+  - [提交合约](docs-cn/explorer/registerContract.md)
+  - [摘要](docs-cn/explorer/summary.md)
 
 - 交易所对接
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)

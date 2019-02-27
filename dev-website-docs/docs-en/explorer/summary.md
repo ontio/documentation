@@ -1,9 +1,9 @@
-# Query TPS Info
+ # Query TPS Info
 
   url：/api/v1/explorer/summary/tps
 
 	method：GET
-  
+
   	successResponse：
 	{
 	    "Action": "QueryTps",
@@ -17,21 +17,21 @@
 	}
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | CurrentTps|   String|    |
 | MaxTps|	int|	  |
 
 
 
-# Query Summary Info
+ # Query Summary Info
 
-## type： daily or weekly or monthly
+ ## type： daily or weekly or monthly
 
   url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
 
 	method：GET
-  
+
   	successResponse：
 	{
 	    "Action": "QuerySummary",
@@ -57,7 +57,7 @@
       }
 	}
 
-| RequestField|     Type |   Description   | 
+| RequestField|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | type|   String|     daily or weekly or monthly |
 | starttime|   int|   dayTime(2018-06-30 00:00:00   : 1530288000)  |
@@ -65,28 +65,28 @@
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | Total|   int|    |
 | Time|	String|	  |
 | TxnCount|   int|  |
 | BlockCount|   int|    |
 | ActiveAddress|   int|    |
-| NewAddress|	int|	  
+| NewAddress|	int|
 | OntCount|   String|    |
 | OngCount|	String|	  |
 | OntIdActiveCount|	int|	  |
 | OntIdNewCount|	int|	  |
 
 
-# Query Contract Info
+ # Query Contract Info
 
-## type： daily or weekly or monthly
+ ## type： daily or weekly or monthly
 
   url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
 
 	method：GET
-  
+
   	successResponse：
 	{
 	    "Action": "QueryContract",
@@ -113,7 +113,7 @@
       }
 	}
 
-| RequestField|     Type |   Description   | 
+| RequestField|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | contracthash|   String|      |
 | type|   String|     daily or weekly or monthly |
@@ -122,29 +122,29 @@
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | Total|   int|    |
 | TxCountSum|	int|	  |
 | AddressSum|   int|  |
 | OntCountSum|   String|    |
 | OngCountSum|   String|    |
-| Time|	String|	  
-| TxnCount|	int|	  
+| Time|	String|
+| TxnCount|	int|
 | ActiveAddress|   int|    |
 | NewAddress|	int|	  |
 | OntCount|	String|	  |
 | OngCount|	String|	  |
 
 
-# Query Project Info
+ # Query Project Info
 
-## type： daily or weekly or monthly
+ ## type： daily or weekly or monthly
 
   url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
 
 	method：GET
-  
+
   	successResponse：
 	{
 	    "Action": "QueryProject",
@@ -171,7 +171,7 @@
       }
 	}
 
-| RequestField|     Type |   Description   | 
+| RequestField|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | project|   String|   projectName   |
 | type|   String|     daily or weekly or monthly |
@@ -180,15 +180,15 @@
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | Total|   int|    |
 | TxCountSum|	int|	  |
 | AddressSum|   int|  |
 | OntCountSum|   String|    |
 | OngCountSum|   String|    |
-| Time|	String|	  
-| TxnCount|	int|	  
+| Time|	String|
+| TxnCount|	int|
 | ActiveAddress|   int|    |
 | NewAddress|	int|	  |
 | OntCount|	String|	  |
