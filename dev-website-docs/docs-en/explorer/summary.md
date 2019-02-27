@@ -1,4 +1,4 @@
- # Query TPS Info
+  ## Query TPS Info
 
   url：/api/v1/explorer/summary/tps
 
@@ -24,9 +24,9 @@
 
 
 
- # Query Summary Info
+ ## Query Summary Info
 
- ## type： daily or weekly or monthly
+ ### type： daily or weekly or monthly
 
   url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
 
@@ -79,9 +79,9 @@
 | OntIdNewCount|	int|	  |
 
 
- # Query Contract Info
+ ## Query Contract Info
 
- ## type： daily or weekly or monthly
+ ### type： daily or weekly or monthly
 
   url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
 
@@ -137,9 +137,9 @@
 | OngCount|	String|	  |
 
 
- # Query Project Info
+ ## Query Project Info
 
- ## type： daily or weekly or monthly
+ ### type： daily or weekly or monthly
 
   url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
 
