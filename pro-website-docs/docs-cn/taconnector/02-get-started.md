@@ -155,7 +155,7 @@ b64_claim = claim.generate_b64_claim()
 
 出于安全考虑，信任锚需要根据用户的 ONT ID，对编码后的可信申明进行端到端的加密。
 
-目前，在端到端加密模块，`ontology-python-sdk` 提供了 `CBC` 加密模式与 `GCM` 加密模式供用户选择，如果你需要更多的加密模式，可以点击[这里](https://github.com/ontio/ontology-python-sdk/issues)向我们题出需求。
+目前，在端到端加密模块，`ontology-python-sdk` 提供了 `CBC` 加密模式与 `GCM` 加密模式供用户选择，如果你需要更多的加密模式，可以点击[这里](https://github.com/ontio/ontology-python-sdk/issues)向我们提出需求。
 
 - `CBC` 模式
 
