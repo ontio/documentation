@@ -75,7 +75,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 星际文件系统 HTTP API旨在使不同的星际文件系统实现保持相同的 HTTP API。但是，并非所有实现都同样是最新的，功能最完整（以及此规范的当前参考）是 go-ipfs。
 
-![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/ipfsHttp.png)
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/ipfsHTTP.png)
 
 ### 初始化你的星际文件系统存储库
 
