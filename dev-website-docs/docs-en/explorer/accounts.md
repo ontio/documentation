@@ -1,10 +1,8 @@
 
-
-
 ### Ontology Asset
 
 
-| value     |     Type |   Description   | 
+| value     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    ont|   String|  ont|
 |    ong|   String|  ong|
@@ -82,7 +80,7 @@ successResponse：
 ```
 
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|  address  |
 |    pagesize|   int|  pagesize.1-20  |
@@ -90,7 +88,7 @@ successResponse：
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  |
 |    AssetBalance.Balance|   String|  |
@@ -153,7 +151,7 @@ successResponse：
 ```
 
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|    |
 |    assetname|   String|   |
@@ -162,7 +160,7 @@ successResponse：
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  |
 |    AssetBalance.Balance|   String|  |
@@ -233,7 +231,7 @@ successResponse：
 ```
 
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|    |
 |    assetname|   String|    |
@@ -242,7 +240,7 @@ successResponse：
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  |
 |    AssetBalance.Balance|   String|  |
@@ -313,20 +311,14 @@ successResponse：
 ```
 
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|    |
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    AssetName|   String|  |
 |    Balance|   String|  |
 |    AssertType|   String|  |
-
-
-
-
-
-

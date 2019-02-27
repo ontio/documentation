@@ -2,14 +2,14 @@
 
 ### Txn Type
 
-| Value     |     Type |   Description   | 
+| Value     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    208|   int|  deploy smart contract |
 |    209|   int|  invoke smart contract|
 
 ### Description
 
-| Value     |     Type |   Description   | 
+| Value     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    transfer|   String|  transfer  |
 |    gasconsume|   String|  gas consume  |
@@ -45,11 +45,11 @@ successResponse：
 }
 ```
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    amount|   int|  amount  |
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    TxnHash|   String|    |
 |    TxnType|   int|  |
@@ -90,14 +90,14 @@ successResponse：
 }
 ```
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    pagesize|   int|  pagesieze. 1-20  |
 |    pagenumber|   int| pagenumber. start from 1 |
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    Txnlistist.TxnHash|   String|    |
 |    Txnlistist.TxnType|   int|  |
@@ -110,7 +110,7 @@ successResponse：
 
 
 
-### Query transaction information by transaction hash 
+### Query transaction information by transaction hash
 
 
 ```json
@@ -137,13 +137,13 @@ successResponse：
 }
 ```
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    txnhash|   String|  transaction hash  |
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    TxnHash|   String|    |
 |    TxnType|   int|  |
@@ -180,7 +180,7 @@ successResponse：
 ```
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    TransferList.AssetName|   String|  |
 |    TransferList.ToAddress|   String|  |
@@ -202,9 +202,7 @@ successResponse：
 ```
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    OntId|   String|  OntId|
 |    Description|   String| |
-
-
