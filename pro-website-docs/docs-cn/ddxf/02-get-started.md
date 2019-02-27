@@ -245,3 +245,9 @@ python interplanetary_album.py
 在星际相册中，所有图片的 IPFS 地址都与 ONT ID 绑定，并通过椭圆曲线集成加密方案（ECIES）进行加密。也就是说，只有图片所有者和他共享的用户可以访问他在 IPFS 网络中的图片。
 
 ![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/loginSuccessful.png)
+
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/collaspseAlbum.png)
+
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/cardAlbum.png)
+
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/sharePhoto.png)
