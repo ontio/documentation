@@ -7,7 +7,7 @@
 
 你可以访问[这里](https://github.com/NashMiao/ontology-ddxf-crypto)来获取更多的信息。
 
-**注意**：该组件**尚未**经过审核，可能不安全。你需要采取预防措施去正确清除内存、安全存储私钥。在生产中使用前需要完全测试！
+!> 该组件**尚未**经过安全审计，可能存在安全隐患。在生产环境中使用之前，请**务必**进行安全审计！
 
 ### 安装
 
@@ -43,7 +43,7 @@ decrypted_text = decrypted_text_bytes.decode('utf-8'))
 
 你可以访问[这里](https://github.com/NashMiao/ontology-ddxf-contract)来获取更多的信息。
 
-**注意**：该合约库**尚未**经过审核，可能不安全。在生产中使用前需要完全测试！
+!> 该合约库**尚未**经过安全审计，可能存在安全隐患。在生产环境中使用之前，请**务必**进行安全审计！
 
 ### 安装
 
@@ -57,7 +57,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 行星际文件系统（IPFS）是一种基于内容寻址的协议和一个点对点网络，旨在提供一种在分布式文件系统中存储和共享超媒体的方法。
 
-![](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg)
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/ipfs.jpeg)
 
 ### 星际文件系统是如何工作的？
 
@@ -77,15 +77,15 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 星际文件系统 HTTP API旨在使不同的星际文件系统实现保持相同的 HTTP API。但是，并非所有实现都同样是最新的，功能最完整（以及此规范的当前参考）是 go-ipfs。
 
-![](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png)
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/ipfsHttp.png)
 
 ### 初始化你的星际文件系统存储库
 
 星际文件系统将其所有设置和内部数据存储在称为存储库（repository）的目录中。 在第一次使用星际文件系统之前，您需要使用 `ipfs init` 命令初始化存储库：
 
 ```shell
-PS C:\Users> ipfs init
-initializing IPFS node at C:\Users\.ipfs
+$ ipfs init
+initializing IPFS node at .ipfs
 generating 2048-bit RSA keypair...done
 peer identity: QmbhtBLaPLLUXgon7Quue1JkLjRmoQmm97cqto9JdJ4KuR
 to get started, enter:
@@ -100,7 +100,7 @@ to get started, enter:
 星际文件系统的引导列表是星际文件系统守护进程与网络上的其他对等节点进行通信的节点列表。星际文件系统附带一个可信节点的默认列表，但是你可以自由修改列表以满足特定的需要。自定义引导列表的一个常用用途是创建私有星际文件系统网络。你可以通过 `bootstrap` 命令获取星际文件系统引导列表。
 
 ```shell
-PS C:\Users> ipfs bootstrap
+$ ipfs bootstrap
 /dnsaddr/bootstrap.libp2p.io/ipfs/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN
 /dnsaddr/bootstrap.libp2p.io/ipfs/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa
 /dnsaddr/bootstrap.libp2p.io/ipfs/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb
@@ -116,7 +116,7 @@ PS C:\Users> ipfs bootstrap
 /ip6/2a03:b0c0:0:1010::23:1001/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd
 ```
 
-**注意**：在执行此操作之前，您**必须**充分了解在文件系统节点的引导列表中添加或删除节点所可能带来的风险。
+!> 在执行此操作之前，你**务必**充分了解在星际文件系统节点的引导列表中添加或删除节点所可能带来的风险。
 
 因此，如果要创建私有的星际文件系统网络，需要删除默认的可信节点，并添加你信任的节点。
 
@@ -137,7 +137,7 @@ removed /ip6/2604:a880:800:10::4a:5001/tcp/4001/ipfs/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U
 removed /ip6/2a03:b0c0:0:1010::23:1001/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd
 ```
 
-**提示**：当引导列表为空时，我们可以通过 `--default` 选项恢复默认的引导列表。
+<p class="info">当引导列表为空时，我们可以通过 <code>--default</code> 选项恢复默认的引导列表。</p>
 
 ```shell
 ipfs bootstrap add --default
@@ -146,8 +146,8 @@ ipfs bootstrap add --default
 谨慎起见，你还可以将环境变量 `LIBP2P_FORCE_PNET` 设置为 `1` 以强制使用私有网络。如果未配置私有网络，则守护进程将无法启动。
 
 ```shell
-user@ubuntu:~$ export LIBP2P_FORCE_PNET=1
-user@ubuntu:~$ echo $LIBP2P_FORCE_PNET
+$ export LIBP2P_FORCE_PNET=1
+$ echo $LIBP2P_FORCE_PNET
 1
 ```
 
@@ -170,7 +170,7 @@ ipfs-swarm-key-gen > ~/.ipfs/swarm.key
 现在，你可以添加新的引导列表以构建你的专用网络。例如：
 
 ```shell
-PS C:\Users> ipfs bootstrap add /ip4/192.168.181.141/tcp/4001/ipfs/QmYzdL2Pe3JvoqMZ1qvcVMnAWo4fVqyvw2S8XDnxHLK8MV
+$ipfs bootstrap add /ip4/192.168.181.141/tcp/4001/ipfs/QmYzdL2Pe3JvoqMZ1qvcVMnAWo4fVqyvw2S8XDnxHLK8MV
 added /ip4/192.168.181.141/tcp/4001/ipfs/QmYzdL2Pe3JvoqMZ1qvcVMnAWo4fVqyvw2S8XDnxHLK8MV
 ```
 
@@ -223,7 +223,7 @@ Daemon is ready
 
 ### 架构
 
-![interplanetary-album](https://github.com/punica-box/interplanetary-album-box/blob/master/img/interplanetary-album.svg)
+![interplanetary-album](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/interplanetary-album.svg)
 
 ### 环境搭建
 
@@ -246,4 +246,4 @@ python interplanetary_album.py
 
 在星际相册中，所有图片的 IPFS 地址都与 ONT ID 绑定，并通过椭圆曲线集成加密方案（ECIES）进行加密。也就是说，只有图片所有者和他共享的用户可以访问他在 IPFS 网络中的图片。
 
-![](https://github.com/punica-box/interplanetary-album-box/blob/master/img/loginSuccessful.png)
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/loginSuccessful.png)
