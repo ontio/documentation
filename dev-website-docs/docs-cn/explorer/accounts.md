@@ -4,7 +4,7 @@
 ### Ontology资产名称字典
 
 
-| value     |     Type |   Description   | 
+| value     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    ont|   String|  ont资产|
 |    ong|   String|  ong资产|
@@ -82,7 +82,7 @@ successResponse：
 ```
 
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|  账户地址  |
 |    pagesize|   int|  分页大小  |
@@ -90,7 +90,7 @@ successResponse：
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  资产名称，具体可参考**资产名称字典**|
 |    AssetBalance.Balance|   String|  该资产的账户余额|
@@ -153,7 +153,7 @@ successResponse：
 ```
 
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|  账户地址  |
 |    assetname|   String|  资产名称，具体可参考**资产名称字典**  |
@@ -162,7 +162,7 @@ successResponse：
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  资产名称|
 |    AssetBalance.Balance|   String|  该资产的账户余额|
@@ -233,7 +233,7 @@ successResponse：
 ```
 
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|  账户地址  |
 |    assetname|   String|  资产名称，具体可参考**资产名称字典**  |
@@ -242,7 +242,7 @@ successResponse：
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  资产名称|
 |    AssetBalance.Balance|   String|  该资产的账户余额|
@@ -313,19 +313,14 @@ successResponse：
 ```
 
 
-| RequestField     |     Type |   Description   | 
+| RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|  账户地址  |
 
 
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    AssetName|   String|  资产名称|
 |    Balance|   String|  该资产的账户余额|
 |    AssetBalance.AssertType|   String|  该资产的类型|
-
-
-
-
-
