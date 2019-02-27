@@ -57,8 +57,6 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 行星际文件系统（IPFS）是一种基于内容寻址的协议和一个点对点网络，旨在提供一种在分布式文件系统中存储和共享超媒体的方法。
 
-![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/ipfs.jpeg)
-
 ### 星际文件系统是如何工作的？
 
 你也许会对星际文件系统的工作方式感兴趣。实际上，当我们向IPFS添加文件时：
@@ -223,7 +221,7 @@ Daemon is ready
 
 ### 架构
 
-![interplanetary-album](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/interplanetary-album.svg)
+![interplanetary-album](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/interplanetary-album.png)
 
 ### 环境搭建
 
