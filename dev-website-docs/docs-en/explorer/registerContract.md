@@ -1,6 +1,6 @@
-# Register Contract Info
+ # Register Contract Info
 
-## type: DEFALT OR OEP4 OR OEP5
+ ## type: DEFALT OR OEP4 OR OEP5
 
 	url：/api/v1/explorer/contract/registerContractInfo
 
@@ -19,7 +19,7 @@
 	    "description": "contractsDescriptionTest",
 	    "logo": "https://luckynumber.one/index/img/logo.png"
        }
-  
+
   	successResponse：
 	{
 	    "Action": "RegisterContractInfo",
@@ -29,7 +29,7 @@
 	    "Result": true
 	}
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | contractHash|   String|    |
 | name|   String|  |
@@ -43,7 +43,7 @@
 
 
 
-## type: OEP8
+ ## type: OEP8
 
 	url：/api/v1/explorer/contract/registerContractInfo
 
@@ -63,7 +63,7 @@
 	    "logo": "https://luckynumber.one/index/img/logo.png",
 	    "tokenId": "01,02,03,04,05"
         }
-  
+
   	successResponse：
 	{
 	    "Action": "RegisterContractInfo",
@@ -72,9 +72,9 @@
 	    "Version": "1.0",
 	    "Result": true
 	}
- 
-	
-| ResponseField     |     Type |   Description   | 
+
+
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | contractHash|   String|    |
 | name|   String|  |

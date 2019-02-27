@@ -1,10 +1,10 @@
-# Query Address Info
+ # Query Address Info
 
 
   url：/api/v1/explorer/address/queryaddressinfo/{address}
 
 	method：GET
-  
+
   	successResponse：
 	{
 	    "Action": "QueryAddressInfoForExcel",
@@ -28,7 +28,7 @@
       }
 	}
 
-| ResponseField     |     Type |   Description   | 
+| ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | TxnTime|   int|    |
 | FromAddress|   String|  |

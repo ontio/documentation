@@ -95,11 +95,17 @@
   - [Tutorials](docs-cn/Punica/tutorials.md)
 
 - 浏览器 API
+  - [Overview](docs-cn/explorer/overview.md)
   - [区块](docs-cn/explorer/blocks.md)
   - [账户](docs-cn/explorer/accounts.md)
+  - [合约](docs-cn/explorer/contracts.md)
+  - [Tokens](docs-cn/explorer/tokens.md)
   - [交易](docs-cn/explorer/transactions.md)
   - [ONTID](docs-cn/explorer/ontid.md)
   - [统计](docs-cn/explorer/statistics.md)
+  - [Address Info](docs-cn/explorer/addressInfo.md)
+  - [提交合约](docs-cn/explorer/registerContract.md)
+  - [摘要](docs-cn/explorer/summary.md)
 
 - 交易所对接
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
