@@ -504,7 +504,7 @@
 
 ## 类型: oep8(添加通证名字)
 
-	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{tokenname}{pagesize}/{pagenumber}
+	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{tokenname}/{pagesize}/{pagenumber}
 	method：GET
 	successResponse：
 	{

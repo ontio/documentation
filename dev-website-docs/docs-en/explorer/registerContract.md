@@ -1,6 +1,7 @@
- # Register Contract Info
 
- ## type: DEFALT OR OEP4 OR OEP5
+ ## Register Contract Info
+
+ ### type: DEFALT OR OEP4 OR OEP5
 
 	url：/api/v1/explorer/contract/registerContractInfo
 
@@ -43,7 +44,7 @@
 
 
 
- ## type: OEP8
+ ### type: OEP8
 
 	url：/api/v1/explorer/contract/registerContractInfo
 
