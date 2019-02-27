@@ -1,4 +1,12 @@
 
+我们以学信网（China Credentials Verification）学历认证为例，使用 `ontology-python-sdk` 讲解如何快速成为一个信任锚。
+
+<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/trust-anchor-connector.png"></div>
+
+目前，学信网能够提供如图所示的学籍在线验证报告。
+
+<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/xjbg-sample.png"></div>
+
 ## 准备工作
 
 安装 Python SDK：
