@@ -1,4 +1,6 @@
 
+## 简介
+
 我们以学信网（China Credentials Verification）学历认证为例，使用 `ontology-python-sdk` 讲解如何快速成为一个信任锚。
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ta-connector/trust-anchor-connector.png"></div>
@@ -23,12 +25,16 @@ pip install ontology-python-sdk
 sdk = OntologySdk()
 ```
 
+从流程规范性上来看，使用 Python SDK 的第一步是对其进行实例化。
+
 - 创建钱包文件
 
 ```python
 wallet_path = 'wallet.json'
 sdk.wallet_manager.create_wallet_file(path)
 ```
+
+!> 在钱包文件中，存有你的账户、身份信息，请务必妥善保管，并进行安全备份。
 
 - 在钱包文件中创建 ONT ID
 
@@ -39,6 +45,8 @@ identity = sdk.wallet_manager.create_identity('Label', password)
 sdk.wallet_manager.save()
 ```
 
+通过 SDK，你可以在本地快速生成一个 ONT ID。
+
 - 在智能合约中注册ONT ID
 
 ```python
@@ -48,6 +56,8 @@ payer_acct = ctrl_acct
 tx_hash = sdk.native_vm.ont_id().registry_ont_id(identity.ont_id, ctrl_acct, payer_acct, gas_limit, gas_price)
 ```
 
+在钱包中生成的 OND ID 需要在智能合约中进行注册，才能真正有效。
+
 - 查询 ONT ID 注册事件
 
 ```python
@@ -56,9 +66,23 @@ hex_contract_address = sdk.native_vm.ont_id().contract_address
 notify = ContractEventParser.get_notify_list_by_contract_address(event, hex_contract_address)
 ```
 
-## 验证报告规范化
+一般在交易发出 6 秒后，便可以根据交易哈希查询该笔交易是否已经成功执行并被写入到区块。
 
-根据用户所提交的学籍在线验证码，你能够从学信网获取到是非规范化的《教育部学籍在线验证报告》，为了生成一份区块链上的学籍报告，你需要将其转化为规范化的学籍报告。
+## 查询报告
+
+学信网信任锚通过提供 Restful 服务（或者其他类型的服务），接收用户提交的学籍在线验证码，并向学信网数据库请求对应的学籍信息。
+
+```python
+def query_edu(q_code: str):
+    url = ChesiccMethod.query_edu(q_code)
+    response = requests.post(url, timeout=10)
+    msg = response.content.decode('utf-8')
+    return msg
+```
+
+## 报告规范化
+
+根据用户所提交的学籍在线验证码，学信网信任锚能够从学信网获取到是非规范化的《教育部学籍在线验证报告》，为了生成一份区块链上的学籍报告，你需要将其转化为规范化的学籍报告。
 
 以 `Python` 为例，通过使用流行的 HTML 与 XML 文件解析库 `Beautiful Soup`，你能够快速完成验证报告的规范化。
 
@@ -79,7 +103,7 @@ def chsi_parser(page, get_img: bool = False):
     return info_dict
 ```
 
-## 生成可信申明
+## 可信申明的创建
 
 在获得规范化验证报告之后，你需要为你的用户签发相应的可信申明。
 
@@ -89,17 +113,17 @@ def chsi_parser(page, get_img: bool = False):
 pub_keys = sdk.native_vm.ont_id().get_public_keys(ont_id)
 ```
 
-`get_public_keys` 接口会
+`get_public_keys` 接口会返回指定 ONT ID 在智能合约中注册的所有可用公钥。
 
-中选取与 `ont_id` 绑定的公钥，并用你本地存储的与之相对应的私钥去对可信申明进行签名。
+信任锚通过该接口获取与其 ONT ID 相对应的公钥列表，然后选取其中的一把公钥，使用对应的私钥对可信申明进行签名，从而形成经过信任锚认证的可信申明。
 
 - 创建可信声明
 
 ```python
 pk = pub_keys[0]
 kid = pk['PubKeyId']
-iss_ont_id = identity2.ont_id
-sub_ont_id = identity1.ont_id
+iss_ont_id = identity.ont_id
+sub_ont_id = 'did:ont:ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD'
 exp = int(time())
 context = 'https://example.com/template/v1'
 clm = dict(Name='NashMiao', JobTitle='SoftwareEngineer', HireData=str(time()))
@@ -107,10 +131,18 @@ clm_rev = dict(type='AttestContract', addr='8055b362904715fd84536e754868f4c8d27c
 
 claim = sdk.service.claim()
 claim.set_claim(kid, iss_ont_id, sub_ont_id, exp, context, clm, clm_rev)
+```
+
+- 签署可信申明
+
+```python
 claim.generate_signature(ctrl_acct)
-gas_limit = 20000
-gas_price = 500
-blockchain_proof = claim.generate_blockchain_proof(ctrl_acct, payer_acct, gas_limit, gas_price)
+```
+
+- 链上存证
+
+```python
+blockchain_proof = claim.generate_blockchain_proof(ctrl_acct, payer_acct, 20000, 500)
 ```
 
 - 生成 base64 编码的可信申明
@@ -119,8 +151,65 @@ blockchain_proof = claim.generate_blockchain_proof(ctrl_acct, payer_acct, gas_li
 b64_claim = claim.generate_b64_claim()
 ```
 
-## 验证可信申明
+## 可信申明的加密
+
+出于安全考虑，信任锚需要根据用户的 ONT ID，对编码后的可信申明进行端到端的加密。
+
+
+
+## 可信申明的传输
+
+信任锚在将加密后的可信申明通过互联网发送给用户。
+
+## 可信申明的验证
+
+用户可以在收到学籍信息的可信申明后，对其进行验证。同时，该申明作为用户的一个凭证，可以交给其他可信第三方进行验证，以证明用户学籍信息的真实有效性。
 
 ```python
-claim.validate_blockchain_proof(blockchain_proof))
+claim = sdk.service.claim()
+sdk.rpc.connect_to_main_net()
+```
+
+- 验证签名
+
+```python
+claim.validate_signature(b64_claim)
+```
+
+- 查询区块链证明
+
+```python
+claim.validate_blk_proof()
+```
+
+## 可信申明的维护
+
+可信申明的状态有两种：有效、已吊销。在为可信申明生成区块链证明时，可信申明被注册，其状态为有效。
+
+- 注册
+
+```python
+sdk.neo_vm.claim_record().commit(claim.claim_id, identity2_ctrl_acct, identity1.ont_id, acct1, gas_limit, gas_price)
+```
+
+`commit` 接口返回交易哈希，你可以根据该交易哈希查询可信申明注册事件。
+
+- 查询注册事件
+
+```python
+event = sdk.neo_vm.claim_record().query_commit_event(tx_hash)
+```
+
+- 吊销
+
+```python
+sdk.neo_vm.claim_record().revoke(claim.claim_id, identity2_ctrl_acct, acct1, gas_limit, gas_price)
+```
+
+`revoke` 接口返回交易哈希，你可以根据该交易哈希查询可信申明吊销事件。
+
+- 查询吊销事件
+
+```python
+event = sdk.neo_vm.claim_record().query_revoke_event(tx_hash)
 ```
