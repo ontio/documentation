@@ -5,7 +5,7 @@
 
 目前，学信网能够提供如图所示的学籍在线验证报告，更多关于学信网的介绍，你可以点击[这里](https://www.chsi.com.cn/)。
 
-<div align="center"><img width=600px src="https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ta-connector/xjbg-sample.png"></div>
+<div align="center"><img width=500px src="https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ta-connector/xjbg-sample.png"></div>
 
 如果你想成为学信网的信任锚，你可以根据用户提交的学籍在线验证码，为用户签发一份区块链上的学籍报告。
 
