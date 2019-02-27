@@ -7,28 +7,28 @@
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ta-connector/xjbg-sample.png"></div>
 
+如果你想成为学信网的信任锚，你可以根据用户提交的学籍在线验证码，为用户签发一份区块链上的学籍报告。
+
 ## 准备工作
 
-安装 Python SDK：
+- 使用 `pip` 安装 Python SDK：
 
 ```shell
 pip install ontology-python-sdk
 ```
 
-## 创建 SDK 实例
+- 创建 SDK 实例
 
 ```python
 sdk = OntologySdk()
 ```
 
-## 创建钱包文件
+- 创建钱包文件
 
 ```python
 wallet_path = 'wallet.json'
 sdk.wallet_manager.create_wallet_file(path)
 ```
-
-## 创建有效的 ONT ID
 
 - 在钱包文件中创建 ONT ID
 
@@ -36,7 +36,6 @@ sdk.wallet_manager.create_wallet_file(path)
 sdk.wallet_manager.open_wallet(wallet_path)
 password = 'password'
 identity = sdk.wallet_manager.create_identity('Label', password)
-ont_id = identity.ont_id
 sdk.wallet_manager.save()
 ```
 
@@ -47,10 +46,35 @@ sdk.rpc.connect_to_test_net()
 ctrl_acct = sdk.wallet_manager.get_control_account_by_index(ont_id, 0, password)
 payer_acct = ctrl_acct
 tx_hash = sdk.native_vm.ont_id().registry_ont_id(identity.ont_id, ctrl_acct, payer_acct, gas_limit, gas_price)
-time.sleep(6)
+```
+
+- 查询 ONT ID 注册事件
+
+```python
 event = sdk.rpc.get_smart_contract_event_by_tx_hash(tx_hash)
 hex_contract_address = sdk.native_vm.ont_id().contract_address
 notify = ContractEventParser.get_notify_list_by_contract_address(event, hex_contract_address)
+```
+
+## 验证报告规范化
+
+根据用户所提交的学籍在线验证码，你能够从学信网获取到是非规范化的《教育部学籍在线验证报告》。为了生成一份区块链上的学籍报告，你需要将其转化为规范化的学籍报告，这里以 `Python` 为例，通过使用流行的 HTML 与 XML 文件解析库 `Beautiful Soup`，你能够快速完成验证报告的规范化。
+
+```python
+def chsi_parser(page, get_img: bool = False):
+    soup = BeautifulSoup(page, features='lxml-xml')
+    result_table = soup.find('div', {'class': 'clearfix', 'id': 'resultTable'})
+    info_dict = dict()
+    if result_table is None:
+        return info_dict
+    if get_img:
+        result_table.find('img', {'id': 'photoPositon'})
+    info_list = result_table.find_all('td')[3:33]
+    for index in range(0, len(info_list), 2):
+        info_key = info_list[index].contents[0]
+        info_value = info_list[index + 1].find('div').contents[0]
+        info_dict[info_key] = info_value.replace(' ', '').replace('\n', '')
+    return info_dict
 ```
 
 ## 生成可信申明
