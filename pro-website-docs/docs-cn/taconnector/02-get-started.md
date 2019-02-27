@@ -58,7 +58,9 @@ notify = ContractEventParser.get_notify_list_by_contract_address(event, hex_cont
 
 ## 验证报告规范化
 
-根据用户所提交的学籍在线验证码，你能够从学信网获取到是非规范化的《教育部学籍在线验证报告》。为了生成一份区块链上的学籍报告，你需要将其转化为规范化的学籍报告，这里以 `Python` 为例，通过使用流行的 HTML 与 XML 文件解析库 `Beautiful Soup`，你能够快速完成验证报告的规范化。
+根据用户所提交的学籍在线验证码，你能够从学信网获取到是非规范化的《教育部学籍在线验证报告》，为了生成一份区块链上的学籍报告，你需要将其转化为规范化的学籍报告。
+
+以 `Python` 为例，通过使用流行的 HTML 与 XML 文件解析库 `Beautiful Soup`，你能够快速完成验证报告的规范化。
 
 ```python
 def chsi_parser(page, get_img: bool = False):
@@ -79,11 +81,17 @@ def chsi_parser(page, get_img: bool = False):
 
 ## 生成可信申明
 
+在获得规范化验证报告之后，你需要为你的用户签发相应的可信申明。
+
 - 查询在智能合约中注册的公钥
 
 ```python
 pub_keys = sdk.native_vm.ont_id().get_public_keys(ont_id)
 ```
+
+`get_public_keys` 接口会
+
+中选取与 `ont_id` 绑定的公钥，并用你本地存储的与之相对应的私钥去对可信申明进行签名。
 
 - 创建可信声明
 
