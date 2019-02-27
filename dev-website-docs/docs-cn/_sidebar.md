@@ -14,10 +14,6 @@
   - [安装](docs-cn/ontology-cli/01-install.md)
   - [快速开始](docs-cn/ontology-cli/02-getting-started.md)
   - [连接到本体](docs-cn/ontology-cli/03-connect-to-client.md)
-  - [接口规范](docs-cn/ontology-cli/04-interface-specification.md)
-    - [RPC 接口](docs-cn/ontology-cli/05-rpc-specification.md)
-    - [Restful 接口](docs-cn/ontology-cli/06-restful-specification.md)
-    - [WebSocket 接口](docs-cn/ontology-cli/07-ws-specification.md)
   - [命令行使用](docs-cn/ontology-cli/08-cli-usage.md)
     - [节点部署](docs-cn/ontology-cli/09-deploy-node.md)
     - [钱包管理](docs-cn/ontology-cli/10-wallet-manager.md)
@@ -32,6 +28,12 @@
     - [多签交易](docs-cn/ontology-cli/19-multi-sig-tx.md)
     - [发送交易](docs-cn/ontology-cli/20-send-tx.md)
     - [查看交易](docs-cn/ontology-cli/21-show-tx.md)
+
+- HTTP API
+  - [简介](docs-cn/ontology-cli/04-interface-specification.md)
+  - [RPC 接口](docs-cn/ontology-cli/05-rpc-specification.md)
+  - [Restful 接口](docs-cn/ontology-cli/06-restful-specification.md)
+  - [WebSocket 接口](docs-cn/ontology-cli/07-ws-specification.md)
 
 - 签名机
   - [概述](docs-cn/sigsvr/00-overview.md)
