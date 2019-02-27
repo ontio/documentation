@@ -53,7 +53,7 @@ decrypted_text = decrypted_text_bytes.decode('utf-8'))
 git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 ```
 
-## 星际文件系统 （IPFS）
+## 星际文件系统
 
 行星际文件系统（IPFS）是一种基于内容寻址的协议和一个点对点网络，旨在提供一种在分布式文件系统中存储和共享超媒体的方法。
 
