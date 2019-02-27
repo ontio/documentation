@@ -1,40 +1,15 @@
-<h1 align="center">去中心化数据交易框架组件上手指南</h1>
 
-<!-- TOC -->
+## 密码学组件
 
-- [1. 密码学组件](#1-密码学组件)
-    - [1.1. 简介](#11-简介)
-    - [1.2. 安装](#12-安装)
-    - [1.3. 使用](#13-使用)
-- [2. 智能合约库](#2-智能合约库)
-    - [2.1. 简介](#21-简介)
-    - [2.2. 安装](#22-安装)
-- [3. 星际文件系统 （IPFS）](#3-星际文件系统-ipfs)
-    - [3.1. 星际文件系统是如何工作的？](#31-星际文件系统是如何工作的)
-    - [3.2. 星际文件系统 HTTP API](#32-星际文件系统-http-api)
-    - [3.3. 初始化你的星际文件系统存储库](#33-初始化你的星际文件系统存储库)
-    - [3.4. 创建你的私有星际文件系统网络（可选）](#34-创建你的私有星际文件系统网络可选)
-    - [3.5. 运行你的星际文件系统节点](#35-运行你的星际文件系统节点)
-    - [3.6. 星际文件系统客户端 API 库](#36-星际文件系统客户端-api-库)
-- [4. 演示性项目：星际相册](#4-演示性项目星际相册)
-    - [4.1. 简介](#41-简介)
-    - [4.2. 架构](#42-架构)
-    - [4.3. 环境搭建](#43-环境搭建)
-    - [4.4. 做中学](#44-做中学)
-
-<!-- /TOC -->
-
-## 1. 密码学组件
-
-### 1.1. 简介
+### 简介
 
 去中心化数据交易框架（DDXF）密码学组件是一个基于 `Python3.5` 的加密组件，为 DDXF 提供加密工具包。目前，它包含哈希工具包、加密工具包、签名工具包和密钥派生（KDF）工具包。
 
 你可以访问[这里](https://github.com/NashMiao/ontology-ddxf-crypto)来获取更多的信息。
 
-**注意**：该组件**尚未**经过审核，可能不安全。你需要采取预防措施去正确清除内存、安全存储私钥。在生产中使用前需要完全测试！
+!> 该组件**尚未**经过安全审计，可能存在安全隐患。在生产环境中使用之前，请**务必**进行安全审计！
 
-### 1.2. 安装
+### 安装
 
 安装需要 `Python 3.5` 或更高版本的环境。
 
@@ -42,7 +17,7 @@
 pip install ontology-ddxf-crypto
 ```
 
-### 1.3. 使用
+### 使用
 
 ```python
 import os
@@ -60,17 +35,17 @@ decrypted_text_bytes = ECIES.decrypt_with_ont_id_in_cbc(aes_iv, encode_g_tilde, 
 decrypted_text = decrypted_text_bytes.decode('utf-8'))
 ```
 
-## 2. 智能合约库
+## 智能合约库
 
-### 2.1. 简介
+### 简介
 
 去中心化数据交易框架（DDXF）智能合约库是一个数据交换合约库。
 
 你可以访问[这里](https://github.com/NashMiao/ontology-ddxf-contract)来获取更多的信息。
 
-**注意**：该合约库**尚未**经过审核，可能不安全。在生产中使用前需要完全测试！
+!> 该合约库**尚未**经过安全审计，可能存在安全隐患。在生产环境中使用之前，请**务必**进行安全审计！
 
-### 2.2. 安装
+### 安装
 
 你可以从 GitHub 上获取此库。
 
@@ -78,13 +53,13 @@ decrypted_text = decrypted_text_bytes.decode('utf-8'))
 git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 ```
 
-## 3. 星际文件系统 （IPFS）
+## 星际文件系统 （IPFS）
 
 行星际文件系统（IPFS）是一种基于内容寻址的协议和一个点对点网络，旨在提供一种在分布式文件系统中存储和共享超媒体的方法。
 
-![](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfs.jpeg)
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/ipfs.jpeg)
 
-### 3.1. 星际文件系统是如何工作的？
+### 星际文件系统是如何工作的？
 
 你也许会对星际文件系统的工作方式感兴趣。实际上，当我们向IPFS添加文件时：
 
@@ -94,7 +69,7 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 - 查找文件时，你通过一个唯一的哈希值去请求网络查找内容存储节点。
 - 使用名为IPNS的去中心化命名系统，可通过人类可读的名称找到每个文件。
 
-### 3.2. 星际文件系统 HTTP API
+### 星际文件系统 HTTP API
 
 当星际文件系统节点作为守护程序运行时，它会公开一个HTTP API，允许你控制节点并在命令行运行相同的命令。
 
@@ -102,15 +77,15 @@ git clone https://github.com/NashMiao/ontology-ddxf-contract.git
 
 星际文件系统 HTTP API旨在使不同的星际文件系统实现保持相同的 HTTP API。但是，并非所有实现都同样是最新的，功能最完整（以及此规范的当前参考）是 go-ipfs。
 
-![](https://github.com/NashMiao/ontology-ddxf-bot/blob/master/img/ipfsHttp.png)
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/ipfsHttp.png)
 
-### 3.3. 初始化你的星际文件系统存储库
+### 初始化你的星际文件系统存储库
 
 星际文件系统将其所有设置和内部数据存储在称为存储库（repository）的目录中。 在第一次使用星际文件系统之前，您需要使用 `ipfs init` 命令初始化存储库：
 
 ```shell
-PS C:\Users> ipfs init
-initializing IPFS node at C:\Users\.ipfs
+$ ipfs init
+initializing IPFS node at .ipfs
 generating 2048-bit RSA keypair...done
 peer identity: QmbhtBLaPLLUXgon7Quue1JkLjRmoQmm97cqto9JdJ4KuR
 to get started, enter:
@@ -120,12 +95,12 @@ to get started, enter:
 
 在 `peer identity` 之后的哈希值是你节点的ID，并且会与上面输出的值不同。网络上的其他节点使用它来查找并连接到你的节点。如果需要，您可以随时运行 `ipfs id` 以再次获取它。
 
-### 3.4. 创建你的私有星际文件系统网络（可选）
+### 创建你的私有星际文件系统网络（可选）
 
 星际文件系统的引导列表是星际文件系统守护进程与网络上的其他对等节点进行通信的节点列表。星际文件系统附带一个可信节点的默认列表，但是你可以自由修改列表以满足特定的需要。自定义引导列表的一个常用用途是创建私有星际文件系统网络。你可以通过 `bootstrap` 命令获取星际文件系统引导列表。
 
 ```shell
-PS C:\Users> ipfs bootstrap
+$ ipfs bootstrap
 /dnsaddr/bootstrap.libp2p.io/ipfs/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN
 /dnsaddr/bootstrap.libp2p.io/ipfs/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa
 /dnsaddr/bootstrap.libp2p.io/ipfs/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb
@@ -141,7 +116,7 @@ PS C:\Users> ipfs bootstrap
 /ip6/2a03:b0c0:0:1010::23:1001/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd
 ```
 
-**注意**：在执行此操作之前，您**必须**充分了解在文件系统节点的引导列表中添加或删除节点所可能带来的风险。
+!> 在执行此操作之前，你**务必**充分了解在星际文件系统节点的引导列表中添加或删除节点所可能带来的风险。
 
 因此，如果要创建私有的星际文件系统网络，需要删除默认的可信节点，并添加你信任的节点。
 
@@ -162,7 +137,7 @@ removed /ip6/2604:a880:800:10::4a:5001/tcp/4001/ipfs/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U
 removed /ip6/2a03:b0c0:0:1010::23:1001/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd
 ```
 
-**提示**：当引导列表为空时，我们可以通过 `--default` 选项恢复默认的引导列表。
+<p class="info">当引导列表为空时，我们可以通过 <code>--default</code> 选项恢复默认的引导列表。</p>
 
 ```shell
 ipfs bootstrap add --default
@@ -171,8 +146,8 @@ ipfs bootstrap add --default
 谨慎起见，你还可以将环境变量 `LIBP2P_FORCE_PNET` 设置为 `1` 以强制使用私有网络。如果未配置私有网络，则守护进程将无法启动。
 
 ```shell
-user@ubuntu:~$ export LIBP2P_FORCE_PNET=1
-user@ubuntu:~$ echo $LIBP2P_FORCE_PNET
+$ export LIBP2P_FORCE_PNET=1
+$ echo $LIBP2P_FORCE_PNET
 1
 ```
 
@@ -195,11 +170,11 @@ ipfs-swarm-key-gen > ~/.ipfs/swarm.key
 现在，你可以添加新的引导列表以构建你的专用网络。例如：
 
 ```shell
-PS C:\Users> ipfs bootstrap add /ip4/192.168.181.141/tcp/4001/ipfs/QmYzdL2Pe3JvoqMZ1qvcVMnAWo4fVqyvw2S8XDnxHLK8MV
+$ipfs bootstrap add /ip4/192.168.181.141/tcp/4001/ipfs/QmYzdL2Pe3JvoqMZ1qvcVMnAWo4fVqyvw2S8XDnxHLK8MV
 added /ip4/192.168.181.141/tcp/4001/ipfs/QmYzdL2Pe3JvoqMZ1qvcVMnAWo4fVqyvw2S8XDnxHLK8MV
 ```
 
-### 3.5. 运行你的星际文件系统节点
+### 运行你的星际文件系统节点
 
 在我们使用星际文件系统 HTTP API 之前，我们需要将我们的星际文件系统节点作为守护进程运行。
 
@@ -232,32 +207,32 @@ Gateway (readonly) server listening on /ip4/127.0.0.1/tcp/8080
 Daemon is ready
 ```
 
-### 3.6. 星际文件系统客户端 API 库
+### 星际文件系统客户端 API 库
 
 - [Go](https://github.com/ipfs/go-ipfs-api)
 - [Python](https://github.com/ipfs/py-ipfs-api)
 - [JavaScript](https://github.com/ipfs/js-ipfs)
 
-## 4. 演示性项目：星际相册
+## 演示性项目：星际相册
 
-### 4.1. 简介
+### 简介
 
 星际相册是一个基于星际文件系统（IPFS）、本体分布式身份框架（ONTID）和 DDXF 加密组件所构建的去中心化的相册。
 
 你可以访问[这里](https://github.com/punica-box/interplanetary-album-box)来获取更多的信息。
 
-### 4.2. 架构
+### 架构
 
-![interplanetary-album](https://github.com/punica-box/interplanetary-album-box/blob/master/img/interplanetary-album.svg)
+![interplanetary-album](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/interplanetary-album.svg)
 
-### 4.3. 环境搭建
+### 环境搭建
 
 我们需要为这个项目安装一些必不可少的软件：
 
 - [python 3.7](https://www.python.org/downloads/release/python-370/)
 - [go-ipfs](https://dist.ipfs.io/#go-ipfs)
 
-### 4.4. 做中学
+### 做中学
 
 我们可以在浏览器中运行我们的星际相册：
 
@@ -271,4 +246,4 @@ python interplanetary_album.py
 
 在星际相册中，所有图片的 IPFS 地址都与 ONT ID 绑定，并通过椭圆曲线集成加密方案（ECIES）进行加密。也就是说，只有图片所有者和他共享的用户可以访问他在 IPFS 网络中的图片。
 
-![](https://github.com/punica-box/interplanetary-album-box/blob/master/img/loginSuccessful.png)
+![](https://raw.githubusercontent.com/punica-box/interplanetary-album-box/master/img/loginSuccessful.png)
