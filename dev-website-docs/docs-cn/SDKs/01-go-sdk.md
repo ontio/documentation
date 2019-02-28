@@ -121,6 +121,10 @@ event, _ := sdk.GetSmartContractEvent(txHash)
 eventLst, _ := sdk.GetSmartContractEventByBlock(0)
 ```
 
+### 交易
+
+
+
 ### 交易池
 
 - `GetMemPoolTxState` 接口用于查询指定交易在交易池中的状态。
@@ -134,4 +138,35 @@ state, _ := sdk.GetMemPoolTxState(txHash)
 
 ```go
 count, _ := sdk.GetMemPoolTxCount()
+```
+
+## 钱包
+
+```go
+wd, _ := os.Getwd()
+walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
+wallet, _ := sdk.OpenWallet(walletFile)
+```
+
+### 获取账户
+
+- 根据 Base58 编码地址获取账户
+
+```go
+b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
+acct, _ := wallet.GetAccountByAddress(b58Addr, password)
+```
+
+- 根据索引获取
+
+```go
+b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
+acct, _ := wallet.GetAccountByIndex(1, password)
+```
+
+- 根据标签获取账户
+
+```go
+b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
+acct, _ := wallet.GetAccountByLabel("acct1", password)
 ```
