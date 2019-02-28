@@ -3,7 +3,7 @@
 
 信任锚Trust Anchor是指在本体生态上提供认证服务的合作方，其可能是政府机关、大学、银行、第三方认证服务机构（比如CA机构）、生物识别科技公司等等，这些企业为本体ONT ID的持有者（Owner）提供多维度的认证，并第一时间通过Ontology BlockChain来记录认证行为和认证结果HASH，从而为用户认证需求方/场景方提供了标准化、可信的认证方式。
 
-## 如何使用Trust Anchor Connector
+## 如何使用 Trust Anchor Connector
 
 Trust Anchor Connector(简称TAConnector)是一个技术接入组件，帮助信任锚快速接入本体信任生态。
 
