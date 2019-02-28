@@ -33,6 +33,22 @@ sdk.NewRpcClient().SetAddress("http://polaris1.ont.io:20336")
 _ = sdk.NewWebSocketClient().Connect("ws://polaris1.ont.io:20335")
 ```
 
+### 网络编号
+
+`GetNetworkId` 接口用于查询网络编号。
+
+```go
+netId, _ := sdk.GetNetworkId()
+```
+
+### 节点版本
+
+`GetVersion` 接口用于查询所连接节点的版本号。
+
+```go
+version, _ := sdk.GetVersion()
+```
+
 ### Merkle 证明
 
 ```go
@@ -68,7 +84,7 @@ hash, _ = sdk.GetBlockHash(0)
 hash, _ := sdk.GetCurrentBlockHash()
 ```
 
-#### 区块信息
+### 区块信息
 
 - `GetBlockByHeight` 接口用于查询指定块高度所对应区块的信息。
 
@@ -82,7 +98,7 @@ block, _ := sdk.GetBlockByHeight(0)
 block, _ := sdk.GetBlockByHash(0)
 ```
 
-#### 智能合约
+### 智能合约
 
 - `GetBlockTxHashesByHeight` 接口用于查询指定块高所对应区块中的所有交易的交易哈希。
 
@@ -102,3 +118,16 @@ event, _ := sdk.GetSmartContractEvent("65d3b2d3237743f21795e344563190ccbe50e9930
 eventLst, _ := sdk.GetSmartContractEventByBlock(0)
 ```
 
+### 交易池
+
+- `GetMemPoolTxState` 接口用于查询指定交易在交易池中的状态。
+
+```go
+state, _ := sdk.GetMemPoolTxState("65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74")
+```
+
+- `GetMemPoolTxCount` 接口用于查询交易池中的交易数。
+
+```go
+count, _ := sdk.GetMemPoolTxCount()
+```
