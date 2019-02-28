@@ -143,6 +143,12 @@ count, _ := sdk.GetMemPoolTxCount()
 ## 钱包
 
 ```go
+import (
+    "os"
+    "path"
+    "path/filepath"
+)
+
 wd, _ := os.Getwd()
 walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
 wallet, _ := sdk.OpenWallet(walletFile)
