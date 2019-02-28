@@ -21,6 +21,9 @@ DAPP对接：
 * [DAPP对接-chrome插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
 * DAPP对接-ONTID认证授权(暂不支持)
 
+DAPP后台对接：
+* [同步链上信息（可选）](http://dev-docs.ont.io/#/docs-cn/dApp-Integration/05-DAppDocking-Sync)
+
 
 ## 场景1和2： 唤醒、扫码场景
 
