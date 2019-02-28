@@ -33,7 +33,7 @@ sdk.NewRpcClient().SetAddress("http://polaris1.ont.io:20336")
 _ = sdk.NewWebSocketClient().Connect("ws://polaris1.ont.io:20335")
 ```
 
-#### 查询当前区块
+#### 查询当前区块信息
 
 - 当前区块高度
 
@@ -55,7 +55,7 @@ import ontology "github.com/ontio/ontology-go-sdk"
 hash, _ := sdk.GetCurrentBlockHash()
 ```
 
-#### 查询区块
+#### 查询区块信息
 
 - 指定块高
 
