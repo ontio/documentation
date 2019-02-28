@@ -26,12 +26,13 @@ English | [中文](/zh-CN/README.md)
 ## Ontology Protocols and SDK
 
 - [Ontology DID](#Ontology-did) :hatched_chick:
-- [Ontology Java SDK](#Ontology-java-sdk) :hatched_chick:
 - [Ontology TS SDK](#Ontology-ts-sdk) :hatched_chick:
 - [Ontology Go SDK](#Ontology-go-sdk) :hatched_chick:
-- [Ontology Python SDK](#Ontology-python-sdk) :hatching_chick:
+- [Ontology Java SDK](#Ontology-java-sdk) :hatched_chick:
+- [Ontology Python SDK](#Ontology-python-sdk) :hatched_chick:
 
 ## Ontology Applications
+
 - [ONTO](#onto) :hatching_chick:
 - [Ontology DDXF(Distributed Data eXchange Framework)](#Ontology-ddxf) :hatched_chick:
 
