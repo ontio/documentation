@@ -123,7 +123,41 @@ eventLst, _ := sdk.GetSmartContractEventByBlock(0)
 
 ### 交易
 
+- 执行交易
 
+`SendTransaction` 接口用于将交易发送到所接入的本体区块链网络。
+
+```go
+wd, _ := os.Getwd()
+walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
+wallet, _ := sdk.OpenWallet(walletFile)
+b58FromAddr := "Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn"
+b58ToAddr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
+fromAcct, _ := wallet.GetAccountByAddress(b58FromAddr, password)
+fromAddr := fromAcct.Address
+toAddr, _ := utils.AddressFromBase58(b58ToAddr)
+tx, _ := sdk.Native.Ont.NewTransferTransaction(500, 20000, fromAddr, toAddr, 1)
+_ = sdk.SignToTransaction(tx, fromAcct)
+txHash, err := sdk.SendTransaction(tx)
+```
+
+- 预执行交易
+
+`SendTransaction` 接口用于预执行交易，获取交易执行结果。
+
+```go
+wd, _ := os.Getwd()
+walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
+wallet, _ := sdk.OpenWallet(walletFile)
+b58FromAddr := "Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn"
+b58ToAddr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
+fromAcct, _ := wallet.GetAccountByAddress(b58FromAddr, password)
+fromAddr := fromAcct.Address
+toAddr, _ := utils.AddressFromBase58(b58ToAddr)
+tx, _ := sdk.Native.Ont.NewTransferTransaction(500, 20000, fromAddr, toAddr, 1)
+_ = sdk.SignToTransaction(tx, fromAcct)
+result, err := sdk.PreExecTransaction(tx)
+```
 
 ### 交易池
 
