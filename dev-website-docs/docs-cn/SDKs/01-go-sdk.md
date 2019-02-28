@@ -52,7 +52,8 @@ version, _ := sdk.GetVersion()
 ### Merkle 证明
 
 ```go
-merkleProof, _ := sdk.GetMerkleProof("65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74")
+txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
+merkleProof, _ := sdk.GetMerkleProof(txHash)
 ```
 
 ### 区块高度
@@ -100,16 +101,18 @@ block, _ := sdk.GetBlockByHash(0)
 
 ### 智能合约
 
-- `GetBlockTxHashesByHeight` 接口用于查询指定块高所对应区块中的所有交易的交易哈希。
+- `GetSmartContract` 接口用于根据合约地址查询合约信息。
 
 ```go
-contract, _ := sdk.GetSmartContract("1ddbb682743e9d9e2b71ff419e97a9358c5c4ee9")
+ctrAddr := "1ddbb682743e9d9e2b71ff419e97a9358c5c4ee9"
+contract, _ := sdk.GetSmartContract(ctrAddr)
 ```
 
 - `GetSmartContractEvent` 接口用于查询指定交易哈希所对应的合约事件。
 
 ```go
-event, _ := sdk.GetSmartContractEvent("65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74")
+txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
+event, _ := sdk.GetSmartContractEvent(txHash)
 ```
 
 - `GetSmartContractEventByBlock` 接口用于查询指定块高所对应区块中的所有合约事件。
@@ -123,7 +126,8 @@ eventLst, _ := sdk.GetSmartContractEventByBlock(0)
 - `GetMemPoolTxState` 接口用于查询指定交易在交易池中的状态。
 
 ```go
-state, _ := sdk.GetMemPoolTxState("65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74")
+txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
+state, _ := sdk.GetMemPoolTxState(txHash)
 ```
 
 - `GetMemPoolTxCount` 接口用于查询交易池中的交易数。
