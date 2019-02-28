@@ -33,6 +33,12 @@ sdk.NewRpcClient().SetAddress("http://polaris1.ont.io:20336")
 _ = sdk.NewWebSocketClient().Connect("ws://polaris1.ont.io:20335")
 ```
 
+### Merkle 证明
+
+```go
+merkleProof, _ := sdk.GetMerkleProof("65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74")
+```
+
 ### 区块高度
 
 - `GetBlockHeightByTxHash` 接口用于查询指定交易哈希所对处区块的区块高度。
