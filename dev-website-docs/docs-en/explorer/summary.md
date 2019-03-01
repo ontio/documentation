@@ -194,3 +194,31 @@
 | NewAddress|	int|	  |
 | OntCount|	String|	  |
 | OngCount|	String|	  |
+
+
+
+ ## Query Total Supply
+
+  url：/api/v1/explorer/summary/native/totalsupply
+
+	method：GET
+
+  	successResponse：
+	{
+	  "Action": "QueryNativeTotalSupply",
+	  "Error": 0,
+	  "Desc": "SUCCESS",
+	  "Version": "1.0",
+	  "Result": {
+	    "ont": 613398625,
+	    "ong": 69147056.050323125
+	  }
+	}
+
+
+| ResponseField     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+| ont|   decimal|    |
+| ong|	decimal|	  |
+
+
