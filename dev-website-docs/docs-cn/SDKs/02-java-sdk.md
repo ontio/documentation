@@ -685,7 +685,7 @@ public class MakeTxDemo {
 | ontSdk.getConnect().getMemPoolTxCount()             | 查询交易池中交易总量 |
 | ontSdk.getConnect().getMemPoolTxState()             | 查询交易池中交易状态 |
 
-### 查询交易池
+### 交易池
 
 根据交易哈希 `TxHash` 可以查询交易在交易池（内存）中的状态。
 
@@ -711,7 +711,7 @@ public class NetworkDemo {
 }
 ```
 
-### 查询合约事件
+### 合约事件
 
 - 根据交易哈希 `TxHash` 查询交易对应的合约事件。
 
@@ -784,7 +784,7 @@ public class NetworkDemo {
 }
 ```
 
-### 查询 Merkle 证明
+### Merkle 证明
 
 `getMerkleProof` 接口用于获取指定交易哈希所对应交易的 Merkle 证明。
 
