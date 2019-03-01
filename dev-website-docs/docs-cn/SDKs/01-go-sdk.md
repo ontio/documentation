@@ -160,7 +160,10 @@ if err != nil {
 - `GetSmartContractEventByBlock` 接口用于查询指定块高所对应区块中的所有合约事件。
 
 ```go
-eventLst, _ := sdk.GetSmartContractEventByBlock(0)
+eventLst, err := sdk.GetSmartContractEventByBlock(0)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 交易
@@ -172,12 +175,13 @@ eventLst, _ := sdk.GetSmartContractEventByBlock(0)
 ```go
 wd, _ := os.Getwd()
 walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
-wallet, _ := sdk.OpenWallet(walletFile)
-b58FromAddr := "Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn"
-b58ToAddr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
-fromAcct, _ := wallet.GetAccountByAddress(b58FromAddr, password)
+wallet, err := sdk.OpenWallet(walletFile)
+if err != nil {
+    fmt.Println(err)
+}
+fromAcct, _ := wallet.GetAccountByAddress("Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn", password)
 fromAddr := fromAcct.Address
-toAddr, _ := utils.AddressFromBase58(b58ToAddr)
+toAddr, _ := utils.AddressFromBase58("ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD")
 tx, _ := sdk.Native.Ont.NewTransferTransaction(500, 20000, fromAddr, toAddr, 1)
 _ = sdk.SignToTransaction(tx, fromAcct)
 txHash, err := sdk.SendTransaction(tx)
@@ -193,12 +197,13 @@ if err != nil {
 ```go
 wd, _ := os.Getwd()
 walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
-wallet, _ := sdk.OpenWallet(walletFile)
-b58FromAddr := "Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn"
-b58ToAddr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
-fromAcct, _ := wallet.GetAccountByAddress(b58FromAddr, password)
+wallet, err := sdk.OpenWallet(walletFile)
+if err != nil {
+    fmt.Println(err)
+}
+fromAcct, _ := wallet.GetAccountByAddress("Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn", password)
 fromAddr := fromAcct.Address
-toAddr, _ := utils.AddressFromBase58(b58ToAddr)
+toAddr, _ := utils.AddressFromBase58("ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD")
 tx, _ := sdk.Native.Ont.NewTransferTransaction(500, 20000, fromAddr, toAddr, 1)
 _ = sdk.SignToTransaction(tx, fromAcct)
 result, err := sdk.PreExecTransaction(tx)
@@ -213,13 +218,19 @@ if err != nil {
 
 ```go
 txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
-state, _ := sdk.GetMemPoolTxState(txHash)
+state, err := sdk.GetMemPoolTxState(txHash)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 - `GetMemPoolTxCount` 接口用于查询交易池中的交易数。
 
 ```go
-count, _ := sdk.GetMemPoolTxCount()
+count, err := sdk.GetMemPoolTxCount()
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ## 钱包
