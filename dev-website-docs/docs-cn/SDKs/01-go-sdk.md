@@ -44,6 +44,8 @@ if err != nil {
 netId, err := sdk.GetNetworkId()
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(netId)
 }
 ```
 
@@ -55,6 +57,8 @@ if err != nil {
 version, err := sdk.GetVersion()
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(version)
 }
 ```
 
@@ -67,6 +71,9 @@ txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
 merkleProof, err := sdk.GetMerkleProof(txHash)
 if err != nil {
     fmt.Println(err)
+} else {
+    jsonMerkleProof, _ := json.Marshal(merkleProof)
+    fmt.Println(string(jsonMerkleProof))
 }
 ```
 
@@ -83,6 +90,8 @@ txHash := "1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79"
 height, err := sdk.GetBlockHeightByTxHash(txHash)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(height)
 }
 ```
 
@@ -92,6 +101,8 @@ if err != nil {
 height, err := sdk.GetCurrentBlockHeight()
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(height)
 }
 ```
 
@@ -103,6 +114,8 @@ if err != nil {
 hash, err = sdk.GetBlockHash(0)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(hash)
 }
 ```
 
@@ -112,6 +125,8 @@ if err != nil {
 hash, err := sdk.GetCurrentBlockHash()
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(hash)
 }
 ```
 
@@ -123,6 +138,9 @@ if err != nil {
 block, err := sdk.GetBlockByHeight(0)
 if err != nil {
     fmt.Println(err)
+} else {
+    blockMarshal, _ := json.Marshal(block)
+    fmt.Println(string(blockMarshal))
 }
 ```
 
@@ -132,6 +150,9 @@ if err != nil {
 block, err := sdk.GetBlockByHash(0)
 if err != nil {
     fmt.Println(err)
+} else {
+    blockMarshal, _ := json.Marshal(block)
+    fmt.Println(string(blockMarshal))
 }
 ```
 
@@ -144,6 +165,9 @@ ctrAddr := "1ddbb682743e9d9e2b71ff419e97a9358c5c4ee9"
 contract, err := sdk.GetSmartContract(ctrAddr)
 if err != nil {
     fmt.Println(err)
+} else {
+    jsonContract, _ := json.Marshal(contract)
+    fmt.Println(string(jsonContract))
 }
 ```
 
@@ -154,13 +178,22 @@ txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
 event, err := sdk.GetSmartContractEvent(txHash)
 if err != nil {
     fmt.Println(err)
+} else {
+    jsonEvent, _ := json.Marshal(event)
+    fmt.Println(string(jsonEvent))
 }
 ```
 
 - `GetSmartContractEventByBlock` 接口用于查询指定块高所对应区块中的所有合约事件。
 
 ```go
-eventLst, _ := sdk.GetSmartContractEventByBlock(0)
+eventLst, err := sdk.GetSmartContractEventByBlock(0)
+if err != nil {
+    fmt.Println(err)
+} else {
+    jsonEventLst, _ := json.Marshal(eventLst)
+    fmt.Println(string(jsonEventLst))
+}
 ```
 
 ### 交易
@@ -170,19 +203,20 @@ eventLst, _ := sdk.GetSmartContractEventByBlock(0)
 `SendTransaction` 接口用于将交易发送到所接入的本体区块链网络。
 
 ```go
-wd, _ := os.Getwd()
-walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
-wallet, _ := sdk.OpenWallet(walletFile)
-b58FromAddr := "Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn"
-b58ToAddr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
-fromAcct, _ := wallet.GetAccountByAddress(b58FromAddr, password)
+wallet, err := sdk.OpenWallet(walletFile)
+if err != nil {
+    fmt.Println(err)
+}
+fromAcct, _ := wallet.GetAccountByAddress("Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn", password)
 fromAddr := fromAcct.Address
-toAddr, _ := utils.AddressFromBase58(b58ToAddr)
+toAddr, _ := utils.AddressFromBase58("ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD")
 tx, _ := sdk.Native.Ont.NewTransferTransaction(500, 20000, fromAddr, toAddr, 1)
 _ = sdk.SignToTransaction(tx, fromAcct)
 txHash, err := sdk.SendTransaction(tx)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(txHash)
 }
 ```
 
@@ -191,19 +225,20 @@ if err != nil {
 `SendTransaction` 接口用于预执行交易，获取交易执行结果。
 
 ```go
-wd, _ := os.Getwd()
-walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
-wallet, _ := sdk.OpenWallet(walletFile)
-b58FromAddr := "Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn"
-b58ToAddr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
-fromAcct, _ := wallet.GetAccountByAddress(b58FromAddr, password)
+wallet, err := sdk.OpenWallet(walletFile)
+if err != nil {
+    fmt.Println(err)
+}
+fromAcct, _ := wallet.GetAccountByAddress("Af1n2cZHhMZumNqKgw9sfCNoTWu9de4NDn", password)
 fromAddr := fromAcct.Address
-toAddr, _ := utils.AddressFromBase58(b58ToAddr)
+toAddr, _ := utils.AddressFromBase58("ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD")
 tx, _ := sdk.Native.Ont.NewTransferTransaction(500, 20000, fromAddr, toAddr, 1)
 _ = sdk.SignToTransaction(tx, fromAcct)
 result, err := sdk.PreExecTransaction(tx)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(result)
 }
 ```
 
@@ -213,13 +248,23 @@ if err != nil {
 
 ```go
 txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
-state, _ := sdk.GetMemPoolTxState(txHash)
+state, err := sdk.GetMemPoolTxState(txHash)
+if err != nil {
+    fmt.Println(err)
+} else {
+    fmt.Println(state)
+}
 ```
 
 - `GetMemPoolTxCount` 接口用于查询交易池中的交易数。
 
 ```go
-count, _ := sdk.GetMemPoolTxCount()
+count, err := sdk.GetMemPoolTxCount()
+if err != nil {
+    fmt.Println(err)
+} else {
+    fmt.Println(count)
+}
 ```
 
 ## 钱包
@@ -237,6 +282,8 @@ walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
 wallet, err := sdk.OpenWallet(walletFile)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(wallet.GetAccountCount())
 }
 ```
 
@@ -249,6 +296,8 @@ b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
 acct, err := wallet.GetAccountByAddress(b58Addr, password)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(acct.Address.ToBase58())
 }
 ```
 
@@ -259,6 +308,8 @@ b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
 acct, err := wallet.GetAccountByIndex(1, password)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(acct.Address.ToBase58())
 }
 ```
 
@@ -269,6 +320,8 @@ b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
 acct, err := wallet.GetAccountByLabel("acct1", password)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(acct.Address.ToBase58())
 }
 ```
 
@@ -280,15 +333,20 @@ if err != nil {
 acct, err := wallet.NewDefaultSettingAccount(password)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(acct.Address.ToBase58())
 }
 ```
 
 - 根据 `WIF` 创建账户
 
 ```go
-acct, err := wallet.NewDefaultSettingAccount(password)
+wif := []byte("L1eCFtiZH2ZU6KjTR9MR14wfTEHnGGGoxSuRB2TUXRqoGwa7NAjN")
+acct, err := wallet.NewAccountFromWIF(wif, password)
 if err != nil {
     fmt.Println(err)
+} else {
+    fmt.Println(acct.Address.ToBase58())
 }
 ```
 
