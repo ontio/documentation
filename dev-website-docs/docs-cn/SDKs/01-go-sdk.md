@@ -30,7 +30,10 @@ sdk.NewRpcClient().SetAddress("http://polaris1.ont.io:20336")
 - `WebSocket` 接口
 
 ```go
-_ = sdk.NewWebSocketClient().Connect("ws://polaris1.ont.io:20335")
+err := sdk.NewWebSocketClient().Connect("ws://polaris1.ont.io:20335")
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 网络编号
@@ -38,7 +41,10 @@ _ = sdk.NewWebSocketClient().Connect("ws://polaris1.ont.io:20335")
 `GetNetworkId` 接口用于查询网络编号。
 
 ```go
-netId, _ := sdk.GetNetworkId()
+netId, err := sdk.GetNetworkId()
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 节点版本
@@ -46,14 +52,20 @@ netId, _ := sdk.GetNetworkId()
 `GetVersion` 接口用于查询所连接节点的版本号。
 
 ```go
-version, _ := sdk.GetVersion()
+version, err := sdk.GetVersion()
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### Merkle 证明
 
 ```go
 txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
-merkleProof, _ := sdk.GetMerkleProof(txHash)
+merkleProof, err := sdk.GetMerkleProof(txHash)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 区块高度
@@ -62,13 +74,19 @@ merkleProof, _ := sdk.GetMerkleProof(txHash)
 
 ```go
 txHash := "1ebde66ec3f309dad20a63f8929a779162a067c36ce7b00ffbe8f4cfc8050d79"
-height, _ := sdk.GetBlockHeightByTxHash(txHash)
+height, err := sdk.GetBlockHeightByTxHash(txHash)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 - `GetCurrentBlockHeight` 接口用于查询当前区块高度。
 
 ```go
-height, _ := sdk.GetCurrentBlockHeight()
+height, err := sdk.GetCurrentBlockHeight()
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 区块哈希
@@ -76,13 +94,19 @@ height, _ := sdk.GetCurrentBlockHeight()
 - `GetBlockHash` 接口用于查询指定块高度所对应区块的哈希值。
 
 ```go
-hash, _ = sdk.GetBlockHash(0)
+hash, err = sdk.GetBlockHash(0)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 - `GetCurrentBlockHash` 接口用于查询当前区块的哈希值。
 
 ```go
-hash, _ := sdk.GetCurrentBlockHash()
+hash, err := sdk.GetCurrentBlockHash()
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 区块信息
@@ -90,13 +114,19 @@ hash, _ := sdk.GetCurrentBlockHash()
 - `GetBlockByHeight` 接口用于查询指定块高度所对应区块的信息。
 
 ```go
-block, _ := sdk.GetBlockByHeight(0)
+block, err := sdk.GetBlockByHeight(0)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 - `GetBlockByHash` 接口用于查询指定块哈希所对应区块的信息。
 
 ```go
-block, _ := sdk.GetBlockByHash(0)
+block, err := sdk.GetBlockByHash(0)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 智能合约
@@ -105,14 +135,20 @@ block, _ := sdk.GetBlockByHash(0)
 
 ```go
 ctrAddr := "1ddbb682743e9d9e2b71ff419e97a9358c5c4ee9"
-contract, _ := sdk.GetSmartContract(ctrAddr)
+contract, err := sdk.GetSmartContract(ctrAddr)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 - `GetSmartContractEvent` 接口用于查询指定交易哈希所对应的合约事件。
 
 ```go
 txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
-event, _ := sdk.GetSmartContractEvent(txHash)
+event, err := sdk.GetSmartContractEvent(txHash)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 - `GetSmartContractEventByBlock` 接口用于查询指定块高所对应区块中的所有合约事件。
@@ -139,6 +175,9 @@ toAddr, _ := utils.AddressFromBase58(b58ToAddr)
 tx, _ := sdk.Native.Ont.NewTransferTransaction(500, 20000, fromAddr, toAddr, 1)
 _ = sdk.SignToTransaction(tx, fromAcct)
 txHash, err := sdk.SendTransaction(tx)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 - 预执行交易
@@ -157,6 +196,9 @@ toAddr, _ := utils.AddressFromBase58(b58ToAddr)
 tx, _ := sdk.Native.Ont.NewTransferTransaction(500, 20000, fromAddr, toAddr, 1)
 _ = sdk.SignToTransaction(tx, fromAcct)
 result, err := sdk.PreExecTransaction(tx)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 交易池
@@ -178,14 +220,18 @@ count, _ := sdk.GetMemPoolTxCount()
 
 ```go
 import (
+    "fmt"
     "os"
     "path"
     "path/filepath"
 )
 
-wd, _ := os.Getwd()
+wd, err := os.Getwd()
 walletFile := filepath.FromSlash(path.Join(wd, "wallet.dat"))
-wallet, _ := sdk.OpenWallet(walletFile)
+wallet, err := sdk.OpenWallet(walletFile)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 获取账户
@@ -194,19 +240,60 @@ wallet, _ := sdk.OpenWallet(walletFile)
 
 ```go
 b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
-acct, _ := wallet.GetAccountByAddress(b58Addr, password)
+acct, err := wallet.GetAccountByAddress(b58Addr, password)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 - 根据索引获取
 
 ```go
 b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
-acct, _ := wallet.GetAccountByIndex(1, password)
+acct, err := wallet.GetAccountByIndex(1, password)
+if err != nil {
+    fmt.Println(err)
+}
 ```
 
 - 根据标签获取账户
 
 ```go
 b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
-acct, _ := wallet.GetAccountByLabel("acct1", password)
+acct, err := wallet.GetAccountByLabel("acct1", password)
+if err != nil {
+    fmt.Println(err)
+}
+```
+
+### 创建账户
+
+- 创建默认账户
+
+```go
+acct, err := wallet.NewDefaultSettingAccount(password)
+if err != nil {
+    fmt.Println(err)
+}
+```
+
+- 根据 `WIF` 创建账户
+
+```go
+acct, err := wallet.NewDefaultSettingAccount(password)
+if err != nil {
+    fmt.Println(err)
+}
+```
+
+!> <code>WIF（Wallet Import Format）</code> 是将明文私钥以 <code>Base58</code> 校验和编码格式显示的钱包导入格式。<code>WIF</code> 和私钥可以互转，因此也理解为是另一种形式的明文私钥。任何具有 <code>WIF</code> 的人，就能控制该 <code>WIF</code> 所对应的钱包账户。
+
+### 删除账户
+
+```go
+b58Addr := "AHPVRC5biRZfHRcYFLHfRPfgmbFdCzYQWq"
+err = wallet.DeleteAccount(b58Addr)
+if err != nil {
+    fmt.Println(err)
+}
 ```
