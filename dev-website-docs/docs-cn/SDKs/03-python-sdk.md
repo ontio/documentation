@@ -81,6 +81,30 @@ sdk.wallet_manager.open_wallet(wallet_path)
 
 !> 钱包管理模块 **尚未** 经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，请 **务必** 进行安全审计！
 
+### 创建账户
+
+- 创建随机账户
+
+```python
+acct = sdk.wallet_manager.create_account(password)
+```
+
+- 根据 `WIF` 创建账户
+
+```python
+wif = 'L1eCFtiZH2ZU6KjTR9MR14wfTEHnGGGoxSuRB2TUXRqoGwa7NAjN'
+acct = sdk.wallet_manager.create_account_from_wif(wif, password)
+```
+
+!> <code>WIF（Wallet Import Format）</code> 是将明文私钥以 <code>Base58</code> 校验和编码格式显示的钱包导入格式。<code>WIF</code> 和私钥可以互转，因此也理解为是另一种形式的明文私钥。任何具有 <code>WIF</code> 的人，就能控制该 <code>WIF</code> 所对应的钱包账户。
+
+### 删除账户
+
+```python
+b58_address := "AHPVRC5biRZfHRcYFLHfRPfgmbFdCzYQWq"
+sdk.wallet_manager.del_account_by_b58_address(b58_address)
+```
+
 ## 资产管理
 
 ```python
