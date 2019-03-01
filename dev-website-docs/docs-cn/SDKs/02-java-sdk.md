@@ -7,6 +7,160 @@ import com.github.ontio.OntSdk;
 OntSdk ontSdk = OntSdk.getInstance();
 ```
 
+## 网络
+
+| 接口                                                | 描述                 |
+| :-------------------------------------------------- | :------------------- |
+| ontSdk.getConnect().getNodeCount()                  | 查询节点数量         |
+| ontSdk.getConnect().getBlock()                      | 查询块               |
+| ontSdk.getConnect().getBlockJson()                  | 查询块               |
+| ontSdk.getConnect().getBlockJson()                  | 查询块               |
+| ontSdk.getConnect().getBlock()                      | 查询块               |
+| ontSdk.getConnect().getBlockHeight()                | 查询当前块高         |
+| ontSdk.getConnect().getTransaction()                | 查询交易             |
+| ontSdk.getConnect().getStorage()                    | 查询智能合约存储     |
+| ontSdk.getConnect().getBalance()                    | 查询余额             |
+| ontSdk.getConnect().getContractJson()               | 查询智能合约         |
+| ontSdk.getConnect().getSmartCodeEvent()             | 查询智能合约事件     |
+| ontSdk.getConnect().getSmartCodeEvent()             | 查询智能合约事件     |
+| ontSdk.getConnect().getBlockHeightByTxHash()        | 查询交易所在高度     |
+| ontSdk.getConnect().getMerkleProof()        | 查询 Merkle 证明     |
+| ontSdk.getConnect().sendRawTransaction()            | 发送交易             |
+| ontSdk.getConnect().sendRawTransaction()            | 发送交易             |
+| ontSdk.getConnect().sendRawTransactionPreExec()     | 发送预执行交易       |
+| ontSdk.getConnect().getAllowance() | 查询允许使用值       |
+| ontSdk.getConnect().getMemPoolTxCount()             | 查询交易池中交易总量 |
+| ontSdk.getConnect().getMemPoolTxState()             | 查询交易池中交易状态 |
+
+### 交易池
+
+根据交易哈希 `TxHash` 可以查询交易在交易池（内存）中的状态。
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
+            String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
+            Object txState = ontSdk.getConnect().getMemPoolTxState(txHash);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 合约事件
+
+- 根据交易哈希 `TxHash` 查询交易对应的合约事件。
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
+            String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
+            Object event = ontSdk.getConnect().getSmartCodeEvent(txHash);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+- 轮询（每隔3秒请求一次，最长等待60秒）交易哈希 `TxHash` 查询交易对应的合约事件。
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
+            String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
+            Object event = ontSdk.getConnect().waitResult(txHash);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+- 根据区块高度查询智能合约事件，返回对应区块中的所有事件。
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
+            Object event = ontSdk.getConnect().getSmartCodeEvent(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Merkle 证明
+
+`getMerkleProof` 接口用于获取指定交易哈希所对应交易的 Merkle 证明。
+
+```java
+package demo;
+
+import com.github.ontio.OntSdk;
+import com.github.ontio.account.Account;
+
+public class NetworkDemo {
+    public static void main(String[] args) {
+        try {
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
+            String txHash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74";
+            Object proof = ontSdk.getConnect().getMerkleProof(txHash);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/SDKs/merkle-tree.png" width="620px"></div>
+
+<p class = "info">由于 <code>Merkle</code> 树的结构特征，通过使用默克尔证明技术，能够快速判断特定数据是否存在于默克尔树之中。</p>
+
 ## 账户
 
 不同于比特币的 UTXO(Unspent Transaction Output) 模型，本体采用了账户余额模型。
@@ -659,157 +813,3 @@ public class MakeTxDemo {
     }
 }
 ```
-
-## 网络
-
-| 接口                                                | 描述                 |
-| :-------------------------------------------------- | :------------------- |
-| ontSdk.getConnect().getNodeCount()                  | 查询节点数量         |
-| ontSdk.getConnect().getBlock()                      | 查询块               |
-| ontSdk.getConnect().getBlockJson()                  | 查询块               |
-| ontSdk.getConnect().getBlockJson()                  | 查询块               |
-| ontSdk.getConnect().getBlock()                      | 查询块               |
-| ontSdk.getConnect().getBlockHeight()                | 查询当前块高         |
-| ontSdk.getConnect().getTransaction()                | 查询交易             |
-| ontSdk.getConnect().getStorage()                    | 查询智能合约存储     |
-| ontSdk.getConnect().getBalance()                    | 查询余额             |
-| ontSdk.getConnect().getContractJson()               | 查询智能合约         |
-| ontSdk.getConnect().getSmartCodeEvent()             | 查询智能合约事件     |
-| ontSdk.getConnect().getSmartCodeEvent()             | 查询智能合约事件     |
-| ontSdk.getConnect().getBlockHeightByTxHash()        | 查询交易所在高度     |
-| ontSdk.getConnect().getMerkleProof()        | 查询 Merkle 证明     |
-| ontSdk.getConnect().sendRawTransaction()            | 发送交易             |
-| ontSdk.getConnect().sendRawTransaction()            | 发送交易             |
-| ontSdk.getConnect().sendRawTransactionPreExec()     | 发送预执行交易       |
-| ontSdk.getConnect().getAllowance() | 查询允许使用值       |
-| ontSdk.getConnect().getMemPoolTxCount()             | 查询交易池中交易总量 |
-| ontSdk.getConnect().getMemPoolTxState()             | 查询交易池中交易状态 |
-
-### 交易池
-
-根据交易哈希 `TxHash` 可以查询交易在交易池（内存）中的状态。
-
-```java
-package demo;
-
-import com.github.ontio.OntSdk;
-import com.github.ontio.account.Account;
-
-public class NetworkDemo {
-    public static void main(String[] args) {
-        try {
-            String rpcUrl = "http://polaris1.ont.io:20336";
-            OntSdk sdk = OntSdk.getInstance();
-            sdk.setRpc(rpcUrl);
-            sdk.setDefaultConnect(sdk.getRpc());
-            String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
-            Object txState = ontSdk.getConnect().getMemPoolTxState(txHash);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### 合约事件
-
-- 根据交易哈希 `TxHash` 查询交易对应的合约事件。
-
-```java
-package demo;
-
-import com.github.ontio.OntSdk;
-import com.github.ontio.account.Account;
-
-public class NetworkDemo {
-    public static void main(String[] args) {
-        try {
-            String rpcUrl = "http://polaris1.ont.io:20336";
-            OntSdk sdk = OntSdk.getInstance();
-            sdk.setRpc(rpcUrl);
-            sdk.setDefaultConnect(sdk.getRpc());
-            String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
-            Object event = ontSdk.getConnect().getSmartCodeEvent(txHash);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-- 轮询（每隔3秒请求一次，最长等待60秒）交易哈希 `TxHash` 查询交易对应的合约事件。
-
-```java
-package demo;
-
-import com.github.ontio.OntSdk;
-import com.github.ontio.account.Account;
-
-public class NetworkDemo {
-    public static void main(String[] args) {
-        try {
-            String rpcUrl = "http://polaris1.ont.io:20336";
-            OntSdk sdk = OntSdk.getInstance();
-            sdk.setRpc(rpcUrl);
-            sdk.setDefaultConnect(sdk.getRpc());
-            String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
-            Object event = ontSdk.getConnect().waitResult(txHash);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-- 根据区块高度查询智能合约事件，返回对应区块中的所有事件。
-
-```java
-package demo;
-
-import com.github.ontio.OntSdk;
-import com.github.ontio.account.Account;
-
-public class NetworkDemo {
-    public static void main(String[] args) {
-        try {
-            String rpcUrl = "http://polaris1.ont.io:20336";
-            OntSdk sdk = OntSdk.getInstance();
-            sdk.setRpc(rpcUrl);
-            sdk.setDefaultConnect(sdk.getRpc());
-            Object event = ontSdk.getConnect().getSmartCodeEvent(0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Merkle 证明
-
-`getMerkleProof` 接口用于获取指定交易哈希所对应交易的 Merkle 证明。
-
-```java
-package demo;
-
-import com.github.ontio.OntSdk;
-import com.github.ontio.account.Account;
-
-public class NetworkDemo {
-    public static void main(String[] args) {
-        try {
-            String rpcUrl = "http://polaris1.ont.io:20336";
-            OntSdk sdk = OntSdk.getInstance();
-            sdk.setRpc(rpcUrl);
-            sdk.setDefaultConnect(sdk.getRpc());
-            String txHash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74";
-            Object proof = ontSdk.getConnect().getMerkleProof(txHash);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/SDKs/merkle-tree.png" width="620px"></div>
-
-<p class = "info">由于 <code>Merkle</code> 树的结构特征，通过使用默克尔证明技术，能够快速判断特定数据是否存在于默克尔树之中。</p>
