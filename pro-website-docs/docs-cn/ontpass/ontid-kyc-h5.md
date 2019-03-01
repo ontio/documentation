@@ -24,21 +24,24 @@
 
 3. KYC dapp调用ONT ID后端接口获取注册ONTID的交易，上传认证信息到ONT Pass（ONT Pass在审核通过后发送上链交易）；
 
-4. 等待审核通过（测试环境一般10分钟内）
+4. 提交[认证请求](http://pro-docs.ont.io/#/docs-cn/ontpass/overview)到ONT Pass。这个请求需要认证需求方的签名，即用户的签名，也就需要用户输入密码。KYC dapp将获取签名的请求数据，用ONT ID后台提供的公钥加密，再发送给应用方后台，应用方后台然后附加上HMAC校验，转发给ONT ID账户体系后台。
 
-   [![kRqsu6.md.jpg](https://s2.ax1x.com/2019/02/21/kRqsu6.md.jpg)](https://imgchr.com/i/kRqsu6)
+5.  KYC dapp先将获取到的签名合并到请求数据中，发送给ONT Pass，触发认证请求。
+
+6. 等待审核通过（测试环境一般10分钟内）
+
+   ![cert](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/kyc/certification.jpg)
 
 ### 2.2 授权
 
-1. 应用方在需要用户授权的地方，通过url跳转到KYC dapp h5（在url后附上参数，通过用户ONT ID查询到加密后claim），显示授权页面
+1. 应用方在需要用户授权的地方，通过url跳转到KYC dapp h5（在url后附上参数，通过用户ONT ID查询到加密后claim），显示授权页面。
 
-2. 用户确认后，输入密码，发送请求到ONT ID后端进行解密
+2. 用户确认后，输入密码，发送授权信息到应用方后台（请求数据使用ONT ID 账户体系后台公钥加密），应用方后台转发请求数据到ONT ID后台，返回解密后的Claim。
 
-3. ONT ID后端验证密码正确后，通过托管的私钥解密claim，返回到KYC dapp h5
+3. 应用方验证Cliam。返回给KYC dapp验证结果，即授权结果。
 
-4. KYC dapp h5 发送授权信息到应用方后台后， 返回授权成功页面，用户可以点击返回到应用方。应用方调用自己后台接口获取授权结果。（需要应用方自行实现接收授权信息接口和验证授权接口）
+   ![auth](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/kyc/auth.jpg)
 
-   ![kRq2Ue.jpg](https://s2.ax1x.com/2019/02/21/kRq2Ue.jpg)
 
 ## 3. 应用方对接所需接口和链接
 
@@ -93,3 +96,54 @@ url	: 由dapp传给KYC dapp
 | desc       | String  | 错误信息。成功即SUCCESS，其他即错误信息          |
 | result     | boolean | true：验证授权信息成功； false：验证授权信息失败 |
 
+### 3.4 认证时转发获取签名请求
+
+认证时，用户发送获取签名的请求，应用方直接转发请求到ONT ID账户体系后台。需要ONT ID后台提供接收该请求的 接口。
+
+### POST
+
+```
+url: 由应用方传给KYC dapp
+```
+
+### REQUEST
+
+| Field_Name | Required | Format | Description                                                  |
+| ---------- | -------- | ------ | ------------------------------------------------------------ |
+| nounce     | yes      | string | 需保证唯一性                                                 |
+| message    | yes      | string | 使用ONT ID后台公钥加密的请求数据。格式是 “.”分隔的字符串。解密后内容为：{auth_id: 'xxxx', password: ''} |
+
+### RESPONSE
+
+| Field_Name | Format | Description                                |
+| ---------- | ------ | ------------------------------------------ |
+| version    | String | 版本号，目前是1.0。                        |
+| action     | String | 固定值：RequestAuthorizationCallback。     |
+| desc       | String | 错误信息。成功即SUCCESS，其他即错误信息    |
+| result     | String | ONT  ID 使用用户私钥对解密出的数据做的签名 |
+
+### 3.5 授权时转发授权信息
+
+授权时，用户发送授权信息（使用ONT ID后台公钥加密的）给应用方后台。应用方转发给ONT ID后台解密，得到Claim，对Claim验证，验证成功，则授权成功。返回授权结果给KYC dapp。
+
+### POST
+
+```
+url: 由应用方传给KYC dapp
+```
+
+### REQUEST
+
+| Field_Name | Required | Format | Description                                                  |
+| ---------- | -------- | ------ | ------------------------------------------------------------ |
+| nounce     | yes      | string | 需保证唯一性                                                 |
+| message    | yes      | string | 使用ONT ID后台公钥加密的请求数据。格式是 “.”分隔的字符串。解密后内容为：{enc_claim: 'xxxx', password: ''} |
+
+### RESPONSE
+
+| Field_Name | Format | Description                             |
+| ---------- | ------ | --------------------------------------- |
+| version    | String | 版本号，目前是1.0。                     |
+| action     | String | 固定值：RequestAuthorizationCallback。  |
+| desc       | String | 错误信息。成功即SUCCESS，其他即错误信息 |
+| result     | String | 应用方后台验证授权Claim的结果。         |
