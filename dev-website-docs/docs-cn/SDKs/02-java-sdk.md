@@ -698,21 +698,15 @@ import com.github.ontio.account.Account;
 public class NetworkDemo {
     public static void main(String[] args) {
         try {
-            OntSdk ontSdk = getOntSdk();
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
             String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
             Object txState = ontSdk.getConnect().getMemPoolTxState(txHash);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static OntSdk getOntSdk() throws Exception {
-        String rpcUrl = "http://polaris1.ont.io:20336";
-
-        OntSdk sdk = OntSdk.getInstance();
-        sdk.setRpc(rpcUrl);
-        sdk.setDefaultConnect(sdk.getRpc());
-        return sdk;
     }
 }
 ```
@@ -730,21 +724,15 @@ import com.github.ontio.account.Account;
 public class NetworkDemo {
     public static void main(String[] args) {
         try {
-            OntSdk ontSdk = getOntSdk();
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
             String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
             Object event = ontSdk.getConnect().getSmartCodeEvent(txHash);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static OntSdk getOntSdk() throws Exception {
-        String rpcUrl = "http://polaris1.ont.io:20336";
-
-        OntSdk sdk = OntSdk.getInstance();
-        sdk.setRpc(rpcUrl);
-        sdk.setDefaultConnect(sdk.getRpc());
-        return sdk;
     }
 }
 ```
@@ -760,21 +748,15 @@ import com.github.ontio.account.Account;
 public class NetworkDemo {
     public static void main(String[] args) {
         try {
-            OntSdk ontSdk = getOntSdk();
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
             String txHash = "d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc";
             Object event = ontSdk.getConnect().waitResult(txHash);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static OntSdk getOntSdk() throws Exception {
-        String rpcUrl = "http://polaris1.ont.io:20336";
-
-        OntSdk sdk = OntSdk.getInstance();
-        sdk.setRpc(rpcUrl);
-        sdk.setDefaultConnect(sdk.getRpc());
-        return sdk;
     }
 }
 ```
@@ -790,25 +772,21 @@ import com.github.ontio.account.Account;
 public class NetworkDemo {
     public static void main(String[] args) {
         try {
-            OntSdk ontSdk = getOntSdk();
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
             Object event = ontSdk.getConnect().getSmartCodeEvent(0);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    public static OntSdk getOntSdk() throws Exception {
-        String rpcUrl = "http://polaris1.ont.io:20336";
-
-        OntSdk sdk = OntSdk.getInstance();
-        sdk.setRpc(rpcUrl);
-        sdk.setDefaultConnect(sdk.getRpc());
-        return sdk;
-    }
 }
 ```
 
 ### 查询 Merkle 证明
+
+`getMerkleProof` 接口用于获取指定交易哈希所对应交易的 Merkle 证明。
 
 ```java
 package demo;
@@ -819,20 +797,19 @@ import com.github.ontio.account.Account;
 public class NetworkDemo {
     public static void main(String[] args) {
         try {
-            OntSdk ontSdk = getOntSdk();
-            Object event = ontSdk.getConnect().getMerkleProof(0);
+            String rpcUrl = "http://polaris1.ont.io:20336";
+            OntSdk sdk = OntSdk.getInstance();
+            sdk.setRpc(rpcUrl);
+            sdk.setDefaultConnect(sdk.getRpc());
+            String txHash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74";
+            Object proof = ontSdk.getConnect().getMerkleProof(txHash);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    public static OntSdk getOntSdk() throws Exception {
-        String rpcUrl = "http://polaris1.ont.io:20336";
-
-        OntSdk sdk = OntSdk.getInstance();
-        sdk.setRpc(rpcUrl);
-        sdk.setDefaultConnect(sdk.getRpc());
-        return sdk;
-    }
 }
 ```
+
+<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/SDKs/merkle-tree.png" width="620px"></div>
+
+<p class = "info">由于 <code>Merkle</code> 树的结构特征，通过使用默克尔证明技术，能够快速判断特定数据是否存在于默克尔树之中。</p>
