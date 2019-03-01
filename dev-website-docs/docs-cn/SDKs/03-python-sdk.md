@@ -73,165 +73,33 @@ merkle_proof = sdk.rpc.get_merkle_proof(tx_hash)
 
 <p class = "info">由于 <code>Merkle</code> 树的结构特征，通过使用默克尔证明技术，能够快速判断特定数据是否存在于默克尔树之中。</p>
 
-### Wallet
+## 钱包管理
 
-这是一个用于操作钱包账户（以`AccountData`的形式）的API集合。
+```python
+sdk.wallet_manager.open_wallet(wallet_path)
+```
 
-|       | Main Function    |
-| :---: | :--------------- |
-|   1   | add_account()    |
-|   2   | remove_account() |
+!> 钱包管理模块 **尚未** 经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，请 **务必** 进行安全审计！
 
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
+## 资产管理
 
-### Account
+```python
+asset = sdk.native_vm.asset()
+```
 
-这是一个
-This is an API set that allows you to generate Ontology accounts and sign transactions and data.
+!> 资产管理模块 **尚未** 经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，请 **务必** 进行安全审计！
 
-|       | Main Function                      |
-| :---: | :--------------------------------- |
-|   1   | export_wif()                       |
-|   2   | get_signature_scheme()             |
-|   3   | get_public_key_bytes()             |
-|   4   | get_private_key_bytes()            |
-|   5   | get_public_key_hex()               |
-|   6   | get_public_key_bytes()             |
-|   7   | get_private_key_from_wif()         |
-|   8   | get_gcm_decoded_private_key()      |
-|   9   | export_gcm_encrypted_private_key() |
-|  10   | get_address_hex()                  |
-|  11   | get_address_hex_reverse()          |
-|  12   | get_address_base58()               |
-|  13   | generate_signature()               |
+## 同质化通证
 
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
+在本体中，同质化通证以 OEP4 提案的形式进行了标准化，关于该提案的更多信息，你可以点击[这里](https://github.com/ontio/OEPs/blob/master/OEPS/OEP-4.mediawiki)获取。
 
-### Identity
+```python
+oep4 = sdk.neo_vm.oep4()
+```
 
-This is an API set that allows you to generate **Ontology Digital Identity.**
+!> 同质化通证模块 **尚未** 经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，请 **务必** 进行安全审计！
 
-|       | Main Function                       |
-| :---: | :---------------------------------- |
-|   1   | parse_ddo()                         |
-|   2   | send_get_ddo()                      |
-|   3   | new_get_ddo_transaction()           |
-|   4   | new_add_recovery_transaction()      |
-|   5   | new_add_attribute_transaction()     |
-|   6   | new_add_public_key_transaction()    |
-|   7   | new_remove_public_key_transaction() |
-|   8   | new_registry_ont_id_transaction()   |
-|   9   | new_remove_attribute_transaction()  |
-|  10   | send_add_recovery_transaction()     |
-|  11   | send_add_attribute_transaction()    |
-|  12   | send_add_public_key_transaction()   |
-|  13   | send_registry_ont_id_transaction()  |
-|  14   | remove_public_key()                 |
-|  15   | send_remove_attribute_transaction() |
-|  16   | send_add_public_key_by_recovery()   |
-|  17   | sign_transaction()                  |
-|  18   | add_sign_transaction()              |
-|  19   | add_multi_sign_transaction()        |
-|  20   | get_merkle_proof()                  |
-|  21   | get_transaction_by_tx_hash()        |
-|  22   | send_raw_transaction()              |
-|  23   | send_raw_transaction_pre_exec()     |
-
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
-
-### AccountManager
-
-This is an API set that allows you to manage your multiple account in an wallet file.
-
-|       | Main Function                     |
-| :---: | :-------------------------------- |
-|   1   | import_account()                  |
-|   2   | create_account()                  |
-|   3   | create_account_from_private_key() |
-|   4   | get_account()                     |
-|   5   | get_accounts()                    |
-|   6   | get_default_account()             |
-|   7   | get_default_account_address()     |
-|   8   | set_default_account_by_index()    |
-|   9   | set_default_account_by_address()  |
-
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
-
-### IdentityManager
-
-This is an API set that allows you to manage your multiple identity in an wallet file.
-
-|       | Main Function                      |
-| :---: | :--------------------------------- |
-|   1   | create_identity()                  |
-|   2   | import_identity()                  |
-|   3   | create_identity_from_private_key() |
-
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
-
-### Asset
-
-`Asset`包使你能够容易地处理Ontology原生数字资产（ONT，ONG）。
-
-|       | Main Function                   |
-| :---: | :------------------------------ |
-|   1   | query_name()                    |
-|   2   | query_symbol()                  |
-|   3   | query_balance()                 |
-|   4   | query_decimals()                |
-|   5   | query_allowance()               |
-|   6   | query_unbound_ong()             |
-|   7   | get_asset_address()             |
-|   8   | new_approve_transaction()       |
-|   9   | new_transfer_transaction()      |
-|  10   | new_transfer_from_transaction() |
-|  11   | new_withdraw_ong_transaction()  |
-|  12   | send_transfer()                 |
-|  13   | send_approve()                  |
-|  14   | send_transfer_from()            |
-|  15   | send_withdraw_ong_transaction() |
-
-### ABI
-
-`ABI`包使你能够轻松地与已经部署的智能合约进行交互。
-
-|       | Main Function      |
-| :---: | :----------------- |
-|   1   | get_function]()    |
-|   2   | get_parameter()    |
-|   3   | set_params_value() |
-
-### OEP4
-
-`OEP4`包使你能够轻松地与已经部署的Ontology OEP4智能合约进行交互。
-
-|       | Main Function      |
-| :---: | :----------------- |
-|   1   | init()             |
-|   2   | get_name()         |
-|   3   | get_symbol()       |
-|   4   | get_decimal()      |
-|   5   | get_total_supply() |
-|   6   | approve()          |
-|   7   | allowance()        |
-|   8   | balance_of()       |
-|   9   | transfer()         |
-|  10   | transfer_multi()   |
-|  11   | transfer_from()    |
-
-**注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
-
-### Utils
-
-`Utils`包为`Ontology Dapps`和其他`Ontology-Python-Sdk`包提供工具类方法。
-
-|       | Main Function        |
-| :---: | :------------------- |
-|   1   | get_random_hex_str() |
-|   2   | get_asset_address()  |
-|   3   | get_random_bytes()   |
-
-### 签名机
+## 签名机
 
 在使用签名机对交易进行签名时，其流程如下。
 
@@ -249,7 +117,7 @@ This is an API set that allows you to manage your multiple identity in an wallet
   </ul>
 </section>
 
-#### 连接签名机
+### 连接签名机
 
 ```python
 from ontology.ont_sdk import OntologySdk
@@ -258,19 +126,19 @@ sdk = OntologySdk()
 sdk.service.sig_svr.connect_to_localhost()
 ```
 
-#### 创建账户
+### 创建账户
 
 ```python
 sdk.service.sig_svr.create_account('password')
 ```
 
-#### 导出账户
+### 导出账户
 
 ```python
 sdk.service.sig_svr.export_account()
 ```
 
-#### 数据签名
+### 数据签名
 
 ```python
 msg = '48656c6c6f2c20776f726c64'
