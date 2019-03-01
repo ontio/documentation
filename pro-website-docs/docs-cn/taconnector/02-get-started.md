@@ -87,6 +87,8 @@ def query_edu(q_code: str):
 以 `Python` 为例，通过使用流行的 HTML 与 XML 文件解析库 `Beautiful Soup`，你能够快速完成验证报告的规范化。
 
 ```python
+from bs4 import BeautifulSoup
+
 def chsi_parser(page, get_img: bool = False):
     soup = BeautifulSoup(page, features='lxml-xml')
     result_table = soup.find('div', {'class': 'clearfix', 'id': 'resultTable'})
