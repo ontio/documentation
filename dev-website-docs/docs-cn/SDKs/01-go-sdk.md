@@ -327,7 +327,7 @@ if err != nil {
 
 ### 创建账户
 
-- 创建默认账户
+- 创建随机账户
 
 ```go
 acct, err := wallet.NewDefaultSettingAccount(password)
