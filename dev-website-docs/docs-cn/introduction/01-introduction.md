@@ -14,4 +14,4 @@
 - 多种共识算法支持。
 - 快速的区块生成时间。
 
-<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/arch.png"><br><br></div>
+<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/arch.png"></div>
