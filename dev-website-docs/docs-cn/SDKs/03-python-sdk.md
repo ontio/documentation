@@ -91,19 +91,13 @@ asset = sdk.native_vm.asset()
 
 ## 同质化通证
 
-`OEP4` 包使你能够轻松地与已经部署的Ontology OEP4智能合约进行交互。
+在本体中，同质化通证以 OEP4 提案的形式进行了标准化，关于该提案的更多信息，你可以点击[这里](https://github.com/ontio/OEPs/blob/master/OEPS/OEP-4.mediawiki)获取。
+
+```python
+oep4 = sdk.neo_vm.oep4()
+```
 
 !> 同质化通证模块 **尚未** 经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，请 **务必** 进行安全审计！
-
-### Utils
-
-`Utils`包为`Ontology Dapps`和其他`Ontology-Python-Sdk`包提供工具类方法。
-
-|       | Main Function        |
-| :---: | :------------------- |
-|   1   | get_random_hex_str() |
-|   2   | get_asset_address()  |
-|   3   | get_random_bytes()   |
 
 ## 签名机
 
