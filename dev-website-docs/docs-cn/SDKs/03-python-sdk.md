@@ -1,42 +1,77 @@
 
-## 简介
+## 安装
 
-本体团队的官方 Python SDK 基于 Python 3.6 实现。目前，它支持钱包文件管理、数字身份管理、数字资产管理、智能合约的部署和调用、以及与本体区块链网络的通信。
+安装 `ontology-python-sdk` 需要 `Python 3.6` 或更高版本的环境。
 
-## 快速开始
-
-安装需要 `Python 3.6` 或更高版本的环境。
+- 从 PyPI 获取。
 
 ```shell
 pip install ontology-python-sdk
 ```
 
-## 接口
+- 点击[这里](https://github.com/ontio/ontology-python-sdk/releases)从 GitHub 获取。
 
-这里以列表的形式列出所支持的接口，更详细的信息可以点击[这里](https://apidoc.ont.io/pythonsdk/)访问我们的 API 文档。
+## 快速开始
 
-### Network
+```python
+from ontology.ont_sdk import OntologySdk
 
-这是一个用于与本体网络进行交互的API集合。
+sdk = OntologySdk()
+```
 
-|       | Main Function                         |
-| :---: | :------------------------------------ |
-|   1   | get_version()                         |
-|   2   | get_balance()                         |
-|   3   | get_allowance()                       |
-|   4   | get_gas_price()                       |
-|   5   | get_network_id()                      |
-|   6   | get_node_count()                      |
-|   7   | get_block_count()                     |
-|   8   | get_block_height()                    |
-|   9   | get_block_by_hash()                   |
-|  10   | get_block_by_height()                 |
-|  11   | get_current_block_hash()              |
-|  12   | get_block_hash_by_height()            |
-|  13   | get_storage()                         |
-|  14   | get_smart_contract()                  |
-|  15   | get_smart_contract_event_by_tx_hash() |
-|  16   | get_smart_contract_event_by_height()  |
+更多关于 `ontology-python-sdk` 的详细信息可以点击[这里](https://apidoc.ont.io/pythonsdk/)访问 API 文档。
+
+## 网络
+
+`ontology-python-sdk` 支持 RPC、Restful 以及 WebSocket 接口，你可以选择你需要的接口进行使用。
+
+- 连接到 `polaris` 测试网
+
+```python
+sdk.rpc.connect_to_test_net()
+sdk.restful.connect_to_test_net()
+sdk.websocket.connect_to_test_net()
+```
+
+- 连接到主网
+
+```python
+sdk.rpc.connect_to_main_net()
+sdk.restful.connect_to_main_net()
+sdk.websocket.connect_to_main_net()
+```
+
+- 连接到本地节点
+
+```python
+sdk.rpc.connect_to_localhost()
+sdk.restful.connect_to_localhost()
+sdk.websocket.connect_to_localhost()
+```
+
+- 连接到自定义节点
+
+```python
+url = 'http://127.0.0.1:20334'
+sdk.restful.set_address(url)
+url = 'http://127.0.0.1:20335'
+sdk.websocket.set_address(url)
+url = 'http://127.0.0.1:20336'
+sdk.rpc.set_address(url)
+```
+
+### Merkle 证明
+
+`get_merkle_proof` 接口用于获取指定交易哈希所对应交易的 Merkle 证明。
+
+```python
+tx_hash = '12943957b10643f04d89938925306fa342cec9d32925f5bd8e9ea7ce912d16d3'
+merkle_proof = sdk.rpc.get_merkle_proof(tx_hash)
+```
+
+<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/SDKs/merkle-tree.png" width="620px"></div>
+
+<p class = "info">由于 <code>Merkle</code> 树的结构特征，通过使用默克尔证明技术，能够快速判断特定数据是否存在于默克尔树之中。</p>
 
 ### Wallet
 
@@ -76,31 +111,31 @@ This is an API set that allows you to generate Ontology accounts and sign transa
 
 This is an API set that allows you to generate **Ontology Digital Identity.**
 
-|       | Main Function                        |
-| :---: | :----------------------------------- |
-|   1   | parse_ddo()                          |
-|   2   | send_get_ddo()                       |
-|   3   | new_get_ddo_transaction()            |
-|   4   | new_add_recovery_transaction()       |
-|   5   | new_add_attribute_transaction()      |
-|   6   | new_add_public_key_transaction()     |
-|   7   | new_remove_public_key_transaction()  |
-|   8   | new_registry_ont_id_transaction()    |
-|   9   | new_remove_attribute_transaction()   |
-|  10   | send_add_recovery_transaction()      |
-|  11   | send_add_attribute_transaction()     |
-|  12   | send_add_public_key_transaction()    |
-|  13   | send_registry_ont_id_transaction()   |
-|  14   | remove_public_key() |
-|  15   | send_remove_attribute_transaction()  |
-|  16   | send_add_public_key_by_recovery()    |
-|  17   | sign_transaction()                   |
-|  18   | add_sign_transaction()               |
-|  19   | add_multi_sign_transaction()         |
-|  20   | get_merkle_proof()                   |
-|  21   | get_transaction_by_tx_hash()         |
-|  22   | send_raw_transaction()               |
-|  23   | send_raw_transaction_pre_exec()      |
+|       | Main Function                       |
+| :---: | :---------------------------------- |
+|   1   | parse_ddo()                         |
+|   2   | send_get_ddo()                      |
+|   3   | new_get_ddo_transaction()           |
+|   4   | new_add_recovery_transaction()      |
+|   5   | new_add_attribute_transaction()     |
+|   6   | new_add_public_key_transaction()    |
+|   7   | new_remove_public_key_transaction() |
+|   8   | new_registry_ont_id_transaction()   |
+|   9   | new_remove_attribute_transaction()  |
+|  10   | send_add_recovery_transaction()     |
+|  11   | send_add_attribute_transaction()    |
+|  12   | send_add_public_key_transaction()   |
+|  13   | send_registry_ont_id_transaction()  |
+|  14   | remove_public_key()                 |
+|  15   | send_remove_attribute_transaction() |
+|  16   | send_add_public_key_by_recovery()   |
+|  17   | sign_transaction()                  |
+|  18   | add_sign_transaction()              |
+|  19   | add_multi_sign_transaction()        |
+|  20   | get_merkle_proof()                  |
+|  21   | get_transaction_by_tx_hash()        |
+|  22   | send_raw_transaction()              |
+|  23   | send_raw_transaction_pre_exec()     |
 
 **注意**：该包**尚未**经过安全审计，可能存在潜在的安全隐患。在生产环境中使用之前，务必采取诸如正确清理内存、安全存储私钥、测试交易接发功能的正确性等预防措施！
 
