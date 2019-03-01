@@ -63,6 +63,7 @@
 
 - DAPP接入指导
   - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_integration.md)
+  - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
   - [Cyano Bridge安装和使用](docs-cn/dApp-Integration/04-DAppDocking-Cyano-Bridge.md)
       - [手机钱包内打开接入](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
       - [手机钱包扫码接入](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
