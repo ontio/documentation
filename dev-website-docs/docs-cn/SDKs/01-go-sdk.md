@@ -60,6 +60,8 @@ if err != nil {
 
 ### Merkle 证明
 
+`GetMerkleProof` 接口用于获取指定交易哈希所对应交易的 Merkle 证明。
+
 ```go
 txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
 merkleProof, err := sdk.GetMerkleProof(txHash)
@@ -67,6 +69,8 @@ if err != nil {
     fmt.Println(err)
 }
 ```
+
+<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/SDKs/merkle-tree.png"></div>
 
 ### 区块高度
 
