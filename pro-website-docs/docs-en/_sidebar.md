@@ -1,6 +1,6 @@
 
 - ONTID
-  - [Overview](docs-en/ontid/overview.md)
+  - [Overview of ONT ID](docs-en/ontid/overview.md)
   - [Get started](docs-en/ontid/get_started.md)
 - ONT PASS
   - [Overview](docs-en/ontpass/overview.md)
