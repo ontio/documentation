@@ -59,7 +59,7 @@
 
 - DAPP开发指导
   - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
-  - [开发工具概述](docs-cn/DeveloperGuide/tools.md)
+  - [开发工具概述](docs-cn/introduction/tools.md)
 
 - DAPP接入指导
   - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_integration.md)
