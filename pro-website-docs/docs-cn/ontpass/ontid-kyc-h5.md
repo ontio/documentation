@@ -52,12 +52,12 @@
 ### 3.1 跳转到KYC dapp认证页面
 
 ```
-url：host + /#/mgmtHome?ontid={ontid}&transmitCallback={transmitCallback}&requestAuthenticationCallback={requestAuthenticationCallback}
+url：host + /#/mgmtHome?ontid={ontid}&forwardCallback={transmitCallback}&requestAuthenticationCallback={requestAuthenticationCallback}
 ```
 
 `ontid` User's ONT  ID
 
-`transmitCallback` 应用方后台用于转发请求的回调地址
+`forwardCallback` 应用方后台用于转发请求的回调地址
 
 `requestAuthenticationCallback` 应用方后台用于提交认证请求的回调地址
 
@@ -88,15 +88,16 @@ ONT ID后台的访问需要通过HMAC校验。KYC dapp不能直接访问ONT ID�
 ### POST
 
 ```
-url: 由应用方传给KYC dapp(比如http://host+ /transmitRequest)
+url: 由应用方传给KYC dapp(比如http://host+ /forwardRequest)
 ```
 
 ### REQUEST
 
 | Field_Name | Required | Format | Description                            |
 | ---------- | -------- | ------ | -------------------------------------- |
-| message    | yes      | string | 需要转发的接口（ONT ID后台提供的接口） |
+| message    | Yes      | String | 需要转发的接口（ONT ID后台提供的接口） |
 | data       | Yes      | String | 使用RSA/AES加密后的参数                |
+| action     | Yes      | String | 固定值。ForwardRequest                 |
 
 ### RESPONSE
 
@@ -122,7 +123,8 @@ url: 由应用方传给KYC dapp(比如http://host + /handleAuth)
 | Field_Name | Required | Format | Description                                                  |
 | ---------- | -------- | ------ | ------------------------------------------------------------ |
 | targetUrl  | yes      | String | ONT ID 后台用来解密数据的接口                                |
-| data       | yes      | string | 使用ONT ID后台公钥加密的请求数据。格式是 “.”分隔的字符串。解密后内容为：{enc_claim: 'xxxx', password: ''} |
+| data       | yes      | string | 使用ONT ID后台公钥加密的请求数据。解密后内容为：                    {message: 'xxxx', password: '', ontid: 'did:ont:Axxxxxxx'} |
+| action     | yes      | string | 固定值。HandleAuthorization                                  |
 
 ### RESPONSE
 
