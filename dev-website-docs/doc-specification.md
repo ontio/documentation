@@ -94,7 +94,9 @@
 
 - 单段
 
+```html
 <p class = "info">内容</p>
+```
 
 ![](assets/doc-specification/info-message.png)
 
@@ -115,7 +117,9 @@
 
 - 单段
 
+```html
 <p class = "warning">内容</p>
+```
 
 ![](assets/doc-specification/warning-message.png)
 
@@ -138,7 +142,9 @@
 
 使用 HTML 标识：
 
+```html
 <p class = "note">内容</p>
+```
 
 或者使用框架的原生语法：
 
