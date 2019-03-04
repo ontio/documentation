@@ -6,7 +6,7 @@
 
 一级二级标题与下级标题之间需要有解说性文字，如：
 
-```
+```markdown
 ##安装环境
 
 本节将带领用户完成开发环境的安装。
@@ -16,7 +16,7 @@
 
 不同层级标题间不要使用相同文字，如避免出现以下情况：
 
-```
+```markdown
 ##安装环境
 
 本节将带领用户完成开发环境的安装。
@@ -32,7 +32,7 @@
 
 #### 空格
 
-- 中文和英文字符之间需要空格，例如 ”使用 sdk“
+- 中文和英文字符之间需要空格，例如：`使用 SDK 与区块链网络通信`。
 - [链接]() 和非链接文字之间需要空格
 - `代码` 和普通文字间空格
 
@@ -108,6 +108,8 @@
 
 - 单段
 
+使用 HTML 标识：
+
 ```html
 <p class = "info">内容</p>
 ```
@@ -115,6 +117,8 @@
 ![](assets/doc-specification/info-message.png)
 
 - 多行列表
+
+使用 HTML 标识：
 
 ```html
 <section class = "info">
@@ -131,6 +135,8 @@
 
 - 单段
 
+使用 HTML 标识：
+
 ```html
 <p class = "warning">内容</p>
 ```
@@ -138,6 +144,8 @@
 ![](assets/doc-specification/warning-message.png)
 
 - 多行列表
+
+使用 HTML 标识：
 
 ```html
 <section class = "warning">
@@ -169,6 +177,8 @@
 ![](assets/doc-specification/note-message.png)
 
 - 多行列表
+
+使用 HTML 标识：
 
 ```html
 <section class = "note">
