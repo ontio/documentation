@@ -192,6 +192,7 @@ RequestExample：
 
 
 * 提交认证请求
+
 ```json
 Host：域名+/api/v1/ontpass/authentication
 Method：POST /HTTP/1.1
