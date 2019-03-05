@@ -58,13 +58,10 @@ Use command`./ontology --testmode  --rest` to start, below is what you will see 
 
 Download AVM bytecode, name it as `hello.avm` :
 
-  ![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/1.png)
-  ![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/2.png)
-  ![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/3.png)
-  ![](https://github.com/luodanwg/documentation/blob/master/Best%20Practices/4.png)
-
-   >  >
-   >  >Instruction: In Hello method, Runtime.Notify will make a notification on chain for parameter.
+  ![](https://github.com/ontio/documentation/blob/master/Best%20Practices/pic/1.png)
+  ![](https://github.com/ontio/documentation/blob/master/Best%20Practices/pic/2.png)
+  ![](https://github.com/ontio/documentation/blob/master/Best%20Practices/pic/3.png)
+  ![](https://github.com/ontio/documentation/blob/master/Best%20Practices/pic/4.png)
 
 ### 4. Contract deployment
 Use command `./ontology contract deploy --code hello.avm --name 'Hello' --version '1.0' --author 'ester' --email 'tester@test.com' --desc 'helloWorld' --account 1 --gaslimit 100000000` to deploy contract on the network. Details for contract deployment command can be acquired by using `./ontology contract deploy -h`;
@@ -77,12 +74,14 @@ Use command `./ontology contract deploy --code hello.avm --name 'Hello' --versio
     Tip:
       Using './ontology info status c49865b16009177ed4b06add97f7be1b0b1c246e4d4575c367e918da294d3287' to query transaction status
     ```
+    
 ### 5. Query deployed contract information
 Enter `http://localhost:20334/api/v1/contract/362cb5608b3eca61d4846591ebb49688900fedd0` in the explorer and invoke rest interface to query contract information:
     ```
     {"Action":"getcontract","Desc":"SUCCESS","Error":0,"Result":{"Code":"54c56b6c7...","NeedStorage":false,"Name":"Hello","CodeVersion":"1.0","Author":"ester","Email":
     "tester@test.com","Description":"helloWorld"},"Version":"1.0.0"}
     ```
+    
 ### 6. Contract invocation method
 Use command `./ontology contract invoke --address 362cb5608b3eca61d4846591ebb49688900fedd0 --params string:Hello,[string:tester] --gaslimit 200000` to invoke deployed contract:
 
