@@ -1,13 +1,13 @@
 const data = {
-        "OntId": "did:ont:A1eJrWSTt61ts1dzvKfZa3j5Mj7CuetR6w",
-        "NameCN": "test",
-        "NameEN": "test",
         "DesCN": "test",
         "DesEN": "test",
-        "Logo": "test",
-        "Type": "test",
+        "KycAuthTemplate": "authtemplate_kyc01",
         "KycCallBackAddr": "test",
-        "KycAuthTemplate": "authtemplate_kyc01"
+        "Logo": "test",
+        "NameCN": "test",
+        "NameEN": "test",
+        "OntId": "did:ont:A1eJrWSTt61ts1dzvKfZa3j5Mj7CuetR6w",
+        "Type": "test"
     }
 
 const content = JSON.stringify(data);
