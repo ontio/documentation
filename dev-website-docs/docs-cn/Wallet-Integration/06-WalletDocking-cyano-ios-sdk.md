@@ -1,6 +1,6 @@
 # cyano-ios-sdk
 
-cyano-ios-sdk 帮助 iOS webview和网页dapp之间通信。它对iOS webview进行了一些方法的封装。
+cyano-ios-sdk 帮助 iOS webview 和网页 DApp 之间通信。它对 iOS webview 进行了一些方法的封装。
 
 > webview通信的方式是window.postmeaage()
 
@@ -25,7 +25,7 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 
 ##### data
 
-消息体data格式为json字符串
+消息体 data 格式为 json 字符串
 
 ```
 {
@@ -56,7 +56,7 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
      *
      * 2.将 message 转换成 hexString
      *
-     * 3.弹出密码框,解出钱包account,对message进行签名，注意密码是base64EncodeString,并且耗时操作。
+     * 3.弹出密码框,解出钱包 account ,对 message 进行签名，注意密码是 base64EncodeString ,并且耗时操作。
      *  （签名方法参考DEMO中TS SDK中signDataHex方法）
      *
      * 4.拼接返回结果，包括：action、version、error、desc、id、type、publicKey、address、
@@ -85,7 +85,7 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 [webView setGetAccountCallback:^(NSDictionary *callbackDic) {
     /*
      * TODO
-     * 1.发送钱包地址到webView
+     * 1.发送钱包地址到 webView
      * NSDictionary *callBackMessage =@{@"action":@"getAccount",
      *                                  @"version":@"v1.0.0",
      *                                  @"error":@0,
@@ -105,18 +105,18 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
     /* TODO
      * 1.弹出密码框，解出钱包明文私钥
      *
-     * 2.将 callbackDic 转换成 jsonString 并以此构造交易（构造交易方法参考DEMO中TS SDK 中
+     * 2.将 callbackDic 转换成 jsonString 并以此构造交易（构造交易方法参考 DEMO 中 TS SDK 中
      *   makeDappTransaction 方法）
      *
-     * 3.预执行交易（预执行交易方法参考DEMO中TS SDK 中 checkTransaction 方法），并解析结果，注意耗时
+     * 3.预执行交易（预执行交易方法参考 DEMO 中 TS SDK 中 checkTransaction 方法），并解析结果，注意耗时
      *   操作
      *
-     * 4.将预知行结果解析出Notify结果，显示手续费，如果结果中包含ONT,ONG合约地址，需显示转账金额和收款
+     * 4.将预知行结果解析出 Notify 结果，显示手续费，如果结果中包含 ONT,ONG 合约地址，需显示转账金额和收款
      *   地址，
      *
      * 5.用户确认后发送交易到链上
      *
-     * 6.发送交易hash到webView
+     * 6.发送交易 hash 到 webView
      * NSDictionary *callBackMessage = @{@"action":@"invoke",
      *                                 @"version": @"v1.0.0",
      *                                 @"error": @0,
@@ -136,18 +136,18 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 ```
 [webView setInvokeReadCallback:^(NSDictionary *callbackDic) {
     /* TODO
-     * 1.将 callbackDic 转换成 jsonString 并以此构造交易（构造交易方法参考DEMO中TS SDK 中
+     * 1.将 callbackDic 转换成 jsonString 并以此构造交易（构造交易方法参考 DEMO 中 TS SDK 中
      *   makeDappInvokeReadTransaction 方法）
      *
-     * 2.预执行交易（预执行交易方法参考DEMO中TS SDK 中 checkTransaction 方法），并解析结果，注意耗时
+     * 2.预执行交易（预执行交易方法参考 DEMO 中 TS SDK 中 checkTransaction 方法），并解析结果，注意耗时
      *   操作
      *
-     * 3.将预知行结果解析出Notify结果，显示手续费，如果结果中包含ONT,ONG合约地址，需显示转账金额和收款
+     * 3.将预知行结果解析出 Notify 结果，显示手续费，如果结果中包含 ONT,ONG 合约地址，需显示转账金额和收款
      *   地址，
      *
      * 4.用户确认后发送交易到链上
      *
-     * 5.发送交易hash到webView
+     * 5.发送交易 hash 到 webView
      * NSDictionary *callBackMessage = @{@"action":@"InvokeRead",
      *                                 @"version": @"v1.0.0",
      *                                 @"error": @0,
@@ -167,14 +167,14 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 ```
 [webView setInvokePasswordFreeCallback:^(NSDictionary *callbackDic) {
     /* TODO
-     * 1.第一次操作和action：Invoke相同，保存password，解出callbackDic[@"params"]并转换成
+     * 1.第一次操作和 action：Invoke 相同，保存 password，解出 callbackDic[@"params"]并转换成
      *   jsonString 并保存
      *
      * 2.当第二次收到相同的 callbackDic[@"params"] 时候，将用保存的密码进行签名，预知行获取结果
      *
      * 3.预知行结果不用显示给用户确认
      *
-     * 4.发送交易hash到webView
+     * 4.发送交易 hash 到 webView
      * NSDictionary *callBackMessage = @{@"action":@"InvokePasswordFree",
      *                                 @"version": @"v1.0.0",
      *                                 @"error": @0,
@@ -214,7 +214,7 @@ NSDictionary *params = @{@"action":@"",
        switch (index) {
        case 0:
        /* TODO
-        * 1.发送保存的ONT_ID交易Hash到webView
+        * 1.发送保存的 ONT_ID 交易 Hash 到 webView
         * NSDictionary *params = @{
         *                        @"action":@"authentication",
         *                        @"version":callbackDic[@"version"],
@@ -279,19 +279,19 @@ NSDictionary *params = @{@"action":@"",
           switch (index) {
           case 0:
           /* TODO
-           * 1.弹出密码框，校验ONT ID的密码
-           * 2.将身份导出成WIF格式
+           * 1.弹出密码框，校验 ONT ID 的密码
+           * 2.将身份导出成 WIF 格式
            */
            break;
            case 1:
            /* TODO
-            * 1.弹出密码框，校验ONT ID的密码
-            * 2.密码成功后删除本地ONT ID，关闭页面
+            * 1.弹出密码框，校验 ONT ID 的密码
+            * 2.密码成功后删除本地 ONT ID，关闭页面
             */
             break;
             case 2:
             /* TODO
-             * 1.弹出密码框，校验ONT ID的密码
+             * 1.弹出密码框，校验 ONT ID 的密码
              * 2.解密，得到解密结果
              * 3.将结果进行返回
              * NSDictionary *params =   @{
@@ -307,7 +307,7 @@ NSDictionary *params = @{@"action":@"",
              break;
              case 3:
              /* TODO
-             * 1.将保存数据中的subaction改成getAuthorizationInfo
+             * 1.将保存数据中的 subaction 改成 getAuthorizationInfo
              * 2.将结果进行返回
              * NSDictionary * resultDic = [[NSUserDefaults standardUserDefaults]
              *                            valueForKey:ONTIDAUTHINFO];
@@ -347,7 +347,7 @@ NSDictionary *params = @{@"action":@"",
 
 ##### 方式一:代码导入
 
-- 使用pod导入三方库
+- 使用 pod 导入三方库
 
 ```
 pod 'MBProgressHUD', '~> 1.1.0'
@@ -367,13 +367,13 @@ pod 'IQKeyboardManager' ,'~> 6.0.6'
 - 导入  js 蓝色文件夹
 - 导入 cyano.bundle
 
-##### *注意事项:SDK未做相机权限的相关设置,使用前需先获取相机权限*
+##### *注意事项: SDK 未做相机权限的相关设置,使用前需先获取相机权限*
 
 ## 使用示例
 
-启动ONT ID界面，ONT ID的私钥，密码和ONT 默认钱包 钱包一致，在进入界面之前需要检查是否已创建好钱包。
+启动 ONT ID 界面，ONT ID 的私钥，密码和 ONT 默认钱包 钱包一致，在进入界面之前需要检查是否已创建好钱包。
 
-ONT ID只允许创建一个
+ONT ID 只允许创建一个
 
 ```
 NSString * ontIdString = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTONTID];

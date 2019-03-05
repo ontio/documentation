@@ -3,42 +3,42 @@
 
 ## 概述
 
-本文用于指导dApp方如何与钱包通信，及钱包如何处理dApp的请求。
+本文用于指导 dApp 方如何与钱包通信，及钱包如何处理 dApp 的请求。
 流程中涉及到的参与方包括：
 
-* Dapp方：对ONT生态内的用户提供Dapp，是本体生态中重要的组成部分。
-* Provider：实现dApi mobile规范的钱包
+* Dapp 方：对 ONT 生态内的用户提供 Dapp ，是本体生态中重要的组成部分。
+* Provider：实现 dApi mobile 规范的钱包
 
 ## 交互流程说明
 
-DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
+DApp 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 
-### 钱包打开H5 DApp
+### 钱包打开 H5 DApp
 
-- 1 钱包打开H5 DApp
+- 1 钱包打开 H5 DApp
 
-### H5 DApp获取Provider信息
+### H5 DApp 获取 Provider 信息
 
-- 1 DApp请求Provider信息
-- 2 钱包返回Provider信息
+- 1 DApp 请求 Provider 信息
+- 2 钱包返回 Provider 信息
 
-### H5 DApp获取账户或身份信息
+### H5 DApp 获取账户或身份信息
 
-- 1 DApp请求账户或身份信息
+- 1 DApp 请求账户或身份信息
 - 2 用户接受请求，返回账户或身份信息
 
 
-### 登录Login
-- 1 DApp请求对message做签名（[DApp发起登录请求](#DApp发起登录请求)）
-- 2 钱包用户对message做签名，返回签名数据（[钱包响应登录请求](#钱包响应登录请求)）
+### 登录 Login
+- 1 DApp 请求对 message 做签名（[DApp发起登录请求](#DApp发起登录请求)）
+- 2 钱包用户对 message 做签名，返回签名数据（[钱包响应登录请求](#钱包响应登录请求)）
 
-### 消息签名signMessage
+### 消息签名 signMessage
 
 
-### 调用合约Invoke Smart contract
-- 1 DApp请求调用合约（[DApp发起调用合约请求](#DApp发起调用合约请求)）
+### 调用合约 Invoke Smart contract
+- 1 DApp 请求调用合约（[DApp发起调用合约请求](#DApp发起调用合约请求)）
 - 2 钱包构造交易，用户签名
 - 3 钱包预执行交易（[预执行交易](#预执行交易)）
 - 4 钱包发送交易
@@ -46,15 +46,15 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 
 
-## 钱包和DApp接入步骤
+## 钱包和 DApp 接入步骤
 
 ### 前提条件
 使用前，你需要联系[本体机构合作](https://info.ont.io/cooperation/en)
 
 
-## dAPI Provider SDK使用
+## dAPI Provider SDK 使用
 
-dAPI Provider SDK帮助Android webview和网页dapp之间通信。它对webview进行了一些方法的封装。分别支持Android、iOS，详细请参考：
+dAPI Provider SDK 帮助 Android webview 和网页 dapp 之间通信。它对 webview 进行了一些方法的封装。分别支持 Android、iOS，详细请参考：
 * [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
 * [cyano-ios-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)
 
@@ -84,18 +84,18 @@ cyanoWebView.getNativeJsBridge().setHandleInvoke(new NativeJsBridge.HandleInvoke
             @Override
             public void handleAction(String data) {
               /* TODO
-               * 1.弹出密码输入框，解出钱包account，将data构建交易，对交易进行签名，预执行获取结果，注意耗时操作。
+               * 1.弹出密码输入框，解出钱包 account，将 data 构建交易，对交易进行签名，预执行获取结果，注意耗时操作。
                *
-               * 2.将预知行结果解析出Notify结果，显示手续费，如果结果中包含ONT,ONG合约地址，需显示转账金额和收款地址，
+               * 2.将预知行结果解析出 Notify 结果，显示手续费，如果结果中包含 ONT , ONG 合约地址，需显示转账金额和收款地址，
                *
                * 3.用户确认后发送交易到链上
                *
-               * 4.发送交易hash到webView
+               * 4.发送交易 hash 到 webView
                * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
                * String action=reqJson.getString("action");
                * String version=reqJson.getString("version");
                * String id=reqJson.getString("id");
-               * cyanoWebView.sendSuccessToWeb(action,version, id, 交易hash);
+               * cyanoWebView.sendSuccessToWeb(action,version, id, 交易 hash);
                */
             }
 	});
@@ -104,9 +104,9 @@ cyanoWebView.getNativeJsBridge().setHandleInvokeRead(new NativeJsBridge.HandleIn
         @Override
         public void handleAction(String data) {
                /* TODO
-                * 1.将data构建交易，预执行获取结果，注意耗时操作。
+                * 1.将 data 构建交易，预执行获取结果，注意耗时操作。
                 *
-                * 2.发送预知行结果到webView
+                * 2.发送预知行结果到 webView
                 * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
                 * String action=reqJson.getString("action");
                 * String version=reqJson.getString("version");
@@ -182,11 +182,11 @@ NSDictionary *params = @{@"action":@"",
 [webView sendMessageToWeb:params];
 ```
 
-### 查询Provider信息步骤
+### 查询 Provider 信息步骤
 
-#### DApp发起查询Provider信息请求
+#### DApp 发起查询 Provider 信息请求
 
-数据如下，**URI编码，Base64编码**后发送请求：
+数据如下，** URI 编码，Base64 编码**后发送请求：
 ```
 
 {
@@ -204,7 +204,7 @@ NSDictionary *params = @{@"action":@"",
 | :---| :---| :---|
 | action   |  string |  操作类型 |
 
-#### 钱包返回Provider信息
+#### 钱包返回 Provider 信息
 
 **URI解码，Base64解码**后，获取到的数据如下：
 ```
@@ -223,9 +223,9 @@ NSDictionary *params = @{@"action":@"",
 
 ### 查询账号或身份信息步骤
 
-#### DApp发起查询账号或身份信息请求
+#### DApp 发起查询账号或身份信息请求
 
-数据如下，**URI编码，Base64编码**后发送请求：
+数据如下，**URI 编码，Base64 编码**后发送请求：
 ```
 
 {
@@ -249,7 +249,7 @@ NSDictionary *params = @{@"action":@"",
 
 #### 钱包返回账号或身份信息
 
-**URI解码，Base64解码**后，获取到的数据如下：
+**URI 解码，Base64 解码**后，获取到的数据如下：
 ```
 {
 	"action": "getAccount", // or getIdentity
@@ -263,10 +263,10 @@ NSDictionary *params = @{@"action":@"",
 
 ### 登陆步骤
 
-#### DApp发起登录请求
+#### DApp 发起登录请求
 
 
-数据如下，**URI编码，Base64编码**后发送请求：
+数据如下，**URI 编码，Base64 编码**后发送请求：
 ```
 {
 	"action": "login",
@@ -291,7 +291,7 @@ NSDictionary *params = @{@"action":@"",
 
 #### 钱包响应登录请求
 
-**URI解码，Base64解码**后，获取到的数据如下：
+**URI 解码，Base64 解码**后，获取到的数据如下：
 
 * 返回成功内容
 ```
@@ -339,9 +339,9 @@ NSDictionary *params = @{@"action":@"",
 
 ### 消息签名步骤
 
-跟login一样，但DApp请求时不需要DApp名字和icon。
+跟 login 一样，但 DApp 请求时不需要 DApp 名字和 icon。
 
-数据如下，**URI编码，Base64编码**后发送请求：
+数据如下，**URI 编码，Base64 编码**后发送请求：
 
 ```
 {
@@ -354,10 +354,10 @@ NSDictionary *params = @{@"action":@"",
 	}
 }
 ```
-#### DApp发起签名请求
+#### DApp 发起签名请求
 
 
-数据如下，**URI编码，Base64编码**后发送请求：
+数据如下，**URI 编码，Base64 编码**后发送请求：
 ```
 {
 	"action": "signMessage",
@@ -381,17 +381,17 @@ NSDictionary *params = @{@"action":@"",
 
 ### 调用合约步骤
 
-action是invoke: 走正常流程。
+action 是 invoke: 走正常流程。
 
-action是invokeRead: 是预执行交易，用户不需要签名，返回预执行结果给DApp。
+action 是 invokeRead: 是预执行交易，用户不需要签名，返回预执行结果给 DApp。
 
-action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每隔10秒投注一次，用户只需要输入一次密码。我们只信任固定的方法和参数，而不是信任整个合约的所有方法，所以输入密码后保存该交易的参数（是这个参数((InvokeCode)txs[0]).code），如果下次请求时是同样的数据就不需要再次输入密码，也不需要预执行。当用户离开当前DApp时，记得清空内存中的私钥和参数。
+action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如每隔10秒投注一次，用户只需要输入一次密码。我们只信任固定的方法和参数，而不是信任整个合约的所有方法，所以输入密码后保存该交易的参数（是这个参数((InvokeCode)txs[0]).code），如果下次请求时是同样的数据就不需要再次输入密码，也不需要预执行。当用户离开当前DApp时，记得清空内存中的私钥和参数。
 
 
 
-#### DApp发起调用合约请求
+#### DApp 发起调用合约请求
 
-数据如下，**URI编码，Base64编码**后发送请求：
+数据如下，**URI 编码，Base64 编码**后发送请求：
 
 ```
 {
@@ -439,18 +439,18 @@ action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每
 
 #### 钱包响应调用合约请求
 
-**钱包先URI解码，Base64解码**：
+**钱包先URI 解码，Base64 解码**：
 
 1. 钱包构造交易
 2. 用户签名
 3. 预执行交易
 4. 用户确认
 5. 发送交易到链上
-6. 返回交易hash给DApp
+6. 返回交易 hash 给 DApp
 
 
 
-* 返回交易成功给DApp
+* 返回交易成功给 DApp
 
 ```
 {
@@ -462,7 +462,7 @@ action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每
 }
 ```
 
-* 返回失败给DApp
+* 返回失败给 DApp
 
 ```
 {
@@ -476,9 +476,9 @@ action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每
 
 ##### 预执行交易
 
-预执行交易返回的Notify结果可以查看用户在这笔交易中会花费多少ONT/ONG。需要连接到固定节点：主网：http://dappnode3.ont.io，测试网：http://polaris5.ont.io
+预执行交易返回的 Notify 结果可以查看用户在这笔交易中会花费多少 ONT/ONG 。需要连接到固定节点：主网：http://dappnode3.ont.io，测试网：http://polaris5.ont.io
 
-> 需要遍历Notify做判断，因为该交易可能有多笔转账或其他事件，通过合约地址判断是ONT还是ONG，再判断transfer方法和转出方。
+> 需要遍历 Notify 做判断，因为该交易可能有多笔转账或其他事件，通过合约地址判断是 ONT 还是 ONG ，再判断 transfer 方法和转出方。
 
 ```
 
@@ -499,10 +499,10 @@ action是invokePasswordFree: 有些游戏会用到自动投注功能，比如每
 ## 代码参考
 
 ##### 签名验证方法
-* [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
-* [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
+* [java sdk 验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
+* [ts sdk 验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
 
-##### DApp后端查询交易事件
+##### DApp 后端查询交易事件
 * [java sdk 交易事件查询方法](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
 * [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
