@@ -93,11 +93,11 @@ url: 由应用方传给KYC dapp(比如http://host+ /forwardRequest)
 
 ### REQUEST
 
-| Field_Name | Required | Format | Description                            |
-| ---------- | -------- | ------ | -------------------------------------- |
-| message    | Yes      | String | 需要转发的接口（ONT ID后台提供的接口） |
-| data       | Yes      | String | 使用RSA/AES加密后的参数                |
-| action     | Yes      | String | 固定值。ForwardRequest                 |
+| Field_Name | Required | Format | Description                                                |
+| ---------- | -------- | ------ | ---------------------------------------------------------- |
+| url        | Yes      | String | 需要转发的接口（ONT ID后台提供的接口）                     |
+| data       | Yes      | String | 使用RSA/AES加密后的参数                                    |
+| secure     | Yes      | String | RSA 加密的key。转发请求时放到请求的header中 secure-key字段 |
 
 ### RESPONSE
 
@@ -122,9 +122,9 @@ url: 由应用方传给KYC dapp(比如http://host + /handleAuth)
 
 | Field_Name | Required | Format | Description                                                  |
 | ---------- | -------- | ------ | ------------------------------------------------------------ |
-| targetUrl  | yes      | String | ONT ID 后台用来解密数据的接口                                |
+| url        | yes      | String | ONT ID 后台用来解密数据的接口                                |
 | data       | yes      | string | 使用ONT ID后台公钥加密的请求数据。解密后内容为：                    {message: 'xxxx', password: '', ontid: 'did:ont:Axxxxxxx'} |
-| action     | yes      | string | 固定值。HandleAuthorization                                  |
+| secure     | yes      | string | RSA 加密的key。转发请求时放到请求的header中 secure-key字段   |
 
 ### RESPONSE
 
