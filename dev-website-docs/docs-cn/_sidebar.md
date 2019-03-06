@@ -29,6 +29,29 @@
     - [发送交易](docs-cn/ontology-cli/20-send-tx.md)
     - [查看交易](docs-cn/ontology-cli/21-show-tx.md)
 
+- HTTP API
+  - [简介](docs-cn/ontology-cli/04-interface-specification.md)
+  - [RPC 接口](docs-cn/ontology-cli/05-rpc-specification.md)
+  - [Restful 接口](docs-cn/ontology-cli/06-restful-specification.md)
+  - [WebSocket 接口](docs-cn/ontology-cli/07-ws-specification.md)
+
+- 签名机
+  - [概述](docs-cn/sigsvr/00-overview.md)
+  - [安装](docs-cn/sigsvr/01-install.md)
+  - [快速开始](docs-cn/sigsvr/02-getting-started.md)
+  - [接口规范](docs-cn/sigsvr/03-api-specification.md)
+
+- SDKs
+  - [概述](docs-cn/SDKs/00-overview.md)
+  - [Go SDK](docs-cn/SDKs/01-go-sdk.md)
+  - [Java SDK](docs-cn/SDKs/02-java-sdk.md)
+  - [Python SDK](docs-cn/SDKs/03-python-sdk.md)
+  - [TypeScript SDK](docs-cn/SDKs/04-ts-sdk.md)
+  - [Php SDK](docs-cn/SDKs/05-php-sdk.md)
+  - [Swift SDK](docs-cn/SDKs/06-swift-sdk.md)
+  - [Android SDK](docs-cn/SDKs/07-android-sdk.md)
+  - [Object C SDK](docs-cn/SDKs/08-object-c-sdk.md)
+
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
   - [合约模板](docs-cn/smartcontract/02-template.md)
@@ -45,7 +68,7 @@
   - [DAPP支持手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
   - [DAPP支持chrome插件钱包](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
   - [DAPP支持手机钱包唤醒](docs-cn/dApp-Integration/06-DAppDocking-Wake-up.md)
-  - [DAPP支持桌面钱包内打开](docs-cn/dApp-Integration/03-DAppDocking-use-desktop-wallet.md)
+  - [DAPP支持桌面钱包内打开](docs-cn/dApp-Integration/07-DAppDocking-use-desktop-wallet.md)
 
 - 钱包接入指导
   - [钱包 对接概览](docs-cn/Wallet-Integration/00-wallet_integration.md)
@@ -54,15 +77,6 @@
       - [场景-扫码接入](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
       - [场景-钱包内打开dApp接入](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
 
-- 交易所对接指导
-  - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
-  - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
-  - [签名服务器使用说明](docs-cn/exchange-API/Ontology+签名服务器使用说明.md)
-  - [常见问题](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
-  
-- DAPP数据统计对接指导
-  - [概述](docs-cn/dapps/overview.md)
-  
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
@@ -79,29 +93,11 @@
   - [Punica Cli](docs-cn/Punica/punica-cli.md)
   - [Punica Box](docs-cn/Punica/punica-box.md)
   - [VSCode 插件](docs-cn/Punica/sc-extension.md)
-  - [IDEA 插件](docs-cn/Punica/sc-idea-extension.md)
   - [Solo Chain](docs-cn/Punica/solo-chain.md)
-  - [视频教程](docs-cn/Punica/tutorials.md)
+  - [Tutorials](docs-cn/Punica/tutorials.md)
 
-- SDKs
-  - [概述](docs-cn/SDKs/00-overview.md)
-  - [Go SDK](docs-cn/SDKs/01-go-sdk.md)
-  - [Java SDK](docs-cn/SDKs/02-java-sdk.md)
-  - [Python SDK](docs-cn/SDKs/03-python-sdk.md)
-  - [TypeScript SDK](docs-cn/SDKs/04-ts-sdk.md)
-  - [Php SDK](docs-cn/SDKs/05-php-sdk.md)
-  - [Swift SDK](docs-cn/SDKs/06-swift-sdk.md)
-  - [Android SDK](docs-cn/SDKs/07-android-sdk.md)
-  - [Object C SDK](docs-cn/SDKs/08-object-c-sdk.md)
-
-- HTTP API
-  - [简介](docs-cn/ontology-cli/04-interface-specification.md)
-  - [RPC 接口](docs-cn/ontology-cli/05-rpc-specification.md)
-  - [Restful 接口](docs-cn/ontology-cli/06-restful-specification.md)
-  - [WebSocket 接口](docs-cn/ontology-cli/07-ws-specification.md)    
-  
 - 浏览器 API
-  - [概述](docs-cn/explorer/overview.md)
+  - [Overview](docs-cn/explorer/overview.md)
   - [区块](docs-cn/explorer/blocks.md)
   - [账户](docs-cn/explorer/accounts.md)
   - [合约](docs-cn/explorer/contracts.md)
@@ -109,12 +105,12 @@
   - [交易](docs-cn/explorer/transactions.md)
   - [ONTID](docs-cn/explorer/ontid.md)
   - [统计](docs-cn/explorer/statistics.md)
-  - [地址信息](docs-cn/explorer/addressInfo.md)
+  - [Address Info](docs-cn/explorer/addressInfo.md)
   - [提交合约](docs-cn/explorer/registerContract.md)
   - [摘要](docs-cn/explorer/summary.md)
 
-- 签名机
-  - [概述](docs-cn/sigsvr/00-overview.md)
-  - [安装](docs-cn/sigsvr/01-install.md)
-  - [快速开始](docs-cn/sigsvr/02-getting-started.md)
-  - [接口规范](docs-cn/sigsvr/03-api-specification.md)
+- 交易所对接
+  - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
+  - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
+  - [签名服务器使用说明](docs-cn/exchange-API/Ontology+签名服务器使用说明.md)
+  - [FAQ](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
