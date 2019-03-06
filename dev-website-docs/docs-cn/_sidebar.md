@@ -64,10 +64,11 @@
 - DAPP接入指导
   - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
-  - [Cyano Bridge安装和使用](docs-cn/dApp-Integration/04-DAppDocking-Cyano-Bridge.md)
-      - [手机钱包内打开接入](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
-  - [手机钱包扫码接入](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
-  - [chrome插件钱包接入](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
+  - [DAPP支持手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
+  - [DAPP支持手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
+  - [DAPP支持chrome插件钱包](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
+  - [DAPP支持手机钱包唤醒](docs-cn/dApp-Integration/06-DAppDocking-Wake-up.md)
+  - [DAPP支持桌面钱包内打开](docs-cn/dApp-Integration/03-DAppDocking-use-desktop-wallet.md)
 
 - 钱包接入指导
   - [钱包 对接概览](docs-cn/Wallet-Integration/00-wallet_integration.md)

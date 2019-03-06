@@ -1,24 +1,18 @@
 
 ## 概述
 
-移动版dApi目前只提供几个重要dapi接口
-
-- 获取账号或身份信息
-- 登录
-- 调用合约
-
-查询其他信息可以直接调用区块链浏览器的api接口查询 [explorer api](http://dev-docs.ont.io/#/docs-en/explorer/overview).
+当前来看，各个移动版钱包App是DApp的重要入口，我们提供了 `cyano-bridge` ，DApp安装后，就可以通过调用符合 [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 规范的dApi，与任何一个集成了 `Provider-SDK` 的钱包App通信，实现对链的操作。
 
 ## 钱包内打开dApp交互流程说明
 
 ### 登录场景
-- 钱包内打开dApp
-- dApp向钱包发送登录请求，钱包返回签名数据
-- dApp验证通过，登录成功
+1. 钱包内打开dApp
+2. dApp向钱包发送登录请求，钱包返回签名数据
+3. dApp验证通过，登录成功
 
 ### 调用智能合约场景
-- dApp向钱包发起调用智能合约请求
-- 钱包签名，预执行，发送到链，向dApp返回交易hash
+1. dApp向钱包发起调用智能合约请求(图中4.1)
+2. 钱包签名，预执行，发送到链，向dApp返回交易hash(图中4.2)
 
 ![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 
@@ -31,15 +25,79 @@
 
 ## 移动版dApi安装和使用
 
-### dApi接口初始化
+1. 安装
+2. 导入
+3. 初始化
+4. 使用
+ - 查询钱包账户
+ - 查询身份
+ - 登录
+ - 智能合约
+ - [浏览器通用接口](http://dev-docs.ont.io/#/docs-en/explorer/overview).
 
+### 安装
+
+目前提供以下两种安装方是
+
+- npm 安装
+- CDN
+
+
+#### npm 安装
+
+你可以使用 `npm` 进行安装
+
+```shell
+npm install cyanobridge
 ```
+
+#### CDN
+
+目前可以通过 `jsDelivr` 获取到最新版本的资源，在页面上引入 js 文件即可开始使用。
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/cyanobridge/lib/browser.min.js"></script>
+```
+
+!> 建议使用 CDN 引入 `cyano-bridge` 的用户在链接地址上锁定版本，以免将来 `cyano-bridge` 升级时受到非兼容性更新的影响。
+
+### 导入
+
+#### CommonJS
+
+```javascript
+var client = require('cyanobridge').client
+```
+
+#### ES6 模块
+
+```javascript
 import { client } from 'cyanobridge'
-client.registerClient();
-
 ```
 
-### 获取账号或身份信息
+#### Web require
+
+导入 `./lib` 文件夹下的 `browser.js` 文件:
+
+```html
+<script src="./lib/browser.js"></script>
+
+var client = CyanoMobile.client;
+```
+
+### 初始化
+
+在使用前需要进行初始化
+
+```javascript
+import { client } from 'cyanobridge'
+
+client.registerClient();
+```
+
+### 使用
+
+#### 获取账号或身份信息
 
 获取账号或身份信息，移动端可以可以选择填dapp信息也可以不填写。
 
@@ -62,7 +120,7 @@ try {
 ```
 
 
-### 登录
+#### 登录
 
 登录是由钱包方签名，dApp验证签名。
 
@@ -84,7 +142,7 @@ try {
 }
 ```
 
-### 调用合约
+#### 调用合约
 
 
 ```
