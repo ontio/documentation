@@ -10,6 +10,6 @@ https://explorer.ont.io/api/v1/explorer/summary/native/totalsupply
 http://dev-docs.ont.io/#/docs-cn/explorer/statistics?id=type%EF%BC%9A-%E6%AF%8F%E5%A4%A9-%E6%88%96%E8%80%85-%E6%AF%8F%E5%91%A8-%E6%88%96%E8%80%85-%E6%AF%8F%E6%9C%88
 
 
-3. 已上线的所有DAPP列表，公共节点
+3. 所有DAPP列表，公共节点列表
 
 https://github.com/ontio-community/dapp-store
