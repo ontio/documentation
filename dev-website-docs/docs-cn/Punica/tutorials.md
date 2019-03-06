@@ -1,6 +1,6 @@
 
 
-## App开发系列教程
+## DAPP开发系列教程
 
 关于以下视频教程的文字信息，可查看 [视频文档](https://github.com/punicasuite/tutorials/tree/master/toolkits-docs)。
 

@@ -83,7 +83,7 @@ url: host + /#/authHome?userOntid={userOntid}&dappOntid={dappOntid}&dappName={da
 
 ONT ID后台的访问需要通过HMAC校验。KYC dapp不能直接访问ONT ID后台接口，所以需要通过应用方提供的接口转发请求。
 
-应用方收到请求后，转发请求到ONT ID后台。需要对转发请求做HMAC处理。转发的地址是参数中的targetUrl。
+应用方收到请求后，转发请求到ONT ID后台。需要对转发请求做HMAC处理。转发的地址是参数中的url。
 
 ### POST
 

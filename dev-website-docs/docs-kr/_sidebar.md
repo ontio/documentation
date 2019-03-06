@@ -64,6 +64,7 @@
   - [Punica Cli](docs-kr/Punica/punica-cli.md)
   - [Punica Box](docs-kr/Punica/punica-box.md)
   - [VSCode 확장편](docs-kr/Punica/sc-extension.md)
+  - [IDEA 확장편](docs-kr/Punica/sc-idea-extension.md)
   - [Solo Chain](docs-kr/Punica/solo-chain.md)
   - [튜토리얼](docs-kr/Punica/tutorials.md)  
   

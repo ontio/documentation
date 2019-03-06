@@ -53,8 +53,9 @@
   - [Punica Cli](docs-en/Punica/punica-cli.md)
   - [Punica Box](docs-en/Punica/punica-box.md)
   - [VSCode Extension](docs-en/Punica/sc-extension.md)
+  - [IDEA Extension](docs-en/Punica/sc-idea-extension.md)
   - [Solo Chain](docs-en/Punica/solo-chain.md)
-  - [Tutorials](docs-en/Punica/tutorials.md)
+  - [Video and Tutorials](docs-en/Punica/tutorials.md)
 
 - SDKs
   - [Overview](docs-en/SDKs/00-overview.md)
