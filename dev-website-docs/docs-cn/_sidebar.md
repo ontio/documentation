@@ -61,6 +61,7 @@
   - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
   - [开发工具概述](docs-cn/introduction/tools.md)
   - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
+  - [链上数据存取（可选）](docs-cn/QuickGuide/07-deposit-certificate.md)
 
 - DAPP接入指导
   - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_integration.md)
