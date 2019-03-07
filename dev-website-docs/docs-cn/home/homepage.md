@@ -73,7 +73,7 @@
   <body>
     <div >
     <!-- 第一块 -->
-      <div class="content-container">
+      <div class="content-container" style="background:rgba(245,247,247,1);">
         <!-- 第一块 第一行 -->
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
