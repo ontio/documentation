@@ -41,87 +41,95 @@
 
 ## 运行同步程序
 
-### 只同步具体合约相关的Event
+### 只同步具体合约相关的 Event
 
-部分dApp只需要关系自己的合约中产生的Event即可，不需要同步所有区块的信息。
+部分 DApp 只需要关系自己的合约中产生的 Event 即可，不需要同步所有区块的信息。
 
 具体的同步程序应该根据应用的具体业务需求编写，在这里我们为开发者提供了一个只同步自身合约信息的示例:
 - [某游戏同步区块](https://github.com/lucas7788/ontologyplayer/blob/master/src/main/java/com/github/ontio/thread/BlockSyncThread.java)
 
 ### 同步所有区块信息
 
-部分dApp需要同步所有的区块信息，比较典型的就是本体的浏览器，有类似需求的开发者可以参考本体浏览器的区块同步程序。
+部分 DApp 需要同步所有的区块信息，比较典型的就是本体的浏览器，有类似需求的开发者可以参考本体浏览器的区块同步程序。
 
 - [本体浏览器后台区块链信息同步](https://github.com/ontio/ontology-explorer/tree/master/back-end-projects/OntSynHandler)
 
-### 只同步具体合约相关的Event
+### 只同步具体合约相关的 Event
 
-部分dApp只需要关注和本身智能合约相关的Event，那就不需要同步所有区块信息，下面给出了一个范例作为参考：
+开发者在合约中自定义 Notify 的内容.
+示例:
+```
+Notify(["params1", "params2", "params3"])
+```
 
+链 getSmartCodeEvent 接口得到的返回值是 ExecuteNotify
+
+数组 ExecuteNotify 的数据结构是
+```
+type ExecuteNotify struct {
+	TxHash      common.Uint256   //交易hash
+	State       byte             //1表示交易执行成功，0表示失败
+	GasConsumed uint64
+	Notify      []*NotifyEventInfo
+}
+```
+NotifyEventInfo 的数据结构是
+
+```
+type NotifyEventInfo struct {
+	ContractAddress common.Address  //合约地址
+	States          interface{}     //notify内容
+}
+```
+
+示例
+```
+{
+  "ContractAddress":"a671e2cd7a7d5e7111d211aaa628c469e59fa301",
+  "States":["params1", "params2", "params3"]
+}
+```
+
+监听特定合约事件示例代码如下
 ```java
-    public void run() {
-        logger.info("========{}.run=======", CLASS_NAME);
+public void run() {
 
-        try{
-            //初始化node列表
-            initNodeRpcList();
-            int oneBlockTryTime = 1;
-            while (true) {
+    try{
 
-                int remoteBlockHieght = getRemoteBlockHeight();
-                logger.info("######remote blockheight:{}", remoteBlockHieght);
-
-                int dbBlockHeight = blkHeightMapper.selectDBHeight();
-                logger.info("######db blockheight:{}", dbBlockHeight);
-                dbBlockHeight = dbBlockHeight +1;
-                //wait for generating block
-                if (dbBlockHeight >= remoteBlockHieght) {
-                    logger.info("+++++++++wait for block+++++++++");
-                    try {
-                        Thread.sleep(configParam.BLOCK_INTERVAL);
-                    } catch (InterruptedException e) {
-                        logger.error("error...", e);
-                        e.printStackTrace();
-                    }
-                    oneBlockTryTime++;
-                    if (oneBlockTryTime >= configParam.NODE_WAITFORBLOCKTIME_MAX) {
-                        switchNode();
-                        oneBlockTryTime = 1;
-                    }
-                    continue;
-                }
-
-                oneBlockTryTime = 1;
-                Object event = ConstantParam.ONT_SDKSERVICE.getConnect().getSmartCodeEvent(dbBlockHeight);
-                if (event != null) {
-                    List eventList = new ArrayList();
-                    for(Object obj : (JSONArray)event){
-                        if ((Integer) ((JSONObject)obj).get("State") == 1  && ((JSONObject)obj).get("Notify") != null){
-                            JSONArray notifyArray = (JSONArray) ((JSONObject)obj).get("Notify");
-                            for(Object notify : notifyArray){
-                                String contractAddr = ((JSONObject)notify).getString("ContractAddress");
-                                if(ConstantParam.CODEHASH_LIST.contains(contractAddr)) {
-                                    if(((JSONArray)((JSONObject)notify).get("States")).size() !=0){
-                                        logger.info("event: "+ event);
-                                        eventList.add(obj);
-                                        break;
-                                    }
-                                }
-                            }
+        while (true) {
+            //查询链上当前区块高度
+            int remoteBlockHieght = getRemoteBlockHeight();
+            logger.info("######remote blockheight:{}", remoteBlockHieght);
+            //查询数据库中已经同步的区块高度
+            int dbBlockHeight = blkHeightMapper.selectDBHeight();
+            logger.info("######db blockheight:{}", dbBlockHeight);
+            dbBlockHeight = dbBlockHeight +1;
+            //如果数据库中的区块高度大于或等于链上最新的区块高度，就等待出下一个块再同步
+            if (dbBlockHeight >= remoteBlockHieght) {
+                //TODO
+            }
+            //根据区块高度查询该高度对应的区块中所有的事件,event是一个JSONArray对象, 每个元素的数据类型是ExecuteNotify
+            Object event = sdk.getConnect().getSmartCodeEvent(dbBlockHeight);
+            if (event != null) {
+              for(Object obj : (JSONArray)event){
+                  //顾虑交易成功的事件
+                  if (obj.get("State") ==1) {
+                    for(Object notify: obj.get("Notify")) {
+                        //过滤我们监听的事件
+                        if(notify.getString("ContractAddress") == contractAddress) {
+                             //TODO
                         }
                     }
-                    if(eventList.size() != 0) {
-                        Object block = ConstantParam.ONT_SDKSERVICE.getConnect().getBlock(dbBlockHeight);
-                        blkSyncService.handleEventList(eventList, ((Block) block).timestamp);
-                    }
-                }
-
-                blkHeightMapper.update(dbBlockHeight);
-
+                  }
+              }
             }
-        }catch (Exception e) {
-            logger.error("Exception occured，Synchronization thread can't work,error ...", e);
-        }
+            //更新数据库中的区块高度
+            blkHeightMapper.update(dbBlockHeight);
 
+        }
+    }catch (Exception e) {
+        logger.error("Exception occured，Synchronization thread can't work,error ...", e);
     }
+
+}
 ```
