@@ -90,7 +90,6 @@
                     <li >
                         <a href="">{{item.name}}</a>
                     </li>
-
                 </ul>
             </div>
             <div class="col-sm-4  col-xs-12">
@@ -99,7 +98,6 @@
                     <li>
                         <a href="">{{item.name}}</a>
                     </li>
-
                 </ul>
             </div>
           </div>
