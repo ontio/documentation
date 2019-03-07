@@ -78,38 +78,35 @@
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
                 <p class="content-title">Ontology</p>
-                <ul>
-                    <li >
-                        <a href="">{{item.name}}</a>
-                    </li>
-                </ul>
+                  <div>
+                      <div>
+                          <a href="">{{item.name}}</a>
+                      </div>
+                  </div>
             </div>
-            <div class="col-sm-4  col-xs-12">
-                <p class="content-title">nodeSetup</p>
-                <ul>
-                    <li >
-                        <a href="">{{item.name}}</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-4  col-xs-12">
-                <p class="content-title">smartContractGuide</p>
-                <ul>
-                    <li>
-                        <a href="">{{item.name}}</a>
-                    </li>
-                </ul>
-            </div>
-          </div>
-          <!--第一块 第二行  -->
-          <div class="row ">
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title">dappDevelopmentGuide</p>
-                <ul>
-                    <li>
-                        <a href="">{{item.name}}</a>
-                    </li>
-                </ul>
+                <p class="content-title">nodeSetup</p>
+                  <div>
+                      <div>
+                          <a href="">{{item.name}}</a>
+                      </div>
+                  </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <p class="content-title">smartContractGuide</p>
+                  <div>
+                      <div>
+                          <a href="">{{item.name}}</a>
+                      </div>
+                  </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <p class="content-title">smartContractGuide</p>
+                  <div>
+                      <div>
+                          <a href="">{{item.name}}</a>
+                      </div>
+                  </div>
             </div>
           </div>
       </div>
