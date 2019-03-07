@@ -8,6 +8,16 @@ DApp 开发主要分为两个部分：智能合约开发和 dApi 的调用。
 >
 > DApp 后台可能需要从链上同步数据，可以通过使用 Ontology 提供的 SDK（ ts SDK , java SDK , python SDK）,调用其 Restful 或 RPC 接口，或者直接请求 Ontology Blockchain 提供的 Restful，RPC 接口，详细接口请参考相关接口文档。
 
+> Token 不是必须的，有些 DApp 可能不需要Token。
+>
+> 某些DApp的经济模型设计中有Token的需求，这时候就可以开发自己的Token来使用，相关的设计可以参考
+>
+> [OEP4 示例](https://github.com/ONT-Avocados/python-template/blob/master/OEP4Sample/OEP4Sample.py)
+>
+> [OEP4 在智能合约中的使用](https://github.com/ONT-Avocados/python-template/blob/master/Static_Call_Oep4/static_call_Oep4.py)。
+> 
+> [其他智能合约示例](https://dev-docs.ont.io/#/docs-cn/smartcontract/02-template)
+
 一般 DApp 的核心逻辑都是在智能合约中完成，本体提供了多个工具，帮助开发者快速开发和部署合约，或者从其它链上迁移合约。本体还为 DApp 开发提供了与合约交互的接口规范-- dApi，这样，用户可以安全，方便地使用 DApp ，不用担心丢失私钥；DApp 开发者可以只专注于 DApp 的业务逻辑开发。
 
 ## 合约开发
