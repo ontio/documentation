@@ -29,7 +29,7 @@ ONT ID快速开通模式应用在H5或嵌入页面式的应用场景中，在这
 接口使用前需要在我们注册，获取RSA公钥来进行RSA校验
 
 ## 注意
-> 密码设置为8-13位，因为所有的接口做了加密，下列是接口示例为解密后的原文，加密后的body为
+> 密码设置为8-15位，因为所有的接口做了加密，下列是接口示例为解密后的原文，加密后的body为
 ```text
     {"data":加密body后的字符串}
 ```
@@ -70,7 +70,7 @@ method：POST
 请求：
 ```json
 {
-	"number":"+86*15821703553",
+	"number":"86*15821703553",
 	"verifyCode": "123456",
 	"password":"12345678"
 }
@@ -112,7 +112,7 @@ method：POST
 请求：
 ```json
 {
-	"phone":"+86*15821703553",
+	"phone":"86*15821703553",
 	"verifyCode":"123456",
 	"keystore":"keystore",
 	"password":"12345678"
@@ -156,7 +156,7 @@ method：POST
 请求：
 ```json
 {
-	"phone":"+86*15821703553",
+	"phone":"86*15821703553",
 	"verifyCode": "123456"
 }
 ```
@@ -195,7 +195,7 @@ method：POST
 请求：
 ```json
 {
-    "phone":"+86*15821703553",
+    "phone":"86*15821703553",
     "password": "12345678"
 }
 ```
@@ -282,9 +282,9 @@ method：POST
 请求：
 ```json
 {
-    "newPhone": "+86*15821703552",
+    "newPhone": "86*15821703552",
     "verifyCode": "123456",
-    "oldPhone":"+86*15821703553",
+    "oldPhone":"86*15821703553",
     "password":"12345678"
 }
 ```
@@ -325,7 +325,7 @@ method：POST
 请求：
 ```json
 {
-    "phone":"+86*15821703553",
+    "phone":"86*15821703553",
     "oldPassword":"12345678",
     "newPassword":"12345679"
 }
@@ -484,14 +484,12 @@ method：POST
 请求：
 ```json
 {
-   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
-   	"password":"12345678"
+   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 ```
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    ontid|   String|  ontid  |
-|    password|   String|  ontid密码  |
 
 返回：
 ```json
