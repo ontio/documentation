@@ -34,6 +34,22 @@
   - [DAPI Usage](docs-en/QuickGuide/06-dapi-useage.md)
   - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
 
+- DApp Integration Guide
+  - [Overview](docs-en/dApp-Integration/00-dapp_integration.md)
+  - [DAPP supports opening inside mobile wallet](docs-en/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
+  - [DAPP supports mobile wallet scan code](docs-en/dApp-Integration/02-DAppDocking-QRcode.md)
+  - [DAPP supports chrome plugin wallet](docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
+  - [DAPP wakes up mobile wallet](docs-en/dApp-Integration/06-DAppDocking-Wake-up.md)
+  - [DAPP supports opening inside the desktop wallet](docs-en/dApp-Integration/07-DAppDocking-use-desktop-wallet.md)
+
+
+- Wallet Integration Guide
+  - [Overview](docs-en/Wallet-Integration/00-wallet_integration.md)
+  - [Asset integration](docs-en/Wallet-Integration/01-WalletDocking-asset-docking.md)
+  - [provider  integration](docs-en/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
+      - [Scan code integration](docs-en/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
+      - [Open dApp in the wallet integration](docs-en/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
+
 - SmartX
   - [Overview](docs-en/SmartX/00-overview.md)
   - [Getting Started](docs-en/SmartX/01-getting-started.md)

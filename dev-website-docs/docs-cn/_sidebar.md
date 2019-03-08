@@ -64,7 +64,7 @@
   - [链上数据存取（可选）](docs-cn/QuickGuide/07-deposit-certificate.md)
 
 - DAPP接入指导
-  - [DAPP 对接概览](docs-cn/dApp-Integration/00-dapp_integration.md)
+  - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [DAPP支持手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
   - [DAPP支持手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
   - [DAPP支持chrome插件钱包](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
@@ -72,7 +72,7 @@
   - [DAPP支持桌面钱包内打开](docs-cn/dApp-Integration/07-DAppDocking-use-desktop-wallet.md)
 
 - 钱包接入指导
-  - [钱包 对接概览](docs-cn/Wallet-Integration/00-wallet_integration.md)
+  - [概述](docs-cn/Wallet-Integration/00-wallet_integration.md)
   - [资产接入](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
   - [provider接入](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [场景-扫码接入](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
