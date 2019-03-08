@@ -22,16 +22,19 @@ ONT ID快速开通模式应用在H5或嵌入页面式的应用场景中，在这
 ### 数据安全
 + [HMAC校验](#HMAC校验)
 
-三方使用我们注册服务需加上HMAC校验
+接口使用前需要在我们注册，获取appkey和appsecret来进行HMAC校验
 
 + [接口加密](#接口加密)
 
-我们在项目中所有接口使用到RSA，AES128，以及MD5，用以保证客户端(Client)和服务端(Server)之间的通信安全。
+接口使用前需要在我们注册，获取RSA公钥来进行RSA校验
 
-+ [数据库加密](#数据库加密)
+## 注意
+> 密码设置为8-13位，因为所有的接口做了加密，下列是接口示例为解密后的原文，加密后的body为
+```text
+    {"data":加密body后的字符串}
+```
 
 ## ONTID综合账户管理接口
-注意： 需要添加HMAC认证方案。
 管理接口如下：
 + 注册ONT ID
     + [手机注册](#手机注册)
@@ -48,6 +51,12 @@ ONT ID快速开通模式应用在H5或嵌入页面式的应用场景中，在这
 + [解密claim](#解密claim)
 + [获取注册交易](#获取注册交易)
 
+错误码
++ [错误码](#错误码)
+## ONTID测试数据
++ [集成测试](#集成测试)
+
+
 
 ### 手机注册
 1. [获取验证码](#获取验证码)
@@ -63,7 +72,7 @@ method：POST
 {
 	"number":"+86*15821703553",
 	"verifyCode": "123456",
-	"password":"123456"
+	"password":"12345678"
 }
 ```
 | Field_Name|     Type |   Description   | 
@@ -106,7 +115,7 @@ method：POST
 	"phone":"+86*15821703553",
 	"verifyCode":"123456",
 	"keystore":"keystore",
-	"password":"123456"
+	"password":"12345678"
 }
 ```
 | Field_Name|     Type |   Description   | 
@@ -187,7 +196,7 @@ method：POST
 ```json
 {
     "phone":"+86*15821703553",
-    "password": "123456"
+    "password": "12345678"
 }
 ```
 | Field_Name|     Type |   Description   | 
@@ -276,13 +285,15 @@ method：POST
     "newPhone": "+86*15821703552",
     "verifyCode": "123456",
     "oldPhone":"+86*15821703553",
-    "password":"123456"
+    "password":"12345678"
 }
 ```
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    phone|   String|  手机号码  |
-|    verifyCode|   String|  手机验证码  |
+|    newPhone|   String|  新的手机号码  |
+|    verifyCode|   String|  新的手机的验证码  |
+|    oldPhone|   String|  旧的手机号码  |
+|    password|   String|  原来的密码  |
 
 返回：
 ```json
@@ -304,9 +315,8 @@ method：POST
 |    result|   String|  成功返回ontid，失败返回""  |
 
 ### 修改密码
-1. [获取验证码](#获取验证码)
-2. 提交号码，旧密码，新的密码
-3. 返回ontid（该ontid和原来的不一致）
+1. 提交号码，旧密码，新的密码
+2. 返回ontid
 ```text
 url：/api/v1/ontid/edit/password
 method：POST
@@ -316,8 +326,8 @@ method：POST
 ```json
 {
     "phone":"+86*15821703553",
-    "oldPassword":"123456",
-    "newPassword":"12345678"
+    "oldPassword":"12345678",
+    "newPassword":"12345679"
 }
 ```
 | Field_Name|     Type |   Description   | 
@@ -394,12 +404,12 @@ method:POST
 请求：
 ```json
 {
-    "number":"+86*15821703553"
+    "number":"86*15821703553"
 }
 ```
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    number|   String|  手机号码  |
+|    number|   String|  区号+*+手机号码  |
 
 返回：
 ```json
@@ -503,7 +513,7 @@ method：POST
 |    result|   String| 	交易内容  |
 
 ### HMAC校验
-获取手机验证码接口我们加上了HMAC校验功能
+ [获取验证码](#获取验证码)我们加上了HMAC校验功能
 
 用户需要提前在我们平台上注册
 
@@ -549,6 +559,24 @@ java示例：
 2. 后台HMAC校验
 
 ### 接口加密
+
+java示例:
+```text
+ String key =产生16位随机密钥;
+ //RSA公钥加密
+String enKey = utilRSA.encryptByPublicKey(key);
+ //对body的内容AES加密   
+String enJson = utilAES.encryptData(key, JSON.toJSONString(json));
+//请求的body
+    {
+        data:加密后的数据
+    }
+//请求头
+  headers.set("Secure-Key", enKey);
+  headers.setAccept(Arrays.asList(new MediaType("application", "ontid.manage.api.v1+json")));
+  headers.setContentType(new MediaType("application", "ontid.manage.api.v1+json"));
+```
+
  我们在项目中使用到RSA，AES128，以及MD5，用以保证客户端(Client)和服务端(Server)之间的通信安全。
 1. RSA——非对称加密，会产生公钥和私钥，公钥在客户端，私钥在服务端。公钥用于加密，私钥用于解密。
 2. AES——对称加密，直接使用给定的秘钥加密，使用给定的秘钥解密。(加密解密使用相同的秘钥)
@@ -592,5 +620,82 @@ java示例：
 
 ![流程图](%E6%8E%A5%E5%8F%A3%E5%8A%A0%E5%AF%86%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg)
 
-### 数据库加密
-我们不会保存用户的密码，在数据库中存放的是密码的hash，校验数据是根据密码hash是否一致来判断。
+### 集成测试
+我们建议前端数据RSA公钥加密，发给后台加上HMAC签名获取数据
+
+测试数据：
+```text
+private static String AppId = "mdgDyjj4";
+
+private static String AppSecret = "cOLo1W+NlZy9wUzWuMARUg==";
+
+private static String pubRSAKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdyNjEizEPw7cudl/wY2UFg9ghNj/jR04iC8H3W+SWL/GMCnOz/9XDfC3u84Tvt1KgFqWIZIwkgNJlMTXHedSXIMX91jU0mGIHiUcmRmgr56Jb1B5C13tD+UTA4ii63WKmD+AEvxejxSphuyZ2MILlNqIIuL71gklSkYkTbXsXGQIDAQAB";
+
+private static String testNet="http://139.219.136.188:10330"
+
+private static String aes.iv="6889f892a17e4371"
+```
+举例：
+前端请求
+转发
+```text
+url：/api/v1/ontid/test/forwardRequest
+
+method：POST
+```
+
+```text
+{
+    "url":"/api/v1/ontid/gettx/register/ontid",
+    "secure":"eewK+BL+iBja2n2l57ffdQrdB/zdsJGOPTJFD86IsLm1D/UBh9DKmCQjjP9d7tLrmAkgI62ewLwLRMzPoqs8JblUcDDGsQbG2wEdHUN5wvEoUgHbRQaTpGvIqQoL2FFSPqxFaYn4uh1RjhrcjgxHDh0JqJG3wyyHUV+vzymJJBw=",
+    "data":"FK/1h1QVJzJLnQyKR5mCpf56IOsldpRqXvX6PZooccNnkoH3KserF2eDDGBRw6NDEg5h9VhRt8TkAqTYIZgQLg=="
+}
+```
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    url|   String|  动作标志  |
+|    secure|   String|  RSA公钥加密后的数据  |
+|    data|   String|  AES使用随机生成的对请求body进行加密的数据  |
+
+如不需要，可以自己定制后台的逻辑处理
+```text
+header
+"Content-Type", "application/ontid.manage.api.v1+json"
+"Secure-Key",前端发来的secure数据
+"Authorization":HMAC处理后的结果
+
+body
+{"data":"FK/1h1QVJzJLnQyKR5mCpf56IOsldpRqXvX6PZooccNnkoH3KserF2eDDGBRw6NDEg5h9VhRt8TkAqTYIZgQLg=="}
+
+去掉空格和换行
+请求对应的服务器地址+url
+```
+    
+    
+### 错误码
+## 错误码第五到九位
+Api错误码
+
+| 代码     |     说明   |  
+| :----: | :----: | 
+| 00000	|	SUCCESS,成功 |
+| 61001	|	PARAM_ERROR,参数错误 |
+| 61002	|	ALREADY_EXIST,已存在 |
+| 61003	|	NOT_FOUND,未找到 |
+| 61004	|	NOT_EXIST,不存在
+| 61005	|	NOT_PERMISSION,权限错误
+| 61006	|	NOT_REGISTRY,未注册
+| 61007	|	EXPIRES,已过期
+| 61008	|	REVOKED,已注销
+| 61009	|	SERIALIZE_ERROR,序列化错误
+| 61010	|	TIME_EXCEEDED,次数超限
+| 62001	|	VERIFY_FAIL,身份校验失败
+| 62002	|	CREATE_FAIL,创建失败
+| 62003	|	COMM_FAIL,通信异常
+| 62004	|	FILE_ERROR,文件操作异常
+| 62005	|	DB_ERROR,数据库操作错误
+| 62006	|	SIG_VERIFY_FAILED,验签失败
+| 63001	|	INNER_ERROR,内部异常
+| 63002	|	EXCEPTION,异常
+| 63003	|	CODE_VERIFY_FAILED,设备码校验失败
+| 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
