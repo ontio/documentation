@@ -122,7 +122,7 @@ SuccessResponse：
 |    ontid|   String|  需求方的ONT ID  | Y|
 |    ta_info.claim_contexts |   list|  选定所需的TrustAnchor的可信声明模板列表    | Y|
 |    ta_info.ontid |   String|  选定所需的TrustAnchor的ONT ID    | Y|
-|    signature |   String|  需求方使用ONT ID私钥按照[签名规则](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E4%BD%BF%E7%94%A8ont-id%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)对请求内容的签名  |Y|
+|    signature |   String|  需求方使用ONT ID私钥按照[签名规则](http://pro-docs.ont.io/#/docs-cn/ontpass/specification?id=%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)对请求内容的签名  |Y|
 
 
 | ResponseField     |     Type |   Description   |
