@@ -21,8 +21,6 @@
       - [Block Import/Export](docs-en/OntologyCli/08-block-data.md)
       - [Multi Signature](docs-en/OntologyCli/09-multisig.md)
       - [Query Info](docs-en/OntologyCli/10-query-info.md)
-  - [Connect to the ontology](docs-en/OntologyCli/03-connect-to-client.md)
-  - [Cli Usage](docs-en/OntologyCli/11-cli-usage.md)
 
 - API Reference
   - [Overview](docs-en/API/00-overview.md)
