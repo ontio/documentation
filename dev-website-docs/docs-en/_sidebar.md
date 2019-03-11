@@ -19,10 +19,14 @@
       - [Block Import/Export](docs-en/OntologyCli/08-block-data.md)
       - [Multi Signature](docs-en/OntologyCli/09-multisig.md)
       - [Query Info](docs-en/OntologyCli/10-query-info.md)
-  - [API Reference](docs-en/API/00-overview.md)
-      - [Rpc](docs-en/API/01-rpc_api.md)
-      - [Restful](docs-en/API/02-restful_api.md)
-      - [Websocket](docs-en/API/03-websocket_api.md)
+  - [Connect to the ontology](docs-en/OntologyCli/03-connect-to-client.md)
+  - [Cli Usage](docs-en/OntologyCli/11-cli-usage.md)
+
+- API Reference
+  - [Overview](docs-en/API/00-overview.md)
+  - [Rpc](docs-en/API/01-rpc_api.md)
+  - [Restful](docs-en/API/02-restful_api.md)
+  - [Websocket](docs-en/API/03-websocket_api.md)
 
 - Smart Contract
   - [Getting Started](docs-en/smartcontract/01-started.md)
