@@ -11,6 +11,8 @@
   - [Overview](docs-en/OntologyCli/00-overview.md)
   - [Installation](docs-en/OntologyCli/01-installation.md)
   - [Getting Started](docs-en/OntologyCli/getting-started.md)
+  - [Connect to client](docs-en/OntologyCli/03-connect-to-client.md)
+  - [Cli Usage](docs-en/OntologyCli/11-cli-usage.md)
       - [Running Node](docs-en/OntologyCli/02-running-node.md)
       - [Wallet](docs-en/OntologyCli/04-wallet-management.md)
       - [Asset](docs-en/OntologyCli/05-asset-management.md)
