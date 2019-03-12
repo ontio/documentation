@@ -130,3 +130,14 @@ $ npm run start
 每笔交易都包含gas limit和gas price。gasprice 会影响到该笔交易被打包所需等待的时间，目前主网和测试网最小值都是500。
 
 gaslimit根据合约执行复杂性而定，可以通过预执行查询该调用需要的最小gaslimit值。Native合约调用gaslimit默认是20000。部署合约根据合约而定，gaslimit一般是20000000以上。
+
+#### 地址的处理
+
+Chrome 插件钱包 Cyano wallet 在处理传入的地址时，只接受 ByteArray 类型，在使用 [SmartX](https://smartx.ont.io/#/) 进行调试的时候，SmartX 会自动将识别到的 address 类型转化为 ByteArray 类型，所以调用不会有问题，但是在开发者自身的环境下，如果没有做类型转换，cyano wallet 就会报错。
+
+以下是 js 中获取 ByteArray 格式地址的例子
+
+```javascript
+import {Crypto} from 'ontology-ts-sdk';
+var address = new Crypto.Address(account).serialize() // 此处得到的 address 就是 ByteArray 格式
+```
