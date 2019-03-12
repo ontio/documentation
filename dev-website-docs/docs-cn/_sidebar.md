@@ -74,7 +74,7 @@
 - 钱包接入指导
   - [概述](docs-cn/Wallet-Integration/00-wallet_integration.md)
   - [资产接入](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
-  - [provider接入](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
+  - [Provider 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [场景-扫码接入](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
       - [场景-钱包内打开dApp接入](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
 
@@ -95,7 +95,7 @@
   - [Punica Box](docs-cn/Punica/punica-box.md)
   - [VSCode 插件](docs-cn/Punica/sc-extension.md)
   - [Solo Chain](docs-cn/Punica/solo-chain.md)
-  - [Tutorials](docs-cn/Punica/tutorials.md)
+  - [视频教程](docs-cn/Punica/tutorials.md)
 
 - 浏览器 API
   - [概述](docs-cn/explorer/overview.md)
