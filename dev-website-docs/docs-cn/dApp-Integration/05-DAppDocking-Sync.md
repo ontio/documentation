@@ -31,6 +31,8 @@
   - http://dappnode3.ont.io
   - http://dappnode4.ont.io
 
+> polaris 测试网第一个节点和主网第一个节点的10334端口支持 HTTPS。
+
 如果你希望基于 `polaris` 测试网进行开发，你可以在[这里](https://developer.ont.io/applyOng)申请测试所需的 `ONT` 与 `ONG`。
 
 ### 运行自己的节点
