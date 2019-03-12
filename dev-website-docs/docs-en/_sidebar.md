@@ -54,6 +54,12 @@
       - [Scan code integration](docs-en/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
       - [Open dApp in the wallet integration](docs-en/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
 
+- Exchange Docking
+  - [Overview](docs-en/exchange-API/Ontology+Exchange+Docking+Document.md)
+  - [Sigsvr Exchange Guide](docs-en/exchange-API/Sigsvr_Exchange_Guide.md)
+  - [Signature Server](docs-en/exchange-API/Ontology+Signature+Server+Tutorials.md)
+  - [FAQ](docs-en/exchange-API/ONT+Exchange+Docking+FAQ.md)
+
 - SmartX
   - [Overview](docs-en/SmartX/00-overview.md)
   - [Getting Started](docs-en/SmartX/01-getting-started.md)
@@ -111,10 +117,3 @@
       - [Account](docs-en/SignServer/04-api-account-methods.md)
       - [Signing Methods](docs-en/SignServer/05-api-signing-methods.md)
       - [Convenience Methods](docs-en/SignServer/06-api-signing-convinience-methods.md)
-
-
-- Exchange Docking
-  - [Overview](docs-en/exchange-API/Ontology+Exchange+Docking+Document.md)
-  - [Sigsvr Exchange Guide](docs-en/exchange-API/Sigsvr_Exchange_Guide.md)
-  - [Signature Server](docs-en/exchange-API/Ontology+Signature+Server+Tutorials.md)
-  - [FAQ](docs-en/exchange-API/ONT+Exchange+Docking+FAQ.md)

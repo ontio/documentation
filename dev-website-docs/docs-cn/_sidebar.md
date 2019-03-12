@@ -86,12 +86,6 @@
   - [Solo Chain](docs-cn/Punica/solo-chain.md)
   - [视频教程](docs-cn/Punica/tutorials.md)
 
-- 签名机
-  - [概述](docs-cn/sigsvr/00-overview.md)
-  - [安装](docs-cn/sigsvr/01-install.md)
-  - [快速开始](docs-cn/sigsvr/02-getting-started.md)
-  - [接口规范](docs-cn/sigsvr/03-api-specification.md)
-
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
   - [Go SDK](docs-cn/SDKs/01-go-sdk.md)
@@ -115,3 +109,9 @@
   - [地址信息](docs-cn/explorer/addressInfo.md)
   - [提交合约](docs-cn/explorer/registerContract.md)
   - [摘要](docs-cn/explorer/summary.md)
+
+- 签名机
+  - [概述](docs-cn/sigsvr/00-overview.md)
+  - [安装](docs-cn/sigsvr/01-install.md)
+  - [快速开始](docs-cn/sigsvr/02-getting-started.md)
+  - [接口规范](docs-cn/sigsvr/03-api-specification.md)
