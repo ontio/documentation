@@ -114,7 +114,7 @@ public void run() {
             Object event = sdk.getConnect().getSmartCodeEvent(dbBlockHeight);
             if (event != null) {
               for(Object obj : (JSONArray)event){
-                  //顾虑交易成功的事件
+                  //过滤交易成功的事件
                   if (obj.get("State") ==1) {
                     for(Object notify: obj.get("Notify")) {
                         //过滤我们监听的事件
