@@ -35,33 +35,16 @@
   - [Restful 接口](docs-cn/ontology-cli/06-restful-specification.md)
   - [WebSocket 接口](docs-cn/ontology-cli/07-ws-specification.md)
 
-- 签名机
-  - [概述](docs-cn/sigsvr/00-overview.md)
-  - [安装](docs-cn/sigsvr/01-install.md)
-  - [快速开始](docs-cn/sigsvr/02-getting-started.md)
-  - [接口规范](docs-cn/sigsvr/03-api-specification.md)
-
-- SDKs
-  - [概述](docs-cn/SDKs/00-overview.md)
-  - [Go SDK](docs-cn/SDKs/01-go-sdk.md)
-  - [Java SDK](docs-cn/SDKs/02-java-sdk.md)
-  - [Python SDK](docs-cn/SDKs/03-python-sdk.md)
-  - [TypeScript SDK](docs-cn/SDKs/04-ts-sdk.md)
-  - [Php SDK](docs-cn/SDKs/05-php-sdk.md)
-  - [Swift SDK](docs-cn/SDKs/06-swift-sdk.md)
-  - [Android SDK](docs-cn/SDKs/07-android-sdk.md)
-  - [Object C SDK](docs-cn/SDKs/08-object-c-sdk.md)
-
-- 智能合约
-  - [快速入门](docs-cn/smartcontract/01-started.md)
-  - [合约模板](docs-cn/smartcontract/02-template.md)
-  - [API 参考](docs-cn/smartcontract/03-sc-api.md)
-
 - DAPP开发指导
   - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
   - [开发工具概述](docs-cn/introduction/tools.md)
   - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
   - [链上数据存取（可选）](docs-cn/QuickGuide/07-deposit-certificate.md)
+
+- 智能合约
+  - [快速入门](docs-cn/smartcontract/01-started.md)
+  - [合约模板](docs-cn/smartcontract/02-template.md)
+  - [API 参考](docs-cn/smartcontract/03-sc-api.md)
 
 - DAPP接入指导
   - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
@@ -77,6 +60,12 @@
   - [Provider 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [场景-扫码集成](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
       - [场景-钱包内打开dApp集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
+
+- 交易所对接
+  - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
+  - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
+  - [签名服务器使用说明](docs-cn/exchange-API/Ontology+签名服务器使用说明.md)
+  - [FAQ](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
 
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
@@ -97,6 +86,23 @@
   - [Solo Chain](docs-cn/Punica/solo-chain.md)
   - [视频教程](docs-cn/Punica/tutorials.md)
 
+- 签名机
+  - [概述](docs-cn/sigsvr/00-overview.md)
+  - [安装](docs-cn/sigsvr/01-install.md)
+  - [快速开始](docs-cn/sigsvr/02-getting-started.md)
+  - [接口规范](docs-cn/sigsvr/03-api-specification.md)
+
+- SDKs
+  - [概述](docs-cn/SDKs/00-overview.md)
+  - [Go SDK](docs-cn/SDKs/01-go-sdk.md)
+  - [Java SDK](docs-cn/SDKs/02-java-sdk.md)
+  - [Python SDK](docs-cn/SDKs/03-python-sdk.md)
+  - [TypeScript SDK](docs-cn/SDKs/04-ts-sdk.md)
+  - [Php SDK](docs-cn/SDKs/05-php-sdk.md)
+  - [Swift SDK](docs-cn/SDKs/06-swift-sdk.md)
+  - [Android SDK](docs-cn/SDKs/07-android-sdk.md)
+  - [Object C SDK](docs-cn/SDKs/08-object-c-sdk.md)
+
 - 浏览器 API
   - [概述](docs-cn/explorer/overview.md)
   - [区块](docs-cn/explorer/blocks.md)
@@ -109,9 +115,3 @@
   - [地址信息](docs-cn/explorer/addressInfo.md)
   - [提交合约](docs-cn/explorer/registerContract.md)
   - [摘要](docs-cn/explorer/summary.md)
-
-- 交易所对接
-  - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
-  - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
-  - [签名服务器使用说明](docs-cn/exchange-API/Ontology+签名服务器使用说明.md)
-  - [FAQ](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
