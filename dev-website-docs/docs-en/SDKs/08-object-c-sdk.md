@@ -1,54 +1,54 @@
 
 # ONTWallet
-用Objective-C编写的支持本体钱包的库.
+A lib for ONT wallet written in Objective-C.
 
 
 ## Installation
 
-1. 下载项目到本地.
-2. 将`ONTSDK`文件夹拷贝到你自己的项目中.
-3. 在 `ONT.h` 文件中配置以下参数:
-  - kONTMainNet: YES //主网, NO // 测试网;
-  - kONTRpcURL: RPC Api base url;
-  - kONTRestfulURL: Restful Api base url;
-  - kONTDappServerNode: ONT DApp Api base url.
+1. Download this project to local.
+2. Copy the 'ONTSDK' floder to your project.
+3. Set configuration in 'ONT.h' file:
+- kONTMainNet: YES is for mainnet, NO is for testnet;
+- kONTRpcURL: RPC Api base url;
+- kONTRestfulURL: Restful Api base url;
+- kONTDappServerNode: ONT DApp Api base url.
 
 
-## 使用
+## Usage
 
-### 钱包
+### Wallet
 
-#### 创建一个新钱包
+#### Create a new wallet
 
 ```
 ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890"];
 ```
 
-#### 使用助记词导入钱包
+#### Import wallet with mnemonic
 
 ```
 ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" mnemonicText:@"use dinner opinion jewel detail inquiry popular enough diary upper concert identify"];
 ```
 
-#### 使用私钥 (hex)导入钱包
+#### Import wallet with private key (hex)
 
 ```
 ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" privateKeyHex:@"c3cc0e31af0e085299b38962281fceeb39cca70ac4ecc3bbd46e25154a9fb317"];
 ```
 
-#### 使用 wif 导入钱包
+#### Import wallet with wif
 
 ```
 ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L3nKDP3Wh3zmVktyFPGFegEUhJrpRcorosqk71X91rmjxnXtAFqb"];
 ```
 
-#### 使用 keystore 导入钱包
+#### Import wallet with keystore
 
 ```
 ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet-1" password:@"ONT123ont" keystore:@"{\"scrypt\":{\"r\":8,\"p\":8,\"n\":4096,\"dkLen\":64},\"address\":\"APjeNaCXGAVVXKPe6n8wYgFjeh3mLoqHWV\",\"key\": \"mLMLOpaZWhEcKNAN+p8rd43bmxDdY4t4DIK2eh1N2D51qhUCpnFlf4dl+op4uTk6\",\"label\":\"ONT-Wallet\",\"type\":\"A\",\"algorithm\":\"ECDSA\",\"salt\":\"\\/3qtmiaVilaqMdKVPPOeKA==\",\"parameters\":{\"curve\":\"P-256\"}}"];
 ```
 
-#### 发送 ONT 资产
+#### Send asset ONT
 
 ```
 ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
@@ -64,7 +64,7 @@ NSLog(@"txHex == %@", txHex);
 }];
 ```
 
-#### 发送 ONG 资产
+#### Send asset ONG
 
 ```
 ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
@@ -80,7 +80,7 @@ NSLog(@"txHex == %@", txHex);
 }];
 ```
 
-#### 提取解绑的 ONG
+#### Claim ONT
 
 ```
 ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
@@ -97,7 +97,7 @@ NSLog(@"Claim ONG txHex == %@", txHex);
 }];
 ```
 
-#### 查询余额
+#### Qury balance
 
 ```
 [[ONTRpcApi shareInstance] getBalanceWithAddress:@"AatvPQVe1RECTqoAxe9FtSdWGnABVjMExv" callback:^(NSArray *balances, NSError *error) {
@@ -114,7 +114,7 @@ NSLog(@"Claim ONG txHex == %@", txHex);
 
 ### OEP4
 
-#### 查询余额
+#### balanceOf
 
 ```
 ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT" password:@"123456" privateKeyHex:@"5f2fe68215476abb9852cfa7da31ef00aa1468782d5ca809da5c4e1390b8ee45"];
@@ -126,7 +126,7 @@ ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT" password:@"123456"
 }];
 ```
 
-#### 精度
+#### decimals
 
 ```
 [NeoVM shareInstance].oep4.contractAddress = @"b0bc9d8eb833c9903fa2e794f8413f6366f721ce";
@@ -136,7 +136,7 @@ ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT" password:@"123456"
 }];
 ```
 
-#### 总发行量
+#### totalSupply
 
 ```
 [NeoVM shareInstance].oep4.contractAddress = @"b0bc9d8eb833c9903fa2e794f8413f6366f721ce";
@@ -147,7 +147,7 @@ ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT" password:@"123456"
 
 ```
 
-#### 名称
+#### name
 
 ```
 [NeoVM shareInstance].oep4.contractAddress = @"b0bc9d8eb833c9903fa2e794f8413f6366f721ce";
@@ -157,7 +157,7 @@ ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT" password:@"123456"
 }];
 ```
 
-#### 标志
+#### symbol
 
 ```
 [NeoVM shareInstance].oep4.contractAddress = @"b0bc9d8eb833c9903fa2e794f8413f6366f721ce";
@@ -167,7 +167,7 @@ ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT" password:@"123456"
 }];
 ```
 
-#### OEP4 转账
+#### transfer
 
 ```
 [NeoVM shareInstance].oep4.contractAddress = @"b0bc9d8eb833c9903fa2e794f8413f6366f721ce";
@@ -199,14 +199,14 @@ BOOL isPreExec = NO;
 
 ### ONTID
 
-#### 创建 ONT ID
+#### Create Ontid
 
 ```
 ONTIdentity *ontID = [[ONTIdentity alloc] initWithName:@"MyOntid" password:@"ONT123ont"];
 NSLog(@"%@", ontID.ontid);
 ```
 
-#### 在链上注册 ONT ID
+#### Register Ontid
 
 ```
 ONTIdentity *ontID = [[ONTIdentity alloc] initWithName:@"MyOntid" password:@"ONT123ont"];
@@ -222,14 +222,14 @@ NSString *txHex = [ontID makeRegisterOntIdTxWithPayer:account gasPrice:500 gasLi
 }];
 ```
 
-#### 导入 ONT ID
+#### Import Ontid
 
 ```
 ONTIdentity *ontID = [[ONTIdentity alloc] initWithName:@"MyOntid" password:@"ONT123ont" privateKeyHex:@"c3cc0e31af0e085299b38962281fceeb39cca70ac4ecc3bbd46e25154a9fb317"];
 NSLog(@"%@", ontID.ontid);
 ```
 
-#### 获取 DDO
+#### Get DDO
 
 ```
 NSString *ontid = @"did:ont:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ";
@@ -245,7 +245,7 @@ NSLog(@"%@", txHex);
 }];
 ```
 
-#### 解析 DDO
+#### Parse DDO
 
 ```
 NSString *result = @"26010000002103f631f975560afc7bf47902064838826ec67794ddcdbcc6f0a9c7b91fc85025832d046b657931044a736f6e0f7b226b6579223a2268656c6c6f227d046b65793006537472696e670676616c75653114fa88f5244be19659bbd24477caeeacac7cbf781b";
@@ -255,19 +255,19 @@ NSLog(@"%@", dicDDO);
 ```
 
 
-## 其他
+## Others
 
 See more tests in the files "ViewController.m"、"ONTWalletTests.m", thx!
 
 
 
-## 捐赠
+## Donate
 
 - ONT Address：AR4iFxFdbjTkHKtStSKRvu5bgXXBcpZx9D
 
 
 
-## 联系
+## Contact
 
 - Wechat：18321857793（memo：ONT SDK）
 - QQ：3500229193（memo：ONT SDK）
