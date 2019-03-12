@@ -353,3 +353,10 @@ await client.api.smartContract.invoke(params)
 
 ​```
 ````
+## SDK 使用
+
+具体的SDK使用说明请参考[SDK文档](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview)
+
+此处列出两个在SDK调用合约参数填写的示例
+- [Punica初始化Demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/PunicaInitDemo.java)
+- [使用json构建交易Demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithJsonDemo.java)
