@@ -1,4 +1,6 @@
+
 # Sigsvr plus rpc for exchanges
+
 This article mainly covers creating wallet and account, motinoring deposits and signing for withdrawal through sigsvr and rpc.
 - [Sigsvr plus rpc for exchanges](#sigsvr-plus-rpc-for-exchanges)
     - [1. Prepation to run ontology and synchronize ontology node](#1-prepation-to-run-ontology-and-synchronize-ontology-node)
@@ -38,7 +40,7 @@ This article mainly covers creating wallet and account, motinoring deposits and 
 
 
 
-## 1. Prepation to run ontology and synchronize ontology node 
+## 1. Prepation to run ontology and synchronize ontology node
 
 To run ontology, you can get it from [the source](https://github.com/ontio/ontology/blob/master/README.md)
 Or, get it from [the release page](https://github.com/ontio/ontology/releases).
@@ -115,7 +117,7 @@ Then you can see the account was created
 ```
 ### 2.2.4 Export wallet file
 
-Through Postman post: 
+Through Postman post:
 ```
 {
 	"qid":"t",
@@ -131,9 +133,9 @@ Then the wallet file will be exported.
 
 Currently, Sigsvr supports signing for data, normal transaction, multiSig transaction, construction of Native contract invoking, construction of NeoVM contract invoking.
 
-Signature server is one json formatted rpc server. It can be used by posting messages. 
+Signature server is one json formatted rpc server. It can be used by posting messages.
 
-The posted server path should be set as 
+The posted server path should be set as
 http://localhost:20000/cli.
 
 The post structure should be
@@ -148,7 +150,7 @@ The post structure should be
     }
 }
 ```
-The answer structure is 
+The answer structure is
 ```
 {
     "qid": "XXX",   //request ID
@@ -170,7 +172,7 @@ C:\Go_WorkSpace\src\github.com\ontio\ontology (master -> origin)
 
 ## 4. Process the asset transaction
 
-### 4.1 Sign for withdrawal 
+### 4.1 Sign for withdrawal
 
 #### 4.1.1 Construct transaction through post method 1
 
@@ -229,7 +231,7 @@ We set the "payer" not equal to "from".
     }
 }
 ```
-We get 
+We get
 ```
 {
     "qid": "t",
@@ -267,7 +269,7 @@ The returned result is
 ```
 Then go to ontology cli, and run the following. Note that signed_tx should be the above returned result.
 ```
-./ontology sendtx "signed_tx" 
+./ontology sendtx "signed_tx"
 ```
 #### 4.1.3 Asset option
 
@@ -292,7 +294,7 @@ CurrentBlockHeight:1972
 
 method: "getblockcount", params: null, return: blockheight
 
-Post 
+Post
 ```
 {
   "jsonrpc": "2.0",
@@ -301,7 +303,7 @@ Post
   "id": 1
 }
 ```
-You will get 
+You will get
 ```
 {
     "desc": "SUCCESS",
@@ -316,7 +318,7 @@ You will get
 
 ##### 4.2.2.1 Through Cli
 
-In ontology cli, run 
+In ontology cli, run
 ```
 ./ontology info block <block number | block hash>
 
@@ -457,7 +459,7 @@ You will get
 
 ##### 4.2.3.1 Through Cli
 
-In cli, run 
+In cli, run
 ```
 ./ontology info status <TxHash>
 ```
@@ -489,8 +491,8 @@ Explanation:
 "State" = 1: Success, "State" = 0: Failure.
 "GasConsumed": the consumed gas for this transaction.
 Notify:
-	ContractAddress: 
-		0100000000000000000000000000000000000000<=>ONT, 
+	ContractAddress:
+		0100000000000000000000000000000000000000<=>ONT,
 		0200000000000000000000000000000000000000<=>ONG.
 	States:
 		1st element: "transfer"--invoked method
@@ -502,7 +504,7 @@ What you need to do is to filter the "to address". When it's detected that "to a
 
 ##### 4.2.3.2 Getrawtransaction through post
 
-method:"getrawtransaction", params: txhash, return: transaction detailed info. 
+method:"getrawtransaction", params: txhash, return: transaction detailed info.
 
 Post
 ```
@@ -530,13 +532,13 @@ You will get
 
 #### 5.1.1 Through Cli
 
-In cli, 
+In cli,
 ```
-./ontology asset unboundong <address|index|label> 
+./ontology asset unboundong <address|index|label>
 ```
 #### 5.1.2 Getunboundong through post
 
-method: "getunboundong", params: address, return: 
+method: "getunboundong", params: address, return:
 ```
 {
   "jsonrpc": "2.0",
@@ -559,7 +561,7 @@ You will get
 
 #### 5.2.1 Through Cli
 
-In cli, 
+In cli,
 ```
 ./ontology asset withdrawong <address|index|label>
 ```
@@ -591,7 +593,7 @@ Explanation
 "account": signing account
 "pwd": password
 In params:
-	1st address -- sender:  
+	1st address -- sender:
 	2nd address -- base58 address of ONG contract big endian script hash
 	3rd address -- the address to receive the withdrawal ong
 	4th value   -- the value of ong (actual ong = value/10^9)
@@ -608,7 +610,7 @@ Then you will get
     "error_info": ""
 }
 ```
-Then go to cli, run 
+Then go to cli, run
 ```
 ./ontology sendtx "signed_tx"
 ```
