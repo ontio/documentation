@@ -213,7 +213,8 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 ### 导出
 1. 提交ontid和密码
 2. 返回所需要的结果
-```text
+
+```
 导出 keystore
 url：/api/v1/ontid/export/keystore 
 
@@ -227,7 +228,7 @@ method：POST
 ```
 
 请求：
-```json
+```
 {
    	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
    	"password":"12345678"
@@ -239,7 +240,7 @@ method：POST
 |    password|   String|  ontid密码  |
 
 返回：
-```json
+```
 {
 	"action":"export",
 	"version":"1.0",
@@ -261,13 +262,13 @@ method：POST
 1. 新的手机[获取验证码](#获取验证码)
 2. 提交新手机号码，验证码，旧手机号码和密码
 3. 返回ontid（该ontid和keystore的ontid一致）
-```text
+```
 url：/api/v1/ontid/edit/phone 
 method：POST
 ```
 
 请求：
-```json
+```
 {
     "newPhone": "86*15821703552",
     "verifyCode": "123456",
@@ -283,7 +284,7 @@ method：POST
 |    password|   String|  原来的密码  |
 
 返回：
-```json
+```
 {
     "action":"edit",
     "version":"1.0",
@@ -304,13 +305,13 @@ method：POST
 ### 修改密码
 1. 提交号码，旧密码，新的密码
 2. 返回ontid
-```text
+```
 url：/api/v1/ontid/edit/password
 method：POST
 ```
 
 请求：
-```json
+```
 {
     "phone":"86*15821703553",
     "oldPassword":"12345678",
@@ -324,7 +325,7 @@ method：POST
 |    newPassword|   String|  新密码  |
 
 返回：
-```json
+```
 {
     "action":"edit",
     "version":"1.0",
@@ -346,14 +347,14 @@ method：POST
 ### 解密claim
 1. 通过Onid和密码解密claim
 2. 返回所需要的结果
-```text
+```
 url：/api/v1/ontid/decrypt/claim
 
 method：POST
 ```
 
 请求：
-```json
+```
 {
    	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
    	"password":"12345678",
@@ -367,7 +368,7 @@ method：POST
 |    message|   JSONArray|  加密后的数据  |
 
 返回：
-```json
+```
 {
     "action":"decrypt",
     "version":"1.0",
