@@ -38,11 +38,10 @@ ONTID 授权登录模式整体流程为：
 
 ### JWT Token 格式说明
 
-```JWT```包含三个部分：
+ ```JWT``` 包含三个部分：
 
 ```
   Base64(Header).Base64(Payload).Base64(Signature)	 
-
 ```
 
 
@@ -415,19 +414,15 @@ method：POST
 | 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
 
 
-### 接口测试
+## 接口测试
 我们建议前端数据RSA公钥加密，发给后台加上HMAC签名获取数据
 
 测试数据：
 ```text
 private static String AppId = "mdgDyjj4";
-
 private static String AppSecret = "cOLo1W+NlZy9wUzWuMARUg==";
-
 private static String pubRSAKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdyNjEizEPw7cudl/wY2UFg9ghNj/jR04iC8H3W+SWL/GMCnOz/9XDfC3u84Tvt1KgFqWIZIwkgNJlMTXHedSXIMX91jU0mGIHiUcmRmgr56Jb1B5C13tD+UTA4ii63WKmD+AEvxejxSphuyZ2MILlNqIIuL71gklSkYkTbXsXGQIDAQAB";
-
 private static String testNet="http://139.219.136.188:10330"
-
 private static String aes.iv="6889f892a17e4371"
 ```
 举例：
