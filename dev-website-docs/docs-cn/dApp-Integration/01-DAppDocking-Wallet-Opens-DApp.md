@@ -1,43 +1,33 @@
 
 ## 概述
 
-当前来看，各个移动版钱包App是DApp的重要入口，我们提供了 `cyano-bridge` ，DApp安装后，就可以通过调用符合 [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 规范的dApi，与任何一个集成了 `Provider-SDK` 的钱包App通信，实现对链的操作。
+当前来看，各个移动版钱包 App 是 DApp 的重要入口，我们提供了 `cyano-bridge` ，DApp 安装后，就可以通过调用符合 [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 规范的 DAPI，与任何一个集成了 `Provider-SDK` 的钱包 App 通信，实现对链的操作。
 
-## 钱包内打开dApp交互流程说明
+## 钱包内打开 DApp 的交互流程
 
 ### 登录场景
-1. 钱包内打开dApp
-2. dApp向钱包发送登录请求，钱包返回签名数据
-3. dApp验证通过，登录成功
+1. 钱包内打开 DApp
+2. DApp 向钱包发送登录请求，钱包返回签名数据
+3. DApp 验证通过，登录成功
 
 ### 调用智能合约场景
-1. dApp向钱包发起调用智能合约请求(图中4.1)
-2. 钱包签名，预执行，发送到链，向dApp返回交易hash(图中4.2)
+1. DApp 向钱包发起调用智能合约请求 (图中 4.1)
+2. 钱包签名，预执行，发送到链，向 DApp  返回交易 hash (图中 4.2)
 
 ![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 
 
-另外，为了满足dApp同时适用于网页版和移动版，我们提供了兼容两种dapi的例子：
+另外，为了满足 DApp 同时适用于网页版和移动版，我们提供了兼容两种 DAPI 的例子：
 
-* 移动版dApi使用方法: [dapi for mobile](https://github.com/ontio-cyano/cyano-bridge)
-* Chrome插件钱包的dApi使用方法[dapi for chrome](https://github.com/ontio/ontology-dapi)
-* 兼容移动版和Chrome插件版dApi的代码例子：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)
+* 移动版 DAPI 使用方法：[dapi for mobile](https://github.com/ontio-cyano/cyano-bridge)
+* Chrome 插件钱包的 DAPI 使用方法 [dapi for chrome](https://github.com/ontio/ontology-dapi)
+* 兼容移动版和 Chrome 插件版 DAPI 的代码例子：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)
 
-## 移动版dApi安装和使用
-
-1. 安装
-2. 导入
-3. 初始化
-4. 使用
- - 查询钱包账户
- - 查询身份
- - 登录
- - 智能合约
- - [浏览器通用接口](http://dev-docs.ont.io/#/docs-en/explorer/overview).
+## 移动版 DAPI 的安装和使用
 
 ### 安装
 
-目前提供以下两种安装方是
+你可以选择以下一种安装方式：
 
 - npm 安装
 - CDN
@@ -45,7 +35,7 @@
 
 #### npm 安装
 
-你可以使用 `npm` 进行安装
+使用 `npm` 进行安装：
 
 ```shell
 npm install cyanobridge
@@ -59,7 +49,7 @@ npm install cyanobridge
 <script src="https://cdn.jsdelivr.net/npm/cyanobridge/lib/browser.min.js"></script>
 ```
 
-!> 建议使用 CDN 引入 `cyano-bridge` 的用户在链接地址上锁定版本，以免将来 `cyano-bridge` 升级时受到非兼容性更新的影响。
+<p class = "info">建议使用 CDN 引入 `cyano-bridge` 的用户在链接地址上锁定版本，以免将来 `cyano-bridge` 升级时受到非兼容性更新的影响。</p> 
 
 ### 导入
 
@@ -87,7 +77,7 @@ var client = CyanoMobile.client;
 
 ### 初始化
 
-在使用前需要进行初始化
+在使用前需要进行初始化：
 
 ```javascript
 import { client } from 'cyanobridge'
@@ -99,7 +89,7 @@ client.registerClient();
 
 #### 获取账号或身份信息
 
-获取账号或身份信息，移动端可以可以选择填dapp信息也可以不填写。
+获取账号或身份信息，移动端可以选择填 DApp 信息也可以不填写。
 
 ```
 import { client } from 'cyanobridge'
@@ -122,7 +112,7 @@ try {
 
 #### 登录
 
-登录是由钱包方签名，dApp验证签名。
+登录是由钱包方签名，DApp 验证签名。
 
 ```
 const params = {
@@ -186,7 +176,7 @@ try {
 * [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
 * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
 
-##### DApp后端查询交易事件
+##### DApp 后端查询交易事件
 * [java sdk 交易事件查询方法](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
 * [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
