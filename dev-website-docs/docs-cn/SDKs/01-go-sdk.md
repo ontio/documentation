@@ -269,6 +269,8 @@ if err != nil {
 
 ## 钱包
 
+<p class = "info">GO SDK中的OpenWallet方法只能打开已经存在的钱包，如果该文件路径下没有.dat文件，将会报错</p>
+
 ```go
 import (
     "fmt"
