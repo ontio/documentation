@@ -1,31 +1,30 @@
 
-# ONT ID 网站应用ONTID对接指南
-
-ONT ID综合账户体系，为用户提供区块链综合账户，一站式数字身份登录授权、管理用户资产、支付、调用合约。
 
 
-
-## 1. 准备工作
-
-
-网站应用ONTID登录是类似于OAuth2.0协议标准构建的ONTID授权登录系统。
-
-在进行ONTID授权登录接入之前，在ONTID开放平台注册开发者ONTID，获得相应的ONTID和```PrivateKey```，申请微信登录且通过审核后，可开始接入流程。
+ONT ID 综合账户体系，为用户托管区块链综合账户，提供一站式数字身份登录授权、管理用户资产、支付、调用合约等服务。
 
 
+## 准备工作
 
-## 2. 授权注册/登录流程说明
+
+网站应用ONTID登录是类似于```OAuth2.0```协议标准构建的ONTID授权登录系统。
+
+在进行 ONTID 授权登录接入之前，在 ONTID 开放平台注册开发者 ONTID ，获得相应的 ONTID 和```PrivateKey```，申请微信登录且通过审核后，可开始接入流程。
 
 
-ONTID授权登录让ONTID用户使用ONTID身份安全登录第三方应用或网站，在 ONTID 用户授权登录已接入ONTID的第三方应用后，第三方可以获取到用户的接口调用凭证（```access_token```），通过 ```access_token``` 可以进行ONTID开放平台授权关系接口调用，从而可实现获取 ONTID 用户基本开放信息和帮助用户实现基础开放功能等。
 
-ONTID授权登录模式整体流程为：
+## 授权注册/登录
+
+
+ONTID 授权登录是让用户使用ONTID身份安全登录第三方应用或网站，在 ONTID 用户授权登录已接入 ONTID 的第三方应用后，第三方可以获取到用户的接口调用凭证（```access_token```），通过 ```access_token``` 可以进行 ONTID 开放平台授权关系接口调用，从而可实现获取 ONTID 用户基本开放信息和其他接口。
+
+ONTID 授权登录模式整体流程为：
 
 
 ![ontid login](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-login.png) 
 
-1. 应用方到ONT ID后台注册其ontid
-2. 获得ONT ID后台的公钥
+1. 应用方到 ONTID 后台注册其 ONTID
+2. 获得 ONTID 后台的公钥
 3. 应用方前台重定向到通用的登录页面，url上参数带着应用方的ONTID和用于登录后重定向到应用方的```redirect_uri```。(注意使用```encodeURIComponent```)
 4. 用户输入用户名密码或验证码的方式登录。这里为了防刷短信验证码，可以提供图片验证码校验。
 5. 验证用户名是否已注册，若无，返回错误码；若已注册，验证密码或手机验证码是否正确，若不匹配，则返回错误码；登录成功后，ONTID后台生成JWT token（详细信息见下文，如果对安全级别要求高，可以使用应用方公钥加密JWT token），返回给前台。
@@ -39,14 +38,15 @@ ONTID授权登录模式整体流程为：
 
 ### JWT Token 格式说明
 
-JWT包含三个部分依次如下：
+```JWT```包含三个部分：
+
 ```
   Base64(Header).Base64(Payload).Base64(Signature)	 
 
 ```
 
 
-每个部分都是Base64Url格式，以 ``` . ``` 隔开。
+每个部分都是```Base64Url```格式，以 ``` . ``` 隔开。
 
 #### Header
 ```
@@ -97,7 +97,7 @@ Payload: aud=应用方ONTID&exp=20190310&iat=20190301……
 应用方得到JWT token后，按照如上规则生成目标字符串并对签名进行验签。
 
 
-## 3. 其他通用请求流程说明
+## 支付、调用合约
 
 
 ONTID通用请求，如支付和调用合约，整体流程为：
@@ -207,4 +207,261 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 	}
 }
 
+```
+
+## 接口说明
+
+### 导出
+1. 提交ontid和密码
+2. 返回所需要的结果
+```text
+导出 keystore
+url：/api/v1/ontid/export/keystore 
+
+导出 wif
+url：/api/v1/ontid/export/wif 
+
+导出 手机号
+url：/api/v1/ontid/export/phone 
+
+method：POST
+```
+
+请求：
+```json
+{
+   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
+   	"password":"12345678"
+}
+```
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    ontid|   String|  ontid  |
+|    password|   String|  ontid密码  |
+
+返回：
+```json
+{
+	"action":"export",
+	"version":"1.0",
+	"error":0,
+	"desc":"SUCCESS",
+	"result": "请求的对应值"
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String|  keystore请求返回keystore，wif请求返回wif,phone请求返回phone，失败返回""  |
+
+### 修改手机号
+1. 新的手机[获取验证码](#获取验证码)
+2. 提交新手机号码，验证码，旧手机号码和密码
+3. 返回ontid（该ontid和keystore的ontid一致）
+```text
+url：/api/v1/ontid/edit/phone 
+method：POST
+```
+
+请求：
+```json
+{
+    "newPhone": "86*15821703552",
+    "verifyCode": "123456",
+    "oldPhone":"86*15821703553",
+    "password":"12345678"
+}
+```
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    newPhone|   String|  新的手机号码  |
+|    verifyCode|   String|  新的手机的验证码  |
+|    oldPhone|   String|  旧的手机号码  |
+|    password|   String|  原来的密码  |
+
+返回：
+```json
+{
+    "action":"edit",
+    "version":"1.0",
+    "error":0,
+    "desc":"SUCCESS",
+    "result": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String|  成功返回ontid，失败返回""  |
+
+### 修改密码
+1. 提交号码，旧密码，新的密码
+2. 返回ontid
+```text
+url：/api/v1/ontid/edit/password
+method：POST
+```
+
+请求：
+```json
+{
+    "phone":"86*15821703553",
+    "oldPassword":"12345678",
+    "newPassword":"12345679"
+}
+```
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    phone|   String|  手机号码  |
+|    oldPassword|   String|  旧密码  |
+|    newPassword|   String|  新密码  |
+
+返回：
+```json
+{
+    "action":"edit",
+    "version":"1.0",
+    "error":0,
+    "desc":"SUCCESS",
+    "result": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String|  成功返回ontid，失败返回""  |
+
+
+### 解密claim
+1. 通过Onid和密码解密claim
+2. 返回所需要的结果
+```text
+url：/api/v1/ontid/decrypt/claim
+
+method：POST
+```
+
+请求：
+```json
+{
+   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
+   	"password":"12345678",
+   	"message": ["","",""]
+}
+```
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    ontid|   String|  ontid  |
+|    password|   String|  ontid密码  |
+|    message|   JSONArray|  加密后的数据  |
+
+返回：
+```json
+{
+    "action":"decrypt",
+    "version":"1.0",
+    "error":0,
+    "desc":"SUCCESS",
+    "result": "解密后的内容"
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String| 	解密后的内容  |
+
+
+### 错误码
+
+
+| 代码     |     说明   |  
+| :----: | :----: | 
+| 00000	|	SUCCESS,成功 |
+| 61001	|	PARAM_ERROR,参数错误 |
+| 61002	|	ALREADY_EXIST,已存在 |
+| 61003	|	NOT_FOUND,未找到 |
+| 61004	|	NOT_EXIST,不存在
+| 61005	|	NOT_PERMISSION,权限错误
+| 61006	|	NOT_REGISTRY,未注册
+| 61007	|	EXPIRES,已过期
+| 61008	|	REVOKED,已注销
+| 61009	|	SERIALIZE_ERROR,序列化错误
+| 61010	|	TIME_EXCEEDED,次数超限
+| 62001	|	VERIFY_FAIL,身份校验失败
+| 62002	|	CREATE_FAIL,创建失败
+| 62003	|	COMM_FAIL,通信异常
+| 62004	|	FILE_ERROR,文件操作异常
+| 62005	|	DB_ERROR,数据库操作错误
+| 62006	|	SIG_VERIFY_FAILED,验签失败
+| 63001	|	INNER_ERROR,内部异常
+| 63002	|	EXCEPTION,异常
+| 63003	|	CODE_VERIFY_FAILED,设备码校验失败
+| 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
+
+
+### 接口测试
+我们建议前端数据RSA公钥加密，发给后台加上HMAC签名获取数据
+
+测试数据：
+```text
+private static String AppId = "mdgDyjj4";
+
+private static String AppSecret = "cOLo1W+NlZy9wUzWuMARUg==";
+
+private static String pubRSAKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdyNjEizEPw7cudl/wY2UFg9ghNj/jR04iC8H3W+SWL/GMCnOz/9XDfC3u84Tvt1KgFqWIZIwkgNJlMTXHedSXIMX91jU0mGIHiUcmRmgr56Jb1B5C13tD+UTA4ii63WKmD+AEvxejxSphuyZ2MILlNqIIuL71gklSkYkTbXsXGQIDAQAB";
+
+private static String testNet="http://139.219.136.188:10330"
+
+private static String aes.iv="6889f892a17e4371"
+```
+举例：
+前端请求
+转发
+```text
+url：/api/v1/ontid/test/forwardRequest
+
+method：POST
+```
+
+```text
+{
+    "url":"/api/v1/ontid/gettx/register/ontid",
+    "secure":"eewK+BL+iBja2n2l57ffdQrdB/zdsJGOPTJFD86IsLm1D/UBh9DKmCQjjP9d7tLrmAkgI62ewLwLRMzPoqs8JblUcDDGsQbG2wEdHUN5wvEoUgHbRQaTpGvIqQoL2FFSPqxFaYn4uh1RjhrcjgxHDh0JqJG3wyyHUV+vzymJJBw=",
+    "data":"FK/1h1QVJzJLnQyKR5mCpf56IOsldpRqXvX6PZooccNnkoH3KserF2eDDGBRw6NDEg5h9VhRt8TkAqTYIZgQLg=="
+}
+```
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    url|   String|  动作标志  |
+|    secure|   String|  RSA公钥加密后的数据  |
+|    data|   String|  AES使用随机生成的对请求body进行加密的数据  |
+
+如不需要，可以自己定制后台的逻辑处理
+```text
+header
+"Content-Type", "application/ontid.manage.api.v1+json"
+"Secure-Key",前端发来的secure数据
+"Authorization":HMAC处理后的结果
+
+body
+{"data":"FK/1h1QVJzJLnQyKR5mCpf56IOsldpRqXvX6PZooccNnkoH3KserF2eDDGBRw6NDEg5h9VhRt8TkAqTYIZgQLg=="}
+
+去掉空格和换行
+请求对应的服务器地址+url
 ```
