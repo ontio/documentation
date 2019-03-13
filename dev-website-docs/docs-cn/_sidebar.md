@@ -35,17 +35,17 @@
   - [Restful 接口](docs-cn/ontology-cli/06-restful-specification.md)
   - [WebSocket 接口](docs-cn/ontology-cli/07-ws-specification.md)
 
-- DAPP开发指导
-  - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
-  - [开发工具概述](docs-cn/introduction/tools.md)
-  - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
-  - [链上数据存取（可选）](docs-cn/QuickGuide/07-deposit-certificate.md)
-
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
   - [合约模板](docs-cn/smartcontract/02-template.md)
   - [API 参考](docs-cn/smartcontract/03-sc-api.md)
 
+- DAPP开发指导
+  - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
+  - [开发工具概述](docs-cn/introduction/tools.md)
+  - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
+  - [链上数据存取（可选）](docs-cn/QuickGuide/07-deposit-certificate.md)
+  
 - DAPP接入指导
   - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [DAPP支持手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
@@ -83,6 +83,7 @@
   - [Punica Cli](docs-cn/Punica/punica-cli.md)
   - [Punica Box](docs-cn/Punica/punica-box.md)
   - [VSCode 插件](docs-cn/Punica/sc-extension.md)
+  - [IDEA 插件](docs-cn/Punica/sc-idea-extension.md)
   - [Solo Chain](docs-cn/Punica/solo-chain.md)
   - [视频教程](docs-cn/Punica/tutorials.md)
 
