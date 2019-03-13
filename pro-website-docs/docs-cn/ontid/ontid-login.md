@@ -211,6 +211,7 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 ## 接口使用
 
 ### 导出
+
 1. 提交ontid和密码
 2. 返回所需要的结果
 
@@ -228,18 +229,21 @@ method：POST
 ```
 
 请求：
+
 ```
 {
    	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
    	"password":"12345678"
 }
 ```
+
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    ontid|   String|  ontid  |
 |    password|   String|  ontid密码  |
 
 返回：
+
 ```
 {
 	"action":"export",
@@ -259,15 +263,18 @@ method：POST
 |    result|   String|  keystore请求返回keystore，wif请求返回wif,phone请求返回phone，失败返回""  |
 
 ### 修改手机号
+
 1. 新的手机[获取验证码](#获取验证码)
 2. 提交新手机号码，验证码，旧手机号码和密码
 3. 返回ontid（该ontid和keystore的ontid一致）
+
 ```
 url：/api/v1/ontid/edit/phone 
 method：POST
 ```
 
 请求：
+
 ```
 {
     "newPhone": "86*15821703552",
@@ -275,7 +282,9 @@ method：POST
     "oldPhone":"86*15821703553",
     "password":"12345678"
 }
+
 ```
+
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    newPhone|   String|  新的手机号码  |
@@ -284,6 +293,7 @@ method：POST
 |    password|   String|  原来的密码  |
 
 返回：
+
 ```
 {
     "action":"edit",
@@ -303,14 +313,17 @@ method：POST
 |    result|   String|  成功返回ontid，失败返回""  |
 
 ### 修改密码
+
 1. 提交号码，旧密码，新的密码
 2. 返回ontid
+
 ```
 url：/api/v1/ontid/edit/password
 method：POST
 ```
 
 请求：
+
 ```
 {
     "phone":"86*15821703553",
@@ -318,6 +331,7 @@ method：POST
     "newPassword":"12345679"
 }
 ```
+
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    phone|   String|  手机号码  |
@@ -325,6 +339,7 @@ method：POST
 |    newPassword|   String|  新密码  |
 
 返回：
+
 ```
 {
     "action":"edit",
@@ -345,8 +360,10 @@ method：POST
 
 
 ### 解密claim
+
 1. 通过Onid和密码解密claim
 2. 返回所需要的结果
+
 ```
 url：/api/v1/ontid/decrypt/claim
 
@@ -354,6 +371,7 @@ method：POST
 ```
 
 请求：
+
 ```
 {
    	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
@@ -368,6 +386,7 @@ method：POST
 |    message|   JSONArray|  加密后的数据  |
 
 返回：
+
 ```
 {
     "action":"decrypt",
@@ -419,6 +438,7 @@ method：POST
 我们建议前端数据RSA公钥加密，发给后台加上HMAC签名获取数据
 
 测试数据：
+
 ```
 private static String AppId = "mdgDyjj4";
 private static String AppSecret = "cOLo1W+NlZy9wUzWuMARUg==";
@@ -429,6 +449,7 @@ private static String aes.iv="6889f892a17e4371"
 举例：
 前端请求
 转发
+
 ```
 url：/api/v1/ontid/test/forwardRequest
 
@@ -442,6 +463,7 @@ method：POST
     "data":"FK/1h1QVJzJLnQyKR5mCpf56IOsldpRqXvX6PZooccNnkoH3KserF2eDDGBRw6NDEg5h9VhRt8TkAqTYIZgQLg=="
 }
 ```
+
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    url|   String|  动作标志  |
@@ -449,6 +471,7 @@ method：POST
 |    data|   String|  AES使用随机生成的对请求body进行加密的数据  |
 
 如不需要，可以自己定制后台的逻辑处理
+
 ```
 header
 "Content-Type", "application/ontid.manage.api.v1+json"
