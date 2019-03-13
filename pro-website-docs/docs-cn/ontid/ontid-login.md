@@ -419,7 +419,7 @@ method：POST
 我们建议前端数据RSA公钥加密，发给后台加上HMAC签名获取数据
 
 测试数据：
-```text
+```
 private static String AppId = "mdgDyjj4";
 private static String AppSecret = "cOLo1W+NlZy9wUzWuMARUg==";
 private static String pubRSAKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdyNjEizEPw7cudl/wY2UFg9ghNj/jR04iC8H3W+SWL/GMCnOz/9XDfC3u84Tvt1KgFqWIZIwkgNJlMTXHedSXIMX91jU0mGIHiUcmRmgr56Jb1B5C13tD+UTA4ii63WKmD+AEvxejxSphuyZ2MILlNqIIuL71gklSkYkTbXsXGQIDAQAB";
@@ -429,13 +429,13 @@ private static String aes.iv="6889f892a17e4371"
 举例：
 前端请求
 转发
-```text
+```
 url：/api/v1/ontid/test/forwardRequest
 
 method：POST
 ```
 
-```text
+```
 {
     "url":"/api/v1/ontid/gettx/register/ontid",
     "secure":"eewK+BL+iBja2n2l57ffdQrdB/zdsJGOPTJFD86IsLm1D/UBh9DKmCQjjP9d7tLrmAkgI62ewLwLRMzPoqs8JblUcDDGsQbG2wEdHUN5wvEoUgHbRQaTpGvIqQoL2FFSPqxFaYn4uh1RjhrcjgxHDh0JqJG3wyyHUV+vzymJJBw=",
@@ -449,7 +449,7 @@ method：POST
 |    data|   String|  AES使用随机生成的对请求body进行加密的数据  |
 
 如不需要，可以自己定制后台的逻辑处理
-```text
+```
 header
 "Content-Type", "application/ontid.manage.api.v1+json"
 "Secure-Key",前端发来的secure数据
