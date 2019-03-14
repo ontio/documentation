@@ -1,7 +1,7 @@
 
 
 
-ONT ID 综合账户体系，为用户托管区块链综合账户，提供一站式数字身份登录授权、管理用户资产、支付、调用合约等服务。
+ONT ID 开放平台，为用户托管区块链综合账户，提供一站式数字身份登录授权、管理用户资产、支付、调用合约等服务。
 
 
 ## 准备工作
@@ -9,7 +9,7 @@ ONT ID 综合账户体系，为用户托管区块链综合账户，提供一站�
 
 网站应用 ONTID 登录是类似于```OAuth2.0```协议标准构建的 ONTID 授权登录系统。
 
-在进行 ONTID 授权登录接入之前，在 ONTID 开放平台注册应用方 ONTID ，获得相应的 ONTID 和```PrivateKey```，申请 应用方 ONTID 通过审核后，可开始接入流程。
+在进行 ONTID 授权登录接入之前，应用方需要先在 ONTID 开放平台注册 ONTID ，获得相应的 ONTID 和```PrivateKey```，申请 ONTID 通过审核后，可开始接入流程。
 
 
 
@@ -29,7 +29,7 @@ ONTID 授权登录模式整体流程为：
 3. ONTID 开发平台返回 ```access_token``` 和 ```refresh_token``` 的 ```JWT token```。
 4. ONTID 开放平台前端关闭登录页面，返回```JWT token```给应用的前端。
 5. 应用方前端发送 ```JWT token``` 给应用的后台。 
-6. 应用放的后台验证 ```JWT token``` 的颁发者成功后，获取 ```JWT token``` 中用户信息，一般为简短的信息，如用户手机号，用户 ONTID。
+6. 应用放的后台验证 ```JWT token``` 的颁发者成功后，获取 ```refresh_token``` 中用户信息，一般为非敏感的信息，如用户用户 ONTID，手机号。
 7. 根据```access_token``` 访问 ONTID 开放平台接口。
 
 第三步返回的 ```JWT token``` 的数据格式：
@@ -91,7 +91,10 @@ ONTID 授权登录模式整体流程为：
   "typ": "JWT"
 }
 ```
-上面代码中，```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）；typ属性表示这个令牌（token）的类型，```JWT token```统一写为 ```JWT```。
+
+```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）；
+
+```typ``` 属性表示这个令牌（token）的类型，```JWT token```统一写为 ```JWT```。
 
 #### Payload
 
@@ -107,7 +110,7 @@ ONTID 授权登录模式整体流程为：
   
   ```jti (JWT ID)```：编号。ONTID 开放平台保存的凭证。
   
->> 注意除了以上字段，还有一些自定义字段用于存储用户信息，这些用户信息不能是敏感信息。```refresh_token``` 需要增加 ```content```， ```access_token``` 不需要：
+> 注意除了以上字段，还有一些自定义字段用于存储用户信息，这些用户信息不能是敏感信息。只有 ```refresh_token``` 需要增加 ```content```：
 
 ```
 
@@ -131,12 +134,16 @@ ONTID 授权登录模式整体流程为：
 
 ```Payload```: aud=应用方ONTID&exp=20190310&iat=20190301……
 
-2. 将上述两个字符串转成base64url格式，用 . 连接，得到模板字符串。
-3. 使用 ONTID 开放平台私钥和签名算法ES256对目标字符串签名。
+2. 将上述两个字符串转成 ```base64url``` 格式，用 ```.``` 连接，得到模板字符串。
+3. 使用 ONTID 开放平台私钥和签名算法```ES256```对目标字符串签名。
 
 应用方得到```JWT token```后，按照如上规则生成目标字符串并对签名进行验签。
 
 
+
+## 用户授权
+
+有些接口需要用户授权，应用后台才有权限访问用户的数据。没有授权就能访问的是默认授权的接口。
 
 
 
@@ -160,12 +167,11 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 数据格式：
 
 ```
+url：/api/v1/ontid/invoke
+
+method：POST
 
 {
-	"action": "invoke",
-	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
-	"params": {
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
 			"functions": [{
@@ -208,7 +214,6 @@ ONTID通用请求，如支付和调用合约，整体流程为：
             "nonce": 5434536
         },
         "signature": ""
-	}
 }
 ```
 
@@ -216,15 +221,13 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 
 | Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    action|   String | 通用服务类别，比如支付invoke等 |
-|    params|   String | 每种服务有对应的参数要求 |
 |    invokeConfig |   String | 调用合约的参数 |
 |    invokeConfig.contractHash |   String | 合约hash |
 |    invokeConfig.functions |   List | 调用合约的函数，目前只支持一个 |
 |    invokeConfig.payer |   String | 网络费付款人 |
 |    invokeConfig.gasLimit |   int | 执行合约需要消耗的gas |
 |    invokeConfig.gasPrice |   int | 目前是固定值500 |
-|    signature|   String | 对params内除signature以外参数应用方用私钥签名，传递到 ONTID 开放平台时会被校验。 |
+|    signature|   String | 应用方用私钥对除signature以外的参数签名，传递到 ONTID 开放平台时会被校验。 |
 
 
 ONT/ONG转账```invokeConfig```参数填写例子：
@@ -259,190 +262,35 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 
 以下接口 ``` Header``` 都需要添加```access_token``` 才能访问。
 
-### 导出
 
-1. 提交ontid和密码
-2. 返回所需要的结果
+### 查询资产余额
+
 
 ```
-导出 keystore
-url：/api/v1/ontid/export/keystore 
-
-导出 wif
-url：/api/v1/ontid/export/wif 
-
-导出 手机号
-url：/api/v1/ontid/export/phone 
+url：/api/v1/ontid/getbalance
 
 method：POST
-```
 
-请求：
-
-```
 {
-   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
-   	"password":"12345678"
-}
-```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    ontid|   String|  ontid  |
-|    password|   String|  ontid密码  |
-
-返回：
-
-```
-{
-	"action":"export",
-	"version":"1.0",
-	"error":0,
-	"desc":"SUCCESS",
-	"result": "请求的对应值"
-}
-```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    action|   String|  动作标志  |
-|    version|   String|  版本号  |
-|    error|   int|  错误码  |
-|    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String|  keystore请求返回keystore，wif请求返回wif,phone请求返回phone，失败返回""  |
-
-### 修改手机号
-
-1. 新的手机[获取验证码](#获取验证码)
-2. 提交新手机号码，验证码，旧手机号码和密码
-3. 返回 ontid（该 ontid 和 keystore 的ontid一致）
-
-```
-url：/api/v1/ontid/edit/phone 
-method：POST
-```
-
-请求：
-
-```
-{
-    "newPhone": "86*15821703552",
-    "verifyCode": "123456",
-    "oldPhone":"86*15821703553",
-    "password":"12345678"
-}
-
-```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    newPhone|   String|  新的手机号码  |
-|    verifyCode|   String|  新的手机的验证码  |
-|    oldPhone|   String|  旧的手机号码  |
-|    password|   String|  原来的密码  |
-
-返回：
-
-```
-{
-    "action":"edit",
-    "version":"1.0",
-    "error":0,
-    "desc":"SUCCESS",
-    "result": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
-}
-```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    action|   String|  动作标志  |
-|    version|   String|  版本号  |
-|    error|   int|  错误码  |
-|    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String|  成功返回ontid，失败返回""  |
-
-### 修改密码
-
-1. 提交号码，旧密码，新的密码
-2. 返回ontid
-
-```
-url：/api/v1/ontid/edit/password
-method：POST
-```
-
-请求：
-
-```
-{
-    "phone":"86*15821703553",
-    "oldPassword":"12345678",
-    "newPassword":"12345679"
-}
-```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    phone|   String|  手机号码  |
-|    oldPassword|   String|  旧密码  |
-|    newPassword|   String|  新密码  |
-
-返回：
-
-```
-{
-    "action":"edit",
-    "version":"1.0",
-    "error":0,
-    "desc":"SUCCESS",
-    "result": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
-}
-```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    action|   String|  动作标志  |
-|    version|   String|  版本号  |
-|    error|   int|  错误码  |
-|    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String|  成功返回ontid，失败返回""  |
-
-
-### 解密claim
-
-1. 通过Onid和密码解密claim
-2. 返回所需要的结果
-
-```
-url：/api/v1/ontid/decrypt/claim
-
-method：POST
-```
-
-请求：
-
-```
-{
-   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
-   	"password":"12345678",
-   	"message": ["","",""]
+   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 ```
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    ontid|   String|  ontid  |
-|    password|   String|  ontid密码  |
-|    message|   JSONArray|  加密后的数据  |
 
 返回：
 
 ```
 {
-    "action":"decrypt",
+    "action":"getbalance",
     "version":"1.0",
     "error":0,
     "desc":"SUCCESS",
-    "result": "解密后的内容"
+    "result": {
+       "ont": "100",
+       "ong": "10000000000"
+    }
 }
 ```
 
@@ -452,7 +300,7 @@ method：POST
 |    version|   String|  版本号  |
 |    error|   int|  错误码  |
 |    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String| 	解密后的内容  |
+|    result|   String| 	结果  |
 
 
 ### 错误码
@@ -483,53 +331,4 @@ method：POST
 | 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
 
 
-## 接口测试
-我们建议前端数据RSA公钥加密，发给 ONTID 开放平台加上HMAC签名获取数据
 
-测试数据：
-
-```
-private static String AppId = "mdgDyjj4";
-private static String AppSecret = "cOLo1W+NlZy9wUzWuMARUg==";
-private static String pubRSAKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdyNjEizEPw7cudl/wY2UFg9ghNj/jR04iC8H3W+SWL/GMCnOz/9XDfC3u84Tvt1KgFqWIZIwkgNJlMTXHedSXIMX91jU0mGIHiUcmRmgr56Jb1B5C13tD+UTA4ii63WKmD+AEvxejxSphuyZ2MILlNqIIuL71gklSkYkTbXsXGQIDAQAB";
-private static String testNet="http://139.219.136.188:10330"
-private static String aes.iv="6889f892a17e4371"
-```
-举例：
-前端请求
-转发
-
-```
-url：/api/v1/ontid/test/forwardRequest
-
-method：POST
-```
-
-```
-{
-    "url":"/api/v1/ontid/gettx/register/ontid",
-    "secure":"eewK+BL+iBja2n2l57ffdQrdB/zdsJGOPTJFD86IsLm1D/UBh9DKmCQjjP9d7tLrmAkgI62ewLwLRMzPoqs8JblUcDDGsQbG2wEdHUN5wvEoUgHbRQaTpGvIqQoL2FFSPqxFaYn4uh1RjhrcjgxHDh0JqJG3wyyHUV+vzymJJBw=",
-    "data":"FK/1h1QVJzJLnQyKR5mCpf56IOsldpRqXvX6PZooccNnkoH3KserF2eDDGBRw6NDEg5h9VhRt8TkAqTYIZgQLg=="
-}
-```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    url|   String|  动作标志  |
-|    secure|   String|  RSA公钥加密后的数据  |
-|    data|   String|  AES使用随机生成的对请求body进行加密的数据  |
-
-如不需要，可以自己定制后台的逻辑处理
-
-```
-header
-"Content-Type", "application/ontid.manage.api.v1+json"
-"Secure-Key",前端发来的secure数据
-"Authorization":HMAC处理后的结果
-
-body
-{"data":"FK/1h1QVJzJLnQyKR5mCpf56IOsldpRqXvX6PZooccNnkoH3KserF2eDDGBRw6NDEg5h9VhRt8TkAqTYIZgQLg=="}
-
-去掉空格和换行
-请求对应的服务器地址+url
-```
