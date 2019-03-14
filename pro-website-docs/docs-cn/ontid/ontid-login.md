@@ -202,9 +202,11 @@ ONTID通用请求，如支付和调用合约，整体流程为：
             "logo":"",
             "message": "",
             "ontid": "",
-            "callback": ""
+            "callback": "",
+            "createtime": 1552541388,
+            "expire": 1552543312,
+            "nonce": 5434536
         },
-        "createtime": 1552541388,
         "signature": ""
 	}
 }
