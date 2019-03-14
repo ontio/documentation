@@ -23,17 +23,41 @@ ONTID 授权登录模式整体流程为：
 
 ![ontid login](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-login.png) 
 
-1. 应用方到 ONTID 开放平台注册其 ONTID
-2. 获得 ONTID 开放平台的公钥
-3. 应用方前台重定向到通用的登录页面，url上参数带着应用方的ONTID和用于登录后重定向到应用方的```redirect_uri```。(注意使用```encodeURIComponent```)
-4. 用户输入用户名密码或验证码的方式登录。这里为了防刷短信验证码，可以提供图片验证码校验。
-5. 验证用户名是否已注册，若无，返回错误码；若已注册，验证密码或手机验证码是否正确，若不匹配，则返回错误码；登录成功后，ONTID 开放平台生成```JWT token```（详细信息见下文，如果对安全级别要求高，可以使用应用方公钥加密```JWT token```），返回给前台。
-6. ONTID 开放平台前端重定向到```redirect_uri```,url参数上附带着```JWT token```。```redirect_uri```的页面需要将```JWT token```发送到其后台。
-7. 应用方后台验证 ```access_token``` 中的签名。验证通过后，获取 ```JWT``` 中用户信息，一般为简短的信息，如用户手机号，用户 ONTID。
-8. 应用方通过 ```access_token``` 进行接口调用，获取用户基本数据资源或帮助用户实现基本操作。
+
+1. 应用方前台打开新窗口加载 ONTID 的登录页面。
+2. 用户在 ONTID 的登录页面输入用户名密码登录。
+3. ONTID 开发平台返回 ```JWT token```。
+4. ONTID 开放平台前端关闭登录页面，返回```JWT token```给应用的前端。
+5. 应用方前端发送 ```JWT token``` 给应用的后台。   验证 ```access_token``` 中的签名。验证通过后，获取 ```JWT``` 中用户信息，一般为简短的信息，如用户手机号，用户 ONTID。
+6. 应用放的后台验证 ```JWT```， 提取 ```access_token``` 。
+7. 根据```access_token``` 访问 ONTID 开放平台接口。
 
 
 
+### 应用方处理流程
+
+
+1. 页面引入```OntidSignIn.js```
+2. 页面添加 meta 标签，填写应用方的ONT ID。```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
+3. 页面添加 ONTID 的Sign In 按钮。``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
+4. 在登录成功后，触发回调onSignIn,发送 ```JWT token``` 到应用方后台。
+
+```
+    // 获取JWT token
+    function onSignIn(googleUser) {
+      var token = ontidUser.getAuthResponse().token;
+      ...
+    }
+    //页面发送JWT token到应用方后台
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+      console.log('Signed in as: ' + xhr.responseText);
+    };
+    xhr.send('idtoken=' + id_token);
+```
+5. 应用方后台验证 ``` JWT token ```
 
 
 ### JWT Token 格式说明
@@ -73,11 +97,14 @@ ONTID 授权登录模式整体流程为：
 除了以上字段，还有一些自定义字段用于存储用户信息。注意这些用户信息不能是敏感信息。
 
 ```
-{
-  "phone": "+86*1234567890",
-  "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
-  ......
-}
+  "access_token": "",
+  "refresh_token": "",
+  "content": {
+      "phone": "+86*1234567890",
+      "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
+      ......
+  }
+  
 ```
 
 #### Signature
@@ -98,7 +125,10 @@ ONTID 授权登录模式整体流程为：
 应用方得到```JWT token```后，按照如上规则生成目标字符串并对签名进行验签。
 
 
-## 支付/调用合约
+
+
+
+## 支付/调用合约接口
 
 
 ONTID通用请求，如支付和调用合约，整体流程为：
@@ -162,6 +192,7 @@ ONTID通用请求，如支付和调用合约，整体流程为：
             "ontid": "",
             "callback": ""
         },
+        "createtime": 1552541388,
         "signature": ""
 	}
 }
@@ -210,7 +241,9 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 
 ```
 
-## 接口使用
+## 其他接口
+
+以下接口都需要通过 ```access_token``` 访问。
 
 ### 导出
 
