@@ -2,6 +2,7 @@
 - ONT ID
   - [ONT ID概述](docs-cn/ontid/overview.md)
   - [开始使用](docs-cn/ontid/get_started.md)
+  - [应用对接说明](docs-cn/ontid/ontid-login.md)
   - [托管接口说明](docs-cn/ontid/ontid-manage.md)
 - ONTPASS
   - [概述](docs-cn/ontpass/overview.md)
