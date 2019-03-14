@@ -72,15 +72,13 @@
   </style>
   <body>
     <div >
-    <!-- 第一块 -->
       <div class="content-container" >
-        <!-- 第一块 第一行 -->
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
                 <p class="content-title">认识本体</p>
                   <div>
                       <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/introduction/01-introduction">介绍</a>
+                          <a href="#/docs-cn/introduction/01-introduction">介绍</a>
                       </div>
                   </div>
             </div>
@@ -88,7 +86,7 @@
                 <p class="content-title">本体客户端</p>
                   <div>
                       <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/introduction/01-introduction">概述</a>
+                          <a href="#/docs-cn/introduction/01-introduction">概述</a>
                       </div>
                   </div>
             </div>
@@ -96,7 +94,7 @@
                 <p class="content-title">HTTP API</p>
                   <div>
                       <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/ontology-cli/04-interface-specification">概述</a>
+                          <a href="#/docs-cn/ontology-cli/04-interface-specification">概述</a>
                       </div>
                   </div>
             </div>
@@ -104,7 +102,7 @@
                 <p class="content-title">DApp开发指南</p>
                   <div>
                       <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development">DApp 开发</a>
+                          <a href="#/docs-cn/QuickGuide/00-dapp_development">DApp 开发</a>
                       </div>
                   </div>
             </div>
@@ -112,54 +110,7 @@
                 <p class="content-title">智能合约指南</p>
                   <div>
                       <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/dApp-Integration/00-dapp_integration">智能合约指南</a>
-                      </div>
-                  </div>
-            </div>
-          </div>
-      </div>
-
-    <!-- 第二块 -->
-      <div class="content-container" >
-        <!-- 第二 块 第一行 -->
-          <div class="row content-row">
-            <div class="col-sm-4 col-xs-12">
-                <p class="content-title">认识本体</p>
-                  <div>
-                      <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/introduction/01-introduction">介绍</a>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <p class="content-title">本体客户端</p>
-                  <div>
-                      <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/introduction/01-introduction">概述</a>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <p class="content-title">HTTP API</p>
-                  <div>
-                      <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/ontology-cli/04-interface-specification">概述</a>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <p class="content-title">DApp开发指南</p>
-                  <div>
-                      <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development">DApp 开发</a>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <p class="content-title">智能合约指南</p>
-                  <div>
-                      <div>
-                          <a href="https://dev-docs.ont.io/#/docs-cn/dApp-Integration/00-dapp_integration">智能合约指南</a>
+                          <a href="#/docs-cn/dApp-Integration/00-dapp_integration">智能合约指南</a>
                       </div>
                   </div>
             </div>
