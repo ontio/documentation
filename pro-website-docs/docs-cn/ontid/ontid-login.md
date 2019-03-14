@@ -26,15 +26,28 @@ ONTID 授权登录模式整体流程为：
 
 1. 应用方前台打开新窗口加载 ONTID 的登录页面。
 2. 用户在 ONTID 的登录页面输入用户名密码登录。
-3. ONTID 开发平台返回 ```JWT token```。
+3. ONTID 开发平台返回 ```access_token``` 和 ```refresh_token``` 的 ```JWT token```。
 4. ONTID 开放平台前端关闭登录页面，返回```JWT token```给应用的前端。
-5. 应用方前端发送 ```JWT token``` 给应用的后台。   验证 ```access_token``` 中的签名。验证通过后，获取 ```JWT``` 中用户信息，一般为简短的信息，如用户手机号，用户 ONTID。
-6. 应用放的后台验证 ```JWT```， 提取 ```access_token``` 。
+5. 应用方前端发送 ```JWT token``` 给应用的后台。 
+6. 应用放的后台验证 ```JWT token``` 的颁发者成功后，获取 ```JWT token``` 中用户信息，一般为简短的信息，如用户手机号，用户 ONTID。
 7. 根据```access_token``` 访问 ONTID 开放平台接口。
 
-
-
-### 应用方处理流程
+第三步返回的 ```JWT token``` 的数据格式：
+ 
+```
+ {
+    "access_token" :  "JWT token",
+    "refresh_token" : "JWT token",
+ }
+```
+ 
+ | Param     |     Type |   Description   |
+ | :--------------: | :--------:| :------: |
+ |    access_token |   String | ```JWT token```，用户访问接口时 ```Header``` 需要填写 ```access_token``` |
+ |    refresh_token |   String | ```JWT token```，刷新 ```access_token``` 时使用 |
+ 
+ 
+### 应用方对接流程
 
 
 1. 页面引入```OntidSignIn.js```
@@ -94,11 +107,10 @@ ONTID 授权登录模式整体流程为：
   
   ```jti (JWT ID)```：编号。ONTID 开放平台保存的凭证。
   
-除了以上字段，还有一些自定义字段用于存储用户信息。注意这些用户信息不能是敏感信息。
+>> 注意除了以上字段，还有一些自定义字段用于存储用户信息，这些用户信息不能是敏感信息。```refresh_token``` 需要增加 ```content```， ```access_token``` 不需要：
 
 ```
-  "access_token": "",
-  "refresh_token": "",
+
   "content": {
       "phone": "+86*1234567890",
       "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
@@ -136,9 +148,9 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 ![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment.png) 
 
 
-1. 应用方后台发送请求到ONT ID开放平台，用于请求某个服务。比如支付请求。请求参数包含 ```JWT token```。ONT ID 开放平台验证 ```token``` 是否有效，验证后保存请求。以 ```requestId``` 作为索引。
-2. 应用方前台重定向到通用支付页面，参数中带着 ```requestId``` 和应用方前台重定向的 ```redirect_uri```。
-3. 用户确认请求，发送请求到 ONTID 开放平台
+1. 应用方后台发送支付请求到 ONT ID 开放平台。请求的头部包含 ```access_token```。ONT ID 开放平台验证 ```access_token``` 是否有效，返回 ```requestId``` 作为流水号。
+2. 应用方前台打开支付页面，参数中带着 ```requestId``` 和应用方前台的重定向地址 ```redirect_uri```。
+3. 用户确认请求，发送请求到 ONTID 开放平台。
 4. ONTID 开放平台处理请求，通知结果到应用方后台。
 5. 同时返回结果到ONT ID前台。
 6. ONT ID前台重定向到```redirect_uri```
@@ -190,9 +202,11 @@ ONTID通用请求，如支付和调用合约，整体流程为：
             "logo":"",
             "message": "",
             "ontid": "",
-            "callback": ""
+            "callback": "",
+            "createtime": 1552541388,
+            "expire": 1552543312,
+            "nonce": 5434536
         },
-        "createtime": 1552541388,
         "signature": ""
 	}
 }
@@ -243,7 +257,7 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 
 ## 其他接口
 
-以下接口都需要通过 ```access_token``` 访问。
+以下接口 ``` Header``` 都需要添加```access_token``` 才能访问。
 
 ### 导出
 
