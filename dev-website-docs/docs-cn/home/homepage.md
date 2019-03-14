@@ -72,7 +72,7 @@
   </style>
   <body>
     <div >
-      <div class="content-container" style="background-color:grey;" >
+      <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;" >
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
                 <p class="content-title">认识本体</p>
@@ -116,7 +116,7 @@
             </div>
           </div>
       </div>
-      <div class="content-container" style="background-color:grey;padding: 20px;margin:20px;">
+      <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;">
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
                 <p class="content-title">认识本体</p>
