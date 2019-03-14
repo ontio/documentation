@@ -221,16 +221,16 @@ method：POST
 
 | Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    invokeConfig |   String | Parameter configuration of the invokation contract |
-|    invokeConfig.contractHash |   String | contract hash |
-|    invokeConfig.functions |   List | The function list that calls the contract, currently only supports one |
-|    invokeConfig.payer |   String | Network fee payer |
-|    invokeConfig.gasLimit |   int | Gas consumed to execute the contract |
-|    invokeConfig.gasPrice |   int | Fixed value 500 |
-|    signature|   String | The application uses the private key to sign parameters other than signature, which are verified when passed to the ONTID open platform. |
+|    invokeConfig |   String | 调用合约的参数 |
+|    invokeConfig.contractHash |   String | 合约hash |
+|    invokeConfig.functions |   List | 调用合约的函数，目前只支持一个 |
+|    invokeConfig.payer |   String | 网络费付款人 |
+|    invokeConfig.gasLimit |   int | 执行合约需要消耗的gas |
+|    invokeConfig.gasPrice |   int | 目前是固定值500 |
+|    signature|   String | 应用方用私钥对除signature以外的参数签名，传递到 ONTID 开放平台时会被校验。 |
 
 
-ONT/ONG transfer ```invokeConfig``` parameter filling example :
+ONT/ONG转账```invokeConfig```参数填写例子：
 ```
 {
 	"invokeConfig": {
@@ -258,12 +258,12 @@ ONT/ONG transfer ```invokeConfig``` parameter filling example :
 
 ```
 
-## Other interface
+## 其他接口
 
-The following interfaces ``` Header``` need to add ```access_token``` to access.
+以下接口 ``` Header``` 都需要添加```access_token``` 才能访问。
 
 
-### Query asset balance
+### 查询资产余额
 
 
 ```
@@ -279,7 +279,7 @@ method：POST
 | :--------------: | :--------:| :------: |
 |    ontid|   String|  ontid  |
 
-Response：
+返回：
 
 ```
 {
@@ -296,38 +296,39 @@ Response：
 
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    action|   String|  action  |
-|    version|   String|  version  |
-|    error|   int|  error code  |
-|    desc|   String|  error desc |
-|    result|   String| 	result  |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String| 	结果  |
 
 
-### Error Code
+### 错误码
 
 
-| Code     |     desc   |  
+| 代码     |     说明   |  
 | :----: | :----: | 
-| 00000	|	SUCCESS |
-| 61001	|	PARAM_ERROR |
-| 61002	|	ALREADY_EXIST |
-| 61003	|	NOT_FOUND |
-| 61004	|	NOT_EXIST
-| 61005	|	NOT_PERMISSION
-| 61006	|	NOT_REGISTRY
-| 61007	|	EXPIRES
-| 61008	|	REVOKED
-| 61009	|	SERIALIZE_ERROR
-| 61010	|	TIME_EXCEEDED
-| 62001	|	VERIFY_FAIL
-| 62002	|	CREATE_FAIL
-| 62003	|	COMM_FAIL
-| 62004	|	FILE_ERROR
-| 62005	|	DB_ERROR
-| 62006	|	SIG_VERIFY_FAILED
-| 63001	|	INNER_ERROR
-| 63002	|	EXCEPTION
-| 63003	|	CODE_VERIFY_FAILED
-| 63004	|	IDENTITY_VERIFY_FAILED
+| 00000	|	SUCCESS,成功 |
+| 61001	|	PARAM_ERROR,参数错误 |
+| 61002	|	ALREADY_EXIST,已存在 |
+| 61003	|	NOT_FOUND,未找到 |
+| 61004	|	NOT_EXIST,不存在
+| 61005	|	NOT_PERMISSION,权限错误
+| 61006	|	NOT_REGISTRY,未注册
+| 61007	|	EXPIRES,已过期
+| 61008	|	REVOKED,已注销
+| 61009	|	SERIALIZE_ERROR,序列化错误
+| 61010	|	TIME_EXCEEDED,次数超限
+| 62001	|	VERIFY_FAIL,身份校验失败
+| 62002	|	CREATE_FAIL,创建失败
+| 62003	|	COMM_FAIL,通信异常
+| 62004	|	FILE_ERROR,文件操作异常
+| 62005	|	DB_ERROR,数据库操作错误
+| 62006	|	SIG_VERIFY_FAILED,验签失败
+| 63001	|	INNER_ERROR,内部异常
+| 63002	|	EXCEPTION,异常
+| 63003	|	CODE_VERIFY_FAILED,设备码校验失败
+| 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
+
 
 
