@@ -7,29 +7,29 @@ ONT ID 综合账户体系，为用户托管区块链综合账户，提供一站�
 ## 准备工作
 
 
-网站应用 ONTID 登录是类似于```OAuth2.0```协议标准构建的ONTID授权登录系统。
+网站应用 ONTID 登录是类似于```OAuth2.0```协议标准构建的 ONTID 授权登录系统。
 
-在进行 ONTID 授权登录接入之前，在 ONTID 开放平台注册开发者 ONTID ，获得相应的 ONTID 和```PrivateKey```，申请微信登录且通过审核后，可开始接入流程。
+在进行 ONTID 授权登录接入之前，在 ONTID 开放平台注册应用方 ONTID ，获得相应的 ONTID 和```PrivateKey```，申请 应用方 ONTID 通过审核后，可开始接入流程。
 
 
 
 ## 注册/登录
 
 
-ONTID 授权登录是让用户使用ONTID身份安全登录第三方应用或网站，在 ONTID 用户授权登录已接入 ONTID 的第三方应用后，第三方可以获取到用户的接口调用凭证（```access_token```），通过 ```access_token``` 可以进行 ONTID 开放平台授权关系接口调用，从而可实现获取 ONTID 用户基本开放信息和其他接口。
+ONTID 授权登录是让用户使用 ONTID 身份安全登录第三方应用或网站，在 ONTID 用户授权登录已接入 ONTID 的第三方应用后，第三方可以获取到用户的接口调用凭证（```access_token```），通过 ```access_token``` 可以进行 ONTID 相关接口调用。
 
 ONTID 授权登录模式整体流程为：
 
 
 ![ontid login](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-login.png) 
 
-1. 应用方到 ONTID 后台注册其 ONTID
-2. 获得 ONTID 后台的公钥
+1. 应用方到 ONTID 开放平台注册其 ONTID
+2. 获得 ONTID 开放平台的公钥
 3. 应用方前台重定向到通用的登录页面，url上参数带着应用方的ONTID和用于登录后重定向到应用方的```redirect_uri```。(注意使用```encodeURIComponent```)
 4. 用户输入用户名密码或验证码的方式登录。这里为了防刷短信验证码，可以提供图片验证码校验。
-5. 验证用户名是否已注册，若无，返回错误码；若已注册，验证密码或手机验证码是否正确，若不匹配，则返回错误码；登录成功后，ONTID后台生成JWT token（详细信息见下文，如果对安全级别要求高，可以使用应用方公钥加密JWT token），返回给前台。
-6. ONTID 前台重定向到```redirect_uri```,url参数上附带着```JWT token```。```redirect_uri```的页面需要将```JWT token```发送到其后台。
-7. 应用方后台验证 ```access_token``` 中的签名。验证通过后，获取JWT中用户信息，一般为简短的信息，如用户手机号，用户ONTID。应用方后台为该用户创建session（如果该用户在应用方后台没有账户，需要先创建账户，再创建session。这取决于应用方自己的业务需要。）返回信息到其前台页面，如sessionId。
+5. 验证用户名是否已注册，若无，返回错误码；若已注册，验证密码或手机验证码是否正确，若不匹配，则返回错误码；登录成功后，ONTID 开放平台生成```JWT token```（详细信息见下文，如果对安全级别要求高，可以使用应用方公钥加密```JWT token```），返回给前台。
+6. ONTID 开放平台前端重定向到```redirect_uri```,url参数上附带着```JWT token```。```redirect_uri```的页面需要将```JWT token```发送到其后台。
+7. 应用方后台验证 ```access_token``` 中的签名。验证通过后，获取 ```JWT``` 中用户信息，一般为简短的信息，如用户手机号，用户 ONTID。
 8. 应用方通过 ```access_token``` 进行接口调用，获取用户基本数据资源或帮助用户实现基本操作。
 
 
@@ -54,21 +54,21 @@ ONTID 授权登录模式整体流程为：
   "typ": "JWT"
 }
 ```
-上面代码中，```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）；typ属性表示这个令牌（token）的类型（type），```JWT token```统一写为JWT。
+上面代码中，```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）；typ属性表示这个令牌（token）的类型，```JWT token```统一写为 ```JWT```。
 
 #### Payload
 
 官方规定了7个字段，可选。我们选用以下几个必须字段：
 
-  ```iss (issuer)```：签发人。这里是 ONTID 后台的 ONTID。
+  ```iss (issuer)```：签发人。这里是 ONTID 开放平台的 ONTID。
   
   ```exp (expiration time)```：```token``` 过期时间。
   
-  ```aud (audience)```：受众。这里是应用方的ONTID。
+  ```aud (audience)```：受众。这里是应用方的 ONTID。
   
   ```iat (Issued At)```：签发时间
   
-  ```jti (JWT ID)```：编号。ONTID 后台保存的凭证。
+  ```jti (JWT ID)```：编号。ONTID 开放平台保存的凭证。
   
 除了以上字段，还有一些自定义字段用于存储用户信息。注意这些用户信息不能是敏感信息。
 
@@ -87,13 +87,15 @@ ONTID 授权登录模式整体流程为：
 签名生成规则是:
 
 1. ```Header``` 和 ```Payload```按照字母序升序拼接成参数字符串，以&连接，比如：
-Header : alg=ES256&typ=JWT
-Payload: aud=应用方ONTID&exp=20190310&iat=20190301……
+
+```Header``` : alg=ES256&typ=JWT
+
+```Payload```: aud=应用方ONTID&exp=20190310&iat=20190301……
 
 2. 将上述两个字符串转成base64url格式，用 . 连接，得到模板字符串。
-3. 使用ONTID后台私钥和签名算法ES256对目标字符串签名。
+3. 使用 ONTID 开放平台私钥和签名算法ES256对目标字符串签名。
 
-应用方得到JWT token后，按照如上规则生成目标字符串并对签名进行验签。
+应用方得到```JWT token```后，按照如上规则生成目标字符串并对签名进行验签。
 
 
 ## 支付/调用合约
@@ -104,10 +106,10 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 ![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment.png) 
 
 
-1. 应用方后台发送请求到ONT ID后台，用于请求某个服务。比如支付请求。请求参数包含```JWT token```。ONT ID 后台验证token是否有效，验证后保存请求。以```requestId```作为索引。
-2. 应用方前台重定向到通用支付页面，参数中带着```requestId```和应用方前台重定向的```redirect_uri```。
-3. 用户确认请求，发送请求到ONTID后台
-4. ONTID后台处理请求，通知结果到应用方后台。
+1. 应用方后台发送请求到ONT ID开放平台，用于请求某个服务。比如支付请求。请求参数包含 ```JWT token```。ONT ID 开放平台验证 ```token``` 是否有效，验证后保存请求。以 ```requestId``` 作为索引。
+2. 应用方前台重定向到通用支付页面，参数中带着 ```requestId``` 和应用方前台重定向的 ```redirect_uri```。
+3. 用户确认请求，发送请求到 ONTID 开放平台
+4. ONTID 开放平台处理请求，通知结果到应用方后台。
 5. 同时返回结果到ONT ID前台。
 6. ONT ID前台重定向到```redirect_uri```
 
@@ -169,7 +171,7 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 
 | Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    action|   String | 通用服务类别，比如支付payment，授权authorization等 |
+|    action|   String | 通用服务类别，比如支付invoke等 |
 |    params|   String | 每种服务有对应的参数要求 |
 |    invokeConfig |   String | 调用合约的参数 |
 |    invokeConfig.contractHash |   String | 合约hash |
@@ -177,7 +179,7 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 |    invokeConfig.payer |   String | 网络费付款人 |
 |    invokeConfig.gasLimit |   int | 执行合约需要消耗的gas |
 |    invokeConfig.gasPrice |   int | 目前是固定值500 |
-|    signature|   String | 对params内除signature以外参数应用方用私钥签名，传递到ONTID后台时会被校验。 |
+|    signature|   String | 对params内除signature以外参数应用方用私钥签名，传递到 ONTID 开放平台时会被校验。 |
 
 
 ONT/ONG转账```invokeConfig```参数填写例子：
@@ -266,7 +268,7 @@ method：POST
 
 1. 新的手机[获取验证码](#获取验证码)
 2. 提交新手机号码，验证码，旧手机号码和密码
-3. 返回ontid（该ontid和keystore的ontid一致）
+3. 返回 ontid（该 ontid 和 keystore 的ontid一致）
 
 ```
 url：/api/v1/ontid/edit/phone 
@@ -435,7 +437,7 @@ method：POST
 
 
 ## 接口测试
-我们建议前端数据RSA公钥加密，发给后台加上HMAC签名获取数据
+我们建议前端数据RSA公钥加密，发给 ONTID 开放平台加上HMAC签名获取数据
 
 测试数据：
 
