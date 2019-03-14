@@ -1,7 +1,7 @@
 
 
 
-ONT ID 综合账户体系，为用户托管区块链综合账户，提供一站式数字身份登录授权、管理用户资产、支付、调用合约等服务。
+ONT ID 开放平台，为用户托管区块链综合账户，提供一站式数字身份登录授权、管理用户资产、支付、调用合约等服务。
 
 
 ## 准备工作
@@ -9,7 +9,7 @@ ONT ID 综合账户体系，为用户托管区块链综合账户，提供一站�
 
 网站应用 ONTID 登录是类似于```OAuth2.0```协议标准构建的 ONTID 授权登录系统。
 
-在进行 ONTID 授权登录接入之前，在 ONTID 开放平台注册应用方 ONTID ，获得相应的 ONTID 和```PrivateKey```，申请 应用方 ONTID 通过审核后，可开始接入流程。
+在进行 ONTID 授权登录接入之前，应用方需要先在 ONTID 开放平台注册 ONTID ，获得相应的 ONTID 和```PrivateKey```，申请 ONTID 通过审核后，可开始接入流程。
 
 
 
@@ -91,7 +91,10 @@ ONTID 授权登录模式整体流程为：
   "typ": "JWT"
 }
 ```
-上面代码中，```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）；typ属性表示这个令牌（token）的类型，```JWT token```统一写为 ```JWT```。
+
+```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）；
+
+```typ``` 属性表示这个令牌（token）的类型，```JWT token```统一写为 ```JWT```。
 
 #### Payload
 
@@ -131,8 +134,8 @@ ONTID 授权登录模式整体流程为：
 
 ```Payload```: aud=应用方ONTID&exp=20190310&iat=20190301……
 
-2. 将上述两个字符串转成base64url格式，用 . 连接，得到模板字符串。
-3. 使用 ONTID 开放平台私钥和签名算法ES256对目标字符串签名。
+2. 将上述两个字符串转成 ```base64url``` 格式，用 ```.``` 连接，得到模板字符串。
+3. 使用 ONTID 开放平台私钥和签名算法```ES256```对目标字符串签名。
 
 应用方得到```JWT token```后，按照如上规则生成目标字符串并对签名进行验签。
 
@@ -218,18 +221,16 @@ method：POST
 
 | Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    action|   String | 通用服务类别，比如支付invoke等 |
-|    params|   String | 每种服务有对应的参数要求 |
-|    invokeConfig |   String | 调用合约的参数 |
-|    invokeConfig.contractHash |   String | 合约hash |
-|    invokeConfig.functions |   List | 调用合约的函数，目前只支持一个 |
-|    invokeConfig.payer |   String | 网络费付款人 |
-|    invokeConfig.gasLimit |   int | 执行合约需要消耗的gas |
-|    invokeConfig.gasPrice |   int | 目前是固定值500 |
-|    signature|   String | 对params内除signature以外参数应用方用私钥签名，传递到 ONTID 开放平台时会被校验。 |
+|    invokeConfig |   String | Parameter configuration of the invokation contract |
+|    invokeConfig.contractHash |   String | contract hash |
+|    invokeConfig.functions |   List | The function list that calls the contract, currently only supports one |
+|    invokeConfig.payer |   String | Network fee payer |
+|    invokeConfig.gasLimit |   int | Gas consumed to execute the contract |
+|    invokeConfig.gasPrice |   int | Fixed value 500 |
+|    signature|   String | The application uses the private key to sign parameters other than signature, which are verified when passed to the ONTID open platform. |
 
 
-ONT/ONG转账```invokeConfig```参数填写例子：
+ONT/ONG transfer ```invokeConfig``` parameter filling example :
 ```
 {
 	"invokeConfig": {
@@ -257,12 +258,12 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 
 ```
 
-## 其他接口
+## Other interface
 
-以下接口 ``` Header``` 都需要添加```access_token``` 才能访问。
+The following interfaces ``` Header``` need to add ```access_token``` to access.
 
 
-### 查询资产余额
+### Query asset balance
 
 
 ```
@@ -278,7 +279,7 @@ method：POST
 | :--------------: | :--------:| :------: |
 |    ontid|   String|  ontid  |
 
-返回：
+Response：
 
 ```
 {
@@ -295,38 +296,38 @@ method：POST
 
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    action|   String|  动作标志  |
-|    version|   String|  版本号  |
-|    error|   int|  错误码  |
-|    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String| 	结果  |
+|    action|   String|  action  |
+|    version|   String|  version  |
+|    error|   int|  error code  |
+|    desc|   String|  error desc |
+|    result|   String| 	result  |
 
 
-### 错误码
+### Error Code
 
 
-| 代码     |     说明   |  
+| Code     |     desc   |  
 | :----: | :----: | 
-| 00000	|	SUCCESS,成功 |
-| 61001	|	PARAM_ERROR,参数错误 |
-| 61002	|	ALREADY_EXIST,已存在 |
-| 61003	|	NOT_FOUND,未找到 |
-| 61004	|	NOT_EXIST,不存在
-| 61005	|	NOT_PERMISSION,权限错误
-| 61006	|	NOT_REGISTRY,未注册
-| 61007	|	EXPIRES,已过期
-| 61008	|	REVOKED,已注销
-| 61009	|	SERIALIZE_ERROR,序列化错误
-| 61010	|	TIME_EXCEEDED,次数超限
-| 62001	|	VERIFY_FAIL,身份校验失败
-| 62002	|	CREATE_FAIL,创建失败
-| 62003	|	COMM_FAIL,通信异常
-| 62004	|	FILE_ERROR,文件操作异常
-| 62005	|	DB_ERROR,数据库操作错误
-| 62006	|	SIG_VERIFY_FAILED,验签失败
-| 63001	|	INNER_ERROR,内部异常
-| 63002	|	EXCEPTION,异常
-| 63003	|	CODE_VERIFY_FAILED,设备码校验失败
-| 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
+| 00000	|	SUCCESS |
+| 61001	|	PARAM_ERROR |
+| 61002	|	ALREADY_EXIST |
+| 61003	|	NOT_FOUND |
+| 61004	|	NOT_EXIST
+| 61005	|	NOT_PERMISSION
+| 61006	|	NOT_REGISTRY
+| 61007	|	EXPIRES
+| 61008	|	REVOKED
+| 61009	|	SERIALIZE_ERROR
+| 61010	|	TIME_EXCEEDED
+| 62001	|	VERIFY_FAIL
+| 62002	|	CREATE_FAIL
+| 62003	|	COMM_FAIL
+| 62004	|	FILE_ERROR
+| 62005	|	DB_ERROR
+| 62006	|	SIG_VERIFY_FAILED
+| 63001	|	INNER_ERROR
+| 63002	|	EXCEPTION
+| 63003	|	CODE_VERIFY_FAILED
+| 63004	|	IDENTITY_VERIFY_FAILED
 
 
