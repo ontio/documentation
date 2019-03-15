@@ -1,20 +1,20 @@
 
 
 
-The ONT ID open platform is a custodian ONTID service for users of Ontology blockchain and providing one-stop digital identity login authorization, managing user assets, payment, and calling contracts.
+The ONTID open platform is a custodian ONTID service for users of Ontology blockchain and provides one-stop digital identity login authorization, user assets management, payment, and contract invocation.
 
 
 ## Preparation
 
-ONTID Login for Website Applications is the ONTID authorization login system that is like OAuth2.0 protocol standards.
+ONTID Login for website applications is the ONTID authorization login system that is similar to OAuth2.0 protocol standards.
 
-Before the ONTID authorized login integration, the Website Application registers the ONTID on the ONTID open platform and obtains the corresponding ONTID and ```PrivateKey```. After the application for ONTID is approved, the Website Application can start the access process..
+Before the ONTID authorized login integration, the website application registers the ONTID on the ONTID open platform and obtains the corresponding ONTID and ```PrivateKey```. After the application for ONTID is approved, it can start the access process.
 
-## Authorized Login
+## Authorization Login
 
-ONTID authorized login is to allow users to securely login to third-party applications or websites using ONTID.
+ONTID authorization login is to allow users to securely login to third-party applications or websites using ONTID.
 
-After the ONTID user authorizes the login to the third-party application , the third party can obtain the user's interface call credentials (```access_token```), ```access_token``` can be used to access the ONTID open platform.
+After a ONTID user authorizes the login to the third-party application, the third party can obtain the user's interface call credentials (```access_token```), which is used to access the ONTID open platform.
 
 The ONTID authorization login process is:
 
@@ -23,12 +23,12 @@ The ONTID authorization login process is:
 
 
 
-1. The Website Application's front end opens the ONTID login page.
-2. The user enters the username and password login on the login page of the ONTID.
-3. The ONTID open platform returns ```access_token``` and ```refresh_token``` ```JWT token``.
+1. The website application's front end opens the ONTID login page.
+2. The user enters the username and password on the login page of the ONTID.
+3. The ONTID open platform returns ```access_token```, ```refresh_token``` and ```JWT token``.
 4. The ONTID open platform front end closes the login page and returns ```JWT token``` to the front end of the application.
-5. The Website Application' front end sends ```JWT token``` to the background of the application.
-6. Website Application back end verification After the issuer of ```JWT token``` succeeds, the user information in ```refresh_token``` is obtained, which is generally non-sensitive information, such as user user ONTID, mobile phone number.
+5. The website application's front end sends ```JWT token``` to its backend.
+6. After backend verifies the issuer of ```JWT token``` successfully, the user information in ```refresh_token``` is obtained, which is generally non-sensitive information, such as user's ONTID and mobile phone number.
 7. Access the ONTID open platform interface using ```access_token```.
 
 The data format of ```JWT token``` :
@@ -42,17 +42,17 @@ The data format of ```JWT token``` :
  
  | Param     |     Type |   Description   |
  | :--------------: | :--------:| :------: |
- |    access_token |   String | ```JWT token```, ```Header```  need to fill ```access_token``` When the user accesses the interface |
- |    refresh_token |   String | ```JWT token```, Using ```access_token``` When refresh token |
+ |    access_token |   String | ```JWT token```, ```Header```  need to fill ```access_token``` when the user accesses the interface |
+ |    refresh_token |   String | ```JWT token``` that is used when refreshing ```access_token``` |
  
  
 ### Application integration guide
 
 
 1. Import ```OntidSignIn.js``` in page.
-2. Add a meta tag to the page and fill ONTID.```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
-3. Adds the Sign In button in page.``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
-4. After the login is successful, the callback onSignIn is triggered, and the ```JWT token``` will sent to the  Website Application back end.
+2. Add a meta tag to the page and fill application's ONTID.```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
+3. Adds the `Sign In` button in page.``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
+4. After the login is successful, the callback onSignIn is triggered, and the ```JWT token``` will be sent to the website application backend.
 
 ```
     //get JWT token
@@ -69,7 +69,7 @@ The data format of ```JWT token``` :
     };
     xhr.send('idtoken=' + id_token);
 ```
-5. Website Application back end validation ``` JWT token ```
+5. Website application backend verifies ``` JWT token ```
 
 
 ### JWT Token 
@@ -81,7 +81,7 @@ The data format of ```JWT token``` :
 ```
 
 
-Each part is in the ```Base64Url``` format, separated by ``` . ```.
+Each part is based on the ```Base64Url``` format, separated by ``` . ```.
 
 #### Header
 ```
@@ -92,15 +92,15 @@ Each part is in the ```Base64Url``` format, separated by ``` . ```.
 ```
 
 
-The ```alg``` attribute represents the signature algorithm, default is ```HMAC SHA256``` (written as HS256); 
+The ```alg``` attribute represents the signature algorithm. The default is ```HMAC SHA256``` (written as HS256); 
 
-The ```typ``` attribute indicates the type of the token, ```JWT token``` For ```JWT``.
+The ```typ``` attribute indicates the type of the token, regarding ```JWT token``` as ```JWT``.
 
 #### Payload
 
 Officially specified 7 fields, optional. We use the following required fields:
 
-  ```iss (issuer)```: signer. Here is the ONTID of the ONTID open platform.
+  ```iss (issuer)```: issuer. Here is the ONTID of the ONTID open platform.
   
   ```exp (expiration time)```: ```token``` Expiration time.
   
@@ -110,7 +110,7 @@ Officially specified 7 fields, optional. We use the following required fields:
   
   ```jti (JWT ID)```: id. The certificate saved by the ONTID open platform.
   
-> In addition to the above fields, there are some custom fields for storing user information, which cannot be sensitive information. Only ```refresh_token``` need to add ```content```：
+> In addition to the above fields, there are some custom fields for storing user information, which cannot be sensitive information. Only ```refresh_token``` needs to add ```content```：
 
 ```
 
@@ -124,7 +124,7 @@ Officially specified 7 fields, optional. We use the following required fields:
 
 #### Signature
 
-```Signature``` It is the signature of the first two parts to prevent data tampering.
+```Signature```: It is the signature to the first two parts to prevent data tampering.
 
 The signature generation rules are:
 
@@ -134,20 +134,20 @@ The signature generation rules are:
 
 ```Payload```: aud=Website Application ONTID&exp=20190310&iat=20190301......
 
-2. Convert the above two strings into the ```base64url``` format and use ```.``` to get the template string.
-3. The target string is signed using the ONTID open platform private key and the signature algorithm ```ES256```.
+2. Convert the above two strings into the ```base64url``` format and use ```.``` to connect to get the template string.
+3. The target string is signed by the private key of ONTID open platform and the signature algorithm ```ES256```.
 
-After the Website Application gets ```JWT token```, generate the target string and verify the signature according to the above rules.
+After the website application gets ```JWT token```, generate the target string and verify the signature according to the above rules.
 
 
 
 ## User authorization
 
-Some interfaces require the user to authorize the Website Applicatio backend to access the user's data. The default authorized interface is accessible without authorization.
+Some interfaces require the user to authorize the website application backend to access the user's data. The default authorized interface is accessible without authorization.
 
 
 
-## Payment/call contract
+## Payment/invoke contract interface
 
 
 The ONTID Payment process is:
@@ -155,14 +155,14 @@ The ONTID Payment process is:
 ![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment.png) 
 
 
-1. The application side sends a payment request to the ONT ID open platform. The header of the request contains ```access_token```. The ONT ID open platform verifies that ```access_token``` is valid and returns ```requestId``` as the serial number.
-2. The application side opens the payment page with the parameter ```requestId``` and the redirect address of the application's foreground ```redirect_uri```.
+1. The application sends a payment request to the ONT ID open platform. The header of the request contains ```access_token```. The ONT ID open platform verifies if the ```access_token``` is valid and returns ```requestId``` as the serial number.
+2. The application opens the payment page with the parameter ```requestId``` and the redirect address ```redirect_uri``` of the application's frontend.
 3. The user confirms the request and sends a request to the ONTID open platform.
-4. The ONTID open platform processes the request and notifies the result to the application side.
-5. Return the result to the ONTID foreground at the same time.
-6. The ONTID front end is redirected to ```redirect_uri```
+4. The ONTID open platform processes the request and notifies the result to the application.
+5. Return the result to the ONTID frontend at the same time.
+6. The ONTID frontend is redirected to ```redirect_uri```
 
-### Data Format of invocation smartcontract
+### The data format of invoking a smart contract
 
 
 
@@ -220,13 +220,13 @@ method：POST
 
 | Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    invokeConfig |   String | Parameter configuration of the invokation contract |
+|    invokeConfig |   String | Parameter configuration of invoking a contract |
 |    invokeConfig.contractHash |   String | contract hash |
-|    invokeConfig.functions |   List | The function list that calls the contract, currently only supports one |
+|    invokeConfig.functions |   List | The function list that calls the contract, currently only supports one function |
 |    invokeConfig.payer |   String | Network fee payer |
-|    invokeConfig.gasLimit |   int | Gas consumed to execute the contract |
+|    invokeConfig.gasLimit |   int | Gas consumed to execute a contract |
 |    invokeConfig.gasPrice |   int | Fixed value 500 |
-|    signature|   String | The application uses the private key to sign parameters other than signature, which are verified when passed to the ONTID open platform. |
+|    signature|   String | The application uses its private key to sign all parameters other than the signature, which will be verified when passed to the ONTID open platform. |
 
 
 ONT/ONG transfer ```invokeConfig``` parameter filling example :
