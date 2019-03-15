@@ -1,8 +1,8 @@
 
 - ONT ID
-  - [ONT ID概述](docs-cn/ontid/overview.md)
+  - [概述](docs-cn/ontid/overview.md)
   - [开始使用](docs-cn/ontid/get_started.md)
-  - [应用对接说明](docs-cn/ontid/ontid-login.md)
+  - [ONTID 登录](docs-cn/ontid/ontid-login.md)
 - ONTPASS
   - [概述](docs-cn/ontpass/overview.md)
   - [技术接口说明](docs-cn/ontpass/specification.md)
@@ -10,9 +10,9 @@
 - 信任锚
   - [概述](docs-cn/taconnector/01-overview.md)
   - [快速开始](docs-cn/taconnector/02-get-started.md)
-- 分布式数据交易框架DDXF
+- 分布式数据交易框架 DDXF
   - [概述](docs-cn/ddxf/01-overview.md)
   - [快速开始](docs-cn/ddxf/02-get-started.md)
 - ONTO
   - [概述](docs-cn/onto/overview.md)
-  - [ONTO Login](docs-cn/onto/ONTO_login.md)
+

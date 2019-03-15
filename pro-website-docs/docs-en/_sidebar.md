@@ -1,6 +1,6 @@
 
 - ONTID
-  - [Overview of ONT ID](docs-en/ontid/overview.md)
+  - [Overview](docs-en/ontid/overview.md)
   - [Get started](docs-en/ontid/get_started.md)
   - [ONTID Login](docs-en/ontid/ontid-login.md)
 - ONT PASS
@@ -14,4 +14,4 @@
   - [Overview](docs-en/taconnector/overview.md)
 - ONTO
   - [Overview](docs-en/onto/overview.md)
-  - [ONTO Login](docs-en/onto/ONTO_login.md)
+
