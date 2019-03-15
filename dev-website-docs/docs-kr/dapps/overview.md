@@ -11,7 +11,7 @@ https://explorer.ont.io/api/v1/explorer/summary/native/totalsupply
 
 [Explorer API](https://dev-docs.ont.io/#/docs-kr/explorer/overview)
 
-3. 所有DAPP列表，公共节点列表,手机端DAPP列表
+3. All DAPP lists, public node lists, mobile DAPP lists
 
 https://github.com/ontio-community/dapp-store
 
