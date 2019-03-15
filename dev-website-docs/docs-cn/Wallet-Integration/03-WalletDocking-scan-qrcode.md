@@ -1,5 +1,4 @@
-<h1 align="center">扫码接入流程</h1>
-<p align="center" class="version">Version 0.8.0 </p>
+
 
 ## 概述
 
