@@ -45,7 +45,7 @@
   - [开发工具概述](docs-cn/introduction/tools.md)
   - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
   - [链上数据存取（可选）](docs-cn/QuickGuide/07-deposit-certificate.md)
-  
+
 - DAPP接入指导
   - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [DAPP支持手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
@@ -60,6 +60,8 @@
   - [Provider 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [场景-扫码集成](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
       - [场景-钱包内打开dApp集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
+- DAPP Store 接入指导
+  - [概述](docs-cn/dapps/overview.md)
 
 - 交易所对接
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
