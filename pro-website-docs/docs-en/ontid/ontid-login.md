@@ -152,7 +152,7 @@ Some interfaces require the user to authorize the website application backend to
 
 The ONTID Payment process is:
 
-![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment.png) 
+![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment-en.png) 
 
 
 1. The application sends a payment request to the ONT ID open platform. The header of the request contains ```access_token```. The ONT ID open platform verifies if the ```access_token``` is valid and returns ```requestId``` as the serial number.
