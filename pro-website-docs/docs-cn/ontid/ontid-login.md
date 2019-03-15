@@ -29,7 +29,7 @@ ONTID 授权登录模式整体流程为：
 3. ONTID 开发平台返回 ```access_token``` 和 ```refresh_token``` 的 ```JWT token```。
 4. ONTID 开放平台前端关闭登录页面，返回```JWT token```给应用的前端。
 5. 应用方前端发送 ```JWT token``` 给应用的后台。 
-6. 应用放的后台验证 ```JWT token``` 的颁发者成功后，获取 ```refresh_token``` 中用户信息，一般为非敏感的信息，如用户用户 ONTID，手机号。
+6. 应用方的后台验证 ```JWT token``` 的颁发者成功后，获取 ```refresh_token``` 中用户信息，一般为非敏感的信息，如用户用户 ONTID，手机号。
 7. 根据```access_token``` 访问 ONTID 开放平台接口。
 
 第三步返回的 ```JWT token``` 的数据格式：

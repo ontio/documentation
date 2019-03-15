@@ -4,34 +4,32 @@
 本文用于指导 DApp 方如何接入 Provider，并使用扫码登陆，扫码调用智能合约等服务。
 流程中涉及到的参与方包括：
 
-* DApp方：对ONT生态内的用户提供dApp，是本体生态中重要的组成部分。
-* Provider：实现daApi mobile规范的钱包
+* DApp 方：对 ONT 生态内的用户提供 DApp，是本体生态中重要的组成部分。
+* Provider：实现 DAPI mobile 规范的钱包
 
 ## 交互流程说明
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
 
-### Login
-- 1 DApp方提供二维码（[登陆二维码标准](#登陆二维码标准)）
-- 2 DApp服务端登陆方法（[DApp服务端登陆接口](#DApp服务端登陆接口)）
-- 3 DApp后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
+### 登录
+1. DApp 方提供二维码（[登录二维码标准](#登录二维码标准)）
+2. DApp 服务端登录方法（[DApp服务端登录接口](#DApp服务端登录接口)）
+3. DApp 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
 
-### Invoke Smart contract
-- 1 DApp方提供二维码（[调用合约二维码标准](#调用合约二维码标准)）
-- 2 Provider构造交易，用户签名，预执行交易，用户确认，发送到链上，返回交易hash给DApp后端
-- 3 dApp后端查询这笔合约交易（[交易事件查询方法](#交易事件查询方法)）
+### 调用智能合约
+1. DApp 方提供二维码（[调用合约二维码标准](#调用合约二维码标准)）
+2. Provider 构造交易、用户签名、预执行交易、用户确认、发送到链上、最后返回交易 hash 给 DApp 后端
+3. DApp 后端查询这笔合约交易（[交易事件查询方法](#交易事件查询方法)）
 
 ## 接入步骤
 
 ### 前提条件
-使用前，你需要联系[本体机构合作](https://info.ont.io/cooperation/en)
+使用前，你需要联系 [本体机构合作](https://info.ont.io/cooperation/en)。
 
-### 登陆接入步骤
-
-#### 登陆二维码标准
+### 登录二维码标准
 扫码获取
 
-```
+```json
 {
 	"action": "login",
 	"version": "v1.0.0",
@@ -49,19 +47,19 @@
 
 |字段|类型|定义|
 | :---| :---| :---|
-| action   |  string |  定义此二维码的功能，登录设定为"Login"，调用智能合约设定为"invoke" |
+| action   |  string | 定义此二维码的功能，登录设定为 `Login`，调用智能合约设定为 `invoke` |
 | id   |  string |  消息序列号，可选 |
-| type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
-| dappName   | string  | dapp名字 |
-| dappIcon   | string  | dapp icon信息 |
+| type   |  string | 使用 ontid 登录设定为 `ontid`，钱包地址登录设定为 `account` |
+| dappName   | string  | Dapp 名字 |
+| dappIcon   | string  | Dapp icon 信息 |
 | message   | string  | 随机生成，用于校验身份  |
 | expire   | long  | 可选  |
-| callback   | string  |  用户扫码签名后发送到DApp后端URL |
+| callback   | string  | 用户扫码签名后发送到 DApp 后端 URL |
 
-### DApp服务端登陆接口
+### DApp 服务端登录接口
 method: post
 
-```
+```json
 {
 	"action": "login",
 	"version": "v1.0.0",
@@ -81,16 +79,16 @@ method: post
 | action | string | 操作类型 |
 | id   |  string |  消息序列号，可选 |
 | params | string | 方法要求的参数 |
-| type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
-| user | string | 用户做签名的账户，比如用户的ontid或者钱包地址 |
+| type   |  string | ontid 登录设定为 `ontid`，钱包地址登录设定为 `account` |
+| user | string | 用户做签名的账户，比如用户的 ontid 或者钱包地址 |
 | message   | string  | 随机生成，用于校验身份  |
 | publickey | string | 账户公钥 |
 | signature  |  string |  用户签名 |
 
-#### Response
-* Success
+#### 响应
+成功响应：
 
-```
+```json
 {
   "action": "login",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
@@ -100,9 +98,9 @@ method: post
 }
 ```
 
-* Failed
+失败响应：
 
-```
+```json
 {
   "action": "login",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
@@ -116,7 +114,7 @@ method: post
 ### 调用合约二维码标准
 扫码获取
 
-```
+```json
 {
 	"action": "invoke",
 	"version": "v1.0.0",
@@ -131,13 +129,13 @@ method: post
 
 |字段|类型|定义|
 | :---        | :---    | :---                                                              |
-| action      | string  | 操作类型，登录设定为"Login"，调用智能合约设定为"invoke" |
+| action      | string  | 操作类型，登录设定为 `Login`，调用智能合约设定为 `invoke`. |
 | qrcodeUrl         | string  | 二维码参数地址                                           |
-| callback         | string  | 选填，返回交易hash给dApp服务端                                           |
+| callback         | string  | 可选，返回交易 hash 给 DApp 服务端                         |
 
-根据二维码中qrcodeUrl链接，GET的的数据如下：
+根据二维码中 qrcodeUrl 链接，GET 的数据如下：
 
-```
+```json
 {
 	"action": "invoke",
 	"version": "v1.0.0",
@@ -176,14 +174,12 @@ method: post
 		}
 	}
 }
-
-
 ```
->> 调用合约时，如果二维码里payer没填写，就由钱包填写。如果二维码里payer有填写，钱包要验证是否与钱包的资产地址是一致的。
+<p class = "info">调用合约时，如果二维码里 payer 没填写，就由钱包填写。如果二维码里 payer 有填写，钱包要验证是否与钱包的资产地址一致。</p>
 
-Provider 构造交易，用户签名，预执行交易，发送交易，POST 交易hash给callback url。
+Provider 构造交易，进行用户签名、预执行交易、发送交易，最后 POST 交易 hash 给 callback url。
 
-* 发送交易成功，POST给callback
+发送交易成功，POST 给 callback：
 
 ```
 {
@@ -195,7 +191,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 }
 ```
 
-* 发送交易失败，POST给callback
+发送交易失败，POST 给 callback：
 
 ```
 {
@@ -208,15 +204,13 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 ```
 
 
-
-
 ## 代码参考
 
 ##### 签名验证方法
 * [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
 * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
 
-##### DApp后端查询交易事件
+##### DApp 后端查询交易事件
 * [java sdk 交易事件查询方法](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
 * [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
