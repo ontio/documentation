@@ -54,6 +54,9 @@
       - [Scan code integration](docs-en/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
       - [Open dApp in the wallet integration](docs-en/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
 
+- DAPP Store Integration Guide
+  - [Overview](docs-en/dapps/overview.md)
+
 - Exchange Docking
   - [Overview](docs-en/exchange-API/Ontology+Exchange+Docking+Document.md)
   - [Sigsvr Exchange Guide](docs-en/exchange-API/Sigsvr_Exchange_Guide.md)

@@ -17,4 +17,4 @@ https://github.com/ontio-community/dapp-store
 
 4. ONT/ONG持仓排行
 
-如果需要使用此接口请先发邮件申请。
+如果需要使用此接口请先发邮件申请。(contact@ont.io)

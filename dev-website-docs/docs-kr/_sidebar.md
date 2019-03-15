@@ -39,6 +39,9 @@
   - [DAPI 사용가이드](docs-kr/QuickGuide/06-dapi-useage.md)
   - [툴킷 가이드](docs-kr/DeveloperGuide/tools.md)
 
+- DAPP Store Integration Guide
+  - [Overview](docs-kr/dapps/overview.md)
+
 - SmartX
   - [개요](docs-kr/SmartX/00-overview.md)
   - [시작하기](docs-kr/SmartX/01-getting-started.md)
