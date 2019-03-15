@@ -328,3 +328,10 @@ Response：
 | 63002	|	EXCEPTION
 | 63003	|	CODE_VERIFY_FAILED
 | 63004	|	IDENTITY_VERIFY_FAILED
+
+
+## Examples
+
+Website Application： ```http://172.168.3.47:81/#/```
+
+ONTID Login： ```http://172.168.3.47/#/signIn```
