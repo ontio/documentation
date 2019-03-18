@@ -37,8 +37,20 @@ ONTID 授权登录模式整体流程为：
 ```
  {
     "access_token" :  "JWT token",
-    "refresh_token" : "JWT token",
+    "refresh_token" : "JWT token"
  }
+```
+ 
+>  ```refresh_token``` 的值里的Payload需要增加 ```content```：
+ 
+```
+ 
+   "content": {
+       "phone": "+86*1234567890",
+       "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
+       ......
+   }
+   
 ```
  
  | Param     |     Type |   Description   |
@@ -47,31 +59,6 @@ ONTID 授权登录模式整体流程为：
  |    refresh_token |   String | ```JWT token```，刷新 ```access_token``` 时使用 |
  
  
-### 应用方对接流程
-
-
-1. 页面引入```OntidSignIn.js```
-2. 页面添加 meta 标签，填写应用方的ONT ID。```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
-3. 页面添加 ONTID 的Sign In 按钮。``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
-4. 在登录成功后，触发回调onSignIn,发送 ```JWT token``` 到应用方后台。
-
-```
-    // 获取JWT token
-    function onSignIn(googleUser) {
-      var token = ontidUser.getAuthResponse().token;
-      ...
-    }
-    //页面发送JWT token到应用方后台
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-      console.log('Signed in as: ' + xhr.responseText);
-    };
-    xhr.send('idtoken=' + id_token);
-```
-5. 应用方后台验证 ``` JWT token ```
-
 
 ### JWT Token 格式说明
 
@@ -110,17 +97,7 @@ ONTID 授权登录模式整体流程为：
   
   ```jti (JWT ID)```：编号。ONTID 开放平台保存的凭证。
   
-> 注意除了以上字段，还有一些自定义字段用于存储用户信息，这些用户信息不能是敏感信息。只有 ```refresh_token``` 需要增加 ```content```：
-
-```
-
-  "content": {
-      "phone": "+86*1234567890",
-      "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
-      ......
-  }
-  
-```
+> 注意除了以上字段，还有一些自定义字段用于存储用户信息，这些用户信息不能是敏感信息。
 
 #### Signature
 
@@ -138,6 +115,33 @@ ONTID 授权登录模式整体流程为：
 3. 使用 ONTID 开放平台私钥和签名算法```ES256```对目标字符串签名。
 
 应用方得到```JWT token```后，按照如上规则生成目标字符串并对签名进行验签。
+
+
+
+### 应用方对接流程
+
+
+1. 页面引入```OntidSignIn.js```
+2. 页面添加 meta 标签，填写应用方的ONT ID。```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
+3. 页面添加 ONTID 的Sign In 按钮。``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
+4. 在登录成功后，触发回调onSignIn,发送 ```JWT token``` 到应用方后台。
+
+```
+    // 获取JWT token
+    function onSignIn(googleUser) {
+      var token = ontidUser.getAuthResponse().token;
+      ...
+    }
+    //页面发送JWT token到应用方后台
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+      console.log('Signed in as: ' + xhr.responseText);
+    };
+    xhr.send('idtoken=' + id_token);
+```
+5. 应用方后台验证 ``` JWT token ```
 
 
 

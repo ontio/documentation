@@ -36,41 +36,27 @@ The data format of ```JWT token``` :
 ```
  {
     "access_token" :  "JWT token",
-    "refresh_token" : "JWT token",
+    "refresh_token" : "JWT token"
  }
 ```
- 
+> ```refresh_token``` Payload in ```JWT token``` needs to add ```content```:
+  
+```
+  
+    "content": {
+        "phone": "+86*1234567890",
+        "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
+        ......
+    }
+    
+```
+   
  | Param     |     Type |   Description   |
  | :--------------: | :--------:| :------: |
  |    access_token |   String | ```JWT token```, ```Header```  need to fill ```access_token``` when the user accesses the interface |
  |    refresh_token |   String | ```JWT token``` that is used when refreshing ```access_token``` |
  
  
-### Application integration guide
-
-
-1. Import ```OntidSignIn.js``` in page.
-2. Add a meta tag to the page and fill application's ONTID.```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
-3. Adds the `Sign In` button in page.``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
-4. After the login is successful, the callback onSignIn is triggered, and the ```JWT token``` will be sent to the website application backend.
-
-```
-    //get JWT token
-    function onSignIn(googleUser) {
-      var token = ontidUser.getAuthResponse().token;
-      ...
-    }
-    //sent to the  Website Application back end
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-      console.log('Signed in as: ' + xhr.responseText);
-    };
-    xhr.send('idtoken=' + id_token);
-```
-5. Website application backend verifies ``` JWT token ```
-
 
 ### JWT Token 
 
@@ -110,17 +96,7 @@ Officially specified 7 fields, optional. We use the following required fields:
   
   ```jti (JWT ID)```: id. The certificate saved by the ONTID open platform.
   
-> In addition to the above fields, there are some custom fields for storing user information, which cannot be sensitive information. Only ```refresh_token``` needs to add ```content```：
-
-```
-
-  "content": {
-      "phone": "+86*1234567890",
-      "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
-      ......
-  }
-  
-```
+> In addition to the above fields, there are some custom fields for storing user information, which cannot be sensitive information. 
 
 #### Signature
 
@@ -139,6 +115,32 @@ The signature generation rules are:
 
 After the website application gets ```JWT token```, generate the target string and verify the signature according to the above rules.
 
+
+
+### Application integration guide
+
+
+1. Import ```OntidSignIn.js``` in page.
+2. Add a meta tag to the page and fill application's ONTID.```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
+3. Adds the `Sign In` button in page.``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
+4. After the login is successful, the callback onSignIn is triggered, and the ```JWT token``` will be sent to the website application backend.
+
+```
+    //get JWT token
+    function onSignIn(googleUser) {
+      var token = ontidUser.getAuthResponse().token;
+      ...
+    }
+    //sent to the  Website Application back end
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+      console.log('Signed in as: ' + xhr.responseText);
+    };
+    xhr.send('idtoken=' + id_token);
+```
+5. Website application backend verifies ``` JWT token ```
 
 
 ## User authorization
