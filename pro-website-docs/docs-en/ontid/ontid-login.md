@@ -171,13 +171,13 @@ method：POST
 
 {
    "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-   "ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+   "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
 ```
 
 
-#### Payload
+#### Private claims in Payload
 
 ```
 

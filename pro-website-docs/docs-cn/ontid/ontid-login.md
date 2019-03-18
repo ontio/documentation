@@ -171,12 +171,13 @@ method：POST
 
 {
    "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-   "ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+   "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
 ```
 
-#### Payload
+#### Payload 里的私有申明
+
 
 ```
 {
@@ -220,8 +221,7 @@ method：POST
             "createtime": 1552541388,
             "expire": 1552543312,
             "nonce": 5434536
-        },
-        "signature": ""
+        }
 }
 ```
 
