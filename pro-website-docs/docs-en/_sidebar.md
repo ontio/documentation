@@ -2,7 +2,7 @@
 - ONTID
   - [Overview](docs-en/ontid/overview.md)
   - [Get started](docs-en/ontid/get_started.md)
-  - [Sign-In for Third Party](docs-en/ontid/ontid-login.md)
+  - [Interface for Third Party](docs-en/ontid/ontid-login.md)
 - ONT PASS
   - [Overview](docs-en/ontpass/overview.md)
   - [Get started](docs-en/ontpass/ontpass-auth.md)
