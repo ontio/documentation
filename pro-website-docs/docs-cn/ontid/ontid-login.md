@@ -170,7 +170,8 @@ url：/api/v1/ontid/invoke
 method：POST
 
 {
-   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)"
+   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+   "ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
 ```
