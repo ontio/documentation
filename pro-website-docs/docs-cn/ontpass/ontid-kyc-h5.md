@@ -18,15 +18,13 @@
 
 ### 2.1 认证
 
-1. 用户在ONT ID前端，使用手机号（或邮箱）注册ONT ID，ONT ID后台创建好注册ONT ID的交易并签名,并保存在数据库中
+1. 在应用场景中触发认证请求，重定向到KYC dapp h5（在url后附上用户ONT ID），如果该ONT ID已认证，则显示ONT ID信息，如果未认证，走认证流程
 
-2. 在应用场景中触发认证请求，重定向到KYC dapp h5（在url后附上用户ONT ID），如果该ONT ID已认证，则显示ONT ID信息，如果未认证，走认证流程
+2. 用户上传认证所需证件信息到ONT Pass
 
-3. KYC dapp调用ONT ID后端接口获取注册ONTID的交易，上传认证信息到ONT Pass（ONT Pass在审核通过后发送上链交易）；
+3. 提交[认证请求](http://pro-docs.ont.io/#/docs-cn/ontpass/overview)到ONT Pass。这个请求需要认证需求方的签名，即应用方的签名。KYC dapp发送相关数据给应用方后台，应用方后台添加上自己签名后，提交认证请求到ONT Pass。
 
-4. 提交[认证请求](http://pro-docs.ont.io/#/docs-cn/ontpass/overview)到ONT Pass。这个请求需要认证需求方的签名，即应用方的签名。KYC dapp发送相关数据给应用方后台，应用方后台添加上自己签名后，提交认证请求到ONT Pass，返回结果给KYC dapp。
-
-5.  KYC dapp显示等待审核页面。
+4. KYC dapp显示等待审核页面。
 
    ![cert](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/kyc/certification.jpg)
 
@@ -52,12 +50,10 @@
 ### 3.1 跳转到KYC dapp认证页面
 
 ```
-url：host + /#/mgmtHome?ontid={ontid}&forwardCallback={transmitCallback}&requestAuthenticationCallback={requestAuthenticationCallback}
+url：host + /#/mgmtHome?ontid={ontid}&requestAuthenticationCallback={requestAuthenticationCallback}
 ```
 
 `ontid` User's ONT  ID
-
-`forwardCallback` 应用方后台用于转发请求的回调地址
 
 `requestAuthenticationCallback` 应用方后台用于提交认证请求的回调地址
 
@@ -79,36 +75,7 @@ url: host + /#/authHome?userOntid={userOntid}&dappOntid={dappOntid}&dappName={da
 
 ## 4. 应用方需要提供的接口
 
-### 4.1 转发KYC dapp的请求
-
-ONT ID后台的访问需要通过HMAC校验。KYC dapp不能直接访问ONT ID后台接口，所以需要通过应用方提供的接口转发请求。
-
-应用方收到请求后，转发请求到ONT ID后台。需要对转发请求做HMAC处理。转发的地址是参数中的url。
-
-### POST
-
-```
-url: 由应用方传给KYC dapp(比如http://host+ /forwardRequest)
-```
-
-### REQUEST
-
-| Field_Name | Required | Format | Description                                                |
-| ---------- | -------- | ------ | ---------------------------------------------------------- |
-| url        | Yes      | String | 需要转发的接口（ONT ID后台提供的接口）                     |
-| data       | Yes      | String | 使用RSA/AES加密后的参数                                    |
-| secure     | Yes      | String | RSA 加密的key。转发请求时放到请求的header中 secure-key字段 |
-
-### RESPONSE
-
-| Field_Name | Format | Description                             |
-| ---------- | ------ | --------------------------------------- |
-| version    | String | 版本号，目前是1.0。                     |
-| action     | String | 固定值：TransmitRequest。               |
-| desc       | String | 错误信息。成功即SUCCESS，其他即错误信息 |
-| result     | String | ONT ID后台返回的结果                    |
-
-### 4.2 处理授权请求回调
+### 4.1 处理授权请求回调
 
 授权时，用户发送授权信息（使用ONT ID后台公钥加密的）给应用方后台。应用方转发给ONT ID后台解密，得到Claim，对Claim验证，验证成功，则授权成功。返回授权结果给KYC dapp。
 
@@ -135,7 +102,7 @@ url: 由应用方传给KYC dapp(比如http://host + /handleAuth)
 | desc       | String | 错误信息。成功即SUCCESS，其他即错误信息 |
 | result     | String | 应用方后台验证授权Claim的结果。         |
 
-### 4.3 应用方提交认证请求
+### 4.2 应用方提交认证请求
 
 > 目前测试环境，由KYC dapp提交认证请求；生产环境由应用方后台提交认证请求。
 
@@ -195,36 +162,7 @@ KYC dapp发送给应用方后台的数据如下：
 
 ## 5. ONT ID后台需要提供的接口
 
-> 注意：ONT ID接口接收的参数都是RSA/AES加密的。以下为接口说明中参数为解密后的参数。
-
-### 5.1 获取注册ONTID的交易
-
-通过ONT ID 获取ONT ID交易内容
-
-#### POST
-
-```
-url: /api/v1/ontid/gettx/register/ontid
-```
-
-### REQUEST
-
-| Field_Name | Required | Format | Description  |
-| ---------- | -------- | ------ | ------------ |
-| ontid      | yes      | string | 用户的ONT ID |
-
-
-### RESPONS
-
-| Field_Name | Format | Description                             |
-| ---------- | ------ | --------------------------------------- |
-| version    | String | 版本号，目前是1.0。                     |
-| action     | String | 固定值：getTx。                         |
-| error      | int    | 错误码                                  |
-| desc       | String | 错误信息。成功即SUCCESS，其他即错误信息 |
-| result     | String | 交易内容                                |
-
-### 5.2 解密Claim
+### 5.1 解密Claim
 
 通过Onid和密码解密claim
 
