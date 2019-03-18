@@ -164,12 +164,29 @@ The ONTID Payment process is:
 
 ### The data format of invoking a smart contract
 
-
-
 ```
 url：/api/v1/ontid/invoke
 
 method：POST
+
+{
+   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)"
+}
+
+```
+
+#### Header
+
+```
+{
+  "alg": "ES256",
+  "typ": "JWT"
+}
+```
+
+#### Payload
+
+```
 
 {
 		"invokeConfig": {
@@ -212,8 +229,7 @@ method：POST
             "createtime": 1552541388,
             "expire": 1552543312,
             "nonce": 5434536
-        },
-        "signature": ""
+        }
 }
 ```
 

@@ -164,13 +164,20 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 
 ### 调用合约的数据格式
 
-数据格式：
-
 ```
 url：/api/v1/ontid/invoke
 
 method：POST
 
+{
+   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)"
+}
+
+```
+
+#### Payload
+
+```
 {
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
