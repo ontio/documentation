@@ -10,7 +10,7 @@ ONTID Login for website applications is the ONTID authorization login system tha
 
 Before the ONTID authorized login integration, the website application registers the ONTID on the ONTID open platform and obtains the corresponding ONTID and ```PrivateKey```. After the application for ONTID is approved, it can start the access process.
 
-## Authorization Login
+## Sign-In for Third Party
 
 ONTID authorization login is to allow users to securely login to third-party applications or websites using ONTID.
 
@@ -261,6 +261,43 @@ ONT/ONG transfer ```invokeConfig``` parameter filling example :
 
 The following interfaces ``` Header``` need to add ```access_token``` to access.
 
+### Query ontid information
+
+```
+url：/api/v1/ontid/info
+
+method：POST
+
+{
+   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    ontid|   String|  ontid  |
+
+Response：
+
+```
+{
+    "action":"getOntidInfo",
+    "version":"1.0",
+    "error":0,
+    "desc":"SUCCESS",
+    "result": {
+
+    }
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|  action  |
+|    version|   String|  version  |
+|    error|   int|  error code  |
+|    desc|   String|  error desc |
+|    result|   String| 	result  |
 
 ### Query asset balance
 

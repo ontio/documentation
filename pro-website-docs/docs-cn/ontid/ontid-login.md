@@ -13,7 +13,7 @@ ONT ID 开放平台，为用户托管区块链综合账户，提供一站式数�
 
 
 
-## 注册/登录
+## 第三方登录
 
 
 ONTID 授权登录是让用户使用 ONTID 身份安全登录第三方应用或网站，在 ONTID 用户授权登录已接入 ONTID 的第三方应用后，第三方可以获取到用户的接口调用凭证（```access_token```），通过 ```access_token``` 可以进行 ONTID 相关接口调用。
@@ -262,6 +262,43 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 
 以下接口 ``` Header``` 都需要添加```access_token``` 才能访问。
 
+### 查询 ontid 账户信息
+
+```
+url：/api/v1/ontid/info
+
+method：POST
+
+{
+   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    ontid|   String|  ontid  |
+
+返回：
+
+```
+{
+    "action":"getOntidInfo",
+    "version":"1.0",
+    "error":0,
+    "desc":"SUCCESS",
+    "result": {
+       
+    }
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String| 	结果  |
 
 ### 查询资产余额
 
