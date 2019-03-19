@@ -6,17 +6,17 @@ This article will guide Requester to access the Ontology network, and to use the
 
 * Requester: Any institution or service provider that requires authentication for people, object or event. Requester is the demand side of authentication service in the Ontology Trust Eco-system.
 * ONTPass: Based on ONTID and Ontology Trust Ecosystem, it is an open, decentralized authentication platform that provides rich authentication services for people, asset, objects, and things. ONTPass synergizes users and requesters for data exchange and all the data is encrypted protect User's private data.
-* TrustAnchor: Trust Anchor refers to the partner that provides authentication verification services on the Ontology Trust Ecosystem. A trust anchor can be a government agency, an university, a bank, a third-party certification service organization (such as CA institutions), a biometric technology company and etc.
+* TrustAnchor: Trust Anchor refers to the partner that provides authentication verification services on the Ontology Trust Ecosystem. A trust anchor can be a government agency, university, bank, third-party certification service organization (such as CA institutions), biometric technology company, etc.
 
 
 
-## How ONTPass work?
+## How does ONTPass work?
 
 ![Interaction Process Description](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontpass02.png)
 
 
-- A0：ONTPass provides a public authentication service marketplace. Requester can browse and select their desired TrustAnchor and its authentication service they need on the ONTPass platform.
-- A1：After the Requester confirms the authentication service, the Requester needs to register certain basic information to the ONTPass  platform. The information includes ONTID of the Requester, basic introduction of the Requester and a callback address.
+- A0：ONTPass provides a public authentication service marketplace. A Requester can browse and select their desired TrustAnchor and its authentication service they need on the ONTPass platform.
+- A1：After the Requester confirms the authentication service, the Requester needs to register certain basic information to the ONTPass platform. The information includes ONTID of the Requester, basic introduction of the Requester and a callback address.
 - A2：The Requester submits the user's data to the TrustAnchor Source based on the requirements of the specific TrustAnchor.
 - A3.1,A3.2：TrustAnchor authenticates user's data uploaded by Requester and completes the issuance of the verifiable claim, which will be stored on the blockchain. Transaction will then be made
 - A4：After the TrustAnchor issues the verifiable claim, the encrypted public key of the ONTID corresponding to the verifiable claim user, will be sent to the ONTPass.
