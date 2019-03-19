@@ -71,88 +71,88 @@
 
   </style>
   <body>
-  <h1 align="center">本体开发者中心</h1>
-  <div >欢迎来到本体开发者中心。借助完善的开发者文档，你可以快速了解本体的生态、技术和工具。</div>
+  <h1 align="center">Ontology Developer Guide</h1>
+  <div ><a href="https://ont.io/">Ontology</a> is a new generation of high-performance public blockchains. The infrastructure is scalable, stable, and allows low-level customization for different business requirements. After the Ontology MainNet release, we have welcomed many new developers to the Ontology technical community and launched our <a href="https://developer.ont.io/">Developer Center </a>.</div>
     <div >
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;" >
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">认识本体</p>
+                <p class="content-title" style="border-bottom: 1px solid #979797;">Ontology</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/introduction/01-introduction">介绍</a>
+                          <a href="#/docs-en/DeveloperGuide/introduction">Introduction</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/introduction/02-VBFT">VBFT 共识</a>
+                          <a href="#/docs-en/DeveloperGuide/02-VBFT-introduction">VBFT Consensus</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/introduction/03-smart-contract">智能合约</a>
+                          <a href="#/docs-en/DeveloperGuide/smartcontract/00-introduction-sc">Smart Contract</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/introduction/01-introduction">查看全部</a>
+                          <a href="#/docs-en/DeveloperGuide/introduction">View all</a>
                       </div>
                   </div></br>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">本体客户端</p>
+                <p class="content-title" style="border-bottom: 1px solid #979797;">Ontology Client</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/ontology-cli/00-overview">概述</a>
+                          <a href="#/docs-en/OntologyCli/00-overview">Overview</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/ontology-cli/00-overview">查看全部</a>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">HTTP API</p>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/ontology-cli/04-interface-specification">概述</a>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/ontology-cli/04-interface-specification">查看全部</a>
+                          <a href="#/docs-en/OntologyCli/00-overview">View all</a>
                       </div>
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">DApp开发指南</p>
+                <p class="content-title" style="border-bottom: 1px solid #979797;">API Reference</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/QuickGuide/00-dapp_development">DApp 开发</a>
+                          <a href="#/docs-en/API/00-overview">Overview</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/QuickGuide/00-dapp_development?id=%E4%BD%BF%E7%94%A8-dapi">DApi 使用</a>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/QuickGuide/00-dapp_development">查看全部</a>
+                          <a href="#/docs-en/API/00-overview">View all</a>
                       </div>
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">智能合约指南</p>
+                <p class="content-title" style="border-bottom: 1px solid #979797;">DApp Development Guide</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/smartcontract/01-started">智能合约指南</a>
+                          <a href="#/docs-en/QuickGuide/00-dapp_development">DApp Development</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/smartcontract/01-started">查看全部</a>
+                          <a href="#/docs-en/QuickGuide/06-dapi-useage">DApi Usage</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-en/QuickGuide/00-dapp_development">View all</a>
+                      </div>
+                  </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <p class="content-title" style="border-bottom: 1px solid #979797;">Smart Contract Guide</p>
+                  <div>
+                      <div>
+                          <a href="#/docs-en/smartcontract/01-started">Smart Contract Guide</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-en/smartcontract/01-started">View all</a>
                       </div>
                   </div>
             </div>
@@ -161,49 +161,49 @@
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;">
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title"  style="border-bottom: 1px solid #979797;">DAPP对接指南</p>
+                <p class="content-title"  style="border-bottom: 1px solid #979797;">DAPP Integration Guide</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/dApp-Integration/00-dapp_integration">概述</a>
+                          <a href="#/docs-en/dApp-Integration/00-dapp_integration">Overview</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/dApp-Integration/00-dapp_integration">查看全部</a>
+                          <a href="#/docs-en/dApp-Integration/00-dapp_integration">View all</a>
                       </div>
-                  </div></br>
+                  </div><br/>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title"  style="border-bottom: 1px solid #979797;">钱包对接指南</p>
+                <p class="content-title"  style="border-bottom: 1px solid #979797;">Wallet Integration Guide</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/Wallet-Integration/00-wallet_integration">概述</a>
+                          <a href="#/docs-en/Wallet-Integration/00-wallet_integration">Overview</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/Wallet-Integration/00-wallet_integration">查看全部</a>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">交易所接入</p>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/exchange-API/Ontology-%E4%BA%A4%E6%98%93%E6%89%80%E5%AF%B9%E6%8E%A5%E6%96%87%E6%A1%A3">概述</a>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/exchange-API/Ontology-%E4%BA%A4%E6%98%93%E6%89%80%E5%AF%B9%E6%8E%A5%E6%96%87%E6%A1%A3">查看全部</a>
+                          <a href="#/docs-en/Wallet-Integration/00-wallet_integration">View all</a>
                       </div>
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">DAPP Store 接入指导</p>
+                <p class="content-title" style="border-bottom: 1px solid #979797;">Exchange Docking</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/dapps/overview">概述</a>
+                          <a href="#/docs-en/exchange-API/Ontology+Exchange+Docking+Document">Overview</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-en/exchange-API/Ontology+Exchange+Docking+Document">View all</a>
+                      </div>
+                  </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <p class="content-title" style="border-bottom: 1px solid #979797;">DAPP Store Integration Guide</p>
+                  <div>
+                      <div>
+                          <a href="#/docs-en/dapps/overview">Overview</a>
                       </div>
                   </div>
             </div>
@@ -215,12 +215,12 @@
                 <p class="content-title"  style="border-bottom: 1px solid #979797;">SmartX</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/SmartX/overview">概述</a>
+                          <a href="#/docs-en/SmartX/00-overview">Overview</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/SmartX/overview">查看全部</a>
+                          <a href="#/docs-en/SmartX/01-getting-started">Getting Started</a>
                       </div>
                   </div>
             </div>
@@ -228,12 +228,12 @@
                 <p class="content-title"  style="border-bottom: 1px solid #979797;">Cyano</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/cyano/00-overview">概述</a>
+                          <a href="#/docs-en/Cyano/00-overview">Overview</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/cyano/00-overview">查看全部</a>
+                          <a href="#/docs-en/Cyano/00-overview">View all</a>
                       </div>
                   </div>
             </div>
@@ -241,22 +241,22 @@
                 <p class="content-title"  style="border-bottom: 1px solid #979797;">Punica</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/Punica/punica">概述</a>
+                          <a href="#/docs-en/Punica/punica">Overview</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/Punica/punica-cli">Punica Cli</a>
+                          <a href="#/docs-en/Punica/punica-cli">Punica Cli</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/Punica/punica-box">Punica Box</a>
+                          <a href="#/docs-en/Punica/punica-box">Punica Box</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/Punica/punica">查看全部</a>
+                          <a href="#/docs-en/Punica/punica">View all</a>
                       </div>
                   </div></br>
             </div>
@@ -264,58 +264,58 @@
                 <p class="content-title"  style="border-bottom: 1px solid #979797;">SDKs</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/SDKs/00-overview">概述</a>
+                          <a href="#/docs-en/SDKs/00-overview">Overview</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/SDKs/00-overview">查看全部</a>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <p class="content-title"  style="border-bottom: 1px solid #979797;">浏览器 API</p>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/explorer/overview">概述</a>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/explorer/blocks">区块</a>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/explorer/accounts">账户</a>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/explorer/overview">查看全部</a>
+                          <a href="#/docs-en/SDKs/00-overview">View all</a>
                       </div>
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title"  style="border-bottom: 1px solid #979797;">签名机</p>
+                <p class="content-title"  style="border-bottom: 1px solid #979797;">Explorer API</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/sigsvr/00-overview">概述</a>
+                          <a href="#/docs-en/explorer/overview">Overview</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/sigsvr/01-install">安装</a>
+                          <a href="#/docs-en/explorer/blocks">Blocks</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/sigsvr/02-getting-started">快速入门</a>
+                          <a href="#/docs-en/explorer/accounts">Accounts</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/sigsvr/00-overview">查看全部</a>
+                          <a href="#/docs-en/explorer/overview">View all</a>
+                      </div>
+                  </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <p class="content-title"  style="border-bottom: 1px solid #979797;">Sign Server</p>
+                  <div>
+                      <div>
+                          <a href="#/docs-en/SignServer/00-overview">Overview</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-en/SignServer/01-installation">Installation</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-en/SignServer/02-getting-started">Getting Started</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-en/SignServer/00-overview">View all</a>
                       </div>
                   </div>
             </div>
