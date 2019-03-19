@@ -187,7 +187,7 @@
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">Exchange Docking</p>
+                <p class="content-title" style="border-bottom: 1px solid #979797;">Exchange Integration Guide</p>
                   <div>
                       <div>
                           <a href="#/docs-en/exchange-API/Ontology+Exchange+Docking+Document">Overview</a>

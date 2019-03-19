@@ -126,7 +126,7 @@
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">DApp开发指南</p>
+                <p class="content-title" style="border-bottom: 1px solid #979797;">DApp 开发指南</p>
                   <div>
                       <div>
                           <a href="#/docs-cn/QuickGuide/00-dapp_development">DApp 开发</a>
@@ -161,7 +161,7 @@
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;">
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title"  style="border-bottom: 1px solid #979797;">DAPP对接指南</p>
+                <p class="content-title"  style="border-bottom: 1px solid #979797;">DAPP 对接指南</p>
                   <div>
                       <div>
                           <a href="#/docs-cn/dApp-Integration/00-dapp_integration">概述</a>
@@ -187,7 +187,7 @@
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">交易所接入</p>
+                <p class="content-title" style="border-bottom: 1px solid #979797;">交易所对接指南</p>
                   <div>
                       <div>
                           <a href="#/docs-cn/exchange-API/Ontology-%E4%BA%A4%E6%98%93%E6%89%80%E5%AF%B9%E6%8E%A5%E6%96%87%E6%A1%A3">概述</a>
@@ -200,7 +200,7 @@
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title" style="border-bottom: 1px solid #979797;">DAPP Store 接入指导</p>
+                <p class="content-title" style="border-bottom: 1px solid #979797;">DAPP Store 对接指南</p>
                   <div>
                       <div>
                           <a href="#/docs-cn/dapps/overview">概述</a>

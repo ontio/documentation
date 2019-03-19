@@ -40,13 +40,13 @@
   - [合约模板](docs-cn/smartcontract/02-template.md)
   - [API 参考](docs-cn/smartcontract/03-sc-api.md)
 
-- DAPP开发指导
+- DAPP 开发指导
   - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
   - [开发工具概述](docs-cn/introduction/tools.md)
   - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
   - [链上数据存取（可选）](docs-cn/QuickGuide/07-deposit-certificate.md)
 
-- DAPP接入指导
+- DAPP 对接指南
   - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [DAPP支持手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
   - [DAPP支持手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
@@ -54,20 +54,21 @@
   - [DAPP唤醒手机钱包](docs-cn/dApp-Integration/06-DAppDocking-Wake-up.md)
   - [DAPP支持桌面钱包内打开](docs-cn/dApp-Integration/07-DAppDocking-use-desktop-wallet.md)
 
-- 钱包接入指导
+- 钱包对接指南
   - [概述](docs-cn/Wallet-Integration/00-wallet_integration.md)
   - [资产接入](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
   - [Provider 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [场景-扫码集成](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
       - [场景-钱包内打开dApp集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
-- DAPP Store 接入指导
-  - [概述](docs-cn/dapps/overview.md)
 
-- 交易所对接
+- 交易所对接指南
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
   - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
   - [签名服务器使用说明](docs-cn/exchange-API/Ontology+签名服务器使用说明.md)
   - [FAQ](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
+
+- DAPP Store 对接指南
+  - [概述](docs-cn/dapps/overview.md)
 
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
