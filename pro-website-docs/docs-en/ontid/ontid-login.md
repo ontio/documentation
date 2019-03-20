@@ -39,11 +39,12 @@ The data format of ```JWT token``` :
     "refresh_token" : "JWT token"
  }
 ```
-> ```refresh_token``` Payload in ```JWT token``` needs to add ```content```:
+> Payload in ```JWT token``` needs to add ```content```:
   
 ```
   
     "content": {
+        "type": "refresh_token", // or access_token
         "phone": "+86*1234567890",
         "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
         ......
@@ -78,7 +79,7 @@ Each part is based on the ```Base64Url``` format, separated by ``` . ```.
 ```
 
 
-The ```alg``` attribute represents the signature algorithm. The default is ```HMAC SHA256``` (written as HS256); 
+The ```alg``` attribute represents the signature algorithm. The default is ```HMAC SHA256``` (written as HS256), but we use ```ES256``` (```ECDSA``` using ```P-256``` curve and ```SHA-256``` hash algorithm); 
 
 The ```typ``` attribute indicates the type of the token, regarding ```JWT token``` as ```JWT``.
 
