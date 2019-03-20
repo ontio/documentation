@@ -14,18 +14,14 @@ OntSdk ontSdk = OntSdk.getInstance();
 | ontSdk.getConnect().getNodeCount()                  | 查询节点数量         |
 | ontSdk.getConnect().getBlock()                      | 查询块               |
 | ontSdk.getConnect().getBlockJson()                  | 查询块               |
-| ontSdk.getConnect().getBlockJson()                  | 查询块               |
-| ontSdk.getConnect().getBlock()                      | 查询块               |
 | ontSdk.getConnect().getBlockHeight()                | 查询当前块高         |
 | ontSdk.getConnect().getTransaction()                | 查询交易             |
 | ontSdk.getConnect().getStorage()                    | 查询智能合约存储     |
 | ontSdk.getConnect().getBalance()                    | 查询余额             |
 | ontSdk.getConnect().getContractJson()               | 查询智能合约         |
 | ontSdk.getConnect().getSmartCodeEvent()             | 查询智能合约事件     |
-| ontSdk.getConnect().getSmartCodeEvent()             | 查询智能合约事件     |
 | ontSdk.getConnect().getBlockHeightByTxHash()        | 查询交易所在高度     |
 | ontSdk.getConnect().getMerkleProof()        | 查询 Merkle 证明     |
-| ontSdk.getConnect().sendRawTransaction()            | 发送交易             |
 | ontSdk.getConnect().sendRawTransaction()            | 发送交易             |
 | ontSdk.getConnect().sendRawTransactionPreExec()     | 发送预执行交易       |
 | ontSdk.getConnect().getAllowance() | 查询允许使用值       |
