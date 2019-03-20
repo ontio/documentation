@@ -8,7 +8,7 @@
 |   ontology-go-sdk    |     Go      |        https://github.com/ontio/ontology-go-sdk         |
 |  ontology-java-sdk   |    Java     |       https://github.com/ontio/ontology-java-sdk        |
 | ontology-python-sdk  |   Python    |      https://github.com/ontio/ontology-python-sdk       |
-|   ontology-oc-sdk    | Objective-C | https://github.com/ontio-community/ontology-andriod-sdk |
+|   ontology-oc-sdk    | Objective-C | https://github.com/ontio-community/ontology-oc-sdk      |
 |   ontology-php-sdk   |     PHP     |   https://github.com/ontio-community/ontology-php-sdk   |
 |  ontology-swift-sdk  |    Swift    |  https://github.com/ontio-community/ontology-swift-sdk  |
 | ontology-andriod-sdk |    Java     | https://github.com/ontio-community/ontology-andriod-sdk |
