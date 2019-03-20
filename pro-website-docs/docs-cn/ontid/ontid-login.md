@@ -41,11 +41,12 @@ ONTID 授权登录模式整体流程为：
  }
 ```
  
->  ```refresh_token``` 的值里的Payload需要增加 ```content```：
+>  ```JWT token``` 的值里的Payload需要增加 ```content```字段：
  
 ```
  
    "content": {
+       "type": "refresh_token", // or access_token
        "phone": "+86*1234567890",
        "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
        ......
@@ -79,7 +80,7 @@ ONTID 授权登录模式整体流程为：
 }
 ```
 
-```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）；
+```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）, 但我们使用 ```ES256``` (```ECDSA``` 使用 ```P-256``` 曲线和 ```SHA-256``` hash 算法)。
 
 ```typ``` 属性表示这个令牌（token）的类型，```JWT token```统一写为 ```JWT```。
 
