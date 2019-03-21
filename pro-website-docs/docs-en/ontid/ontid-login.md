@@ -269,6 +269,19 @@ ONT/ONG transfer ```invokeConfig``` parameter filling example :
 
 ```
 
+## Signature Message
+
+
+```
+url：/api/v1/ontid/signmessage
+method：POST
+
+{
+	"ontid": "did:ont:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
+	"message": "helloworld",
+}
+```
+
 ## Other interface
 
 The following interfaces ``` Header``` need to add ```access_token``` to access.
