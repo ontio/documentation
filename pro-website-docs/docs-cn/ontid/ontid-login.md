@@ -272,13 +272,21 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 ```
 ## 签名接口
 
-
 ```
 url：/api/v1/ontid/signmessage
+
 method：POST
 
 {
-	"ontid": "did:ont:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
+   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+   "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+}
+
+```
+#### Payload 里的私有申明
+
+```
+{
 	"message": "helloworld",
 }
 ```
