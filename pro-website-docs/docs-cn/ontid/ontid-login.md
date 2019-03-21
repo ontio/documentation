@@ -270,6 +270,19 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 }
 
 ```
+## 签名接口
+
+
+```
+url：/api/v1/ontid/signmessage
+method：POST
+
+{
+	"ontid": "did:ont:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
+	"message": "helloworld",
+}
+```
+
 
 ## 其他接口
 
