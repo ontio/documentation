@@ -3,7 +3,7 @@
 用Objective-C编写的支持本体钱包的库.
 
 
-## Installation
+## 安装
 
 1. 下载项目到本地.
 2. 将`ONTSDK`文件夹拷贝到你自己的项目中.
