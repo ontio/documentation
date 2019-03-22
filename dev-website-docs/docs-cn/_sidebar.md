@@ -99,7 +99,7 @@
   - [Php SDK](docs-cn/SDKs/05-php-sdk.md)
   - [Swift SDK](docs-cn/SDKs/06-swift-sdk.md)
   - [Android SDK](docs-cn/SDKs/07-android-sdk.md)
-  - [Object C SDK](docs-cn/SDKs/08-object-c-sdk.md)
+  - [Objective-C SDK](docs-cn/SDKs/08-objective-c-sdk.md)
 
 - 浏览器 API
   - [概述](docs-cn/explorer/overview.md)

@@ -23,7 +23,7 @@ SDK 可以提供如下功能：
 - [Php SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/05-php-sdk)
 - [Swift SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/06-swift-sdk)
 - [Android SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/07-android-sdk)
-- [Object C SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/08-object-c-sdk)
+- [Objective-C SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/08-objective-c-sdk)
 
 ## 浏览器公开接口
 
