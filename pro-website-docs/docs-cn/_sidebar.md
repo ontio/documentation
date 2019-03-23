@@ -1,7 +1,6 @@
 
 - ONT ID
   - [概述](docs-cn/ontid/overview.md)
-  - [开始使用](docs-cn/ontid/get_started.md)
   - [开放平台](docs-cn/ontid/ontid-login.md)
 - ONTPASS
   - [概述](docs-cn/ontpass/overview.md)
