@@ -1,8 +1,7 @@
 
 - ONTID
   - [Overview](docs-en/ontid/overview.md)
-  - [Get started](docs-en/ontid/get_started.md)
-  - [Third Party integration](docs-en/ontid/ontid-login.md)
+  - [Open Platform](docs-en/ontid/open-platform.md)
 - ONT PASS
   - [Overview](docs-en/ontpass/overview.md)
   - [Get started](docs-en/ontpass/ontpass-auth.md)

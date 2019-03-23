@@ -1,7 +1,7 @@
 
 - ONT ID
   - [概述](docs-cn/ontid/overview.md)
-  - [开放平台](docs-cn/ontid/ontid-login.md)
+  - [开放平台](docs-cn/ontid/open-platform.md)
 - ONTPASS
   - [概述](docs-cn/ontpass/overview.md)
   - [技术接口说明](docs-cn/ontpass/specification.md)

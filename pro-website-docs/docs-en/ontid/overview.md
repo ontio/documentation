@@ -1,34 +1,7 @@
 
-## What can ONT ID do for you?
+## What is ONT ID?
 
-ONT ID Create a cryptography-secured account powered by the Ontology blockchain for individuals, companies, and more. Use it to manage identities, digital assets, payments, and other authorizations.
-
-ONT ID help you do these following things:
-
-* Unified login
-
-Use ONT ID as your sole access point to the blockchain world.
-
-* Asset management
-
-Storing numerous types of digital assets is a hassle. No need to worry though, with ONT ID you can access all your digital assets in one place.
-
-* Fast payments
-
-Link your private key with a verification method of your choice, whether that be fingerprint, Face ID, SMS verification, or another method.
-
-* Multi-source authentication
-
-Using Ontology’s trust partners you can access identity verification services that cover nearly 200 countries and regions, as well as use your qualifications, reputation, and credit to manage your own personal profile.
-
-![](https://github.com/ontio/ontology-DID/raw/master/images/ontid.jpg)
-<p align="center">
-<b>Presentation from Ontology community[1]</b>
-</p>
-
-## The features of ONT ID
-
-ONT ID has key features as below :
+ONT ID is a decentralized identity protocol, which establishes a cryptographic identity for each user, company, item and any other entity. ONT ID is based on W3c DID protocol specification and ontology blockchain technology. It is not restricted by any centralized organization and is completely controlled by users themselves. ONT ID-based identity or data applications have the following advantages:
 
 * Identity you can trust
 
@@ -47,11 +20,34 @@ Avoid the fuss. Keep your identity data together in one place and quickly author
 ONT ID is fully compatible with W3C DID standards. You are free to use your identity and data with any organization using the ONT ID protocol across the world.
 
 
-## How can I integrate ONT ID?
 
-ONT ID is open for all partners and developers , You can freely integrate ONT ID application suite . 
+## About ONT ID Account Service
 
->> [Get Started](https://pro-docs.ont.io/#/docs-en/ontid/get_started)
+ONT ID account service is built on the basis of ONT ID protocol. The account service uses advanced custodian technology to help users or third parties use ONT ID more conveniently. ONT ID help users do these following things:
+
+* login
+
+Use ONT ID as your sole access point to the blockchain world.
+
+* Asset management
+
+Storing numerous types of digital assets is a hassle. No need to worry though, with ONT ID you can access all your digital assets in one place.
+
+* Payment
+
+Link your private key with a verification method of your choice, whether that be fingerprint, Face ID, SMS verification, or another method.Also the acount integrates exchage,OTC payment channels.
+
+* Multi-source authentication
+
+Using Ontology’s trust partners you can access identity verification services that cover nearly 200 countries and regions, as well as use your qualifications, reputation, and credit to manage your own personal profile.These data are encrypted and hosted in ONT ID accounts. Authentication and authorization are completely controlled by users themselves.
+
+>> [Create your ONT ID](https://ontid.info)
+
+## About ONT ID Open platform
+
+ONT ID Open Platform provides third-party login, payment, smart contract execution, KYC and other services for third-party applications. If you are a developer, you can enter the ONT ID Open Platform and begin to integrate ONT ID.
+
+>> [Get Started](https://pro-docs.ont.io/#/docs-en/ontid/open-platform)
 
 
 ## Work principles
@@ -86,6 +82,11 @@ A verifiable claim is a statement made by an entity of certain attributes of ano
 ## Why do we need to decentralize your identity?
 
 On March 18th, 2018, US social media giant Facebook revealed that user information data of  more than 50 million users was leaked. On March 27th, Facebook CEO Zuckerberg published an article in a number of newspapers, publicly apologizing, admitting that they had hurt the trust of users. He said Facebook have a responsibility to protect your information, and if they can’t, they don't deserve it. They violated trust and are sorry that they didn't do more at the time. Of course, this scandal was only a concentrated outbreak of the problem. For the general public, Zuckerberg’s apology is merely an emotional expression. What is actually needed is to protect user data privacy through legal and technical methods, and to protect a healthy public domain network environment.
+
+![](https://github.com/ontio/ontology-DID/raw/master/images/ontid.jpg)
+<p align="center">
+<b>Presentation from Ontology community[1]</b>
+</p>
 
 ## Citations
 
