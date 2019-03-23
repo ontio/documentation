@@ -41,7 +41,7 @@ Link your private key with a verification method of your choice, whether that be
 
 Using Ontology’s trust partners you can access identity verification services that cover nearly 200 countries and regions, as well as use your qualifications, reputation, and credit to manage your own personal profile.These data are encrypted and hosted in ONT ID accounts. Authentication and authorization are completely controlled by users themselves.
 
->> [Create your ONT ID](https://ontid.info)
+>> [Create your ONT ID](https://ontid.pro)
 
 ## About ONT ID Open platform
 
