@@ -31,7 +31,7 @@ The ONTID authorization login process is:
 6. After backend verifies the issuer of ```JWT token``` successfully, the user information in ```refresh_token``` is obtained, which is generally non-sensitive information, such as user's ONTID and mobile phone number.
 7. Access the ONTID open platform interface using ```access_token```.
 
-The data format of ```JWT token``` :
+The data of ```JWT token``` is encrypted with the public key of the website application, and the data format after decryption is as follows:
  
 ```
  {
