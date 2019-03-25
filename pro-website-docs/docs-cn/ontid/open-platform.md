@@ -403,6 +403,6 @@ method：POST
 
 ## 演示例子
 
-演示应用： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)
+第三方应用集成演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
 
-ONTID登陆地址： [http://139.219.136.188:10390/#/signIn](http://139.219.136.188:10390/#/signIn)
+ONTID 登陆地址： [https://signin.ont.io/#/](https://signin.ont.io/#/)
