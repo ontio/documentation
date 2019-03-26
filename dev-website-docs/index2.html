@@ -61,6 +61,34 @@
          .content {left:0;padding-top: 50px;}
          .doc-link {position: relative;text-align: right;right:0;}
        }
+      /* 20190326 update */
+      .sidebar ul li a {
+          color: #505d6b;
+          font-size: 14px;
+          font-weight: 400;
+          overflow: hidden;
+          text-decoration: none;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          padding-left:10px;
+          border-radius: 5px;
+      }
+      .sidebar ul li.active>a {
+          border-right: 2px solid;
+          color: #fff;
+          font-weight: 600;
+          background-color: #32a4be;
+      }
+      .sidebar ul li a:hover {
+          text-decoration: none;
+          background-color: #32a4be66;
+          color:#fff;
+      }
+      .markdown-section a {
+          color: #32a4be;
+          font-weight: 600;
+          text-decoration: none;
+      }
   </style>
 </head>
 <body>
