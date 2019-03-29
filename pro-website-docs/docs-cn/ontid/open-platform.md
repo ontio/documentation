@@ -165,10 +165,11 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 5. 同时返回结果到ONT ID前台。
 6. ONT ID前台重定向到```redirect_uri```
 
+
 ### 调用合约的数据格式
 
 ```
-url：/api/v1/ontid/invoke
+url：/api/v1/ontid/request/order
 
 method：POST
 
@@ -178,9 +179,26 @@ method：POST
 }
 
 ```
+返回：
+
+```
+
+{
+  "action" : "requestOrder",
+  "error" : 0,
+  "desc" : "SUCCESS",
+  "result" : {
+    "access_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJhdWQiOiJkaWQ6b250OkFOUzlKbm9FUjVXcWNFNzVqSGVZWkF1U1dSdlRqUDY5V0giLCJpc3MiOiJkaWQ6b250OkFhdlJRcVhlOVByYVY1dFlnQnF2VjRiVXE4TFNzdmpjV1MiLCJleHAiOjE1NTM5NTkwMjAsImlhdCI6MTU1Mzg3MjYyMCwianRpIjoiYzkyZjNiMTdkN2E2NGZjZjg2MGI5M2I4ODgwMjVkNTMiLCJjb250ZW50Ijp7InR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJvbnRpZCI6ImRpZDpvbnQ6QU5TOUpub0VSNVdxY0U3NWpIZVlaQXVTV1J2VGpQNjlXSCJ9fQ.MDFiYTllM2VkZjRhNjE2ODM1NjZjYThkMWVkM2UwNWUxNTg5MDEzMjEwYTFlOGU2ZDdiYmYxYjc0NTRmOGFlNzExMDQxZDUwMDExZWFkNDIwMmY3NDYyMTMyNGNlYjQ5NTA4NDM0YzRjOTI5Y2NmZTcyNzRmYTcxYTg2MzNkNTMzMw",
+    "orderid" : "9892bcb698bb4cbd812c8b466d8ad432"
+  },
+  "version" : "v1"
+}
+
+```
 
 #### Payload 里的私有申明
 
+包含调用合约的参数和应用方的信息。
 
 ```
 {
@@ -238,8 +256,8 @@ method：POST
 |    invokeConfig.payer |   String | 网络费付款人 |
 |    invokeConfig.gasLimit |   int | 执行合约需要消耗的gas |
 |    invokeConfig.gasPrice |   int | 目前是固定值500 |
-|    signature|   String | 应用方用私钥对除signature以外的参数签名，传递到 ONTID 开放平台时会被校验。 |
-
+|    app.ontid |   String | 应用方 ontid |
+|    app.callback |   String | 调用合约成功的回调地址 |
 
 ONT/ONG转账```invokeConfig```参数填写例子：
 ```
@@ -319,7 +337,8 @@ method：POST
     "error":0,
     "desc":"SUCCESS",
     "result": {
-       
+          "publickey": "",
+          "ontid": ""
     }
 }
 ```
@@ -403,6 +422,8 @@ method：POST
 
 ## 演示例子
 
-第三方应用集成演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
+第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
+
+第三方应用服务器例子： [app-server](https://github.com/ontio-ontid/ontid-app-server), 发起支付请求和回调例子。
 
 ONTID 登陆地址： [https://signin.ont.io/#/](https://signin.ont.io/#/)
