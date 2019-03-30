@@ -7,6 +7,8 @@ By default, the Restful interface listens on port 20334, the Websocket interface
 
 Often, it is extremely inconvenient for developers to run their own nodes. Therefore, the ontology provides the `polaris` test network node and the main network node for developers to use, all supporting RPC, Restful, and WebSockek calls, and using the default port number.
 
+> 10334 port of the first node of the polaris test network and the first node of the miannet network support HTTPS.
+
 - `polaris` test network node
   - http://polaris1.ont.io
   - http://polaris2.ont.io
