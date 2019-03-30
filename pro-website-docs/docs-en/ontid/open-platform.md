@@ -168,7 +168,7 @@ The ONTID Payment process is:
 ### The data format of invoking a smart contract
 
 ```
-url：/api/v1/ontid/invoke
+url：/api/v1/ontid/request/order
 
 method：POST
 
@@ -179,6 +179,22 @@ method：POST
 
 ```
 
+Response:
+
+```
+
+{
+  "action" : "requestOrder",
+  "error" : 0,
+  "desc" : "SUCCESS",
+  "result" : {
+    "access_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJhdWQiOiJkaWQ6b250OkFOUzlKbm9FUjVXcWNFNzVqSGVZWkF1U1dSdlRqUDY5V0giLCJpc3MiOiJkaWQ6b250OkFhdlJRcVhlOVByYVY1dFlnQnF2VjRiVXE4TFNzdmpjV1MiLCJleHAiOjE1NTM5NTkwMjAsImlhdCI6MTU1Mzg3MjYyMCwianRpIjoiYzkyZjNiMTdkN2E2NGZjZjg2MGI5M2I4ODgwMjVkNTMiLCJjb250ZW50Ijp7InR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJvbnRpZCI6ImRpZDpvbnQ6QU5TOUpub0VSNVdxY0U3NWpIZVlaQXVTV1J2VGpQNjlXSCJ9fQ.MDFiYTllM2VkZjRhNjE2ODM1NjZjYThkMWVkM2UwNWUxNTg5MDEzMjEwYTFlOGU2ZDdiYmYxYjc0NTRmOGFlNzExMDQxZDUwMDExZWFkNDIwMmY3NDYyMTMyNGNlYjQ5NTA4NDM0YzRjOTI5Y2NmZTcyNzRmYTcxYTg2MzNkNTMzMw",
+    "orderid" : "9892bcb698bb4cbd812c8b466d8ad432"
+  },
+  "version" : "v1"
+}
+
+```
 
 #### Private claims in Payload
 
@@ -238,8 +254,8 @@ method：POST
 |    invokeConfig.payer |   String | Network fee payer |
 |    invokeConfig.gasLimit |   int | Gas consumed to execute a contract |
 |    invokeConfig.gasPrice |   int | Fixed value 500 |
-|    signature|   String | The application uses its private key to sign all parameters other than the signature, which will be verified when passed to the ONTID open platform. |
-
+|    app.ontid |   String | The application ontid |
+|    app.callback |   String | callback  url |
 
 ONT/ONG transfer ```invokeConfig``` parameter filling example :
 ```
@@ -311,7 +327,8 @@ Response：
     "error":0,
     "desc":"SUCCESS",
     "result": {
-
+        "publickey": "",
+        "ontid": ""
     }
 }
 ```
@@ -395,5 +412,7 @@ Response：
 ## Examples
 
 Website Application: [http://139.219.136.188:10391/#/](http://139.219.136.188:10391//#/), [source code](https://github.com/ontio-ontid/ontid-app-demo)
+
+Application Server Example: [app-server](https://github.com/ontio-ontid/ontid-app-server)
 
 ONTID Login: [https://signin.ont.io/#/](https://signin.ont.io/#/)
