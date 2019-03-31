@@ -50,6 +50,50 @@ Contract invoke successfully
 
 ![](https://upload-images.jianshu.io/upload_images/150344-297f0b59eb7b3e94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+根据合约的abi文件中的合约hash和合约方法，可以通过`sdk`构造调用合约方法的交易。这里以`ontology-ts-sdk`为例。
+
+```
+import {Parameter, ParameterType, Crypto, utils, TransactionBuilder} from 'ontology-ts-sdk'
+//set the function name to call
+const funcName = 'Add';
+
+//set the parameters of the function,
+// Please pay attention to the parameter type and value.
+const p1 = new Parameter('a', ParameterType.Integer, 1);
+const p2 = new Parameter('b', ParameterType.Integer, 2);
+
+//set the contract address
+const contractAddr = new Crypto.Address(utils.reverseHex('c76d6764213612597cb815b6d444047e91a576bd));
+
+//set gasPrice and gasLimit
+const gasPrice = '0';
+const gasLimit = '30000';
+
+//make transaction
+const tx = TransactionBuilder.makeInvokeTransaction(funcName, [p1, p2], contractAddr, gasPrice, gasLimit)
+
+// we need to add the payer and signature before we send it to blockchain
+const adminPrivateKey = new Crypto.PrivateKey('7c47df9664e7db85c1308c080f398400cb24283f5d922e76b478b5429e821b97');
+const adminAddress = new Crypto.Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz');
+tx.payer = adminAddress;
+TransactionBuilder.signTransaction(tx, adminPrivateKey);
+
+```
+
+##### 参数构造
+
+构造交易时请注意参数的类型和参数值必须对应，且符合合约中方法的参数要求。TS SDK 提供了`Parameter`和`ParameterType`类，用于辅助参数构造。以下是常用参数构造的例子。更多参数构造的示例请参考[ts sdk的测试用例](https://github.com/ontio/ontology-ts-sdk/blob/master/test/scParams.test.ts)
+
+```
+const account = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz')
+new Parameter('arg1', ParameterType.Boolean, false),
+new Parameter('arg2', ParameterType.Integer, 3),
+new Parameter('arg3', ParameterType.ByteArray, account.serialize()),
+new Parameter('arg4', ParameterType.String, 'arg4')
+new Parameter('arg5', ParameterType.Address, account')
+new Parameter('arg6', ParameterType.Long, '100000000000000000')
+```
+
 ##### 什么是合约hash？
 
 合约hash是对合约的avm内容进行某些hash运算得到的值，该值是用来区分不同合约的唯一值。abi文件里一般也含有合约hash值。
@@ -71,9 +115,9 @@ Contract invoke successfully
 我们以TS SDK的restful接口为例，说明如何简单地发送交易。
 
 ````
-import {RestClient} from 'Ont'
+import {RestClient} from 'ontology-ts-sdk'
 //construct the restful client
-const client = new RestClient();
+const client = new RestClient();// default connects to TestNet
 
 //we use the tx made in last step
 client.sendRawTransaction(tx.serialize()).then(res => {
