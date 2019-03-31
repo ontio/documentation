@@ -754,6 +754,17 @@ Response:
                         1000000000000000000
                     ]
                 }
+        },
+        {
+            "TxHash": "6b391812b6a3230c057b108227f78a1c7caa9fa934817c60540af55e62167507",
+            "State": 1,
+            "GasConsumed": 0,
+            "Notify": [
+                {
+                    "ContractAddress": "49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24",
+                    "States": "57b108227f78a1c7caa9fa934817c60540af55e62167507" //State is a string type when only one field is returned
+                }
+            ]
         }
   ]
 }
@@ -804,7 +815,7 @@ notify description
 | States | array | states indicate notify message of contract|
 
 
-> Note: If params is a number, the response result will be the smartcode list. If params is transaction hash, the response result will be smartcode event.
+> Note: If params is a number, the response result will be the smartcode list. If params is transaction hash, the response result will be smartcode event. `State` in `Notify` is a string type when only one field is returned.
 
 #### 14. getblockheightbytxhash
 

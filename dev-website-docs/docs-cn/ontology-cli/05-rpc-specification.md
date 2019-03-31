@@ -683,7 +683,7 @@ public class NetworkDemo {
 
 响应：
 
-```json
+49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -719,6 +719,17 @@ public class NetworkDemo {
                         "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
                         1000000000000000000
                     ]
+                }
+            ]
+        },
+        {
+            "TxHash": "6b391812b6a3230c057b108227f78a1c7caa9fa934817c60540af55e62167507",
+            "State": 1,
+            "GasConsumed": 0,
+            "Notify": [
+                {
+                    "ContractAddress": "49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24",
+                    "States": "57b108227f78a1c7caa9fa934817c60540af55e62167507" //只返回一个字段时，State为字符串类型
                 }
             ]
         }
@@ -784,6 +795,7 @@ public class NetworkDemo {
 >
 > - 如果参数是区块高度，返回执行结果的集合。
 > - 如果是交易哈希，返回对应交易的执行结果。
+> - `Notify` 字段中的`States`在只包含一个字段时为字符串类型，包含多个字段时则为数组类型
 >
 
 ## getblockheightbytxhash
