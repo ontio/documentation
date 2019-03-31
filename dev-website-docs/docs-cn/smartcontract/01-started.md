@@ -126,6 +126,8 @@ client.sendRawTransaction(tx.serialize()).then(res => {
 })
 ````
 
+> `sendRawTransaction`方法的第二个参数`preExec`表示是否发送预执行交易，该参数是`boolean`类型，默认值为`false`表示正常执行交易，设为`true`表示发送预执行交易。预执行交易会立即返回合约方法的返回值，执行该方法所需`gasLimit`，可以用来查询合约或者检查交易的构造是否正确。
+
 #### 获取交易结果
 
 在上一步我们通过restful的接口发送了交易到链上，返回的结果如下：
