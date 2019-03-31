@@ -248,7 +248,7 @@ If pre-execute failed，the value of error would be large than 0.
 
 ##### The method of verifying a signature
 * [java sdk signature verification](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
-* [ts sdk signature verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
+* [ts sdk signature verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
 ##### The method of querying a contract
 * [java sdk contract query](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)

@@ -222,7 +222,7 @@ DApp 中的登录可以有两种实现：
 
 > ##### 后台签名验证的方法，可以参考以下示例
 > * [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
-> * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
+> * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
 #### 获取账号或身份信息
 
