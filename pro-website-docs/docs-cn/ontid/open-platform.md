@@ -158,8 +158,8 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 ![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment.png) 
 
 
-1. 应用方后台发送支付请求到 ONT ID 开放平台。请求的头部包含 ```access_token```。ONT ID 开放平台验证 ```access_token``` 是否有效，返回 ```requestId``` 作为流水号。
-2. 应用方前台打开支付页面，参数中带着 ```requestId``` 和应用方前台的重定向地址 ```redirect_uri```。
+1. 应用方后台发送支付请求到 ONT ID 开放平台。ONT ID 开放平台返回 ```orderid``` 作为流水号。
+2. 应用方前台打开支付页面，参数中带着 ```orderid``` 和应用方前台的重定向地址 ```redirect_uri```。
 3. 用户确认请求，发送请求到 ONTID 开放平台。
 4. ONTID 开放平台处理请求，通知结果到应用方后台。
 5. 同时返回结果到ONT ID前台。
@@ -175,7 +175,7 @@ method：POST
 
 {
    "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-   "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+   "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
 ```
