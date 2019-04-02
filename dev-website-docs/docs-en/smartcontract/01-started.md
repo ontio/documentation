@@ -197,6 +197,21 @@ const gasLimit = '30000';
 const tx = TransactionBuilder.makeInvokeTransaction(funcName, [p1, p2], contractAddr, gasPrice, gasLimit)
 ````
 
+##### Construct parameter
+
+Please pay attention to the parameter type and value. The TS SDK offers `Parameter` and `ParameterType` class to help with it. Here are some common parameter examples, and you can refer to the [ts sdk test case](https://github.com/ontio/ontology-ts-sdk/blob/master/test/scParams.test.ts) for more examples.
+
+```
+const account = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz')
+new Parameter('arg1', ParameterType.Boolean, false),
+new Parameter('arg2', ParameterType.Integer, 3),
+new Parameter('arg3', ParameterType.ByteArray, account.serialize()),
+new Parameter('arg4', ParameterType.String, 'arg4')
+new Parameter('arg5', ParameterType.Address, account')
+new Parameter('arg6', ParameterType.Long, '100000000000000000')
+
+```
+
 Now we follow the above steps to construct a transaction object. During the construction process, the method name and method parameters need to be consistent with the description in the abi file; otherwise, an error will occur.
 
 Generally, executing a smart contract needs to consume gas. Therefore, gasPrice and gasLimit must be set in the transaction object. If these two values are too small, the transaction will not be packed into the block and the contract method will fail to execute. In the current TestNet, gasPrice is allowed to be set to 0, that is, it does not need to consume gas. In the MainNet, a certain amount of gas is needed  to ensure that the contract is properly invoked.
@@ -238,6 +253,8 @@ client.sendRawTransaction(tx.serialize()).then(res => {
 console.log(res);
 })
 ````
+
+> The second parameter of `sendRawTransaction`, `preExec`, defines whether the trasanction is sent as pre-execution. The default value is false, when set as true means we want to sent the transaction as pre-execution. Pre-execution can be used to query something from contract or check whether the transaction is correct.
 
 ### 3. Get the transaction result
 

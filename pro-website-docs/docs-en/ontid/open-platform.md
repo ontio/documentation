@@ -158,8 +158,8 @@ The ONTID Payment process is:
 ![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment-en.png) 
 
 
-1. The application sends a payment request to the ONT ID open platform. The header of the request contains ```access_token```. The ONT ID open platform verifies if the ```access_token``` is valid and returns ```requestId``` as the serial number.
-2. The application opens the payment page with the parameter ```requestId``` and the redirect address ```redirect_uri``` of the application's frontend.
+1. The application sends a payment request to the ONT ID open platform. The ONT ID open platform returns ```orderid``` as the serial number.
+2. The application opens the payment page with the parameter ```orderid``` and the redirect address ```redirect_uri``` of the application's frontend.
 3. The user confirms the request and sends a request to the ONTID open platform.
 4. The ONTID open platform processes the request and notifies the result to the application.
 5. Return the result to the ONTID frontend at the same time.
@@ -174,7 +174,7 @@ method：POST
 
 {
    "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-   "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+   "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
 ```

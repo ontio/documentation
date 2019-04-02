@@ -252,17 +252,22 @@ TOKEN_TYPE = {
 
 #### 样例
 ````
-import { makeTransferTransaction, buildRestParam } from "../src/transaction/transactionBuilder";
+import { Crypto, OntAssetTxBuilder, TransactionBuilder, WebsocketClient } from 'ontology-ts-sdk'
 
-var tx = makeTransferTransaction( 'ONT', '0144587c1094f6929ed7362d6328cffff4fb4da2', 'ffeeddccbbaa99887766554433221100ffeeddcc', '1000000000', '760bb46952845a4b91b1df447c2f2d15bb40ab1d9a368d9f0ee4bf0d67500160' )
+const gasLimit = '20000';
+const gasPrice = '500';
+const fromPrivateKey = new Crypto.PrivateKey('7c47df9664e7db85c1308c080f398400cb...83f5d922e76b478b5429e821b97');
+const from = new Crypto.Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz');
+const to = new Crypto.Address('AH9B261xeBXdKH4jPyafcHcLkS2EKETbUj');
+const tx = OntAssetTxBuilder.makeTransferTx('ONT', from, to, 1, gasPrice, gasLimit); // 'from' is default as payer
+//tx.payer = from;
+TransactionBuilder.signTransaction(tx, fromPrivateKey);
 
-var restData = buildRestParam(tx)
-
-axios.post('127.0.0.1:20386', restData).then(res => {
-       console.log('transfer response: ' + JSON.stringify(res.data))
-   }).catch(err => {
-       console.log(err)
-   })
+// we can use RestClient, RpcClient or WebsocketClient to send the trasanction
+const socketClient = new WebsocketClient('ws://polaris1.ont.io:20335');
+const response = await socketClient.sendRawTransaction(tx.serialize(), false, true);
+// tslint:disable:no-console
+console.log(JSON.stringify(response));
 ````
 
 ## 数字资产查询 getBalance
