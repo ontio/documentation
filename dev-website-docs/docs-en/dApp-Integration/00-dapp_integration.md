@@ -11,8 +11,6 @@ The following scenarios are currently supported:
 - [Use mobile wallet to scan code](https://dev-docs.ont.io/#/docs-en/dApp-Integration/02-DAppDocking-QRcode)
 - [Use chrome plugin wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
 - [Wake Up Mobile Wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/06-DAppDocking-Wake-up)
-- [Open DApp in desktop wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/07-DAppDocking-use-desktop-wallet)
-
 
 For the integration of DAPI-enabled wallets such as [Math Wallet](http://www.mathwallet.org/en/) and [Onion](http://onion.fun/), please refer to the corresponding docking document. For details of the agreement, please see [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki).
 
