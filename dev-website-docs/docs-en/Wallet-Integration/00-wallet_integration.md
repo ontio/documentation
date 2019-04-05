@@ -1,11 +1,11 @@
 
 ## Overview
 
-钱包接入可分为两个层次：
+Wallet access can be divided into two levels:
 - [Asset Function Integration](https://dev-docs.ont.io/#/docs-en/Wallet-Integration/01-WalletDocking-asset-docking)
 - [provider sdk integration](https://dev-docs.ont.io/#/docs-en/Wallet-Integration/02-WalletDocking-provider-sdk-docking)
 
-![wallet-integration](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/wallet-integration.png)
+![wallet-integration](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/wallet_integration_en.png)
 
 After the two layers of integration are completed, the scene can be accessed.
 

@@ -2,7 +2,7 @@
 ## Overview
 Provider-SDK encapsulates some methods for iOS/Android webview, enabling communication between iOS/Android webview and web page DApp.
 
-![Integration Description](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/provider-sdk.png)
+![Integration Description](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/provider_sdk_en.png)
 
 ## Integration Description
 

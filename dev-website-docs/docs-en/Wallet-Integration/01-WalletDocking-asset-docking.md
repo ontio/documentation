@@ -1,7 +1,7 @@
 ## Overview
 Wallet App integrates ONT's SDK, and with the open browser interface, it can realize digital asset operation, account management and other functions.
 
-![Access Description](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/sdk.png)
+![Access Description](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/sdk_en.png)
 
 ## SDK
 The Ontology Software Development Kit (SDK) is the bridge between the application and the ontology network. Based on a common set of ontology software development kit development specifications, we offer a multi-language software development kit to meet the needs of different developers.
