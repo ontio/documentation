@@ -27,8 +27,8 @@ Please refer to the following documents for the SDK installation instructions an
 The browser interface is a public query interface that provides information to the developer, institution, exchange, etc. on the chain.
 
 The browser interface currently supports the following query features:
-- [Block] (https://dev-docs.ont.io/#/docs-en/explorer/blocks)
-- [Account] (https://dev-docs.ont.io/#/docs-en/explorer/accounts)
-- [Transaction] (https://dev-docs.ont.io/#/docs-en/explorer/transactions)
+- [Block](https://dev-docs.ont.io/#/docs-en/explorer/blocks)
+- [Account](https://dev-docs.ont.io/#/docs-en/explorer/accounts)
+- [Transaction](https://dev-docs.ont.io/#/docs-en/explorer/transactions)
 - [ONTID](https://dev-docs.ont.io/#/docs-en/explorer/ontid)
-- [Statistics] (https://dev-docs.ont.io/#/docs-en/explorer/statistics)
+- [Statistics](https://dev-docs.ont.io/#/docs-en/explorer/statistics)
