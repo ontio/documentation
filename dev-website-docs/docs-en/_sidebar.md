@@ -44,7 +44,6 @@
   - [DAPP supports mobile wallet scan code](docs-en/dApp-Integration/02-DAppDocking-QRcode.md)
   - [DAPP supports chrome plugin wallet](docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
   - [DAPP wakes up mobile wallet](docs-en/dApp-Integration/06-DAppDocking-Wake-up.md)
-  - [DAPP supports opening inside the desktop wallet](docs-en/dApp-Integration/07-DAppDocking-use-desktop-wallet.md)
 
 
 - Wallet Integration Guide
