@@ -235,7 +235,7 @@ method：POST
 		},
         "app": {
             "name": "",
-            "orderid": "",
+            "id": "uuid",
             "logo":"",
             "message": "",
             "ontid": "",
@@ -258,7 +258,7 @@ method：POST
 |    invokeConfig.gasPrice |   int | 目前是固定值500 |
 |    app.ontid |   String | 应用方 ontid |
 |    app.callback |   String | 调用合约成功的回调地址 |
-|    app.orderid |   String | 订单编号，必须是唯一标识，用于应用方确认订单 |
+|    app.id |   String | 订单编号，必须是唯一标识，用于应用方确认订单 |
 
 ONT/ONG转账```invokeConfig```参数填写例子：
 ```

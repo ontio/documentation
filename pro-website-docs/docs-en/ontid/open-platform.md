@@ -234,7 +234,7 @@ Response:
 		},
         "app": {
             "name": "",
-            "orderid": "",
+            "id": "",
             "logo":"",
             "message": "",
             "ontid": "",
@@ -256,7 +256,7 @@ Response:
 |    invokeConfig.gasPrice |   int | Fixed value 500 |
 |    app.ontid |   String | The application ontid |
 |    app.callback |   String | callback  url |
-|    app.orderid |   String | order id |
+|    app.id |   String | order id |
 
 ONT/ONG transfer ```invokeConfig``` parameter filling example :
 ```
