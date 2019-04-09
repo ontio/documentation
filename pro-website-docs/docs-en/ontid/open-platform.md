@@ -254,7 +254,7 @@ Response:
 |    invokeConfig.gasPrice |   int | Fixed value 500 |
 |    app.ontid |   String | The application ontid |
 |    app.callback |   String | callback  url |
-|    app.nonce |   String |  |
+|    app.nonce |   long |  |
 
 ONT/ONG transfer ```invokeConfig``` parameter filling example :
 ```

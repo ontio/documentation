@@ -256,7 +256,7 @@ method：POST
 |    invokeConfig.gasPrice |   int | 目前是固定值500 |
 |    app.ontid |   String | 应用方 ontid |
 |    app.callback |   String | 调用合约成功的回调地址 |
-|    app.nonce |   String |  |
+|    app.nonce |   long |  |
 
 ONT/ONG转账```invokeConfig```参数填写例子：
 ```
