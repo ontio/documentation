@@ -1,6 +1,7 @@
 
 
 
+
 A specially adapted wallet app can support wake-up by other apps in the phone. This document will introduce features such as smart contract (including payment) if you log in through the Wakeup Wall App in the app.
 
 ## Description
