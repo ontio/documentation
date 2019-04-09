@@ -48,11 +48,13 @@
 
 - DAPP 对接指南
   - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
-  - [DAPP支持手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
-  - [DAPP支持手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
-  - [DAPP支持chrome插件钱包](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
-  - [DAPP唤醒手机钱包](docs-cn/dApp-Integration/06-DAppDocking-Wake-up.md)
-  - [DAPP支持桌面钱包内打开](docs-cn/dApp-Integration/07-DAppDocking-use-desktop-wallet.md)
+  - [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
+  - [DApi 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
+    - [手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
+    - [手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
+    - [chrome插件钱包](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
+    - [唤醒手机钱包](docs-cn/dApp-Integration/06-DAppDocking-Wake-up.md)
+    - [桌面钱包内打开](docs-cn/dApp-Integration/07-DAppDocking-use-desktop-wallet.md)
 
 - 钱包对接指南
   - [概述](docs-cn/Wallet-Integration/00-wallet_integration.md)
