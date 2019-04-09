@@ -25,9 +25,9 @@
 
 
 
-# Query Summary Info
+# 获取摘要信息
 
-## type： daily or weekly or monthly
+## 类型： 日，周，月
 
   url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
 
