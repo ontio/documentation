@@ -23,7 +23,7 @@ DApp与本体链产生交互时主要有以下功能：
 资产上链并不是DApp开发必须的，但是有些DApp需要特定的链上资产来运行其内部逻辑。
 根据对资产的需求不同，本体提供了OEP4，OEP5，OEP8这三种不同类型的链上资产类型。
 
-[什么是OEP-4，OEP-5，OEP-8 ？](#1-什么是OEP-4，OEP-5，OEP-8-？)
+[什么是OEP-4，OEP-5，OEP-8 ？](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/11-Q&A?id=_1-%E4%BB%80%E4%B9%88%E6%98%AFoep-4%EF%BC%8Coep-5%EF%BC%8Coep-8-%EF%BC%9F)
 
 ## 接入技术实现
 
