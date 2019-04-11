@@ -146,9 +146,6 @@ ONTID 授权登录模式整体流程为：
 
 
 
-## 用户授权（暂不支持）
-
-有些接口需要用户授权，应用后台才有权限访问用户的数据。没有授权就能访问的是默认授权的接口。
 
 
 
@@ -290,29 +287,10 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 }
 
 ```
-## 签名接口（暂不支持）
-
-```
-url：/api/v1/ontid/signmessage
-
-method：POST
-
-{
-   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-   "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
-}
-
-```
-#### Payload 里的私有申明
-
-```
-{
-	"message": "helloworld",
-}
-```
 
 
-## 其他接口
+
+## 应用方查询接口
 
 
 
