@@ -30,19 +30,19 @@ ONTID 授权登录模式整体流程为：
 4. ONTID 开放平台前端关闭登录页面，返回```JWT token```给应用的前端。
 5. 应用方前端发送 ```JWT token``` 给应用的后台。 
 6. 应用方的后台验证 ```JWT token``` 的颁发者成功后，获取 ```refresh_token``` 中用户信息，一般为非敏感的信息，如用户用户 ONTID，手机号。
-7. 根据```access_token``` 访问 ONTID 开放平台接口。
+7. 请求头部携带着```access_token```去访问 ONTID 开放平台接口。
 
 第三步返回的 ```JWT token``` 的数据采用应用方公钥加密，解密后的数据格式为：
- 
+
 ```
  {
     "access_token" :  "JWT token",
     "refresh_token" : "JWT token"
  }
 ```
- 
+
 >  ```JWT token``` 的值里的Payload需要增加 ```content```字段：
- 
+
 ```
  
    "content": {
@@ -53,12 +53,12 @@ ONTID 授权登录模式整体流程为：
    }
    
 ```
- 
- | Param     |     Type |   Description   |
- | :--------------: | :--------:| :------: |
- |    access_token |   String | ```JWT token```，用户访问接口时 ```Header``` 需要填写 ```access_token``` |
- |    refresh_token |   String | ```JWT token```，刷新 ```access_token``` 时使用 |
- 
+
+| Param     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    access_token |   String | ```JWT token```，用户访问接口时 ```Header``` 需要填写 ```access_token``` |
+|    refresh_token |   String | ```JWT token```，刷新 ```access_token``` 时使用 |
+
  
 
 ### JWT Token 格式说明
@@ -89,15 +89,15 @@ ONTID 授权登录模式整体流程为：
 官方规定了7个字段，可选。我们选用以下几个必须字段：
 
   ```iss (issuer)```：签发人。这里是 ONTID 开放平台的 ONTID。
-  
+
   ```exp (expiration time)```：```token``` 过期时间。
-  
+
   ```aud (audience)```：受众。这里是应用方的 ONTID。
-  
+
   ```iat (Issued At)```：签发时间
-  
+
   ```jti (JWT ID)```：编号。ONTID 开放平台保存的凭证。
-  
+
 > 注意除了以上字段，还有一些自定义字段用于存储用户信息，这些用户信息不能是敏感信息。
 
 #### Signature
@@ -119,7 +119,7 @@ ONTID 授权登录模式整体流程为：
 
 
 
-### 应用方对接流程
+## 如何集成ONT ID登录
 
 
 1. 页面引入```OntidSignIn.js```
@@ -143,14 +143,6 @@ ONTID 授权登录模式整体流程为：
     xhr.send('idtoken=' + id_token);
 ```
 5. 应用方后台验证 ``` JWT token ```
-
-
-
-## 用户授权
-
-有些接口需要用户授权，应用后台才有权限访问用户的数据。没有授权就能访问的是默认授权的接口。
-
-
 
 ## 支付/调用合约接口
 
@@ -180,6 +172,8 @@ method：POST
    "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
+// data 需要使用应用方的ONT ID进行签名
+// user 是用户的ONT ID
 ```
 返回：
 
@@ -204,7 +198,7 @@ method：POST
 
 ```
 {
-		"invokeConfig": {
+		"invokeConfig": { 
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
 			"functions": [{
 				"operation": "method name",
@@ -236,12 +230,12 @@ method：POST
 			"gasPrice": 500
 		},
         "app": {
-            "name": "",
-            "logo":"",
-            "message": "",
-            "ontid": "",
-            "callback": "",
-            "nonce": 123456
+            "name": "", // String，必填项，应用方名称
+            "logo":"", // String，可选项，应用方logo的url。
+            "message": "", // String，必填项，用于页面上显示支付/调用合约的目的，不能超过30个字符
+            "ontid": "", // String，必填项，应用方的ONT ID
+            "callback": "",// String，可选项，应用方后台用于接收推送的交易执行结果，必须为https下															// `post`请求。该请求具体情况见下文。
+            "nonce": "123456" // String，不能重复
         }
 }
 ```
@@ -287,6 +281,28 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 }
 
 ```
+
+
+## 如何集成ONT ID支付/调用合约
+
+1. 用户使用ONT ID登录第三方应用并传递`access_token`给应用后台。
+
+2. 第三方应用后台发送创建订单请求到ONT ID开发平台后台，得到订单号`orderid`和`invoke_token`
+
+3. 第三方应用跳转至通用的支付/调用合约页面，需要在url上附带参数如下：
+
+   ```
+   host + /transaction?orderid={orderid}&invoke_token={invoke_token}&callback_url={callback_url}
+   ```
+
+   其中，callback_url是支付/调用合约完成后，返回到应用方的回调地址。
+
+4. 用户确认后输入ONT ID密码，交易发送上链，返回到第三方应用。
+
+> 具体案例可以参考[官方示例](https://github.com/ontio-ontid/ontid-app-demo)
+
+
+
 ## 签名接口
 
 ```
@@ -325,7 +341,7 @@ method：POST
 }
 ```
 
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    ontid|   String|  ontid  |
 
@@ -344,7 +360,7 @@ method：POST
 }
 ```
 
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    action|   String|  动作标志  |
 |    version|   String|  版本号  |
@@ -364,7 +380,7 @@ method：POST
    	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 ```
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    ontid|   String|  ontid  |
 
@@ -383,7 +399,7 @@ method：POST
 }
 ```
 
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    action|   String|  动作标志  |
 |    version|   String|  版本号  |
@@ -395,8 +411,8 @@ method：POST
 ### 错误码
 
 
-| 代码     |     说明   |  
-| :----: | :----: | 
+| 代码     |     说明   |
+| :----: | :----: |
 | 00000	|	SUCCESS,成功 |
 | 61001	|	PARAM_ERROR,参数错误 |
 | 61002	|	ALREADY_EXIST,已存在 |
@@ -426,5 +442,3 @@ method：POST
 第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
 
 第三方应用服务器例子： [app-server](https://github.com/ontio-ontid/ontid-app-server), 发起支付请求和回调例子。
-
-ONTID 登陆地址： [https://signin.ont.io/#/](https://signin.ont.io/#/)
