@@ -290,9 +290,9 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 
 
 
-## 查询对接
+## 查询接口对接
 
-
+使用前需先登录 ONTID ，有``` access_token ```才能调用查询接口。
 
 ### 应用方查询用户 ontid 账户信息
 
