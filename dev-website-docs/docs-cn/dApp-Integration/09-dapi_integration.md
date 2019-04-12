@@ -11,16 +11,28 @@
 - [使用 chrome 插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
 - [唤醒手机钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/06-DAppDocking-Wake-up)
 
-已支持 DAPI 的钱包如 [麦子钱包](http://www.mathwallet.org/en/)、[Onion](http://onion.fun/) 的对接请参考对应的对接文档。协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
+已支持 DAPI 的钱包如 [麦子钱包](http://www.mathwallet.org/en/)、[Onion](http://onion.fun/) 。
+
+协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
 
 参考钱包下载地址：http://101.132.193.149/files/app-debug.apk
 
 
 ## 钱包演示
 
-移动版 Cyano 钱包源码链接地址：[cyano-android](https://github.com/ontio-cyano/cyano-android),[cyano-ios](https://github.com/ontio-cyano/cyano-ios)。
+这边主要演示一下最主流的在手机钱包中打开 DApp的流程和基本功能演示
 
-H5 DApp 例子源码：[mobile-dapp-demo](https://github.com/ontio-cyano/mobile-dapp-demo)
+具体对接详情文档请参考 [在手机钱包中打开 DApp](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)
+
+移动版 Cyano 钱包源码链接地址：
+
+[cyano-android](https://github.com/ontio-cyano/cyano-android)
+
+[cyano-ios](https://github.com/ontio-cyano/cyano-ios)
+
+H5 DApp 例子源码：
+
+[mobile-dapp-demo](https://github.com/ontio-cyano/mobile-dapp-demo)
 
 ### 在钱包中打开 DApp
 
