@@ -110,9 +110,18 @@ method：POST
 
 ```
 
-应用方服务器可以通过``` callback ```确认用户支付成功，也可以通过合约 hash 到[链上查询合约事件](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)。
+> 应用方服务器可以通过``` callback ```确认用户支付成功，也可以通过合约 hash 到[链上查询合约事件](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)。
 
 
+上链成功或失败回调应用方callback_url接口:
+
+```
+{
+  "txHash" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
+  "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
+  "result": 4   //0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期
+}  
+```
 
 ### 前端对接支付页面
 
@@ -362,6 +371,16 @@ method：POST
    其中，callback_url是支付/调用合约完成后，返回到应用方的回调地址。
 
 4. 用户确认后输入ONT ID密码，交易发送上链，返回到第三方应用。
+
+5. 上链成功或失败回调应用方callback_url接口。
+
+```
+{
+  "txHash" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
+  "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
+  "result": 4   //0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期
+}  
+```
 
 > 具体案例可以参考[官方示例](https://github.com/ontio-ontid/ontid-app-demo)
 
