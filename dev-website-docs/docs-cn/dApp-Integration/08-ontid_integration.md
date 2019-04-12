@@ -28,19 +28,32 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 * 第三方应用服务器例子： [app-server 源码](https://github.com/ontio-ontid/ontid-app-server)
 
 ### 前端对接登录页面
- 
- 
+
+ONT ID 登录集成有两种方式：通过跳转到特定URL，和页面集成插件`plugin.js`。这里介绍的是快速对接的方式。页面集成插件的方式见下文。
+
+
  ```
  http://139.219.136.188:10390/signin?params={value}
- value = window.encodeURIComponent(appontid + '&' + appname + '&' + lang)
-```
- 
+ value = window.encodeURIComponent(appontid + '&' + appname + '&' + callback_url + '&' + lang)
+ ```
 
- ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
+ ```lang``` 是可选的参数, 默值是en，en表示英文，zh表示中文。
  ```appontid``` 是应用方的 ontid。
  ```appname``` 是应用方的 名字。
 
-> 用户登录成功后，应用方得到 ```access_token```可以查询用户的信息，应用方需要保存用户的资产地址信息，支付时候需要使用
+> 用户登录成功后，登录的返回信息会作为参数附在应用方回调地址`callback_url`后，传递给应用方。
+>
+> 返回信息是经过`encodeURIComponent(JSON.stringify(response))`处理的。应用方需要逆向操作得到实际的返回信息。返回信息的结构如下：
+>
+> ```json
+> {
+>   "access_token": '',
+>   "ontid": '',
+>   "refresh_token": ''
+> }
+> ```
+>
+> 应用方得到 ```access_token```可以查询用户的信息，应用方需要保存用户的资产地址信息，支付时候需要使用
 
 ### 应用方服务器发起支付订单请求
 
@@ -106,7 +119,6 @@ method：POST
 ```  
   http://139.219.136.188:10390/transaction?params={value}
   value = window.encodeURIComponent(orderid + & + invoke_token + & + callback_url + & + lang)
-  
 ```
 
  ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
@@ -131,7 +143,7 @@ method：POST
      "exp":1555041974000
  }
  ```
- 
+
 根据订单号查询
 ```
 url： /api/v1/provider/query/order
@@ -217,9 +229,14 @@ ONTID 授权登录模式整体流程为：
 ### 如何集成ONT ID登录
 
 
-1. 页面引入```OntidSignIn.js```
+1. 页面引入```plugin.js```
+
+   > 目前`plugin.js`放在[github](<https://github.com/ontio-ontid/ontid-app-demo/blob/master/public/plugin.js>)上，以后我们会放到CDN上。
+
 2. 页面添加 meta 标签，填写应用方的ONT ID。```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
+
 3. 页面添加 ONTID 的Sign In 按钮。``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
+
 4. 在登录成功后，触发回调onSignIn,发送 ```JWT token``` 到应用方后台。
 
 ```
@@ -316,7 +333,7 @@ method：POST
    "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
-// data 需要使用应用方的ONT ID进行签名
+// app_token 需要使用应用方的ONT ID进行签名
 // user 是用户的ONT ID
 ```
 返回：
@@ -433,12 +450,12 @@ Payload 里的字段包含调用合约的参数和应用方的信息，例如：
      "exp":1555041974000
  }
  ```
- 
- | Param     |     Type |   Description   |
- | :--------------: | :--------:| :------: |
- |    app.ontid |   String | 应用方 ontid |
- |    exp |   long | 时间戳，该token的有效时间 |
- 
+
+| Param     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    app.ontid |   String | 应用方 ontid |
+|    exp |   long | 时间戳，该token的有效时间 |
+
 
 ### 根据订单号查询订单
 ```
@@ -452,7 +469,7 @@ method：POST
 }
 ```
 
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    app_token|   String|  应用方 app_token  |
 |    orderId|   String|  订单号  |
@@ -487,7 +504,7 @@ method：POST
 ```
 
 
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    action|   String|  动作标志  |
 |    version|   String|  版本号  |
@@ -537,7 +554,7 @@ method：POST
 }
 ```
 
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    action|   String|  动作标志  |
 |    version|   String|  版本号  |
