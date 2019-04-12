@@ -24,7 +24,7 @@
 ## 接入步骤
 
 ### 前提条件
-使用前，你需要联系 [本体机构合作](https://info.ont.io/cooperation/en)。
+使用前，你需要联系 [本体机构合作](https://ont.io/contactUs)。
 
 ### 登录二维码标准
 扫码获取

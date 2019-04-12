@@ -49,7 +49,7 @@ DApp 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.e
 ## 钱包和 DApp 接入步骤
 
 ### 前提条件
-使用前，你需要联系[本体机构合作](https://info.ont.io/cooperation/en)
+使用前，你需要联系[本体机构合作](https://ont.io/contactUs)
 
 
 ## dAPI Provider SDK 使用
