@@ -13,13 +13,13 @@
 
 ### 登录
 1. DApp 方提供二维码（[登录二维码标准](#登录二维码标准)）
-2. DApp 服务端登录方法（[DApp服务端登录接口](#DApp-服务端登录接口)）
+2. DApp 服务端登录方法（[DApp服务端登录接口](#DApp服务端登录接口)）
 3. DApp 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
 
 ### 调用智能合约
 1. DApp 方提供二维码（[调用合约二维码标准](#调用合约二维码标准)）
 2. Provider 构造交易、用户签名、预执行交易、用户确认、发送到链上、最后返回交易 hash 给 DApp 后端
-3. DApp 后端查询这笔合约交易（[交易事件查询方法](#交易事件查询方法)）
+3. DApp 后端查询这笔合约交易（[交易事件查询方法](#DApp后端查询交易事件)）
 
 ## 接入步骤
 
@@ -56,7 +56,7 @@
 | expire   | long  | 可选  |
 | callback   | string  | 用户扫码签名后发送到 DApp 后端 URL |
 
-### DApp 服务端登录接口
+### DApp服务端登录接口
 method: post
 
 ```json
@@ -210,7 +210,7 @@ Provider 构造交易，进行用户签名、预执行交易、发送交易，�
 * [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
 * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
-##### DApp 后端查询交易事件
+##### DApp后端查询交易事件
 * [java sdk 交易事件查询方法](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
 * [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
