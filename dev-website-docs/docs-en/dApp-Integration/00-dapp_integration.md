@@ -1,3 +1,4 @@
+
 This article provides a universal DApp access solution for developers who come to the ontologies to develop DApps, allowing developers to quickly build DApps.
 
 ## Main DApp Features
@@ -21,7 +22,7 @@ For DApp, smart contracts implement all or part of their business logic. With th
 Asset-winding is not required for DApp development, but some DApps require specific chain-based assets to run their internal logic.
 According to different demand for assets, the ontology provides three different types of chain assets: OEP4, OEP5, and OEP8.
 
-[What is OEP-4, OEP-5, OEP-8? ](https://dev-docs.ont.io/#/docs-en/dApp-Integration/11-Q&A?id=_1-%E4%BB%80%E4%B9%88%E6%98%AFoep -4%EF%BC%8Coep-5%EF%BC%8Coep-8-%EF%BC%9F)
+[What is OEP-4, OEP-5, OEP-8? ](https://dev-docs.ont.io/#/docs-en/dApp-Integration/11-Q&A?id=_1-what-is-oep-4-oep-5-oep-8)
 
 ## Access technology implementation
 
@@ -34,13 +35,13 @@ The ONT ID open platform provides third-party applications for third-party appli
 
 The advantage of the ONT ID open platform is that with the trusted hosting mode, the user login DApp will no longer rely on the user's local wallet, greatly expanding the scope of DApp.
 
-- [ONT ID Open Platform Integration] (docs-en/dApp-Integration/08-ontid_integration.md)
+- [ONT ID Open Platform Integration](docs-en/dApp-Integration/08-ontid_integration.md)
 
-### DApi integration (decentralization scheme)
+### DApi integration (decentralization Solution)
 
 
 It introduces how DApp calls DApi in various scenarios, including operations such as logging in, calling smart contracts, and so on.
 
 The advantage of DApi integration is that users can master all their assets and information, and it is now more convenient to use the supported wallet to log in to the DApp.
 
-- [DApi Integration] (docs-en/dApp-Integration/09-dapi_integration.md)
+- [DApi Integration](docs-en/dApp-Integration/09-dapi_integration.md)

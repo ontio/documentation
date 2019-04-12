@@ -20,7 +20,7 @@ The document is broken down into the following sections:
 [Writing a smart contract for your dApp](#writing-a-smart-contract-for-your-dapp)
 + [Compiling your smart contract](#compiling-your-smart-contract)
 + [Deploying your smart contract](#deploying-your-smart-contract)
-+ [Testing your smart contract](#testing-your-smart-contract)
++ [Testing your smart contract](#testing-smart-contract)
 
 
 
@@ -127,7 +127,7 @@ The gaslimit is based on the complexity of the contract execution and can be que
 ### Writing a smart contract for your dApp
 
 
-To support your dApp you will likely want to write a smart contract that acts as the back-end logic and storage. We use Ontology's [SmartX](http://smartx.ont.io/) tool for this. SmartX includes several template Smart Contracts to assist in development and further information can be found in the [Smart Contract Tutorial](https://github.com/ontio/documentation/tree/master/smart-contract-tutorial)
+To support your dApp you will likely want to write a smart contract that acts as the back-end logic and storage. We use Ontology's [SmartX](http://smartx.ont.io/) tool for this. SmartX includes several template Smart Contracts to assist in development and further information can be found in the [Smart Contract Tutorial](https://dev-docs.ont.io/#/docs-en/smartcontract/01-started)
 
 
 ![SmartX Login](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/smartx.png)
