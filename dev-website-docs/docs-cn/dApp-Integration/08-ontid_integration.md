@@ -25,7 +25,7 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 
 
 * 第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
-* 第三方应用服务器例子： [app-server](https://github.com/ontio-ontid/ontid-app-server)
+* 第三方应用服务器例子： [app-server 源码](https://github.com/ontio-ontid/ontid-app-server)
 
 ### 前端对接登录页面
  
@@ -36,9 +36,9 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 ```
  
 
-* ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
-* ```appontid``` 是应用方的 ontid。
-* ```appname``` 是应用方的 名字。
+ ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
+ ```appontid``` 是应用方的 ontid。
+ ```appname``` 是应用方的 名字。
 
 > 用户登录成功后，应用方得到 ```access_token```可以查询用户的信息，应用方需要保存用户的资产地址信息，支付时候需要使用
 
@@ -47,7 +47,6 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。
 
 
-请参考第三方应用服务器例子构造```app_token```： [app-server](https://github.com/ontio-ontid/ontid-app-server)
 
 ```
 url：/api/v1/ontid/request/order
@@ -110,10 +109,10 @@ method：POST
   
 ```
 
-* ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
-* ```invoke_token``` 是应用方服务器发起支付订单请求，开发平台返回的 invoke_token。
-* ```orderid``` 是应用方服务器发起支付订单请求，开发平台返回的 orderid。
-* ```callback_url``` 是应用方的前端页面。
+ ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
+ ```invoke_token``` 是应用方服务器发起支付订单请求，开发平台返回的 invoke_token。
+ ```orderid``` 是应用方服务器发起支付订单请求，开发平台返回的 orderid。
+ ```callback_url``` 是应用方的前端页面。
 
 > 支付成功后，应用方前端会收到交易 hash ，服务器需要保存交易 hash，通过交易 hash 可以查询交易状态或到[链上查询合约事件](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)。
 
@@ -121,6 +120,9 @@ method：POST
 
 ### 应用方服务器查询订单
 
+
+
+ 
 根据订单号查询
 ```
 url： /api/v1/provider/query/order
@@ -130,7 +132,7 @@ method：POST
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
     "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
-   	"orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
+    "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
 ```
 
@@ -144,10 +146,12 @@ method：POST
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
     "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "currentPage": 1,
-   	"size":10
+    "size":10
 }
 
 ```
+
+> ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，但不需要```invokeConfig```。
 
 ## 第三方登录对接
 
@@ -407,9 +411,9 @@ Payload 里的私有申明包含调用合约的参数和应用方的信息，例
 ## 查询接口对接
 
 
-### 应用方查询订单信息
+ ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，但不需要```invokeConfig```。
 
-#### 根据订单号查询
+### 根据订单号查询订单
 ```
 url： /api/v1/provider/query/order
 
@@ -418,7 +422,7 @@ method：POST
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
     "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
-   	"orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
+    "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
 ```
 
@@ -466,7 +470,7 @@ method：POST
 |    result.state| int |  0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
 
 
-#### 查询订单列表
+### 查询订单列表
 
 ```
 url： /api/v1/provider/query/order/range
@@ -477,7 +481,7 @@ method：POST
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
     "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "currentPage": 1,
-   	"size":10
+    "size":10
 }
 
 ```
