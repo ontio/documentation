@@ -153,6 +153,10 @@ method：POST
 
 > ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，但不需要```invokeConfig```。
 
+### 智能合约
+
+如果应用方需要统计交易量，可以把 ONT/ONG 转账封装在合约里，请参考智能合约模板[native_asset_invoke_compiler2.0](https://github.com/ONT-Avocados/python-template/blob/master/NativeAssetInvoke/native_asset_invoke_compiler2.0.py)。
+
 ## 第三方登录对接
 
 
