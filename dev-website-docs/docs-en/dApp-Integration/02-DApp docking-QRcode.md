@@ -1,11 +1,10 @@
 
+## Overview
 
-## overview
-
-This article is used to guide the DApp party how to access the Provider, and use the scan code to log in, scan the code to call smart contracts and other services.
+This article is aimed to guide dApps to integrate with the Provider, and to scan QR code to log in and scan invoke smart contracts and other services.
 Participants involved in the process include:
 
-* DApp side: Providing DApps to users within the ONT ecosystem is an important part of the ontology ecosystem.
+* dApp developer: Providing dApps to users in the ONT ecosystem and is an important part of the Ontology ecosystem.
 * Provider: Wallet that implements the DAPI mobile specification
 
 ## Interactive process description
@@ -13,23 +12,23 @@ Participants involved in the process include:
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
 
 ### Login
-1. DApp provides QR code ([Login QR code standard](#Login-QR-code-standard))
-2. DApp server login interface ([DApp Server login interface](#DApp-Server-login-interface))
-3. DApp back verification signature ([Signature verification method](#Signature-verification-method)) returns the verification result
+1. dApp provides QR code ([Login QR code standard](#Login-QR-code-standard))
+2. dApp server login interface ([DApp Server login interface](#DApp-Server-login-interface))
+3. Return the verification result after dApp backend signature verification ([Signature verification method](#Signature-verification-method))
 
 ### Invoke SC
-1. DApp provides QR code ([Call contract QR code standard](#Call-contract-QR-code-standard)
-2. Provider constructs the transaction, user signature, pre-executed transaction, user confirmation, send to the chain, and finally return the transaction hash to the DApp backend
-3. DApp backend query transaction event ([DApp Backend query transaction event](#DApp-Backend-query-transaction-event))
+1. dApp provides QR code ([Call contract QR code standard](#Call-contract-QR-code-standard)
+2. Provider constructs the transaction, user signature, pre-executed transaction, user confirmation, send to the chain, and finally return the transaction hash to the dApp backend
+3. dApp backend query transaction event ([dApp Backend query transaction event](#DApp-Backend-query-transaction-event))
 
 ## Integration step
 
 ### Precondition
 
-Before using, you need to contact [Contact Us](https://ont.io/#/contactUs)。
+Before use, you need to contact Ontology [Contact Us](https://ont.io/#/contactUs)。
 
 ### Login QR code standard
-Scan code acquisition
+Scan QR code to acquire
 
 ```json
 {
@@ -52,9 +51,9 @@ Scan code acquisition
 | action   |  string | Define the function of this QR code, set the login to `Login`, and set the smart contract to `invoke`. |
 | id   |  string |  Message serial number, optional |
 | type   |  string | Use ontid login to set to `ontid`, wallet address login to `account` |
-| dappName   | string  | Dapp name |
+| dappName   | string  | dapp name |
 | dappIcon   | string  | Dapp icon info |
-| message   | string  | Randomly generated to verify identity  |
+| message   | string  | Randomly generated for verifying identity  |
 | expire   | long  | optional  |
 | callback   | string  | The user scans the signature and sends it to the DApp backend URL. |
 
@@ -79,16 +78,16 @@ method: post
 |Field|Type|definition|
 | :---| :---| :---|
 | action | string | operation type |
-| id | string | message sequence number, optional |
+| id | string | message serial number, optional |
 | params | string | parameters required by the method |
 | type | string | ontid login is set to `ontid`, wallet address login is set to `account` |
-User | string | The account the user is signing, such as the user's ontid or wallet address |
+User | string | The account for user signature, such as the user's ontid or wallet address |
 | message | string | Randomly generated for verifying identity |
 Publickey | string | account public key |
 | signature | string | User Signature |
 
-#### response
-success：
+#### Response
+Success：
 
 ```json
 {
@@ -114,7 +113,7 @@ Failure：
 
 
 ### Call contract QR code standard
-Scan code acquisition
+Scan QR code to acquire
 
 ```json
 {
@@ -181,7 +180,7 @@ According to the qrcodeUrl link in the QR code, the GET data is as follows:
 
 The Provider constructs the transaction, performs user signatures, pre-executes transactions, sends transactions, and finally POST the transaction hash to the callback url.
 
-Send the transaction successfully, POST to callback:
+Transaction successfully sent, POST to callback:
 
 ```
 {
@@ -193,7 +192,7 @@ Send the transaction successfully, POST to callback:
 }
 ```
 
-Send transaction failed, POST to callback:
+Transaction not sent, POST to callback:
 
 ```
 {
@@ -208,14 +207,14 @@ Send transaction failed, POST to callback:
 ## Code reference
 
 ##### Signature verification method
-* [java sdk Signature check](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/interface.md#verify-signature)
-* [ts sdk Signature check](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
+* [java sdk Signature verification](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/interface.md#verify-signature)
+* [ts sdk Signature verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
-##### DApp Backend query transaction event
+##### DApp Backend transaction event query
 * [java sdk Transaction event query method](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/basic.md)
 * [ts sdk Transaction event query method](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
-##### wallet
+##### Wallet
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
