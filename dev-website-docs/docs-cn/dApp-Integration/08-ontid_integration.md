@@ -121,7 +121,16 @@ method：POST
 ### 应用方服务器查询订单
 
 
+ ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，Payload 里的字段：
 
+ ```text
+ {
+     "app": {
+         "ontid": ""
+      }
+     "exp":1555041974000
+ }
+ ```
  
 根据订单号查询
 ```
@@ -151,7 +160,7 @@ method：POST
 
 ```
 
-> ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，但不需要```invokeConfig```。
+> ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求。
 
 ### 智能合约
 
@@ -520,7 +529,7 @@ method：POST
   "desc" : "SUCCESS",
   "result" : [ {
     "wallet" : "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
-    "tx" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
+    "txHash" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
     "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
     "createTime" : 1554986210000,
     "state" : 5,
