@@ -29,19 +29,23 @@ DApp与本体链产生交互时主要有以下功能：
 
 为了实现上述的几种功能，我们提供了两种Dapp接入技术方案，两种接入方式都可以实现登录，调用智能合约等功能，开发者可以根据自身需求选择其中一种进行接入的开发
 
-### ONT ID 开放平台接入
+### ONT ID 开放平台集成
+
+集成方案
 
 ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合约执行、KYC等服务。
 
 ONT ID 开放平台的优势在于，采用可信任的托管模式后，用户登录DApp将不再依赖于用户本地的钱包，大大扩展了DApp的使用范围。
 
-- [ONT ID 开放平台接入](docs-cn/dApp-Integration/08-ontid_integration.md)
+- [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
 
-### DApi 接入
+### DApi 集成
+
+去中心化方案
 
 介绍了 DApp 如何在各种场景下调用 DApi，实现包括登录，调用智能合约等操作。
 
-DApi 接入的优势在于，去中心化程度更高，用户自己可以掌握自己所有的资产和信息，目前也可以较为便利地使用已经支持的钱包登录DApp。
+DApi 集成的优势在于，用户自己可以掌握自己所有的资产和信息，目前也可以较为便利地使用已经支持的钱包登录DApp。
 
-- [DApi 接入](docs-cn/dApp-Integration/09-dapi_integration.md)
+- [DApi 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
 

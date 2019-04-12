@@ -169,7 +169,7 @@ Cyano 钱包是与 SmartX 集成的谷歌 Chrome 扩展程序，允许开发人�
 
 dApi 支持 [Web环境](https://github.com/ontio-cyano/cyano-bridge)（仅支持 Chrome 浏览器）和 [移动版](https://github.com/ontio/ontology-dapi)（已实现 dApi 接口的钱包）。
 
-移动版 dApi 只提供几个重要 dApi 接口，查询区块交易等相关的接口可以直接调用区块链浏览器的 api 接口查询, 详细情况见 [explorer api](http://dev-docs.ont.io/#/docs-en/explorer/overview) 。而 Chrome 插件钱包的 dApi 接口比较全。
+移动版 dApi 只提供几个重要 dApi 接口，查询区块交易等相关的接口可以直接调用区块链浏览器的 api 接口查询, 详细情况见 [explorer api](https://dev-docs.ont.io/#/docs-cn/explorer/overview) 。而 Chrome 插件钱包的 dApi 接口比较全。
 
 >目前两种环境中 dApi 代码不能通用。兼容的方式可以参考：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)
 
