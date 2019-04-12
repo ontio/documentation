@@ -11,13 +11,9 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 
 对接前请确保登录和支付页面能正常访问：
 
-* 主网 ONTID 登录页面： [https://signin.ont.io/#/](https://signin.ont.io/#/)
+* ONTID 登录页面： 主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
 
-* 测试网 ONTID 登录页面： [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
-
-* 主网 ONTID 支付页面： [https://pay.ont.io/#/](https://pay.ont.io/#/)
-
-* 测试网 ONTID 支付页面： [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
+* ONTID 支付页面：主网  [https://pay.ont.io/#/](https://pay.ont.io/#/)，测试网  [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 
 
@@ -27,37 +23,31 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 
 应用方对接包括前端对接和服务器对接。前端对接主要是对接登录和支付页面，后台对接主要是对接发起订单请求和订单查询。
 
-### 应用方前端对接登录和支付页面
+
+* 第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
+* 第三方应用服务器例子： [app-server](https://github.com/ontio-ontid/ontid-app-server)
+
+### 前端对接登录页面
  
  
  ```
- 登录：  http://139.219.136.188:10390/signin?params={value}
+ http://139.219.136.188:10390/signin?params={value}
  value = window.encodeURIComponent(appontid + '&' + appname + '&' + lang)
 ```
-
- > 用户登录成功后，应用方得到 ```access_token```可以查询用户的信息，应用方需要保存用户的资产地址信息，支付时候需要使用
-   
-```  
- 支付：  http://139.219.136.188:10390/transaction?params={value}
- value = window.encodeURIComponent(orderid + & + invoke_token + & + callback_url + & + lang)
  
-```
- > 支付成功后，应用方前端会收到交易hash，服务器需要保存交易hash，通过交易hash可以查询交易状态。
 
-* lang 是可选的参数默认是en，en表示英文，zh表示中文。
-* appontid 是应用方的 ontid。
-* appname 是应用方的 名字。
-* invoke_token 是应用方服务器发起支付订单请求，开发平台返回的invoke_token。
-* orderid 是应用方服务器发起支付订单请求，开发平台返回的orderid。
-* callback_url 是应用方的前端页面。
+* ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
+* ```appontid``` 是应用方的 ontid。
+* ```appname``` 是应用方的 名字。
 
+> 用户登录成功后，应用方得到 ```access_token```可以查询用户的信息，应用方需要保存用户的资产地址信息，支付时候需要使用
 
- 
- 
- 
 ### 应用方服务器发起支付订单请求
 
 应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。
+
+
+请参考第三方应用服务器例子构造```app_token```： [app-server](https://github.com/ontio-ontid/ontid-app-server)
 
 ```
 url：/api/v1/ontid/request/order
@@ -70,7 +60,7 @@ method：POST
 }
 ```
 
- ``` Payload```中的应用方信息和调用合约参数： 
+请求数据中```Payload```的应用方信息和调用合约参数填写例子： 
 
 ```
 
@@ -81,10 +71,10 @@ method：POST
 			"operation": "transfer",
 			"args": [{
 					"name": "arg0-from",
-					"value": "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
+					"value": "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"   //用户资产地址
 				}, {
 					"name": "arg1-to",
-					"value": "Address:AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ"
+					"value": "Address:AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ"   //应用方收款地址
 				},
 				{
 					"name": "arg2-amount",
@@ -92,9 +82,9 @@ method：POST
 				}
 			]
 		}],
-		"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
-		"gasLimit": 20000,
-		"gasPrice": 500
+		"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",    //用户资产地址，用于付手续费
+		"gasLimit": 20000,  //根据合约复杂度填写，预执行可以查询该值，最小是20000
+		"gasPrice": 500    //固定值
 	},
 	"app": {
         "name": "", // String，必填项，应用方名称
@@ -108,7 +98,26 @@ method：POST
 
 ```
 
-应用方服务器可以通过``` callback ```确认用户支付成功，也可以通过合约hash到链上查询。
+应用方服务器可以通过``` callback ```确认用户支付成功，也可以通过合约 hash 到[链上查询合约事件](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)。
+
+
+
+### 前端对接支付页面
+
+```  
+  http://139.219.136.188:10390/transaction?params={value}
+  value = window.encodeURIComponent(orderid + & + invoke_token + & + callback_url + & + lang)
+  
+```
+
+* ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
+* ```invoke_token``` 是应用方服务器发起支付订单请求，开发平台返回的 invoke_token。
+* ```orderid``` 是应用方服务器发起支付订单请求，开发平台返回的 orderid。
+* ```callback_url``` 是应用方的前端页面。
+
+> 支付成功后，应用方前端会收到交易 hash ，服务器需要保存交易 hash，通过交易 hash 可以查询交易状态或到[链上查询合约事件](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)。
+
+
 
 ### 应用方服务器查询订单
 
@@ -395,7 +404,7 @@ Payload 里的私有申明包含调用合约的参数和应用方的信息，例
 
 
 
-## 应用方查询接口对接
+## 查询接口对接
 
 
 ### 应用方查询订单信息
@@ -495,7 +504,7 @@ method：POST
 
 
 
-### 错误码
+## 错误码
 
 
 | 代码     |     说明   |
@@ -524,11 +533,6 @@ method：POST
 
 
 
-## 演示例子
-
-第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
-
-第三方应用服务器例子： [app-server](https://github.com/ontio-ontid/ontid-app-server), 发起支付请求和回调例子。
 
 
 
