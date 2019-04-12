@@ -47,7 +47,7 @@ Reference wallet download link: http://101.132.193.149/files/app-debug.apk
 
 ## Wallet Demo
 
-Mobile version of Cyano wallet source link address [cyano-android] (https://github.com/ontio-cyano/cyano-android), [cyano-ios] (https://github.com/ontio-cyano/cyano- Ios).
+Mobile version of Cyano wallet source link address [cyano-android](https://github.com/ontio-cyano/cyano-android), [cyano-ios](https://github.com/ontio-cyano/cyano-Ios).
 
 H5 DApp example source code: [mobile-dapp-demo](https://github.com/ontio-cyano/mobile-dapp-demo)
 
