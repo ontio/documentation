@@ -196,7 +196,7 @@ Response:
 
 ```
 
-#### Private claims in Payload
+#### Claims in Payload
 
 ```
 
@@ -238,8 +238,9 @@ Response:
             "message": "",
             "ontid": "",
             "callback": "",
-            "nonce": 123456
-        }
+            "nonce": "123456"
+        },
+        "exp":1555041974000
 }
 ```
 
@@ -254,130 +255,142 @@ Response:
 |    invokeConfig.gasPrice |   int | Fixed value 500 |
 |    app.ontid |   String | The application ontid |
 |    app.callback |   String | callback  url |
-|    app.nonce |   long |  |
+|    app.nonce |   long | nonce |
+|    exp |   long | expire |
 
-ONT/ONG transfer ```invokeConfig``` parameter filling example :
-```
+
+
+
+## Query interface
+
+
+
+```app_token``` is issued by Application.
+
+```text
 {
-	"invokeConfig": {
-		"contractHash": "0100000000000000000000000000000000000000", // ONG: 0200000000000000000000000000000000000000
-		"functions": [{
-			"operation": "transfer",
-			"args": [{
-					"name": "arg0-from",
-					"value": "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
-				}, {
-					"name": "arg1-to",
-					"value": "Address:AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ"
-				},
-				{
-					"name": "arg2-amount",
-					"value": 10000
-				}
-			]
-		}],
-		"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
-		"gasLimit": 20000,
-		"gasPrice": 500
-	}
-}
-
-```
-
-## Signature Message
-
-
-```
-url：/api/v1/ontid/signmessage
-method：POST
-
-{
-	"ontid": "did:ont:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
-	"message": "helloworld",
-}
-```
-
-## Other interface
-
-The following interfaces ``` Header``` need to add ```access_token``` to access.
-
-### Query ontid information
-
-```
-url：/api/v1/ontid/info
-
-method：POST
-
-{
-   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
-}
-```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    ontid|   String|  ontid  |
-
-Response：
-
-```
-{
-    "action":"getOntidInfo",
-    "version":"1.0",
-    "error":0,
-    "desc":"SUCCESS",
-    "result": {
-        "publickey": "",
+    "app": {
         "ontid": ""
     }
+    "exp":1555041974000
 }
 ```
 
-| Field_Name|     Type |   Description   | 
+| Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    action|   String|  action  |
-|    version|   String|  version  |
-|    error|   int|  error code  |
-|    desc|   String|  error desc |
-|    result|   String| 	result  |
+|    app.ontid |   String |  |
+|    exp |   long |  |
 
-### Query asset balance
+### Query Order
 
-
-```
-url：/api/v1/ontid/getbalance
+```text
+url： /api/v1/provider/query/order
 
 method：POST
 
 {
-   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+    "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
 ```
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    ontid|   String|  ontid  |
 
-Response：
+
+
+response：
 
 ```
 {
-    "action":"getbalance",
-    "version":"1.0",
-    "error":0,
-    "desc":"SUCCESS",
-    "result": {
-       "ont": "100",
-       "ong": "10000000000"
-    }
+    action: "queryOrder",
+    error: 0,
+    desc: "SUCCESS",
+    result: {
+        note: null,
+        wallet: "ASqT8qw2TMXCcTLQtpmbhTrpPhWDj8qCRV",
+        txHash: "5b7fd0f390bd5cfa9dc5df2014712f7312857b1e303a367bb60100ac0e7d5fcf",
+        orderId: "2ce54ba2db47b01a64d09b1ba1a848161f06361525bbd99b49c3ccf214c3259b",
+        createTime: 1554992710000,
+        appInfo: {
+            name: "test",
+            logo: "www.ont.io",
+            callback: "http://139.219.136.188:11111/ontid/payment/callback",
+            message: "test",
+            nonce: "1ee1bdd6d50c433cb7429c0779c45384",
+            ontid: "did:ont:AaqWLmN3LNqu8QFpuSnoK3QM4g5KC2ZSTC"
+        },
+        state: 6,
+        event: null,
+        user: "did:ont:AMxrSGHyxgnWS6qc1QjTNYeEaw3X3Dvzhf"
+    },
+    version: "v1"
 }
 ```
 
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    action|   String|  action  |
-|    version|   String|  version  |
-|    error|   int|  error code  |
-|    desc|   String|  error desc |
-|    result|   String| 	result  |
+|    action|   String|    |
+|    version|   String|    |
+|    error|   int|    |
+|    desc|   String|    |
+|    result|   String| 	  |
+|    result.note|   String| 	  |
+|    result.wallet|   String| 	  |
+|    result.txHash|   String| 	  |
+|    result.orderId|   String| 	  |
+|    result.createTime|   String| 	  |
+|    result.appInfo|   String| 	 |
+|    result.state|   String| 	0-init，1-ready;2-send success;3-send fail;4-tx success;5-tx fail;6-expire   |
+|    result.event|   String| 	sc event  |
+|    result.user|   String| 	user ontid  |
+
+### Query order list
+
+```text
+url： /api/v1/provider/query/order/range
+
+method：POST
+
+{
+    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+     "currentPage": 1,
+     "size":10
+}
+```
+
+response：
+
+```
+{
+    action: "queryOrderRange",
+    error: 0,
+    desc: "SUCCESS",
+    result: [
+        {
+            wallet: "ASqT8qw2TMXCcTLQtpmbhTrpPhWDj8qCRV",
+            txHash: null,
+            orderId: "532de576f7ba4c194e71c3994a452688b8d474760e844c3cf6d00f76c0a02fe9",
+            createTime: 1555039410000,
+            state: 0,
+            user: "did:ont:AMxrSGHyxgnWS6qc1QjTNYeEaw3X3Dvzhf"
+        }
+     ],
+    version: "v1"
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|    |
+|    version|   String|    |
+|    error|   int|    |
+|    desc|   String|    |
+|    result|   String| 	  |
+|    result.wallet|   String| 	  |
+|    result.txHash|   String| 	  |
+|    result.orderId|   String| 	  |
+|    result.createTime|   String| 	  |
+|    result.state|   String| 	0-init，1-ready;2-send success;3-send fail;4-tx success;5-tx fail;6-expire  |
+|    result.user|   String| 	user ontid  |
+
 
 
 ### Error Code
@@ -407,11 +420,3 @@ Response：
 | 63003	|	CODE_VERIFY_FAILED
 | 63004	|	IDENTITY_VERIFY_FAILED
 
-
-## Examples
-
-Website Application: [http://139.219.136.188:10391/#/](http://139.219.136.188:10391//#/), [source code](https://github.com/ontio-ontid/ontid-app-demo)
-
-Application Server Example: [app-server](https://github.com/ontio-ontid/ontid-app-server)
-
-ONTID Login: [https://signin.ont.io/#/](https://signin.ont.io/#/)
