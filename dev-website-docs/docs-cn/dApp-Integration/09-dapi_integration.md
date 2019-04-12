@@ -10,7 +10,6 @@
 - [使用手机钱包扫码](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/02-DAppDocking-QRcode)
 - [使用 chrome 插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
 - [唤醒手机钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/06-DAppDocking-Wake-up)
-- [在桌面钱包内打开DApp](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/07-DAppDocking-use-desktop-wallet)
 
 已支持 DAPI 的钱包如 [麦子钱包](http://www.mathwallet.org/en/)、[Onion](http://onion.fun/) 的对接请参考对应的对接文档。协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
 
