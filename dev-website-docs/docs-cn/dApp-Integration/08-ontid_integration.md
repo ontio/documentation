@@ -7,10 +7,17 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 ## 准备工作
 
 
-网站应用 ONTID 登录是类似于```OAuth2.0```协议标准构建的 ONTID 授权登录系统。
-
 在进行 ONTID 授权登录接入之前，应用方需要先在 ONTID 开放平台注册 ONTID ，获得相应的 ONTID 和 ```PrivateKey```，申请 ONTID 通过审核后，可开始接入流程。
 
+对接前请确保登录和支付页面能正常访问：
+
+* 主网 ONTID 登录页面： [https://signin.ont.io/#/](https://signin.ont.io/#/)
+
+* 测试网 ONTID 登录页面： [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
+
+* 主网 ONTID 支付页面： [https://pay.ont.io/#/](https://pay.ont.io/#/)
+
+* 测试网 ONTID 支付页面： [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 
 ## 第三方登录对接
@@ -119,7 +126,7 @@ ONTID 授权登录模式整体流程为：
 
 
 
-## 如何集成ONT ID登录
+### 如何集成ONT ID登录
 
 
 1. 页面引入```OntidSignIn.js```
@@ -148,6 +155,46 @@ ONTID 授权登录模式整体流程为：
 
 
 
+### 应用方查询用户 ontid 账户信息
+
+使用前需先登录 ONTID ，有``` access_token ```才能调用查询接口，应用方需要保存用户的 ONTID 和对应的资产地址，支付功能需要使用用户的资产地址。
+
+```
+url：/api/v1/ontid/info
+
+headers.set("access_token", token);
+method：POST
+
+{
+}
+```
+
+| Field_Name|     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    ontid|   String|  ontid  |
+
+返回：
+
+```
+{
+	"wallet": [{
+		"address": "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
+		"ont": 0,
+		"ong": 949999500
+	}],
+	"phone": "86*15821703553",
+	"publicKey": "032f70df4ab7baf182c779ca7ab6b5b92e349170b2c3a76df3a6bda66ca627ff61"
+}
+```
+
+| Field_Name|     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String| 	结果  |
+
 
 ## 支付或调用合约对接
 
@@ -157,8 +204,6 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 ![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment.png) 
 
 
-### 应用方对接流程
-
 1. 应用方后台发送支付请求到 ONT ID 开放平台。ONT ID 开放平台返回 ```orderid``` 作为流水号。
 2. 应用方前台打开支付页面，参数中带着 ```orderid``` 和应用方前台的重定向地址 ```redirect_uri```。
 3. 用户确认请求，发送请求到 ONTID 开放平台。
@@ -167,8 +212,11 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 6. ONT ID前台重定向到```redirect_uri```
 
 
+### 应用方对接流程
 
-#### 支付/调用合约请求
+1. 用户使用ONT ID登录第三方应用并传递`access_token`给应用后台。
+
+2. 第三方应用后台发送创建订单请求到ONT ID开发平台后台，得到订单号`orderid`和`invoke_token`
 
 ```
 url：/api/v1/ontid/request/order
@@ -176,7 +224,7 @@ url：/api/v1/ontid/request/order
 method：POST
 
 {
-   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+   "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
    "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
@@ -200,9 +248,25 @@ method：POST
 
 ```
 
-#### Payload 里的私有申明
+3. 第三方应用跳转至通用的支付/调用合约页面，需要在url上附带参数如下：
 
-包含调用合约的参数和应用方的信息。
+   ```
+   host + /transaction?orderid={orderid}&invoke_token={invoke_token}&callback_url={callback_url}
+   ```
+
+   其中，callback_url是支付/调用合约完成后，返回到应用方的回调地址。
+
+4. 用户确认后输入ONT ID密码，交易发送上链，返回到第三方应用。
+
+> 具体案例可以参考[官方示例](https://github.com/ontio-ontid/ontid-app-demo)
+
+
+
+#### 订单请求 app_token 说明
+
+``` app_token ``` 是应用方签发的，ONTID 开发平台验证通过才能访问接口。
+
+Payload 里的私有申明包含调用合约的参数和应用方的信息，例如：
 
 ```
 {
@@ -242,7 +306,6 @@ method：POST
             "logo":"", // String，可选项，应用方logo的url。
             "message": "", // String，必填项，用于页面上显示支付/调用合约的目的，不能超过30个字符
             "ontid": "", // String，必填项，应用方的ONT ID
-            "callback": "",// String，可选项，应用方后台用于接收推送的交易执行结果，必须为https下															// `post`请求。该请求具体情况见下文。
             "nonce": "123456" // String，不能重复
         }
 }
@@ -259,7 +322,9 @@ method：POST
 |    invokeConfig.gasLimit |   int | 执行合约需要消耗的gas |
 |    invokeConfig.gasPrice |   int | 目前是固定值500 |
 |    app.ontid |   String | 应用方 ontid |
-|    app.callback |   String | **调用合约成功的回调地址** |
+|    app.name |   String | 应用方 name |
+|    app.logo |   String | 应用方 logo |
+|    app.message |   String | 用于页面上显示支付/调用合约的目的，不能超过30个字符 |
 |    app.nonce |   long |  |
 
 ONT/ONG转账```invokeConfig```参数填写例子：
@@ -291,71 +356,14 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 ```
 
 
-## 如何集成ONT ID支付/调用合约
-
-1. 用户使用ONT ID登录第三方应用并传递`access_token`给应用后台。
-
-2. 第三方应用后台发送创建订单请求到ONT ID开发平台后台，得到订单号`orderid`和`invoke_token`
-
-3. 第三方应用跳转至通用的支付/调用合约页面，需要在url上附带参数如下：
-
-   ```
-   host + /transaction?orderid={orderid}&invoke_token={invoke_token}&callback_url={callback_url}
-   ```
-
-   其中，callback_url是支付/调用合约完成后，返回到应用方的回调地址。
-
-4. 用户确认后输入ONT ID密码，交易发送上链，返回到第三方应用。
-
-> 具体案例可以参考[官方示例](https://github.com/ontio-ontid/ontid-app-demo)
 
 
 
-## 签名接口
 
 
 
-## 查询接口对接
+## 应用方查询接口对接
 
-使用前需先登录 ONTID ，有``` access_token ```才能调用查询接口。
-
-### 应用方查询用户 ontid 账户信息
-
-```
-url：/api/v1/ontid/info
-
-headers.set("access_token", token);
-method：POST
-
-{
-}
-```
-
-| Field_Name|     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    ontid|   String|  ontid  |
-
-返回：
-
-```
-{
-	"wallet": [{
-		"address": "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
-		"ont": 0,
-		"ong": 949999500
-	}],
-	"phone": "86*15821703553",
-	"publicKey": "032f70df4ab7baf182c779ca7ab6b5b92e349170b2c3a76df3a6bda66ca627ff61"
-}
-```
-
-| Field_Name|     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    action|   String|  动作标志  |
-|    version|   String|  版本号  |
-|    error|   int|  错误码  |
-|    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String| 	结果  |
 
 ### 应用方查询订单信息
 
@@ -388,7 +396,6 @@ method：POST
     "wallet" : "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
     "tx" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
     "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
-    "callbackResult" : "org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:1111 [/127.0.0.1] failed: Connection refused (Connection refused)",
     "appInfo" : {
       "name" : "baidu",
       "logo" : "https://www.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9%B2%9C%E4%BA%8B&tn=SE_Pclogo_6ysd4c7a&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pc",
@@ -480,13 +487,6 @@ method：POST
 | 63003	|	CODE_VERIFY_FAILED,设备码校验失败
 | 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
 
-
-
-## 登录和支付对接页面
-
-ONTID 登陆地址： [https://signin.ont.io/#/](https://signin.ont.io/#/)
-
-ONTID 支付页面： [https://pay.ont.io/#/](https://pay.ont.io/#/)
 
 
 ## 演示例子
