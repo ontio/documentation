@@ -1,7 +1,7 @@
 
 ## Overview
 
-Currently, each mobile wallet App is an important entry point for DApp. We provide `cyano-bridge`. Once the dApp is installed, it can communicate with any wallet app that integrates `Provider-SDK` to implement chain operations by calling DAPI that is compatible with [CEP-1] standard (https://github.com/ontio-cyano /CEPs/blob/master/CEPS/CEP1.mediawiki) .
+Currently, each mobile wallet App is an important entry point for DApp. We provide `cyano-bridge`. Once the dApp is installed, it can communicate with any wallet app that integrates `Provider-SDK` to implement chain operations by calling DAPI that is compatible with [CEP-1 standard](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) .
 
 ## Interaction Process of opening dApp in the wallet
 
