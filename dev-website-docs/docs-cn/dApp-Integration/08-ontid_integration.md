@@ -1,5 +1,4 @@
 
-# ONT ID 开放平台 接入说明
 
 ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合约执行、KYC等服务，请按照以下步骤开始应用集成。
 
@@ -11,7 +10,7 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 
 对接前请确保登录和支付页面能正常访问：
 
-* ONTID 登录页面： 主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
+* ONTID 登录页面：主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
 * ONTID 支付页面：主网  [https://pay.ont.io/#/](https://pay.ont.io/#/)，测试网  [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 
