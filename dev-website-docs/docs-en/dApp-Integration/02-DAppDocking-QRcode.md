@@ -19,7 +19,7 @@ Participants involved in the process include:
 ### Invoke SC
 1. dApp provides QR code ([Call contract QR code standard](#Call-contract-QR-code-standard)
 2. Provider constructs the transaction, user signature, pre-executed transaction, user confirmation, send to the chain, and finally return the transaction hash to the dApp backend
-3. dApp backend query transaction event ([dApp Backend query transaction event](#DApp-Backend-query-transaction-event))
+3. dApp backend query transaction event ([dApp Backend query transaction event](#dapp-backend-transaction-event-query))
 
 ## Integration step
 
