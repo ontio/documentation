@@ -1,47 +1,49 @@
 
-This article provides a universal DApp access solution for developers who come to the ontologies to develop DApps, allowing developers to quickly build DApps.
 
-## Main DApp Features
+本文针对来到本体公链开发DApp的开发者，提供了通用的DApp接入解决方案，让开发者可以快速上手搭建出DApp。
 
-When DApp interacts with the ontology chain, it mainly has the following functions:
+## 主要 DApp 功能介绍
 
-### log in
+DApp与本体链产生交互时主要有以下功能：
 
-Allows verification of user identity or direct access to account/identity information.
+### 登录
 
-### Payment
+允许验证用户身份或直接查询账号/身份信息。
 
-Implement DApp's payment function by calling smart contract.
+### 支付
 
-### Calling a smart contract
+通过调用智能合约实现DApp的支付功能。
 
-For DApp, smart contracts implement all or part of their business logic. With the game example, you can purchase, sell, lease, or get random numbers and other different services and functions. See the Smart Contract for detailed business logic.
+### 调用智能合约
 
-### Assets on the chain (optional)
+对于DApp而言，智能合约实现了其全部或部分业务逻辑。以游戏举例，可以实现购买，出售，租赁，或获取随机数等不同的业务及功能。详细业务逻辑参见智能合约。
 
-Asset-winding is not required for DApp development, but some DApps require specific chain-based assets to run their internal logic.
-According to different demand for assets, the ontology provides three different types of chain assets: OEP4, OEP5, and OEP8.
+### 资产上链（可选）
 
-[What is OEP-4, OEP-5, OEP-8? ](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/11-Q&A?id=_1-%E4%BB%80%E4%B9%88%E6%98%AFoep -4%EF%BC%8Coep-5%EF%BC%8Coep-8-%EF%BC%9F)
+资产上链并不是DApp开发必须的，但是有些DApp需要特定的链上资产来运行其内部逻辑。
+根据对资产的需求不同，本体提供了OEP4，OEP5，OEP8这三种不同类型的链上资产类型。
 
-## Access technology implementation
+[什么是OEP-4，OEP-5，OEP-8 ？](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/11-Q&A?id=_1-%E4%BB%80%E4%B9%88%E6%98%AFoep-4%EF%BC%8Coep-5%EF%BC%8Coep-8-%EF%BC%9F)
 
-In order to achieve the above several functions, we provide two Dapp access technology solutions, two access methods can be used to log in, call smart contracts and other functions, developers can choose one of them to access development according to their needs
+## 接入技术实现
 
-### ONT ID Open Platform (Integrated Solution)
+为了实现上述的几种功能，我们提供了两种Dapp接入技术方案，两种接入方式都可以实现登录，调用智能合约等功能，开发者可以根据自身需求选择其中一种进行接入的开发
 
-
-The ONT ID open platform provides third-party applications for third-party applications such as login, payment, smart contract execution, and KYC.
-
-The advantage of the ONT ID open platform is that with the trusted hosting mode, the user login DApp will no longer rely on the user's local wallet, greatly expanding the scope of DApp.
-
-- [ONT ID Open Platform Integration] (docs-en/dApp-Integration/08-ontid_integration.md)
-
-### DApi integration (decentralization scheme)
+### ONT ID 开放平台（集成方案）
 
 
-It introduces how DApp calls DApi in various scenarios, including operations such as logging in, calling smart contracts, and so on.
+ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合约执行、KYC等服务。
 
-The advantage of DApi integration is that users can master all their assets and information, and it is now more convenient to use the supported wallet to log in to the DApp.
+ONT ID 开放平台的优势在于，采用可信任的托管模式后，用户登录DApp将不再依赖于用户本地的钱包，大大扩展了DApp的使用范围。
 
-- [DApi Integration] (docs-en/dApp-Integration/09-dapi_integration.md)
+- [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
+
+### DApi 集成（去中心化方案）
+
+
+介绍了 DApp 如何在各种场景下调用 DApi，实现包括登录，调用智能合约等操作。
+
+DApi 集成的优势在于，用户自己可以掌握自己所有的资产和信息，目前也可以较为便利地使用已经支持的钱包登录DApp。
+
+- [DApi 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
+
