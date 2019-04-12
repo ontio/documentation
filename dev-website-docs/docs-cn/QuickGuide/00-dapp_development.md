@@ -12,7 +12,7 @@ DApp 开发主要分为两个部分：智能合约开发和 dApi 的调用。
 >
 > 某些DApp的经济模型设计中有Token的需求，这时候就可以开发自己的Token来使用，相关的设计可以参考
 >
-> [OEP4 示例](https://github.com/ONT-Avocados/python-template/blob/master/OEP4Sample/OEP4Sample.py)
+> [OEP4 示例](https://github.com/ONT-Avocados/python-template/blob/master/OEP4Sample/OEP4Sample_compiler2.0.py)
 >
 > [OEP4 在智能合约中的使用](https://github.com/ONT-Avocados/python-template/blob/master/Static_Call_Oep4/static_call_Oep4.py)。
 >
