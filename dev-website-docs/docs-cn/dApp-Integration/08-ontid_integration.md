@@ -12,7 +12,6 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 对接前请确保登录和支付页面能正常访问：
 
 * ONTID 登录页面： 主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
-
 * ONTID 支付页面：主网  [https://pay.ont.io/#/](https://pay.ont.io/#/)，测试网  [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 
@@ -21,13 +20,11 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 ## 快速对接
 
 
-应用方对接包括前端对接和服务器对接。前端对接主要是对接登录和支付页面，后台对接主要是对接发起订单请求和订单查询。
+对接包括前端对接和服务器对接。前端对接主要是对接登录和支付页面，后台对接主要是对接发起订单请求和订单查询。
 
 
 * 第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
 * 第三方应用服务器例子： [app-server 源码](https://github.com/ontio-ontid/ontid-app-server)
-* ONTID 登录页面： 主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
-* ONTID 支付页面：主网  [https://pay.ont.io/#/](https://pay.ont.io/#/)，测试网  [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 ### 前端对接登录页面
 
