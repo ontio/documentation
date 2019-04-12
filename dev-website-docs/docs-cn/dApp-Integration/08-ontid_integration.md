@@ -140,7 +140,6 @@ method：POST
 
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
 ```
@@ -153,7 +152,6 @@ method：POST
 
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "currentPage": 1,
     "size":10
 }
