@@ -26,6 +26,8 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 
 * 第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
 * 第三方应用服务器例子： [app-server 源码](https://github.com/ontio-ontid/ontid-app-server)
+* ONTID 登录页面： 主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
+* ONTID 支付页面：主网  [https://pay.ont.io/#/](https://pay.ont.io/#/)，测试网  [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 ### 前端对接登录页面
 
@@ -57,9 +59,7 @@ ONT ID 登录集成有两种方式：通过跳转到特定URL，和页面集成�
 
 ### 应用方服务器发起支付订单请求
 
-应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。
-
-
+应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。可以参考第三方应用服务器例子： [app-server 源码](https://github.com/ontio-ontid/ontid-app-server)
 
 ```
 url：/api/v1/ontid/request/order
@@ -179,7 +179,6 @@ method：POST
 
 ```
 
-> ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求。
 
 ### 智能合约
 
