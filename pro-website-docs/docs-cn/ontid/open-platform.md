@@ -45,7 +45,7 @@ ONTID 授权登录模式整体流程为：
  
    "content": {
        "type": "refresh_token", // or access_token
-       "phone": "+86*1234567890",
+       "phone": "86*1234567890",
        "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
        ......
    }
@@ -169,12 +169,12 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 ### 调用合约的数据格式
 
 ```
-url：/api/v1/ontid/request/order
+url：/api/v1/provider/request/order
 
 method：POST
 
 {
-   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+   "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
    "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
@@ -189,7 +189,7 @@ method：POST
   "desc" : "SUCCESS",
   "result" : {
     "invoke_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJhdWQiOiJkaWQ6b250OkFOUzlKbm9FUjVXcWNFNzVqSGVZWkF1U1dSdlRqUDY5V0giLCJpc3MiOiJkaWQ6b250OkFhdlJRcVhlOVByYVY1dFlnQnF2VjRiVXE4TFNzdmpjV1MiLCJleHAiOjE1NTM5NTkwMjAsImlhdCI6MTU1Mzg3MjYyMCwianRpIjoiYzkyZjNiMTdkN2E2NGZjZjg2MGI5M2I4ODgwMjVkNTMiLCJjb250ZW50Ijp7InR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJvbnRpZCI6ImRpZDpvbnQ6QU5TOUpub0VSNVdxY0U3NWpIZVlaQXVTV1J2VGpQNjlXSCJ9fQ.MDFiYTllM2VkZjRhNjE2ODM1NjZjYThkMWVkM2UwNWUxNTg5MDEzMjEwYTFlOGU2ZDdiYmYxYjc0NTRmOGFlNzExMDQxZDUwMDExZWFkNDIwMmY3NDYyMTMyNGNlYjQ5NTA4NDM0YzRjOTI5Y2NmZTcyNzRmYTcxYTg2MzNkNTMzMw",
-    "orderid" : "9892bcb698bb4cbd812c8b466d8ad432"
+    "orderId" : "9892bcb698bb4cbd812c8b466d8ad432"
   },
   "version" : "v1"
 }
@@ -202,45 +202,46 @@ method：POST
 
 ```
 {
-		"invokeConfig": {
-			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
-			"functions": [{
-				"operation": "method name",
-				"args": [{
-					"name": "arg0-list",
-					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
-						"key": 6
-					}]
-				}, {
-					"name": "arg1-map",
-					"value": {
-						"key": "String:hello",
-						"key1": "ByteArray:aabb",
-						"key2": "Long:100000000000",
-						"key3": true,
-						"key4": 100,
-						"key5": [100],
-						"key6": {
-							"key": 6
-						}
-					}
-				}, {
-					"name": "arg2-str",
-					"value": "String:test"
+    "invokeConfig": {
+        "contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
+		"functions": [{
+			"operation": "method name",
+			"args": [{
+				"name": "arg0-list",
+				"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
+					"key": 6
 				}]
-			}],
-			"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
-			"gasLimit": 20000,
-			"gasPrice": 500
-		},
-        "app": {
-            "name": "",
-            "logo":"",
-            "message": "",
-            "ontid": "",
-            "callback": "",
-            "nonce": 123456
-        }
+			}, {
+				"name": "arg1-map",
+				"value": {
+					"key": "String:hello",
+					"key1": "ByteArray:aabb",
+					"key2": "Long:100000000000",
+					"key3": true,
+					"key4": 100,
+					"key5": [100],
+					"key6": {
+						"key": 6
+					}
+				}
+			}, {
+				"name": "arg2-str",
+				"value": "String:test"
+			}]
+		}],
+		"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
+		"gasLimit": 20000,
+		"gasPrice": 500
+	},
+    "app": {
+        "name": "",
+        "logo":"",
+        "message": "",
+        "ontid": "",
+        "callback": "",
+        "nonce": 123456781234
+     }
+    "exp":1555041974000
 }
 ```
 
@@ -256,7 +257,8 @@ method：POST
 |    invokeConfig.gasPrice |   int | 目前是固定值500 |
 |    app.ontid |   String | 应用方 ontid |
 |    app.callback |   String | 调用合约成功的回调地址 |
-|    app.nonce |   long |  |
+|    app.nonce |   long | 随机数，保证每次请求的数据不一样,16位 |
+|    exp |   long | 时间戳，该token的有效时间 |
 
 ONT/ONG转账```invokeConfig```参数填写例子：
 ```
@@ -285,29 +287,8 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 }
 
 ```
-## 签名接口
 
-```
-url：/api/v1/ontid/signmessage
-
-method：POST
-
-{
-   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-   "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
-}
-
-```
-#### Payload 里的私有申明
-
-```
-{
-	"message": "helloworld",
-}
-```
-
-
-## 其他接口
+## 应用方查询用户 ontid 账户信息
 
 以下接口 ``` Header``` 都需要添加```access_token``` 才能访问。
 
@@ -318,27 +299,30 @@ url：/api/v1/ontid/info
 
 method：POST
 
-{
-   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+{  
 }
 ```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    ontid|   String|  ontid  |
 
 返回：
 
 ```
 {
-    "action":"getOntidInfo",
-    "version":"1.0",
-    "error":0,
-    "desc":"SUCCESS",
-    "result": {
-          "publickey": "",
-          "ontid": ""
-    }
+    action: "getInfo",
+    error: 0,
+    desc: "SUCCESS",
+    result: {
+        wallet: [
+            {
+                address: "ASqT8qw2TMXCcTLQtpmbhTrpPhWDj8qCRV",
+                ont: 0,
+                ong: 0
+            }
+        ],
+        phone: "86*15951496186",
+        publicKey: "03f4c1212a5f726aca1c6877070b7d017cf5927ef7be9083b0ef5619e1b3ffbfed",
+        ontid: "did:ont:AMxrSGHyxgnWS6qc1QjTNYeEaw3X3Dvzhf"
+    },
+    version: "v1"
 }
 ```
 
@@ -349,35 +333,73 @@ method：POST
 |    error|   int|  错误码  |
 |    desc|   String|  成功为SUCCESS，失败为错误描述  |
 |    result|   String| 	结果  |
+|    result.phone|   String| 	用户的手机号  |
+|    result.publicKey|   String| 	用户的公钥  |
+|    result.ontid|   String| 	用户的ontid  |
+|    result.wallet|   String| 	用户的钱包  |
+|    wallet.address|   String| 	用户的钱包地址  |
+|    wallet.ont|   String| 	钱包的ont余额  |
+|    wallet.ong|   String| 	钱包的ong余额  |
 
-### 查询资产余额
+## 第三方查询接口对接
 
+```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求。
 
-```
-url：/api/v1/ontid/getbalance
+### 根据订单号查询订单详情
+
+```text
+url： /api/v1/provider/query/order
 
 method：POST
 
 {
-   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+    "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
 ```
-| Field_Name|     Type |   Description   | 
+
+#### Payload 里的私有申明
+```text
+{
+    "app": {
+        "ontid": ""
+    }
+    "exp":1555041974000
+}
+```
+
+| Param     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    ontid|   String|  ontid  |
+|    app.ontid |   String | 应用方 ontid |
+|    exp |   long | 时间戳，该token的有效时间 |
+|    orderId |   String | 订单号 |
 
 返回：
 
 ```
 {
-    "action":"getbalance",
-    "version":"1.0",
-    "error":0,
-    "desc":"SUCCESS",
-    "result": {
-       "ont": "100",
-       "ong": "10000000000"
-    }
+    action: "queryOrder",
+    error: 0,
+    desc: "SUCCESS",
+    result: {
+        note: null,
+        wallet: "ASqT8qw2TMXCcTLQtpmbhTrpPhWDj8qCRV",
+        txHash: "5b7fd0f390bd5cfa9dc5df2014712f7312857b1e303a367bb60100ac0e7d5fcf",
+        orderId: "2ce54ba2db47b01a64d09b1ba1a848161f06361525bbd99b49c3ccf214c3259b",
+        createTime: 1554992710000,
+        appInfo: {
+            name: "test",
+            logo: "www.baidu.com",
+            callback: "http://139.219.136.188:11111/ontid/payment/callback",
+            message: "这是一个测试内容",
+            nonce: "1ee1bdd6d50c433cb7429c0779c45384",
+            ontid: "did:ont:AaqWLmN3LNqu8QFpuSnoK3QM4g5KC2ZSTC"
+        },
+        state: 6,
+        event: null,
+        user: "did:ont:AMxrSGHyxgnWS6qc1QjTNYeEaw3X3Dvzhf"
+    },
+    version: "v1"
 }
 ```
 
@@ -388,10 +410,83 @@ method：POST
 |    error|   int|  错误码  |
 |    desc|   String|  成功为SUCCESS，失败为错误描述  |
 |    result|   String| 	结果  |
+|    result.note|   String| 	备注，失败情况的描述  |
+|    result.wallet|   String| 	付款的地址  |
+|    result.txHash|   String| 	该笔交易hash  |
+|    result.orderId|   String| 	订单号  |
+|    result.createTime|   String| 	订单创建时间  |
+|    result.appInfo|   String| 	订单详情，跟之前构建订单内容一致  |
+|    result.state|   String| 	0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
+|    result.event|   String| 	该笔交易的smart event  |
+|    result.user|   String| 	用户ontid  |
+
+### 查询订单列表
+
+```text
+url： /api/v1/provider/query/order/range
+
+method：POST
+
+{
+    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+     "currentPage": 1,
+     "size":10
+}
+```
+
+#### Payload 里的私有申明
+```text
+{
+    "app": {
+        "ontid": ""
+     }
+    "exp":1555041974000
+}
+```
+
+| Param     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    app.ontid |   String | 应用方 ontid |
+|    exp |   long | 时间戳，该token的有效时间 |
+|    orderId |   String | 订单号 |
+
+返回：
+
+```
+{
+    action: "queryOrderRange",
+    error: 0,
+    desc: "SUCCESS",
+    result: [
+        {
+            wallet: "ASqT8qw2TMXCcTLQtpmbhTrpPhWDj8qCRV",
+            txHash: null,
+            orderId: "532de576f7ba4c194e71c3994a452688b8d474760e844c3cf6d00f76c0a02fe9",
+            createTime: 1555039410000,
+            state: 0,
+            user: "did:ont:AMxrSGHyxgnWS6qc1QjTNYeEaw3X3Dvzhf"
+        }
+     ],
+    version: "v1"
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String| 	结果  |
+|    result.wallet|   String| 	付款的地址  |
+|    result.txHash|   String| 	该笔交易hash  |
+|    result.orderId|   String| 	订单号  |
+|    result.createTime|   String| 	订单创建时间  |
+|    result.state|   String| 	0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
+|    result.user|   String| 	用户ontid  |
 
 
-### 错误码
-
+## 错误码
 
 | 代码     |     说明   |  
 | :----: | :----: | 
