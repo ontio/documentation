@@ -120,11 +120,11 @@ Gaslimit depends on the complexity of the contract execution, the minimum gaslim
 
 #### Address Processing
 
-The Chrome plug-in wallet Cyano Wallet accepts only ByteArray type when processing incoming addresses. When debugging with [SmartX] (https://smartx.ont.io/#/), SmartX will automatically convert the recognized address types to ByteArray type, so the call will not be a problem, but in the developer's own environment, if there is no type conversion, then Cyano wallet will report an error.
+The Chrome plug-in wallet Cyano Wallet accepts only ByteArray type when processing incoming addresses. When debugging with [SmartX](https://smartx.ont.io/#/), SmartX will automatically convert the recognized address types to ByteArray type, so the call will not be a problem, but in the developer's own environment, if there is no type conversion, then Cyano wallet will report an error.
 
 The following is an example of getting an address in ByteArray format in js:
 
 ```javascript
 import {Crypto} from 'ontology-ts-sdk';
-var address = new Crypto.Address(account).serialize() // 此处得到的 address 就是 ByteArray 格式
+var address = new Crypto.Address(account).serialize() // The address obtained here is the ByteArray format.
 ```
