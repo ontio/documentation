@@ -7,6 +7,14 @@
 
 DAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 
+目前比较主流的DApp使用渠道除了在chrome中打开，还有在手机钱包中打开，在手机钱包中使用DApp的接入方案为[手机钱包内打开](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)。
+
+为了满足 DApp 同时适用于网页版和移动版，我们提供了兼容两种 DAPI 的例子：
+
+* 移动版 DAPI 使用方法：[dapi for mobile](https://github.com/ontio-cyano/cyano-bridge)
+* Chrome 插件钱包的 DAPI 使用方法 [dapi for chrome](https://github.com/ontio/ontology-dapi)
+* 兼容移动版和 Chrome 插件版 DAPI 的代码例子：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)
+
 ### 安装开发环境
 
 请确保安装以下软件：

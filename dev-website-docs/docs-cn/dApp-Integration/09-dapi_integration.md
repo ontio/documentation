@@ -15,7 +15,7 @@
 
 协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
 
-参考钱包下载地址：http://101.132.193.149/files/app-debug.apk
+参考钱包下载地址：[cyano wallet](http://101.132.193.149/files/app-debug.apk)
 
 
 ## 钱包演示
@@ -30,9 +30,17 @@
 
 [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
+移动版 Cyano 安卓钱包下载地址：
+
+[cyano wallet](http://101.132.193.149/files/app-debug.apk)
+
 H5 DApp 例子源码：
 
 [mobile-dapp-demo](https://github.com/ontio-cyano/mobile-dapp-demo)
+
+H5 DApp例子链接：
+
+http://101.132.193.149:5000/#/
 
 ### 在钱包中打开 DApp
 
