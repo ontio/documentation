@@ -144,9 +144,58 @@ ONTID 授权登录模式整体流程为：
 
 
 
-## 用户授权
+### 应用方查询用户 ontid 账户信息
 
-有些接口需要用户授权，应用后台才有权限访问用户的数据。没有授权就能访问的是默认授权的接口。
+以下接口 ``` Header``` 都需要添加```access_token``` 才能访问。
+
+#### 查询 ontid 账户信息
+
+```
+url：/api/v1/ontid/info
+
+method：POST
+
+{  
+}
+```
+
+返回：
+
+```
+{
+    action: "getInfo",
+    error: 0,
+    desc: "SUCCESS",
+    result: {
+        wallet: [
+            {
+                address: "ASqT8qw2TMXCcTLQtpmbhTrpPhWDj8qCRV",
+                ont: 0,
+                ong: 0
+            }
+        ],
+        phone: "86*15951496186",
+        publicKey: "03f4c1212a5f726aca1c6877070b7d017cf5927ef7be9083b0ef5619e1b3ffbfed",
+        ontid: "did:ont:AMxrSGHyxgnWS6qc1QjTNYeEaw3X3Dvzhf"
+    },
+    version: "v1"
+}
+```
+
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String| 	结果  |
+|    result.phone|   String| 	用户的手机号  |
+|    result.publicKey|   String| 	用户的公钥  |
+|    result.ontid|   String| 	用户的ontid  |
+|    result.wallet|   String| 	用户的钱包  |
+|    wallet.address|   String| 	用户的钱包地址  |
+|    wallet.ont|   String| 	钱包的ont余额  |
+|    wallet.ong|   String| 	钱包的ong余额  |
 
 
 
@@ -196,7 +245,7 @@ method：POST
 
 ```
 
-#### Payload 里的私有申明
+#### Payload 里的字段
 
 包含调用合约的参数和应用方的信息。
 
@@ -239,7 +288,7 @@ method：POST
         "message": "",
         "ontid": "",
         "callback": "",
-        "nonce": 123456781234
+        "nonce": "123456781234"
      }
     "exp":1555041974000
 }
@@ -260,90 +309,27 @@ method：POST
 |    app.nonce |   long | 随机数，保证每次请求的数据不一样,16位 |
 |    exp |   long | 时间戳，该token的有效时间 |
 
-ONT/ONG转账```invokeConfig```参数填写例子：
-```
-{
-	"invokeConfig": {
-		"contractHash": "0100000000000000000000000000000000000000", // ONG: 0200000000000000000000000000000000000000
-		"functions": [{
-			"operation": "transfer",
-			"args": [{
-					"name": "arg0-from",
-					"value": "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
-				}, {
-					"name": "arg1-to",
-					"value": "Address:AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ"
-				},
-				{
-					"name": "arg2-amount",
-					"value": 10000
-				}
-			]
-		}],
-		"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
-		"gasLimit": 20000,
-		"gasPrice": 500
-	}
-}
 
-```
 
-## 应用方查询用户 ontid 账户信息
 
-以下接口 ``` Header``` 都需要添加```access_token``` 才能访问。
 
-### 查询 ontid 账户信息
-
-```
-url：/api/v1/ontid/info
-
-method：POST
-
-{  
-}
-```
-
-返回：
-
-```
-{
-    action: "getInfo",
-    error: 0,
-    desc: "SUCCESS",
-    result: {
-        wallet: [
-            {
-                address: "ASqT8qw2TMXCcTLQtpmbhTrpPhWDj8qCRV",
-                ont: 0,
-                ong: 0
-            }
-        ],
-        phone: "86*15951496186",
-        publicKey: "03f4c1212a5f726aca1c6877070b7d017cf5927ef7be9083b0ef5619e1b3ffbfed",
-        ontid: "did:ont:AMxrSGHyxgnWS6qc1QjTNYeEaw3X3Dvzhf"
-    },
-    version: "v1"
-}
-```
-
-| Field_Name|     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    action|   String|  动作标志  |
-|    version|   String|  版本号  |
-|    error|   int|  错误码  |
-|    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String| 	结果  |
-|    result.phone|   String| 	用户的手机号  |
-|    result.publicKey|   String| 	用户的公钥  |
-|    result.ontid|   String| 	用户的ontid  |
-|    result.wallet|   String| 	用户的钱包  |
-|    wallet.address|   String| 	用户的钱包地址  |
-|    wallet.ont|   String| 	钱包的ont余额  |
-|    wallet.ong|   String| 	钱包的ong余额  |
-
-## 第三方查询接口对接
+## 查询接口
 
 ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求。
+
+```text
+{
+    "app": {
+        "ontid": ""
+    }
+    "exp":1555041974000
+}
+```
+
+| Param     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    app.ontid |   String | 应用方 ontid |
+|    exp |   long | 时间戳，该token的有效时间 |
 
 ### 根据订单号查询订单详情
 
@@ -358,21 +344,7 @@ method：POST
 }
 ```
 
-#### Payload 里的私有申明
-```text
-{
-    "app": {
-        "ontid": ""
-    }
-    "exp":1555041974000
-}
-```
 
-| Param     |     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    app.ontid |   String | 应用方 ontid |
-|    exp |   long | 时间戳，该token的有效时间 |
-|    orderId |   String | 订单号 |
 
 返回：
 
@@ -433,22 +405,6 @@ method：POST
      "size":10
 }
 ```
-
-#### Payload 里的私有申明
-```text
-{
-    "app": {
-        "ontid": ""
-     }
-    "exp":1555041974000
-}
-```
-
-| Param     |     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    app.ontid |   String | 应用方 ontid |
-|    exp |   long | 时间戳，该token的有效时间 |
-|    orderId |   String | 订单号 |
 
 返回：
 
@@ -513,11 +469,6 @@ method：POST
 | 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
 
 
+## 对接文档
 
-## 演示例子
-
-第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
-
-第三方应用服务器例子： [app-server](https://github.com/ontio-ontid/ontid-app-server), 发起支付请求和回调例子。
-
-ONTID 登陆地址： [https://signin.ont.io/#/](https://signin.ont.io/#/)
+请参考 [对接指南](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/08-ontid_integration)。

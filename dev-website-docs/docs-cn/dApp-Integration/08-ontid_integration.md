@@ -347,7 +347,7 @@ method：POST
 
 ``` app_token ``` 是应用方签发的，ONTID 开发平台验证通过才能访问接口。
 
-Payload 里的私有申明包含调用合约的参数和应用方的信息，例如：
+Payload 里的字段包含调用合约的参数和应用方的信息，例如：
 
 ```
 {
@@ -389,7 +389,8 @@ Payload 里的私有申明包含调用合约的参数和应用方的信息，例
             "ontid": "", // String，必填项，应用方的ONT ID
             "callback":"",// String，可选项，交易成功后通知应用方
             "nonce": "123456" // String，不能重复
-        }
+        },
+        "exp":1555041974000
 }
 ```
 
@@ -408,14 +409,29 @@ Payload 里的私有申明包含调用合约的参数和应用方的信息，例
 |    app.logo |   String | 应用方 logo |
 |    app.message |   String | 用于页面上显示支付/调用合约的目的，不能超过30个字符 |
 |    app.nonce |   long |  |
-
+|    exp |   long | 时间戳，该token的有效时间 |
 
 
 
 ## 查询接口对接
 
 
- ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，但不需要```invokeConfig```。
+ ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，Payload 里的字段：
+
+ ```text
+ {
+     "app": {
+         "ontid": ""
+      }
+     "exp":1555041974000
+ }
+ ```
+ 
+ | Param     |     Type |   Description   |
+ | :--------------: | :--------:| :------: |
+ |    app.ontid |   String | 应用方 ontid |
+ |    exp |   long | 时间戳，该token的有效时间 |
+ 
 
 ### 根据订单号查询订单
 ```
@@ -425,14 +441,13 @@ method：POST
 
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
 ```
 
 | Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    provider|   String|  应用方 ontid  |
+|    app_token|   String|  应用方 app_token  |
 |    orderId|   String|  订单号  |
 
 返回：
@@ -464,15 +479,23 @@ method：POST
 }
 ```
 
-| Field_Name|     Type |   Description   |
+
+| Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    action|   String|  动作标志  |
 |    version|   String|  版本号  |
 |    error|   int|  错误码  |
 |    desc|   String|  成功为SUCCESS，失败为错误描述  |
 |    result|   String| 	结果  |
-|    result.state| int |  0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
-
+|    result.note|   String| 	备注，失败情况的描述  |
+|    result.wallet|   String| 	付款的地址  |
+|    result.txHash|   String| 	该笔交易hash  |
+|    result.orderId|   String| 	订单号  |
+|    result.createTime|   String| 	订单创建时间  |
+|    result.appInfo|   String| 	订单详情，跟之前构建订单内容一致  |
+|    result.state|   String| 	0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
+|    result.event|   String| 	该笔交易的smart event  |
+|    result.user|   String| 	用户ontid  |
 
 ### 查询订单列表
 
@@ -483,7 +506,6 @@ method：POST
 
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "currentPage": 1,
     "size":10
 }
@@ -508,7 +530,19 @@ method：POST
 }
 ```
 
-
+| Field_Name|     Type |   Description   | 
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String| 	结果  |
+|    result.wallet|   String| 	付款的地址  |
+|    result.txHash|   String| 	该笔交易hash  |
+|    result.orderId|   String| 	订单号  |
+|    result.createTime|   String| 	订单创建时间  |
+|    result.state|   String| 	0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
+|    result.user|   String| 	用户ontid  |
 
 
 
