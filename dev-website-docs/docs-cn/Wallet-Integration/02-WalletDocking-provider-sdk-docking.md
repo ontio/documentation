@@ -19,7 +19,7 @@ Provider-SDK 对 iOS/Android webview 进行了一些方法的封装，实现了 
 移动端 DAPI 规范文档包括唤醒、扫码、和钱包中打开 H5 DApp 三种场景。对于已支持 DAPI 的钱包如 [麦子钱包](http://www.mathwallet.org/en/)、[Onion](http://onion.fun/)，请参考对应的对接文档。关于协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
 
 DApp 场景接入文档：
-* [钱包打开 DApp 接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/02-WalletDocking-wallet-open-DApp)
+* [钱包打开 DApp 接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp)
 * [扫码接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode)
 * 钱包对接-唤醒接入流程 (暂不支持)
 * 钱包对接- ONTID 认证授权 (暂不支持)
