@@ -13,7 +13,7 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 
 
 
-## 第三方登录
+## 第三方登录对接
 
 
 ONTID 授权登录是让用户使用 ONTID 身份安全登录第三方应用或网站，在 ONTID 用户授权登录已接入 ONTID 的第三方应用后，第三方可以获取到用户的接口调用凭证（```access_token```），通过 ```access_token``` 可以进行 ONTID 相关接口调用。
@@ -144,13 +144,20 @@ ONTID 授权登录模式整体流程为：
 ```
 5. 应用方后台验证 ``` JWT token ```
 
-## 支付/调用合约接口
+
+
+
+
+
+## 支付或调用合约对接
 
 
 ONTID通用请求，如支付和调用合约，整体流程为：
 
 ![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment.png) 
 
+
+### 应用方对接流程
 
 1. 应用方后台发送支付请求到 ONT ID 开放平台。ONT ID 开放平台返回 ```orderid``` 作为流水号。
 2. 应用方前台打开支付页面，参数中带着 ```orderid``` 和应用方前台的重定向地址 ```redirect_uri```。
@@ -160,7 +167,8 @@ ONTID通用请求，如支付和调用合约，整体流程为：
 6. ONT ID前台重定向到```redirect_uri```
 
 
-### 调用合约的数据格式
+
+#### 支付/调用合约请求
 
 ```
 url：/api/v1/ontid/request/order
@@ -251,7 +259,7 @@ method：POST
 |    invokeConfig.gasLimit |   int | 执行合约需要消耗的gas |
 |    invokeConfig.gasPrice |   int | 目前是固定值500 |
 |    app.ontid |   String | 应用方 ontid |
-|    app.callback |   String | 调用合约成功的回调地址 |
+|    app.callback |   String | **调用合约成功的回调地址** |
 |    app.nonce |   long |  |
 
 ONT/ONG转账```invokeConfig```参数填写例子：
@@ -305,39 +313,21 @@ ONT/ONG转账```invokeConfig```参数填写例子：
 
 ## 签名接口
 
-```
-url：/api/v1/ontid/signmessage
-
-method：POST
-
-{
-   "data" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-   "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
-}
-
-```
-#### Payload 里的私有申明
-
-```
-{
-	"message": "helloworld",
-}
-```
 
 
-## 其他接口
+## 查询接口对接
 
-以下接口 ``` Header``` 都需要添加```access_token``` 才能访问。
+使用前需先登录 ONTID ，有``` access_token ```才能调用查询接口。
 
-### 查询 ontid 账户信息
+### 应用方查询用户 ontid 账户信息
 
 ```
 url：/api/v1/ontid/info
 
+headers.set("access_token", token);
 method：POST
 
 {
-   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 ```
 
@@ -349,14 +339,13 @@ method：POST
 
 ```
 {
-    "action":"getOntidInfo",
-    "version":"1.0",
-    "error":0,
-    "desc":"SUCCESS",
-    "result": {
-          "publickey": "",
-          "ontid": ""
-    }
+	"wallet": [{
+		"address": "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
+		"ont": 0,
+		"ong": 949999500
+	}],
+	"phone": "86*15821703553",
+	"publicKey": "032f70df4ab7baf182c779ca7ab6b5b92e349170b2c3a76df3a6bda66ca627ff61"
 }
 ```
 
@@ -368,34 +357,52 @@ method：POST
 |    desc|   String|  成功为SUCCESS，失败为错误描述  |
 |    result|   String| 	结果  |
 
-### 查询资产余额
+### 应用方查询订单信息
 
-
+#### 根据订单号查询
 ```
-url：/api/v1/ontid/getbalance
+url： /api/v1/provider/query/order
 
 method：POST
 
 {
-   	"ontid":"did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
+   	"orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
 ```
-| Field_Name|     Type |   Description   |
+
+| Field_Name|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    ontid|   String|  ontid  |
+|    provider|   String|  应用方 ontid  |
+|    orderId|   String|  订单号  |
 
 返回：
 
 ```
 {
-    "action":"getbalance",
-    "version":"1.0",
-    "error":0,
-    "desc":"SUCCESS",
-    "result": {
-       "ont": "100",
-       "ong": "10000000000"
-    }
+  "action" : "queryOrder",
+  "error" : 0,
+  "desc" : "SUCCESS",
+  "result" : {
+    "note" : null,
+    "wallet" : "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
+    "tx" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
+    "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
+    "callbackResult" : "org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:1111 [/127.0.0.1] failed: Connection refused (Connection refused)",
+    "appInfo" : {
+      "name" : "baidu",
+      "logo" : "https://www.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9%B2%9C%E4%BA%8B&tn=SE_Pclogo_6ysd4c7a&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pc",
+      "callback" : "http://127.0.0.1:1111/ontid/payment/callback",
+      "language" : "cn",
+      "message" : "baidu yixia",
+      "nonce" : "cd4c4c0d-340e-4d31-8d4b-9fdc6b2939b7",
+      "ontid" : "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8"
+    },
+    "state" : 5,
+    "event" : "{\"GasConsumed\":10000000,\"Notify\":[{\"States\":[\"transfer\",\"ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W\",\"AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ\",100],\"ContractAddress\":\"0200000000000000000000000000000000000000\"},{\"States\":[\"transfer\",\"ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W\",\"AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK\",10000000],\"ContractAddress\":\"0200000000000000000000000000000000000000\"}],\"TxHash\":\"3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d\",\"State\":1}",
+    "user" : "did:ont:AJ6gC7r6Rb3ac4Zh7J4D69sSAps5bGZRTf"
+  },
+  "version" : "v1"
 }
 ```
 
@@ -406,6 +413,44 @@ method：POST
 |    error|   int|  错误码  |
 |    desc|   String|  成功为SUCCESS，失败为错误描述  |
 |    result|   String| 	结果  |
+|    result.state| int |  0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
+
+
+#### 查询订单列表
+
+```
+url： /api/v1/provider/query/order/range
+
+method：POST
+
+{
+    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
+    "currentPage": 1,
+   	"size":10
+}
+
+```
+
+返回：
+```
+{
+  "action" : "queryOrderRange",
+  "error" : 0,
+  "desc" : "SUCCESS",
+  "result" : [ {
+    "wallet" : "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
+    "tx" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
+    "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
+    "createTime" : 1554986210000,
+    "state" : 5,
+    "user" : "did:ont:AJ6gC7r6Rb3ac4Zh7J4D69sSAps5bGZRTf"
+  } ],
+  "version" : "v1"
+}
+```
+
+
+
 
 
 ### 错误码
@@ -435,6 +480,13 @@ method：POST
 | 63003	|	CODE_VERIFY_FAILED,设备码校验失败
 | 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
 
+
+
+## 登录和支付对接页面
+
+ONTID 登陆地址： [https://signin.ont.io/#/](https://signin.ont.io/#/)
+
+ONTID 支付页面： [https://pay.ont.io/#/](https://pay.ont.io/#/)
 
 
 ## 演示例子

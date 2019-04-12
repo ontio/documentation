@@ -54,11 +54,12 @@
     - [手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
     - [chrome插件钱包](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
     - [唤醒手机钱包](docs-cn/dApp-Integration/06-DAppDocking-Wake-up.md)
+  - [常见问题](docs-cn/dApp-Integration/11-Q&A.md)
 
 - 钱包对接指南
   - [概述](docs-cn/Wallet-Integration/00-wallet_integration.md)
   - [资产接入](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
-  - [Provider 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
+  - [Dapi-Provider 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [场景-扫码集成](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
       - [场景-钱包内打开dApp集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
 
