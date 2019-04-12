@@ -19,9 +19,8 @@ According to your operating system, refer to the following methods:
 The mobile DAPI specification document includes three scenarios: wake up, scan code, and open H5 DApp in the wallet. For wallets that already support DAPI such as [Math Wallet](http://www.mathwallet.org/en/), [Onion](http://onion.fun/), please refer to the corresponding docking document. Please see for details of the agreement [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki).
 
 DApp scene access documentation:
-* [Wallet opens DApp access process](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/02-WalletDocking-wallet-open-DApp)
-* [Scan code access process](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode)
-* Wallet docking - ONTID authentication and authorization (not supported at this time)
+* [DAPP supports opening inside mobile wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)
+* [DAPP supports mobile wallet scan code](https://dev-docs.ont.io/#/docs-en/dApp-Integration/02-DAppDocking-QRcode)
 
 Reference wallet download link: http://101.132.193.149/files/app-debug.apk
 
