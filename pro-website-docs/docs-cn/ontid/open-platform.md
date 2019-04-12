@@ -361,7 +361,7 @@ method：POST
         createTime: 1554992710000,
         appInfo: {
             name: "test",
-            logo: "www.baidu.com",
+            logo: "www.ont.io",
             callback: "http://139.219.136.188:11111/ontid/payment/callback",
             message: "这是一个测试内容",
             nonce: "1ee1bdd6d50c433cb7429c0779c45384",
