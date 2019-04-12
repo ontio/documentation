@@ -20,6 +20,126 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 * 测试网 ONTID 支付页面： [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 
+
+
+## 快速对接
+
+
+应用方对接包括前端对接和服务器对接。前端对接主要是对接登录和支付页面，后台对接主要是对接发起订单请求和订单查询。
+
+### 应用方前端对接登录和支付页面
+ 
+ 
+ ```
+ 登录：  http://139.219.136.188:10390/signin?params={value}
+ value = window.encodeURIComponent(appontid + '&' + appname + '&' + lang)
+```
+
+ > 用户登录成功后，应用方得到 ```access_token```可以查询用户的信息，应用方需要保存用户的资产地址信息，支付时候需要使用
+   
+```  
+ 支付：  http://139.219.136.188:10390/transaction?params={value}
+ value = window.encodeURIComponent(orderid + & + invoke_token + & + callback_url + & + lang)
+ 
+```
+ > 支付成功后，应用方前端会收到交易hash，服务器需要保存交易hash，通过交易hash可以查询交易状态。
+
+* lang 是可选的参数默认是en，en表示英文，zh表示中文。
+* appontid 是应用方的 ontid。
+* appname 是应用方的 名字。
+* invoke_token 是应用方服务器发起支付订单请求，开发平台返回的invoke_token。
+* orderid 是应用方服务器发起支付订单请求，开发平台返回的orderid。
+* callback_url 是应用方的前端页面。
+
+
+ 
+ 
+ 
+### 应用方服务器发起支付订单请求
+
+应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。
+
+```
+url：/api/v1/ontid/request/order
+
+method：POST
+
+{
+   "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+   "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
+}
+```
+
+ ``` Payload```中的应用方信息和调用合约参数： 
+
+```
+
+{
+	"invokeConfig": {
+		"contractHash": "0100000000000000000000000000000000000000", // ONG: 0200000000000000000000000000000000000000
+		"functions": [{
+			"operation": "transfer",
+			"args": [{
+					"name": "arg0-from",
+					"value": "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
+				}, {
+					"name": "arg1-to",
+					"value": "Address:AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ"
+				},
+				{
+					"name": "arg2-amount",
+					"value": 10000
+				}
+			]
+		}],
+		"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
+		"gasLimit": 20000,
+		"gasPrice": 500
+	},
+	"app": {
+        "name": "", // String，必填项，应用方名称
+        "logo":"", // String，可选项，应用方logo的url。
+        "message": "", // String，必填项，用于页面上显示支付/调用合约的目的，不能超过30个字符
+        "ontid": "", // String，必填项，应用方的ONT ID
+        "callback":"",// String，可选项，交易成功后通知应用方
+        "nonce": "123456" // String，不能重复
+    }
+}
+
+```
+
+应用方服务器可以通过``` callback ```确认用户支付成功，也可以通过合约hash到链上查询。
+
+### 应用方服务器查询订单
+
+根据订单号查询
+```
+url： /api/v1/provider/query/order
+
+method：POST
+
+{
+    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
+   	"orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
+}
+```
+
+查询订单历史记录
+```
+url： /api/v1/provider/query/order/range
+
+method：POST
+
+{
+    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
+    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
+    "currentPage": 1,
+   	"size":10
+}
+
+```
+
 ## 第三方登录对接
 
 
@@ -67,62 +187,6 @@ ONTID 授权登录模式整体流程为：
 |    refresh_token |   String | ```JWT token```，刷新 ```access_token``` 时使用 |
 
  
-
-### JWT Token 格式说明
-
- ```JWT``` 包含三个部分：
-
-```
-  Base64(Header).Base64(Payload).Base64(Signature)	 
-```
-
-
-每个部分都是```Base64Url```格式，以 ``` . ``` 隔开。
-
-#### Header
-```
-{
-  "alg": "ES256",
-  "typ": "JWT"
-}
-```
-
-```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）, 但我们使用 ```ES256``` (```ECDSA``` 使用 ```P-256``` 曲线和 ```SHA-256``` hash 算法)。
-
-```typ``` 属性表示这个令牌（token）的类型，```JWT token```统一写为 ```JWT```。
-
-#### Payload
-
-官方规定了7个字段，可选。我们选用以下几个必须字段：
-
-  ```iss (issuer)```：签发人。这里是 ONTID 开放平台的 ONTID。
-
-  ```exp (expiration time)```：```token``` 过期时间。
-
-  ```aud (audience)```：受众。这里是应用方的 ONTID。
-
-  ```iat (Issued At)```：签发时间
-
-  ```jti (JWT ID)```：编号。ONTID 开放平台保存的凭证。
-
-> 注意除了以上字段，还有一些自定义字段用于存储用户信息，这些用户信息不能是敏感信息。
-
-#### Signature
-
-```Signature``` 部分是对前两部分的签名，防止数据篡改。
-
-签名生成规则是:
-
-1. ```Header``` 和 ```Payload```按照字母序升序拼接成参数字符串，以&连接，比如：
-
-```Header``` : alg=ES256&typ=JWT
-
-```Payload```: aud=应用方ONTID&exp=20190310&iat=20190301……
-
-2. 将上述两个字符串转成 ```base64url``` 格式，用 ```.``` 连接，得到模板字符串。
-3. 使用 ONTID 开放平台私钥和签名算法```ES256```对目标字符串签名。
-
-应用方得到```JWT token```后，按照如上规则生成目标字符串并对签名进行验签。
 
 
 
@@ -306,6 +370,7 @@ Payload 里的私有申明包含调用合约的参数和应用方的信息，例
             "logo":"", // String，可选项，应用方logo的url。
             "message": "", // String，必填项，用于页面上显示支付/调用合约的目的，不能超过30个字符
             "ontid": "", // String，必填项，应用方的ONT ID
+            "callback":"",// String，可选项，交易成功后通知应用方
             "nonce": "123456" // String，不能重复
         }
 }
@@ -327,38 +392,6 @@ Payload 里的私有申明包含调用合约的参数和应用方的信息，例
 |    app.message |   String | 用于页面上显示支付/调用合约的目的，不能超过30个字符 |
 |    app.nonce |   long |  |
 
-ONT/ONG转账```invokeConfig```参数填写例子：
-```
-{
-	"invokeConfig": {
-		"contractHash": "0100000000000000000000000000000000000000", // ONG: 0200000000000000000000000000000000000000
-		"functions": [{
-			"operation": "transfer",
-			"args": [{
-					"name": "arg0-from",
-					"value": "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
-				}, {
-					"name": "arg1-to",
-					"value": "Address:AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ"
-				},
-				{
-					"name": "arg2-amount",
-					"value": 10000
-				}
-			]
-		}],
-		"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
-		"gasLimit": 20000,
-		"gasPrice": 500
-	}
-}
-
-```
-
-
-
-
-
 
 
 
@@ -374,6 +407,7 @@ url： /api/v1/provider/query/order
 method：POST
 
 {
+    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
     "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
    	"orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
@@ -431,6 +465,7 @@ url： /api/v1/provider/query/order/range
 method：POST
 
 {
+    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
     "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "currentPage": 1,
    	"size":10
@@ -494,3 +529,65 @@ method：POST
 第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
 
 第三方应用服务器例子： [app-server](https://github.com/ontio-ontid/ontid-app-server), 发起支付请求和回调例子。
+
+
+
+## 常见问题
+
+#### JWT Token 格式说明？
+
+
+
+ ```JWT``` 包含三个部分：
+
+```
+  Base64(Header).Base64(Payload).Base64(Signature)	 
+```
+
+
+每个部分都是```Base64Url```格式，以 ``` . ``` 隔开。
+
+* **Header**
+```
+{
+  "alg": "ES256",
+  "typ": "JWT"
+}
+```
+
+```alg``` 属性表示签名的算法，默认是 ```HMAC SHA256```（写成 HS256）, 但我们使用 ```ES256``` (```ECDSA``` 使用 ```P-256``` 曲线和 ```SHA-256``` hash 算法)。
+
+```typ``` 属性表示这个令牌（token）的类型，```JWT token```统一写为 ```JWT```。
+
+* **Payload**
+
+官方规定了7个字段，可选。我们选用以下几个必须字段：
+
+  ```iss (issuer)```：签发人。这里是 ONTID 开放平台的 ONTID。
+
+  ```exp (expiration time)```：```token``` 过期时间。
+
+  ```aud (audience)```：受众。这里是应用方的 ONTID。
+
+  ```iat (Issued At)```：签发时间
+
+  ```jti (JWT ID)```：编号。ONTID 开放平台保存的凭证。
+
+> 注意除了以上字段，还有一些自定义字段用于存储用户信息，这些用户信息不能是敏感信息。
+
+* **Signature**
+
+```Signature``` 部分是对前两部分的签名，防止数据篡改。
+
+签名生成规则是:
+
+1. ```Header``` 和 ```Payload```按照字母序升序拼接成参数字符串，以&连接，比如：
+
+```Header``` : alg=ES256&typ=JWT
+
+```Payload```: aud=应用方ONTID&exp=20190310&iat=20190301……
+
+2. 将上述两个字符串转成 ```base64url``` 格式，用 ```.``` 连接，得到模板字符串。
+3. 使用 ONTID 开放平台私钥和签名算法```ES256```对目标字符串签名。
+
+应用方得到```JWT token```后，按照如上规则生成目标字符串并对签名进行验签。
