@@ -22,12 +22,12 @@
 - 1.1 provider 扫描 dapp 方提供的二维码（[调用合约二维码标准](#调用合约二维码标准)）
 - 1.2 使用 Provider 扫码
 - 2 Provider 构造交易，用户签名，预执行交易，用户确认，发送到链上，返回交易 hash 给 DApp 后端
-- 3 dApp 后端查询这笔合约交易（[交易事件查询方法](#交易事件查询方法)）
+- 3 dApp 后端查询这笔合约交易（[交易事件查询方法](#DApp后端查询交易事件)）
 
 ## 接入步骤
 
 ### 前提条件
-使用前，你需要联系[本体机构合作](https://info.ont.io/cooperation/en)
+使用前，你需要联系[本体机构合作](https://ont.io/contactUs)
 
 ### 登陆接入步骤
 
@@ -61,7 +61,7 @@
 | expire   | long  | 可选  |
 | callback   | string  |  用户扫码签名后发送到DApp后端URL |
 
-### DApp 服务端登陆接口
+### DApp服务端登陆接口
 method: post
 
 ```
@@ -248,7 +248,7 @@ ONG:0200000000000000000000000000000000000000
 * [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
 * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
-##### DApp 后端查询交易事件
+##### DApp后端查询交易事件
 * [java sdk 交易事件查询方法](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
 * [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 

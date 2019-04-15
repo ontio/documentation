@@ -1,5 +1,4 @@
 
-# ONT ID 开放平台 接入说明
 
 ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合约执行、KYC等服务，请按照以下步骤开始应用集成。
 
@@ -7,12 +6,11 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 ## 准备工作
 
 
-在进行 ONTID 授权登录接入之前，应用方需要先在 ONTID 开放平台注册 ONTID ，获得相应的 ONTID 和 ```PrivateKey```，申请 ONTID 通过审核后，可开始接入流程。
+在进行 ONTID 授权登录接入之前，应用方需要先在 ONTID 开放平台注册 ONTID ，获得相应的 ONTID 和 ```PrivateKey```，申请 ONTID 通过审核后，可开始接入流程。也可以向我们工作人员申请测试网的 ONTID 和 ```PrivateKey```。
 
 对接前请确保登录和支付页面能正常访问：
 
-* ONTID 登录页面： 主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
-
+* ONTID 登录页面：主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
 * ONTID 支付页面：主网  [https://pay.ont.io/#/](https://pay.ont.io/#/)，测试网  [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 
@@ -21,32 +19,43 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 ## 快速对接
 
 
-应用方对接包括前端对接和服务器对接。前端对接主要是对接登录和支付页面，后台对接主要是对接发起订单请求和订单查询。
+对接包括前端对接和服务器对接。前端对接主要是对接登录和支付页面，后台对接主要是对接发起订单请求和订单查询。
 
 
 * 第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
 * 第三方应用服务器例子： [app-server 源码](https://github.com/ontio-ontid/ontid-app-server)
 
 ### 前端对接登录页面
- 
- 
+
+ONT ID 登录集成有两种方式：通过跳转到特定URL，和页面集成插件`plugin.js`。这里介绍的是快速对接的方式。页面集成插件的方式见下文。
+
+
  ```
  http://139.219.136.188:10390/signin?params={value}
- value = window.encodeURIComponent(appontid + '&' + appname + '&' + lang)
-```
- 
+ value = window.encodeURIComponent(appontid + '&' + appname + '&' + callback_url + '&' + lang)
+ ```
 
- ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
+ ```lang``` 是可选的参数, 默值是en，en表示英文，zh表示中文。
  ```appontid``` 是应用方的 ontid。
  ```appname``` 是应用方的 名字。
 
-> 用户登录成功后，应用方得到 ```access_token```可以查询用户的信息，应用方需要保存用户的资产地址信息，支付时候需要使用
+> 用户登录成功后，登录的返回信息会作为参数附在应用方回调地址`callback_url`后，传递给应用方。
+>
+> 返回信息是经过`encodeURIComponent(JSON.stringify(response))`处理的。应用方需要逆向操作得到实际的返回信息。返回信息的结构如下：
+>
+> ```json
+> {
+>   "access_token": "",
+>   "ontid": "",
+>   "refresh_token":  ""
+> }
+> ```
+>
+> 应用方得到 ```access_token```可以查询用户的信息，应用方需要保存用户的资产地址信息，支付时候需要使用
 
 ### 应用方服务器发起支付订单请求
 
-应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。
-
-
+应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。可以参考第三方应用服务器例子： [app-server 源码](https://github.com/ontio-ontid/ontid-app-server)
 
 ```
 url：/api/v1/ontid/request/order
@@ -97,16 +106,24 @@ method：POST
 
 ```
 
-应用方服务器可以通过``` callback ```确认用户支付成功，也可以通过合约 hash 到[链上查询合约事件](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)。
+> 应用方服务器可以通过``` callback ```确认用户支付成功，也可以通过合约 hash 到[链上查询合约事件](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)。
 
 
+上链成功或失败回调应用方callback_url接口:
+
+```
+{
+  "txHash" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
+  "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
+  "result": 4   //0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期
+}  
+```
 
 ### 前端对接支付页面
 
 ```  
   http://139.219.136.188:10390/transaction?params={value}
   value = window.encodeURIComponent(orderid + & + invoke_token + & + callback_url + & + lang)
-  
 ```
 
  ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
@@ -121,8 +138,17 @@ method：POST
 ### 应用方服务器查询订单
 
 
+ ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，Payload 里的字段：
 
- 
+ ```text
+ {
+     "app": {
+         "ontid": ""
+      }
+     "exp":1555041974000
+ }
+ ```
+
 根据订单号查询
 ```
 url： /api/v1/provider/query/order
@@ -131,7 +157,6 @@ method：POST
 
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
 ```
@@ -144,14 +169,12 @@ method：POST
 
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "currentPage": 1,
     "size":10
 }
 
 ```
 
-> ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，但不需要```invokeConfig```。
 
 ### 智能合约
 
@@ -210,9 +233,14 @@ ONTID 授权登录模式整体流程为：
 ### 如何集成ONT ID登录
 
 
-1. 页面引入```OntidSignIn.js```
+1. 页面引入```plugin.js```
+
+   > 目前`plugin.js`放在[github](<https://github.com/ontio-ontid/ontid-app-demo/blob/master/public/plugin.js>)上，以后我们会放到CDN上。
+
 2. 页面添加 meta 标签，填写应用方的ONT ID。```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
+
 3. 页面添加 ONTID 的Sign In 按钮。``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
+
 4. 在登录成功后，触发回调onSignIn,发送 ```JWT token``` 到应用方后台。
 
 ```
@@ -309,7 +337,7 @@ method：POST
    "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
 }
 
-// data 需要使用应用方的ONT ID进行签名
+// app_token 需要使用应用方的ONT ID进行签名
 // user 是用户的ONT ID
 ```
 返回：
@@ -339,6 +367,16 @@ method：POST
 
 4. 用户确认后输入ONT ID密码，交易发送上链，返回到第三方应用。
 
+5. 上链成功或失败回调应用方callback_url接口。
+
+```
+{
+  "txHash" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
+  "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
+  "result": 4   //0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期
+}  
+```
+
 > 具体案例可以参考[官方示例](https://github.com/ontio-ontid/ontid-app-demo)
 
 
@@ -347,7 +385,7 @@ method：POST
 
 ``` app_token ``` 是应用方签发的，ONTID 开发平台验证通过才能访问接口。
 
-Payload 里的私有申明包含调用合约的参数和应用方的信息，例如：
+Payload 里的字段包含调用合约的参数和应用方的信息，例如：
 
 ```
 {
@@ -389,7 +427,8 @@ Payload 里的私有申明包含调用合约的参数和应用方的信息，例
             "ontid": "", // String，必填项，应用方的ONT ID
             "callback":"",// String，可选项，交易成功后通知应用方
             "nonce": "123456" // String，不能重复
-        }
+        },
+        "exp":1555041974000
 }
 ```
 
@@ -408,14 +447,29 @@ Payload 里的私有申明包含调用合约的参数和应用方的信息，例
 |    app.logo |   String | 应用方 logo |
 |    app.message |   String | 用于页面上显示支付/调用合约的目的，不能超过30个字符 |
 |    app.nonce |   long |  |
-
+|    exp |   long | 时间戳，该token的有效时间 |
 
 
 
 ## 查询接口对接
 
 
- ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，但不需要```invokeConfig```。
+ ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，Payload 里的字段：
+
+ ```text
+ {
+     "app": {
+         "ontid": ""
+      }
+     "exp":1555041974000
+ }
+ ```
+
+| Param     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    app.ontid |   String | 应用方 ontid |
+|    exp |   long | 时间戳，该token的有效时间 |
+
 
 ### 根据订单号查询订单
 ```
@@ -425,14 +479,13 @@ method：POST
 
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
 }
 ```
 
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    provider|   String|  应用方 ontid  |
+|    app_token|   String|  应用方 app_token  |
 |    orderId|   String|  订单号  |
 
 返回：
@@ -464,6 +517,7 @@ method：POST
 }
 ```
 
+
 | Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    action|   String|  动作标志  |
@@ -471,8 +525,15 @@ method：POST
 |    error|   int|  错误码  |
 |    desc|   String|  成功为SUCCESS，失败为错误描述  |
 |    result|   String| 	结果  |
-|    result.state| int |  0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
-
+|    result.note|   String| 	备注，失败情况的描述  |
+|    result.wallet|   String| 	付款的地址  |
+|    result.txHash|   String| 	该笔交易hash  |
+|    result.orderId|   String| 	订单号  |
+|    result.createTime|   String| 	订单创建时间  |
+|    result.appInfo|   String| 	订单详情，跟之前构建订单内容一致  |
+|    result.state|   String| 	0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
+|    result.event|   String| 	该笔交易的smart event  |
+|    result.user|   String| 	用户ontid  |
 
 ### 查询订单列表
 
@@ -483,7 +544,6 @@ method：POST
 
 {
     "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "provider": "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8",
     "currentPage": 1,
     "size":10
 }
@@ -498,7 +558,7 @@ method：POST
   "desc" : "SUCCESS",
   "result" : [ {
     "wallet" : "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
-    "tx" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
+    "txHash" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
     "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
     "createTime" : 1554986210000,
     "state" : 5,
@@ -508,7 +568,19 @@ method：POST
 }
 ```
 
-
+| Field_Name|     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    action|   String|  动作标志  |
+|    version|   String|  版本号  |
+|    error|   int|  错误码  |
+|    desc|   String|  成功为SUCCESS，失败为错误描述  |
+|    result|   String| 	结果  |
+|    result.wallet|   String| 	付款的地址  |
+|    result.txHash|   String| 	该笔交易hash  |
+|    result.orderId|   String| 	订单号  |
+|    result.createTime|   String| 	订单创建时间  |
+|    result.state|   String| 	0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
+|    result.user|   String| 	用户ontid  |
 
 
 

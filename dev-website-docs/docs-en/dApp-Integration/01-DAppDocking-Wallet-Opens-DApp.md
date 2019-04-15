@@ -1,30 +1,29 @@
 
-
 ## Overview
 
-Currently, each mobile version of the Wallet App is an important entry point for DApp. We provide `cyano-bridge`. Once the DApp is installed, it can be called by calling [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) The standard DAPI communicates with any wallet app that integrates `Provider-SDK` to implement chain operations.
+Currently, each mobile wallet App is an important entry point for DApp. We provide `cyano-bridge`. Once the dApp is installed, it can communicate with any wallet app that integrates `Provider-SDK` to implement chain operations by calling DAPI that is compatible with [CEP-1 standard](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) .
 
-## Open DApp interaction process in the wallet
+## Interaction Process of opening dApp in the wallet
 
 ### Login scenario
-1. Open DApp in your wallet
-2. The DApp sends a login request to the wallet, and the wallet returns the signature data.
-3. DApp verification passed, login succeeded
+1. Open dApp in your wallet
+2. The dApp sends a login request to the wallet, and the wallet returns the signed data.
+3. dApp verification passed, login succeeded
 
-### Call smart contract scene
-1. DApp initiates a smart contract request to the wallet (4.1 in the figure)
-2. Wallet signature, pre-execution, send to chain, return transaction hash to DApp (4.2 in the figure)
+### Call smart contract scenario
+1. dApp initiates a request to call smart contract to the wallet (figure 4.1)
+2. The wallet signs, pre-execute, sends the data to blockchain, and returns transaction hash to DApp (figure 4.2)
 
 ![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 
 
-In addition, in order to satisfy DApp for both web and mobile versions, we provide examples that are compatible with both DAPIs:
+In addition, for DApp to work on both web and mobile versions, we provide examples that are compatible with both DAPIs:
 
 * Mobile DAPI usage: [dapi for mobile](https://github.com/ontio-cyano/cyano-bridge)
 * DAPI usage of Chrome plugin wallet [dapi for chrome](https://github.com/ontio/ontology-dapi)
 * Code example for mobile and Chrome plugin DAPI: [dapi-universal](https://github.com/ontio-cyano/dapi-universal)
 
-## Mobile DAPI installation and use
+## Mobile DAPI Installation and Use
 
 ### installation
 
@@ -44,13 +43,13 @@ npm install cyanobridge
 
 #### CDN
 
-Currently you can get the latest version of the resource through `jsDelivr` and import the js file on the page to get started.
+Currently you can get the latest version through `jsDelivr` and import the js file on the page to get started.
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/cyanobridge/lib/browser.min.js"></script>
 ```
 
-<p class = "info">It is recommended that users who introduce `cyano-bridge` on the CDN lock the version on the link address to avoid future incompatibility updates for the `cyano-bridge` upgrade.</p> 
+<p class = "info">It is recommended that users who introduce `cyano-bridge` on the CDN lock the version on the link address to avoid incompatibility updates for future `cyano-bridge` upgrade.</p> 
 
 ### Import
 
@@ -86,11 +85,11 @@ import { client } from 'cyanobridge'
 client.registerClient();
 ```
 
-### use
+### Use
 
 #### Get account or identity information
 
-To obtain account or identity information, the mobile terminal can choose to fill in DApp information or not.。
+To obtain account or identity information, the mobile terminal can choose to fill in the optional DApp information.
 
 ```
 import { client } from 'cyanobridge'
@@ -113,7 +112,7 @@ try {
 
 #### Login
 
-The login is signed by the wallet party and the DApp verifies the signature.
+To log in, a signed message is sent by the wallet and verified by the dApp.
 
 ```
 const params = {
@@ -177,11 +176,11 @@ try {
 * [java sdk Signature check](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/interface.md#verify-signature)
 * [ts sdk Signature check](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
-##### DApp Backend query transaction event
+##### DApp Backend transaction event query
 * [java sdk Transaction event query method](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/basic.md)
 * [ts sdk Transaction event query method](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
-##### wallet
+##### Wallet
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 

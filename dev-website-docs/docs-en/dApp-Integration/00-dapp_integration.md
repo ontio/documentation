@@ -1,68 +1,47 @@
 
+This article provides a universal DApp access solution for developers who come to the ontologies to develop DApps, allowing developers to quickly build DApps.
 
-# DApp Integration instructions
+## Main DApp Features
 
-This series of access documents mainly introduces how DApp calls DAPI in various scenarios to implement operations such as login and smart contract.
+When DApp interacts with the ontology chain, it mainly has the following functions:
 
-Unlike traditional apps, DApp does not have a centralized account management backend, and users have full control over their identities and assets, so DApps need to interact with each other in a variety of ways, in addition to building their own business logic through smart contracts. In order to reduce the difficulty of DApp development, we provide a rich DAPI or method for DApp and chain interaction, suitable for scenarios where DApp is used in all current mainstream devices.
+### log in
 
-The following scenarios are currently supported:
+Allows verification of user identity or direct access to account/identity information.
 
-- [Open DApp in mobile wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)
-- [Use mobile wallet to scan code](https://dev-docs.ont.io/#/docs-en/dApp-Integration/02-DAppDocking-QRcode)
-- [Use chrome plugin wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
-- [Wake Up Mobile Wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/06-DAppDocking-Wake-up)
+### Payment
 
-For the integration of DAPI-enabled wallets such as [Math Wallet](http://www.mathwallet.org/en/) and [Onion](http://onion.fun/), please refer to the corresponding docking document. For details of the agreement, please see [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki).
+Implement DApp's payment function by calling smart contract.
 
-Demo wallet download address: http://101.132.193.149/files/app-debug.apk
+### Calling a smart contract
 
-## Wallet demo
+For DApp, smart contracts implement all or part of their business logic. With the game example, you can purchase, sell, lease, or get random numbers and other different services and functions. See the Smart Contract for detailed business logic.
 
-Mobile version Cyano wallet source link address：[cyano-android](https://github.com/ontio-cyano/cyano-android),[cyano-ios](https://github.com/ontio-cyano/cyano-ios).
+### Assets on the chain (optional)
 
-H5 DApp example source code: [mobile-dapp-demo](https://github.com/ontio-cyano/mobile-dapp-demo).
+Asset-winding is not required for DApp development, but some DApps require specific chain-based assets to run their internal logic.
+According to different demand for assets, the ontology provides three different types of chain assets: OEP4, OEP5, and OEP8.
+
+[What is OEP-4, OEP-5, OEP-8? ](https://dev-docs.ont.io/#/docs-en/dApp-Integration/11-Q&A?id=_1-what-is-oep-4-oep-5-oep-8)
+
+## Access technology implementation
+
+In order to achieve the above several functions, we provide two Dapp access technology solutions, two access methods can be used to log in, call smart contracts and other functions, developers can choose one of them to access development according to their needs
+
+### ONT ID Open Platform (Integrated Solution)
 
 
-### Open DApp in the wallet
+The ONT ID open platform provides third-party applications for third-party applications such as login, payment, smart contract execution, and KYC.
 
-Open DApp in the wallet：http://101.132.193.149:5000/#/
+The advantage of the ONT ID open platform is that with the trusted hosting mode, the user login DApp will no longer rely on the user's local wallet, greatly expanding the scope of DApp.
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/01-dapps.jpg" height="350" width="200">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/01-private-dapp.jpg" height="350" width="200">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/01-open-dapp.png" height="350" width="200">
-</div>
+- [ONT ID Open Platform Integration](docs-en/dApp-Integration/08-ontid_integration.md)
 
-### Get account or identity information
+### DApi integration (decentralization Solution)
 
-If you do not need to verify the user's identity, DApp will directly query the account or identity information.
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/01-open-dapp.png" height="350" width="200">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/02-getAccount.jpg" height="350" width="200">
-</div>
+It introduces how DApp calls DApi in various scenarios, including operations such as logging in, calling smart contracts, and so on.
 
-### DApp Login
+The advantage of DApi integration is that users can master all their assets and information, and it is now more convenient to use the supported wallet to log in to the DApp.
 
-If the user identity needs to be verified, the DApp will send a message to the wallet to sign and then verify the signature.
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/01-open-dapp.png" height="350" width="200">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/03-login-pwd.png" height="350" width="200">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/04-logined.jpg" height="350" width="200">
-</div>
-
-### DApp Invoke SC
-
-The calling contract process is:
-
-1. Pre-execution contract after user signature
-2. The user confirms and sends the transaction
-3. Return the transaction hash to DApp
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/input-password.jpg" height="350" width="200">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/05-pre-exec-result.png" height="350" width="200">
-  <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/06-dapp-recv-txhash.jpg" height="350" width="200">
-</div>
+- [DApi Integration](docs-en/dApp-Integration/09-dapi_integration.md)

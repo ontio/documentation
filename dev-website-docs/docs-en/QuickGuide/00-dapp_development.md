@@ -25,7 +25,7 @@ The following tools will be needed:
 
 ## Create and compile your smart contract in SmartX
 
-We will develop, compile and test our smart contract using the [SmartX](https://smartx.ont.io/) tool. If you are new to SmartX, please read over the [SmartX Tutorial](https://ontio.github.io/documentation/SmartX_Tutorial_en.html) which will guide you thorugh the process of using the tool.
+We will develop, compile and test our smart contract using the [SmartX](https://smartx.ont.io/) tool. If you are new to SmartX, please read over the [SmartX Tutorial](https://dev-docs.ont.io/#/docs-en/smartcontract/01-started) which will guide you thorugh the process of using the tool.
 
 Create a new project in the language of your choice and use one of the templates (we will be using Arith) to work with if you don't have your own smart contract.
 

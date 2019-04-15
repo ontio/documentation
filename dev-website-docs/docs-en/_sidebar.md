@@ -40,10 +40,13 @@
 
 - DApp Integration Guide
   - [Overview](docs-en/dApp-Integration/00-dapp_integration.md)
-  - [DAPP supports opening inside mobile wallet](docs-en/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
-  - [DAPP supports mobile wallet scan code](docs-en/dApp-Integration/02-DAppDocking-QRcode.md)
-  - [DAPP supports chrome plugin wallet](docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
-  - [DAPP wakes up mobile wallet](docs-en/dApp-Integration/06-DAppDocking-Wake-up.md)
+  - [ONT ID open platform integration](docs-en/dApp-Integration/08-ontid_integration.md)
+  - [DApi integration](docs-en/dApp-Integration/09-dapi_integration.md)
+      - [DAPP supports opening inside mobile wallet](docs-en/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
+      - [DAPP supports mobile wallet scan code](docs-en/dApp-Integration/02-DAppDocking-QRcode.md)
+      - [DAPP supports chrome plugin wallet](docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
+      - [DAPP wakes up mobile wallet](docs-en/dApp-Integration/06-DAppDocking-Wake-up.md)
+  - [Q&A](docs-en/dApp-Integration/11-Q&A.md)
 
 
 - Wallet Integration Guide

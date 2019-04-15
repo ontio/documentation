@@ -50,7 +50,7 @@ DApp request data URI scheme: ```ontprovider://ont.io?param=Base64.encode(Uri.en
 ## Wallet and DApp Access Steps
 
 ### Prerequisites
-Before using, you need to contact [institutional cooperation] (https://info.ont.io/cooperation/en)
+Before using, you need to contact [Contact Us](https://ont.io/#/contactUs)
 
 
 ## dAPI Provider SDK use
