@@ -35,6 +35,7 @@ The data of ```JWT token``` is encrypted with the public key of the website appl
  
 ```
  {
+    "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
     "access_token" :  "JWT token",
     "refresh_token" : "JWT token"
  }

@@ -203,6 +203,7 @@ ONTID 授权登录模式整体流程为：
 
 ```
  {
+    "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
     "access_token" :  "JWT token",
     "refresh_token" : "JWT token"
  }
