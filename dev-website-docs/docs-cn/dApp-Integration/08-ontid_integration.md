@@ -35,7 +35,7 @@ ONT ID 登录集成有两种方式：通过跳转到特定URL，和页面集成�
  value = window.encodeURIComponent(appontid + '&' + appname + '&' + callback_url + '&' + lang)
  ```
 
- ```lang``` 是可选的参数, 默值是en，en表示英文，zh表示中文。
+ ```lang``` 是设定页面的语言，en表示英文，zh表示中文。
  ```appontid``` 是应用方的 ontid。
  ```appname``` 是应用方的 名字。
 
@@ -245,19 +245,19 @@ ONTID 授权登录模式整体流程为：
 4. 在登录成功后，触发回调onSignIn,发送 ```JWT token``` 到应用方后台。
 
 ```
-    // 获取JWT token
-    function onSignIn(googleUser) {
-      var token = ontidUser.getAuthResponse().token;
+    //get JWT token
+    function onSignIn(result) {
+      const {access_token, ontid, refresh_token} = result
       ...
+       //sent to the  Website Application back end
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+          console.log('Signed in as: ' + xhr.responseText);
+        };
+        xhr.send('idtoken=' + id_token);
     }
-    //页面发送JWT token到应用方后台
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-      console.log('Signed in as: ' + xhr.responseText);
-    };
-    xhr.send('idtoken=' + id_token);
 ```
 5. 应用方后台验证 ``` JWT token ```
 
