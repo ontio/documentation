@@ -32,15 +32,16 @@ The ONTID authorization login process is:
 7. Access the ONTID open platform interface using ```access_token```.
 
 The data of ```JWT token``` is encrypted with the public key of the website application, and the data format after decryption is as follows:
- 
+
 ```
  {
+    "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
     "access_token" :  "JWT token",
     "refresh_token" : "JWT token"
  }
 ```
 > Payload in ```JWT token``` needs to add ```content```:
-  
+
 ```
   
     "content": {
@@ -51,12 +52,12 @@ The data of ```JWT token``` is encrypted with the public key of the website appl
     }
     
 ```
-   
- | Param     |     Type |   Description   |
- | :--------------: | :--------:| :------: |
- |    access_token |   String | ```JWT token```, ```Header```  need to fill ```access_token``` when the user accesses the interface |
- |    refresh_token |   String | ```JWT token``` that is used when refreshing ```access_token``` |
- 
+
+| Param     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    access_token |   String | ```JWT token```, ```Header```  need to fill ```access_token``` when the user accesses the interface |
+|    refresh_token |   String | ```JWT token``` that is used when refreshing ```access_token``` |
+
  
 
 ### JWT Token 
@@ -88,15 +89,15 @@ The ```typ``` attribute indicates the type of the token, regarding ```JWT token`
 Officially specified 7 fields, optional. We use the following required fields:
 
   ```iss (issuer)```: issuer. Here is the ONTID of the ONTID open platform.
-  
+
   ```exp (expiration time)```: ```token``` Expiration time.
-  
+
   ```aud (audience)```: Audience. Here is the application's ONTID.
-  
+
   ```iat (Issued At)```: Issuing time
-  
+
   ```jti (JWT ID)```: id. The certificate saved by the ONTID open platform.
-  
+
 > In addition to the above fields, there are some custom fields for storing user information, which cannot be sensitive information. 
 
 #### Signature
@@ -116,32 +117,80 @@ The signature generation rules are:
 
 After the website application gets ```JWT token```, generate the target string and verify the signature according to the above rules.
 
+## ONT ID Sign in integration guide 
+
+There are two ways to integrate the ONT ID sign in:  integrate the `plugin.js` , or by jumping to a specific URL.
+
+### Integrate the `plugin.js` 
 
 
-### Application integration guide
+1. Import ```plugin.js``` in your page. 
 
+   > You can copy the `plugin.js` from our [demo](<https://github.com/ontio-ontid/ontid-app-demo/blob/master/public/plugin.js>) and add to your project. We will put it on some CDN later.
+   >
+   > <script src="./plugin.js"></script>
 
-1. Import ```OntidSignIn.js``` in page.
-2. Add a meta tag to the page and fill application's ONTID.```<meta name="ontid-signin-client_ontid" content="YOUR_CLIENT_ONTID.apps.ontid.com">```
-3. Adds the `Sign In` button in page.``` <div class="ontid-signin" data-onsuccess="onSignIn"></div> ```
-4. After the login is successful, the callback onSignIn is triggered, and the ```JWT token``` will be sent to the website application backend.
+2. Add a meta tag to the page and fill application's ONTID.
+
+   ```html
+    <meta name="ontology-app-ontid" content="did:ont:ANDQ4CGTGqYcVPiSkb6z8bFkncq2kimnAs@AwesomAPP">
+   ```
+
+3. Adds the `Sign In` button in page.
+
+   ```html
+   <div class="ontid-signin" data-onsuccess="onSignIn"></div>
+   ```
+
+4. After the sign in is successful, the callback method `onSignIn` is triggered (Please define your callback method first),  get the returned values and  sent to the backend.
 
 ```
     //get JWT token
-    function onSignIn(googleUser) {
-      var token = ontidUser.getAuthResponse().token;
+    function onSignIn(result) {
+      const {access_token, ontid, refresh_token} = result
       ...
+       //sent to the  Website Application back end
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+          console.log('Signed in as: ' + xhr.responseText);
+        };
+        xhr.send('idtoken=' + id_token);
     }
-    //sent to the  Website Application back end
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-      console.log('Signed in as: ' + xhr.responseText);
-    };
-    xhr.send('idtoken=' + id_token);
 ```
-5. Website application backend verifies ``` JWT token ```
+5. The backend verifies ``` JWT token ```
+
+### Jumping to the specific URL
+
+The URL is :
+
+```
+ host + /signin?params={value}
+ value = window.encodeURIComponent(appontid + '&' + appname + '&' + callback_url + '&' + lang)
+```
+
+`host` For testnet, http://139.219.136.188:10390; for mainnet, coming soon.
+
+`appontid` ONT ID of your app.
+
+`appname` The name of your app.
+
+`callback_url` The callback url of your app after the sign in.
+
+`lang` The language of the sign in page. `zh` means Chinese, `en` means English.
+
+After sign in, the returned value will be append to the `callback_url` and passed to the app. The returned value is like:
+
+```
+{
+  "access_token": "",
+  "ontid": "",
+  "refresh_token":  ""
+}
+```
+
+Notice that the returned value is handled by `encodeURIComponent(JSON.stringify(value))` , the app side needs to do the reverse operation to get the actual returned value.
 
 
 ## User authorization
@@ -325,7 +374,7 @@ response：
 }
 ```
 
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    action|   String|    |
 |    version|   String|    |
@@ -377,7 +426,7 @@ response：
 }
 ```
 
-| Field_Name|     Type |   Description   | 
+| Field_Name|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    action|   String|    |
 |    version|   String|    |
@@ -396,8 +445,8 @@ response：
 ### Error Code
 
 
-| Code     |     desc   |  
-| :----: | :----: | 
+| Code     |     desc   |
+| :----: | :----: |
 | 00000	|	SUCCESS |
 | 61001	|	PARAM_ERROR |
 | 61002	|	ALREADY_EXIST |

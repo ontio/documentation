@@ -1,5 +1,4 @@
 
-# ONT ID 开放平台 接入说明
 
 ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合约执行、KYC等服务，请按照以下步骤开始应用集成。
 
@@ -11,8 +10,7 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 
 对接前请确保登录和支付页面能正常访问：
 
-* ONTID 登录页面： 主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
-
+* ONTID 登录页面：主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
 * ONTID 支付页面：主网  [https://pay.ont.io/#/](https://pay.ont.io/#/)，测试网  [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 
@@ -21,7 +19,7 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 ## 快速对接
 
 
-应用方对接包括前端对接和服务器对接。前端对接主要是对接登录和支付页面，后台对接主要是对接发起订单请求和订单查询。
+对接包括前端对接和服务器对接。前端对接主要是对接登录和支付页面，后台对接主要是对接发起订单请求和订单查询。
 
 
 * 第三方应用前端演示： [http://139.219.136.188:10391/#/](http://139.219.136.188:10391/#/)，[源码](https://github.com/ontio-ontid/ontid-app-demo)
@@ -37,7 +35,7 @@ ONT ID 登录集成有两种方式：通过跳转到特定URL，和页面集成�
  value = window.encodeURIComponent(appontid + '&' + appname + '&' + callback_url + '&' + lang)
  ```
 
- ```lang``` 是可选的参数, 默值是en，en表示英文，zh表示中文。
+ ```lang``` 是设定页面的语言，en表示英文，zh表示中文。
  ```appontid``` 是应用方的 ontid。
  ```appname``` 是应用方的 名字。
 
@@ -57,9 +55,7 @@ ONT ID 登录集成有两种方式：通过跳转到特定URL，和页面集成�
 
 ### 应用方服务器发起支付订单请求
 
-应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。
-
-
+应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。可以参考第三方应用服务器例子： [app-server 源码](https://github.com/ontio-ontid/ontid-app-server)
 
 ```
 url：/api/v1/ontid/request/order
@@ -179,7 +175,6 @@ method：POST
 
 ```
 
-> ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求。
 
 ### 智能合约
 
@@ -208,6 +203,7 @@ ONTID 授权登录模式整体流程为：
 
 ```
  {
+    "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
     "access_token" :  "JWT token",
     "refresh_token" : "JWT token"
  }
@@ -249,19 +245,19 @@ ONTID 授权登录模式整体流程为：
 4. 在登录成功后，触发回调onSignIn,发送 ```JWT token``` 到应用方后台。
 
 ```
-    // 获取JWT token
-    function onSignIn(googleUser) {
-      var token = ontidUser.getAuthResponse().token;
+    //get JWT token
+    function onSignIn(result) {
+      const {access_token, ontid, refresh_token} = result
       ...
+       //sent to the  Website Application back end
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+          console.log('Signed in as: ' + xhr.responseText);
+        };
+        xhr.send('idtoken=' + id_token);
     }
-    //页面发送JWT token到应用方后台
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-      console.log('Signed in as: ' + xhr.responseText);
-    };
-    xhr.send('idtoken=' + id_token);
 ```
 5. 应用方后台验证 ``` JWT token ```
 
