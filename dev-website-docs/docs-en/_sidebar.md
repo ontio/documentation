@@ -110,7 +110,6 @@
   - [Transactions](docs-en/explorer/transactions.md)
   - [ONT ID](docs-en/explorer/ontid.md)
   - [Statistics](docs-en/explorer/statistics.md)
-  - [Address Info](docs-en/explorer/addressInfo.md)
   - [Register Contract](docs-en/explorer/registerContract.md)
   - [Summary](docs-en/explorer/summary.md)
 

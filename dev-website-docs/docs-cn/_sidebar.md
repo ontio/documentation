@@ -112,7 +112,6 @@
   - [交易](docs-cn/explorer/transactions.md)
   - [ONTID](docs-cn/explorer/ontid.md)
   - [统计](docs-cn/explorer/statistics.md)
-  - [地址信息](docs-cn/explorer/addressInfo.md)
   - [提交合约](docs-cn/explorer/registerContract.md)
   - [摘要](docs-cn/explorer/summary.md)
 
