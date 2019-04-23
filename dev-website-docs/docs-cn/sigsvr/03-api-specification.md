@@ -216,7 +216,213 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 ## 智能合约
 
 ### Native 合约调用
+Native合约调用交易根据ABI构造，并签名。
+
+注意：
+sigsvr启动时，默认会在当前目录下查找"./abi"下的native合约abi。如果naitve目录下没有该合约的abi，会返回1007错误。Native 合约abi的查询路径可以通过--abi参数设定。
+
+方法名称：signativeinvoketx
+请求参数：
+
+```
+{
+    "gas_price":XXX,    //gasprice
+    "gas_limit":XXX,    //gaslimit
+    "address":"XXX",    //调用native合约的地址
+    "method":"XXX",     //调用native合约的方法
+    "version":0,        //调用native合约的版本号
+    "params":[
+        //具体合约 Native合约调用的参数根据调用方法的ABI构造。所有值都使用字符串类型。
+    ]
+}
+```
+应答结果：
+```
+{
+    "signed_tx":XXX     //签名后的交易
+}
+```
+
+以构造ont转账交易举例
+请求：
+
+```
+{
+    "Qid":"t",
+    "Method":"signativeinvoketx",
+    "account":"XXX",
+    "pwd":"XXX",
+    "Params":{
+    	"gas_price":0,
+    	"gas_limit":20000,
+    	"address":"0100000000000000000000000000000000000000",
+    	"method":"transfer",
+    	"version":0,
+    	"params":[
+    		[
+    			[
+    			"ATACcJPZ8eECdWS4ashaMdqzhywpRTq3oN",
+    			"AeoBhZtS8AmGp3Zt4LxvCqhdU4eSGiK44M",
+    			"1000"
+    			]
+    		]
+    	]
+    }
+}
+```
+应答：
+
+```
+{
+    "qid": "t",
+    "method": "signativeinvoketx",
+    "result": {
+        "signed_tx": "00d161b7315b000000000000000050c3000000000000084c8f4060607444fc95033bd0a9046976d3a9f57300c66b147ce25d11becca9aa8f157e24e2a14fe100db73466a7cc814fc8a60f9a7ab04241a983817b04de95a8b2d4fb86a7cc802e8036a7cc86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b6500014140c4142d9e066fea8a68303acd7193cb315662131da3bab25bc1c6f8118746f955855896cfb433208148fddc0bed5a99dfde519fe063bbf1ff5e730f7ae6616ee02321035f363567ff82be6f70ece8e16378871128788d5a067267e1ec119eedc408ea58ac"
+    },
+    "error_code": 0,
+    "error_info": ""
+}
+```
+
+signativeinvoketx 方法默认使用签名账户作为手续费支付方，如果需要使用其他账户作为手续费的付费账户，可以使用payer参数指定。
+注意：如果指定了手续费付费账户，还需要调用sigrawtx方法，使用手续费账户对 signativeinvoketx 方法生成的交易进行签名，否则会导致交易执行失败。
+
+#### 举例1: 构造普通转账交易
+```
+{
+    "Qid":"t",
+    "Method":"signativeinvoketx",
+    "account":"XXX",
+    "pwd":"XXX",
+    "Params":{
+    	"gas_price":0,
+    	"gas_limit":20000,
+    	"address":"0100000000000000000000000000000000000000",
+    	"method":"transfer",
+    	"version":0,
+    	"payer":"ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48",
+    	"params":[
+    		[
+    			[
+    			"ATACcJPZ8eECdWS4ashaMdqzhywpRTq3oN",
+    			"AeoBhZtS8AmGp3Zt4LxvCqhdU4eSGiK44M",
+    			"1000"
+    			]
+    		]
+    	]
+    }
+}
+```
+
+#### 举例2: 构造提取ONG交易
+
+``` json
+{
+	"Qid":"t",
+	"Method":"signativeinvoketx",
+	"account":"ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48",	  //提取账户
+	"pwd":"XXX",
+	"Params":{
+		"gas_price":5000,
+		"gas_limit":20000,
+		"address":"0200000000000000000000000000000000000000",
+		"method":"transferFrom",
+		"version":0,
+		"params":[
+			"ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48",	//提取账户
+			"AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",   //ONT合约地址(base58格式)
+			"ARVVxBPGySL56CvSSWfjRVVyZYpNZ7zp48",  //ONG接受地址，可以于提取地址不一样
+			"310860000000000"												//提取金额(需要在实际金额上乘以10的9次方)
+		]
+	}
+}
+```
 
 
 
 ### NeoVm 合约调用
+
+NeoVM合约调用根据要调用的NeoVM合约构造调用交易，并签名。
+
+NeoVM参数合约支持array、bytearray、string、int以及bool类型，构造参数时需要提供参数类型及参数值，参数值统一使用字符串类型。array是对象数组，数组元素支持任意NeoVM支持的参数类型和数量。
+
+方法名称：signeovminvoketx
+请求参数：
+```
+{
+    "gas_price":XXX,    //gasprice
+    "gas_limit":XXX,    //gaslimit
+    "address":"XXX",    //调用Neovm合约的地址
+    "params":[
+        //具体合约 Neovm合约调用的参数，根据需要调用的具体合约构造。所有值都使用字符串类型。
+    ]
+}
+```
+应答结果：
+```
+{
+    "signed_tx":XXX     //签名后的交易
+}
+```
+
+举例
+请求:
+
+```
+{
+    "qid": "t",
+    "method": "signeovminvoketx",
+    "account":"XXX",
+    "pwd":"XXX",
+    "params": {
+    	"gas_price": 0,
+    	"gas_limit": 50000,
+    	"address": "8074775331499ebc81ff785e299d406f55224a4c",
+    	"version": 0,
+    	"params": [
+    		{
+    			"type": "string",
+    			"value": "Time"
+    		},
+    		{
+    			"type": "array",
+    			"value": [
+    				{
+    					"type": "string",
+    					"value": ""
+    				}
+    			]
+    		}
+    	]
+    }
+}
+```
+应答：
+
+```
+{
+    "qid": "t",
+    "method": "signeovminvoketx",
+    "result": {
+        "signed_tx": "00d18f5e175b000000000000000050c3000000000000011e68f7bf0aaba1f18213639591f932556eb67480216700008074775331499ebc81ff785e299d406f55224a4c00080051c10454696d65000101231202026940ba3dba0a385c44e4a187af75a34e281b96200430db2cbc688a907e5fb54501014101b93bef619b4d7900b57f91e1810b268f9e10eb39fd563f23ce01323cde6273518000dc77d2d2231bc39428f1fa35d294990676015dbf6b4dfd2e6c9856034cc1"
+    },
+    "error_code": 0,
+    "error_info": ""
+}
+```
+
+signeovminvoketx 方法默认使用签名账户作为手续费支付方，如果需要使用其他账户作为手续费的付费账户，可以使用payer参数指定。
+注意：如果指定了手续费付费账户，还需要调用sigrawtx方法，使用手续费账户对 signeovminvoketx 方法生成的交易进行签名，否则会导致交易执行失败。
+
+举例
+```
+{
+    "gas_price":XXX,    //gasprice
+    "gas_limit":XXX,    //gaslimit
+    "address":"XXX",    //调用Neovm合约的地址
+    "payer":"XXX",      //手续费付费地址
+    "params":[
+        //具体合约 Neovm合约调用的参数，根据需要调用的具体合约构造。所有值都使用字符串类型。
+    ]
+}
+```
