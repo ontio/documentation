@@ -36,6 +36,8 @@ This article mainly covers creating wallet and account, motinoring deposits and 
 		* [5.2 Withdraw ong](#52-withdraw-ong)
 			* [5.2.1 Through Cli](#521-through-cli)
 			* [5.2.2  Withdrawong through post](#522-withdrawong-through-post)
+	* [6. OEP4 Tokens transfer](#6-oep4-tokens-transfer)
+		* [6.1 transfer](#61-transfer)
 
 
 
@@ -658,3 +660,47 @@ Then go to cli, run
 ./ontology sendtx "signed_tx"
 ```
 Then check you ong balance.
+
+## 6. OEP4 Tokens transfer
+### 6.1 transfer
+method: signeovminvoketx
+req:
+```
+{
+	"Qid":"t",
+	"Method":"signeovminvoketx",
+	"account":"Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuB",	 
+	"pwd":"123456",
+	"Params":{
+		"gas_price":500,
+		"gas_limit":20000,
+		"address":"75a5cdc00164266a1ba859da785e31cd914ddbd0",
+		"payer":"Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuB",
+		"version":0,
+		"params": [
+    		{
+    			"type": "string",
+    			"value": "transfer"
+    		},
+    		{
+    			"type": "array",
+    			"value": [
+    				{
+    					"type": "ByteArray",
+    					"value": "e98f4998d837fcdd44a50561f7f32140c7c6c260"
+    				},
+    				{
+    					"type": "ByteArray",
+    					"value": "70a2ababdae0a9d1f9fc7296df3c6d343b772cf7"
+    				},
+    				{
+    					"type": "int",
+    					"value": "100"
+    				}
+    			]
+    		}
+    	]
+	}
+}
+```
+***Note***: the address parameters should be in "ByteArray" format
