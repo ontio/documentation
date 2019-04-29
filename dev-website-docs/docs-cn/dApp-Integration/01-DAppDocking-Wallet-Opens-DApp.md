@@ -174,6 +174,25 @@ try {
 
 ```
 
+===错误码===
+
+response示例:
+<pre>
+{
+	"action": "login",
+	"error": 0,
+	"desc": "SUCCESS",
+	"result": true
+}
+
+</pre>
+   | Error Code |  Description
+   | :------- | :------- | :------- |
+   | 0 | Success
+   | 80001| Params error
+   | 80002| Method error
+   | 80003| Internal error
+
 ## 代码参考
 
 ##### 签名验证方法
