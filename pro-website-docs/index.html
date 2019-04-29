@@ -277,14 +277,17 @@
     window.$docsify = {
     alias: {
         '/.*/_navbar.md': '/_navbar.md',
-        '/docs-en/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/docs-en/$1',
+/*         '/docs-en/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/docs-en/$1',
         '/docs-cn/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/docs-cn/$1',
         '/docs-kr/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/docs-kr/$1',
-        '/docs-jp/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/docs-jp/$1'
+        '/docs-jp/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/docs-jp/$1' */
+        '/docs-en/(.*)': '$1',
+        '/docs-cn/(.*)': '/docs-cn/$1'
       },
       notFoundPage: '_404.html',
       auto2top: true,
-      basePath: 'https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/docs-en',
+      basePath: './base',
+//      basePath: 'https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/docs-en',
       executeScript: true,
       loadNavbar: true,
       loadSidebar: true,
