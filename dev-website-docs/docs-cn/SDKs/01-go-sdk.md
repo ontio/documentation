@@ -18,13 +18,13 @@ sdk := ontology.NewOntologySdk()
 - `RPC` 接口
 
 ```go
-sdk.NewRestClient().SetAddress("http://polaris1.ont.io:20334")
+sdk.NewRpcClient().SetAddress("http://polaris1.ont.io:20336")
 ```
 
 - `Restful` 接口
 
 ```go
-sdk.NewRpcClient().SetAddress("http://polaris1.ont.io:20336")
+sdk.NewRestClient().SetAddress("http://polaris1.ont.io:20334")
 ```
 
 - `WebSocket` 接口
