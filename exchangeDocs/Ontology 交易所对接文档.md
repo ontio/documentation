@@ -14,7 +14,7 @@ ONT中有两种资产：原生资产和合约资产。原生资产如ont和ong�
 	* [2. 使用CLI客户端](#2-使用cli客户端)
 		* [安全策略](#安全策略)
 		* [CLI说明](#cli说明)
-			* [创建钱包](#创建钱包)
+			* [创建钱包（同步节点非必须）](#创建钱包同步节点非必须)
 			* [生成充值地址等](#生成充值地址等)
 	* [3. 处理资产交易](#3-处理资产交易)
 		* [交易所需要开发的交易对接程序](#交易所需要开发的交易对接程序)
@@ -49,10 +49,10 @@ ONT中有两种资产：原生资产和合约资产。原生资产如ont和ong�
 		* [给用户分发ONG](#给用户分发ong)
 		* [用户提取ONG](#用户提取ong)
 	* [5. 签名服务](#5-签名服务)
+	* [6. OEP4 Token](#6-oep4-token)
 	* [附 native 合约地址](#附-native-合约地址)
 	* [附2 FAQ](#附2-faq)
 	* [附3 主网及sdk更新日志](#附3-主网及sdk更新日志)
-
 
 
 ## 1.部署Ontology同步节点
@@ -455,7 +455,7 @@ Transaction states:
    gaslimit参数指定最大的gas使用上限。但实际gas花费由VM执行的步数与API决定，假定以下2种情况:  
    1. gaslimit>=实际花费，交易将执行成功，并退回未消费的gas；
    2. gaslimt<实际所需花费，交易将执行失败，并消费掉VM已执行花费的gas;  
-   
+
    交易允许最低的gaslimit为30000，少于这个数量交易将无法被打包。
    gaslimit可以通过交易预执行获得。(当然考虑到执行上下文的变化，比如时间，这不是一个确定的值)。  
    为了便于ONT/ONG相关方法的使用,ONT/ONG的所有方法被设定成为最低的gaslimit,即 30000 gas。这部分交易只需要指定gaslimt=30000即可。
@@ -1006,18 +1006,132 @@ Tip:
 [Ontology 签名服务器使用说明](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr_CN.md)
 
 
+
+## 6. OEP4 Token
+
+OEP4 token 是ontology上的代币协议：[OEP4 协议说明](https://github.com/ontio/OEPs/blob/master/OEPS/OEP-4.mediawiki)
+
+使用Java SDK 
+
+1. 设置OEP4的合约hash
+
+```
+OntSdk wm = OntSdk.getInstance();
+        wm.setRpc(rpcUrl);
+        wm.setRestful(restUrl);
+        wm.setDefaultConnect(wm.getRestful());
+        wm.neovm().oep4().setContractAddress("55e02438c938f6f4eb15a9cb315b26d0169b7fd7");
+```
+
+2. 转账
+
+   ```
+   String txhash = ontSdk.neovm().oep4().sendTransfer(account,  //from
+   acct.getAddressU160().toBase58(),             //to
+   1000,                                         //amount
+   account,                                      //payer
+   20000,											//gaslimit					
+   500);                                         //gasprice     
+
+   ```
+
+   ​
+
+3. 监控合约事件
+
+   ```
+   Object result = ontSdk.getConnect().getSmartCodeEvent(height)
+   ```
+
+   result为：
+
+   ```
+   [  
+      {  
+         "GasConsumed":0,
+         "Notify":[  
+            {  
+               "States":[  
+                  "7472616e73666572",
+                  "e98f4998d837fcdd44a50561f7f32140c7c6c260",
+                  "9d1ce056ac1eb29d73104b3e3c7dfc793c879918",
+                  "00a0724e1809"
+               ],
+               "ContractAddress":"75a5cdc00164266a1ba859da785e31cd914ddbd0"
+            }
+         ],
+         "TxHash":"be0430a6d01404350f4f7a724fabea5e5c3c939668e03979362c5bb6fad68fea",
+         "State":1
+      }
+   ]
+   ```
+
+   类似于ONT/ONG:
+
+    “State” ： 1 代表该交易执行成功
+
+   "ContractAddress":"75a5cdc00164266a1ba859da785e31cd914ddbd0"  为该OEP4合约的hash
+
+   "States":[  
+                  "7472616e73666572",                                                      //method
+                  "e98f4998d837fcdd44a50561f7f32140c7c6c260",       //from
+                  "9d1ce056ac1eb29d73104b3e3c7dfc793c879918",     //to
+                  "00a0724e1809"                                                                  //amount
+               ]
+
+   标准的OEP4的转账成功通知 应包含transfer，from，to 和amount，由于OEP4是Neovm的合约，需要对上述字段进行处理：
+
+   method:
+
+   ```
+   byte[] bs =Helper.hexToBytes("7472616e73666572");
+   String s = new String(bs); //s is "transfer"
+   ```
+
+   from address:
+
+   ```
+   Address from = Address.parse("e98f4998d837fcdd44a50561f7f32140c7c6c260");
+   System.out.println("from is " + from.toBase58());
+   ```
+
+   to address:
+
+   ```
+    Address to = Address.parse("70a2ababdae0a9d1f9fc7296df3c6d343b772cf7");
+    System.out.println("to is " + to.toBase58());
+   ```
+
+   amount:
+
+   ```
+   BigInteger amount = Helper.BigIntFromNeoBytes(Helper.hexToBytes("00a0724e1809"));
+   System.out.println("amount is " + amount);
+   ```
+
+   ***Note*** amount的值是包含精度（decimal）的数值，可以通过
+
+   ```
+   ontSdk.neovm().oep4().queryDecimals()
+   ```
+
+   来取得该OEP4的精度
+
+
+
+
 ## 附 native 合约地址
 
-合约名称 | 合约地址 | Address
----|---|---
-ONT Token | 0100000000000000000000000000000000000000| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
-ONG Token | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
-ONT ID | 0300000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
-Global Params | 0400000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
-Oracle | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
-Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
-Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
-DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
+| 合约名称                     | 合约地址                                 | Address                            |
+| ---------------------------- | ---------------------------------------- | ---------------------------------- |
+| ONT Token                    | 0100000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV |
+| ONG Token                    | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ |
+| ONT ID                       | 0300000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN |
+| Global Params                | 0400000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2 |
+| Oracle                       | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK |
+| Authorization Manager(Auth)  | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV |
+| Governance                   | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK |
+| DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK |
 
 ## 附2 FAQ
 [FAQ](https://github.com/ontio/documentation/blob/master/exchangeDocs/ONT%20%E4%BA%A4%E6%98%93%E6%89%80%E5%AF%B9%E6%8E%A5FAQ.md)
@@ -1025,4 +1139,3 @@ DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseV
 ## 附3 主网及sdk更新日志
 请参照下面的更新日志，根据需要来决定是否要更新您的sdk版本
 [Update note](https://github.com/ontio/documentation/blob/master/exchangeDocs/Ontology%20mainnet%20update%20note.md)
-
