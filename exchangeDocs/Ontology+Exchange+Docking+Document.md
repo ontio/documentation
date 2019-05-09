@@ -9,7 +9,7 @@ The outline of this document is as follows:
 		* [Get from source code](#get-from-source-code)
 		* [Get from release](#get-from-release)
 		* [Server deployment](#server-deployment)
-			* [Create wallet](#create-wallet)
+			* [Create wallet(not mandatory for sync node)](#create-walletnot-mandatory-for-sync-node)
 			* [Start up node](#start-up-node)
 	* [2. Use CLI Client](#2-use-cli-client)
 		* [Security policy](#security-policy)
@@ -21,6 +21,10 @@ The outline of this document is as follows:
 		* [User deposit](#user-deposit)
 		* [Deposit record](#deposit-record)
 		* [Process user withdrawal request](#process-user-withdrawal-request)
+	* [4. Java SDK Tutorials](#4-java-sdk-tutorials)
+		* [Account management](#account-management)
+			* [Do not use wallet management](#do-not-use-wallet-management)
+				* [Create account randomly](#create-account-randomly)
 				* [Create account based on private key](#create-account-based-on-private-key)
 			* [Use wallet management](#use-wallet-management)
 		* [Address generation](#address-generation)
@@ -45,6 +49,7 @@ The outline of this document is as follows:
 		* [Distribute ONG to users](#distribute-ong-to-users)
 		* [Users withdraw ONG](#users-withdraw-ong)
 	* [5. Signature service](#5-signature-service)
+	* [6. OEP4 Token](#6-oep4-token)
 	* [Native contract address](#native-contract-address)
 	* [FAQ](#faq)
 	* [Mainnet update note](#mainnet-update-note)
@@ -194,7 +199,7 @@ A wallet can store multiple addresses, and the exchange needs to generate a depo
 There are two ways to generate deposit addresses:
 
 - When the user first deposits (ONT/ONG), the program dynamically creates the ONT address. Advantages: No manual creation of addresses is required. Disadvantages: It is inconvenient to back up the wallet.
-  
+
 To create an address dynamically, you can use the Java SDK's implementation and the program will return the created address. Please refer to Java SDK [Create account randomly](#create-account-randomly)
 
 - The exchange creates a batch of ONT addresses in advance and assigns the user an ONT address when the user deposits for the first time (ONT/ONG). Advantages: It is easy to back up wallet; disadvantages: Manually create ONT address when the address is insufficient.
@@ -358,7 +363,8 @@ Example:
          }
       ]
    }
-  
+   ```
+
 
 3. Get all transaction information in the block according to Transaction Hash by CLI  ```./ontology info status```
 
@@ -429,7 +435,7 @@ With regard to user withdrawal, the exchange needs to complete the following ope
    Tip:
      Using './ontology info status 49a705f6beb6a15b92493db496f56e8bcddc95b803dac1e4a02b4579ce760b3f' to query transaction status
 
-   ```
+```
 
   The list of parameters for the command is as follows:
 
@@ -443,11 +449,11 @@ With regard to user withdrawal, the exchange needs to complete the following ope
    --gaslimit  
    The gas limit is called the limit because it's the maximum amount of units of gas you are willing to spend on a transaction. 
    However, the actual gas cost is determined by the number of steps or APIs executed by the VM, assuming the following two conditions:  
-   1. gaslimit>= actual cost, the transaction will be executed successfully, and return the unconsumed gas;  
-   2. Gaslimt< actual cost, the transaction will fail to execute and consume the gas that the VM has already executed;  
-   The minimum gas limit allowed for trading is 30,000. Transactions below this amount will not be packaged.
-   Gaslimit can be calculate by transaction pre-execution. (Of course by different execution context, such as time, this is not a definite value).  
-   In order to make the use of ONT/ONG simpler, all methods of ONT/ONG are set to the lowest gas limit, ie, 30000 gas.
+      1. gaslimit>= actual cost, the transaction will be executed successfully, and return the unconsumed gas;  
+      2. Gaslimt< actual cost, the transaction will fail to execute and consume the gas that the VM has already executed;  
+        The minimum gas limit allowed for trading is 30,000. Transactions below this amount will not be packaged.
+           Gaslimit can be calculate by transaction pre-execution. (Of course by different execution context, such as time, this is not a definite value).  
+           In order to make the use of ONT/ONG simpler, all methods of ONT/ONG are set to the lowest gas limit, ie, 30000 gas.
 
    --asset  
    The asset parameter specifies the asset type of the transfer. Ont indicates the ONT and ong indicates the ONG. The default value is ONT.
@@ -460,7 +466,7 @@ With regard to user withdrawal, the exchange needs to complete the following ope
 
    --amount   
    The amount parameter specifies the transfer amount. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
-   
+
 
    Confirm the transaction result:
 
@@ -486,9 +492,9 @@ With regard to user withdrawal, the exchange needs to complete the following ope
         ]
      }
     
-     ```
-    
-     
+   ```
+
+​     
 
    - Same as ”user deposit“, monitor transactions in new blocks and filter out successful transactions which are from exchange addresses to user's withdrawal addresses
 
@@ -579,8 +585,8 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 
 ```
 
-| Method Name                  | Parameter                      | Parameter Description                       |
-| :---------------------- | :------------------------ | :----------------------------- |
+| Method Name             | Parameter                 | Parameter Description                                        |
+| :---------------------- | :------------------------ | :----------------------------------------------------------- |
 | addressFromMultiPubkeys | int m,byte\[\]... pubkeys | The minimum number of signatures (<=the number of public keys)，public key |
 
 
@@ -729,29 +735,29 @@ response:
 
 ##### The list of chain interaction interfaces
 
-| No   |                    Main   Function                     |     Description      |
-| ---- | :----------------------------------------------------: | :------------------: |
-| 1    |       ontSdk.getConnect().getGenerateBlockTime()       |   Query VBFT block-out time   |
-| 2    |           ontSdk.getConnect().getNodeCount()           |     Query the number of nodes     |
-| 3    |            ontSdk.getConnect().getBlock(15)            |        Query block info        |
-| 4    |          ontSdk.getConnect().getBlockJson(15)          |        Query block info        |
-| 5    |       ontSdk.getConnect().getBlockJson("txhash")       |        Query block info        |
-| 6    |         ontSdk.getConnect().getBlock("txhash")         |        Query block info        |
-| 7    |          ontSdk.getConnect().getBlockHeight()          |     Query current block height     |
-| 8    |      ontSdk.getConnect().getTransaction("txhash")      |       Query transaction       |
-| 9    | ontSdk.getConnect().getStorage("contractaddress", key) |   Query smart contract storage   |
-| 10   |       ontSdk.getConnect().getBalance("address")        |       Query balance       |
-| 11   | ontSdk.getConnect().getContractJson("contractaddress") |     Query smart contract     |
-| 12   |       ontSdk.getConnect().getSmartCodeEvent(59)        |   Query the event in the smart contract   |
-| 13   |    ontSdk.getConnect().getSmartCodeEvent("txhash")     |   Query the event in the smart contract   |
-| 14   |  ontSdk.getConnect().getBlockHeightByTxHash("txhash")  |   Query the block height by transaction hash   |
-| 15   |      ontSdk.getConnect().getMerkleProof("txhash")      |    Get merkle proof    |
-| 16   | ontSdk.getConnect().sendRawTransaction("txhexString")  |       Send transaction       |
-| 17   |  ontSdk.getConnect().sendRawTransaction(Transaction)   |       Send transaction       |
-| 18   |    ontSdk.getConnect().sendRawTransactionPreExec()     |    Send a pre-execution transaction    |
-| 19   |  ontSdk.getConnect().getAllowance("ont","from","to")   |    Query Allowed Values    |
-| 20   |        ontSdk.getConnect().getMemPoolTxCount()         | Query total transaction volumn in the transaction pool  |
-| 21   |        ontSdk.getConnect().getMemPoolTxState()         | Query transaction status in the transaction pool |
+| No   |                    Main   Function                     |                      Description                       |
+| ---- | :----------------------------------------------------: | :----------------------------------------------------: |
+| 1    |       ontSdk.getConnect().getGenerateBlockTime()       |               Query VBFT block-out time                |
+| 2    |           ontSdk.getConnect().getNodeCount()           |               Query the number of nodes                |
+| 3    |            ontSdk.getConnect().getBlock(15)            |                    Query block info                    |
+| 4    |          ontSdk.getConnect().getBlockJson(15)          |                    Query block info                    |
+| 5    |       ontSdk.getConnect().getBlockJson("txhash")       |                    Query block info                    |
+| 6    |         ontSdk.getConnect().getBlock("txhash")         |                    Query block info                    |
+| 7    |          ontSdk.getConnect().getBlockHeight()          |               Query current block height               |
+| 8    |      ontSdk.getConnect().getTransaction("txhash")      |                   Query transaction                    |
+| 9    | ontSdk.getConnect().getStorage("contractaddress", key) |              Query smart contract storage              |
+| 10   |       ontSdk.getConnect().getBalance("address")        |                     Query balance                      |
+| 11   | ontSdk.getConnect().getContractJson("contractaddress") |                  Query smart contract                  |
+| 12   |       ontSdk.getConnect().getSmartCodeEvent(59)        |         Query the event in the smart contract          |
+| 13   |    ontSdk.getConnect().getSmartCodeEvent("txhash")     |         Query the event in the smart contract          |
+| 14   |  ontSdk.getConnect().getBlockHeightByTxHash("txhash")  |       Query the block height by transaction hash       |
+| 15   |      ontSdk.getConnect().getMerkleProof("txhash")      |                    Get merkle proof                    |
+| 16   | ontSdk.getConnect().sendRawTransaction("txhexString")  |                    Send transaction                    |
+| 17   |  ontSdk.getConnect().sendRawTransaction(Transaction)   |                    Send transaction                    |
+| 18   |    ontSdk.getConnect().sendRawTransactionPreExec()     |            Send a pre-execution transaction            |
+| 19   |  ontSdk.getConnect().getAllowance("ont","from","to")   |                  Query Allowed Values                  |
+| 20   |        ontSdk.getConnect().getMemPoolTxCount()         | Query total transaction volumn in the transaction pool |
+| 21   |        ontSdk.getConnect().getMemPoolTxState()         |    Query transaction status in the transaction pool    |
 
 #### 3. ONT transfer
 
@@ -781,10 +787,10 @@ ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 
 ```
 
-| Method Name       | Parameter                                                         | Parameter Description                                                      |
+| Method Name  | Parameter                                                    | Parameter Description                                        |
 | :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | makeTransfer | String sender，String recvAddr,long amount,String payer,long gaslimit,long gasprice | sender address, receiver address, amount, network fee payer address, gaslimit, gasprice |
-| makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice    | A transaction contains multiple transfers |
+| makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice    | A transaction contains multiple transfers                    |
 
 ##### Multiple signatures 
 
@@ -889,7 +895,7 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 ```
 
-| Method Name       | Parameter                                                         | Parameter Description                                                      |
+| Method Name  | Parameter                                                    | Parameter Description                                        |
 | :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | makeClaimOng | String claimer,String to,long amount,String payer,long gaslimit,long gasprice | claimer，who to send，amount, network payer address，gaslimit，gasprice |
 
@@ -978,17 +984,129 @@ When your system doesn't support the SDKs and CLI, you can use the sign server t
 
 [Ontology Signature Server Tutorials](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr.md)
 
+## 6. OEP4 Token
+
+OEP4 is ontology token protocol : [OEP-4 instruction](https://github.com/ontio/OEPs/blob/master/OEPS/OEP-4.mediawiki)
+
+Use Java SDK:
+
+1. Set OEP4 contract hash to sdk:
+
+   ```
+   OntSdk wm = OntSdk.getInstance();
+           wm.setRpc(rpcUrl);
+           wm.setRestful(restUrl);
+           wm.setDefaultConnect(wm.getRestful());
+           wm.neovm().oep4().setContractAddress("55e02438c938f6f4eb15a9cb315b26d0169b7fd7");
+   ```
+
+   ​
+
+2. transfer
+
+   ```
+   String txhash = ontSdk.neovm().oep4().sendTransfer(account,  //from
+   acct.getAddressU160().toBase58(),             //to
+   1000,                                         //amount
+   account,                                      //payer
+   20000,											//gaslimit					
+   500);                                         //gasprice    
+   ```
+
+   ​
+
+3. monitor contract events
+
+   ```
+   Object result = ontSdk.getConnect().getSmartCodeEvent(height)
+   ```
+
+   the result is:
+
+   ```
+   [  
+      {  
+         "GasConsumed":0,
+         "Notify":[  
+            {  
+               "States":[  
+                  "7472616e73666572",
+                  "e98f4998d837fcdd44a50561f7f32140c7c6c260",
+                  "9d1ce056ac1eb29d73104b3e3c7dfc793c879918",
+                  "00a0724e1809"
+               ],
+               "ContractAddress":"75a5cdc00164266a1ba859da785e31cd914ddbd0"
+            }
+         ],
+         "TxHash":"be0430a6d01404350f4f7a724fabea5e5c3c939668e03979362c5bb6fad68fea",
+         "State":1
+      }
+   ]
+   ```
+
+   familiar with ONT and ONG:
+
+   "State":1 means the transaction is succeed
+
+   "ContractAddress":"75a5cdc00164266a1ba859da785e31cd914ddbd0"  is the OEP4 contract hash
+
+   "States":[  
+                  "7472616e73666572",                                                      //method
+                  "e98f4998d837fcdd44a50561f7f32140c7c6c260",       //from
+                  "9d1ce056ac1eb29d73104b3e3c7dfc793c879918",     //to
+                  "00a0724e1809"                                                                  //amount
+               ]
+
+   For a standard OEP4 contract transfer , the event notify should contains "tranfer",from address, to address and amount fields, currently all the OEP4 contracts is Neovm contract, so we need to do decode the fields like below:
+
+   method:
+
+   ```
+   byte[] bs =Helper.hexToBytes("7472616e73666572");
+   String s = new String(bs); //s is "transfer"
+   ```
+
+   from address:
+
+   ```
+   Address from = Address.parse("e98f4998d837fcdd44a50561f7f32140c7c6c260");
+   System.out.println("from is " + from.toBase58());
+   ```
+
+   to address:
+
+   ```
+    Address to = Address.parse("70a2ababdae0a9d1f9fc7296df3c6d343b772cf7");
+    System.out.println("to is " + to.toBase58());
+   ```
+
+   amount:
+
+   ```
+   BigInteger amount = Helper.BigIntFromNeoBytes(Helper.hexToBytes("00a0724e1809"));
+   System.out.println("amount is " + amount);
+   ```
+
+   ***Note*** amount value is contains the "decimal"，you can get it by
+
+   ```
+   ontSdk.neovm().oep4().queryDecimals()
+   ```
+
+   for the sig server solution, please refer to the [sigserver guide](https://github.com/ontio/documentation/blob/master/exchangeDocs/Sigsvr_Exchange_Guide.md#6-oep4-tokens-transfer)
+
 ## Native contract address
-Name | Address(Hex) | Address(Base58)
----|---|---
-ONT Token | 0100000000000000000000000000000000000000| AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV
-ONG Token | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ
-ONT ID | 0300000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN
-Global Params | 0400000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2
-Oracle | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK
-Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV
-Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
-DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
+
+| Name                         | Address(Hex)                             | Address(Base58)                    |
+| ---------------------------- | ---------------------------------------- | ---------------------------------- |
+| ONT Token                    | 0100000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV |
+| ONG Token                    | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ |
+| ONT ID                       | 0300000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvho7BUwN |
+| Global Params                | 0400000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhrUqmc2 |
+| Oracle                       | 0500000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhzQYRMK |
+| Authorization Manager(Auth)  | 0600000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6Ubvi9BuggV |
+| Governance                   | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK |
+| DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK |
 
 ## FAQ
 [FAQ](https://github.com/ontio/documentation/blob/master/exchangeDocs/ONT%2BExchange%2BDocking%2BFAQ.md)
