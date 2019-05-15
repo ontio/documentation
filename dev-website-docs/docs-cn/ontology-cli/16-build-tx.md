@@ -30,15 +30,20 @@
 ```shell
 ontology --testmode
 ```
+> Note: testmode模式下，gasprice会设置成0, 链上的交易不会收取手续费,方便开发者进行测试。
 
 然后在第二个终端中构造转账交易：
 
+构造ont转账交易
 ```shell
-$ ontology buildtx transfer --from 1 --to AaCe8nVkMRABnp5YgEjYZ9E5KYCxks2uce --asset ont --amount 10
+$ ontology buildtx transfer --from 1 --to AaCe8nVkMRABnp5YgEjYZ9E5KYCxks2uce --asset ont --amount 10 --gasprice 0
 Transfer raw tx:
 00d1810144e2f401000000000000204e0000000000005c0708fbe99dcf821c1acf261dd61748b69d0c156e00c66b6a145c0708fbe99dcf821c1acf261dd61748b69d0c15c86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
+`--from` 1 表示从钱包文件中的第一个账户向其他地址转账,可以通过`ontology account list`查看钱包里面的所有地址信息。请确认该地址，构造好的交易需要该地址进行签名。
+> Note: 构造交易的时候若不指定gasprice的值，系统会默认设置成500, gaslimit会默认设置成20000, 若测试账户没有足够的ong余额,请设置gasprice的值为0。
 
+构造ong转账交易
 ```shell
 $ ontology buildtx transfer --from 1 --to AaCe8nVkMRABnp5YgEjYZ9E5KYCxks2uce --asset ong --amount 0.05
 Transfer raw tx:
@@ -53,6 +58,8 @@ Password:
 RawTx after signed:
 00d19c0aaabef401000000000000204e0000000000005c0708fbe99dcf821c1acf261dd61748b69d0c157200c66b6a145c0708fbe99dcf821c1acf261dd61748b69d0c15c86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a0480f0fa02c86c51c1087472616e736665721400000000000000000000000000000000000000020068164f6e746f6c6f67792e4e61746976652e496e766f6b65000142410a8e9bf3e5740d34fdf0b6c8167b2aa1a6cc06ef9d87818cc75e4c6bd9911f82a74c45d4aaec8d0cb6e09d54ef632950388e2d1bab6703dc28d36c9a1f4de38c0624221419e9b0d726b0712fb92015b8e41ee5e5bb3d0321485b13322c6f36817042801013ac
 ```
+>Note: 请确保`--account`指定的地址和buildtx时`--from`指定的地址一致。
+
 
 将 `ONG` 转账交易发送到测试网：
 
