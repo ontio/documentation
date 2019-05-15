@@ -1,6 +1,4 @@
-
-
-### Get Bolck List
+### Get Block List
 
 ```json
 url：/api/v1/explorer/blocklist/{amount}
