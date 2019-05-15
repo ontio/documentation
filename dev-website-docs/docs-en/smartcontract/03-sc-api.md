@@ -6,4 +6,4 @@
 
 ### Python Smart Contract API
 
-Pleae reference to [API doc](https://apidoc.ont.io/smartcontract/).
+Please reference to [API doc](https://apidoc.ont.io/smartcontract/).
