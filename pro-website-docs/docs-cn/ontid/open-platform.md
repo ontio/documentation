@@ -307,7 +307,7 @@ method：POST
 |    invokeConfig.gasPrice |   int | 目前是固定值500 |
 |    app.ontid |   String | 应用方 ontid |
 |    app.callback |   String | 调用合约成功的回调地址 |
-|    app.nonce |   long | 随机数，保证每次请求的数据不一样,16位 |
+|    app.nonce |   String | 随机数，保证每次请求的数据不一样,建议16位 |
 |    exp |   long | 时间戳，该token的有效时间 |
 
 
@@ -407,6 +407,25 @@ method：POST
 }
 ```
 
+
+#### Payload 里的私有申明
+```text
+{
+    "app": {
+        "ontid": ""
+     }
+    "exp":1555041974000
+}
+```
+
+| Param     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    app.ontid |   String | 应用方 ontid |
+|    exp |   long | 时间戳，该token的有效时间 |
+|    currentPage |   int | 1-1000 需要查找的页数 |
+|    size |   String | 1-1000 每页查找的数量 |
+
+
 返回：
 
 ```
@@ -458,12 +477,38 @@ method：POST
 | 61008	|	REVOKED,已注销
 | 61009	|	SERIALIZE_ERROR,序列化错误
 | 61010	|	TIME_EXCEEDED,次数超限
+| 61011	|	VERIFY_CODE_FREQUENT,验证码请求过于频繁
+| 61012	|	VERIFY_CODE_ERROR,验证码错误
+| 61013	|	VERIFY_CODE_EXPIRES,验证码已过期
+| 61024	|	INVALID_PASSWORD,密码错误
+| 61030	|	ONTID_LOCKED,ONT ID 已经锁住
+| 61031	|	DECODE_ERROR,解密失败
+| 61032	|	ENCODE_ERROR,加密失败
+| 61033	|	GEETEST_ERROR,Gee校验失败
+| 61034	|	TRANSACTION_PARAM_ERROR,交易参数错误
+| 61035	|	ORDER_NOT_EXIST,订单不存在
+| 61036	|	ORDER_EXPIRED,订单已过期
+| 61037	|	ACCOUNT_NOT_EXIST,钱包不存在
+| 61038	|	QUERY_BALANCE_FAIL,查询余额失败
+| 61039	|	TRANSACTION_PAYER_ERROR,交易付款人错误
+| 61040	|	REPEATED_REQUESTS_ERROR,重复的请求
+| 61041	|	DDO_NOT_EXIST,DDO不存在
+| 61042	|	DEVELOPER_NOT_EXIST,developer不存在
+| 61042	|	DEVELOPER_NOT_EXIST,developer不存在
+| 61043	|	ONTID_NOT_EXIST,ONT ID不存在
+| 61044	|	PASSWORD_NOT_EXIST,密码不存在
+| 61045	|	PUBLIC_KEY_NOT_EXIST,公钥不存在
+| 61046	|	PRE_TRANSACTION_FAIL,预执行失败
 | 62001	|	VERIFY_FAIL,身份校验失败
-| 62002	|	CREATE_FAIL,创建失败
-| 62003	|	COMM_FAIL,通信异常
+| 62002	|	VERIFY_TOKEN_FAILED,校验token失败
+| 62003	|	TOKEN_EXPIRED,token过期
+| 62007	|	COMM_SMS_FAIL,SMS通信异常
+| 62008	|	COMM_NET_FAIL,网络通信异常
+| 62009	|	VERIFY_PROVIDE_FAILED,三方身份校验失败
 | 62004	|	FILE_ERROR,文件操作异常
 | 62005	|	DB_ERROR,数据库操作错误
 | 62006	|	SIG_VERIFY_FAILED,验签失败
+| 62015	|	TOKEN_TYPE_ERROR,token类型错误
 | 63001	|	INNER_ERROR,内部异常
 | 63002	|	EXCEPTION,异常
 | 63003	|	CODE_VERIFY_FAILED,设备码校验失败
