@@ -1,7 +1,7 @@
 
 # Running an Ontology Node
 
-With the Ontology CLI, you will be able to an Ontology node an various different configurations. Depending on the combination of parameters passed to the base `./Ontology` script, you can run everything from a main net consensus node to a local private net that will run with just your single node. There are a wide variety of parameter combinations that can be used, but first we will go over the most common, and you can proceed to customize your configuration from there.
+With the Ontology CLI, you will be able to run an Ontology node with various different configurations. Depending on the combination of parameters passed to the base `./Ontology` script, you can run everything from a main net consensus node to a local private net that will run with just your single node. There are a wide variety of parameter combinations that can be used, but first we will go over the most common, and you can proceed to customize your configuration from there.
 
 * [Types of Nodes](#types-of-nodes)
 	* [MainNet Bookkeeping Node Deployment](#mainnet-bookkeeping-node-deployment)
