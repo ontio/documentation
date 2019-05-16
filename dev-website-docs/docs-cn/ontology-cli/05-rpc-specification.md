@@ -683,7 +683,7 @@ public class NetworkDemo {
 
 响应：
 
-49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24```json
+```json
 {
   "desc":"SUCCESS",
   "error":0,
@@ -724,11 +724,11 @@ public class NetworkDemo {
         },
         {
             "TxHash": "6b391812b6a3230c057b108227f78a1c7caa9fa934817c60540af55e62167507",
-            "State": 1,
-            "GasConsumed": 0,
+            "State": 1, //执行成功
+            "GasConsumed": 0, //消耗的gasLimit * gasprice的值
             "Notify": [
                 {
-                    "ContractAddress": "49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24",
+                    "ContractAddress": "49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24", //合约地址
                     "States": "57b108227f78a1c7caa9fa934817c60540af55e62167507" //只返回一个字段时，State为字符串类型
                 }
             ]
