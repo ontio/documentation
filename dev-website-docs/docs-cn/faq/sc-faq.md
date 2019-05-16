@@ -1,6 +1,6 @@
 
 
-1. 什么是Native合约，Native合约有哪些方法可以调用？
+#### 1. 什么是Native合约，Native合约有哪些方法可以调用？
     
     Native合约是ONT，ONG合约及其它主链治理合约。可调用方法可在[源码](https://github.com/ontio/ontology/tree/master/smartcontract/service/native)中获得。
 
@@ -16,7 +16,7 @@
     
     [Governance合约方法](https://github.com/ontio/ontology/blob/master/smartcontract/service/native/governance/governance.go)。
 
-2. 什么是跨合约调用，跨合约调用时的注意点？
+#### 2. 什么是跨合约调用，跨合约调用时的注意点？
 
     跨合约调用是指在A合约调用B合约的方法。跨合约调用分为两种：
     ```
@@ -33,7 +33,7 @@
 
     具体可参照[python-template中的模板](https://github.com/ONT-Avocados/python-template/blob/master/DynamicCallContract/DynamicCallContract_compiler2.0.py)。
    
-3. 合约Hash也是对应一个账户吗？有私钥吗？
+#### 3. 合约Hash也是对应一个账户吗？有私钥吗？
     
     合约Hash也是对应一个帐户的。方式是把合约的Hash当作大端地址即为其自身帐户，常用于DAPP合约作为资金托管帐户。
 
@@ -58,20 +58,20 @@
         
     编译器里提供了库函数，即[```ontology.interop.System.ExecutionEngine```](https://github.com/ontio/ontology-python-compiler/blob/master/ontology/interop/System/ExecutionEngine.py)中的```GetExecutingScriptHash()```方法，返回值却为合约Hash的反序，或合约帐户的小端地。在合约内部可直接用来作为地址来使用，构造转账交易。
 
-4. 关于交易回滚？
+#### 4. 关于交易回滚？
     
     交易回滚一般是在合约执行时，当不满足执行条件时，被调用的函数自动抛出错误或异常，在此次调用中所有被改变的状态回滚到被调用之前的状态，即链上状态不会改变。在[编译器1.0](https://github.com/ontio/neo-boa)中，使用```raise Exception("error msg")```。
     在[编译器2.0](https://github.com/ontio/ontology-python-compiler)中，可使用```raise Exception("error msg")``` 或```assert(condition)```。推荐使用编译器2.0的```assert()```方法。其特点为如果被调用的函数抛错，不会产生手续费。
 
-5. Ontology智能合约存在不存在像Ethereum合约那样的修饰符```payable```类似的回调机制？
+#### 5. Ontology智能合约存在不存在像Ethereum合约那样的修饰符```payable```类似的回调机制？
     
     不存在。必须通过帐户主动调用合约函数来触发合约函数的执行。
 
-6. 怎样能像Ethereum合约那样在合约内部拿到```msg.sender```及```msg.value```这种值？
+#### 6. 怎样能像Ethereum合约那样在合约内部拿到```msg.sender```及```msg.value```这种值？
     
     调用帐户在主动调用合约函数时，需要把自已的帐户地址及转账资产的大小以参数的形式传入合约。在合约内部使用```CheckWitness```对调用帐户进行验签，及进行资产额度的合法性判断。
 
-7.  支持的数据类型有哪些以及用法？
+#### 7.  支持的数据类型有哪些以及用法？
 
     数据类型有```ByteArray```, ```Integer(uint255)```, ```String```, ```List```, ```Map``` 。
 
@@ -86,20 +86,20 @@
 
     ```Map```常用于存入一个带有键值的数据表，存取时常使用[```ontology.interop.System.Runtime```](https://github.com/ontio/ontology-python-compiler/blob/master/ontology/interop/System/Runtime.py)中的```Serialize()```与```Deserialize()```。根据不存在的键值取```Map```中不存在的值是不合法的，会直接抛错。
 
-8. Ontology合约中有私有函数或公有函数的区分吗？
+#### 8. Ontology合约中有私有函数或公有函数的区分吗？
 
     我们可以将```Main()```中包括的函数看作公有函数，对于一本合约，我们只能调用```Main()```中包含的那些函数，建议函数名以小写字母开头。
     对于未被包含在```Main()```中的函数，可以视为私有函数，建议以下划线```_```开头，这些函数，只能被本合约中的其他函数调用，我们不可能在合约下部直接调用这些未包含在```Main()```中的函数。
     换句话说，```Main()```是调用合约函数的入口。
 
 
-9.  什么是合约迁移？
+#### 9.  什么是合约迁移？
     
     Ontology合约是支持合约迁移的功能的，方法是使用[```ontology.interop.Ontology.Contract```](https://github.com/ontio/ontology-python-compiler/blob/master/ontology/interop/Ontology/Contract.py)中的```Migrate()```方法。
     其结果表现为旧合约失效，新合约生效，但旧合约的数据会全部被迁移到新合约中。
     注意调用该函数的手续费会受到新合约规模大小以及旧合约里的状态数据量有关。
 
-10. 合约内部，转账ONT, ONG,与OEP4时，数量应该怎么填写？
+#### 10. 合约内部，转账ONT, ONG,与OEP4时，数量应该怎么填写？
     
     ONT没有精度，即最小单位为1，如果要转2个ONT，使用```Invoke()```，调用时应该写：
     ```
@@ -129,7 +129,7 @@
     assert(res)
     ```
 
-11. 合约内数据可见性，如何做到对某些人不可见且可信?
+#### 11. 合约内数据可见性，如何做到对某些人不可见且可信?
     
     11.1 将原始数据```originData```加盐值```salt```进行哈希，保存好原始数据及盐值及哈希结果```hash```。
     
@@ -139,11 +139,11 @@
     
     11.4 等需要公开数据时，提供原始数据```originData```及盐值```salt```，可对```hash```进行验证。
 
-12. 如何对合约帐户内的ONT产生的ONG解绑？
+#### 12. 如何对合约帐户内的ONT产生的ONG解绑？
     
     详见[unboundWithdrawONG_compiler2.0.py](https://github.com/ONT-Avocados/python-template/blob/master/UnboundWithdrawONG/unboundWithdrawONG_compiler2.0.py)。
     
-13. 合约内如何验证帐户签名？
+#### 13. 合约内如何验证帐户签名？
     
     使用[```ontology.interop.System.Runtime```](https://github.com/ontio/ontology-python-compiler/blob/master/ontology/interop/System/Runtime.py)```CheckWitness```方法。
     ```CheckWitness(fromAcct)```有两个功能：
@@ -153,7 +153,7 @@
     2. 检查当前函数调用者是不是一个合约A，若是合约A，且是从合约A发起的去执行函数，则验证通过(验证```fromAcct```是不是[```GetCallingScriptHash()```](https://github.com/ontio/ontology-python-compiler/blob/master/ontology/interop/System/ExecutionEngine.py)的返回值)。 
 
 
-14. 执行与预执行的区别是什么？
+#### 14. 执行与预执行的区别是什么？
 
     执行与预执行的对象是合约函数。
     
@@ -161,7 +161,7 @@
 
     预执行是指查询链上合约中的状态，不会收取燃料费。
 
-15. 交易落账时间
+#### 15. 交易落账时间
     
     本地```TestMode```即```http://127.0.0.1```Solo模式下，一般要6秒落帐，不经过共识，出块时间为6秒。
 
@@ -169,7 +169,7 @@
 
     主网```dappnode```即```http://dappnode1.ont.io```模式下，正常落帐时间为1秒。有交易时的出块速度为1秒，无交易时的出块速度为30秒。
 
-16. 本地节点CLI测试时，我看到了帐户下面的ONT，但怎样产生ONG阿？
+#### 16. 本地节点CLI测试时，我看到了帐户下面的ONT，但怎样产生ONG阿？
     
     16.1 查看钱包里第一个帐户的ONT, ONG余额：
     ```
@@ -187,7 +187,7 @@
     ```
 
 
-17. 关于地址，Base58地址，ByteArray地址，大端地址，小端地址，还有反序，好烦人，怎么办？
+#### 17. 关于地址，Base58地址，ByteArray地址，大端地址，小端地址，还有反序，好烦人，怎么办？
     
     通常以大```A```开头的地址是Base58地址。小端地址是指Base58地址对应的ByteArray的Hex形式。
     我们使用sdk调用合约函数时，当构造交易时，需要把Base58地址转为小端地址的形式。
@@ -198,7 +198,7 @@
     18.2 当进行动态合约的调用```DynamicAppCall```时，其中的被调用合约的地址参数应该是合约Hash的反序，即被调用合约的小端地址。
 
 
-18. 合约=逻辑+状态,如何写逻辑，如何存取改状态？
+#### 18. 合约=逻辑+状态,如何写逻辑，如何存取改状态？
     
     18.1 关于逻辑部分，可以参考[编译器2.0](https://github.com/ontio/ontology-python-compiler)，或直接参考[合约模版](https://github.com/ONT-Avocados/python-template)。
     
@@ -211,7 +211,7 @@
 
 
 
-19.  开发合约=>编译合约=>部署合约=>调用合约=>测试合约的流程与工具有哪些？
+#### 19.  开发合约=>编译合约=>部署合约=>调用合约=>测试合约的流程与工具有哪些？
 
     19.1 开发合约：
 
@@ -240,7 +240,7 @@
     19.4.3 可以以通过go/java/ts/python sdk 来测试合约，sdk中包含一些OEP4 OEP5 OEP8调用的相关例子可供参考。详细信息，请在[官方github帐号](https://github.com/ontio)下面找到对应的sdk查看。
 
 
-20.  OEP4, OEP5, OEP8协议的区别？
+#### 20.  OEP4, OEP5, OEP8协议的区别？
     
     如果你对```ERC20```，```ERC721```以及```ERC1155```熟悉，那么```OEP4```对应于```ERC20```，```OEP5```对应于```ERC721```，```OEP8```对应于```ERC1155```。
 
@@ -254,7 +254,7 @@
 
     [此处](https://github.com/ontio/OEPs/tree/master/OEPS)有更详细的协议介绍，[此处](https://github.com/ONT-Avocados/python-template)有协议实现的合约模版。
 
-21.  暂时目前```for i in range```不支持，但是支持```for i in list```。
+#### 21.  暂时目前```for i in range```不支持，但是支持```for i in list```。
     ```
     # Below wrong 
     i = 0
@@ -266,12 +266,12 @@
         Notify([i])
     ```
 
-22.  debug合约所需的测试节点怎么产生，即调试合约的本地测试节点？
+#### 22.  debug合约所需的测试节点怎么产生，即调试合约的本地测试节点？
 
     可以在[```runtime.go```](https://github.com/ontio/ontology/blob/master/smartcontract/service/neovm/runtime.go)中，增加打印信息来调试被调用的合约函数，观察合约函数执行到哪一步出了问题。
 
 
-23.  测试合约时，如何对执行的notify或是预执行的数据解析？
+#### 23.  测试合约时，如何对执行的notify或是预执行的数据解析？
     
     23.1 解析```Notify```，以OEP4的```transferMulti```为例：
     
@@ -335,16 +335,16 @@
 
     23.2.5 合约返回的是List: 将预执行的结果，依次取出，按照以上基本数据类型进行解析，即得到想要的结果。
 
-24.  如何像Ethereum合约上面那样做权限管理？
+#### 24.  如何像Ethereum合约上面那样做权限管理？
     
     [这里]()给出了权限管理的合约模版。
 
-25.  合约内没有定时器，需要外部触发。
+#### 25.  合约内没有定时器，需要外部触发。
 
     合约内没有定时器，但提供了获取当前时间戳的函数，即[```ontology.interop.System.Runtime```](https://github.com/ontio/ontology-python-compiler/blob/master/ontology/interop/System/Runtime.py)中的```GetTime()```函数，返回值的单位为秒。
     因需要在合约外部进行触发，比如后台添加一个定时调用合约函数的功能，为防止误操作，最好在合约被调用函数内部，通过获取到的当前时间戳对调用该函数的时间进行规范处理。
 
-26.  在线转换数据工具有两个，所有版本的sdk都支持了数据类型的转换。
+#### 26.  在线转换数据工具有两个，所有版本的sdk都支持了数据类型的转换。
 
     工具一：[DataTransformationTools](https://peterlinx.github.io/DataTransformationTools/)。
     
