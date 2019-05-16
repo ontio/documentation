@@ -48,9 +48,23 @@ DAPP 激励计划 ： [https://dapp.ont.io/support](https://dapp.ont.io/support)
 开发指导： [https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development](https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development)
 
 
-#### 6. API 接口
+#### 7. API 接口
 
 1. 节点接口： [RPC、Restful、Websocket](https://dev-docs.ont.io/#/docs-cn/ontology-cli/04-interface-specification)
 2. 浏览器 API ：[https://dev-docs.ont.io/#/docs-cn/explorer/overview](https://dev-docs.ont.io/#/docs-cn/explorer/overview)
 
 查询合约事件：[https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)
+
+#### 8. dAPI 测试
+
+这个链接里有dAPI对接文档，测试钱包，演示DAPP。[https://github.com/ontio-cyano/integration-docs/blob/master/README_CN.md](https://github.com/ontio-cyano/integration-docs/blob/master/README_CN.md)
+
+
+#### 9. 如何创建地址？
+
+通过私钥创建账户，账户的公钥计算出地址，地址是 Base58 格式。合约的地址是 Hex 格式，它跟 Base58 可以互转。
+```
+com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(Helper.hexToBytes(privKey),ontSdk.defaultSignScheme);
+System.out.println(acct2.getAddressU160().toBase58());
+
+```
