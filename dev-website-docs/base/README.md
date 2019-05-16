@@ -73,7 +73,8 @@
   <body>
   <h1 align="center">Ontology Developer Guide</h1>
   <div ><a href="https://ont.io/">Ontology</a> is a new generation of high-performance public blockchains. The infrastructure is scalable, stable, and allows low-level customization for different business requirements. We have welcomed many new developers to the Ontology technical community and launched our <a href="https://developer.ont.io/">Developer Center </a>.</div>
-    <div >
+    <div ></br></br>
+      <h4>About Ontology</h4>
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;" >
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
@@ -158,6 +159,7 @@
             </div>
           </div>
       </div>
+      <h4>Integration Guide</h4>
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;">
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
@@ -209,6 +211,7 @@
             </div>
           </div>
       </div>
+      <h4>Tools</h4>
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;">
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
