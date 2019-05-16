@@ -683,7 +683,8 @@ public class NetworkDemo {
 
 响应：
 
-49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24```json
+
+```json
 {
   "desc":"SUCCESS",
   "error":0,
