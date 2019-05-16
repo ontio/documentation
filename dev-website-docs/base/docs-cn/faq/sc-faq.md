@@ -146,7 +146,7 @@ assert(res)
 #### 13. 合约内如何验证帐户签名？
     
 使用[```ontology.interop.System.Runtime```](https://github.com/ontio/ontology-python-compiler/blob/master/ontology/interop/System/Runtime.py)```CheckWitness```方法。
-```CheckWitness(fromAcct)```有两个功能：
+**CheckWitness(fromAcct)** 有两个功能：
 
 1. 验证当前的函数调用者是不是```fromAcct```,若是（验证签名），则验证通过。
 
@@ -255,6 +255,7 @@ OEP8相当于OEP4与OEP5的结合体，即包含不同种类的资产，每种�
 [此处](https://github.com/ontio/OEPs/tree/master/OEPS)有更详细的协议介绍，[此处](https://github.com/ONT-Avocados/python-template)有协议实现的合约模版。
 
 #### 21.  暂时目前```for i in range```不支持，但是支持```for i in list```。
+
 ```
 # Below wrong 
 i = 0
