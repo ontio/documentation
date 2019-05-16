@@ -303,7 +303,7 @@
 </head>
 <body>
 <header class="header">
-  <img src="./assets/logo.png" alt="" id="header-logo">
+  <img src="./assets/logo.png"  id="header-logo">
     <a href="http://pro-docs.ont.io/#/" class="doc-link"><span>&#8594;</span> Ontology Products Documentation</a>
 </header>
 <div id="app"></div>
@@ -316,7 +316,7 @@
         '/docs-kr/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-kr/$1',
         '/docs-jp/(.*)': 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-jp/$1', */
       /* for local */
-        '/docs-en/(.*)': './$1',//docs-en/
+        '/docs-en/(.*)': './docs-en/$1',//docs-en/
         '/docs-cn/(.*)': './docs-cn/$1',
         '/docs-kr/(.*)': './docs-kr/$1',
         '/docs-jp/(.*)': './docs-jp/$1'
@@ -325,7 +325,8 @@
       auto2top: true,
       /* for local */
  //     basePath: 'https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/docs-en',
-      basePath: './base',
+ //     basePath: './base',
+      basePath: '',
       executeScript: true,
       loadNavbar: true,
       loadSidebar: true,
@@ -405,7 +406,18 @@
 <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script>
 
 <script>
-  document.getElementById('header-logo').addEventListener('click', function () { window.location.href = 'http://dev-docs.ont.io/#/' })
+  //document.getElementById('header-logo').addEventListener('click', function () { window.location.href = '/' })
+  document.getElementById('header-logo').addEventListener('click', function () { 
+    if(window.location.href.indexOf('docs-cn')>-1){
+      window.location.href = '/#/docs-cn/'
+    } 
+    if(window.location.href.indexOf('docs-en')>-1){
+      window.location.href = '/#/docs-en/'
+    } 
+    if(window.location.href.indexOf('docs-kr')>-1){
+      window.location.href = '/#/docs-kr/'
+    } 
+  })
 </script>
 <script src="//127.0.0.1:35729/livereload.js?snipver=1" async="" defer=""></script></body>
 </html>
