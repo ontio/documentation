@@ -725,8 +725,8 @@ public class NetworkDemo {
         },
         {
             "TxHash": "6b391812b6a3230c057b108227f78a1c7caa9fa934817c60540af55e62167507",
-            "State": 1,
-            "GasConsumed": 0,
+            "State": 1, //执行成功
+            "GasConsumed": 0, //  = gasLimit * gasPrice
             "Notify": [
                 {
                     "ContractAddress": "49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24",

@@ -214,7 +214,7 @@
                 <p class="content-title" style="border-bottom: 1px solid #979797;">常见问题</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/dapps/overview">概述</a>
+                          <a href="#/docs-cn/faq/overview">概述</a>
                       </div>
                   </div>
             </div>
