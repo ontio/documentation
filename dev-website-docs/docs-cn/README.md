@@ -209,6 +209,14 @@
                       </div>
                   </div>
             </div>
+            <div class="col-sm-4 col-xs-12">
+                <p class="content-title" style="border-bottom: 1px solid #979797;">常见问题</p >
+                <div>
+                    <div>
+                        <a href="#/docs-cn/faq/overview">概述</a>
+                    </div>
+                </div>
+            </div>
           </div>
       </div>
       <h4>工具</h4>
