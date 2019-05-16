@@ -73,11 +73,12 @@
   - [概述](docs-cn/dapps/overview.md)
 
 - 常见问题
-  - [基础问题](docs-cn/faq/basic-faq.md)
-  - [智能合约](docs-cn/faq/sc-faq.md)
-  - [工具使用](docs-cn/faq/tool-faq.md)
-  - [SDK 使用](docs-cn/faq/sdks-faq.md)
-  - [对接问题](docs-cn/faq/business-faq.md)
+  - [概述](docs-cn/faq/overview.md)
+      - [基础问题](docs-cn/faq/basic-faq.md)
+      - [智能合约](docs-cn/faq/sc-faq.md)
+      - [工具使用](docs-cn/faq/tool-faq.md)
+      - [SDK 使用](docs-cn/faq/sdks-faq.md)
+      - [对接问题](docs-cn/faq/business-faq.md)
 
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
