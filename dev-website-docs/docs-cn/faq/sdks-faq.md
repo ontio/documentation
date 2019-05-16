@@ -3,7 +3,7 @@
 
 SDK 链接 [https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview)
 
-ts sdk的测试代码：[https://github.com/ontio/ontology-ts-sdk/tree/master/test](https://github.com/ontio/ontology-ts-sdk/tree/master/test)
+Ts sdk 的测试代码：[https://github.com/ontio/ontology-ts-sdk/tree/master/test](https://github.com/ontio/ontology-ts-sdk/tree/master/test)
 
 #### 2. 多签地址如何生成？
 
@@ -29,7 +29,7 @@ ts sdk的测试代码：[https://github.com/ontio/ontology-ts-sdk/tree/master/te
 请参考 [例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
 
-#### 4. 如何实现ONT/ONG转账？
+#### 4. 如何实现ONT/ONG, OEP4 转账？
 
 ```
  ontSdk.nativevm().ont().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ4PA2m4pyJt2d",200,acct0,gaslimit,gasprice);
@@ -39,11 +39,35 @@ ONT 转账Java参考例子 [https://github.com/ontio/ontology-java-sdk/blob/mast
 
 ONG 转账Java参考例子 [https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/OngDemo.java](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/OngDemo.java)
 
+OEP4 转账Java参考例子 [https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/Oep4Demo.java](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/Oep4Demo.java)
+
+
+Ts SDK 例子 [https://github.com/ontio/ontology-ts-sdk/blob/master/test/transfer.test.ts](https://github.com/ontio/ontology-ts-sdk/blob/master/test/transfer.test.ts)
+
 #### 5. SDK 调用合约例子？
 
+```
 
-参考例子[https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/PunicaInitDemo.java](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/PunicaInitDemo.java)
+    List paramList = new ArrayList<>();
+    paramList.add("testHello".getBytes());
 
+    List args = new ArrayList();
+    args.add(true);
+    args.add(100);
+    args.add("test".getBytes());
+    args.add("test");
+    args.add(account.getAddressU160().toArray());
+
+    paramList.add(args);
+    byte[] params = BuildParams.createCodeParamsScript(paramList);
+
+    String result = invokeContract(params, account, 20000, 500,true);
+    System.out.println(result);
+```
+
+Java 参考例子 [https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/PunicaInitDemo.java](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/PunicaInitDemo.java)
+
+Ts 参考例子 [https://github.com/ontio/ontology-ts-sdk/blob/master/test/scParams.test.ts](https://github.com/ontio/ontology-ts-sdk/blob/master/test/scParams.test.ts)
 
 #### 6. 通过 Json 构造交易？
 
@@ -98,4 +122,19 @@ ONG 转账Java参考例子 [https://github.com/ontio/ontology-java-sdk/blob/mast
 #### 8. Gas 网络费
 
 SDK 中构造交易时的 Payer 就是网络费付款人，gasPrice固定值500，gasLimit最小值是20000，所以每笔交易至少消耗500 * 20000 = 0.01 ONG。
+
+
+#### 9. 查询合约
+
+* 通过浏览器查询 [https://explorer.ont.io/contract/list/20/1](https://explorer.ont.io/contract/list/20/1)
+* 通过 SDK 接口查询
+* 根据节点 RPC 查询
+
+#### 10. 执行与预执行
+
+```
+    result = ontSdk.getConnect().sendRawTransactionPreExec(tx.toHexString());
+    result = ontSdk.getConnect().sendRawTransaction(tx.toHexString());
+```
+
 

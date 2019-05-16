@@ -55,10 +55,11 @@ DAPP 激励计划 ： [https://dapp.ont.io/support](https://dapp.ont.io/support)
 
 查询合约事件：[https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)
 
-#### 8. dAPI 测试
+#### 8. dAPI 使用
 
 这个链接里有dAPI对接文档，测试钱包，演示DAPP。[https://github.com/ontio-cyano/integration-docs/blob/master/README_CN.md](https://github.com/ontio-cyano/integration-docs/blob/master/README_CN.md)
 
+如何调用 dAPI 参考 [https://github.com/ontio-cyano/dapi-universal/blob/master/DApiUtil.tsx](https://github.com/ontio-cyano/dapi-universal/blob/master/DApiUtil.tsx)
 
 #### 9. 如何创建地址？
 

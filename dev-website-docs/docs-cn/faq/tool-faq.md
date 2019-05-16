@@ -30,3 +30,8 @@
 
 链接地址 [https://dev-docs.ont.io/#/docs-cn/cyano/00-overview](https://dev-docs.ont.io/#/docs-cn/cyano/00-overview)
 
+
+#### 7. 签名机
+
+使用方法参考 [https://dev-docs.ont.io/#/docs-cn/sigsvr/00-overview](https://dev-docs.ont.io/#/docs-cn/sigsvr/00-overview)
+
