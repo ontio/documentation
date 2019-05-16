@@ -72,6 +72,9 @@
 - DAPP Store 对接指南
   - [概述](docs-cn/dapps/overview.md)
 
+- 常见问题
+  - [智能合约常见问题](docs-cn/faq/sc-faq.md)
+
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)
