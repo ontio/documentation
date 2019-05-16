@@ -74,6 +74,7 @@
   <h1 align="center">本体开发者中心</h1>
   <div >欢迎来到本体开发者中心。借助完善的开发者文档，你可以快速了解本体的生态、技术和工具。</div>
     <div >
+      <div>本体介绍</div>
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;" >
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
@@ -158,6 +159,7 @@
             </div>
           </div>
       </div>
+      <div>对接指南</div>
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;">
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
@@ -207,8 +209,17 @@
                       </div>
                   </div>
             </div>
+            <div class="col-sm-4 col-xs-12">
+                <p class="content-title" style="border-bottom: 1px solid #979797;">常见问题</p>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/dapps/overview">概述</a>
+                      </div>
+                  </div>
+            </div>
           </div>
       </div>
+      <div>工具介绍</div>
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;">
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
