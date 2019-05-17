@@ -417,7 +417,16 @@
     if(window.location.href.indexOf('docs-kr')>-1){
       window.location.href = '/#/docs-kr/'
     } 
+    console.log(window.location.pathname)
+    if(window.location.pathname == "/"){
+      window.location.href = '/#/docs-en/'
+    }
   })
+  window.onload = function () { 
+    if(window.location.pathname == "/"){
+      window.location.href = '/#/docs-en/'
+    }
+  }
 </script>
 <script src="//127.0.0.1:35729/livereload.js?snipver=1" async="" defer=""></script></body>
 </html>
