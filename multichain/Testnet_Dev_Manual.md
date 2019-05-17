@@ -53,7 +53,11 @@ Ontology MultiChain TestNet 目前已经上线，邀请广大开发者体验。�
 
 ## 测试币获取
 
+测试币获取申请入口：https://developer.ont.io/applyOng
 
+该入口可供一个地址申请一次10 Ont和100 Ong的测试币，跨链测试只会用到Ong。
+
+该入口会同时发放polaris测试网和multi-chain测试网的测试代币。
 
 ## 资产转移
 
