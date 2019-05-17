@@ -8,7 +8,7 @@ Ontology has developed a variety of SDKs, including:
 * [Github of Java SDK](https://github.com/ontio/ontology-java-sdk), [API docs](https://apidoc.ont.io/javasdk/)
 * [Github of Android SDK](https://github.com/ontio-community/ontology-andriod-sdk), [API docs](https://apidoc.ont.io/javasdk/)
 * [Github of Typescript SDK](https://github.com/ontio/ontology-ts-sdk), [API docs](https://apidoc.ont.io/tssdk/)
-* [Github of Python SDK](https://github.com/ontio/ontology-python-sdk), [API docs](https://apidoc.ont.io/pythonsdk/)
+* [Github of Python SDK](https://github.com/ontio/ontology-python-sdk), [API docs](https://nashmiao.github.io/ontology-python-sdk-docs/)
 * [Github of Golang SDK](https://github.com/ontio/ontology-go-sdk)
 * [Github of Objective-C SDK](https://github.com/ontio-community/ontology-oc-sdk)
 * [Github of PHP SDK ](https://github.com/ontio-community/ontology-php-sdk)

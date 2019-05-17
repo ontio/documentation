@@ -109,5 +109,5 @@ entries:
           url: /ontology_python_sdk_en.html
           output: web
         - title: API reference
-          external_url: https://apidoc.ont.io/pythonsdk/
+          external_url: https://nashmiao.github.io/ontology-python-sdk-docs/
           output: web

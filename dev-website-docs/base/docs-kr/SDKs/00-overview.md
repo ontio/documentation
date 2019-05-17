@@ -6,7 +6,7 @@ Ontology SDK는 온톨로지 블록체인을 위한 포괄적인 라이브러리
 * [Java SDK](https://github.com/ontio/ontology-java-sdk), [API docs](https://apidoc.ont.io/javasdk/)
 * [Android SDK](https://github.com/ontio-community/ontology-andriod-sdk), [API docs](https://apidoc.ont.io/javasdk/)
 * [Typescript SDK](https://github.com/ontio/ontology-ts-sdk), [API docs](https://apidoc.ont.io/tssdk/)
-* [Python SDK](https://github.com/ontio/ontology-python-sdk), [API docs](https://apidoc.ont.io/pythonsdk/)
+* [Python SDK](https://github.com/ontio/ontology-python-sdk), [API docs](https://nashmiao.github.io/ontology-python-sdk-docs/)
 * [Golang SDK](https://github.com/ontio/ontology-go-sdk)
 * [Objective-C SDK](https://github.com/ontio-community/ontology-oc-sdk)
 * [PHP SDK ](https://github.com/ontio-community/ontology-php-sdk)

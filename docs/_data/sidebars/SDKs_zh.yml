@@ -111,5 +111,5 @@ entries:
           output: web
 
         - title: API 文档
-          external_url: https://apidoc.ont.io/pythonsdk/
+          external_url: https://nashmiao.github.io/ontology-python-sdk-docs/
           output: web
