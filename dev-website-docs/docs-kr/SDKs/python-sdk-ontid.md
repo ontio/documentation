@@ -38,7 +38,7 @@ pip install ontology-python-sdk
 
 ## Interface
 
-Read more in the [ontology-python-sdk API document](https://apidoc.ont.io/pythonsdk/).
+Read more in the [ontology-python-sdk API document](https://nashmiao.github.io/ontology-python-sdk-docs/).
 
 ### Network
 

@@ -19,7 +19,7 @@ from ontology.ont_sdk import OntologySdk
 sdk = OntologySdk()
 ```
 
-更多关于 `ontology-python-sdk` 的详细信息可以点击[这里](https://apidoc.ont.io/pythonsdk/)访问 API 文档。
+更多关于 `ontology-python-sdk` 的详细信息可以点击[这里](https://nashmiao.github.io/ontology-python-sdk-docs/)访问 API 文档。
 
 ## 网络
 
