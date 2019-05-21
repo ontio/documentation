@@ -49,6 +49,7 @@
 - DAPP 对接指南
   - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
+  - [Unity 对接](docs-cn/dApp-Integration/12-unity_integration.md)
   - [DApi 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
     - [手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
     - [手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
