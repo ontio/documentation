@@ -50,6 +50,7 @@ The outline of this document is as follows:
 		* [Users withdraw ONG](#users-withdraw-ong)
 	* [5. Signature service](#5-signature-service)
 	* [6. OEP4 Token](#6-oep4-token)
+	* [7. PAX token](#7-pax-token)
 	* [Native contract address](#native-contract-address)
 	* [FAQ](#faq)
 	* [Mainnet update note](#mainnet-update-note)
@@ -1094,6 +1095,12 @@ Use Java SDK:
    ```
 
    for the sig server solution, please refer to the [sigserver guide](https://github.com/ontio/documentation/blob/master/exchangeDocs/Sigsvr_Exchange_Guide.md#6-oep4-tokens-transfer)
+
+   ## 7. PAX token
+   Pax is an OEP4 Protocol stable token issued by [Paxos](https://www.paxos.com/pax/) on ontology，same with other OEP4 token , you just need to change the contractAddress to：6bbc07bae862db0d7867e4e5b1a13c663e2b4bc8 即可。
+   
+   [browser](https://explorer.ont.io/contract/6bbc07bae862db0d7867e4e5b1a13c663e2b4bc8/10/1)
+
 
 ## Native contract address
 
