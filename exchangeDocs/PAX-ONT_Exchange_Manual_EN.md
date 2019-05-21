@@ -26,13 +26,13 @@ Enter the `PAX` Token contract in the **At Address** input box:`0x8e870d67f660d9
 
 
 
-![](/Users/huguanjun/Work/PAX/pax01.png)
+![](./images/pax01.png)
 
 as shown below
 
 
 
-![](/Users/huguanjun/Work/PAX/pax02.png)
+![](./images/pax02.png)
 
 
 
@@ -50,7 +50,7 @@ Parameters:
 
 
 
-![](/Users/huguanjun/Work/PAX/pax03.png)
+![](./images/pax03.png)
 
 
 
@@ -68,7 +68,7 @@ Parameters:
 
   
 
-![](/Users/huguanjun/Work/PAX/pax04.png)
+![](./images/pax04.png)
 
 
 
