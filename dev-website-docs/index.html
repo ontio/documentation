@@ -417,13 +417,9 @@
     if(window.location.href.indexOf('docs-kr')>-1){
       window.location.href = '/#/docs-kr/'
     } 
-    console.log(window.location.pathname)
-    if(window.location.pathname == "/"){
-      window.location.href = '/#/docs-en/'
-    }
   })
   window.onload = function () { 
-    if(window.location.pathname == "/"){
+    if(window.location.hash == "#/"){
       window.location.href = '/#/docs-en/'
     }
   }
