@@ -50,6 +50,7 @@ ONT中有两种资产：原生资产和合约资产。原生资产如ont和ong�
 		* [用户提取ONG](#用户提取ong)
 	* [5. 签名服务](#5-签名服务)
 	* [6. OEP4 Token](#6-oep4-token)
+	* [7. PAX token](#7-pax-token)
 	* [附 native 合约地址](#附-native-合约地址)
 	* [附2 FAQ](#附2-faq)
 	* [附3 主网及sdk更新日志](#附3-主网及sdk更新日志)
@@ -1116,6 +1117,12 @@ OntSdk wm = OntSdk.getInstance();
    ```
 
    来取得该OEP4的精度
+   
+   ## 7. PAX token
+   Pax 是[Paxos](https://www.paxos.com/pax/)在ontology上发行的OEP4协议的稳定币，接入方式同标准的OEP4 方式，只需将合约的地址（contractAddress）设置为：6bbc07bae862db0d7867e4e5b1a13c663e2b4bc8 即可。
+   
+   [浏览器地址](https://explorer.ont.io/contract/6bbc07bae862db0d7867e4e5b1a13c663e2b4bc8/10/1)
+   
 
 
 
