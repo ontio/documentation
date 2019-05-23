@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/punicasuite/solo-chain/master/image/icon.png" height="200" width="200">
-  <h2 class="doc-title">Solo Chain</h2>
+  <br><br>
 </div>
 
 ## Solo Chain Overview
