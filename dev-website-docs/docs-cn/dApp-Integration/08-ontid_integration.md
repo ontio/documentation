@@ -11,7 +11,6 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 对接前请确保登录和支付页面能正常访问：
 
 * ONTID 登录页面：主网 [https://signin.ont.io/#/](https://signin.ont.io/#/)，测试网 [http://139.219.136.188:10390/](http://139.219.136.188:10390/)
-* ONTID 支付页面：主网  [https://pay.ont.io/#/](https://pay.ont.io/#/)，测试网  [http://139.219.136.188:10390/transaction](http://139.219.136.188:10390/transaction)
 
 
 
@@ -52,133 +51,6 @@ ONT ID 登录集成有两种方式：通过跳转到特定URL，和页面集成�
 > ```
 >
 > 应用方得到 ```access_token```可以查询用户的信息，应用方需要保存用户的资产地址信息，支付时候需要使用
-
-### 应用方服务器发起支付订单请求
-
-应用方发起请求中含有``` app_token``` 和``` user```，``` app_token``` 里的 ``` Payload``` 需要包含应用方信息和调用合约参数，``` user```是用户的 ontid。可以参考第三方应用服务器例子： [app-server 源码](https://github.com/ontio-ontid/ontid-app-server)
-
-```
-url：/api/v1/ontid/request/order
-
-method：POST
-
-{
-   "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-   "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
-}
-```
-
-请求数据中```Payload```的应用方信息和调用合约参数填写例子： 
-
-```
-
-{
-	"invokeConfig": {
-		"contractHash": "0100000000000000000000000000000000000000", // ONG: 0200000000000000000000000000000000000000
-		"functions": [{
-			"operation": "transfer",
-			"args": [{
-					"name": "arg0-from",
-					"value": "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"   //用户资产地址
-				}, {
-					"name": "arg1-to",
-					"value": "Address:AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ"   //应用方收款地址
-				},
-				{
-					"name": "arg2-amount",
-					"value": 10000
-				}
-			]
-		}],
-		"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",    //用户资产地址，用于付手续费
-		"gasLimit": 20000,  //根据合约复杂度填写，预执行可以查询该值，最小是20000
-		"gasPrice": 500    //固定值
-	},
-	"app": {
-        "name": "", // String，必填项，应用方名称
-        "logo":"", // String，可选项，应用方logo的url。
-        "message": "", // String，必填项，用于页面上显示支付/调用合约的目的，不能超过30个字符
-        "ontid": "", // String，必填项，应用方的ONT ID
-        "callback":"",// String，可选项，交易成功后通知应用方
-        "nonce": "123456" // String，不能重复
-    }
-}
-
-```
-
-> 应用方服务器可以通过``` callback ```确认用户支付成功，也可以通过合约 hash 到[链上查询合约事件](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)。
-
-
-上链成功或失败回调应用方callback_url接口:
-
-```
-{
-  "txHash" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
-  "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
-  "result": 4   //0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期
-}  
-```
-
-### 前端对接支付页面
-
-```  
-  http://139.219.136.188:10390/transaction?params={value}
-  value = window.encodeURIComponent(orderid + & + invoke_token + & + callback_url + & + lang)
-```
-
- ```lang``` 是可选的参数默认是en，en表示英文，zh表示中文。
- ```invoke_token``` 是应用方服务器发起支付订单请求，开发平台返回的 invoke_token。
- ```orderid``` 是应用方服务器发起支付订单请求，开发平台返回的 orderid。
- ```callback_url``` 是应用方的前端页面。
-
-> 支付成功后，应用方前端会收到交易 hash ，服务器需要保存交易 hash，通过交易 hash 可以查询交易状态或到[链上查询合约事件](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)。
-
-
-
-### 应用方服务器查询订单
-
-
- ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，Payload 里的字段：
-
- ```text
- {
-     "app": {
-         "ontid": ""
-      }
-     "exp":1555041974000
- }
- ```
-
-根据订单号查询
-```
-url： /api/v1/provider/query/order
-
-method：POST
-
-{
-    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
-}
-```
-
-查询订单历史记录
-```
-url： /api/v1/provider/query/order/range
-
-method：POST
-
-{
-    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "currentPage": 1,
-    "size":10
-}
-
-```
-
-
-### 智能合约
-
-如果应用方需要统计交易量，可以把 ONT/ONG 转账封装在合约里，请参考智能合约模板[native_asset_invoke_compiler2.0](https://github.com/ONT-Avocados/python-template/blob/master/NativeAssetInvoke/native_asset_invoke_compiler2.0.py)。
 
 ## 第三方登录对接
 
@@ -227,11 +99,11 @@ ONTID 授权登录模式整体流程为：
 |    access_token |   String | ```JWT token```，用户访问接口时 ```Header``` 需要填写 ```access_token``` |
 |    refresh_token |   String | ```JWT token```，刷新 ```access_token``` 时使用 |
 
- 
-
-
-
 ### 如何集成ONT ID登录
+
+您可以使用快速对接的方式，详情见上文。
+
+这里介绍的是使用js插件的方式。
 
 
 1. 页面引入```plugin.js```
@@ -260,10 +132,6 @@ ONTID 授权登录模式整体流程为：
     }
 ```
 5. 应用方后台验证 ``` JWT token ```
-
-
-
-
 
 ### 应用方查询用户 ontid 账户信息
 
@@ -303,289 +171,77 @@ method：POST
 |    version|   String|  版本号  |
 |    error|   int|  错误码  |
 |    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String| 	结果  |
+|    result|   String| 	结果返回：  |
 
 
-## 支付或调用合约对接
 
+## 使用ONT ID接入第三方平台授权登录
 
-ONTID通用请求，如支付和调用合约，整体流程为：
+### 什么是ONT ID第三方授权登录？
 
-![ontid payment](https://raw.githubusercontent.com/ontio/documentation/master/pro-website-docs/assets/ontid-payment.png) 
+第三方授权登录是非常流行的快速登录应用的方式，能简易用户的注册登录流程。
 
+各种主流的社交应用都开放了这个功能，方便应用方集成。
 
-1. 应用方后台发送支付请求到 ONT ID 开放平台。ONT ID 开放平台返回 ```orderid``` 作为流水号。
-2. 应用方前台打开支付页面，参数中带着 ```orderid``` 和应用方前台的重定向地址 ```redirect_uri```。
-3. 用户确认请求，发送请求到 ONTID 开放平台。
-4. ONTID 开放平台处理请求，通知结果到应用方后台。
-5. 同时返回结果到ONT ID前台。
-6. ONT ID前台重定向到```redirect_uri```
+为了免除应用方需要重复繁琐地接入不同的第三方，并且帮助应用方导流不同的ONT ID用户。我们提供了ONT ID第三方授权登录。
 
+现在已经支持：微信，Facebook。
 
-### 应用方对接流程
+以后将支持更多第三方，如：QQ，微博，Google，Twitter等。
 
-1. 用户使用ONT ID登录第三方应用并传递`access_token`给应用后台。
+### 接入流程
 
-2. 第三方应用后台发送创建订单请求到ONT ID开发平台后台，得到订单号`orderid`和`invoke_token`
+[![V9GyCT.md.png](https://s2.ax1x.com/2019/05/22/V9GyCT.md.png)](https://imgchr.com/i/V9GyCT)
 
-```
-url：/api/v1/ontid/request/order
+### 准备工作
 
-method：POST
+应用方需要先到ONT ID开放平台注册ONT ID。需要提供应用的名称，logo图片等信息。
 
-{
-   "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-   "user": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL"
-}
+### 接入步骤
 
-// app_token 需要使用应用方的ONT ID进行签名
-// user 是用户的ONT ID
-```
-返回：
+#### 1. 应用方在页面上放置登录按钮。
+
+根据需要放置不同第三方的登录按钮。
+
+#### 2. 添加登录按钮的点击事件
+
+登录按钮点击后跳转到以下链接
 
 ```
-
-{
-  "action" : "requestOrder",
-  "error" : 0,
-  "desc" : "SUCCESS",
-  "result" : {
-    "invoke_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJhdWQiOiJkaWQ6b250OkFOUzlKbm9FUjVXcWNFNzVqSGVZWkF1U1dSdlRqUDY5V0giLCJpc3MiOiJkaWQ6b250OkFhdlJRcVhlOVByYVY1dFlnQnF2VjRiVXE4TFNzdmpjV1MiLCJleHAiOjE1NTM5NTkwMjAsImlhdCI6MTU1Mzg3MjYyMCwianRpIjoiYzkyZjNiMTdkN2E2NGZjZjg2MGI5M2I4ODgwMjVkNTMiLCJjb250ZW50Ijp7InR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJvbnRpZCI6ImRpZDpvbnQ6QU5TOUpub0VSNVdxY0U3NWpIZVlaQXVTV1J2VGpQNjlXSCJ9fQ.MDFiYTllM2VkZjRhNjE2ODM1NjZjYThkMWVkM2UwNWUxNTg5MDEzMjEwYTFlOGU2ZDdiYmYxYjc0NTRmOGFlNzExMDQxZDUwMDExZWFkNDIwMmY3NDYyMTMyNGNlYjQ5NTA4NDM0YzRjOTI5Y2NmZTcyNzRmYTcxYTg2MzNkNTMzMw",
-    "orderid" : "9892bcb698bb4cbd812c8b466d8ad432"
-  },
-  "version" : "v1"
-}
-
+${ontid_host}/oauthmiddle?dapp_ontid=${dapp_ontid}&oauth_type=${provider}&redirect_url=${redirect_url}&lang=${lang}`
 ```
 
-3. 第三方应用跳转至通用的支付/调用合约页面，需要在url上附带参数如下：
+`ontid_host` ONT ID 前端项目地址。测试环境：`http://139.219.136.188:10390`，  正式环境：`http://onchain.com`。
 
-   ```
-   host + /transaction?orderid={orderid}&invoke_token={invoke_token}&callback_url={callback_url}
-   ```
+`dapp_ontid` 应用方的ONT ID。
 
-   其中，callback_url是支付/调用合约完成后，返回到应用方的回调地址。
+`provider` 授权的第三方。可选的值有：`wechat`, `facebook`
 
-4. 用户确认后输入ONT ID密码，交易发送上链，返回到第三方应用。
+`redirect_url` 应用方的回调地址。授权登录后会重定向到该回调地址，并在后面附上用户的`access_token`
 
-5. 上链成功或失败回调应用方callback_url接口。
+`lang` 页面的语言。可选的值有：`en`, `zh`
 
-```
-{
-  "txHash" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
-  "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
-  "result": 4   //0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期
-}  
-```
+### 3. 验证回调地址得到的access_token
 
-> 具体案例可以参考[官方示例](https://github.com/ontio-ontid/ontid-app-demo)
+`access_token`是`JWT`格式的。包含ONT ID后台的签名。 需要将`access_token`发送到应用方后台验证。验证通过后，登录流程完成。
 
+关于`access_token`的具体内容，请参考[JWT Token 格式说明？](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/08-ontid_integration?id=jwt-token-%e6%a0%bc%e5%bc%8f%e8%af%b4%e6%98%8e%ef%bc%9f)
 
+关于验证`access_token`的方式，请参考[java示例](<https://github.com/ontio-ontid/ontid-app-server/blob/master/src/main/java/com/github/ontid_demo/util/MyJWTUtils.java>)
 
-#### 订单请求 app_token 说明
+### demo与示例
 
-``` app_token ``` 是应用方签发的，ONTID 开发平台验证通过才能访问接口。
+[demo源码](<https://github.com/ontio-ontid/oauth-login-demo>)
 
-Payload 里的字段包含调用合约的参数和应用方的信息，例如：
+链接：http://139.219.136.188:10392
 
-```
-{
-		"invokeConfig": { 
-			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
-			"functions": [{
-				"operation": "method name",
-				"args": [{
-					"name": "arg0-list",
-					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
-						"key": 6
-					}]
-				}, {
-					"name": "arg1-map",
-					"value": {
-						"key": "String:hello",
-						"key1": "ByteArray:aabb",
-						"key2": "Long:100000000000",
-						"key3": true,
-						"key4": 100,
-						"key5": [100],
-						"key6": {
-							"key": 6
-						}
-					}
-				}, {
-					"name": "arg2-str",
-					"value": "String:test"
-				}]
-			}],
-			"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
-			"gasLimit": 20000,
-			"gasPrice": 500
-		},
-        "app": {
-            "name": "", // String，必填项，应用方名称
-            "logo":"", // String，可选项，应用方logo的url。
-            "message": "", // String，必填项，用于页面上显示支付/调用合约的目的，不能超过30个字符
-            "ontid": "", // String，必填项，应用方的ONT ID
-            "callback":"",// String，可选项，交易成功后通知应用方
-            "nonce": "123456" // String，不能重复
-        },
-        "exp":1555041974000
-}
-```
+> 要体验微信登录，请在微信客户端内打开该链接
+>
+> 要体验其它登录方式，请在浏览器中打开该链接
 
 
 
-| Param     |     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    invokeConfig |   String | 调用合约的参数 |
-|    invokeConfig.contractHash |   String | 合约hash |
-|    invokeConfig.functions |   List | 调用合约的函数，目前只支持一个 |
-|    invokeConfig.payer |   String | 网络费付款人 |
-|    invokeConfig.gasLimit |   int | 执行合约需要消耗的gas |
-|    invokeConfig.gasPrice |   int | 目前是固定值500 |
-|    app.ontid |   String | 应用方 ontid |
-|    app.name |   String | 应用方 name |
-|    app.logo |   String | 应用方 logo |
-|    app.message |   String | 用于页面上显示支付/调用合约的目的，不能超过30个字符 |
-|    app.nonce |   long |  |
-|    exp |   long | 时间戳，该token的有效时间 |
-
-
-
-## 查询接口对接
-
-
- ```app_token``` 是应用方签发的，里面包含应用方 ontid 和签名，类似与支付请求，Payload 里的字段：
-
- ```text
- {
-     "app": {
-         "ontid": ""
-      }
-     "exp":1555041974000
- }
- ```
-
-| Param     |     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    app.ontid |   String | 应用方 ontid |
-|    exp |   long | 时间戳，该token的有效时间 |
-
-
-### 根据订单号查询订单
-```
-url： /api/v1/provider/query/order
-
-method：POST
-
-{
-    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "orderId":"a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2"
-}
-```
-
-| Field_Name|     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    app_token|   String|  应用方 app_token  |
-|    orderId|   String|  订单号  |
-
-返回：
-
-```
-{
-  "action" : "queryOrder",
-  "error" : 0,
-  "desc" : "SUCCESS",
-  "result" : {
-    "note" : null,
-    "wallet" : "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
-    "tx" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
-    "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
-    "appInfo" : {
-      "name" : "baidu",
-      "logo" : "https://www.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9%B2%9C%E4%BA%8B&tn=SE_Pclogo_6ysd4c7a&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pc",
-      "callback" : "http://127.0.0.1:1111/ontid/payment/callback",
-      "language" : "cn",
-      "message" : "baidu yixia",
-      "nonce" : "cd4c4c0d-340e-4d31-8d4b-9fdc6b2939b7",
-      "ontid" : "did:ont:AHcXzSaujd35gMaWsCv1R2Xd2w4Y43qdB8"
-    },
-    "state" : 5,
-    "event" : "{\"GasConsumed\":10000000,\"Notify\":[{\"States\":[\"transfer\",\"ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W\",\"AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ\",100],\"ContractAddress\":\"0200000000000000000000000000000000000000\"},{\"States\":[\"transfer\",\"ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W\",\"AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK\",10000000],\"ContractAddress\":\"0200000000000000000000000000000000000000\"}],\"TxHash\":\"3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d\",\"State\":1}",
-    "user" : "did:ont:AJ6gC7r6Rb3ac4Zh7J4D69sSAps5bGZRTf"
-  },
-  "version" : "v1"
-}
-```
-
-
-| Field_Name|     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    action|   String|  动作标志  |
-|    version|   String|  版本号  |
-|    error|   int|  错误码  |
-|    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String| 	结果  |
-|    result.note|   String| 	备注，失败情况的描述  |
-|    result.wallet|   String| 	付款的地址  |
-|    result.txHash|   String| 	该笔交易hash  |
-|    result.orderId|   String| 	订单号  |
-|    result.createTime|   String| 	订单创建时间  |
-|    result.appInfo|   String| 	订单详情，跟之前构建订单内容一致  |
-|    result.state|   String| 	0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
-|    result.event|   String| 	该笔交易的smart event  |
-|    result.user|   String| 	用户ontid  |
-
-### 查询订单列表
-
-```
-url： /api/v1/provider/query/order/range
-
-method：POST
-
-{
-    "app_token" :  "JWT token: Base64(Header).Base64(Payload).Base64(Signature)",
-    "currentPage": 1,
-    "size":10
-}
-
-```
-
-返回：
-```
-{
-  "action" : "queryOrderRange",
-  "error" : 0,
-  "desc" : "SUCCESS",
-  "result" : [ {
-    "wallet" : "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
-    "txHash" : "3a9594a26b84bfce8c7e44f9257fd09dadf303ea789fc4692123bcc7a679433d",
-    "orderId" : "a24d06ec89c3ce0c845eb719697d7843464f287e19a8c7e3d3ef614378e610b2",
-    "createTime" : 1554986210000,
-    "state" : 5,
-    "user" : "did:ont:AJ6gC7r6Rb3ac4Zh7J4D69sSAps5bGZRTf"
-  } ],
-  "version" : "v1"
-}
-```
-
-| Field_Name|     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    action|   String|  动作标志  |
-|    version|   String|  版本号  |
-|    error|   int|  错误码  |
-|    desc|   String|  成功为SUCCESS，失败为错误描述  |
-|    result|   String| 	结果  |
-|    result.wallet|   String| 	付款的地址  |
-|    result.txHash|   String| 	该笔交易hash  |
-|    result.orderId|   String| 	订单号  |
-|    result.createTime|   String| 	订单创建时间  |
-|    result.state|   String| 	0-初始，1-准备发送;2-发送成功;3-发送失败;4-交易成功;5-交易失败;6-订单过期  |
-|    result.user|   String| 	用户ontid  |
-
-
-
-## 错误码
+## 后台错误码
 
 
 | 代码     |     说明   |
@@ -611,8 +267,6 @@ method：POST
 | 63002	|	EXCEPTION,异常
 | 63003	|	CODE_VERIFY_FAILED,设备码校验失败
 | 63004	|	IDENTITY_VERIFY_FAILED,身份认证失败
-
-
 
 
 
