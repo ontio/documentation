@@ -46,6 +46,11 @@
   - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
   - [链上数据存取（可选）](docs-cn/QuickGuide/07-deposit-certificate.md)
 
+- 多链开发指南
+  - [概述](docs-cn/multichain/overview.md)
+  - [开始使用](docs-cn/multichain/getting-started.md)
+  - [本体跨链课堂](docs-cn/multichain/tutorials.md)
+  
 - DAPP 对接指南
   - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
@@ -80,7 +85,7 @@
       - [工具使用](docs-cn/faq/tool-faq.md)
       - [SDK 使用](docs-cn/faq/sdks-faq.md)
       - [对接问题](docs-cn/faq/business-faq.md)
-
+      
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
   - [开始使用](docs-cn/SmartX/getting-started.md)

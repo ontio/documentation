@@ -156,6 +156,29 @@
                       </div>
                   </div>
             </div>
+            <div class="col-sm-4 col-xs-12">
+                <p class="content-title" style="border-bottom: 1px solid #979797;">多链开发指南</p>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/multichain/overview">智能合约指南</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/multichain/getting-started">开始使用</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/multichain/tutorials">跨链课堂</a>
+                      </div>
+                  </div> 
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/multichain/overview">查看全部</a>
+                      </div>
+                  </div>
+            </div>
           </div>
       </div>
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;">

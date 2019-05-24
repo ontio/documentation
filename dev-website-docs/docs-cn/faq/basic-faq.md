@@ -69,3 +69,116 @@ com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(He
 System.out.println(acct2.getAddressU160().toBase58());
 
 ```
+
+#### 10. 如何计算一个交易的手续费？如何查询一笔交易的手续费？
+
+GAS price 是给执行 opcode 定价，执行 opcode 步数等于 GAS limit，交易手续费 = GAS Price * GAS limit 。
+
+预执行，返回的数据如下：
+```
+{
+	"Notify": [{
+		"States": ["transfer", "AQmTJnojgMJXTWDE8rL5R5SRKLHr9TZmPR", "AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve", 10],
+		"ContractAddress": "0200000000000000000000000000000000000000"
+	}],
+	"State": 1,
+	"Gas": 20000,
+	"Result": "01"
+}
+
+```
+其中```Gas``` 就是该交易需要花费的 gasLimit，GAS price 目前固定值是 500。在主网上花费的手续费是500 * 20000 = 0.01 ONG。
+
+执行交易返回的结果：
+```
+{
+    "Action": "getsmartcodeeventbyhash",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": {
+        "TxHash": "c843a017f5630d9b874fba968574dbb91d4d65058efc3a094587fa5a50f9fc00",
+        "State": 1,  //执行成功
+        "GasConsumed": 10000000, //gas消耗
+        "Notify": [
+            {
+                "ContractAddress": "0200000000000000000000000000000000000000", //转账的合约地址
+                "States": [
+                    "transfer",
+                    "AQmTJnojgMJXTWDE8rL5R5SRKLHr9TZmPR",
+                    "AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve",
+                    10
+                ]
+            },
+            {   //付手续费的合约事件
+                "ContractAddress": "0200000000000000000000000000000000000000",  // ONG 合约
+                "States": [
+                    "transfer",
+                    "AQmTJnojgMJXTWDE8rL5R5SRKLHr9TZmPR",   //付款人 payer的地址
+                    "AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK",  //手续费付给生态治理的统一收款地址
+                    10000000
+                ]
+            }
+        ]
+    },
+    "Version": "1.0.0"
+}
+
+```
+
+
+#### 11. 获取交易池交易数量的返回信息，这种情况怎么区分转账是否成功呢？
+
+
+GET http://dappnode1.ont.io:20334/api/v1/mempool/txcount
+
+```
+
+{
+    "Action": "getmempooltxcount",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Result": [
+        6, //已验证通过的交易数
+        2  //未开始验证的交易数
+    ],
+    "Version": "1.0.0"
+}
+
+```
+交易池中还未落账的交易总数 = 已验证 + 未验证。通过查询 Hash 查询交易或查询合约事件能查到信息说明转账成功。一般发交易后2 - 20秒之前会落账。
+
+
+#### 12. 什么是助记词？
+
+助记词是私钥的另一种表现形式。最早是由 BIP39 提案提出, 其目的是为了帮助用户记忆复杂的私钥字符串。助记词一般由12、15、18、21个单词构成, 这些单词都取自一个固定词库, 其生成顺序也是按照一定算法而来。
+
+任何人得到了你的助记词, 在钱包中输入助记词并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。
+
+所以在创建钱包后，一定要完成助记词备份，而且助记词只能备份一次，备份后，在钱包中再也不会显示，牢记在备份时一定要抄写下来，保存好！
+
+#### 13. 什么是Keystore?
+
+Keystore是允许你以加密的方式存储私钥。你自定义的密码加密私钥，起到了对ONT ID和钱包的保护作用。
+
+一定要记住Keystore 的密码, 一旦忘记密码, 你就会失去了Keystore 的使用权, 同时ONTO无法帮你找回密码。
+
+因此一定要妥善保管好 Keystore 以及密码。
+
+
+#### 14. 什么是明文私钥？什么是WIF私钥？
+         
+明文私钥是随机生成的，用来解锁对应钱包的一串字符。交易场景下, 私钥用于生成交易所必须的签名，以证明资产的所有权。任何人得到了你的明文私钥, 在钱包中输入明文私钥并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。因此，妥善保存好你的明文私钥。
+
+WIF（Wallet Import Format）是将明文私钥以Base58校验和编码格式显示的钱包导入格式。WIF和私钥可以互转，因此也理解为是另一种形式的明文私钥。任何人得到了你的WIF, 在钱包中输入WIF并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。因此，妥善保存好你的WIF。
+
+
+#### 15. Unity 游戏方如何对接？
+
+请参考对接文档，[Unity SDK 对接](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
+
+
+#### 16. 如何唤醒 ONTO/Cyano 钱包支付？
+
+如果是 Unity 游戏请参考： [https://github.com/ontio-community/unity-demo](https://github.com/ontio-community/unity-demo)
+
+如果是 手机应用请参考：[android-app-demo](https://github.com/ontio-cyano/android-app-demo),[ios-app-demo](https://github.com/ontio-cyano/ios-app-demo)
