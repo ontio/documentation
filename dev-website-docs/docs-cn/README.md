@@ -161,12 +161,7 @@
                 <p class="content-title" style="border-bottom: 1px solid #979797;">多链开发指南</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/multichain/overview">多链开发指南</a>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/multichain/getting-started">开始使用</a>
+                          <a href="#/docs-cn/multichain/overview">概述</a>
                       </div>
                   </div>
                   <div>
