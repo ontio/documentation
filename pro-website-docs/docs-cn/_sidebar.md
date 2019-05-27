@@ -1,7 +1,7 @@
 
 - ONT ID
   - [概述](docs-cn/ontid/overview.md)
-  - [开放平台](docs-cn/ontid/open-platform.md)
+  - [第三方登录](docs-cn/ontid/thirdparty_login.md)
 - ONTPASS
   - [概述](docs-cn/ontpass/overview.md)
   - [技术接口说明](docs-cn/ontpass/specification.md)
@@ -14,4 +14,4 @@
   - [快速开始](docs-cn/ddxf/02-get-started.md)
 - ONTO
   - [概述](docs-cn/onto/overview.md)
-
+  - [KYC服务](docs-cn/onto/ONTO_login.md)
