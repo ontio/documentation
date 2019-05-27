@@ -38,3 +38,21 @@
 #### 6. DAPP Store 对接
 
 [DAPP Store 对接指南](https://dev-docs.ont.io/#/docs-cn/dapps/overview)
+
+
+#### 7. 游戏方对接步骤
+
+对接步骤：
+1. 对接dApi协议: [https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)
+2. 通过getAccount获取钱包地址，invoke接口调用合约完成支付。测试钱包：[http://101.132.193.149/files/app-debug.apk](http://101.132.193.149/files/app-debug.apk)
+3. 游戏方后台根据合约地址查询用户支付记录。[https://dev-docs.ont.io/#/docs-cn/explorer/contracts](https://dev-docs.ont.io/#/docs-cn/explorer/contracts)
+
+资料：
+dapp demo： https://github.com/ontio-cyano/mobile-dapp-demo
+测试币申请：https://developer.ont.io/applyOng
+智能合约开发 IDE ： https://smartx.ont.io/#/
+
+合约开发：
+1. 使用 smartx 开发合约: https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development?id=%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91
+2. 参考合约模板支付 ONG 。https://github.com/ONT-Avocados/python-template/blob/master/NativeAssetInvoke/native_asset_invoke_compiler2.0.py
+3. 建议先在测试网测试，再在主网测试。
