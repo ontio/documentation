@@ -1,7 +1,5 @@
 
 
-<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=x0836e0lmjg" allowFullScreen="true" width="100%" height="360"></iframe>
-
 ## 概述
 
 IDEA Ontology智能合约开发插件支持:

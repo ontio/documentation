@@ -1,5 +1,5 @@
 
-<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=u0797zd38y1" allowFullScreen="true" width="100%" height="360"></iframe>
+
 
 `Cyano` 是一座连接未来的去中心化网络的桥梁，旨在使越来越多的人尽可能容易地使用本体。
 
@@ -10,8 +10,6 @@
 在技术实现上，钱包端通过集成 `Provider SDK` 来提供标准化的 `Provider` 实例供 dApp 调用，dApp 端则通过集成 `dAPI` 来与 `Provider` 实例进行通信。
 
 无论是电脑端还是移动端的，我们均提供了相应的 `Provider SDK` 供钱包集成。
-
-<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=l0797rr9g9a" allowFullScreen="true" width="100%" height="360"></iframe>
 
 - `Chrome Provider`：集成了 `cyano-chrome` 的浏览器钱包插件。
 - `Mobile Provider`：集成了 `cyano-mobile` 的移动端钱包应用。

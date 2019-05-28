@@ -1,6 +1,4 @@
 
-<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=b07914b7fxc" allowFullScreen="true" width="100%" height="360"></iframe>
-
 
 [SmartX](http://smartx.ont.io/#/)是一个可用于编译，部署和调用智能合约的一站式IDE。它提供了丰富的智能合约模板以及强大的在线编辑器。基于SmartX这个工具，智能合约的需求方可以参考和使用模板合约，或者委托社区开发人员定制开发所需的合约。未来，智能合约的开发人员可以交易自己编写的智能合约，或者协作多人开发智能合约，利用自己的专业知识获得收益。
 

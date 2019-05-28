@@ -1,6 +1,6 @@
 
 
-关于以下智能合约视频教程的文字介绍，可查看 [视频文档](https://github.com/punicasuite/tutorials/04-tutorials.md)。
+关于以下智能合约视频教程的文字介绍，可查看 [视频文档](https://github.com/punicasuite/tutorials/)。
 
 ### Hello World
 

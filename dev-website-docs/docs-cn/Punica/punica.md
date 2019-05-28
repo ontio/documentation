@@ -1,7 +1,5 @@
 
 
-<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=r0802qrtqef" allowFullScreen="true" width="100%" height="360"></iframe>
-
 [Punica Suite](https://punica.ont.io) 是基于本体的第一个 dApp 开发框架，致力于提供完善的工具与整合的资源，让开发者快速上手 dApp 开发。其主要功能特性如下：
 
 * 支持单元测试和功能测试，相比 SDK 测试更加容易便捷；

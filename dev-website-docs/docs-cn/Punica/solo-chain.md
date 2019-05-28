@@ -1,7 +1,5 @@
 
 
-<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=v0792l7bhji" allowFullScreen="true" width="100%" height="360"></iframe>
-
 ## 概述
 
 Solo Chain 是一键式的本体（私有）区块链。借助于该桌面应用程序，开发人员可以轻松快速地设置和管理自己的本体区块链私有实例，进行 dApp 开发。Solo Chain 通过 Electron 进行打包，为用户提供一个直观图形用户界面。
