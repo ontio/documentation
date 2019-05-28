@@ -1,13 +1,15 @@
-<h1 align="center">钱包内部打开dApp接入流程</h1>
-<p align="center" class="version">Version 0.8.0 </p>
+
 
 ## 概述
 
-本文用于指导 dApp 方如何与钱包通信，及钱包如何处理 dApp 的请求。
-流程中涉及到的参与方包括：
+本文用于指导钱包 APP 如何对接 Provider SDK 以支持本体的 dAPI 协议，对接 Provider SDK 可以参考对应的 [开源 Android 和 iOS 钱包](https://github.com/ontio-cyano)。
 
-* Dapp 方：对 ONT 生态内的用户提供 Dapp ，是本体生态中重要的组成部分。
-* Provider：实现 dApi mobile 规范的钱包
+对接流程中涉及到的参与方包括：
+
+* DApp 方：对本体生态内的用户提供 DApp ，是本体生态中重要的组成部分。
+* Provider：支持 dApi mobile 规范的钱包
+
+> 已支持 dAPI 协议的钱包: [麦子钱包](http://www.mathwallet.org/en/)，[Banko](http://bankowallet.com/pc.html) 等
 
 ## 交互流程说明
 
@@ -48,8 +50,7 @@ DApp 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.e
 
 ## 钱包和 DApp 接入步骤
 
-### 前提条件
-使用前，你需要联系[本体机构合作](https://ont.io/contactUs)
+
 
 
 ## dAPI Provider SDK 使用

@@ -103,7 +103,7 @@ $ npm install
 $ npm run start
 ```
 
-启动成功后，在浏览器打开页面 http://localhost:3000
+启动成功后，在浏览器打开页面 ```http://localhost:3000```
 
 页面成功打开后, 点击 Provider->GetProvider。
 

@@ -1,33 +1,27 @@
 
 # 基础功能说明
 
-对于DAPP开发者来说，需要基于本体链交互的功能大致有如下几种：
+对于 DAPP 开发者来说，需要基于本体链交互的功能大致有如下几种：
 
-- [登录](登录)
+- [登录](登录) ：允许验证用户身份或直接查询账号或身份信息。
 
-允许验证用户身份或直接查询账号或身份信息。
+- [支付](支付) ： 通过调用智能合约处理交易中的支付业务，可以是 ONT/ONG 或其他 OEP 规范的通证。
 
-- [支付](支付)
+- [智能合约开发](智能合约开发) ： 对于DApp而言，智能合约实现了其全部或部分业务逻辑。以游戏举例，可以实现购买，出售，租赁，或获取随机数等不同的业务及功能。详细业务逻辑参见智能合约。
 
-通过调用智能合约处理交易中的支付业务，详细步骤参见demo。
+- [资产上链（可选）](资产上链（可选）) ： 开发者可选择发布何种类型资产如 ```OEP4```，```OEP5```，```OEP8```。
 
-- [智能合约开发](智能合约开发)
+对于不同情景下的开发者来说，可选择不同的接入方式进行DApp对接。我们提供了：
 
-对于DApp而言，智能合约实现了其全部或部分业务逻辑。以游戏举例，可以实现购买，出售，租赁，或获取随机数等不同的业务及功能。详细业务逻辑参见智能合约。
+* 基于ONT ID 开放平台的中心化方案
+* 通过 DApi 接入的多个去中心化方案，包括在手机钱包内打开 DApp、或使用 Chrome 插件钱包等方法，允许 DApp 与链交互。
+* 通过 SDK 接入的去中心化方案，比如基于 C# SDK 的 Unity 3D 游戏。
 
-- [资产上链（可选）](资产上链（可选）)
-
-开发者可选择发布何种类型资产如oep4，oep5，oep8。
-
-对于不同情景下的开发者来说，可选择不同的接入方式进行DApp对接。我们提供了基于ONT ID 开放平台的中心化方案以及通过DApi 接入的多个去中心化方案，包括在手机钱包内打开 DApp、或使用 chrome 插件钱包等方法，允许DApp 与链交互。两种接入方式都可以实现登录，调用智能合约的功能，开发者可以选择其中一种进行DApp接入。
-
-
-
-本文针对来到本体公链开发DApp的开发者，提供了通用的DApp接入解决方案，让开发者可以快速上手搭建出DApp。
+不同接入方式都可以实现登录，调用智能合约的功能，开发者可以选择其中一种进行 DApp 接入。本文针对来到本体公链开发DApp的开发者，提供了通用的DApp接入解决方案，让 DAPP 方可以快速将应用上链。
 
 ## 主要 DApp 功能介绍
 
-DApp与本体链产生交互时主要有以下功能：
+DApp 与本体链产生交互时主要有以下功能：
 
 ### 登录
 
@@ -35,7 +29,43 @@ DApp与本体链产生交互时主要有以下功能：
 
 ### 支付
 
-通过调用智能合约实现DApp的支付功能。
+通过调用智能合约实现 DApp 的支付功能。使用 ONG 支付的例子：
+
+```
+OntCversion = '2.0.0'
+from ontology.interop.Ontology.Native import Invoke
+from ontology.builtins import state
+from ontology.interop.System.Runtime import Notify
+from ontology.interop.System.ExecutionEngine import GetExecutingScriptHash
+from ontology.interop.Ontology.Runtime import Base58ToAddress,AddressToBase58
+
+
+# ONG Big endian Script Hash: 0x0200000000000000000000000000000000000000
+OngContract = Base58ToAddress("AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ")
+
+
+def Main(operation, args):
+    if operation == "transferOng":
+        if len(args) != 3:
+            return False
+        return transferOng(args[0], args[1], args[2])
+
+    return False
+
+def transferOng(from_base58, to_base58,  ong_amount):
+    from_acct = Base58ToAddress(from_base58)
+    to_acct = Base58ToAddress(to_base58)
+    param = state(from_acct, to_acct, ong_amount)
+    res = Invoke(0, OngContract, "transfer", [param])
+    if res and res == b'\x01':
+        Notify([True,from_base58, to_base58,  ong_amount])
+        return True
+    else:
+        Notify([False,from_base58, to_base58,  ong_amount])
+        return False
+
+
+```
 
 ### 调用智能合约
 
@@ -66,7 +96,13 @@ ONT ID 开放平台的优势在于，采用可信任的托管模式后，用户�
 
 介绍了 DApp 如何在各种场景下调用 DApi，实现包括登录，调用智能合约等操作。
 
-DApi 集成的优势在于，用户自己可以掌握自己所有的资产和信息，目前也可以较为便利地使用已经支持的钱包登录DApp。
+DApi 集成的优势在于，用户自己可以掌握自己所有的资产和信息，目前也可以较为便利地使用已经支持的钱包登录 DApp。
 
 - [DApi 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
 
+### SDK 集成（去中心化方案）
+
+介绍了 DApp 如何使用 SDK 实现与链交互，调用智能合约等操作。
+
+- [Unity 3D 对接 C# SDK](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
+- [其他语言 SDK 使用](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview)

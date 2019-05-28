@@ -1,23 +1,23 @@
 
 ## 概述
 
-当前来看，各个移动版钱包 App 是 DApp 的重要入口，我们提供了 `cyano-bridge` 组件，DApp 安装后，通过调用符合 [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 规范的 DAPI，与任何一个集成了 `Provider-SDK` 的钱包 App 通信，实现对链的操作。
+当前来看，各个移动版钱包 App 是 DApp 的重要入口，我们提供了 ```cyano-bridge``` 组件，DApp 集成组件后，通过调用符合 [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 规范的 DAPI，与任何一个集成了 ```Provider-SDK``` 的钱包 DApp 通信，实现对链的操作。
 
-> 已支持 DAPI 的钱包: [麦子钱包](http://www.mathwallet.org/en/)、[Onion](http://onion.fun/) 等
+> 已支持 dAPI 协议的钱包: [麦子钱包](http://www.mathwallet.org/en/)，[Banko](http://bankowallet.com/pc.html) 等
 
-目前比较主流的DApp使用渠道除了钱包中直接打开，还有接入了插件钱包的chrome浏览器，在chrome中使用DApp的接入方案为[使用 chrome 插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)。
+目前比较主流的 DApp 使用渠道除了钱包中直接打开，还有接入了插件钱包的 Chrome 浏览器，在chrome中使用DApp的接入方案为 [使用 chrome 插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)。
 
 为了满足 DApp 同时适用于网页版和移动版，我们提供了兼容两种 DAPI 的例子：
 
 * 移动版 DAPI 使用方法：[dapi for mobile](https://github.com/ontio-cyano/cyano-bridge)
-* Chrome 插件钱包的 DAPI 使用方法 [dapi for chrome](https://github.com/ontio/ontology-dapi)
+* Chrome 插件钱包的 DAPI 使用方法： [dapi for chrome](https://github.com/ontio/ontology-dapi)
 * 兼容移动版和 Chrome 插件版 DAPI 的代码例子：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)
 
 ## 钱包内打开 DApp 的交互流程
 
 ### 登录场景
 1. 钱包内打开 DApp
-2. DApp 向钱包发送登录请求，钱包返回签名数据
+2. DApp 向钱包发送登录请求，钱包返回签名数据。DApp 向钱包发送查询账号请求，钱包返回资产账户地址。
 3. DApp 验证通过，登录成功
 
 ### 调用智能合约场景

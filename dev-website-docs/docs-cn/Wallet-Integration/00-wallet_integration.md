@@ -2,7 +2,7 @@
 
 钱包接入可分为两个层次：
 - [资产功能集成](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/01-WalletDocking-asset-docking)
-- [provider sdk 集成](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking)
+- [Provider sdk 集成](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking)
 
 ![wallet-integration](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/wallet-integration.png)
 
@@ -23,7 +23,7 @@
 -  数字身份
 -  节点质押
 
-### provider sdk 集成
+### Provider sdk 集成
 
 资产功能集成完成后，可以选择对钱包进行 provider sdk 集成。由于本体生态中的 DApp 都将根据统一标准开发，钱包 App 集成 provider sdk 后就可以接入各种各样的本体 DApp ，无需逐一对接，大大节约开发上线时间。
 
@@ -41,4 +41,4 @@
 `http://101.132.193.149:5000/#/`
 
 主网 DAPP：
-`https://ont.bet/`
+`https://github.com/ontio-community/dapp-store/blob/master/mobile-dapps.json`
