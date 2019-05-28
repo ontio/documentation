@@ -25,19 +25,7 @@ ONT ID是一个去中心化的身份标识协议，为每个用户，公司，�
 
 ## 开始应用集成
 
-ONT ID开放平台提供了多种应用API，第三方应用可以快速集成。目前开放平台提供登录、KYC、身份认证、数据存证等，并将持续推出更多的功能。
-
-对于第三方应用来说，请首先按照以下步骤开通您需要的服务：
-
-* 1. 下载ONTO APP，[https://onto.app](https://onto.app)
-
-* 2. 创建一个ONT ID，并需要认证您的邮箱；
-
-* 3. 登录[https://developer.ontid.pro](https://developer.ontid.pro) 申请应用集成服务。
-
-> **注意：** 目前开放平台仍旧在测试中，可以发送邮件到openplatform@ont.io 申请开通。
-
-通过审核后，可开始接入流程。您可选择的应用服务：
+您可选择的应用服务：
 
 * 您是一个dAPP，需要集成第三方Login，请到[这里](https://pro-docs.ont.io/#/docs-cn/ontid/thirdparty_login)；
 

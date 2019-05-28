@@ -3,7 +3,17 @@
 ## 准备工作
 
 
-在进行 ONT ID 授权登录接入之前，应用方需要先在 [ONT ID 开放平台]() 申请开通，通过审核后，获得相应的 ```APISecret```，可开始接入流程。
+ONT ID开放平台提供了多种应用API，第三方应用可以快速集成。目前开放平台提供第三方登录、KYC、身份认证、数据存证等，并将持续推出更多的功能。
+
+对于第三方应用来说，请首先按照以下步骤开通您需要的服务：
+
+* 1. 下载ONTO APP，[https://onto.app](https://onto.app)
+
+* 2. 创建一个ONT ID，并需要认证您的邮箱；
+
+* 3. 登录[https://developer.ontid.pro](https://developer.ontid.pro) 申请应用集成服务。
+
+> **注意：** 目前开放平台仍旧在测试中，可以发送邮件到openplatform@ont.io 申请开通。
 
 对接前请确保登录能正常访问：
 

@@ -22,19 +22,8 @@ You can also use ONT ID for more blockchain transactions, such as attestation, p
 
 ## Get started
 
-ONT ID Open Platform provides a variety of application APIs that help third-party applications quickly integrate. At present, the open platform provides login, KYC, identity authentication, data storage and so on, and will continue to come up with more functions.
 
-For third-party applications, please follow the following steps to start the services you need:
-
-* 1. Download ONTO APP[https://onto.app](https://onto.app).
-
-* 2. Use ONTO to create an ONT ID, and need to verify your email address.
-
-* 3. Visit [https://developer.ontid.pro](https://developer.ontid.pro) to apply for application integration.
-
-> **Please Note：** At present, the open platform is still under test, you can apply for opening by openplatform@ont.io .
-
-After the approval, the access process can be started. Optional application services:
+Optional application services list as below:
 
 * If you are a dAPP，want to integrate third-party Login，[Here](https://pro-docs.ont.io/#/docs-cn/ontid/thirdparty_login)；
 
