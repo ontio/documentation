@@ -1,6 +1,6 @@
 
 ## 概述
-Provider-SDK 对 iOS/Android webview 进行了一些方法的封装，实现了 iOS/Android webview 和网页 DApp 之间的通信。
+手机钱包方集成dAPI 实际上是集成 Provider-SDK，Provider-SDK 对 iOS/Android webview 进行了一些方法的封装，支持了网页 DApp 和 iOS/Android webview 之间的通信。
 
 ![接入说明](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/provider-sdk.png)
 
@@ -16,13 +16,12 @@ Provider-SDK 对 iOS/Android webview 进行了一些方法的封装，实现了 
 
 ## DApp 使用场景
 
-移动端 DAPI 规范文档包括唤醒、扫码、和钱包中打开 H5 DApp 三种场景。对于已支持 DAPI 的钱包如 [麦子钱包](http://www.mathwallet.org/en/)、[Onion](http://onion.fun/)，请参考对应的对接文档。关于协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
+移动端 DAPI 规范文档包括唤醒、扫码、和钱包中打开 H5 DApp 三种场景。对于已支持 DAPI 的钱包如 [麦子钱包](http://www.mathwallet.org/en/)，请参考对应的对接文档。关于协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
 
 DApp 场景接入文档：
 * [钱包打开 DApp 接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp)
 * [扫码接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode)
-* 钱包对接-唤醒接入流程 (暂不支持)
-* 钱包对接- ONTID 认证授权 (暂不支持)
+* [唤醒接入流程](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/07-WalletDocking-wakeup)
 
 参考钱包下载链接： http://101.132.193.149/files/app-debug.apk
 

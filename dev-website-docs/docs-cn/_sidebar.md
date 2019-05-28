@@ -38,7 +38,7 @@
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
   - [合约模板](docs-cn/smartcontract/02-template.md)
-  - [API 参考](docs-cn/smartcontract/03-sc-api.md)
+  - [API 文档](docs-cn/smartcontract/03-sc-api.md)
   - [智能合约课堂](docs-cn/smartcontract/04-tutorials.md)
 
 - DAPP 开发指导
@@ -55,7 +55,7 @@
 - DAPP 对接指南
   - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
   - [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
-  - [Unity 对接](docs-cn/dApp-Integration/12-unity_integration.md)
+  - [Unity 3D 对接](docs-cn/dApp-Integration/12-unity_integration.md)
   - [DApi 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
     - [Chrome 插件钱包](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
     - [手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
@@ -63,12 +63,13 @@
     - [应用唤醒手机钱包](docs-cn/dApp-Integration/06-DAppDocking-Wake-up.md)
   - [常见问题](docs-cn/dApp-Integration/11-Q&A.md)
 
-- 钱包对接指南
+- 手机钱包对接指南
   - [概述](docs-cn/Wallet-Integration/00-wallet_integration.md)
   - [资产接入](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
-  - [Dapi-Provider 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
-      - [场景-钱包内打开dApp集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
-      - [场景-扫码集成](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
+  - [dAPI 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
+      - [钱包内打开 dApp 集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
+      - [钱包扫码集成](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
+      - [应用唤醒钱包集成](docs-cn/Wallet-Integration/07-WalletDocking-wakeup.md)
 
 - 交易所对接指南
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
