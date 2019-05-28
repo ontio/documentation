@@ -1,4 +1,3 @@
-<h1 align="center">Login of third-parties</h1>
 
 ## Preparation
 
