@@ -10,9 +10,8 @@
 
 ## 交互流程说明
 
-DApp请求数据URI scheme：````ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
+DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
 
-![login-invoke](../images/split-login-invoke.png)
 
 ### Login
 - 1.1 DApp唤醒Provider（[唤醒登陆请求](#唤醒登陆请求)）
