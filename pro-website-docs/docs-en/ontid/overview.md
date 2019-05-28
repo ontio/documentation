@@ -1,53 +1,48 @@
 
 ## What is ONT ID?
 
-ONT ID is a decentralized identity protocol, which establishes a cryptographic identity for each user, company, item and any other entity. ONT ID is based on W3c DID protocol specification and ontology blockchain technology. It is not restricted by any centralized organization and is completely controlled by users themselves. ONT ID-based identity or data applications have the following advantages:
+ONT ID is a decentralized identity protocol, which establishes a cryptographic identity for each user, company, item and any other entity. ONT ID is based on W3c DID protocol specification and ontology blockchain technology. It is not restricted by any centralized organization and is completely controlled by users themselves. For users ONT ID has the following usages:
 
-* Identity you can trust
-
-By the nature of blockchain your identity cannot be tampered with by third parties, while multi-factor identities and data authentication let you compile well-rounded and credible identities.
-
-* Data security
-
-Privacy protection is ensured by cryptographic algorithms and your key for encryption can be self-managed or entrusted with a third party. All data access must obtain your authorization.
-
-* Easy to use
-
-Avoid the fuss. Keep your identity data together in one place and quickly authorize its use.
-
-* International standards and global coverage
-
-ONT ID is fully compatible with W3C DID standards. You are free to use your identity and data with any organization using the ONT ID protocol across the world.
-
-
-
-## About ONT ID Account Service
-
-ONT ID account service is built on the basis of ONT ID protocol. The account service uses advanced custodian technology to help users or third parties use ONT ID more conveniently. ONT ID help users do these following things:
-
-* login
+* Single Sign On
 
 Use ONT ID as your sole access point to the blockchain world.
-
-* Asset management
-
-Storing numerous types of digital assets is a hassle. No need to worry though, with ONT ID you can access all your digital assets in one place.
-
-* Payment
-
-Link your private key with a verification method of your choice, whether that be fingerprint, Face ID, SMS verification, or another method.Also the acount integrates exchage,OTC payment channels.
 
 * Multi-source authentication
 
 Using Ontology’s trust partners you can access identity verification services that cover nearly 200 countries and regions, as well as use your qualifications, reputation, and credit to manage your own personal profile.These data are encrypted and hosted in ONT ID accounts. Authentication and authorization are completely controlled by users themselves.
 
->> [Create your ONT ID](https://ontid.pro)
+* Self-controll your data
 
-## About ONT ID Open platform
+Privacy protection is ensured by cryptographic algorithms and your key for encryption can be self-managed or entrusted with a third party. All data access must obtain your authorization.
 
-ONT ID Open Platform provides third-party login, payment, smart contract execution, KYC and other services for third-party applications. If you are a developer, you can enter the ONT ID Open Platform and begin to integrate ONT ID.
+* More blockchain functions
 
->> [Get Started](https://pro-docs.ont.io/#/docs-en/ontid/open-platform)
+You can also use ONT ID for more blockchain transactions, such as attestation, payment and smart contract transactions.
+
+
+## Get started
+
+ONT ID Open Platform provides a variety of application APIs that help third-party applications quickly integrate. At present, the open platform provides login, KYC, identity authentication, data storage and so on, and will continue to come up with more functions.
+
+For third-party applications, please follow the following steps to start the services you need:
+
+* 1. Download ONTO APP[https://onto.app](https://onto.app).
+
+* 2. Use ONTO to create an ONT ID, and need to verify your email address.
+
+* 3. Visit [https://developer.ontid.pro](https://developer.ontid.pro) to apply for application integration.
+
+> **Please Note：** At present, the open platform is still under test, you can apply for opening by openplatform@ont.io .
+
+After the approval, the access process can be started. Optional application services:
+
+* If you are a dAPP，want to integrate third-party Login，[Here](https://pro-docs.ont.io/#/docs-cn/ontid/thirdparty_login)；
+
+* If you are a financial applition，need to KYC your customers，[Here](https://pro-docs.ont.io/#/docs-cn/onto/ONTO_login)；
+
+* If you want to use blockchain attestation，[Here]()；
+
+* If you are a verification service provider，join Ontology trust ecosystem and supply ONT ID users with verification service,[Here](https://pro-docs.ont.io/#/docs-cn/taconnector/01-overview)；
 
 
 ## Work principles
