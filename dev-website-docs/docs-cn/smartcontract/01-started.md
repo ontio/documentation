@@ -2,7 +2,7 @@
 
 ## 相关工具
 
-* Smartx - 一站式智能合约 IDE，支持编译、部署、测试、Debug。
+* [Smartx](https://smartx.ont.io/#/) - 一站式智能合约 IDE，支持编译、部署、测试、Debug。
 * vscode 插件 - 支持编译、部署、测试、Debug。
 * punica-cli - 支持智能合约编译，部署，调用，测试。
 * SDKs - 部署和调用智能合约。
