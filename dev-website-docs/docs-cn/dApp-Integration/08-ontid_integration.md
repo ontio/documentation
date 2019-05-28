@@ -65,39 +65,11 @@ ONTID 授权登录模式整体流程为：
 
 1. 应用方前台打开新窗口加载 ONTID 的登录页面。
 2. 用户在 ONTID 的登录页面输入用户名密码登录。
-3. ONTID 开发平台返回 ```access_token``` 和 ```refresh_token``` 的 ```JWT token```。
-4. ONTID 开放平台前端关闭登录页面，返回```JWT token```给应用的前端。
-5. 应用方前端发送 ```JWT token``` 给应用的后台。 
-6. 应用方的后台验证 ```JWT token``` 的颁发者成功后，获取 ```refresh_token``` 中用户信息，一般为非敏感的信息，如用户用户 ONTID，手机号。
+3. ONTID 开发平台返回 `JWT`格式的```access_token```
+4. ONTID 开放平台前端关闭登录页面，返回```access_token```给应用的前端。
+5. 应用方前端发送 ```access_token``` 给应用的后台。 
+6. 应用方的后台验证 ```access_token``` 的颁发者成功后，获取 ```access_token``` 中用户信息，一般为非敏感的信息，如用户用户 ONTID，手机号。
 7. 请求头部携带着```access_token```去访问 ONTID 开放平台接口。
-
-第三步返回的 ```JWT token``` 的数据采用应用方公钥加密，解密后的数据格式为：
-
-```
- {
-    "ontid": "did:ont:AcrgWfbSPxMR1BNxtenRCCGpspamMWhLuL",
-    "access_token" :  "JWT token",
-    "refresh_token" : "JWT token"
- }
-```
-
->  ```JWT token``` 的值里的Payload需要增加 ```content```字段：
-
-```
- 
-   "content": {
-       "type": "refresh_token", // or access_token
-       "phone": "+86*1234567890",
-       "ontid": "did:ont:Axxxxxxxxxxxxxxxxx",
-       ......
-   }
-   
-```
-
-| Param     |     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    access_token |   String | ```JWT token```，用户访问接口时 ```Header``` 需要填写 ```access_token``` |
-|    refresh_token |   String | ```JWT token```，刷新 ```access_token``` 时使用 |
 
 ### 如何集成ONT ID登录
 
@@ -275,8 +247,6 @@ ${ontid_host}/oauthmiddle?dapp_ontid=${dapp_ontid}&oauth_type=${provider}&redire
 
 #### JWT Token 格式说明？
 
-
-
  ```JWT``` 包含三个部分：
 
 ```
@@ -312,7 +282,13 @@ ${ontid_host}/oauthmiddle?dapp_ontid=${dapp_ontid}&oauth_type=${provider}&redire
 
   ```jti (JWT ID)```：编号。ONTID 开放平台保存的凭证。
 
-> 注意除了以上字段，还有一些自定义字段用于存储用户信息，这些用户信息不能是敏感信息。
+> 注意除了以上字段，我们添加了自定义字段用于存储用户信息，这些用户信息不能是敏感信息
+
+`conten` : 自定义的字段，用于保存用户信息。现在的内容如下：
+
+> ```json
+> "content":{"type":"access_token","ontid":"did:ont:AMxrSGHyxgnWS6qc1QjTNYeEaw3X3Dvzhf"}
+> ```
 
 * **Signature**
 
@@ -330,3 +306,7 @@ ${ontid_host}/oauthmiddle?dapp_ontid=${dapp_ontid}&oauth_type=${provider}&redire
 3. 使用 ONTID 开放平台私钥和签名算法```ES256```对目标字符串签名。
 
 应用方得到```JWT token```后，按照如上规则生成目标字符串并对签名进行验签。
+
+####  如何验证 access_token
+
+请参考[java示例](<https://github.com/ontio-ontid/ontid-app-server/blob/master/src/main/java/com/github/ontid_demo/util/MyJWTUtils.java>)
