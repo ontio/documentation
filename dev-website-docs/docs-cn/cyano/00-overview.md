@@ -11,6 +11,8 @@
 
 无论是电脑端还是移动端的，我们均提供了相应的 `Provider SDK` 供钱包集成。
 
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=l0797rr9g9a" allowFullScreen="true" width="100%" height="360"></iframe>
+
 - `Chrome Provider`：集成了 `cyano-chrome` 的浏览器钱包插件。
 - `Mobile Provider`：集成了 `cyano-mobile` 的移动端钱包应用。
 

@@ -1,4 +1,7 @@
 
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=r0802ttafpd" allowFullScreen="true" width="100%" height="360"></iframe>
+
 签名机提供了一种便于帐户管理和安全进行账户签名的服务。在技术上，签名服务可以作为更大的应用程序服务器的一部分，也可以用作独立的微服务。总的来说，签名机非常适于需要在安全托管环境中进行自动交易签名的应用程序。
 
 - 账户
