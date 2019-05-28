@@ -182,3 +182,118 @@ WIF（Wallet Import Format）是将明文私钥以Base58校验和编码格式显
 如果是 Unity 游戏请参考： [https://github.com/ontio-community/unity-demo](https://github.com/ontio-community/unity-demo)
 
 如果是 手机应用请参考：[android-app-demo](https://github.com/ontio-cyano/android-app-demo),[ios-app-demo](https://github.com/ontio-cyano/ios-app-demo)
+
+
+#### 17. 游戏如何对接支付 ONG？
+
+部署合约：
+
+```
+OntCversion = '2.0.0'
+from ontology.interop.Ontology.Native import Invoke
+from ontology.builtins import state
+from ontology.interop.System.Runtime import Notify
+from ontology.interop.System.ExecutionEngine import GetExecutingScriptHash
+from ontology.interop.Ontology.Runtime import Base58ToAddress,AddressToBase58
+
+
+# ONG Big endian Script Hash: 0x0200000000000000000000000000000000000000
+OngContract = Base58ToAddress("AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ")
+
+
+def Main(operation, args):
+    if operation == "transferOng":
+        assert(len(args) == 4)
+        return transferOng(args[0], args[1], args[2], args[3])
+
+    return False
+
+def transferOng(id,from_acct, to_acct,  ong_amount):
+    param = state(from_acct, to_acct, ongAmount)
+    res = Invoke(0, OngContract, "transfer", [param])
+    if res and res == b'\x01':
+        Notify([True,id,AddressToBase58(from_acct), AddressToBase58(to_acct),  ong_amount])
+        return True
+    else:
+        Notify([False,id,AddressToBase58(from_acct), AddressToBase58(to_acct),  ong_amount])
+        return False
+```
+
+转账函数```transferOng(id,from_acct, to_acct,  ong_amount)``` 第一个参数是订单的id编号，转入方和转出方。
+
+转账成功的合约事件，如果金额不足的失败合约事件里没有转账信息：
+```
+
+{
+	"TxHash": "8e15edb68de87bc4c4bd25dd79e6cbda6721a4459d44544817610aaacc4d3e8e",  //交易hash
+	"State": 1, //代表合约执行成功
+	"GasConsumed": 10000000,  消耗的gas是0.01 ong
+	"Notify": [{
+			"ContractAddress": "0200000000000000000000000000000000000000",  //这个就是合约里的转账，这个合约就是ong
+			"States": [
+				"transfer",
+				"APa7uMYqdqpFK2chwwmeE7SrQAWZukuGbX",  //转出方
+				"AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",  //转入方
+				"1000                                  //金额 1000，
+			]
+		},
+		{
+			"ContractAddress": "2cfa6e5519b94059fa0558d7f24406069c5ae5b9",  你的合约地址
+			"States": [
+				"01",    //代表转账成功
+				"31",   //代表你的订单id号
+				"41506137754d5971647170464b32636877776d65453753725141575a756b75476258", //转出方地址，解析成base58地址： System.out.println(new String(Helper.hexToBytes("41506137754d5971647170464b32636877776d65453753725141575a756b75476258")));
+				"41557235515566654241447136424d593654703579754d73554e47707344376e4c5a",  //接收方地址 
+				"e803"                                                                    //转账金额1000的hex小端值
+			]
+		},
+		{
+			"ContractAddress": "0200000000000000000000000000000000000000",     //手续费接收地址
+			"States": [
+				"transfer",
+				"APa7uMYqdqpFK2chwwmeE7SrQAWZukuGbX",
+				"AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK",   //固定的收手续费地址
+				10000000           //你的合约固定消耗0.01 ong
+			]
+		}
+	]
+}
+
+
+```
+
+#### 18. 转账如何用Base58地址而不是ByteArray？
+
+```
+OntCversion = '2.0.0'
+from ontology.interop.Ontology.Native import Invoke
+from ontology.builtins import state
+from ontology.interop.System.Runtime import Notify
+from ontology.interop.System.ExecutionEngine import GetExecutingScriptHash
+from ontology.interop.Ontology.Runtime import Base58ToAddress,AddressToBase58
+
+
+# ONG Big endian Script Hash: 0x0200000000000000000000000000000000000000
+OngContract = Base58ToAddress("AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ")
+
+
+def Main(operation, args):
+    if operation == "transferOng":
+        if len(args) != 3:
+            return False
+        return transferOng(args[0], args[1], args[2])
+
+    return False
+
+def transferOng(from_base58, to_base58,  ong_amount):
+    from_acct = Base58ToAddress(from_base58)
+    to_acct = Base58ToAddress(to_base58)
+    param = state(from_acct, to_acct, ong_amount)
+    res = Invoke(0, OngContract, "transfer", [param])
+    if res and res == b'\x01':
+        Notify([True,from_base58, to_base58,  ong_amount])
+        return True
+    else:
+        Notify([False,from_base58, to_base58,  ong_amount])
+        return False
+```
