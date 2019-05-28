@@ -1,4 +1,6 @@
 
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=u0797zd38y1" allowFullScreen="true" width="100%" height="360"></iframe>
+
 `Cyano` 是一座连接未来的去中心化网络的桥梁，旨在使越来越多的人尽可能容易地使用本体。
 
 通过使用 `Cyano`，你能够马上使用本体上丰富的 dApp。更为重要的是，在这个过程中，你无需将你的私钥交给各种各样的 dApp，私钥将被保护在你的钱包之中。

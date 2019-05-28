@@ -39,6 +39,7 @@
   - [快速入门](docs-cn/smartcontract/01-started.md)
   - [合约模板](docs-cn/smartcontract/02-template.md)
   - [API 参考](docs-cn/smartcontract/03-sc-api.md)
+  - [智能合约课堂](docs-cn/smartcontract/04-tutotials.md)
 
 - DAPP 开发指导
   - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
