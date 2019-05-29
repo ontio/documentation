@@ -353,10 +353,41 @@ await client.api.smartContract.invoke(params)
 
 ​```
 ````
+
+## dAPI 演示
+
+
+移动端应用例子 [http://101.132.193.149:5000/](http://101.132.193.149:5000/),[源码](https://github.com/ontio-cyano/mobile-dapp-demo)。
+
+Chrome 插件版演示 [https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)，现在开始演示 DAPP ：
+
+```
+$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+
+$ npm install
+
+$ npm run start
+```
+
+启动成功后，在浏览器打开页面 http://localhost:3000
+
+页面成功打开后, 点击 Provider->GetProvider.
+
+![dApp Demo Provider](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemofirstscreen.png)
+![dApp Demo Get Provider](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemoregisterprovider.png)
+
+就通过 API 调用与链交互了.  例如, 点击 Network->Get Block ，结果如下:
+
+![dApp Demo getBlock](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemonetworkblock.png)
+
+运行转账例子，点击 Asset->Make Transfer ， Cyano Wallet会弹出确认框. 点击 ```Confirm``` 确认交易.
+
+![Cyano Wallet Confirm](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/demo.png)
+
 ## SDK 使用
 
-具体的SDK使用说明请参考[SDK文档](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview)
+具体的SDK使用说明请参考 [SDK文档](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview)
 
-此处列出两个在SDK调用合约参数填写的示例
-- [Punica初始化Demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/PunicaInitDemo.java)
-- [使用json构建交易Demo](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithJsonDemo.java)
+此处列出两个在SDK调用合约参数填写的示例：
+- [使用 Java SDK 调用合约](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/PunicaInitDemo.java)
+- [更简便的调用合约方法](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithJsonDemo.java)
