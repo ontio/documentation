@@ -6,8 +6,8 @@
 
 对接流程中涉及到的参与方包括：
 
-* DApp 方：对本体生态内的用户提供 DApp ，是本体生态中重要的组成部分。
-* Provider：支持 dApi mobile 规范的钱包
+* DAPP 方：对本体生态内的用户提供 ```DAPP``` ，是本体生态中重要的组成部分。
+* Provider：支持 ```dApi``` 规范的钱包
 
 > 已支持 dAPI 协议的钱包: [麦子钱包](http://www.mathwallet.org/en/)，[Banko](http://bankowallet.com/pc.html) 等
 
@@ -17,18 +17,18 @@ DApp 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.e
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 
-### 钱包打开 H5 DApp
+### 钱包打开 H5 DAPP
 
-- 1 钱包打开 H5 DApp
+- 1 钱包打开 H5 DAPP
 
 ### H5 DApp 获取 Provider 信息
 
-- 1 DApp 请求 Provider 信息
+- 1 ```DAPP``` 请求 Provider 信息
 - 2 钱包返回 Provider 信息
 
 ### H5 DApp 获取账户或身份信息
 
-- 1 DApp 请求账户或身份信息
+- 1 ```DAPP``` 请求账户或身份信息
 - 2 用户接受请求，返回账户或身份信息
 
 
@@ -55,7 +55,7 @@ DApp 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.e
 
 ## dAPI Provider SDK 使用
 
-dAPI Provider SDK 帮助 Android webview 和网页 dapp 之间通信。它对 webview 进行了一些方法的封装。分别支持 Android、iOS，详细请参考：
+dAPI Provider SDK 帮助 ```Android webview``` 和网页 ```DAPP``` 之间通信。它对 ```webview``` 进行了一些方法的封装。分别支持 ```Android```、```iOS```，详细请参考：
 * [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
 * [cyano-ios-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)
 
@@ -477,7 +477,7 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 
 ##### 预执行交易
 
-预执行交易返回的 Notify 结果可以查看用户在这笔交易中会花费多少 ONT/ONG 。需要连接到固定节点：主网：http://dappnode3.ont.io，测试网：http://polaris5.ont.io
+预执行交易返回的 ```Notify``` 结果可以查看用户在这笔交易中会花费多少 ONT/ONG 。需要连接到固定节点：主网：http://dappnode3.ont.io，测试网：http://polaris5.ont.io
 
 > 需要遍历 Notify 做判断，因为该交易可能有多笔转账或其他事件，通过合约地址判断是 ONT 还是 ONG ，再判断 transfer 方法和转出方。
 

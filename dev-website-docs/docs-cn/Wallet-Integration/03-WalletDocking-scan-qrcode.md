@@ -13,16 +13,16 @@
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
 
 ### Login
-- 1.1 Provider 扫描 dApp 方提供的二维码（[登陆二维码标准](#登陆二维码标准)）
-- 1.2 Provider 获取到 callback url 和验证用的 msg
-- 2 对 msg 签名，调用登陆方法（[DApp服务端登陆接口](#DApp服务端登陆接口)）
-- 3 dApp 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
+- 1.1 钱包扫描 ```DAPP``` 方提供的二维码（[登陆二维码标准](#登陆二维码标准)）
+- 1.2 Provider 获取到 ```callback url``` 和验证用的消息
+- 2 对消息签名，调用登陆方法（[DApp服务端登陆接口](#DApp服务端登陆接口)）
+- 3 ```DAPP``` 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
 
 ### Invoke Smart contract
-- 1.1 provider 扫描 dapp 方提供的二维码（[调用合约二维码标准](#调用合约二维码标准)）
-- 1.2 使用 Provider 扫码
-- 2 Provider 构造交易，用户签名，预执行交易，用户确认，发送到链上，返回交易 hash 给 DApp 后端
-- 3 dApp 后端查询这笔合约交易（[交易事件查询方法](#DApp后端查询交易事件)）
+- 1.1 钱包扫描 ```DAPP``` 方提供的二维码（[调用合约二维码标准](#调用合约二维码标准)）
+- 1.2 使用钱包扫码
+- 2 钱包构造交易，用户签名，预执行交易，用户确认，发送到链上，返回交易 ```Hash``` 给 ```DAPP``` 后端
+- 3 ```DAPP``` 后端查询这笔合约交易（[交易事件查询方法](#DApp后端查询交易事件)）
 
 ## 接入步骤
 
@@ -212,7 +212,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 
 预执行交易是可选的，主要作用是提醒用户该交易中包含的 ONT/ONG 转账数量。
 
-预执行交易返回的 Notify 结果可以查看用户在这笔交易中会花费多少 ONT/ONG 。因为当前节点没升级，需要连接到固定节点预执行才会有返回 Notify 信息：主网：http://dappnode3.ont.io， 测试网：http://polaris5.ont.io
+预执行交易返回的 ```Notify``` 结果可以查看用户在这笔交易中会花费多少 ONT/ONG 。因为当前节点没升级，需要连接到固定节点预执行才会有返回 ```Notify``` 信息：主网：http://dappnode3.ont.io， 测试网：http://polaris5.ont.io
 
 > 需要遍历 Notify 做判断，因为该交易可能有多笔转账事件或其他合约事件，如果是其他合约事件不需做处理，通过合约地址判断是 ONT 还是 ONG ，再判断 transfer 方法和转出方。建议 UI 显示转入转出方和 amount ，还有交易手续费大约 0.01 ONG 。
 ONT:0100000000000000000000000000000000000000

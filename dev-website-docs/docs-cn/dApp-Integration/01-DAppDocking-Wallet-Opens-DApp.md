@@ -1,7 +1,7 @@
 
 ## 概述
 
-当前来看，各个移动版钱包 App 是 DApp 的重要入口，我们提供了 ```cyano-bridge``` 组件，DApp 集成组件后，通过调用符合 [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 规范的 DAPI，与任何一个集成了 ```Provider-SDK``` 的钱包 DApp 通信，实现对链的操作。
+当前来看，各个移动版钱包 ```App``` 是 ```DAPP``` 的重要入口，我们提供了 ```cyano-bridge``` 组件，DApp 集成组件后，通过调用符合 [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 规范的 DAPI，与任何一个集成了 ```Provider-SDK``` 的钱包 DApp 通信，实现对链的操作。
 
 > 已支持 dAPI 协议的钱包: [麦子钱包](http://www.mathwallet.org/en/)，[Banko](http://bankowallet.com/pc.html) 等
 
@@ -13,16 +13,16 @@
 * Chrome 插件钱包的 DAPI 使用方法： [dapi for chrome](https://github.com/ontio/ontology-dapi)
 * 兼容移动版和 Chrome 插件版 DAPI 的代码例子：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)
 
-## 钱包内打开 DApp 的交互流程
+## 钱包内打开 DAPP 的交互流程
 
 ### 登录场景
-1. 钱包内打开 DApp
+1. 钱包内打开 ```DAPP```
 2. DApp 向钱包发送登录请求，钱包返回签名数据。DApp 向钱包发送查询账号请求，钱包返回资产账户地址。
 3. DApp 验证通过，登录成功
 
 ### 调用智能合约场景
-1. DApp 向钱包发起调用智能合约请求 (图中 4.1)
-2. 钱包签名，预执行，发送到链，向 DApp  返回交易 hash (图中 4.2)
+1. ```DAPP``` 向钱包发起调用智能合约请求 (图中 4.1)
+2. 钱包签名，预执行，发送到链，向 ```DAPP```  返回交易 ```Hash``` (图中 4.2)
 
 ![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 

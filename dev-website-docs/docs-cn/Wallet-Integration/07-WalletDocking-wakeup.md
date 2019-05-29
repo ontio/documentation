@@ -5,8 +5,8 @@
 
 本文用于指导dApp方如何唤醒钱包，及钱包如何返回信息。钱包实现请参考 [Cyano 开源钱包](https://github.com/ontio-cyano), 应用唤醒实现请参考 [Android 应用例子](https://github.com/ontio-cyano/android-app-demo),流程中涉及到的参与方包括：
 
-* Dapp方：对ONT生态内的用户提供Dapp，是本体生态中重要的组成部分。
-* Provider：实现daApi mobile规范的钱包
+* DAPP 方：对本体生态内的用户提供 ```DAPP```，是本体生态中重要的组成部分。
+* Provider：实现 ```dAPI``` 规范的钱包
 
 ## 交互流程说明
 
@@ -14,15 +14,15 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 
 ### Login
-- 1.1 DApp唤醒Provider（[唤醒登陆请求](#唤醒登陆请求)）
-- 1.2 Provider获取到callback url和验证用的msg
-- 2 对msg签名，调用回调方法（[钱包处理登录请求](#钱包处理登录请求)）
-- 3 dapp后端验证签名（[DApp服务器返回数据](#DApp服务器返回数据)）后返回验证结果
+- 1.1 ```DAPP``` 唤醒 Provider（[唤醒登陆请求](#唤醒登陆请求)）
+- 1.2 Provider 获取到 ```callback url``` 和验证用的消息
+- 2 对消息签名，调用回调方法（[钱包处理登录请求](#钱包处理登录请求)）
+- 3 ```DAPP``` 后端验证签名（[DApp服务器返回数据](#DApp服务器返回数据)）后返回验证结果
 
 ### Invoke Smart contract
-- 1 DApp唤醒provider（[调用合约唤醒标准](#调用合约唤醒标准)）
-- 2 Provider构造交易，预执行交易，发送到链上，返回交易hash给callback地址
-- 3 dApp后端查询这笔合约交易（[DApp后端查询交易事件](#DApp后端查询交易事件)）
+- 1 ```DAPP``` 唤醒 provider（[调用合约唤醒标准](#调用合约唤醒标准)）
+- 2 Provider 构造交易，预执行交易，发送到链上，返回交易 ```Hash``` 给 ```callback``` 地址
+- 3 DAPP 后端查询这笔合约交易（[DApp后端查询交易事件](#DApp后端查询交易事件)）
 
 ## 接入步骤
 

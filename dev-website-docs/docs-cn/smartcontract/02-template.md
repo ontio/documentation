@@ -1,13 +1,13 @@
 
 
-* Native 合约 API： 有关本体网络中使用的 Native 合约 API，请参考 [Native Contract API](https://github.com/ontio/ontology/blob/master/docs/specifications/native_contract/paramapi.md)。
+* Native 合约 API： 有关本体网络中使用的 ```Native``` 合约 API，请参考 [Native Contract API](https://github.com/ontio/ontology/blob/master/docs/specifications/native_contract/paramapi.md)。
 
-* Python 合约 API： 有关本体网络中使用的 Python 合约 API 和示例，请参考 [API doc](https://apidoc.ont.io/smartcontract/)。
+* Python 合约 API： 有关本体网络中使用的 ```Python``` 合约 ```API``` 和示例，请参考 [API doc](https://apidoc.ont.io/smartcontract/)。
 
 
 为了方便开发者快速开始智能合约编写，我们提供了众多实用的合约模板。
 
-我们推出了1.0和2.0 两个版本的编译器，今后将以2.0作为主流，请各位优先参考适配2.0版本的模板
+我们推出了 1.0 和 2.0 两个版本的编译器，今后将以 2.0 作为主流，请各位优先参考适配 2.0 版本的模板
 
 ### 基础合约模板
 
@@ -51,9 +51,9 @@ def transferOng(from_base58, to_base58,  ong_amount):
 
 #### 链上数据的存储
 
-某些特定类型的DApp可能有往链上存取数据的需求，本文档介绍了如何在链上进行数据存取操作。
+某些特定类型的 ```DAPP``` 可能有往链上存取数据的需求，本文档介绍了如何在链上进行数据存取操作。
 
-链上数据的存储主要在于通过智能合约进行操作，以下是一个智能合约的例子,请在 Smartx 中调试，请参考 [调试指南](https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development?id=%E5%9C%A8-smartx-%E4%B8%AD%E5%88%9B%E5%BB%BA%EF%BC%8C%E7%BC%96%E8%AF%91%E5%92%8C%E9%83%A8%E7%BD%B2%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%88%B0%E7%A7%81%E6%9C%89%E9%93%BE)
+链上数据的存储主要在于通过智能合约进行操作，以下是一个智能合约的例子,请在 ```SmartX``` 中调试，请参考 [调试指南](https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development?id=%E5%9C%A8-smartx-%E4%B8%AD%E5%88%9B%E5%BB%BA%EF%BC%8C%E7%BC%96%E8%AF%91%E5%92%8C%E9%83%A8%E7%BD%B2%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%88%B0%E7%A7%81%E6%9C%89%E9%93%BE)
 
 ```
 OntCversion = '2.0.0'

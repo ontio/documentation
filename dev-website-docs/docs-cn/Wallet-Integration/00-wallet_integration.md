@@ -12,7 +12,7 @@
 
 ### 资产功能集成
 
-资产功能集成是钱包集成的基础，钱包 App 集成 ONT 的 SDK，配合公开的浏览器接口就能实现数字资产操作，账号管理等功能，满足数量庞大的本体社区成员基本的资产管理需求。
+资产功能集成是钱包集成的基础，钱包 ```App``` 集成本体的 ```SDK```，配合公开的浏览器接口就能实现数字资产操作，账号管理等功能，满足数量庞大的本体社区成员基本的资产管理需求。
 
 ![接入说明](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/sdk.png)
 
@@ -25,11 +25,11 @@
 
 ### Provider sdk 集成
 
-资产功能集成完成后，可以选择对钱包进行 provider sdk 集成。由于本体生态中的 DApp 都将根据统一标准开发，钱包 App 集成 provider sdk 后就可以接入各种各样的本体 DApp ，无需逐一对接，大大节约开发上线时间。
+资产功能集成完成后，可以选择对钱包进行 ```provider sdk``` 集成。由于本体生态中的 ```DAPP``` 都将根据统一标准开发，钱包 ```App``` 集成 ```provider sdk``` 后就可以接入各种各样的本体 ```DAPP``` ，无需逐一对接，大大节约开发上线时间。
 
 ![接入说明](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/provider-sdk.png)
 
-钱包完成 provider sdk 集成后，支持以下主流的 DApp 应用场景：
+钱包完成 ```provider sdk``` 集成后，支持以下主流的 ```DAPP``` 应用场景：
 - 扫码登录，转账，调用智能合约
 - 钱包内打开，登录，转账，调用智能合约
 - 网页版打开，登录，转账，调用智能合约
@@ -37,8 +37,8 @@
 ### 测试 DApp 链接
 完成集成后，可以在钱包内打开以下链接，测试是否成功完成了接入：
 
-测试网 DAPP：
+测试网 ```DAPP```：
 `http://101.132.193.149:5000/#/`
 
-主网 DAPP：
+主网 ```DAPP```：
 `https://github.com/ontio-community/dapp-store/blob/master/mobile-dapps.json`
