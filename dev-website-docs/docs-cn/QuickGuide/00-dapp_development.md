@@ -173,13 +173,13 @@ dApi 支持 [Web环境](https://github.com/ontio-cyano/cyano-bridge)（仅支持
 
 #### Chrome 版
 
-```
+```shell
 npm install ontology-dapi
 ```
 
 #### 移动版
 
-```
+```shell
 npm install cyanobridge
 ```
 
@@ -189,13 +189,13 @@ npm install cyanobridge
 
 #### Chrome 版
 
-```
+```javascript
 import {client} from 'ontology-dapi'
 client.registerClient({})
 ```
 
 #### 移动版
-```
+```javascript
 import { client } from 'cyanobridge'
 client.registerClient();
 
@@ -218,7 +218,7 @@ DApp 中的登录可以有两种实现：
 
 ##### 移动版
 
-```
+```javascript
 import { client } from 'cyanobridge'
 
 const params = {
@@ -238,7 +238,7 @@ try {
 
 ##### Chrome 版
 
-```
+```javascript
 account = await client.api.asset.getAccount()
 res = await client.api.identity.getIdentity();
 ```
@@ -247,7 +247,7 @@ res = await client.api.identity.getIdentity();
 
 ##### 移动版
 
-```
+```javascript
 const params = {
     type: 'account',// account or identity that will sign the message
     dappName: 'My dapp', // dapp's name
@@ -267,7 +267,7 @@ try {
 
 ##### Chrome 版
 
-```
+```javascript
 const result = await client.api.message.signMessage({ message });
 
 ```
@@ -281,7 +281,7 @@ const result = await client.api.message.signMessage({ message });
 
 ##### 移动版
 
-```
+```javascript
 const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
 const operation = 'test'
 const args = [
@@ -317,7 +317,7 @@ try {
 ```
 
 ##### Chrome 版
-````
+````javascript
 const scriptHash = '16edbe366d1337eb510c2ff61099424c94aeef02';
 const gasLimit = 30000;
 const gasPrice = 500;
@@ -349,7 +349,7 @@ await client.api.smartContract.invoke(params)
 
 Chrome 插件版演示 [https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)，现在开始演示 ```DAPP``` ：
 
-```
+```shell
 $ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
 
 $ npm install

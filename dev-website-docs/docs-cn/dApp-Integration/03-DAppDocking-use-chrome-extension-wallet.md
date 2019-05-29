@@ -30,7 +30,7 @@ DAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 #### DAPI 安装
 创建 DApp 时，本体 DAPI 是与本体链交互的核心 API 之一，可以从 [这里](https://github.com/ontio/ontology-dapi) 下载源码。 通过 ```npm``` 安装 ontology-DAPI：
 
-```
+```shell
 $ npm install ontology-dapi
 ```
 
@@ -38,7 +38,7 @@ $ npm install ontology-dapi
 
 创建 DAPI 实例时，要先导入库 ontology-dapi，并注册客户端，如下所示：
 
-```typescript
+```javascript
 import { client } from 'ontology-dapi';
 
 client.registerClient({});
@@ -49,21 +49,21 @@ client.registerClient({});
 
 ##### 获取账号或身份信息
 
-```typescript
+```javascript
 account = await client.api.asset.getAccount()
 res = await client.api.identity.getIdentity();
 ```
 
 
 ##### 智能合约方法
-```typescript
+```javascript
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
 
 ##### 与链交互方法
-```typescript
+```javascript
 const network = await client.api.network.getNetwork();
 const height = await client.api.network.getBlockHeight();
 const block = await client.api.network.getBlock({ block: 1 });
@@ -71,7 +71,7 @@ const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb
 const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
 ```
 ##### 转账方法
-```
+```javascript
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
 ```
 

@@ -32,7 +32,7 @@
 
 通过调用智能合约实现 ```DAPP``` 的支付功能。使用 ```ONG``` 支付的例子：
 
-```
+```python
 OntCversion = '2.0.0'
 from ontology.interop.Ontology.Native import Invoke
 from ontology.builtins import state

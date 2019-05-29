@@ -32,7 +32,7 @@
 #### 登陆二维码标准
 扫码获取
 
-```
+```json
 {
 	"action": "login",
 	"version": "v1.0.0",
@@ -62,7 +62,7 @@
 ### DApp服务端登陆接口
 method: post
 
-```
+```json
 {
 	"action": "login",
 	"version": "v1.0.0",
@@ -91,7 +91,7 @@ method: post
 #### Response
 * Success
 
-```
+```json
 {
   "action": "login",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
@@ -103,7 +103,7 @@ method: post
 
 * Failed
 
-```
+```json
 {
   "action": "login",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
@@ -117,7 +117,7 @@ method: post
 ### 调用合约二维码标准
 扫码获取
 
-```
+```json
 {
 	"action": "invoke",
 	"version": "v1.0.0",
@@ -138,7 +138,7 @@ method: post
 
 根据二维码中 qrcodeUrl 链接，GET 的的数据如下：
 
-```
+```json
 {
 	"action": "invoke",
 	"version": "v1.0.0",
@@ -186,7 +186,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 
 * 发送交易成功 POST 给 callback
 
-```
+```json
 {
   "action": "invoke",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
@@ -198,7 +198,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 
 * 发送交易失败给 callback
 
-```
+```json
 {
   "action": "invoke",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
@@ -219,7 +219,7 @@ ONT:0100000000000000000000000000000000000000
 ONG:0200000000000000000000000000000000000000
 
 如果预执行成功，节点返回的结果是：
-```
+```json
 {
     "Action": "sendrawtransaction",
     "Desc": "SUCCESS",

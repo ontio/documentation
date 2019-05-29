@@ -29,7 +29,7 @@ ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合�
 ONT ID 登录集成有两种方式：通过跳转到特定URL，和页面集成插件`plugin.js`。这里介绍的是快速对接的方式。页面集成插件的方式见下文。
 
 
- ```
+ ```javascript
  http://139.219.136.188:10390/signin?params={value}
  value = window.encodeURIComponent(appontid + '&' + appname + '&' + callback_url + '&' + lang)
  ```
@@ -88,7 +88,7 @@ ONTID 授权登录模式整体流程为：
 
 4. 在登录成功后，触发回调onSignIn,发送 ```JWT token``` 到应用方后台。
 
-```
+```javascript
     //get JWT token
     function onSignIn(result) {
       const {access_token, ontid} = result
@@ -125,7 +125,7 @@ method：POST
 
 返回：
 
-```
+```json
 {
 	"wallet": [{
 		"address": "ASm1sUJQDCgNzfjd9FuA5JGLBJLeXiQd1W",
@@ -257,7 +257,7 @@ ${ontid_host}/oauthmiddle?dapp_ontid=${dapp_ontid}&oauth_type=${provider}&redire
 每个部分都是```Base64Url```格式，以 ``` . ``` 隔开。
 
 * **Header**
-```
+```json
 {
   "alg": "ES256",
   "typ": "JWT"

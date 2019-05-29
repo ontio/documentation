@@ -8,7 +8,7 @@ Ts sdk 的测试代码：[https://github.com/ontio/ontology-ts-sdk/tree/master/t
 ## 多签地址如何生成？
 
 请参考 [例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MutiSignDemo.java)
-```
+```java
 
     com.github.ontio.account.Account[] accounts = new com.github.ontio.account.Account[]{acct1,acct2,acct3};
     int M = 2;
@@ -21,7 +21,7 @@ Ts sdk 的测试代码：[https://github.com/ontio/ontology-ts-sdk/tree/master/t
 ```
 ## 如何实现ONT多转多？
 
-```
+```java
  State state1 = new State(sender1,recvAddr,amount);
  State state2 = new State(sender2,recvAddr,amount2);
  ransaction tx = ontSdk.nativevm().ont().makeTransfer(new State[]{state1,state2},sender1.toBase58(),30000,0);
@@ -31,7 +31,7 @@ Ts sdk 的测试代码：[https://github.com/ontio/ontology-ts-sdk/tree/master/t
 
 ## 如何实现ONT/ONG, OEP4 转账？
 
-```
+```java
  ontSdk.nativevm().ont().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEPJ4PA2m4pyJt2d",200,acct0,gaslimit,gasprice);
 ```
 
@@ -46,7 +46,7 @@ Ts SDK 例子 [https://github.com/ontio/ontology-ts-sdk/blob/master/test/transfe
 
 ## SDK 调用合约例子？
 
-```
+```java
 
     List paramList = new ArrayList<>();
     paramList.add("testHello".getBytes());
@@ -72,7 +72,7 @@ Ts 参考例子 [https://github.com/ontio/ontology-ts-sdk/blob/master/test/scPar
 ## 通过 Json 构造交易？
 
 参考例子 [https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithJsonDemo.java](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithJsonDemo.java)
-```
+```json
 {
 	"action": "invoke",
 	"version": "v1.0.0",
@@ -132,7 +132,7 @@ SDK 中构造交易时的 Payer 就是网络费付款人，gasPrice固定值500�
 
 ## 执行与预执行
 
-```
+```java
     result = ontSdk.getConnect().sendRawTransactionPreExec(tx.toHexString());
     result = ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 ```

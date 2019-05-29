@@ -61,7 +61,7 @@ dAPI Provider SDK 帮助 ```Android webview``` 和网页 ```DAPP``` 之间通信
 
 Android-sdk：
 
-```
+```java
 //init
 CyanoWebView cyanoWebView=new CyanoWebView(context);
 cyanoWebView.loadUrl(url);
@@ -188,7 +188,7 @@ NSDictionary *params = @{@"action":@"",
 #### DApp 发起查询 Provider 信息请求
 
 数据如下，** URI 编码，Base64 编码**后发送请求：
-```
+```json
 
 {
 	"action": "getProvider",
@@ -208,7 +208,7 @@ NSDictionary *params = @{@"action":@"",
 #### 钱包返回 Provider 信息
 
 **URI解码，Base64解码**后，获取到的数据如下：
-```
+```json
 {
 	"action": "getProvider",
 	"version": "v1.0.0",
@@ -227,7 +227,7 @@ NSDictionary *params = @{@"action":@"",
 #### DApp 发起查询账号或身份信息请求
 
 数据如下，**URI 编码，Base64 编码**后发送请求：
-```
+```json
 
 {
 	"action": "getAccount", // or getIdentity
@@ -251,7 +251,7 @@ NSDictionary *params = @{@"action":@"",
 #### 钱包返回账号或身份信息
 
 **URI 解码，Base64 解码**后，获取到的数据如下：
-```
+```json
 {
 	"action": "getAccount", // or getIdentity
 	"version": "v1.0.0",
@@ -268,7 +268,7 @@ NSDictionary *params = @{@"action":@"",
 
 
 数据如下，**URI 编码，Base64 编码**后发送请求：
-```
+```json
 {
 	"action": "login",
 	"version": "v1.0.0",
@@ -295,7 +295,7 @@ NSDictionary *params = @{@"action":@"",
 **URI 解码，Base64 解码**后，获取到的数据如下：
 
 * 返回成功内容
-```
+```json
 {
 	"action": "login",
 	"version": "v1.0.0",
@@ -326,7 +326,7 @@ NSDictionary *params = @{@"action":@"",
 
 * 返回失败内容
 
-```
+```json
 {
   "action": "login",
   "version": "v1.0.0",
@@ -344,7 +344,7 @@ NSDictionary *params = @{@"action":@"",
 
 数据如下，**URI 编码，Base64 编码**后发送请求：
 
-```
+```json
 {
 	"action": "signMessage",
 	"version": "v1.0.0",
@@ -359,7 +359,7 @@ NSDictionary *params = @{@"action":@"",
 
 
 数据如下，**URI 编码，Base64 编码**后发送请求：
-```
+```json
 {
 	"action": "signMessage",
 	"version": "v1.0.0",
@@ -394,7 +394,7 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 
 数据如下，**URI 编码，Base64 编码**后发送请求：
 
-```
+```json
 {
 	"action": "invoke",
 	"version": "v1.0.0",
@@ -453,7 +453,7 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 
 * 返回交易成功给 DApp
 
-```
+```json
 {
   "action": "invoke",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
@@ -465,7 +465,7 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 
 * 返回失败给 DApp
 
-```
+```json
 {
   "action": "invoke",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
@@ -481,7 +481,7 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 
 > 需要遍历 Notify 做判断，因为该交易可能有多笔转账或其他事件，通过合约地址判断是 ONT 还是 ONG ，再判断 transfer 方法和转出方。
 
-```
+```json
 
 {
 	"Notify": [{

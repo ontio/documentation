@@ -172,12 +172,12 @@ assert(res)
 #### 16. 本地节点CLI测试时，我看到了帐户下面的ONT，但怎样产生ONG阿？
     
 16.1 查看钱包里第一个帐户的ONT, ONG余额：
-```
+```shell
 ontology.exe asset balance 1
 ```
 
 16.2 产生ONG的方式，要进行ONT的转账，然后解绑，再提取ONG。注：下面的1含义为钱包中的第一个帐户。
-```
+```shell
 ontology.exe asset transfer --from=1 --to=1 --amount=100000000 --asset=ont
 
 ontology.exe asset unboundong 1

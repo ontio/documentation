@@ -28,7 +28,7 @@
 
 通过智能合约的预执行，可以获得当前合约执行所需要的 `Gaslimit` ,从而为智能合约的实际执行设置 `Gaslimit` 设置提供参考，避免由于 ```ONG``` 余额不足造成的执行失败。
 
-```
+```shell
 $ ./ontology contract invoke --address 79102ef95cf75cab8e7f9a583c9d2b2b16fbce70 --params string:Hello,[string:Hello] --prepare --return bool
 Invoke:70cefb162b2b9d3c589a7f8eab5cf75cf92e1079 Params:["Hello",["Hello"]]
 Contract invoke successfully
@@ -54,7 +54,7 @@ Contract invoke successfully
 
 根据合约的 ```abi``` 文件中的合约 ```hash``` 和合约方法，可以通过`sdk`构造调用合约方法的交易。这里以`ontology-ts-sdk`为例。
 
-```
+```javascript
 import {Parameter, ParameterType, Crypto, utils, TransactionBuilder} from 'ontology-ts-sdk'
 //set the function name to call
 const funcName = 'Add';
@@ -86,7 +86,7 @@ TransactionBuilder.signTransaction(tx, adminPrivateKey);
 
 构造交易时请注意参数的类型和参数值必须对应，且符合合约中方法的参数要求。```TS SDK``` 提供了`Parameter`和`ParameterType`类，用于辅助参数构造。以下是常用参数构造的例子。更多参数构造的示例请参考[ts sdk的测试用例](https://github.com/ontio/ontology-ts-sdk/blob/master/test/scParams.test.ts)
 
-```
+```javascript
 const account = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz')
 new Parameter('arg1', ParameterType.Boolean, false),
 new Parameter('arg2', ParameterType.Integer, 3),
@@ -116,7 +116,7 @@ new Parameter('arg6', ParameterType.Long, '100000000000000000')
 
 我们以 ```TS SDK``` 的 ```restful``` 接口为例，说明如何简单地发送交易。
 
-```
+```javascript
 import {RestClient} from 'ontology-ts-sdk'
 //construct the restful client
 const client = new RestClient();// default connects to TestNet
@@ -134,7 +134,7 @@ client.sendRawTransaction(tx.serialize()).then(res => {
 
 在上一步我们通过 ```restful``` 的接口发送了交易到链上，返回的结果如下：
 
-```
+```json
 {
 	"Action": "sendrawtransaction",
 	"Desc": "SUCCESS",
@@ -147,7 +147,7 @@ client.sendRawTransaction(tx.serialize()).then(res => {
 
 其中Result字段的值就是交易hash。我们可以通过restful接口查询交易的执行结果。
 
-```
+```javascript
 import {RestClient} from 'Ont'
 const client = new RestClient();
 client.getSmartCodeEvent('886b2cd35af7ea65e502077b70966652f4cf281244868814b8f3b2cf82776214').then(res => {
@@ -165,7 +165,7 @@ http://{{NODE_URL}}/api/v1/smartcode/event/txhash/03295a1b38573f3a40cf75ae2bdda7
 
 查询得到的结果如下：
 
-```
+```json
 {
     "Action": "getsmartcodeeventbyhash",
     "Desc": "SUCCESS",

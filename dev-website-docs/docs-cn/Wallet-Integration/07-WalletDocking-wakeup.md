@@ -32,7 +32,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 #### 唤醒登陆请求
 数据如下，**URI编码，Base64编码**后发送请求：
 
-```
+```json
 {
 	"action": "login",
 	"version": "v1.0.0",
@@ -59,7 +59,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 ### 钱包处理登录请求
 **URI解码，Base64解码**后，对message做签名，POST如下内容给DApp服务器的callback地址
 
-```
+```json
 {
 	"action": "login",
 	"version": "v1.0.0",
@@ -87,7 +87,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 #### DApp服务器返回数据
 * 验证签名成功
 
-```
+```json
 {
   "action": "login",
   "version": "v1.0.0",  
@@ -100,7 +100,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 * 验证签名失败
 
-```
+```json
 {
   "action": "login",
   "version": "v1.0.0",  
@@ -114,7 +114,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 ### 调用合约唤醒标准
 数据如下，**URI编码，Base64编码**后发送请求：
 
-```
+```json
 {
 	"action": "invoke",
 	"version": "v1.0.0",
@@ -135,7 +135,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 根据二维码中qrcodeUrl链接，GET的的数据如下：
 
-```
+```json
 {
 	"action": "invoke",
 	"version": "v1.0.0",
@@ -183,7 +183,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 
 * 发送交易成功POST给callback
 
-```
+```json
 {
   "action": "invoke",
   "version": "v1.0.0", 
@@ -196,7 +196,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 
 * 发送交易失败给callback
 
-```
+```json
 {
   "action": "invoke",
   "error": 80001,
@@ -211,7 +211,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 
 > 需要遍历Notify做判断，因为该交易可能有多笔转账或其他事件，通过合约地址判断是ONT还是ONG，再判断transfer方法和转出方。
 
-```
+```json
 
 {
 	"Notify": [{

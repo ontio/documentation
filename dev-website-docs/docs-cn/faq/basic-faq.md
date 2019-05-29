@@ -64,7 +64,7 @@ DAPP 激励计划 ： [https://dapp.ont.io/support](https://dapp.ont.io/support)
 ## 如何创建地址？
 
 通过私钥创建账户，账户的公钥计算出地址，地址是 Base58 格式。合约的地址是 Hex 格式，它跟 Base58 可以互转。
-```
+```java
 com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(Helper.hexToBytes(privKey),ontSdk.defaultSignScheme);
 System.out.println(acct2.getAddressU160().toBase58());
 
@@ -75,7 +75,7 @@ System.out.println(acct2.getAddressU160().toBase58());
 GAS price 是给执行 opcode 定价，执行 opcode 步数等于 GAS limit，交易手续费 = GAS Price * GAS limit 。
 
 预执行，返回的数据如下：
-```
+```json
 {
 	"Notify": [{
 		"States": ["transfer", "AQmTJnojgMJXTWDE8rL5R5SRKLHr9TZmPR", "AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve", 10],
@@ -90,7 +90,7 @@ GAS price 是给执行 opcode 定价，执行 opcode 步数等于 GAS limit，�
 其中```Gas``` 就是该交易需要花费的 gasLimit，GAS price 目前固定值是 500。在主网上花费的手续费是500 * 20000 = 0.01 ONG。
 
 执行交易返回的结果：
-```
+```json
 {
     "Action": "getsmartcodeeventbyhash",
     "Desc": "SUCCESS",
@@ -131,7 +131,7 @@ GAS price 是给执行 opcode 定价，执行 opcode 步数等于 GAS limit，�
 
 GET http://dappnode1.ont.io:20334/api/v1/mempool/txcount
 
-```
+```json
 
 {
     "Action": "getmempooltxcount",
@@ -188,7 +188,7 @@ WIF（Wallet Import Format）是将明文私钥以Base58校验和编码格式显
 
 部署合约：
 
-```
+```python
 OntCversion = '2.0.0'
 from ontology.interop.Ontology.Native import Invoke
 from ontology.builtins import state
@@ -222,7 +222,7 @@ def transferOng(id,from_acct, to_acct,  ong_amount):
 转账函数```transferOng(id,from_acct, to_acct,  ong_amount)``` 第一个参数是订单的id编号，转入方和转出方。
 
 转账成功的合约事件，如果金额不足的失败合约事件里没有转账信息：
-```
+```json
 
 {
 	"TxHash": "8e15edb68de87bc4c4bd25dd79e6cbda6721a4459d44544817610aaacc4d3e8e",  //交易hash
@@ -264,7 +264,7 @@ def transferOng(id,from_acct, to_acct,  ong_amount):
 
 ## 转账如何用Base58地址而不是ByteArray？
 
-```
+```python
 OntCversion = '2.0.0'
 from ontology.interop.Ontology.Native import Invoke
 from ontology.builtins import state
