@@ -1,20 +1,20 @@
 
 
-#### 1. 测试网币申请
+## 测试网币申请
 
 ONT/ONG 申请链接： [https://developer.ont.io/applyOng](https://developer.ont.io/applyOng) 
 
 OEP4/OEP5/OEP8 币申请： 联系对接人员，或根据[合约模板](https://dev-docs.ont.io/#/docs-cn/smartcontract/02-template)自己部署合约测试。
 
 
-#### 2. 公共节点地址
+## 公共节点地址
 
 polaris 测试网节点: http://polaris1.ont.io, http://polaris2.ont.io, http://polaris3.ont.io, http://polaris4.ont.io, http://polaris5.ont.io
 
 主网节点: http://dappnode1.ont.io, http://dappnode2.ont.io, http://dappnode3.ont.io, http://dappnode4.ont.io
 
 
-#### 3. 浏览器
+## 浏览器
 
 浏览器地址：[https://explorer.ont.io/](https://explorer.ont.io/)
 
@@ -23,11 +23,11 @@ polaris 测试网节点: http://polaris1.ont.io, http://polaris2.ont.io, http://
 浏览器 API 功能：根据地址查余额和交易记录，查所合约信息，根据合约地址查交易记录，查询统计数据等。
 
 
-#### 4. 签名机
+## 签名机
 
 提供私钥托管的服务，可以通过简单 API， 支持：创建账户，导出钱包，构造交易，交易签名，多签地址签名等。
 
-#### 5. 钱包
+## 钱包
 
 Chrome 插件钱包： [https://dev-docs.ont.io/#/docs-cn/cyano/01-chrome-wallet](https://dev-docs.ont.io/#/docs-cn/cyano/01-chrome-wallet)
 
@@ -39,7 +39,7 @@ Chrome 插件钱包： [https://dev-docs.ont.io/#/docs-cn/cyano/01-chrome-wallet
 
 其他支持本体的钱包：目前大约支持20款钱包
 
-#### 6. DAPP 相关
+## DAPP 相关
 
 已经上线的 DAPP： [https://dapp.ont.io/](https://dapp.ont.io/)
 
@@ -48,20 +48,20 @@ DAPP 激励计划 ： [https://dapp.ont.io/support](https://dapp.ont.io/support)
 开发指导： [https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development](https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development)
 
 
-#### 7. API 接口
+## API 接口
 
 1. 节点接口： [RPC、Restful、Websocket](https://dev-docs.ont.io/#/docs-cn/ontology-cli/04-interface-specification)
 2. 浏览器 API ：[https://dev-docs.ont.io/#/docs-cn/explorer/overview](https://dev-docs.ont.io/#/docs-cn/explorer/overview)
 
 查询合约事件：[https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)
 
-#### 8. dAPI 使用
+## dAPI 使用
 
 这个链接里有dAPI对接文档，测试钱包，演示DAPP。[https://github.com/ontio-cyano/integration-docs/blob/master/README_CN.md](https://github.com/ontio-cyano/integration-docs/blob/master/README_CN.md)
 
 如何调用 dAPI 参考 [https://github.com/ontio-cyano/dapi-universal/blob/master/DApiUtil.tsx](https://github.com/ontio-cyano/dapi-universal/blob/master/DApiUtil.tsx)
 
-#### 9. 如何创建地址？
+## 如何创建地址？
 
 通过私钥创建账户，账户的公钥计算出地址，地址是 Base58 格式。合约的地址是 Hex 格式，它跟 Base58 可以互转。
 ```
@@ -70,7 +70,7 @@ System.out.println(acct2.getAddressU160().toBase58());
 
 ```
 
-#### 10. 如何计算一个交易的手续费？如何查询一笔交易的手续费？
+## 如何计算一个交易的手续费？如何查询一笔交易的手续费？
 
 GAS price 是给执行 opcode 定价，执行 opcode 步数等于 GAS limit，交易手续费 = GAS Price * GAS limit 。
 
@@ -126,7 +126,7 @@ GAS price 是给执行 opcode 定价，执行 opcode 步数等于 GAS limit，�
 ```
 
 
-#### 11. 获取交易池交易数量的返回信息，这种情况怎么区分转账是否成功呢？
+## 获取交易池交易数量的返回信息，这种情况怎么区分转账是否成功呢？
 
 
 GET http://dappnode1.ont.io:20334/api/v1/mempool/txcount
@@ -148,7 +148,7 @@ GET http://dappnode1.ont.io:20334/api/v1/mempool/txcount
 交易池中还未落账的交易总数 = 已验证 + 未验证。通过查询 Hash 查询交易或查询合约事件能查到信息说明转账成功。一般发交易后2 - 20秒之前会落账。
 
 
-#### 12. 什么是助记词？
+## 什么是助记词？
 
 助记词是私钥的另一种表现形式。最早是由 BIP39 提案提出, 其目的是为了帮助用户记忆复杂的私钥字符串。助记词一般由12、15、18、21个单词构成, 这些单词都取自一个固定词库, 其生成顺序也是按照一定算法而来。
 
@@ -156,7 +156,7 @@ GET http://dappnode1.ont.io:20334/api/v1/mempool/txcount
 
 所以在创建钱包后，一定要完成助记词备份，而且助记词只能备份一次，备份后，在钱包中再也不会显示，牢记在备份时一定要抄写下来，保存好！
 
-#### 13. 什么是Keystore?
+## 什么是Keystore?
 
 Keystore是允许你以加密的方式存储私钥。你自定义的密码加密私钥，起到了对ONT ID和钱包的保护作用。
 
@@ -165,26 +165,26 @@ Keystore是允许你以加密的方式存储私钥。你自定义的密码加密
 因此一定要妥善保管好 Keystore 以及密码。
 
 
-#### 14. 什么是明文私钥？什么是WIF私钥？
+##  什么是明文私钥？什么是WIF私钥？
          
 明文私钥是随机生成的，用来解锁对应钱包的一串字符。交易场景下, 私钥用于生成交易所必须的签名，以证明资产的所有权。任何人得到了你的明文私钥, 在钱包中输入明文私钥并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。因此，妥善保存好你的明文私钥。
 
 WIF（Wallet Import Format）是将明文私钥以Base58校验和编码格式显示的钱包导入格式。WIF和私钥可以互转，因此也理解为是另一种形式的明文私钥。任何人得到了你的WIF, 在钱包中输入WIF并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。因此，妥善保存好你的WIF。
 
 
-#### 15. Unity 游戏方如何对接？
+## Unity 游戏方如何对接？
 
 请参考对接文档，[Unity SDK 对接](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
 
 
-#### 16. 如何唤醒 ONTO/Cyano 钱包支付？
+## 如何唤醒 ONTO/Cyano 钱包支付？
 
 如果是 Unity 游戏请参考： [https://github.com/ontio-community/unity-demo](https://github.com/ontio-community/unity-demo)
 
 如果是 手机应用请参考：[android-app-demo](https://github.com/ontio-cyano/android-app-demo),[ios-app-demo](https://github.com/ontio-cyano/ios-app-demo)
 
 
-#### 17. 游戏如何对接支付 ONG？
+## 游戏如何对接支付 ONG？
 
 部署合约：
 
@@ -262,7 +262,7 @@ def transferOng(id,from_acct, to_acct,  ong_amount):
 
 ```
 
-#### 18. 转账如何用Base58地址而不是ByteArray？
+## 转账如何用Base58地址而不是ByteArray？
 
 ```
 OntCversion = '2.0.0'
