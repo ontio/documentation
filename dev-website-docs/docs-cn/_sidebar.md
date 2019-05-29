@@ -39,6 +39,7 @@
   - [开发工具介绍](docs-cn/introduction/tools.md)
   - [开始开发](docs-cn/QuickGuide/00-dapp_development.md)
   - [同步链上信息](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
+  - [DAPP 开发课堂](docs-cn/QuickGuide/08-dapp-video.md)
 
 - 多链开发指南
   - [概述](docs-cn/multichain/overview.md)
@@ -111,7 +112,7 @@
   - [Swift SDK](docs-cn/SDKs/06-swift-sdk.md)
   - [Android SDK](docs-cn/SDKs/07-android-sdk.md)
   - [Objective-C SDK](docs-cn/SDKs/08-objective-c-sdk.md)
-  - [C# SDK](docs-cn/SDKs/09-c#-sdk.md)
+  - [C# SDK](docs-cn/SDKs/09-csharp-sdk.md)
 
 - 浏览器 API
   - [概述](docs-cn/explorer/overview.md)
