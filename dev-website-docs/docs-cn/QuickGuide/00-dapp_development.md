@@ -1,31 +1,23 @@
+
 本体为 DApp 开发提供了一站式的解决方案，帮助开发者快速上手 DApp 开发。
 
 DApp 开发主要分为两个部分：智能合约开发和 dApi 的调用。
 
-![dapp-development](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/dapp-development.png)
+![dapp-development](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/dapp-development-cn.png)
 
+* DApp 后台可能需要从链上同步数据，可以通过使用 Ontology 提供的 SDK（ ts SDK , java SDK , python SDK）,调用其 Restful 或 RPC 接口，或者直接请求 Ontology Blockchain 提供的 Restful，RPC 接口，详细接口请参考相关接口文档。
 > DApp 后台不是必须的，有些 DApp 可能不需要后台。
->
-> DApp 后台可能需要从链上同步数据，可以通过使用 Ontology 提供的 SDK（ ts SDK , java SDK , python SDK）,调用其 Restful 或 RPC 接口，或者直接请求 Ontology Blockchain 提供的 Restful，RPC 接口，详细接口请参考相关接口文档。
 
-> Token 不是必须的，有些 DApp 可能不需要Token。
->
-> 某些DApp的经济模型设计中有Token的需求，这时候就可以开发自己的Token来使用，相关的设计可以参考
->
-> [OEP4 示例](https://github.com/ONT-Avocados/python-template/blob/master/OEP4Sample/OEP4Sample_compiler2.0.py)
->
-> [OEP4 在智能合约中的使用](https://github.com/ONT-Avocados/python-template/blob/master/Static_Call_Oep4/static_call_Oep4.py)。
->
-> [其他智能合约示例](https://dev-docs.ont.io/#/docs-cn/smartcontract/02-template)
+* 某些DApp的经济模型设计中有Token的需求，这时候就可以开发自己的Token来使用，相关的设计可以参考：
 
-> 存证不是必须的，有些 DApp 可能不需要存证。
->
-> 某些特定类型的DApp可能有往链上存取数据的需求（存证），相关的设计可以参考
->
-> [链上数据存取](https://dev-docs.ont.io/#/docs-cn/QuickGuide/07-deposit-certificate)
+1. [OEP4 示例](https://github.com/ONT-Avocados/python-template/blob/master/OEP4Sample/OEP4Sample_compiler2.0.py)
+2. [OEP4 在智能合约中的使用](https://github.com/ONT-Avocados/python-template/blob/master/Static_Call_Oep4/static_call_Oep4.py)。
+3. [其他智能合约示例](https://dev-docs.ont.io/#/docs-cn/smartcontract/02-template)
+
+* 某些特定类型的DApp可能有往链上存取数据的需求，相关的设计可以参考 [链上数据存取](https://dev-docs.ont.io/#/docs-cn/QuickGuide/07-deposit-certificate)
 
 
-一般 DApp 的核心逻辑都是在智能合约中完成，本体提供了多个工具，帮助开发者快速开发和部署合约，或者从其它链上迁移合约。本体还为 DApp 开发提供了与合约交互的接口规范-- dApi，这样，用户可以安全，方便地使用 DApp ，不用担心丢失私钥；DApp 开发者可以只专注于 DApp 的业务逻辑开发。
+一般 DApp 的核心逻辑都是在智能合约中完成，本体提供了多个工具，帮助开发者快速开发和部署合约，或者从其它链上迁移合约。本体还为 DApp 开发提供了与合约交互的接口规范 dApi，这样，用户可以安全，方便地使用 DApp ，不用担心丢失私钥；DApp 开发者可以只专注于 DApp 的业务逻辑开发。
 
 ## 合约开发
 
@@ -386,7 +378,7 @@ $ npm run start
 
 ## SDK 使用
 
-具体的SDK使用说明请参考 [SDK文档](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview)
+具体的SDK使用说明请参考 [SDK 文档](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview)
 
 此处列出两个在SDK调用合约参数填写的示例：
 - [使用 Java SDK 调用合约](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/PunicaInitDemo.java)

@@ -1,5 +1,4 @@
 
-<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=t08008vb0sj" allowFullScreen="true" width="100%" height="360"></iframe>
 
 本体节点的 RPC 接口、Restful 接口、WebSocket 接口遵循着一套公开的接口规范。
 
