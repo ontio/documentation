@@ -1,5 +1,10 @@
 
 
+* Native 合约 API： 有关本体网络中使用的 Native 合约 API，请参考 [Native Contract API](https://github.com/ontio/ontology/blob/master/docs/specifications/native_contract/paramapi.md)。
+
+* Python 合约 API： 有关本体网络中使用的 Python 合约 API 和示例，请参考 [API doc](https://apidoc.ont.io/smartcontract/)。
+
+
 为了方便开发者快速开始智能合约编写，我们提供了众多实用的合约模板。
 
 我们推出了1.0和2.0 两个版本的编译器，今后将以2.0作为主流，请各位优先参考适配2.0版本的模板

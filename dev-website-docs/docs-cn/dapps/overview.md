@@ -1,20 +1,3 @@
 
+本章介绍 DAPP Store 对接通流程及常用接口。除了官方的 [APP Store](https://dapp.ont.io/), 已对接的 DAPP Store 有[DappReview](https://www.dapp.review/explore/ont)、 [Tokenview](https://dappstore.tokenview.com/cn/ont/all) 等。
 
-1. ONT/ONG总供应量查询
-
-https://explorer.ont.io/api/v1/explorer/summary/native/totalsupply
-
-
-2. DAPP数据统计，参考文档：
-
-[按日期类型查询DAPP信息](http://dev-docs.ont.io/#/docs-cn/explorer/statistics?id=type%EF%BC%9A-%E6%AF%8F%E5%A4%A9-%E6%88%96%E8%80%85-%E6%AF%8F%E5%91%A8-%E6%88%96%E8%80%85-%E6%AF%8F%E6%9C%88)
-
-[所有浏览器接口](http://dev-docs.ont.io/#/docs-cn/explorer/overview)
-
-3. 所有DAPP列表，公共节点列表,手机端DAPP列表
-
-https://github.com/ontio-community/dapp-store
-
-4. ONT/ONG持仓排行
-
-如果需要使用此接口请先发邮件申请。(contact@ont.io)

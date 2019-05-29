@@ -37,10 +37,10 @@
 
 - 智能合约
   - [快速入门](docs-cn/smartcontract/01-started.md)
-  - [合约模板](docs-cn/smartcontract/02-template.md)
-  - [API 文档](docs-cn/smartcontract/03-sc-api.md)
+  - [合约 API 和模板](docs-cn/smartcontract/02-template.md)
   - [智能合约课堂](docs-cn/smartcontract/04-tutorials.md)
-
+  - [常见问题](docs-cn/smartcontract/05-sc-faq.md)
+  
 - DAPP 开发指导
   - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
   - [开发工具概述](docs-cn/introduction/tools.md)
@@ -75,15 +75,15 @@
   - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
   - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
   - [签名服务器使用说明](docs-cn/exchange-API/Ontology+签名服务器使用说明.md)
-  - [FAQ](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
+  - [常见问题](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
 
 - DAPP Store 对接指南
   - [概述](docs-cn/dapps/overview.md)
+  - [开始对接](docs-cn/dapps/integration.md)
 
 - 常见问题
   - [概述](docs-cn/faq/overview.md)
       - [基础问题](docs-cn/faq/basic-faq.md)
-      - [智能合约](docs-cn/faq/sc-faq.md)
       - [工具使用](docs-cn/faq/tool-faq.md)
       - [SDK 使用](docs-cn/faq/sdks-faq.md)
       - [对接问题](docs-cn/faq/business-faq.md)
