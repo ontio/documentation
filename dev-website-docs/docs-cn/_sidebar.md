@@ -87,10 +87,10 @@
 
 - Cyano
   - [概述](docs-cn/cyano/00-overview.md)
-  - [Chrome Provider](docs-cn/cyano/01-chrome-wallet.md)
-  - [Mobile Provider](docs-cn/cyano/02-mobile-provider.md)
-  - [Ontology dAPI](docs-cn/cyano/03-ontology-dapi.md)
-  - [Cyano Bridge](docs-cn/cyano/04-cyano-bridge.md)
+  - [Chrome 插件 Provider](docs-cn/cyano/01-chrome-wallet.md)
+  - [手机端 Provider](docs-cn/cyano/02-mobile-provider.md)
+  - [Chrome 插件 dAPI](docs-cn/cyano/03-ontology-dapi.md)
+  - [手机端 dAPI](docs-cn/cyano/04-cyano-bridge.md)
 
 - Punica
   - [概述](docs-cn/Punica/punica.md)
@@ -111,6 +111,7 @@
   - [Swift SDK](docs-cn/SDKs/06-swift-sdk.md)
   - [Android SDK](docs-cn/SDKs/07-android-sdk.md)
   - [Objective-C SDK](docs-cn/SDKs/08-objective-c-sdk.md)
+  - [C# SDK](docs-cn/SDKs/09-c#-sdk.md)
 
 - 浏览器 API
   - [概述](docs-cn/explorer/overview.md)
