@@ -49,7 +49,7 @@ client.registerClient({});
 
 ##### 获取账号或身份信息
 
-```
+```typescript
 account = await client.api.asset.getAccount()
 res = await client.api.identity.getIdentity();
 ```
@@ -78,7 +78,7 @@ const result = await client.api.asset.makeTransfer({ recipient, asset, amount })
 ##### 数据签名
 
 可以用做登录时验证用户身份。
-```
+```javascript
 const message: string = values.message;
 const signature: Signature = {
   data,
@@ -95,7 +95,7 @@ const result = await client.api.message.verifyMessage({ message, signature });
 
 拷贝 [dAPI 例子](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)，可以测试 DAPI 提供了哪些功能。
 
-```
+```shell
 $ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
 
 $ npm install

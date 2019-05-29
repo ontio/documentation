@@ -95,7 +95,7 @@ client.registerClient();
 
 获取账号或身份信息，移动端可以选择填 DApp 信息也可以不填写。
 
-```
+```javascript
 import { client } from 'cyanobridge'
 
 const params = {
@@ -118,7 +118,7 @@ try {
 
 登录是由钱包方签名，DApp 验证签名。
 
-```
+```javascript
 const params = {
 ​    type: 'account',// account or identity that will sign the message
 ​    dappName: 'My dapp', // dapp's name
@@ -139,7 +139,7 @@ try {
 #### 调用合约
 
 
-```
+```javascript
 const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
 const operation = 'test'
 const args = [
@@ -174,10 +174,12 @@ try {
 
 ```
 
-===错误码===
+### 错误码
 
 response示例:
-<pre>
+
+```json
+
 {
 	"action": "login",
 	"error": 0,
@@ -185,13 +187,15 @@ response示例:
 	"result": true
 }
 
-</pre>
-   | Error Code |  Description
-   | :------- | :------- | :------- |
-   | 0 | Success
-   | 80001| Params error
-   | 80002| Method error
-   | 80003| Internal error
+```
+
+
+| Error Code |  Description
+| :------- | :------- | :------- |
+| 0 | Success
+| 80001| Params error
+| 80002| Method error
+| 80003| Internal error
 
 ## 代码参考
 

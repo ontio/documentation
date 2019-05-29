@@ -54,7 +54,7 @@
 
 开发者在合约中自定义 ```Notify``` 的内容.
 示例:
-```
+```dtd
 Notify(["params1", "params2", "params3"])
 ```
 
@@ -62,7 +62,7 @@ Notify(["params1", "params2", "params3"])
 
 数组 ExecuteNotify 的数据结构是
 
-```python
+```dtd
 type ExecuteNotify struct {
 	TxHash      common.Uint256   //交易hash
 	State       byte             //1表示交易执行成功，0表示失败
@@ -72,7 +72,7 @@ type ExecuteNotify struct {
 ```
 NotifyEventInfo 的数据结构是
 
-```
+```dtd
 type NotifyEventInfo struct {
 	ContractAddress common.Address  //合约地址
 	States          interface{}     //notify内容
@@ -80,7 +80,7 @@ type NotifyEventInfo struct {
 ```
 
 示例
-```
+```dtd
 {
   "ContractAddress":"a671e2cd7a7d5e7111d211aaa628c469e59fa301",
   "States":["params1", "params2", "params3"]

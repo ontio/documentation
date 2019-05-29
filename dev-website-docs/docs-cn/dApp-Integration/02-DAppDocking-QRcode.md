@@ -180,7 +180,7 @@ Provider 构造交易，进行用户签名、预执行交易、发送交易，�
 
 发送交易成功，POST 给 callback：
 
-```
+```json
 {
   "action": "invoke",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
@@ -192,7 +192,7 @@ Provider 构造交易，进行用户签名、预执行交易、发送交易，�
 
 发送交易失败，POST 给 callback：
 
-```
+```json
 {
   "action": "invoke",
   "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
