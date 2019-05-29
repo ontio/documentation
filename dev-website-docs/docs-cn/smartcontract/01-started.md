@@ -3,10 +3,12 @@
 ## 相关工具
 
 * [Smartx](https://smartx.ont.io/#/) - 一站式智能合约 IDE，支持编译、部署、测试、Debug。
-* vscode 插件 - 支持编译、部署、测试、Debug。
-* punica-cli - 支持智能合约编译，部署，调用，测试。
-* SDKs - 部署和调用智能合约。
-* dAPI - 调用智能合约。相关信息请参考 DAPI 使用。
+* [VSCode 插件](https://dev-docs.ont.io/#/docs-cn/Punica/sc-extension) - 智能合约开发。
+* [IDEA 插件](https://dev-docs.ont.io/#/docs-cn/Punica/sc-idea-extension) - 智能合约开发。
+* [测试币申请](https://developer.ont.io/applyOng) - 测试币申请网站
+* [Punica](http://punica.ont.io/) - 支持智能合约编译，部署，调用，测试一体化开发框架。
+* [dAPI](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/09-dapi_integration) - 简洁的去中心化 API，通过钱包与本体链交互。
+* [SDKs](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview) - 本体链不同编程语言的 SDK。
 
 ## 合约部署
 

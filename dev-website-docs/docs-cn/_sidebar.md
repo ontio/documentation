@@ -20,17 +20,11 @@
     - [信息获取](docs-cn/ontology-cli/11-block-info.md)
     - [资产管理](docs-cn/ontology-cli/12-asset.md)
     - [合约使用](docs-cn/ontology-cli/13-contract.md)
-    - [区块导入](docs-cn/ontology-cli/14-block-import.md)
-    - [区块导出](docs-cn/ontology-cli/15-block-export.md)
-    - [构造交易](docs-cn/ontology-cli/16-build-tx.md)
-    - [签署交易](docs-cn/ontology-cli/17-sig-tx.md)
-    - [多签地址](docs-cn/ontology-cli/18-multi-sig-address.md)
-    - [多签交易](docs-cn/ontology-cli/19-multi-sig-tx.md)
-    - [发送交易](docs-cn/ontology-cli/20-send-tx.md)
-    - [查看交易](docs-cn/ontology-cli/21-show-tx.md)
+    - [区块导入导出](docs-cn/ontology-cli/14-block-import.md)
+    - [交易相关](docs-cn/ontology-cli/16-build-tx.md)
 
 - HTTP API
-  - [简介](docs-cn/ontology-cli/04-interface-specification.md)
+  - [概述](docs-cn/ontology-cli/04-interface-specification.md)
   - [RPC 接口](docs-cn/ontology-cli/05-rpc-specification.md)
   - [Restful 接口](docs-cn/ontology-cli/06-restful-specification.md)
   - [WebSocket 接口](docs-cn/ontology-cli/07-ws-specification.md)
@@ -42,10 +36,9 @@
   - [常见问题](docs-cn/smartcontract/05-sc-faq.md)
   
 - DAPP 开发指导
-  - [DAPP 开发](docs-cn/QuickGuide/00-dapp_development.md)
-  - [开发工具概述](docs-cn/introduction/tools.md)
-  - [同步链上信息（可选）](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
-  - [链上数据存取（可选）](docs-cn/QuickGuide/07-deposit-certificate.md)
+  - [开发工具介绍](docs-cn/introduction/tools.md)
+  - [开始开发](docs-cn/QuickGuide/00-dapp_development.md)
+  - [同步链上信息](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)
 
 - 多链开发指南
   - [概述](docs-cn/multichain/overview.md)
@@ -83,10 +76,10 @@
 
 - 常见问题
   - [概述](docs-cn/faq/overview.md)
-      - [基础问题](docs-cn/faq/basic-faq.md)
-      - [工具使用](docs-cn/faq/tool-faq.md)
-      - [SDK 使用](docs-cn/faq/sdks-faq.md)
-      - [对接问题](docs-cn/faq/business-faq.md)
+  - [基础问题](docs-cn/faq/basic-faq.md)
+  - [工具使用](docs-cn/faq/tool-faq.md)
+  - [SDK 使用](docs-cn/faq/sdks-faq.md)
+  - [对接问题](docs-cn/faq/business-faq.md)
       
 - SmartX
   - [概述](docs-cn/SmartX/overview.md)
