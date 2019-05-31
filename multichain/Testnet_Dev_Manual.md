@@ -42,17 +42,17 @@ The Ontology Multichain TestNet includes a main chain and a side-chain, which ca
   
   rpc port：20336
 
-  Main chain ID：0
+  Main chain ID: 0
 
-- Side-chain IP：138.91.6.193
+- Side-chain IP: 138.91.6.193
 
-  rest port:  20334
+  rest port: 20334
   
-  ws port:    20335
+  ws port: 20335
   
-  rpc port：20336
+  rpc port: 20336
 
-  Side-chain ID：1
+  Side-chain ID: 1
 
 ## How to get Test Tokens
 
@@ -107,30 +107,30 @@ Run command line `./main --fee 10000000000 --chain-id 0 --amount 150000000000`
 ## Cross-Chain Contract Development
 
 The Ontology multichain ecosystem supports cross-chain contract, which means the contract can realize interaction between two or more chains, for example, the assets of an OEP4 contract can be transferred between the main chain and side-chain.
-Part of the dApp contract logic is realized on the main chain, and part of it is realized on the side-chain.
+Part of the dApp contract logic is realized on the main chain, and part of it on the side-chain.
 
 ### Overview of Cross-Chain Contract
 
-The Ontology cross-chain contract in fact includes multiple contracts, for example, if dApp developers need to realize cross-chain interaction between Chain A and Chain B, then they need to deploy smart contracts on Chain A and Chain B respectively (let’s call them smart contract A and smart contract B for now). 
+The Ontology cross-chain contract in fact includes multiple contracts, for example, if dApp developers need to realize cross-chain interaction between Chain A and Chain B, then they need to deploy smart contracts on Chain A and Chain B respectively (let’s call them smart contract A and smart contract B). 
 The development of the Ontology cross-chain contract can be divided into two parts, the smart contract part and the cross-chain part:
 
-The smart contract part refers to the logic codes running on a particular chain, which are developed per the standard smart contract development methods and are used to complete the contract on the chain.
+The smart contract part refers to the logic codes running on a particular chain, which are developed according to the standard smart contract development methods and are used to complete the contract on the chain.
 
 When two chains need to interact, if the logic of chain A has been executed, and the logic of chain B needs to be executed, then the cross-chain interface is required.
 
 ### Cross-Chain Interface
 
-For cross-chain contracts, developers only need to focus on one cross-chain interface, that is, the “createCrossChainTx” interface of the cross-chain management contract. This interface stores the executed  into Merkle Tree, then miners will generate the merkle proof of the cross-chain transaction and submit it to the cross-chain management contract of chain B. Then the cross-chain management contract will validate the merkle proof and call the corresponding methods in smart contract B according to the parameters.
+For cross-chain contracts, developers only need to focus on one cross-chain interface, that is, the “createCrossChainTx” interface of the cross-chain management contract. This interface stores the executed transaction into Merkle Tree, then miners will generate the merkle proof of the cross-chain transaction and submit it to the cross-chain management contract of chain B. The cross-chain management contract will then validate the merkle proof and call the corresponding methods in smart contract B according to the parameters.
 
 ### Cross-Chain Contract Development Example
 
 #### OEP4
 
-Suppose a developer wants to issue assets on chain A and chain B, but he wishes the assets on chain A and chain B can be freely transferred, which means this developer needs to issue a type of OEP4 asset that can be used both on chain A and chain B and freely transferred.
+Suppose a developer wants to issue assets on chain A and chain B, and he wants the assets on chain A and chain B to be freely transferred, then he needs to issue a type of OEP4 asset that can be used on and freely transferred between chain A and chain B.
 
 The developer first needs to download the OEP4 contract template. Smart contract A is deployed on chain A, and 1 billion tokens are given to a particular owner address by calling init method. Smart contract B is deployed on chain B, and 1 billion tokens are given to the address of smart contract B by calling init method.
 
-To transfer assets of smart contract A and B between chain A and chain B, a lock and an unlock interface are required on the basis of the OEP4 standard interface. The user calls the lock interface on chain A to lock up the assets in smart contract A, and the interface then calls the cross-chain management contract to invoke the unlock interface in smart contract B, the unlock interface then release the assets in smart contract B to the user on chain B, and vice versa.
+To transfer assets of smart contract A and B between chain A and chain B, a lock and an unlock interface are required on the basis of the OEP4 standard interface. The user calls the lock interface on chain A to lock the assets in smart contract A, and the interface then calls the cross-chain management contract to invoke the unlock interface in smart contract B, the unlock interface then releases the assets in smart contract B to the user on chain B, and vice versa.
 
 Calling lock interface:
 
@@ -219,13 +219,13 @@ def unlock(args):
     return True
 ```
 
-The interface accepts input_bytes as input parameters and deserialize input_bytes into input_map, and then execute the subsequent logic and unlock the assets on chain B to the user.
+The interface accepts input_bytes as input parameters and deserializes input_bytes into input_map, and then executes the subsequent logic and unlocks the assets on chain B to the user.
 
-Please note that as target cross-chain contract method, this method can only be called by the cross-chain management contract.
+Please note that this method can only be called by the cross-chain management contract.
 
 Currently the return value of cross-chain methods only supports Boolean data type.
 
-The templates of smart contract A and B: <https://github.com/siovanus/multiChainContract>
+You can download the templates of smart contract A and B here: <https://github.com/siovanus/multiChainContract>
 
 ## TestNet User Guide
 
