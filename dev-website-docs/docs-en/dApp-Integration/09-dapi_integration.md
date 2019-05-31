@@ -7,17 +7,17 @@ Unlike traditional apps, dApp does not have a centralized account management bac
 
 The following scenarios are currently supported:
 
+- [Use chrome plugin wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
 - [Open DApp in mobile wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)
 - [Use mobile wallet to scan code](https://dev-docs.ont.io/#/docs-en/dApp-Integration/02-DAppDocking-QRcode)
-- [Use chrome plugin wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
 - [Wake up mobile wallet](https://dev-docs.ont.io/#/docs-en/dApp-Integration/06-DAppDocking-Wake-up)
 
 
-For the integration of DAPI-enabled wallets such as [Math Wallet](http://www.mathwallet.org/en/) and [Onion](http://onion.fun/), please refer to the corresponding integration documents. For details of the protocol, please see [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki).
+For the integration of DAPI-enabled wallets such as [ONTO](http://onto.app/) and [Math Wallet](http://www.mathwallet.org/en/), please refer to the corresponding integration documents. For details of the protocol, please see [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki).
 
 Demo wallet download address: http://101.132.193.149/files/app-debug.apk
 
-## Wallet demo
+## Try dApps in Wallet
 
 Mobile version Cyano wallet source link address：[cyano-android](https://github.com/ontio-cyano/cyano-android),[cyano-ios](https://github.com/ontio-cyano/cyano-ios).
 

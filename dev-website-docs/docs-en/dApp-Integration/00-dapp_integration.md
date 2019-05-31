@@ -28,14 +28,7 @@ According to different demand for assets, the ontology provides three different 
 
 In order to achieve the above several functions, we provide two Dapp access technology solutions, two access methods can be used to log in, call smart contracts and other functions, developers can choose one of them to access development according to their needs
 
-### ONT ID Open Platform (Integrated Solution)
 
-
-The ONT ID open platform provides third-party applications for third-party applications such as login, payment, smart contract execution, and KYC.
-
-The advantage of the ONT ID open platform is that with the trusted hosting mode, the user login DApp will no longer rely on the user's local wallet, greatly expanding the scope of DApp.
-
-- [ONT ID Open Platform Integration](docs-en/dApp-Integration/08-ontid_integration.md)
 
 ### DApi integration (decentralization Solution)
 
@@ -45,3 +38,13 @@ It introduces how DApp calls DApi in various scenarios, including operations suc
 The advantage of DApi integration is that users can master all their assets and information, and it is now more convenient to use the supported wallet to log in to the DApp.
 
 - [DApi Integration](docs-en/dApp-Integration/09-dapi_integration.md)
+
+
+### ONT ID Open Platform (Integrated Solution)
+
+
+The ONT ID open platform provides third-party applications for third-party applications such as login, payment, smart contract execution, and KYC.
+
+The advantage of the ONT ID open platform is that with the trusted hosting mode, the user login DApp will no longer rely on the user's local wallet, greatly expanding the scope of DApp.
+
+- [ONT ID Open Platform Integration](docs-en/dApp-Integration/08-ontid_integration.md)
