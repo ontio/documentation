@@ -1,6 +1,8 @@
 <h1 align="center">本体多链开发手册 </h1>
 <h4 align="center">Version 1.0 </h4>
 
+中文 | [English](Testnet_Dev_Manual.md)
+
 Ontology致力于创建一个组件化、可自由配置、跨链支持、高性能、横向可扩展的区块链底层基础设施。 让部署及调用去中心化应用变得更加非常简单。
 
 Ontology MultiChain TestNet 目前已经上线，邀请广大开发者体验。很多新的功能还处于快速的开发过程中，希望开发者在使用过程中提出宝贵的意见和建议。
@@ -236,10 +238,10 @@ def unlock(args):
 
 cyano中可以通过设置实现主链和侧链之间的自由切换。
 
-![cyano](https://i.loli.net/2019/05/09/5cd3b7a625342.png)
+![cyano](resources/1.png)
 
 配置好主链和侧链的cyano钱包后，用户可以在smartx中开发、部署、测试跨链合约。
 
-![smartx](https://i.loli.net/2019/05/17/5cde17939f24148708.png)
+![smartx](resources/2.png)
 
 详细教程见[教程](Tutorial_Case.md)
