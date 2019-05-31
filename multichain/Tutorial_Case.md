@@ -2,7 +2,7 @@
 
 English | [中文](Tutorial_Case_CN.md)
 
-## Testnet Environment
+## TestNet Environment
 
 The Ontology multichain TestNet includes a main chain and a side-chain, which can interact with each other
 
@@ -62,7 +62,7 @@ Run command line, execute: ```./main --fee 10000000000 --chain-id 1 --amount 150
 <br/>
 <br/>
 
-`config.json` specifies we are currently on the main chain. When executing cross-chain transaction, it specifies `--chain-id 1` ,`--fee 10000000000`,`--amount 150000000000`, which means transferring 150 `ong` to a side-chain whose ID is 1 and deduct 10 `ong` from the current chain
+`config.json` specifies you are currently on the main chain. When executing cross-chain transaction, it specifies `--chain-id 1` ,`--fee 10000000000`,`--amount 150000000000`, which means transferring 150 `ong` to a side-chain whose ID is 1 and deduct 10 `ong` from the current chain
 
 <br/>
 
@@ -87,7 +87,7 @@ Transfer from the main chain to side-chain or from side-chain to the main chain 
 
 ### For cross-chain contract, please download [OEP4 contract template](https://github.com/siovanus/multiChainContract/tree/master/OEP4-template)
 
-We can use [SmartX](https://smartx.ont.io) to deploy and run smart contract
+You can use [SmartX](https://smartx.ont.io) to deploy and run smart contract
 
 
 
@@ -133,13 +133,13 @@ When all is set, you can then execute lock function
 ![12](resources/12.png)
 <br/>
 
-When you click "run", Cyano will be invoked to sign. When successfully executed, you can check the result and transaction hash in Logs on the left side of SmartX
+When you click "run", Cyano will be invoked to sign. After being successfully executed, you can check the result and transaction hash in Logs on the left side of SmartX
 <br/>
 <br/>
 
 **2. Check the Transfer**
 <br/>
-Before that, you need to add OEP-4 token address in Cyano. The address is the contract address smart contract B deployed on the side-chain
+Before checking the transfer, you need to add the OEP-4 token address in Cyano. The address is the contract address smart contract B deployed on the side-chain
 
 ![13](resources/13.png)
 
