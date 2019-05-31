@@ -184,7 +184,7 @@ fee: Miner’s fee for cross-chain transaction
 address: Caller’s address, from which miner’s fee is deducted
 to_chain_id: Chain ID of target chain
 destination_contract：Reversed target contract address
-function: 要跨链调用的目标合约方法名Target cross-chain contract method to be called
+function: Target cross-chain contract method to be called
 input_bytes：Serialized input parameters
 ```
 
