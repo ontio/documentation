@@ -244,4 +244,4 @@ cyano中可以通过设置实现主链和侧链之间的自由切换。
 
 ![smartx](resources/2.png)
 
-详细教程见[教程](Tutorial_Case.md)
+详细教程见[教程](Tutorial_Case_CN.md)
