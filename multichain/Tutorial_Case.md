@@ -1,14 +1,14 @@
-<h1 align="center">跨链使用教程 </h1>
+<h1 align="center">Cross-Chain Tutorial </h1>
 
+English | [中文](Tutorial_Case_CN.md)
 
+## TestNet Environment
 
-## 测试网环境
+The Ontology multichain TestNet includes a main chain and a side-chain, which can interact with each other
 
-本体多链测试网包含一条主链和侧链，两条链之间可以完成跨链业务
-
-|               | 主链         | 侧链         |
+|               | Main Chain   | Side-Chain   |
 | ------------- | ------------ | ------------ |
-| **ip**        | 138.91.6.125 | 138.91.6.193 |
+| **IP**        | 138.91.6.125 | 138.91.6.193 |
 | **rest port** | 20334        | 20334        |
 | **ws port**   | 20335        | 20335        |
 | **rpc port**  | 20336        | 20336        |
@@ -18,11 +18,11 @@
 
 
 
-## 资产转移
+## Asset Transfer
 
-### 通过工具转移，前往下载 [multichain-transfer ](https://github.com/siovanus/multichain-transfer)
+### Asset transfer tool can be downloaded here [multichain-transfer ](https://github.com/siovanus/multichain-transfer)
 
-其中`config.json`文件如下：
+The`config.json` file is as follows：
 
 ```json
 {
@@ -33,135 +33,135 @@
 }
 ```
 
-- `ChainID`是链的 ID
-- `JsonRpcAddress`是此条链的 ip 地址和 rpc 端口
+- `ChainID` is the chain ID
+- `JsonRpcAddress` is this chain's IP address and rpc port
 
-可以通过在命令行执行`./main -h`查看帮助
+Execute in the commande line `./main -h`to show Help
 
-![帮助](https://i.loli.net/2019/05/09/5cd3b61d366ea.png)
+![Help](resources/3.png)
 
-- --fee 表示矿工费
-- --chain-id 表示目标链的链ID
-- --amount 表示要转移ong的数量（精度为9）
-- --wallet 后面需要指定`wallet.dat`文件的路径，默认为当前路径
-
-<br/>
-<br/>
-
-先确定我们处于主链还是侧链，即`config.json`中的指定
-
-![1557370123328](https://i.loli.net/2019/05/09/5cd3b7580a1e5.png)
+- --fee represents miner's fee
+- --chain-id represents chain ID of target chain
+- --amount represents amount of ONG to be transferred (the decimal is 9)
+- --wallet needs to specify the path of `wallet.dat` file (the current path by default)
 
 <br/>
 <br/>
 
-运行命令行，执行：```./main --fee 10000000000 --chain-id 1 --amount 150000000000```
+Check `config.json` to see whether you are on the main chain or side-chain
 
-![1557369575080](https://i.loli.net/2019/05/09/5cd3b8ab32f52.png)
-
-<br/>
-<br/>
-
-`config.json`当中指定了我们当前处于主链，执行跨链交易时，指定了`--chain-id 1` ,`--fee 10000000000`,`--amount 150000000000`，即向id为1的侧链转账150个 `ong`，并扣除当前所处链的费用 10
-
-<br/>
-
-我们可以在 `Cyano` 钱包上，查看余额是否到账，在此之前，我们在 `Cyano` 先导入`wallet.dat`文件，并确保处于我们所想查看的网络上
-
-例如，我们想查看刚刚的侧链 id 为1，资产是否到账，我们可以通过更改`Net`和`Private node ip/address`。由于侧链id为1的 ip 为`138.91.6.193`，因此我们在Cyano中更改即可
-
-![1557370547287](https://i.loli.net/2019/05/09/5cd3b7a625342.png)
-
-<br/>
-<br/>
-更改之后，我们可以查看到，刚刚所转账的已经到账
-
-![1557369792351](https://i.loli.net/2019/05/09/5cd3b7b97e770.png)
-<br/>
-<br/>
-
-若想主链向其他侧链，或侧链向主链转账，同理
-<br/>
-<br/>
-<br/>
-
-### 跨链合约使用，前往下载[OEP4合约模板](https://github.com/siovanus/multiChainContract/tree/master/OEP4-template)
-
-我们可以使用 [samrtx](https://smartx.ont.io) 部署和运行智能合约
-
-
-
-#### 部署智能合约
-
-部署智能合约A到主链 id 0上，我们先确保Cyano处于主链网络上，即更改`Net`和`Private node ip/address`
-
-owner 为智能合约的管理人，我们更改为自己的地址即可
-
-![1557371595430](https://i.loli.net/2019/05/09/5cd3b7d726f23.png)
-<br/>
-<br/>
-
-部署完成之后，调用 init 方法，初始化10亿 token 给 owner 地址
-
-![1557371725480](https://i.loli.net/2019/05/09/5cd3b7e710158.png)
-<br/>
-
-此外我们还需要执行 setdestination 函数来设置对方子链OEP4跨链合约的地址
-![](https://i.loli.net/2019/05/15/5cdb84eae51e337089.png)
-<br/>
-
-另外 `destination_contract`是合约 hash 的反序，可以在 smartx 上试用工具栏下的`Hex String (Big-endian/Little-endian)`方法返回反序后的值
-![1557372908086](https://i.loli.net/2019/05/09/5cd3b7f80449d.png)
-<br/>
+![4](resources/4.png)
 
 <br/>
 <br/>
 
-部署智能合约B到侧链id 1上，同上原理，更换 Cyano为侧链 ip，在smartx上部署，部署完成后也需要执行 init，初始化10亿token给该智能合约B的地址
+Run command line, execute: ```./main --fee 10000000000 --chain-id 1 --amount 150000000000```
+
+![5](resources/5.png)
+
+<br/>
+<br/>
+
+`config.json` specifies you are currently on the main chain. When executing cross-chain transaction, it specifies `--chain-id 1` ,`--fee 10000000000`,`--amount 150000000000`, which means transferring 150 `ong` to a side-chain whose ID is 1 and deduct 10 `ong` from the current chain
+
+<br/>
+
+You can check if you have received the transfer in `Cyano` wallet. But before that, you need to import `wallet.dat` file into `Cyano`, and make sure you are on the right network
+
+For example, if you want to check the side-chain whose ID is 1, you can alter  `Net` and `Private node ip/address`. Since the IP of the side-chain is `138.91.6.193`, you can alter the IP address in Cyano accordingly
+
+![6](resources/6.png)
+
+<br/>
+<br/>
+After the alteration, we can see that we have received the transfer
+
+![7](resources/7.png)
+<br/>
+<br/>
+
+Transfer from the main chain to side-chain or from side-chain to the main chain follows the same method
 <br/>
 <br/>
 <br/>
 
-#### 运行合约
+### For cross-chain contract, please download [OEP4 contract template](https://github.com/siovanus/multiChainContract/tree/master/OEP4-template)
 
-**1. 调用合约的lock函数进行跨链转账**
+You can use [SmartX](https://smartx.ont.io) to deploy and run smart contract
+
+
+
+#### Deploy Smart Contract
+
+Before you deploy smart contract A on the main chain whose ID is 0, you need to make sure you are on the main chain network by altering `Net` and `Private node ip/address`
+
+Owner manages the smart contract, and you can type in here your own address
+
+![8](resources/8.png)
 <br/>
-在此之前，主链往侧链转账需注意, Cyano需处于主链网络上，lock函数中，指定`to chain_id`为侧链id
-<br/>
-在一切准备就绪后，接下来，我们执行 lock 函数
-
-![1557373167083](https://i.loli.net/2019/05/17/5cde5f256776027563.png)
-<br/>
-
-点击运行之后，会调用 Cyano进行签名。执行成功后，可以在 smartx 左侧的 Logs中查看到结果和交易 hash
-<br/>
-<br/>
-
-**2. 验证侧链是否到账**
-<br/>
-在此之前，我们需要在Cyano上添加OEP4 Token的地址，此地址即为B合约部署在侧链的合约地址
-
-![1557373896613](https://i.loli.net/2019/05/09/5cd3b81d3cb5e.png)
-
-![1557373988646](https://i.loli.net/2019/05/09/5cd3b8300e019.png)
-
 <br/>
 
+After deployment, 1 billion tokens are given to the owner address by calling init method
+
+![9](resources/9.png)
+<br/>
+
+You also need to execute setdestination function to set the OEP-4 cross-chain contract address of the side-chain
+![10](resources/10.png)
+<br/>
+
+`destination_contract` is the reversed contract hash, and you can use `Hex String (Big-endian/Little-endian)` method in SmartX to return the reversed value
+![11](resources/11.png)
+<br/>
+
+<br/>
+<br/>
+
+As mentioned above, when you deploy smart contract B on a side-chain whose ID is 1, switch the IP in Cyano to the side-chain IP, then deploy the contract on SmartX. After deployment, 1 billion tokens are given to the address of smart contract B by calling init method
+<br/>
+<br/>
+<br/>
+
+#### Run Contract
+
+**1. Cross-Chain Transfer by Calling Contract Lock Function**
+<br/>
+Please note that when you transfer from the main chain to side-chain, you need to make sure Cyano is on the main chain network. The lock function specifies the side-chain ID as `to chain_id`.
+<br/>
+When all is set, you can then execute lock function
+
+![12](resources/12.png)
+<br/>
+
+When you click "run", Cyano will be invoked to sign. After being successfully executed, you can check the result and transaction hash in Logs on the left side of SmartX
+<br/>
+<br/>
+
+**2. Check the Transfer**
+<br/>
+Before checking the transfer, you need to add the OEP-4 token address in Cyano. The address is the contract address smart contract B deployed on the side-chain
+
+![13](resources/13.png)
+
+![14](resources/14.png)
+
+<br/>
+
 <br/>
 
 
 
-之后，需要切换Cyano网络到侧链上，例，我们刚刚像侧链id为1的转账，Cyano中切换为138.91.6.193的侧链网络
+Then you need to switch the Cyano network to side-chain, for example, if you want to transfer to a side-chain whose chain ID is 1, then you need to switch the Cyano network to 138.91.6.193.
 
-![1557373499176](https://i.loli.net/2019/05/09/5cd3b83e93f3e.png)
+![15](resources/15.png)
 
 <br/>
 
-可以查看到已经到账的 OEP4 token
+You can now see the trsnsferred OEP-4 token
 
-![1557374056829](https://i.loli.net/2019/05/09/5cd3b84f9b0c4.png)
+![16](resources/16.png)
 <br/>
 
 
 
-侧链向主链转账，原理同上
+Transfer from side-chain to main chain follows the same method
