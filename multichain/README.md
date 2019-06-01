@@ -34,25 +34,13 @@ The Ontology Multichain TestNet has already been launched and developers are wel
 
 The Ontology Multichain TestNet includes a main chain and a side-chain, which can interact with each other.
 
-- Main chain IP：138.91.6.125
-
-  rest port:  20334
-  
-  ws port:    20335
-  
-  rpc port：20336
-
-  Main chain ID: 0
-
-- Side-chain IP: 138.91.6.193
-
-  rest port: 20334
-  
-  ws port: 20335
-  
-  rpc port: 20336
-
-  Side-chain ID: 1
+|               | Main Chain   | Side-Chain   |
+| ------------- | ------------ | ------------ |
+| **IP**        | 138.91.6.125 | 138.91.6.193 |
+| **rest port** | 20334        | 20334        |
+| **ws port**   | 20335        | 20335        |
+| **rpc port**  | 20336        | 20336        |
+| **chain ID**  | 0            | 1            |
 
 ## How to get Test Tokens
 
