@@ -94,7 +94,7 @@ successResponse：
 | RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|  账户地址  |
-|    pagesize|   int|  分页大小  |
+|    pagesize|   int|  分页大小(当前限制最大值为20)  |
 |    pagenumber|   int|  页数，从1开始计数  |
 
 
