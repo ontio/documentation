@@ -34,11 +34,10 @@
 - 钱包内打开，登录，转账，调用智能合约
 - 网页版打开，登录，转账，调用智能合约
 
-### 测试 DApp 链接
+### 测试 DAPP 链接
 完成集成后，可以在钱包内打开以下链接，测试是否成功完成了接入：
 
 测试网 ```DAPP```：
 `http://101.132.193.149:5000/#/`
-
 主网 ```DAPP```：
 `https://github.com/ontio-community/dapp-store/blob/master/mobile-dapps.json`

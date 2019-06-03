@@ -4,7 +4,7 @@
 
 ![接入说明](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/sdk.png)
 
-## SDK
+## SDK 使用
 本体软件开发工具包 ( SDK ) 是应用程序与本体网络之间交互的桥梁。根据一套通用的本体软件开发工具包开发规范，我们提供了多语言的软件开发工具包，以满足不同开发者的需求。
 
 SDK 可以提供如下功能：
@@ -26,7 +26,7 @@ SDK 可以提供如下功能：
 - [Objective-C SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/08-objective-c-sdk)
 - [C# SDK](http://dev-docs.ont.io/#/docs-cn/SDKs/08-objective-csharp-sdk)
 
-## 浏览器公开接口
+## 浏览器 API 接口
 
 浏览器接口是提供给开发者、机构、交易所等进行链上信息的公开查询接口。目前支持以下方面的查询功能：
 

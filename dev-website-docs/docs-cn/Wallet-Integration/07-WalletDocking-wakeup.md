@@ -26,8 +26,9 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 ## 接入步骤
 
+共有两个功能，登录和调用合约。
 
-### 登陆接入步骤
+### 登录接入步骤
 
 #### 唤醒登陆请求
 数据如下，**URI编码，Base64编码**后发送请求：
@@ -84,7 +85,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 | publickey | string | 账户公钥 |
 | signature  |  string |  用户签名 |
 
-#### DApp服务器返回数据
+#### DApp 服务器返回数据
 * 验证签名成功
 
 ```json

@@ -1,7 +1,7 @@
 
 
 
-### 概述
+## 概述
 
 使用 [dAPI for chrome](https://github.com/ontio/ontology-dapi) 前请先安装实现了 ```dAPI provider``` 功能的钱包，比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)。
 
@@ -15,18 +15,16 @@ DAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 * Chrome 插件钱包的 ```dAPI``` 使用方法 [dapi for chrome](https://github.com/ontio/ontology-dapi)
 * 兼容移动版和 ```Chrome``` 插件版 ```dAPI``` 的代码例子：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)
 
-### 安装开发环境
+## 安装开发环境
 
 请确保安装以下软件：
 
 - [Node.js v6+ LTS with npm](https://nodejs.org/en/)
-
 - [Cyano Wallet]( https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm)
-
 - [Git](https://git-scm.com/)
 
 
-### 本体 DAPI
+## DAPI 使用
 #### DAPI 安装
 创建 DApp 时，本体 DAPI 是与本体链交互的核心 API 之一，可以从 [这里](https://github.com/ontio/ontology-dapi) 下载源码。 通过 ```npm``` 安装 ontology-DAPI：
 
@@ -34,7 +32,7 @@ DAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 $ npm install ontology-dapi
 ```
 
-#### DAPI 实例
+#### 创建 DAPI 实例
 
 创建 DAPI 实例时，要先导入库 ontology-dapi，并注册客户端，如下所示：
 
@@ -91,7 +89,7 @@ const result = await client.api.message.verifyMessage({ message, signature });
 所有方法列表可参考 [DAPI 规范](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki)。
 
 
-### 运行例子
+## 运行例子
 
 拷贝 [dAPI 例子](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)，可以测试 DAPI 提供了哪些功能。
 

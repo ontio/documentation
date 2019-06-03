@@ -48,12 +48,7 @@ DApp 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.e
 
 
 
-## 钱包和 DApp 接入步骤
-
-
-
-
-## dAPI Provider SDK 使用
+## dAPI Provider SDK 对接
 
 dAPI Provider SDK 帮助 ```Android webview``` 和网页 ```DAPP``` 之间通信。它对 ```webview``` 进行了一些方法的封装。分别支持 ```Android```、```iOS```，详细请参考：
 * [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)

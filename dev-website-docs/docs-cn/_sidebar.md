@@ -48,7 +48,7 @@
   
 - DAPP 对接指南
   - [概述](docs-cn/dApp-Integration/00-dapp_integration.md)
-  - [DApi 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
+  - [dAPI 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
     - [Chrome 插件钱包](docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
     - [手机钱包内打开](docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
     - [手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
@@ -59,7 +59,7 @@
 
 - 手机钱包对接指南
   - [概述](docs-cn/Wallet-Integration/00-wallet_integration.md)
-  - [资产集成](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
+  - [SDK 集成](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
   - [dAPI 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [钱包内打开 dApp 集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
       - [钱包扫码集成](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
