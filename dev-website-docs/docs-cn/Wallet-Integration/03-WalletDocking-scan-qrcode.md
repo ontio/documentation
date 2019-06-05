@@ -184,9 +184,9 @@ method: post
 ```
 
 
-Provider 构造交易，用户签名，预执行交易，发送交易，POST 交易 hash 给 callback url 。
+钱包构造交易，用户签名，预执行交易，发送交易，POST 交易 hash 给 callback url 。
 
-* 发送交易成功 POST 给 callback
+* 发送交易成功 POST 给回调地址
 
 ```json
 {
@@ -198,7 +198,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 }
 ```
 
-* 发送交易失败给 callback
+* 发送交易失败 POST 给回调地址
 
 ```json
 {

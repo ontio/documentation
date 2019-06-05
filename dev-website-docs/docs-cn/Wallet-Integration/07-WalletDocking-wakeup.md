@@ -10,11 +10,10 @@
 
 ## 交互流程说明
 
-DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
+DAPP 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```，交互流程主要分两个步骤：
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
 
-交互流程主要分两个步骤：
 
 ### 第一步，DAPP 发起登录请求
 - 1.1 ```DAPP``` 唤醒 Provider（[唤醒登陆请求](#唤醒登陆请求)）
@@ -34,9 +33,9 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 共有两个功能，登录和调用合约。
 
-### 登录接入步骤
+### 登录
 
-唤醒登陆请求，数据如下，**URI编码，Base64编码**后发送请求：
+唤醒登录请求，数据如下，**URI编码，Base64编码**后发送请求：
 
 ```json
 {
@@ -60,9 +59,9 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 | dappName   | string  | dapp名字 |
 | dappIcon   | string  | dapp icon信息 |
 | message   | string  | 随机生成，用于校验身份  |
-| callback   | string  |  用户扫码签名后发送到DApp后端URL |
+| callback   | string  |  用户签名后发送到DApp后端URL |
 
-钱包处理登录请求，**URI解码，Base64解码**后，对 message 做签名，POST 如下内容给 DApp 服务器的 callback 地址：
+钱包处理登录请求，**URI解码，Base64解码**后，对 message 做签名，POST 如下内容给 DAPP 服务器的 callback 地址：
 
 ```json
 {
@@ -90,6 +89,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 | signature  |  string |  用户签名 |
 
 #### DApp 服务器回调接口
+
 * 验证签名成功
 
 ```json
@@ -127,25 +127,6 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 	"params": {
 		"login": true,
 		"callback": "http://101.132.193.149:4027/invoke/callback",		
-		"qrcodeUrl": "http://101.132.193.149:4027/qrcode/AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
-	}
-}
-```
-
-|字段|类型|定义|
-| :---        | :---    | :---                                                              |
-| action      | string  | 操作类型|
-| qrcodeUrl         | string  | 二维码参数地址                                           |
-| callback         | string  | 选填，返回交易hash给dApp服务端                                           |
-
-根据二维码中qrcodeUrl链接，GET的的数据如下：
-
-```json
-{
-	"action": "invoke",
-	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",	
-	"params": {
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
 			"functions": [{
@@ -179,12 +160,15 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 		}
 	}
 }
-
-
 ```
 
+|字段|类型|定义|
+| :---        | :---    | :---                                                              |
+| action      | string  | 操作类型|
+| callback         | string  | 选填，返回交易hash给dApp服务端                                           |
 
-Provider 构造交易，用户签名，预执行交易，发送交易，POST 交易 hash 给callback url。
+
+钱包构造交易，用户签名，预执行交易，发送交易，POST 交易 hash 给callback url。
 
 * 发送交易成功 POST 给回调地址
 
