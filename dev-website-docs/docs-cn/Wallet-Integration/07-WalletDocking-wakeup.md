@@ -36,8 +36,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 
 ### 登录接入步骤
 
-#### 唤醒登陆请求
-数据如下，**URI编码，Base64编码**后发送请求：
+唤醒登陆请求，数据如下，**URI编码，Base64编码**后发送请求：
 
 ```json
 {
@@ -63,8 +62,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 | message   | string  | 随机生成，用于校验身份  |
 | callback   | string  |  用户扫码签名后发送到DApp后端URL |
 
-### 钱包处理登录请求
-**URI解码，Base64解码**后，对message做签名，POST如下内容给DApp服务器的callback地址
+钱包处理登录请求，**URI解码，Base64解码**后，对 message 做签名，POST 如下内容给 DApp 服务器的 callback 地址：
 
 ```json
 {
@@ -91,7 +89,7 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 | publickey | string | 账户公钥 |
 | signature  |  string |  用户签名 |
 
-#### DApp 服务器返回数据
+#### DApp 服务器回调接口
 * 验证签名成功
 
 ```json
@@ -186,9 +184,9 @@ DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.enc
 ```
 
 
-Provider 构造交易，用户签名，预执行交易，发送交易，POST 交易hash给callback url。
+Provider 构造交易，用户签名，预执行交易，发送交易，POST 交易 hash 给callback url。
 
-* 发送交易成功POST给callback
+* 发送交易成功 POST 给回调地址
 
 ```json
 {
@@ -201,7 +199,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 }
 ```
 
-* 发送交易失败给callback
+* 发送交易失败给回调地址
 
 ```json
 {

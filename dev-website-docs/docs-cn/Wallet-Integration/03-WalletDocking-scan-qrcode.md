@@ -62,7 +62,7 @@
 | expire   | long  | 可选  |
 | callback   | string  |  用户扫码签名后发送到DApp后端URL |
 
-### DApp 服务端登录接口
+### DApp 服务端回调接口
 method: post
 
 ```json
@@ -91,8 +91,7 @@ method: post
 | publickey | string | 账户公钥 |
 | signature  |  string |  用户签名 |
 
-#### Response
-* Success
+返回成功：
 
 ```json
 {
@@ -104,7 +103,7 @@ method: post
 }
 ```
 
-* Failed
+返回失败：
 
 ```json
 {

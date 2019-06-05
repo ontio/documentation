@@ -13,32 +13,30 @@
 
 ## 交互流程说明
 
-交互流程中 DAPP 请求数据 URI scheme 是：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
+交互流程中 DAPP 请求数据 URI scheme 是：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```，交互流程主要分三个步骤。
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 
-交互流程主要分三个步骤：
 
-### 第一步，钱包使用 Webview 打开 DAPP（使用 H5 开发）
 
-1 钱包打开 H5 DAPP
+#### 第一步，钱包使用 Webview 打开 DAPP（使用 H5 开发）
 
-### 第二步，DAPP 发起获取钱包地址信息请求
+ 钱包使用 Webview 打开 H5 DAPP
 
-> 获取地址信息前也可以获取 Provider 信息
+#### 第二步，DAPP 发起获取钱包地址信息请求
 
 有两种获取方式:
 * [通过 getAccount 协议获取账户信息](#查询账号或身份信息步骤)
 * [通过 Login 协议获取账户信息](#DApp发起登录请求)
 
-### 第三步，DAPP 发起调用合约请求
+#### 第三步，DAPP 发起调用合约请求
 
 详细流程：
-- 1 DApp 请求调用合约（[DApp发起调用合约请求](#DApp发起调用合约请求)）
-- 2 钱包构造交易，弹出密码框让用户签名，用户输入密码
-- 3 钱包预执行交易（[预执行交易](#预执行交易)）
-- 4 钱包发送交易
-- 3 钱包返回交易Hash（[钱包响应调用合约请求](#钱包响应调用合约请求)）
+ 1. DApp 请求调用合约（[DApp发起调用合约请求](#DApp发起调用合约请求)）
+ 2. 钱包构造交易，弹出密码框让用户签名，用户输入密码
+ 3. 钱包预执行交易（[预执行交易](#预执行交易)）
+ 4. 钱包发送交易
+ 3. 钱包返回交易Hash（[钱包响应调用合约请求](#钱包响应调用合约请求)）
 
 
 
@@ -54,9 +52,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 
 ### 查询 Provider 信息步骤
 
-#### DApp 发起查询 Provider 信息请求
-
-数据如下，** URI 编码，Base64 编码**后发送请求：
+DApp 发起查询 Provider 信息请求，数据如下，**URI 编码，Base64 编码**后发送请求：
 ```json
 
 {
@@ -74,9 +70,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 | :---| :---| :---|
 | action   |  string |  操作类型 |
 
-#### 钱包返回 Provider 信息
-
-**URI解码，Base64解码**后，获取到的数据如下：
+钱包返回 Provider 信息，**URI解码，Base64解码**后，获取到的数据如下：
 ```json
 {
 	"action": "getProvider",
@@ -93,9 +87,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 
 ### 查询账号或身份信息步骤
 
-#### DApp 发起查询账号或身份信息请求
-
-数据如下，**URI 编码，Base64 编码**后发送请求：
+DApp 发起查询账号或身份信息请求，数据如下，**URI 编码，Base64 编码**后发送请求：
 ```json
 
 {
@@ -117,9 +109,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 | dappName   | string  | dapp名字 |
 | dappIcon   | string  | dapp icon信息 |
 
-#### 钱包返回账号或身份信息
-
-**URI 解码，Base64 解码**后，获取到的数据如下：
+钱包返回账号或身份信息，**URI 解码，Base64 解码**后，获取到的数据如下：
 ```json
 {
 	"action": "getAccount", // or getIdentity
@@ -133,10 +123,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 
 ### 登陆步骤
 
-#### DApp 发起登录请求
-
-
-数据如下，**URI 编码，Base64 编码**后发送请求：
+DApp 发起登录请求，数据如下，**URI 编码，Base64 编码**后发送请求：
 ```json
 {
 	"action": "login",
@@ -146,7 +133,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 		"type": "ontid or account",
 		"dappName": "dapp Name",
 		"dappIcon": "dapp Icon",
-		"message": "helloworld",
+		"message": "helloworld"
 	}
 }
 ```
@@ -159,11 +146,9 @@ dAPI 协议可扩展，现在支持的主要功能有：
 | dappIcon   | string  | dapp icon信息 |
 | message   | string  | 随机生成，用于校验身份  |
 
-#### 钱包响应登录请求
+钱包响应登录请求，**URI 解码，Base64 解码**后，获取到的数据如下：
 
-**URI 解码，Base64 解码**后，获取到的数据如下：
-
-* 返回成功内容
+返回成功内容：
 ```json
 {
 	"action": "login",
@@ -193,7 +178,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 
 
 
-* 返回失败内容
+返回失败内容：
 
 ```json
 {
@@ -209,10 +194,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 
 ### 消息签名步骤
 
-跟 login 一样，但 DApp 请求时不需要 DApp 名字和 icon。
-
-数据如下，**URI 编码，Base64 编码**后发送请求：
-
+跟登录协议一样，但 DApp 请求时不需要 DApp 名字和 icon。DApp 发起签名请求，数据如下，**URI 编码，Base64 编码**后发送请求：
 ```json
 {
 	"action": "signMessage",
@@ -220,22 +202,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
 	"params": {
 		"type": "ontid or account",
-		"message": "helloworld",
-	}
-}
-```
-#### DApp 发起签名请求
-
-
-数据如下，**URI 编码，Base64 编码**后发送请求：
-```json
-{
-	"action": "signMessage",
-	"version": "v1.0.0",
-	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
-	"params": {
-		"type": "ontid or account",
-		"message": "helloworld",
+		"message": "helloworld"
 	}
 }
 ```
@@ -260,7 +227,6 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 
 
 #### DApp 发起调用合约请求
-
 数据如下，**URI 编码，Base64 编码**后发送请求：
 
 ```json
