@@ -13,170 +13,44 @@
 
 ## 交互流程说明
 
-DApp 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
+交互流程中 DAPP 请求数据 URI scheme 是：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 
-### 钱包打开 H5 DAPP
+交互流程主要分三个步骤：
 
-- 1 钱包打开 H5 DAPP
+### 第一步，钱包使用 Webview 打开 DAPP（使用 H5 开发）
 
-### H5 DApp 获取 Provider 信息
+1 钱包打开 H5 DAPP
 
-- 1 ```DAPP``` 请求 Provider 信息
-- 2 钱包返回 Provider 信息
+### 第二步，DAPP 发起获取钱包地址信息请求
 
-### H5 DApp 获取账户或身份信息
+> 获取地址信息前也可以获取 Provider 信息
 
-- 1 ```DAPP``` 请求账户或身份信息
-- 2 用户接受请求，返回账户或身份信息
+有两种获取方式:
+* [通过 getAccount 协议获取账户信息](#查询账号或身份信息步骤)
+* [通过 Login 协议获取账户信息](#DApp发起登录请求)
 
+### 第三步，DAPP 发起调用合约请求
 
-### 登录 Login
-- 1 DApp 请求对 message 做签名（[DApp发起登录请求](#DApp发起登录请求)）
-- 2 钱包用户对 message 做签名，返回签名数据（[钱包响应登录请求](#钱包响应登录请求)）
-
-### 消息签名 signMessage
-
-
-### 调用合约 Invoke Smart contract
+详细流程：
 - 1 DApp 请求调用合约（[DApp发起调用合约请求](#DApp发起调用合约请求)）
-- 2 钱包构造交易，用户签名
+- 2 钱包构造交易，弹出密码框让用户签名，用户输入密码
 - 3 钱包预执行交易（[预执行交易](#预执行交易)）
 - 4 钱包发送交易
 - 3 钱包返回交易Hash（[钱包响应调用合约请求](#钱包响应调用合约请求)）
 
 
 
-## dAPI Provider SDK 对接
+## dAPI 协议介绍
 
-dAPI Provider SDK 帮助 ```Android webview``` 和网页 ```DAPP``` 之间通信。它对 ```webview``` 进行了一些方法的封装。分别支持 ```Android```、```iOS```，详细请参考：
-* [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
-* [cyano-ios-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)
+dAPI 协议可扩展，现在支持的主要功能有：
 
-Android-sdk：
-
-```java
-//init
-CyanoWebView cyanoWebView=new CyanoWebView(context);
-cyanoWebView.loadUrl(url);
-
-//Action handle
-cyanoWebView.getNativeJsBridge().setHandleGetAccount(new NativeJsBridge.HandleGetAccount() {
-            @Override
-            public void handleAction(String data) {
-              /* TODO
-               * 1.发送钱包地址到webView
-               * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
-               * String action=reqJson.getString("action");
-               * String version=reqJson.getString("version");
-               * String id=reqJson.getString("id");
-               * cyanoWebView.sendSuccessToWeb(action,version, id, 钱包地址);
-               */
-            }
-	});
-
-cyanoWebView.getNativeJsBridge().setHandleInvoke(new NativeJsBridge.HandleInvoke() {
-            @Override
-            public void handleAction(String data) {
-              /* TODO
-               * 1.弹出密码输入框，解出钱包 account，将 data 构建交易，对交易进行签名，预执行获取结果，注意耗时操作。
-               *
-               * 2.将预知行结果解析出 Notify 结果，显示手续费，如果结果中包含 ONT , ONG 合约地址，需显示转账金额和收款地址，
-               *
-               * 3.用户确认后发送交易到链上
-               *
-               * 4.发送交易 hash 到 webView
-               * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
-               * String action=reqJson.getString("action");
-               * String version=reqJson.getString("version");
-               * String id=reqJson.getString("id");
-               * cyanoWebView.sendSuccessToWeb(action,version, id, 交易 hash);
-               */
-            }
-	});
-
-cyanoWebView.getNativeJsBridge().setHandleInvokeRead(new NativeJsBridge.HandleInvokeRead() {
-        @Override
-        public void handleAction(String data) {
-               /* TODO
-                * 1.将 data 构建交易，预执行获取结果，注意耗时操作。
-                *
-                * 2.发送预知行结果到 webView
-                * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
-                * String action=reqJson.getString("action");
-                * String version=reqJson.getString("version");
-                * String id=reqJson.getString("id");
-                * cyanoWebView.sendSuccessToWeb(action,version, id, 预知行结果);
-                */
-        }
-});
-
-
-cyanoWebView.getNativeJsBridge().setHandleInvokePasswordFree(new NativeJsBridge.HandleInvokePasswordFree() {
-        @Override
-        public void handleAction(String data, String message) {
-          /* TODO
-           * 1.第一次操作和action：Invoke相同，同时保存password和message
-           *
-           * 2.当第二次收到相同的message时候，将用保存的密码进行签名，预知行获取结果
-           *
-           * 3.预知行结果不用显示给用户确认
-           *
-           * 4.发送交易hash到webView
-           * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
-           * String action=reqJson.getString("action");
-           * String version=reqJson.getString("version");
-           * String id=reqJson.getString("id");
-           * cyanoWebView.sendSuccessToWeb(action,version, id, 交易hash);
-           */
-        }
-});
-
-
-//response
-Map map = new HashMap<>();
-map.put("action", "");
-map.put("error", 0);
-map.put("desc", "SUCCESS");
-map.put("result", message);
-cyanoWebView.sendBack(Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes(), Base64.NO_WRAP));
-```
-
-iOS-sdk：
-
-```
-RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
-[webView setURL:@""];
-```
-
-
-
-```
-
-
-[webView setGetAccountCallback:^(NSDictionary *callbackDic) {
-
-}];
-
-
-[webView setInvokeTransactionCallback:^(NSDictionary *callbackDic) {
-
-}];
-
-[webView setInvokeReadCallback:^(NSDictionary *callbackDic) {
-
-}];
-
-
-NSDictionary *params = @{@"action":@"",
-                         @"version":@"v1.0.0",
-                         @"error":@0,
-                         @"desc":@"SUCCESS",
-                         @"result":@""
-                         };
-[webView sendMessageToWeb:params];
-```
+* 查询 Provider 信息
+* 查询账号或身份信息
+* 登陆
+* 消息签名
+* 调用合约
 
 ### 查询 Provider 信息步骤
 
@@ -491,6 +365,135 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 ```
 
 
+## dAPI Provider SDK 对接
+
+dAPI Provider SDK 帮助 ```Android webview``` 和网页 ```DAPP``` 之间通信。它对 ```webview``` 进行了一些方法的封装。分别支持 ```Android```、```iOS```，详细请参考：
+* [cyano-android-sdk](https://github.com/ontio-cyano/cyano-android-sdk)
+* [cyano-ios-sdk](https://github.com/ontio-cyano/cyano-ios-sdk)
+
+Android-sdk：
+
+```java
+//init
+CyanoWebView cyanoWebView=new CyanoWebView(context);
+cyanoWebView.loadUrl(url);
+
+//Action handle
+cyanoWebView.getNativeJsBridge().setHandleGetAccount(new NativeJsBridge.HandleGetAccount() {
+            @Override
+            public void handleAction(String data) {
+              /* TODO
+               * 1.发送钱包地址到webView
+               * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
+               * String action=reqJson.getString("action");
+               * String version=reqJson.getString("version");
+               * String id=reqJson.getString("id");
+               * cyanoWebView.sendSuccessToWeb(action,version, id, 钱包地址);
+               */
+            }
+	});
+
+cyanoWebView.getNativeJsBridge().setHandleInvoke(new NativeJsBridge.HandleInvoke() {
+            @Override
+            public void handleAction(String data) {
+              /* TODO
+               * 1.弹出密码输入框，解出钱包 account，将 data 构建交易，对交易进行签名，预执行获取结果，注意耗时操作。
+               *
+               * 2.将预知行结果解析出 Notify 结果，显示手续费，如果结果中包含 ONT , ONG 合约地址，需显示转账金额和收款地址，
+               *
+               * 3.用户确认后发送交易到链上
+               *
+               * 4.发送交易 hash 到 webView
+               * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
+               * String action=reqJson.getString("action");
+               * String version=reqJson.getString("version");
+               * String id=reqJson.getString("id");
+               * cyanoWebView.sendSuccessToWeb(action,version, id, 交易 hash);
+               */
+            }
+	});
+
+cyanoWebView.getNativeJsBridge().setHandleInvokeRead(new NativeJsBridge.HandleInvokeRead() {
+        @Override
+        public void handleAction(String data) {
+               /* TODO
+                * 1.将 data 构建交易，预执行获取结果，注意耗时操作。
+                *
+                * 2.发送预知行结果到 webView
+                * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
+                * String action=reqJson.getString("action");
+                * String version=reqJson.getString("version");
+                * String id=reqJson.getString("id");
+                * cyanoWebView.sendSuccessToWeb(action,version, id, 预知行结果);
+                */
+        }
+});
+
+
+cyanoWebView.getNativeJsBridge().setHandleInvokePasswordFree(new NativeJsBridge.HandleInvokePasswordFree() {
+        @Override
+        public void handleAction(String data, String message) {
+          /* TODO
+           * 1.第一次操作和action：Invoke相同，同时保存password和message
+           *
+           * 2.当第二次收到相同的message时候，将用保存的密码进行签名，预知行获取结果
+           *
+           * 3.预知行结果不用显示给用户确认
+           *
+           * 4.发送交易hash到webView
+           * com.alibaba.fastjson.JSONObject reqJson = JSON.parseObject(data);
+           * String action=reqJson.getString("action");
+           * String version=reqJson.getString("version");
+           * String id=reqJson.getString("id");
+           * cyanoWebView.sendSuccessToWeb(action,version, id, 交易hash);
+           */
+        }
+});
+
+
+//response
+Map map = new HashMap<>();
+map.put("action", "");
+map.put("error", 0);
+map.put("desc", "SUCCESS");
+map.put("result", message);
+cyanoWebView.sendBack(Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes(), Base64.NO_WRAP));
+```
+
+iOS-sdk：
+
+```
+RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
+[webView setURL:@""];
+```
+
+
+
+```
+
+
+[webView setGetAccountCallback:^(NSDictionary *callbackDic) {
+
+}];
+
+
+[webView setInvokeTransactionCallback:^(NSDictionary *callbackDic) {
+
+}];
+
+[webView setInvokeReadCallback:^(NSDictionary *callbackDic) {
+
+}];
+
+
+NSDictionary *params = @{@"action":@"",
+                         @"version":@"v1.0.0",
+                         @"error":@0,
+                         @"desc":@"SUCCESS",
+                         @"result":@""
+                         };
+[webView sendMessageToWeb:params];
+```
 
 ## 代码参考
 
@@ -498,7 +501,7 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 * [java sdk 验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
 * [ts sdk 验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
-##### DApp 后端查询交易事件
+##### DAPP 后端查询交易事件
 * [java sdk 交易事件查询方法](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
 * [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
@@ -506,7 +509,7 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
-##### dApi-mobile client sdk
+##### dApi-mobile dapp sdk
 * [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
 
 ##### dApi-mobile provider sdk

@@ -12,19 +12,21 @@
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
 
-### Login
+### 第一步，扫描登录
+详细流程：
 - 1.1 钱包扫描 ```DAPP``` 方提供的二维码（[登陆二维码标准](#登陆二维码标准)）
 - 1.2 Provider 获取到 ```callback url``` 和验证用的消息
 - 2 对消息签名，调用登陆方法（[DApp服务端登陆接口](#DApp服务端登陆接口)）
 - 3 ```DAPP``` 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
 
-### Invoke Smart contract
+### 第二步，扫描调用合约
+详细流程：
 - 1.1 钱包扫描 ```DAPP``` 方提供的二维码（[调用合约二维码标准](#调用合约二维码标准)）
 - 1.2 使用钱包扫码
 - 2 钱包构造交易，用户签名，预执行交易，用户确认，发送到链上，返回交易 ```Hash``` 给 ```DAPP``` 后端
 - 3 ```DAPP``` 后端查询这笔合约交易（[交易事件查询方法](#DApp后端查询交易事件)）
 
-## 接入步骤
+## dAPI 协议介绍
 
 共有两个功能，登录和调用合约。
 
@@ -247,7 +249,7 @@ ONG:0200000000000000000000000000000000000000
 * [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
 * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
-##### DApp后端查询交易事件
+##### DAPP 后端查询交易事件
 * [java sdk 交易事件查询方法](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
 * [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
@@ -255,7 +257,7 @@ ONG:0200000000000000000000000000000000000000
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
-##### dApi-mobile client sdk
+##### dApi-mobile dapp sdk
 * [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
 
 ##### dApi-mobile provider sdk

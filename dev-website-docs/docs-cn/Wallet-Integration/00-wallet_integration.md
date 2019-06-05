@@ -6,9 +6,7 @@
 
 ![wallet-integration](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/wallet-integration.png)
 
-完成两层集成后，就可以进行场景使用接入。
-
-你可以使用测试网和主网测试是否接入成功。
+完成两层集成后，就可以进行场景使用接入，你可以先使用 ```polaris``` 测试网验证是否接入成功，再使用主网。
 
 ### 资产功能集成
 
@@ -37,7 +35,5 @@
 ### 测试 DAPP 链接
 完成集成后，可以在钱包内打开以下链接，测试是否成功完成了接入：
 
-测试网 ```DAPP```：
-`http://101.132.193.149:5000/#/`
-主网 ```DAPP```：
-`https://github.com/ontio-community/dapp-store/blob/master/mobile-dapps.json`
+* 测试网 ```DAPP```：`http://101.132.193.149:5000/#/`
+* 主网 ```DAPP```：`https://github.com/ontio-community/dapp-store/blob/master/mobile-dapps.json`

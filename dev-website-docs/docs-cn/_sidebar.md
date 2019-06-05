@@ -5,7 +5,7 @@
   - [智能合约](docs-cn/introduction/03-smart-contract.md)
   - [ONTID](docs-cn/introduction/04-ontid.md)
   - [DDXF](docs-cn/introduction/05-ddxf.md)
-  - [白皮书与资源](docs-cn/introduction/06-white-papers.md)
+  - [资源](docs-cn/introduction/06-white-papers.md)
   - [社区贡献](docs-cn/introduction/07-contributions.md)
   - [术语表](docs-cn/introduction/08-glossary.md)
 
@@ -66,8 +66,7 @@
       - [应用唤醒钱包集成](docs-cn/Wallet-Integration/07-WalletDocking-wakeup.md)
 
 - 交易所对接指南
-  - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
-  - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
+  - [开始对接](docs-cn/exchange-API/Ontology-交易所对接文档.md)
   - [签名服务器使用说明](docs-cn/exchange-API/Ontology+签名服务器使用说明.md)
   - [常见问题](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
 

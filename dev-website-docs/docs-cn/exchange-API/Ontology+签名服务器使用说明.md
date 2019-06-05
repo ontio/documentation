@@ -1,12 +1,12 @@
 
-# Ontology 签名服务器使用说明
+
 
 Ontology签名服务器sigsvr是一个用于对交易进行签名的rpc服务器。签名服务器绑定在127.0.0.1地址上，只支持本机发送的签名请求。
 
 * [Ontology 签名服务器使用说明](#ontology-签名服务器使用说明)
-	* [1、签名服务启动](#1-签名服务启动)
+	* [1. 签名服务启动](#1-签名服务启动)
 		* [签名服务启动参数：](#签名服务启动参数)
-	* [2、签名服务方法](#2-签名服务方法)
+	* [2. 签名服务方法](#2-签名服务方法)
 		* [2.1 签名服务调用方法](#21-签名服务调用方法)
 		* [2.2 对普通交易签名](#22-对普通交易签名)
 		* [2.3 对普通方法多重签名](#23-对普通方法多重签名)
@@ -14,7 +14,7 @@ Ontology签名服务器sigsvr是一个用于对交易进行签名的rpc服务器
 		* [2.5 Native合约调用签名](#25-native合约调用签名)
 		* [2.6 Neovm合约调用签名](#26-neovm合约调用签名)
 
-## 1、签名服务启动
+## 1.签名服务启动
 
 ### 签名服务启动参数：
 
@@ -30,7 +30,7 @@ account 参数用于指定sigsvr启动时加载的账户地址。不填则使用
 --cliport  
 签名服务器绑定的端口号。默认值为20000。
 
-## 2、签名服务方法
+## 2.签名服务方法
 
 签名服务目前支持对普通交易的单签和多重签名，构造ONT/ONG转账交易并签名，构造Native合约调用交易并签名，构造NeoVM合约调用并签名。
 
@@ -38,12 +38,12 @@ account 参数用于指定sigsvr启动时加载的账户地址。不填则使用
 
 签名服务是一个json rpc服务器，采用POST方法，请求的服务路径统一为：
 
-```
+```shell
 http://localhost:20000/cli
 ```
 请求结构：
 
-```
+```json
 {
 	"qid":"XXX",    //请求ID，同一个应答会带上相同的qid
 	"method":"XXX", //请求的方法名
@@ -54,7 +54,7 @@ http://localhost:20000/cli
 ```
 应答结构：
 
-```
+```json
 {
     "qid": "XXX",   //请求ID
     "method": "XXX",//请求的方法名
@@ -86,14 +86,14 @@ http://localhost:20000/cli
 
 请求参数：
 
-```
+```json
 {
     "raw_tx":"XXX"      //待签名的交易
 }
 ```
 应答结果：
 
-```
+```json
 {
     "signed_tx":"XXX"   //签名后的交易
 }
@@ -101,7 +101,7 @@ http://localhost:20000/cli
 举例
 
 请求：
-```
+```json
 {
 	"qid":"1",
 	"method":"sigrawtx",
@@ -112,7 +112,7 @@ http://localhost:20000/cli
 ```
 应答：
 
-```
+```json
 {
     "qid": "1",
     "method": "sigrawtx",
@@ -127,7 +127,7 @@ http://localhost:20000/cli
 多签签名由于私钥掌握在不同的人手上，应该多重签名方法需要被多次调用。
 方法名：sigmutilrawtx  
 请求参数：
-```
+```json
 {
     "raw_tx":"XXX", //待签名的交易
     "m":xxx         //多重签名中，最少需要的签名数
@@ -138,7 +138,7 @@ http://localhost:20000/cli
 ```
 应答结果：
 
-```
+```json
 {
     "signed_tx":"XXX" //签名后的交易
 }
@@ -146,7 +146,7 @@ http://localhost:20000/cli
 举例  
 请求：
 
-```
+```json
 {
 	"qid":"1",
 	"method":"sigmutilrawtx",
@@ -162,7 +162,7 @@ http://localhost:20000/cli
 ```
 应答：
 
-```
+```json
 {
     "qid": "1",
     "method": "sigmutilrawtx",
@@ -178,7 +178,7 @@ http://localhost:20000/cli
 
 方法名称：sigtransfertx  
 请求参数：
-```
+```json
 {
 	"gas_price":XXX,  //gasprice 
 	"gas_limit":XXX,  //gaslimit
@@ -190,7 +190,7 @@ http://localhost:20000/cli
 ```
 应答结果：
 
-```
+```json
 {
     "signed_tx":XXX     //签名后的交易
 }
@@ -199,7 +199,7 @@ http://localhost:20000/cli
 举例  
 请求：
 
-```
+```json
 {
 	"qid":"t",
 	"method":"sigtransfertx",
@@ -216,7 +216,7 @@ http://localhost:20000/cli
 
 应答：
 
-```
+```json
 {
     "qid": "t",
     "method": "sigtransfertx",
@@ -238,7 +238,7 @@ sigsvr启动时，会在当前目录下查找"./cmd/abi/native"下的native合�
 方法名称：signativeinvoketx  
 请求参数：
 
-```
+```json
 {
     "gas_price":XXX,    //gasprice
     "gas_limit":XXX,    //gaslimit
@@ -251,7 +251,7 @@ sigsvr启动时，会在当前目录下查找"./cmd/abi/native"下的native合�
 }
 ```
 应答结果：
-```
+```json
 {
     "signed_tx":XXX     //签名后的交易
 }
@@ -260,7 +260,7 @@ sigsvr启动时，会在当前目录下查找"./cmd/abi/native"下的native合�
 以构造ont转账交易举例  
 请求：
 
-```
+```json
 {
 	"Qid":"t",
 	"Method":"signativeinvoketx",
@@ -284,7 +284,7 @@ sigsvr启动时，会在当前目录下查找"./cmd/abi/native"下的native合�
 ```
 应答：
 
-```
+```json
 {
     "qid": "1",
     "method": "signativeinvoketx",
@@ -303,7 +303,7 @@ Neovm参数合约支持array、bytearray、string、int以及bool类型，构造
 
 方法名称：signeovminvoketx  
 请求参数：
-```
+```json
 {
     "gas_price":XXX,    //gasprice
     "gas_limit":XXX,    //gaslimit
@@ -314,7 +314,7 @@ Neovm参数合约支持array、bytearray、string、int以及bool类型，构造
 }
 ```
 应答结果：
-```
+```json
 {
     "signed_tx":XXX     //签名后的交易
 }
@@ -323,7 +323,7 @@ Neovm参数合约支持array、bytearray、string、int以及bool类型，构造
 举例  
 请求:
 
-```
+```json
 {
 	"qid": "t",
 	"method": "signeovminvoketx",
@@ -352,7 +352,7 @@ Neovm参数合约支持array、bytearray、string、int以及bool类型，构造
 ```
 应答：
 
-```
+```json
 {
     "qid": "t",
     "method": "signeovminvoketx",

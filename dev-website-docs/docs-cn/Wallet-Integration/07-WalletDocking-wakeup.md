@@ -12,19 +12,25 @@
 
 DApp请求数据URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```
 
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
 
-### Login
+交互流程主要分两个步骤：
+
+### 第一步，DAPP 发起登录请求
 - 1.1 ```DAPP``` 唤醒 Provider（[唤醒登陆请求](#唤醒登陆请求)）
 - 1.2 Provider 获取到 ```callback url``` 和验证用的消息
 - 2 对消息签名，调用回调方法（[钱包处理登录请求](#钱包处理登录请求)）
 - 3 ```DAPP``` 后端验证签名（[DApp服务器返回数据](#DApp服务器返回数据)）后返回验证结果
 
-### Invoke Smart contract
+### 第二步，DAPP 发起调用合约请求
 - 1 ```DAPP``` 唤醒 provider（[调用合约唤醒标准](#调用合约唤醒标准)）
 - 2 Provider 构造交易，预执行交易，发送到链上，返回交易 ```Hash``` 给 ```callback``` 地址
 - 3 DAPP 后端查询这笔合约交易（[DApp后端查询交易事件](#DApp后端查询交易事件)）
 
-## 接入步骤
+
+
+
+## dAPI 协议介绍
 
 共有两个功能，登录和调用合约。
 
@@ -233,7 +239,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 * [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
 * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/message.test.ts)
 
-##### DApp后端查询交易事件
+##### DAPP 后端查询交易事件
 * [java sdk 交易事件查询方法](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
 * [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
@@ -241,7 +247,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
-##### dApi-mobile client sdk
+##### dApi-mobile dapp sdk
 * [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
 
 ##### dApi-mobile provider sdk
