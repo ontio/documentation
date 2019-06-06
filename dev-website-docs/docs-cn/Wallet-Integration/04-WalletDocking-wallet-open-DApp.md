@@ -2,7 +2,7 @@
 
 ## 概述
 
-本文用于指导钱包 APP 如何对接 Provider SDK 以支持本体的 dAPI 协议，对接 Provider SDK 可以参考对应的 [开源 Android 和 iOS 钱包](https://github.com/ontio-cyano)。
+本文用于指导钱包 APP 如何对接 ```Provider SDK``` 以支持本体的 dAPI 协议，对接 Provider SDK 可以参考对应的 [开源 Android 和 iOS 钱包](https://github.com/ontio-cyano)。
 
 对接流程中涉及到的参与方包括：
 
@@ -13,7 +13,7 @@
 
 ## 交互流程说明
 
-交互流程中 DAPP 请求数据 URI scheme 是：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```，交互流程主要分三个步骤。
+交互流程中 DAPP 请求数据 ```URI scheme``` 是：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```，交互流程主要分三个步骤。
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 
@@ -21,22 +21,22 @@
 
 #### 第一步，钱包使用 Webview 打开 DAPP（使用 H5 开发）
 
- 钱包使用 Webview 打开 H5 DAPP
+ 钱包 ```dApp Store``` 页面使用 ```Webview``` 打开 H5 DAPP
 
 #### 第二步，DAPP 发起获取钱包地址信息请求
 
 有两种获取方式:
-* [通过 getAccount 协议获取账户信息](#查询账号或身份信息步骤)
-* [通过 Login 协议获取账户信息](#DApp发起登录请求)
+* [通过 getAccount 协议获取账户信息](#查询钱包账号或身份信息)
+* [通过 Login 协议获取账户信息](#登录)
 
 #### 第三步，DAPP 发起调用合约请求
 
 详细流程：
- 1. DApp 请求调用合约（[DApp发起调用合约请求](#DApp发起调用合约请求)）
+ 1. DApp 请求 [调用合约](#调用合约)
  2. 钱包构造交易，弹出密码框让用户签名，用户输入密码
  3. 钱包预执行交易（[预执行交易](#预执行交易)）
- 4. 钱包发送交易
- 3. 钱包返回交易Hash（[钱包响应调用合约请求](#钱包响应调用合约请求)）
+ 4. 钱包发送交易到链上
+ 3. 钱包返回交易Hash
 
 
 
@@ -45,12 +45,12 @@
 dAPI 协议可扩展，现在支持的主要功能有：
 
 * 查询 Provider 信息
-* 查询账号或身份信息
-* 登陆
+* 查询钱包账号或身份信息
+* 登录
 * 消息签名
 * 调用合约
 
-### 查询 Provider 信息步骤
+### 查询 Provider 信息
 
 DApp 发起查询 Provider 信息请求，数据如下，**URI 编码，Base64 编码**后发送请求：
 ```json
@@ -85,7 +85,7 @@ DApp 发起查询 Provider 信息请求，数据如下，**URI 编码，Base64 �
 }
 ```
 
-### 查询账号或身份信息步骤
+### 查询钱包账号或身份信息
 
 DApp 发起查询账号或身份信息请求，数据如下，**URI 编码，Base64 编码**后发送请求：
 ```json
@@ -121,7 +121,7 @@ DApp 发起查询账号或身份信息请求，数据如下，**URI 编码，Bas
 }
 ```
 
-### 登陆步骤
+### 登录
 
 DApp 发起登录请求，数据如下，**URI 编码，Base64 编码**后发送请求：
 ```json
@@ -192,7 +192,7 @@ DApp 发起登录请求，数据如下，**URI 编码，Base64 编码**后发送
 ```
 
 
-### 消息签名步骤
+### 消息签名
 
 跟登录协议一样，但 DApp 请求时不需要 DApp 名字和 icon。DApp 发起签名请求，数据如下，**URI 编码，Base64 编码**后发送请求：
 ```json
@@ -216,7 +216,7 @@ DApp 发起登录请求，数据如下，**URI 编码，Base64 编码**后发送
 
 
 
-### 调用合约步骤
+### 调用合约
 
 action 是 invoke: 走正常流程。
 
@@ -226,7 +226,7 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 
 
 
-#### DApp 发起调用合约请求
+#### DAPP 发起调用合约请求
 数据如下，**URI 编码，Base64 编码**后发送请求：
 
 ```json

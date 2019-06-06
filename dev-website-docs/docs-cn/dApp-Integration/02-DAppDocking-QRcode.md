@@ -7,26 +7,26 @@
 * DApp 方：为本体生态内的用户提供 ```DAPP```，是本体生态中重要的组成部分。
 * Provider：实现 ```dAPI mobile``` 规范的钱包
 
-## 交互流程说明
+## 交互流程
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
 
 ### 登录
-1. DApp 方提供二维码（[登录二维码标准](#登录二维码标准)）
-2. DApp 服务端登录方法（[DApp服务端登录接口](#DApp服务端登录接口)）
+1. DApp 方提供二维码（[登录](#登录)）
+2. DApp 服务端登录方法（[DAPP 服务端登录接口](#DAPP-服务端登录接口)）
 3. DApp 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
 
 ### 调用智能合约
-1. DApp 方提供二维码（[调用合约二维码标准](#调用合约二维码标准)）
+1. DApp 方提供二维码（[调用合约](#调用合约)）
 2. Provider 构造交易、用户签名、预执行交易、用户确认、发送到链上、最后返回交易 hash 给 DApp 后端
-3. DApp 后端查询这笔合约交易（[交易事件查询方法](#DApp后端查询交易事件)）
+3. DApp 后端到链上查询这笔合约交易事件
 
-## 接入步骤
+## dAPI 协议介绍
 
+目前支持登录和调用合约
 
-
-### 登录二维码标准
-扫码获取
+### 登录
+二维码标准：
 
 ```json
 {
@@ -55,7 +55,7 @@
 | expire   | long  | 可选  |
 | callback   | string  | 用户扫码签名后发送到 DApp 后端 URL |
 
-### DApp服务端登录接口
+### DAPP 服务端登录接口
 method: post
 
 ```json
@@ -84,7 +84,6 @@ method: post
 | publickey | string | 账户公钥 |
 | signature  |  string |  用户签名 |
 
-#### 响应
 成功响应：
 
 ```json
@@ -110,8 +109,9 @@ method: post
 ```
 
 
-### 调用合约二维码标准
-扫码获取
+### 调用合约
+
+支付也是调用合约子功能，调用合约二维码标准：
 
 ```json
 {

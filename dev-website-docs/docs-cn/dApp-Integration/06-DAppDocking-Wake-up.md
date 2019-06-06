@@ -2,14 +2,18 @@
 
 ## 概述
 
-进行特殊适配的钱包 ```App``` 可以支持被手机内其他 ```App``` 唤醒，本文将介绍在 ```App``` 内如何通过唤醒钱包 ```App``` 实现登录，调用智能合约（包括付款）等功能。
+进行特殊适配的钱包 ```App``` 可以支持被手机内其他 ```App``` 唤醒，本文将介绍在 ```App``` 内如何通过唤醒钱包 ```App``` 实现登录，调用智能合约（包括付款）等功能，应用唤醒实现请参考 [Android 应用例子](https://github.com/ontio-cyano/android-app-demo)。
 
 ### 基本概念
 
+介绍去中心化应用程序和去中心化手机钱包的职责。
+
 ##### DAPP
+
 去中心化应用程序
 
-##### DAPP 后台
+##### DAPP 后台：
+
 主要提供以下功能：
 - ```DAPP``` 操作，生成相应的登录参数或者调用智能合约的参数。
 - 同步链上信息，获取登录或调用智能合约的结果
@@ -22,7 +26,9 @@
 ##### 演示
 我们提供了一个唤醒特定钱包的Demo app 供参考：[唤醒演示](https://github.com/ontio-cyano/android-app-demo)，[Unity 游戏演示](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
 
-## 交互流程
+
+
+## dAPI 协议介绍
 
 DApp 开发要实现唤醒功能中的两种流程：
 - 登录

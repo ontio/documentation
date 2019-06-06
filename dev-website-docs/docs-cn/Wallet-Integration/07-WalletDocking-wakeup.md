@@ -3,35 +3,34 @@
 
 ## 概述
 
-本文用于指导dApp方如何唤醒钱包，及钱包如何返回信息。钱包实现请参考 [Cyano 开源钱包](https://github.com/ontio-cyano), 应用唤醒实现请参考 [Android 应用例子](https://github.com/ontio-cyano/android-app-demo),流程中涉及到的参与方包括：
+本文用于指导钱包方如何提供唤醒服务，以支持登录和调用合约功能。钱包实现请参考 [Cyano 开源钱包](https://github.com/ontio-cyano), 应用唤醒实现请参考 [Android 应用例子](https://github.com/ontio-cyano/android-app-demo),流程中涉及到的参与方包括：
 
 * DAPP 方：对本体生态内的用户提供 ```DAPP```，是本体生态中重要的组成部分。
 * Provider：实现 ```dAPI``` 规范的钱包
 
 ## 交互流程说明
 
-DAPP 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```，交互流程主要分两个步骤：
+DAPP 请求数据 ```URI scheme``` ：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```，交互流程主要分两个步骤：
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
 
 
 ### 第一步，DAPP 发起登录请求
-- 1.1 ```DAPP``` 唤醒 Provider（[唤醒登陆请求](#唤醒登陆请求)）
-- 1.2 Provider 获取到 ```callback url``` 和验证用的消息
-- 2 对消息签名，调用回调方法（[钱包处理登录请求](#钱包处理登录请求)）
-- 3 ```DAPP``` 后端验证签名（[DApp服务器返回数据](#DApp服务器返回数据)）后返回验证结果
+1. ```DAPP``` 唤醒钱包（[登录](#登录)）
+2. 钱包获取到 ```callback url``` 和验证用的消息，让用户输入密码对消息签名，钱包调用 ```DAPP``` 后端的回调方法
+3. ```DAPP``` 后端验证签名
 
 ### 第二步，DAPP 发起调用合约请求
-- 1 ```DAPP``` 唤醒 provider（[调用合约唤醒标准](#调用合约唤醒标准)）
-- 2 Provider 构造交易，预执行交易，发送到链上，返回交易 ```Hash``` 给 ```callback``` 地址
-- 3 DAPP 后端查询这笔合约交易（[DApp后端查询交易事件](#DApp后端查询交易事件)）
+1. ```DAPP``` 唤醒钱包（[调用合约](#调用合约)）
+2. 钱包构造交易，用户输入密码，钱包预执行交易，待用户确认后，发送到链上，返回交易 ```Hash``` 给 ```callback``` 地址
+3. DAPP 后端可以根据交易 ```Hash``` 到链上查询这笔合约交易事件
 
 
 
 
 ## dAPI 协议介绍
 
-共有两个功能，登录和调用合约。
+唤醒目前支持两个功能，登录和调用合约。
 
 ### 登录
 
@@ -116,8 +115,9 @@ DAPP 请求数据 URI scheme：```ontprovider://ont.io?param=Base64.encode(Uri.e
 ```
 
 
-### 调用合约唤醒标准
-数据如下，**URI编码，Base64编码**后发送请求：
+### 调用合约
+
+唤醒钱包的数据如下，**URI编码，Base64编码**后发送请求：
 
 ```json
 {
