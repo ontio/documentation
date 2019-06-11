@@ -2,7 +2,7 @@
 
 ## 登录
 
-在注册之后，您已经拥有了ONT ID文件，您仅需要选择这个文件并输入密码来登录您的账户，如下图所示。
+支持使用钱包文件或 Github 账号登录，如下图所示。
 
 ![登录](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/smartx/login.png)
 

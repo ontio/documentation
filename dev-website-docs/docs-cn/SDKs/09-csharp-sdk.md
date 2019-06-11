@@ -4,16 +4,16 @@ C# SDK 的目标是帮助 .NET 开发者开发基于本体链的 DAPP。源码�
 
 ## 初始化
 
-```
+```c#
 OntologySdk OntSDK = new OntologySdk(_node, ConnectionMethodFactory.ConnectionMethod.REST);
 
 Console.WriteLine("random create private key: "+ Helper.Bytes2HexString(Helper.CreatePrivateKey()));
 
 ```
 
-## 使用 REST 与节点交互
+## 与节点交互
 
-```
+```c#
 
 try { Console.WriteLine("Connecting to blockchain via: " + OntSDK.Connection.GetType()); } catch { };
 try { Console.WriteLine("Block Height: " + OntSDK.Connection.getBlockHeight()); } catch { };
@@ -34,14 +34,14 @@ try { Console.WriteLine("getSmartCodeEvent: " + OntSDK.Connection.getSmartCodeEv
 
 ## 转账
 
-```
+```c#
 NetworkResponse result = OntSDK.transfer("ONG", from, to, 5, payer, 20000,500, new List<byte[]>() { Helper.HexString2Bytes(privatekey) },true);
 Console.WriteLine(result.JobjectResponse);
 ```
 
 ## 调用合约
 
-```
+```c#
 
 var jarray = new JArray();
 var arg1 = new JObject {

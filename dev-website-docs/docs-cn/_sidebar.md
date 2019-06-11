@@ -103,6 +103,7 @@
 
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
+  - [钱包文件规范](docs-cn/SDKs/wallet-file-specification.md)
   - [Go SDK](docs-cn/SDKs/01-go-sdk.md)
   - [Java SDK](docs-cn/SDKs/02-java-sdk.md)
   - [Python SDK](docs-cn/SDKs/03-python-sdk.md)

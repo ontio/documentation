@@ -83,14 +83,7 @@ def transferOng(from_base58, to_base58,  ong_amount):
 
 为了实现上述的几种功能，我们提供了两种Dapp接入技术方案，两种接入方式都可以实现登录，调用智能合约等功能，开发者可以根据自身需求选择其中一种进行接入的开发
 
-### ONT ID 开放平台（集成方案）
 
-
-ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合约执行、```KYC``` 等服务。
-
-ONT ID 开放平台的优势在于，采用可信任的托管模式后，用户登录DApp将不再依赖于用户本地的钱包，大大扩展了 ```DAPP``` 的使用范围。
-
-- [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
 
 ### DApi 集成（去中心化方案）
 
@@ -107,3 +100,13 @@ dAPI 集成的优势在于，用户自己可以掌握自己所有的资产和信
 
 - [Unity 3D 对接 C# SDK](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
 - [其他语言 SDK 使用](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview)
+
+
+### ONT ID 开放平台（集成方案）
+
+
+ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合约执行、```KYC``` 等服务。
+
+ONT ID 开放平台的优势在于，采用可信任的托管模式后，用户登录DApp将不再依赖于用户本地的钱包，大大扩展了 ```DAPP``` 的使用范围。
+
+- [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
