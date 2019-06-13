@@ -299,6 +299,62 @@
 /*       .token.attr-value, .token.control, .token.directive, .token.unit {
           color: #32a4be;
       } */
+      @media screen and (max-width:1320px) {
+        .markdown-section {
+            max-width: 800px;
+            padding: 30px 15px 40px;
+            position: relative;
+            margin:0 auto;
+        }
+        .app-sub-sidebar{
+          position: initial;
+        }
+        .app-sub-sidebar li:before {
+            content: "-";
+            padding-right: 4px;
+            float: left;
+        }
+      }
+      @media screen and (min-width:1320px) and (max-width:1550px) {
+        .markdown-section {
+            max-width: 750px;
+            padding: 30px 15px 40px;
+            position: relative;
+            margin-left: 200px;
+            margin-right: auto;
+        }
+        .app-sub-sidebar{
+          position: fixed;
+          right: 20px;
+          top: 120px;
+          width:200px;
+        }
+        .app-sub-sidebar li:before {
+            content: "";
+            padding-right: 4px;
+            float: left;
+        }
+      }
+      @media screen and (min-width:1550px){
+        .markdown-section {
+            max-width: 800px;
+            padding: 30px 15px 40px;
+            position: relative;
+            margin:0 auto;
+        }
+        .app-sub-sidebar{
+          position: fixed;
+          right: 20px;
+          top: 120px;
+          width:200px;
+        }
+        .app-sub-sidebar li:before {
+            content: "";
+            padding-right: 4px;
+            float: left;
+        }
+      }
+
   </style>
 </head>
 <body>
