@@ -61,8 +61,8 @@
   - [SDK 集成](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
   - [dAPI 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [钱包内打开 dApp 集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
-      - [钱包扫码集成](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
-      - [应用唤醒钱包集成](docs-cn/Wallet-Integration/07-WalletDocking-wakeup.md)
+      - [钱包扫码集成（可选）](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
+      - [唤醒钱包集成（可选）](docs-cn/Wallet-Integration/07-WalletDocking-wakeup.md)
 
 - 交易所对接指南
   - [开始对接](docs-cn/exchange-API/Ontology-交易所对接文档.md)

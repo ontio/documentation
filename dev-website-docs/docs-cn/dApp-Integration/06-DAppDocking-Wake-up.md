@@ -130,19 +130,47 @@ public static boolean checkInstallCynoApp(Context context) {
 	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
 	"params": {
 		"login": true,
-		"qrcodeUrl": "http://101.132.193.149:4027/qrcode/AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
 		"message": "will pay 1 ONT in this transaction",
-		"callback": "http://101.132.193.149:4027/invoke/callback"
+		"callback": "http://101.132.193.149:4027/invoke/callback",
+		"invokeConfig": {
+        			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
+        			"functions": [{
+        				"operation": "method name",
+        				"args": [{
+        					"name": "arg0-list",
+        					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
+        						"key": 6
+        					}]
+        				}, {
+        					"name": "arg1-map",
+        					"value": {
+        						"key": "String:hello",
+        						"key1": "ByteArray:aabb",
+        						"key2": "Long:100000000000",
+        						"key3": true,
+        						"key4": 100,
+        						"key5": [100],
+        						"key6": {
+        							"key": 6
+        						}
+        					}
+        				}, {
+        					"name": "arg2-str",
+        					"value": "String:test"
+        				}]
+        			}],
+        			"payer": "AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",
+        			"gasLimit": 20000,
+        			"gasPrice": 500
+        }
 	}
 }
 ```
 #### 具体实施流程
 
-1. 检查是否安装特定 Provider ，参考 [登录](#登录)
+1. 确保手机已安装集成了 Provider-sdk 的钱包 APP
 
-2. DApp 后台将交易内容放在 qrcodeUrl 链接中，具体操作请参考 [Cyano二维码](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki#Invoke_a_Smart_Contract-2)
-
-   拼接传递内容，启动交易，例如：
+2. 构造调用合约的 json 数据，唤醒钱包。
 
 ```java
 
