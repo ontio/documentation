@@ -12,7 +12,7 @@
 |   ontology-php-sdk   |     PHP     |   https://github.com/ontio-community/ontology-php-sdk   |
 |  ontology-swift-sdk  |    Swift    |  https://github.com/ontio-community/ontology-swift-sdk  |
 | ontology-andriod-sdk |    Java     | https://github.com/ontio-community/ontology-andriod-sdk |
-| ontology-csharp-sdk |    Java     | https://github.com/ontio-community/ontology-csharp-sdk |
+| ontology-csharp-sdk |    C#     | https://github.com/ontio-community/ontology-csharp-sdk |
 
 在实现程度上，所有的软件开发工具包均支持以下的基本功能：
 

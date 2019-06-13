@@ -430,7 +430,7 @@ rest.sendRawTransaction(tx.serialize()).then(res => {
 
 可以通过restful，rpc，websocket与链交互。
 
-```
+```js
 import {RestClient} from 'ontology-ts-sdk'
 
 const rest = new RestClient();
@@ -465,7 +465,7 @@ rest.getAllowance(asset: string, from: Address, to: Address)
 
 注册候选节点.
 
-````
+````js
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 
 //@param ontid {string} User's ONT ID
@@ -483,7 +483,7 @@ const tx = GovernanceTxBuilder.makeRegisterCandidate(ontid, peerPubkey, keyNo, u
 
 取消注册.
 
-```
+```js
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 
 //@param userAddr {Address} User's address that paied for the register
@@ -498,7 +498,7 @@ const tx = GovernanceTxBuilder.makeUnregisterCandidateTx(userAddr, peerPubkey, p
 
 提取 ONT.
 
-```
+```js
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 
 //@param userAddr {Address} User's address that paied for the register
@@ -514,7 +514,7 @@ const tx = GovernanceTxBuilder.makeWithdrawTx(userAddr, peerPubkeys, withdrawLis
 
 退出质押.
 
-```
+```js
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 
 //@param userAddr {Address} User's address that paied for the register
@@ -528,49 +528,18 @@ const tx = GovernanceTxBuilder.makeQuitNodeTx(userAddr, peerPubkey, payer, gasPr
 
 ### 6.1 查询开发授权质押的节点列表
 
-```
+```js
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 const url = 'http://polaris1.ont.io:20334';
 const peerMap = await GovernanceTxBuilder.getPeerPoolMap(url)
 ```
 该接口返回的结果是所有的节点详情。展示的列表需要对返回结果做一些处理，如按质押总数进行排序，匹配节点名称等。具体步骤可以参考OWallet的处理方式[NodeAuthorization.js --> fetchNodeList()](https://github.com/ontio/OWallet/blob/master/src/renderer/store/modules/NodeAuthorization.js)
 
-目前开放授权质押的节点如下：
 
-```
-{
-    name: 'Dubhe',
-    pk: '02bcdd278a27e4969d48de95d6b7b086b65b8d1d4ff6509e7a9eab364a76115af7'
-  },
-  {
-    name: 'Merak',
-    pk: '0251f06bc247b1da94ec7d9fe25f5f913cedaecba8524140353b826cf9b1cbd9f4'
-  },
-  {
-    name: 'Phecda',
-    pk: '022e911fb5a20b4b2e4f917f10eb92f27d17cad16b916bce8fd2dd8c11ac2878c0'
-  },
-  {
-    name: 'Megrez',
-    pk: '0253719ac66d7cafa1fe49a64f73bd864a346da92d908c19577a003a8a4160b7fa'
-  },
-  {
-    name: 'Alioth',
-    pk: '022bf80145bd448d993abffa237f4cd06d9df13eaad37afce5cb71d80c47b03feb'
-  },
-  {
-    name: 'Mixar',
-    pk: '02765d98bb092962734e365bd436bdc80c5b5991dcf22b28dbb02d3b3cf74d6444'
-  },
-  {
-    name: 'Alkaid',
-    pk: '03c8f63775536eb420c96228cdccc9de7d80e87f1b562a6eb93c0838064350aa53'
-  }
-```
 
 ### 6.2 查询授权质押详情
 
-```
+```js
 //@param pk {string} Public key of the node to stake
 //@param userAddr {Address} Address of user
 //@param url Url of network to connect
@@ -582,7 +551,7 @@ const authorizeInfo = await GovernanceTxBuilder.getAuthorizeInfo(pk, userAddr, u
 ```
 AuthorizeInfo 具有以下结构：
 
-```
+```js
 class AuhtorizeInfo {
     peerPubkey: string = ''; //Node's public key
     address: Address; // User's wallet address
@@ -602,7 +571,7 @@ class AuhtorizeInfo {
 
 ### 6.3 查询授权质押收益
 
-```
+```js
 //@param userAddr {Address} User's wallet address
 //@param url {string} Url of node
 
@@ -611,7 +580,7 @@ const userAddr = new Crypto.Address(address);
 const splitFee = await GovernanceTxBuilder.getSplitFeeAddress(userAddr, url)
 ```
 
-```
+```js
 class SplitFeeAddress {
     address: Address; // User's wallet address
     amount: number = 0; // Stake profit ONG number
@@ -622,7 +591,7 @@ class SplitFeeAddress {
 
 ### 6.4 查询ONT解绑的ONG
 
-```
+```js
 //@param addr {Address} User's wallet address
 //@param url {string} Network's url
 
@@ -641,7 +610,7 @@ try {
 
 ### 6.5 给某个节点授权质押
 
-```
+```js
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
 
 //@param userAddr {Address} User's wallet address
@@ -665,7 +634,7 @@ const tx = GovernanceTxBuilder.makeAuthorizeForPeerTx(
 
 ### 6.6 取消对某个节点的授权质押
 
-```
+```js
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
 
 //@param userAddr {Address} User's wallet address
@@ -692,7 +661,7 @@ const tx = GovernanceTxBuilder.makeUnauthorizeForPeerTx(
 
 ### 6.7 提取可提取的ONT
 
-```
+```js
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
 
 //@param userAddr {Address} User's wallet address
@@ -714,7 +683,7 @@ const tx = GovernanceTxBuilder.makeWithdrawTx(
 
 ### 6.8 提取解绑的ONG
 
-```
+```js
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
 
 //@param userAddr {Address} User's wallet address
@@ -732,7 +701,7 @@ const tx = GovernanceTxBuilder.makeWithdrawPeerUnboundOngTx(
 
 ### 6.9 提取授权质押的收益
 
-```
+```js
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
 
 //@param userAddr {Address} User's wallet address
@@ -747,3 +716,45 @@ const tx = GovernanceTxBuilder.makeWithdrawFeeTx(
     GAS_LIMIT
 )
 ```
+
+#### 6.10 查询节点质押总量
+
+```js
+//@param userAddr {Address} Address of user
+//@param url Url of network to connect
+
+import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
+const url = getNodeUrl();
+const userAddr = new Crypto.Address(address);
+const totalStake = await GovernanceTxBuilder.getTotalStake(userAddr, url)
+```
+
+```js
+class TotalStake {
+    address: Address; // User's address
+    stake: number; // Total num of stake
+    timeOffset: number; //Start time for calculating the unbound ONG
+}
+```
+
+
+
+### 6.11 查询当前周期结束所需的区块数量
+
+```javascript
+import {GovernanceTxBuilder, RestClient} from 'ontology-ts-sdk'
+
+const url = 'http://polaris1.ont.io:20334' // Url of node.
+const rest = new RestClient(url);
+try {
+  const view = await GovernanceTxBuilder.getGovernanceView(url);
+  const blockRes = await rest.getBlockHeight();
+  const blockHeight = blockRes.Result;
+  const countdown = 120000 - (blockHeight - view.height);
+  return countdown; // The amount of blocks to the end of current round
+}catch(err) {
+  // alert('Network error.')
+  console.log(err)
+}
+```
+

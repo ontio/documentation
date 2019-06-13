@@ -2,36 +2,37 @@
 
 ## 概述
 
-本文用于指导 DApp 方如何接入 Provider ，并使用扫码登陆，扫码调用智能合约等服务。
+本文用于指导钱包方如何接入扫码功能，提供扫码登陆，扫码调用智能合约等服务。
 流程中涉及到的参与方包括：
 
-* DApp 方：对 ONT 生态内的用户提供 dApp ，是本体生态中重要的组成部分。
-* Provider：实现 daApi mobile 规范的钱包
+* DApp 方：对本体链生态内的用户提供 ```dApp``` ，是本体生态中重要的组成部分。
+* Provider：实现 ```dAPI mobile``` 规范的钱包
 
 ## 交互流程说明
 
+应用方提供二维码，用户通过手机钱包扫码。
+
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
 
-### Login
-- 1.1 钱包扫描 ```DAPP``` 方提供的二维码（[登陆二维码标准](#登陆二维码标准)）
-- 1.2 Provider 获取到 ```callback url``` 和验证用的消息
-- 2 对消息签名，调用登陆方法（[DApp服务端登陆接口](#DApp服务端登陆接口)）
-- 3 ```DAPP``` 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
+### 第一步，扫描登录
+详细流程：
+1. 钱包扫描 ```DAPP``` 方提供的二维码（[登录二维码标准](#登录二维码标准)）
+2. Provider 获取到 ```callback url``` 和验证用的消息，让用户输入密码对对消息签名，调用```DAPP``` 方的回调地址
+3. ```DAPP``` 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
 
-### Invoke Smart contract
-- 1.1 钱包扫描 ```DAPP``` 方提供的二维码（[调用合约二维码标准](#调用合约二维码标准)）
-- 1.2 使用钱包扫码
-- 2 钱包构造交易，用户签名，预执行交易，用户确认，发送到链上，返回交易 ```Hash``` 给 ```DAPP``` 后端
-- 3 ```DAPP``` 后端查询这笔合约交易（[交易事件查询方法](#DApp后端查询交易事件)）
+### 第二步，扫描调用合约
+详细流程：
+1. 钱包扫描 ```DAPP``` 方提供的二维码（[调用合约二维码标准](#调用合约二维码标准)）
+2. 钱包构造交易，用户签名，预执行交易，用户确认，发送到链上，调用 ```DAPP``` 后端的回调地址发送交易 ```Hash``` 
+3. ```DAPP``` 后端查询这笔合约交易事件
 
-## 接入步骤
+## dAPI 协议介绍
 
-共有两个功能，登录和调用合约。
+扫码目前支持两个功能，登录和调用合约。
 
-### 登录接入步骤
+### 登录
 
-#### 登录二维码标准
-扫码获取
+通过钱包扫描做授权登录。钱包通过扫码获取登录参数，签名授权并发送给 DAPP 后端。
 
 ```json
 {
@@ -51,16 +52,16 @@
 
 |字段|类型|定义|
 | :---| :---| :---|
-| action   |  string |  定义此二维码的功能，登录设定为"Login"，调用智能合约设定为"invoke" |
+| action   |  string |  定义此二维码的功能，登录设定为 "Login"，调用智能合约设定为 "invoke" |
 | id   |  string |  消息序列号，可选 |
-| type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
+| type   |  string |  定义是使用ontid登录设定为 "ontid"，钱包地址登录设定为 "account" |
 | dappName   | string  | dapp名字 |
 | dappIcon   | string  | dapp icon信息 |
 | message   | string  | 随机生成，用于校验身份  |
 | expire   | long  | 可选  |
 | callback   | string  |  用户扫码签名后发送到DApp后端URL |
 
-### DApp 服务端登录接口
+### DAPP 服务端的回调接口
 method: post
 
 ```json
@@ -89,8 +90,7 @@ method: post
 | publickey | string | 账户公钥 |
 | signature  |  string |  用户签名 |
 
-#### Response
-* Success
+返回成功：
 
 ```json
 {
@@ -102,7 +102,7 @@ method: post
 }
 ```
 
-* Failed
+返回失败：
 
 ```json
 {
@@ -114,9 +114,10 @@ method: post
 }
 ```
 
+### 调用合约
 
-### 调用合约二维码标准
-扫码获取
+支付也是调用合约的一种，采用统一的协议标准。调用合约二维码标准：
+
 
 ```json
 {
@@ -183,9 +184,9 @@ method: post
 ```
 
 
-Provider 构造交易，用户签名，预执行交易，发送交易，POST 交易 hash 给 callback url 。
+钱包构造交易，用户签名，预执行交易，发送交易，POST 交易 hash 给 callback url 。
 
-* 发送交易成功 POST 给 callback
+* 发送交易成功 POST 给回调地址
 
 ```json
 {
@@ -197,7 +198,7 @@ Provider 构造交易，用户签名，预执行交易，发送交易，POST 交
 }
 ```
 
-* 发送交易失败给 callback
+* 发送交易失败 POST 给回调地址
 
 ```json
 {
@@ -247,7 +248,7 @@ ONG:0200000000000000000000000000000000000000
 * [java sdk验签](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/interface.md#%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)
 * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
-##### DApp后端查询交易事件
+##### DAPP 后端查询交易事件
 * [java sdk 交易事件查询方法](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/basic.md#%E4%B8%8E%E9%93%BE%E4%BA%A4%E4%BA%92%E6%8E%A5%E5%8F%A3)
 * [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
@@ -255,7 +256,7 @@ ONG:0200000000000000000000000000000000000000
 * [cyano-android](https://github.com/ontio-cyano/cyano-android)
 * [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
-##### dApi-mobile client sdk
+##### dApi-mobile dapp sdk
 * [cyano-bridge](https://github.com/ontio-cyano/cyano-bridge)
 
 ##### dApi-mobile provider sdk

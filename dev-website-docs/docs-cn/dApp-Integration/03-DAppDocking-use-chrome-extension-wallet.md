@@ -24,15 +24,18 @@ DAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 - [Git](https://git-scm.com/)
 
 
-## DAPI 使用
-#### DAPI 安装
-创建 DApp 时，本体 DAPI 是与本体链交互的核心 API 之一，可以从 [这里](https://github.com/ontio/ontology-dapi) 下载源码。 通过 ```npm``` 安装 ontology-DAPI：
+## dAPI 协议介绍
+
+介绍应用如何集成 ```dAPI``` 协议。
+
+#### dAPI 安装
+创建 DAPP 时，本体 DAPI 是与本体链交互的核心 API 之一，可以从 [这里](https://github.com/ontio/ontology-dapi) 下载源码。 通过 ```npm``` 安装 ontology-DAPI：
 
 ```shell
 $ npm install ontology-dapi
 ```
 
-#### 创建 DAPI 实例
+#### 创建 dAPI 实例
 
 创建 DAPI 实例时，要先导入库 ontology-dapi，并注册客户端，如下所示：
 
@@ -42,8 +45,8 @@ import { client } from 'ontology-dapi';
 client.registerClient({});
 ```
 
-#### DAPI 方法
-创建 DAPI 实例成功后，就可以在你的 DApp 中调用 DAPI 方法。
+#### dAPI 方法
+创建 dAPI 实例成功后，就可以在你的 DAPP 中调用 dAPI 方法。
 
 ##### 获取账号或身份信息
 
@@ -89,7 +92,7 @@ const result = await client.api.message.verifyMessage({ message, signature });
 所有方法列表可参考 [DAPI 规范](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki)。
 
 
-## 运行例子
+## 演示例子
 
 拷贝 [dAPI 例子](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)，可以测试 DAPI 提供了哪些功能。
 

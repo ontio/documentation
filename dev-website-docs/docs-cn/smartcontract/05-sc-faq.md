@@ -102,7 +102,7 @@ Ontology合约是支持合约迁移的功能的，方法是使用[```ontology.in
 #### 10. 合约内部，转账ONT, ONG,与OEP4时，数量应该怎么填写？
     
 ONT没有精度，即最小单位为1，如果要转2个ONT，使用```Invoke()```，调用时应该写：
-```
+```python
 ONTAddress = bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01')
 param = state(fromAcct, toAcct, 2)
 res = Invoke(0, ONTAddress, "transfer", [param])
@@ -111,7 +111,7 @@ assert(res)
 ```
 
 ONG精度为9，即最小单位为1*10^(-9)，如果要转3.12个ONG，使用```Invoke()```，调用时应该写：
-```
+```python
 ONGAddress = bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02')
 param = state(fromAcct, toAcct, 3120000000)
 res = Invoke(0, ONGAddress, "transfer", [param])
@@ -120,7 +120,7 @@ assert(res)
 ```
 
 假设某OEP4代币MST精度为12，如果要转1.234567891234，可使用```DynamicAppCall```或是```RegisterAppCall```方法。以前者为例：
-```
+```python
 # Suppose the contract hash of OEP4 is b55f2af8d0d8d2bd3d398ced3b3559caa894b536
 OEP4ReversedContractHash = Base58ToAddress(ALm9fJfhgNrwt4TM6bmmqvQbZs3hugi3et)
 param = [fromAcct, toAcct, 1234567891234]
@@ -256,7 +256,7 @@ OEP8相当于OEP4与OEP5的结合体，即包含不同种类的资产，每种�
 
 #### 21.  暂时目前```for i in range```不支持，但是支持```for i in list```。
 
-```
+```python 
 # Below wrong 
 i = 0
 for i in range(10):
@@ -276,7 +276,7 @@ for i in L:
     
 23.1 解析```Notify```，以OEP4的```transferMulti```为例：
 
-    ```
+```json
     ontology.exe info status d8e5863a54f368ad950d0993d38eb504c7eddafdd39dcc81d5676887fe35 b1cf
     Transaction states:
     {
@@ -322,7 +322,7 @@ for i in L:
         }
     ]
     }
-    ``` 
+``` 
 
 23.2 解析预执行返回的数据：
 

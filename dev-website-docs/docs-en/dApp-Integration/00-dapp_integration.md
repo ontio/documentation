@@ -47,4 +47,4 @@ The ONT ID open platform provides third-party applications for third-party appli
 
 The advantage of the ONT ID open platform is that with the trusted hosting mode, the user login DApp will no longer rely on the user's local wallet, greatly expanding the scope of DApp.
 
-- [ONT ID Open Platform Integration](docs-en/dApp-Integration/08-ontid_integration.md)
+- [ONT ID Open Platform Integration](http://pro-docs.ont.io/#/docs-en/ontid/thirdparty_login)

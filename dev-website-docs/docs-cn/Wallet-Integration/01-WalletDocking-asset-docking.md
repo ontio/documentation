@@ -1,6 +1,6 @@
 
 ## 概述
-钱包 App 集成 ONT 的 SDK ，配合公开的浏览器接口后就能实现数字资产操作，账号管理等功能。
+钱包 ```App``` 集成 ```ONT``` 的 ```SDK``` ，配合公开的浏览器接口后就能实现数字资产操作，账号管理等功能。
 
 ![接入说明](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/sdk.png)
 
@@ -10,7 +10,7 @@
 SDK 可以提供如下功能：
 -  与链交互
 -  账号
--  数字资产，包括原生资产和 OEP4、OEP5、OEP8 资产
+-  数字资产，包括原生资产和 ```OEP4```、```OEP5```、```OEP8``` 资产
 -  数字身份
 -  节点质押
 

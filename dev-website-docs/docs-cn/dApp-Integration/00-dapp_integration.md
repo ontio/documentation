@@ -15,7 +15,7 @@
 对于不同情景下的开发者来说，可选择不同的接入方式进行DApp对接。我们提供了：
 
 * 基于 ```ONT ID``` 开放平台的中心化方案
-* 通过 ```dAPI``` 接入的多个去中心化方案，包括在手机钱包内打开 ```DAPP```、或使用 ```Chrome``` 插件钱包等方法，允许 ```DApp``` 与链交互。
+* 通过 ```dAPI``` 接入的多个去中心化方案，包括在手机钱包内打开 ```DAPP```、或使用 ```Chrome``` 插件钱包等方法，允许 ```DAPP``` 与链交互。
 * 通过 ```SDK``` 接入的去中心化方案，比如基于 ```C# SDK``` 的 ```Unity 3D``` 游戏。
 
 不同接入方式都可以实现登录，调用智能合约的功能，开发者可以选择其中一种进行 ```DAPP``` 接入。本文针对来到本体公链开发DApp的开发者，提供了通用的DApp接入解决方案，让 ```DAPP``` 方可以快速将应用上链。
@@ -70,11 +70,11 @@ def transferOng(from_base58, to_base58,  ong_amount):
 
 ### 调用智能合约
 
-对于DApp而言，智能合约实现了其全部或部分业务逻辑。以游戏举例，可以实现购买，出售，租赁，或获取随机数等不同的业务及功能。详细业务逻辑参见智能合约。
+对于 ```DAPP``` 而言，智能合约实现了其全部或部分业务逻辑。以游戏举例，可以实现购买，出售，租赁，或获取随机数等不同的业务及功能。详细业务逻辑参见智能合约。
 
 ### 资产上链（可选）
 
-资产上链并不是 ```DApp``` 开发必须的，但是有些 ```DApp``` 需要特定的链上资产来运行其内部逻辑。
+资产上链并不是 ```DAPP``` 开发必须的，但是有些 ```DAPP``` 需要特定的链上资产来运行其内部逻辑。
 根据对资产的需求不同，本体提供了 ```OEP4```，```OEP5```，```OEP8``` 这三种不同类型的链上资产类型。
 
 [什么是OEP-4，OEP-5，OEP-8 ？](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/11-Q&A?id=_1-%E4%BB%80%E4%B9%88%E6%98%AFoep-4%EF%BC%8Coep-5%EF%BC%8Coep-8-%EF%BC%9F)
@@ -83,14 +83,7 @@ def transferOng(from_base58, to_base58,  ong_amount):
 
 为了实现上述的几种功能，我们提供了两种Dapp接入技术方案，两种接入方式都可以实现登录，调用智能合约等功能，开发者可以根据自身需求选择其中一种进行接入的开发
 
-### ONT ID 开放平台（集成方案）
 
-
-ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合约执行、```KYC``` 等服务。
-
-ONT ID 开放平台的优势在于，采用可信任的托管模式后，用户登录DApp将不再依赖于用户本地的钱包，大大扩展了 ```DAPP``` 的使用范围。
-
-- [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
 
 ### DApi 集成（去中心化方案）
 
@@ -99,7 +92,7 @@ ONT ID 开放平台的优势在于，采用可信任的托管模式后，用户�
 
 dAPI 集成的优势在于，用户自己可以掌握自己所有的资产和信息，目前也可以较为便利地使用已经支持的钱包登录 ```DAPP```。
 
-- [DApi 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
+- [dAPI 集成](docs-cn/dApp-Integration/09-dapi_integration.md)
 
 ### SDK 集成（去中心化方案）
 
@@ -107,3 +100,13 @@ dAPI 集成的优势在于，用户自己可以掌握自己所有的资产和信
 
 - [Unity 3D 对接 C# SDK](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
 - [其他语言 SDK 使用](https://dev-docs.ont.io/#/docs-cn/SDKs/00-overview)
+
+
+### ONT ID 开放平台（集成方案）
+
+
+ONT ID 开放平台为第三方应用提供第三方登录、支付、智能合约执行、```KYC``` 等服务。
+
+ONT ID 开放平台的优势在于，采用可信任的托管模式后，用户登录DApp将不再依赖于用户本地的钱包，大大扩展了 ```DAPP``` 的使用范围。
+
+- [ONT ID 开放平台集成](http://pro-docs.ont.io/#/docs-cn/ontid/thirdparty_login)

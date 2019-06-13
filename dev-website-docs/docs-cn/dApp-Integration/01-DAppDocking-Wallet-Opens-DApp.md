@@ -5,20 +5,22 @@
 
 > 已支持 dAPI 协议的钱包: [麦子钱包](http://www.mathwallet.org/en/)，[Banko](http://bankowallet.com/pc.html) 等
 
-目前比较主流的 DApp 使用渠道除了钱包中直接打开，还有接入了插件钱包的 Chrome 浏览器，在chrome中使用DApp的接入方案为 [使用 chrome 插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)。
+目前比较主流的 DAPP 使用渠道除了钱包 ```DAPP Store``` 中直接打开，还有接入了插件钱包的 ```Chrome``` 浏览器，在 chrome 中使用 DAPP 的接入方案请参考 [使用 chrome 插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)。
 
-为了满足 DApp 同时适用于网页版和移动版，我们提供了兼容两种 DAPI 的例子：
+为了满足 DAPP 同时适用于网页版和移动版，我们提供了兼容两种 DAPI 的例子：
 
 * 移动版 DAPI 使用方法：[dapi for mobile](https://github.com/ontio-cyano/cyano-bridge)
 * Chrome 插件钱包的 DAPI 使用方法： [dapi for chrome](https://github.com/ontio/ontology-dapi)
 * 兼容移动版和 Chrome 插件版 DAPI 的代码例子：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)
 
-## 钱包内打开 DAPP 的交互流程
+## 交互流程
+
+应用方主要关心如何登录和支付，现在介绍交互的流程。
 
 ### 登录场景
-1. 钱包内打开 ```DAPP```
-2. DApp 向钱包发送登录请求，钱包返回签名数据。DApp 向钱包发送查询账号请求，钱包返回资产账户地址。
-3. DApp 验证通过，登录成功
+1. 钱包 DAPP Store 内打开一个 ```DAPP```
+2. 通过两种方式：DApp 向钱包发送查询账号请求，钱包返回资产账户地址。DAPP 向钱包发送登录请求，钱包返回签名数据。
+3. DAPP 验证通过，登录成功
 
 ### 调用智能合约场景
 1. ```DAPP``` 向钱包发起调用智能合约请求 (图中 4.1)
@@ -27,7 +29,7 @@
 ![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
 
 
-## 移动版 DAPI 的安装和使用
+## dAPI 协议介绍
 
 ### 安装
 

@@ -51,7 +51,7 @@ $ make
 
    - 通过CLI，创建节点运行所需的钱包文件 wallet.dat
 
-     ```
+     ```shell
      $ ./ontology account add -d
      Use default setting '-t ecdsa -b 256 -s SHA256withECDSA' 
      	signature algorithm: ecdsa 
@@ -73,7 +73,7 @@ $ make
 
    - 目录结构
 
-     ```
+     ```shell
         $ tree
         └── ontology
             ├── ontology
@@ -89,7 +89,7 @@ $ make
 
    节点启动默认是关闭websocket和rest端口的，需要开放上述端口，可以配置以下参数
 
-   ```
+   ```shell
    RESTFUL OPTIONS:
      --rest            Enable restful api server
      --restport value  Restful server listening port (default: 20334)
@@ -122,7 +122,7 @@ CLI 本身不提供远程开关钱包功能，打开钱包时也没有验证过�
 
 交易所需要创建一个在线钱包管理用户充值地址。钱包是用来存储账户（包含公钥和私钥）、合约地址等信息，是用户持有资产的最重要的凭证，一定要保管好钱包文件和钱包密码，不要丢失或泄露。 交易所不需要为每个地址创建一个钱包文件，通常一个钱包文件可以存储用户所有充值地址。也可以使用一个冷钱包（离线钱包）作为更安全的存储方式。
 
-```
+```shell
 $ ./ontology account add -d
 Use default setting '-t ecdsa -b 256 -s SHA256withECDSA' 
 	signature algorithm: ecdsa 
@@ -159,7 +159,7 @@ Create account successfully.
 
   要批量创建地址，执行 CLI 的 ./ontology account add -n [n]  -w [wallet file]命令，-d 方括号为可选参数，默认值为 1 -w 为指定钱包文件，默认为wallet.dat。例如要一次创建100个地址:
 
-```
+```shell
 $ ./ontology account add -n 100 -d -w wat.dat
 Use default setting '-t ecdsa -b 256 -s SHA256withECDSA' 
 	signature algorithm: ecdsa 
@@ -209,7 +209,7 @@ Signature scheme: SHA256withECDSA
 
 - Ontology钱包是一个全节点，要保持在线才能同步区块，可以通过CLI命令查看当前区块高度， 判断节点状态。
 
-  ```
+  ```shell
   $ ./ontology info curblockheight
   CurrentBlockHeight:2
   ```
@@ -225,7 +225,7 @@ Signature scheme: SHA256withECDSA
 
 2. 通过CLI ```./ontology info block <block number | block hash>```  监控区块信息：
 
-   ```
+   ```json
    $ ./ontology info block 209304
    {
       "Hash": "83a70a5380532ededb4f3d65bcd4d3a8cd52f7f87bf1863d68bada59b95133d4",
@@ -323,7 +323,7 @@ Signature scheme: SHA256withECDSA
 
 3. 通过CLI ```./ontology info status```根据Transaction Hash 取得block中的所有Transaction信息
 
-```
+```json
 $ ./ontology info status bce10eb97c6cd122131e448ddf415bcd15aabbddd466e6850074c6c839a26596
 Transaction states:
 {
@@ -378,7 +378,7 @@ Transaction states:
 
 2. 使用CLI命令对用户提现地址进行转账：
 
-   ```
+   ```shell
    $ ./ontology asset transfer --from Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT --to AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb --amount 10 
    Password:
    Transfer ONT
@@ -428,7 +428,7 @@ Transaction states:
 
    - 使用返回的交易hash直接查询：
 
-     ```
+     ```shell
      $ ./ontology info status 49a705f6beb6a15b92493db496f56e8bcddc95b803dac1e4a02b4579ce760b3f
      Transaction states:
      {
@@ -526,7 +526,7 @@ com.github.ontio.account.Account acct0 = ontSdk.getWalletMgr().getAccount(info.a
 
 包括单签地址和多签地址,生成方式与NEO地址相同。
 
-```
+```java
 单签地址生成：
 String privatekey0 = "c19f16785b8f3543bbaf5e1dbb5d398dfa6c85aaad54fc9d71203ce83e505c07";
 String privatekey1 = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
@@ -557,7 +557,7 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 
 #### 1. 初始化
 
-```
+```java
 String ip = "http://polaris1.ont.io";
 String rpcUrl = ip + ":" + "20336";
 OntSdk ontSdk = OntSdk.getInstance();
@@ -570,7 +570,7 @@ ontSdk.setDefaultConnect(ontSdk.getRpc());
 
 ##### 查询ONT，ONG余额
 
-```
+```java
 ontSdk.getConnect().getBalance("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2");
 
 查ont信息：
@@ -591,7 +591,7 @@ System.out.println(ontSdk.nativevm().ong().queryTotalSupply());
 
 ##### 查询交易是否在交易池中
 
-```
+```json
 ontSdk.getConnect().getMemPoolTxState("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
 
 
@@ -634,7 +634,7 @@ response 交易池存在此交易:
 
 查询智能合约推送内容
 
-```
+```json
 ontSdk.getConnect().getSmartCodeEvent("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
 
 
@@ -666,7 +666,7 @@ response:
 
 根据块高查询智能合约事件，返回有事件的交易
 
-```
+```json
 ontSdk.getConnect().getSmartCodeEvent(10)
 
 response:
@@ -725,7 +725,7 @@ response:
 
 ##### 构造转账交易并发送
 
-```
+```json
 转出方与收款方地址：
 Address sender = acct0.getAddressU160();
 Address recvAddr = acct1;
@@ -761,7 +761,7 @@ ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 
 如果转出方与网络费付款人不是同一个地址，需要添加网络费付款人的签名
 
-```
+```java
 1.添加单签签名
 ontSdk.addSign(tx,acct0);
 
@@ -778,7 +778,7 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct0,acct1});
 2. 签名
 3. 一笔交易上限为1024笔转账
 
-```
+```java
 Address sender1 = acct0.getAddressU160();
 Address sender2 = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey(), acct2.serializePublicKey());
 int amount = 10;
@@ -802,7 +802,7 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct1, acct2});
 2. 签名机接收到交易，反序列化，检查交易，添加签名
 3. 发送交易
 
-```
+```java
 序列化交易发送给签名机：
 Transaction tx = ontSdk.nativevm().ont().makeTransfer(sender.toBase58(),recvAddr.toBase58(), amount,sender.toBase58(),30000,0);
 String txHex = tx.toHexString();
@@ -821,7 +821,7 @@ ontSdk.addSign(txRx,acct0);
 
 [例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/SignatureDemo.java) 
 
-```
+```java
 com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
 
 byte[] data = "12345".getBytes();
@@ -851,7 +851,7 @@ ontSdk.nativevm().ong().makeTransfer...
 4. 签名
 5. 发送提取ONG交易
 
-```
+```java
 查询未提取ong:
 String addr = acct0.getAddressU160().toBase58();
 String ong = sdk.nativevm().ong().unboundOng(addr);
@@ -868,7 +868,7 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 
 
-## 4. 给用户分发ONG
+## 5. 给用户分发ONG
 
 交易所可以选择是否给用户分发ONG， ONG用于支付Ontology区块链的记账费用和网络等附加服务费。
 
@@ -906,7 +906,7 @@ gasprice参数指定转账交易的gas price。交易的gas price不能小于接
 --gaslimit  
 gaslimit参数指定转账交易的gas limit。交易的gas limit不能小于接收节点交易池设置的最低gas limit，否则交易会被拒绝。gasprice * gaslimit 为账户实际支持的ONG 费用。 默认值为30000。
 
-```
+```shell
 $ ./ontology asset withdrawong 1
 Password:
 Claim Ong:
@@ -933,7 +933,7 @@ Tip:
 
 用户提取ONG的流程和提取ONT的流程一致，只需指定asset 参数为ong即可：
 
-```
+```shell
 $ ./ontology asset transfer --from Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT --to AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb --amount 10 --asset ong
 Password:
 Transfer ONG
@@ -950,7 +950,7 @@ Tip:
 
 使用Java SDK 提取ONG，请参照[Java SDK:ONG转账](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
 
-## 5. 签名服务
+## 6. 签名服务
 当无法使用sdk或cli时，您可以通过签名服务器来构造和发送交易：
 
 [Ontology 签名服务器使用说明](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr_CN.md)

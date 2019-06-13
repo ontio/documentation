@@ -5,7 +5,7 @@
   - [智能合约](docs-cn/introduction/03-smart-contract.md)
   - [ONTID](docs-cn/introduction/04-ontid.md)
   - [DDXF](docs-cn/introduction/05-ddxf.md)
-  - [白皮书与资源](docs-cn/introduction/06-white-papers.md)
+  - [资源](docs-cn/introduction/06-white-papers.md)
   - [社区贡献](docs-cn/introduction/07-contributions.md)
   - [术语表](docs-cn/introduction/08-glossary.md)
 
@@ -54,7 +54,6 @@
     - [手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
     - [应用唤醒手机钱包](docs-cn/dApp-Integration/06-DAppDocking-Wake-up.md)
   - [Unity 3D 对接](docs-cn/dApp-Integration/12-unity_integration.md)
-  - [ONT ID 开放平台集成](docs-cn/dApp-Integration/08-ontid_integration.md)
   - [常见问题](docs-cn/dApp-Integration/11-Q&A.md)
 
 - 手机钱包对接指南
@@ -62,12 +61,11 @@
   - [SDK 集成](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
   - [dAPI 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [钱包内打开 dApp 集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
-      - [钱包扫码集成](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
-      - [应用唤醒钱包集成](docs-cn/Wallet-Integration/07-WalletDocking-wakeup.md)
+      - [钱包扫码集成（可选）](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
+      - [唤醒钱包集成（可选）](docs-cn/Wallet-Integration/07-WalletDocking-wakeup.md)
 
 - 交易所对接指南
-  - [交易所对接文档](docs-cn/exchange-API/Ontology-交易所对接文档.md)
-  - [签名服务器对接指导](docs-cn/exchange-API/Sigsvr_Exchange_Guide.md)
+  - [开始对接](docs-cn/exchange-API/Ontology-交易所对接文档.md)
   - [签名服务器使用说明](docs-cn/exchange-API/Ontology+签名服务器使用说明.md)
   - [常见问题](docs-cn/exchange-API/ONT-交易所对接FAQ.md)
 
@@ -104,6 +102,7 @@
 
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
+  - [钱包文件规范](docs-cn/SDKs/wallet-file-specification.md)
   - [Go SDK](docs-cn/SDKs/01-go-sdk.md)
   - [Java SDK](docs-cn/SDKs/02-java-sdk.md)
   - [Python SDK](docs-cn/SDKs/03-python-sdk.md)

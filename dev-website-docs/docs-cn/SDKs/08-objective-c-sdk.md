@@ -1,6 +1,6 @@
 
 # ONTWallet
-用Objective-C编写的支持本体钱包的库.
+用 Objective-C 编写的支持本体钱包的库.
 
 
 ## 安装
