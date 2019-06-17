@@ -1,5 +1,5 @@
 
-# DApi 接入说明
+
 
 本系列接入文档主要介绍 ```DAPP``` 如何在各种场景下调用 ```dAPI```，实现包括登录，调用智能合约等操作。
 
@@ -11,19 +11,19 @@
 - [手机钱包扫码 DApp](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/02-DAppDocking-QRcode)
 - [应用唤醒手机钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/06-DAppDocking-Wake-up)
 
-目前已支持 ```dAPI``` 协议的钱包如 [麦子钱包](http://www.mathwallet.org/en/)、[Banko](http://bankowallet.com/pc.html) ，已支持 DAPI 的 DAPPs： [https://github.com/ontio-community/dapp-store](https://github.com/ontio-community/dapp-store)。协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
+目前已支持 ```dAPI``` 协议的钱包如 [麦子钱包](http://www.mathwallet.org/en/)、[Banko](http://bankowallet.com/pc.html) ，已支持 DAPI 的 DAPPs： [https://github.com/ontio-community/dapp-store](https://github.com/ontio-community/dapp-store)。
 
-调试使用 ```Android``` 钱包，下载地址：[http://101.132.193.149/files/app-debug.apk](http://101.132.193.149/files/app-debug.apk)
+协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。调试使用 ```Android``` 钱包，下载地址：[http://101.132.193.149/files/app-debug.apk](http://101.132.193.149/files/app-debug.apk)
 
 
 ## 钱包演示
 
 这里主要介绍一下最主流的在手机钱包中打开 DApp的流程和基本功能演示，具体对接详情文档请参考 [在手机钱包中打开 DApp](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)：
 
-* 移动版 Cyano 钱包源码链接地址：[cyano-android](https://github.com/ontio-cyano/cyano-android) ，[cyano-ios](https://github.com/ontio-cyano/cyano-ios)
-* 移动版 Cyano 安卓钱包下载地址：[cyano wallet](http://101.132.193.149/files/app-debug.apk)
+* 移动版 ```Cyano``` 钱包源码链接地址：[cyano-android](https://github.com/ontio-cyano/cyano-android) ，[cyano-ios](https://github.com/ontio-cyano/cyano-ios)
+* 移动版 ```Cyano``` 安卓钱包下载地址：[http://101.132.193.149/files/app-debug.apk](http://101.132.193.149/files/app-debug.apk)
 * H5 DApp 例子源码：[mobile-dapp-demo](https://github.com/ontio-cyano/mobile-dapp-demo)
-* H5 DApp例子链接：http://101.132.193.149:5000/#/
+* H5 DApp 例子链接：[http://101.132.193.149:5000/#/](http://101.132.193.149:5000/#/)
 
 ### 在钱包中打开 DApp
 
@@ -37,7 +37,7 @@
 
 ### 获取账号或身份信息
 
-如果不需要验证用户身份，DApp 将直接查询账号或身份信息。
+如果不需要验证用户身份，```DAPP``` 将直接查询账号或身份信息。
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ontio-cyano/integration-docs/master/images/ios/01-open-dapp.png" height="350" width="200">

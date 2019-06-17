@@ -3,14 +3,11 @@
 
 ## 概述
 
-使用 [dAPI for chrome](https://github.com/ontio/ontology-dapi) 前请先安装实现了 ```dAPI provider``` 功能的钱包，比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)。
-
-DAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
+使用 [dAPI for chrome](https://github.com/ontio/ontology-dapi) 前请先安装实现了 ```dAPI provider``` 功能的钱包，比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)。dAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 
 目前比较主流的DApp使用渠道除了在chrome中打开，还有在手机钱包中打开，在手机钱包中使用DApp的接入方案为 [手机钱包内打开](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)。
 
 为了满足 ```DAPP``` 同时适用于网页版和移动版，我们提供了兼容两种 DAPI 的例子：
-
 * 移动版 ```dAPI``` 使用方法：[dapi for mobile](https://github.com/ontio-cyano/cyano-bridge)
 * Chrome 插件钱包的 ```dAPI``` 使用方法 [dapi for chrome](https://github.com/ontio/ontology-dapi)
 * 兼容移动版和 ```Chrome``` 插件版 ```dAPI``` 的代码例子：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)
@@ -29,7 +26,7 @@ DAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 介绍应用如何集成 ```dAPI``` 协议。
 
 #### dAPI 安装
-创建 DAPP 时，本体 DAPI 是与本体链交互的核心 API 之一，可以从 [这里](https://github.com/ontio/ontology-dapi) 下载源码。 通过 ```npm``` 安装 ontology-DAPI：
+创建 ```DAPP``` 时，本体 ```dAPI``` 是与本体链交互的核心 ```API``` 之一，可以从 [这里](https://github.com/ontio/ontology-dapi) 下载源码。 通过 ```npm``` 安装 ontology-DAPI：
 
 ```shell
 $ npm install ontology-dapi
@@ -37,7 +34,7 @@ $ npm install ontology-dapi
 
 #### 创建 dAPI 实例
 
-创建 DAPI 实例时，要先导入库 ontology-dapi，并注册客户端，如下所示：
+创建 ```dAPI``` 实例时，要先导入库 ```ontology-dapi```，并注册客户端，如下所示：
 
 ```javascript
 import { client } from 'ontology-dapi';
@@ -46,7 +43,7 @@ client.registerClient({});
 ```
 
 #### dAPI 方法
-创建 dAPI 实例成功后，就可以在你的 DAPP 中调用 dAPI 方法。
+创建 ```dAPI``` 实例成功后，就可以在你的 ```DAPP``` 中调用 ```dAPI``` 方法。
 
 ##### 获取账号或身份信息
 
@@ -106,7 +103,7 @@ $ npm run start
 
 启动成功后，在浏览器打开页面 ```http://localhost:3000```
 
-页面成功打开后, 点击 Provider->GetProvider。
+页面成功打开后, 点击 Provider -> GetProvider。
 
 ![dApp Demo Provider](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemofirstscreen.png)
 ![dApp Demo Get Provider](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/dappdemoregisterprovider.png)
@@ -129,7 +126,7 @@ gaslimit 根据合约执行复杂性而定，可以通过预执行查询该调�
 
 #### 地址的处理
 
-Chrome 插件钱包 Cyano wallet 在处理传入的地址时，只接受 ByteArray 类型，在使用 [SmartX](https://smartx.ont.io/#/) 进行调试的时候，SmartX 会自动将识别到的 address 类型转化为 ByteArray 类型，所以调用不会有问题，但是在开发者自身的环境下，如果没有做类型转换，Cyano wallet 就会报错。
+Chrome 插件钱包 ```Cyano wallet``` 在处理传入的地址时，只接受 ```ByteArray``` 类型，在使用 [SmartX](https://smartx.ont.io/#/) 进行调试的时候，SmartX 会自动将识别到的 address 类型转化为 ByteArray 类型，所以调用不会有问题，但是在开发者自身的环境下，如果没有做类型转换，```Cyano wallet``` 就会报错。
 
 以下是 js 中获取 ByteArray 格式地址的例子：
 

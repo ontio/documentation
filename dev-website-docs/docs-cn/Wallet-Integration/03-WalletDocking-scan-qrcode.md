@@ -5,7 +5,7 @@
 本文用于指导钱包方如何接入扫码功能，提供扫码登陆，扫码调用智能合约等服务。
 流程中涉及到的参与方包括：
 
-* DApp 方：对本体链生态内的用户提供 ```dApp``` ，是本体生态中重要的组成部分。
+* DA 方：对本体链生态内的用户提供 ```DAPP``` ，是本体生态中重要的组成部分。
 * Provider：实现 ```dAPI mobile``` 规范的钱包
 
 ## 交互流程说明
@@ -17,7 +17,7 @@
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-1-cn.png)
 
 详细流程：
-1. 钱包扫描 ```DAPP``` 方提供的二维码（[登录二维码标准](#登录二维码标准)）
+1. 钱包扫描 ```DAPP``` 方提供的二维码（[登录二维码标准](#登录)）
 2. Provider 获取到 ```callback url``` 和验证用的消息，让用户输入密码对对消息签名，调用```DAPP``` 方的回调地址
 3. ```DAPP``` 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
 
@@ -26,7 +26,7 @@
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-2-cn.png)
 
 详细流程：
-1. 钱包扫描 ```DAPP``` 方提供的二维码（[调用合约二维码标准](#调用合约二维码标准)）
+1. 钱包扫描 ```DAPP``` 方提供的二维码（[调用合约二维码标准](#调用合约)）
 2. 钱包构造交易，用户签名，预执行交易，用户确认，发送到链上，调用 ```DAPP``` 后端的回调地址发送交易 ```Hash``` 
 3. ```DAPP``` 后端查询这笔合约交易事件
 

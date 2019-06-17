@@ -1,8 +1,8 @@
 
 
 钱包接入可分为两个层次：
-- [资产功能集成](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/01-WalletDocking-asset-docking)
-- [Provider sdk 集成](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking)
+- [资产功能集成](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/01-WalletDocking-asset-docking)：支持 ```ONT/ONG``` 转账，同时也可以支持 ```OEP4``` 转账等。
+- [Provider sdk 集成](https://dev-docs.ont.io/#/docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking)：针对希望支持本体链 ```DAPP``` 的钱包。
 
 ![wallet-integration](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/wallet-integration.png)
 
