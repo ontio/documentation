@@ -9,7 +9,13 @@
 
 ## 交互流程
 
-![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
+登录流程：
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-1-cn.png)
+
+支付流程：
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-2-cn.png)
 
 ### 登录
 1. DApp 方提供二维码（[登录](#登录)）

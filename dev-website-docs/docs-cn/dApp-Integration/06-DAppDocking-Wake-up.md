@@ -27,6 +27,16 @@
 我们提供了一个唤醒特定钱包的Demo app 供参考：[唤醒演示](https://github.com/ontio-cyano/android-app-demo)，[Unity 游戏演示](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
 
 
+## 交互流程
+
+登录流程：
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-3-cn.png)
+
+支付流程：
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-4-cn.png)
+
 
 ## dAPI 协议介绍
 

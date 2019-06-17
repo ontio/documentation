@@ -26,7 +26,7 @@
 1. ```DAPP``` 向钱包发起调用智能合约请求 (图中 4.1)
 2. 钱包签名，预执行，发送到链，向 ```DAPP```  返回交易 ```Hash``` (图中 4.2)
 
-![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
+![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3-cn.png)
 
 
 ## dAPI 协议介绍
