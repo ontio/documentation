@@ -12,15 +12,21 @@
 
 DAPP 请求数据 ```URI scheme``` ：```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))```，交互流程主要分两个步骤：
 
-![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
+
 
 
 ### 第一步，DAPP 发起登录请求
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-3-cn.png)
+
 1. ```DAPP``` 唤醒钱包（[登录](#登录)）
 2. 钱包获取到 ```callback url``` 和验证用的消息，让用户输入密码对消息签名，钱包调用 ```DAPP``` 后端的回调方法
 3. ```DAPP``` 后端验证签名
 
 ### 第二步，DAPP 发起调用合约请求
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-4-cn.png)
+
 1. ```DAPP``` 唤醒钱包（[调用合约](#调用合约)）
 2. 钱包构造交易，用户输入密码，钱包预执行交易，待用户确认后，发送到链上，返回交易 ```Hash``` 给 ```callback``` 地址
 3. DAPP 后端可以根据交易 ```Hash``` 到链上查询这笔合约交易事件

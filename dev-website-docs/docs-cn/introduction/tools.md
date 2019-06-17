@@ -5,7 +5,7 @@
 
 目前已开发完成以下工具，还有许多工具正在开发中。
 
-* [Smartx](https://smartx.ont.io/#/) - 一站式智能合约 IDE，支持编译、部署、测试、Debug。
+* [SmartX](https://smartx.ont.io/#/) - 一站式智能合约 IDE，支持编译、部署、测试、Debug。
 * [VSCode 插件](https://dev-docs.ont.io/#/docs-cn/Punica/sc-extension) - 智能合约开发。
 * [IDEA 插件](https://dev-docs.ont.io/#/docs-cn/Punica/sc-idea-extension) - 智能合约开发。
 * [测试币申请](https://developer.ont.io/applyOng) - 测试币申请网站

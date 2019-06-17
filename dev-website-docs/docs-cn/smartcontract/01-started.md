@@ -2,7 +2,7 @@
 
 ## 相关工具
 
-* [Smartx](https://smartx.ont.io/#/) - 一站式智能合约 IDE，支持编译、部署、测试、Debug。
+* [SmartX](https://smartx.ont.io/#/) - 一站式智能合约 IDE，支持编译、部署、测试、Debug。
 * [VSCode 插件](https://dev-docs.ont.io/#/docs-cn/Punica/sc-extension) - 智能合约开发。
 * [IDEA 插件](https://dev-docs.ont.io/#/docs-cn/Punica/sc-idea-extension) - 智能合约开发。
 * [测试币申请](https://developer.ont.io/applyOng) - 测试币申请网站
@@ -46,13 +46,13 @@ Contract invoke successfully
 
 ##### 什么是abi文件？
 
-一般开发者智能合约在编写完成后，会将使用相应编译器对合约进行编译，编译后一般会得到合约的 ```abi``` 文件和 ```avm``` 文件。```avm``` 文件是合约的字节码。当合约部署到区块链上时，合约字节码会存储在分配给合约的存储区里。 abi文件是描述了合约的具体结构的json文件，包含了合约的入口函数，接口函数，函数的参数列表和返回值，事件等。当我们了解了合约的abi文件，我们就了解了该合约的具体功能。
+一般开发者智能合约在编写完成后，会将使用相应编译器对合约进行编译，编译后一般会得到合约的 ```abi``` 文件和 ```avm``` 文件。```avm``` 文件是合约的字节码。当合约部署到区块链上时，合约字节码会存储在分配给合约的存储区里。 ```abi``` 文件是描述了合约的具体结构的 ```JSON``` 文件，包含了合约的入口函数，接口函数，函数的参数列表和返回值，事件等。当我们了解了合约的abi文件，我们就了解了该合约的具体功能。
 
 以 ```SmartX``` 为例，我们有一个可以做简单加法计算的模板合约 Arith， 编译完合约后，页面上会显示 ```JSON``` 格式的 ```abi``` 内容。用户可以选择下载 ```abi.json``` 文件。
 
 ![](https://upload-images.jianshu.io/upload_images/150344-297f0b59eb7b3e94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-根据合约的 ```abi``` 文件中的合约 ```hash``` 和合约方法，可以通过`sdk`构造调用合约方法的交易。这里以`ontology-ts-sdk`为例。
+根据合约的 ```abi``` 文件中的合约 ```hash``` 和合约方法，可以通过 `sdk` 构造调用合约方法的交易。这里以 `ontology-ts-sdk` 为例。
 
 ```javascript
 import {Parameter, ParameterType, Crypto, utils, TransactionBuilder} from 'ontology-ts-sdk'
@@ -84,7 +84,7 @@ TransactionBuilder.signTransaction(tx, adminPrivateKey);
 
 ##### 参数构造
 
-构造交易时请注意参数的类型和参数值必须对应，且符合合约中方法的参数要求。```TS SDK``` 提供了`Parameter`和`ParameterType`类，用于辅助参数构造。以下是常用参数构造的例子。更多参数构造的示例请参考[ts sdk的测试用例](https://github.com/ontio/ontology-ts-sdk/blob/master/test/scParams.test.ts)
+构造交易时请注意参数的类型和参数值必须对应，且符合合约中方法的参数要求。```TS SDK``` 提供了 `Parameter` 和 `ParameterType` 类，用于辅助参数构造。以下是常用参数构造的例子。更多参数构造的示例请参考[ts sdk的测试用例](https://github.com/ontio/ontology-ts-sdk/blob/master/test/scParams.test.ts)
 
 ```javascript
 const account = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz')

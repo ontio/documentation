@@ -12,15 +12,19 @@
 
 应用方提供二维码，用户通过手机钱包扫码。
 
-![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
-
 ### 第一步，扫描登录
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-1-cn.png)
+
 详细流程：
 1. 钱包扫描 ```DAPP``` 方提供的二维码（[登录二维码标准](#登录二维码标准)）
 2. Provider 获取到 ```callback url``` 和验证用的消息，让用户输入密码对对消息签名，调用```DAPP``` 方的回调地址
 3. ```DAPP``` 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
 
 ### 第二步，扫描调用合约
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-2-cn.png)
+
 详细流程：
 1. 钱包扫描 ```DAPP``` 方提供的二维码（[调用合约二维码标准](#调用合约二维码标准)）
 2. 钱包构造交易，用户签名，预执行交易，用户确认，发送到链上，调用 ```DAPP``` 后端的回调地址发送交易 ```Hash``` 

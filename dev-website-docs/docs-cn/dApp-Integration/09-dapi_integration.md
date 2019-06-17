@@ -3,7 +3,7 @@
 
 本系列接入文档主要介绍 ```DAPP``` 如何在各种场景下调用 ```dAPI```，实现包括登录，调用智能合约等操作。
 
-与传统 ```App``` 不同，```DAPP``` 没有一个中心化的账号管理后台，用户完全掌控自身的身份和资产，所以 ```DAPP``` 除了通过智能合约构建自己的业务逻辑，也需要通过各种方式和链进行交互。为了降低 ```DAPP``` 开发难度，我们提供了丰富的 DAPI 或方法用于 DApp 与链交互，适用于当前所有主流设备中使用 DApp 的场景。
+与传统 ```App``` 不同，```DAPP``` 没有一个中心化的账号管理后台，用户完全掌控自身的身份和资产，所以 ```DAPP``` 除了通过智能合约构建自己的业务逻辑，也需要通过各种方式和链进行交互。为了降低 ```DAPP``` 开发难度，我们提供了丰富的 ```dAPI``` 或方法用于 ```DAPP``` 与链交互，适用于当前所有主流设备中使用 ```DAPP``` 的场景。
 
 目前支持以下场景：
 - [DApp 调用 Chrome 插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
@@ -11,11 +11,9 @@
 - [手机钱包扫码 DApp](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/02-DAppDocking-QRcode)
 - [应用唤醒手机钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/06-DAppDocking-Wake-up)
 
-目前已支持 ```dAPI``` 协议的钱包如 [麦子钱包](http://www.mathwallet.org/en/)、[Banko](http://bankowallet.com/pc.html) ，已支持 DAPI 的 DAPPs： [https://github.com/ontio-community/dapp-store](https://github.com/ontio-community/dapp-store)。
+目前已支持 ```dAPI``` 协议的钱包如 [麦子钱包](http://www.mathwallet.org/en/)、[Banko](http://bankowallet.com/pc.html) ，已支持 DAPI 的 DAPPs： [https://github.com/ontio-community/dapp-store](https://github.com/ontio-community/dapp-store)。协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
 
-协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
-
-参考 ```Android``` 钱包下载地址：[http://101.132.193.149/files/app-debug.apk](http://101.132.193.149/files/app-debug.apk)
+调试使用 ```Android``` 钱包，下载地址：[http://101.132.193.149/files/app-debug.apk](http://101.132.193.149/files/app-debug.apk)
 
 
 ## 钱包演示
