@@ -201,7 +201,7 @@ String res = sdk.nativevm().governance().getSplitFeeAddress(account1.getAddressU
 System.out.println("SplitFeeAddress:" + res);
 ```
 
-```
+```javascript
 class SplitFeeAddress {
     address: Address; // User's wallet address
     amount: number = 0; // Stake profit ONG number
@@ -212,7 +212,7 @@ class SplitFeeAddress {
 
 ### 查询ONT解绑的ONG
 
-```
+```javascript
 //@param addr {Address} User's wallet address
 //@param url {string} Network's url
 
@@ -314,7 +314,7 @@ String txhash = sdk.nativevm().governance().withdraw(account,new String[]{"03e1e
 ```
 ### 提取解绑的ONG
 
-```
+```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
 
 //@param userAddr {Address} User's wallet address
