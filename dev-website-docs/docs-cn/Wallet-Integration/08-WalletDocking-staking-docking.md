@@ -1,5 +1,4 @@
 
-## 概述
 
 质押包括节点质押和授权质押，可以通过 SDK 实现质押 [ontology-ts-sdk](https://github.com/ontio/ontology-ts-sdk), [ontology-java-sdk](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/GovernanceDemo.java)。
 
