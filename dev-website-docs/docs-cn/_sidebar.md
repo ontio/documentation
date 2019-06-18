@@ -59,6 +59,7 @@
 - 手机钱包对接指南
   - [概述](docs-cn/Wallet-Integration/00-wallet_integration.md)
   - [SDK 集成](docs-cn/Wallet-Integration/01-WalletDocking-asset-docking.md)
+  - [Staking 集成](docs-cn/Wallet-Integration/01-WalletDocking-staking-docking.md)
   - [dAPI 集成](docs-cn/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
       - [钱包内打开 dApp 集成](docs-cn/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
       - [钱包扫码集成（可选）](docs-cn/Wallet-Integration/03-WalletDocking-scan-qrcode.md)

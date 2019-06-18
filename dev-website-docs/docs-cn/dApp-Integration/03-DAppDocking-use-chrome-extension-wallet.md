@@ -3,11 +3,11 @@
 
 ## 概述
 
-使用 [dAPI for chrome](https://github.com/ontio/ontology-dapi) 前请先安装实现了 ```dAPI provider``` 功能的钱包，比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)。dAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
+使用 [dAPI for chrome](https://github.com/ontio/ontology-dapi) 前请先安装实现了 ```dAPI provider``` 功能的钱包，比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)。```dAPI``` 使用 ```TypeScript``` 实现，同时也支持在 ```JavaScript``` 工程中使用。
 
-目前比较主流的DApp使用渠道除了在chrome中打开，还有在手机钱包中打开，在手机钱包中使用DApp的接入方案为 [手机钱包内打开](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)。
+目前比较主流的 ```DAPP``` 使用渠道除了在 chrome 中打开，还有在手机钱包中打开，在手机钱包中使用DApp的接入方案为 [手机钱包内打开](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)。
 
-为了满足 ```DAPP``` 同时适用于网页版和移动版，我们提供了兼容两种 DAPI 的例子：
+为了满足 ```DAPP``` 同时适用于网页版和移动版，我们提供了兼容两种 ```dAPI``` 的例子：
 * 移动版 ```dAPI``` 使用方法：[dapi for mobile](https://github.com/ontio-cyano/cyano-bridge)
 * Chrome 插件钱包的 ```dAPI``` 使用方法 [dapi for chrome](https://github.com/ontio/ontology-dapi)
 * 兼容移动版和 ```Chrome``` 插件版 ```dAPI``` 的代码例子：[dapi-universal](https://github.com/ontio-cyano/dapi-universal)

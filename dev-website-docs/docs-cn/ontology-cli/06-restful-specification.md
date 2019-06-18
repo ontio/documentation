@@ -644,7 +644,7 @@ GET
 请求：
 
 ```json
-curl -i http://localhost:20334/api/v1/smartcode/event/txhash/20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac
+curl -i http://localhost:20334/api/v1/smartcode/event/txhash/6b391812b6a3230c057b108227f78a1c7caa9fa934817c60540af55e62167507
 ```
 
 响应：
@@ -655,51 +655,17 @@ curl -i http://localhost:20334/api/v1/smartcode/event/txhash/20046da68ef6a91f695
     "Desc": "SUCCESS",
     "Error": 0,
     "Version": "1.0.0",
-    "Result": [
-                     {
-                          "TxHash": "7e8c19fdd4f9ba67f95659833e336eac37116f74ea8bf7be4541ada05b13503e",
-                          "State": 1,
-                          "GasConsumed": 0,
-                          "Notify": [
-                              {
-                                  "ContractAddress": "0200000000000000000000000000000000000000",
-                                  "States": [
-                                      "transfer",
-                                      "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
-                                      "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
-                                      1000000000000000000
-                                  ]
-                              }
-                          ]
-                      },
-                      {
-                          "TxHash": "fc82cd363271729367098fbabcfd0c02cf6ded1e535700d04658b596d53cf07d",
-                          "State": 1,
-                          "GasConsumed": 0,
-                          "Notify": [
-                              {
-                                  "ContractAddress": "0200000000000000000000000000000000000000",
-                                  "States": [
-                                      "transfer",
-                                      "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
-                                      "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
-                                      1000000000000000000
-                                  ]
-                              }
-                          ]
-                      },
-                      {
-                          "TxHash": "6b391812b6a3230c057b108227f78a1c7caa9fa934817c60540af55e62167507",
-                          "State": 1, //执行成功
-                          "GasConsumed": 0, //消耗的gasLimit * gasprice的值
-                          "Notify": [
-                              {
-                                  "ContractAddress": "49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24", //合约地址
-                                  "States": "57b108227f78a1c7caa9fa934817c60540af55e62167507" //只返回一个字段时，State为字符串类型
-                              }
-                          ]
-                      }
-    ]
+    "Result": {
+          "TxHash": "6b391812b6a3230c057b108227f78a1c7caa9fa934817c60540af55e62167507",
+          "State": 1, //执行成功
+          "GasConsumed": 0, //消耗的gasLimit * gasprice的值
+          "Notify": [
+              {
+                  "ContractAddress": "49f0908f08b3ebce1e71dc5083cb9a8a54cc4a24", //合约地址
+                  "States": "57b108227f78a1c7caa9fa934817c60540af55e62167507" //只返回一个字段时，State为字符串类型
+              }
+          ]
+    }
 }
 ```
 

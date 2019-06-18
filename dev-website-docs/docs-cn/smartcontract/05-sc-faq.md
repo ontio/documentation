@@ -2,9 +2,9 @@
 
 #### 1. 什么是Native合约，Native合约有哪些方法可以调用？
     
-Native合约是ONT，ONG合约及其它主链治理合约。可调用方法可在[源码](https://github.com/ontio/ontology/tree/master/smartcontract/service/native)中获得。
+Native 合约是 ONT/ONG 合约及其它主链治理合约。可调用方法可在 [源码](https://github.com/ontio/ontology/tree/master/smartcontract/service/native)中获得。
 
-Native合约的[Hash地址](https://github.com/ontio/ontology/blob/master/smartcontract/service/native/utils/params.go)。
+Native 合约的 [Hash地址](https://github.com/ontio/ontology/blob/master/smartcontract/service/native/utils/params.go)。
 
 [ONT与ONG合约方法](https://github.com/ontio/ontology/blob/master/smartcontract/service/native/ont/utils.go)。
 
@@ -19,11 +19,8 @@ Native合约的[Hash地址](https://github.com/ontio/ontology/blob/master/smartc
 #### 2. 什么是跨合约调用，跨合约调用时的注意点？
 
 跨合约调用是指在A合约调用B合约的方法。跨合约调用分为两种：
-```
-1、普通合约之间的相互调用；
-
-2、跨Native合约的调用。
-```
+* 普通合约之间的相互调用；
+* 跨Native合约的调用。
 
 区别在于:
 
@@ -35,7 +32,7 @@ Native合约的[Hash地址](https://github.com/ontio/ontology/blob/master/smartc
    
 #### 3. 合约Hash也是对应一个账户吗？有私钥吗？
     
-合约Hash也是对应一个帐户的。方式是把合约的Hash当作大端地址即为其自身帐户，常用于DAPP合约作为资金托管帐户。
+合约 Hash 也是对应一个帐户的。方式是把合约的Hash当作大端地址即为其自身帐户，常用于DAPP合约作为资金托管帐户。
 
 有，不过合约的帐户的私钥是不可知的。
 
