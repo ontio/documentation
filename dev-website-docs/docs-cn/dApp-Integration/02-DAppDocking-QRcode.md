@@ -7,24 +7,47 @@
 * DApp 方：为本体生态内的用户提供 ```DAPP```，是本体生态中重要的组成部分。
 * Provider：实现 ```dAPI mobile``` 规范的钱包
 
+
+### 基本概念
+
+介绍去中心化应用程序和去中心化手机钱包的职责。
+
+##### DAPP
+
+去中心化应用程序
+
+##### DAPP 后台：
+
+主要提供以下功能：
+- ```DAPP``` 操作，生成相应的登录参数或者调用智能合约的参数。
+- 同步链上信息，获取登录或调用智能合约的结果
+
+##### Provider
+提供签名，预执行交易，执行交易等与链交互。本文档描述针对目前支持的两个钱包：
+- ONTO [下载](https://onto.app)
+- Cyano [下载](http://101.132.193.149/files/app-debug.apk)
+
+##### 演示
+我们提供了一个唤醒特定钱包的Demo app 供参考：[唤醒演示](https://github.com/ontio-cyano/android-app-demo)，[Unity 游戏演示](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
+
 ## 交互流程
 
-登录流程：
+介绍登录和支付流程。
+
+### 登录
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-1-cn.png)
 
-支付流程：
-
-![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-2-cn.png)
-
-### 登录
 1. DApp 方提供二维码（[登录](#登录)）
 2. DApp 服务端登录方法（[DAPP 服务端登录接口](#DAPP-服务端登录接口)）
 3. DApp 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
 
 ### 调用智能合约
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-2-cn.png)
+
 1. DApp 方提供二维码（[调用合约](#调用合约)）
-2. Provider 构造交易、用户签名、预执行交易、用户确认、发送到链上、最后返回交易 hash 给 DApp 后端
+2. Provider 构造交易、用户签名、预执行交易、用户确认、发送到链上、最后返回交易 hash 给 DAPP 后端
 3. DApp 后端到链上查询这笔合约交易事件
 
 ## dAPI 协议介绍

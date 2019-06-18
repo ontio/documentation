@@ -14,7 +14,7 @@
 
 
 
-## DApp 使用场景
+## dAPI 使用场景
 
 移动端 ```dAPI``` 规范文档包括唤醒、扫码、和钱包中打开 ```H5 DAPP``` 三种场景。对于已支持 DAPI 的钱包如 [麦子钱包](http://www.mathwallet.org/en/)，请参考对应的对接文档。关于协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
 
@@ -25,28 +25,60 @@ DApp 场景接入文档：
 
 参考钱包下载链接： [http://101.132.193.149/files/app-debug.apk](http://101.132.193.149/files/app-debug.apk)
 
-## 场景1和2： 唤醒、扫码场景
 
 
-##### 登录、调用智能合约
 
-![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke.png)
+### 场景1： 钱包中打开 DAPP
 
-##### 未登录时调用智能合约
+![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3-cn.png)
 
-![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/invoke-with-login.png)
-
-
-## 场景3： 钱包中打开 H5 DApp
-
+详细流程：
 1. 在钱包中打开 ```DApp```
 2. 获取账户或身份信息
 3. 登录 ```DAPP```
 4. ```DAPP``` 调用智能合约
 
-![](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/scenario3.png)
+### 场景2： 钱包扫码
 
-## 钱包演示
+扫描登录：
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-1-cn.png)
+
+详细流程：
+1. 钱包扫描 ```DAPP``` 方提供的二维码（[登录二维码标准](#登录)）
+2. Provider 获取到 ```callback url``` 和验证用的消息，让用户输入密码对对消息签名，调用```DAPP``` 方的回调地址
+3. ```DAPP``` 后端验证签名（[签名验证方法](#签名验证方法)）后返回验证结果
+
+扫描调用合约：
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-2-cn.png)
+
+详细流程：
+1. 钱包扫描 ```DAPP``` 方提供的二维码（[调用合约二维码标准](#调用合约)）
+2. 钱包构造交易，用户签名，预执行交易，用户确认，发送到链上，调用 ```DAPP``` 后端的回调地址发送交易 ```Hash``` 
+3. ```DAPP``` 后端查询这笔合约交易事件
+
+### 场景3： DAPP 唤醒钱包
+
+
+DAPP 发起登录请求：
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-3-cn.png)
+
+1. ```DAPP``` 唤醒钱包（[登录](#登录)）
+2. 钱包获取到 ```callback url``` 和验证用的消息，让用户输入密码对消息签名，钱包调用 ```DAPP``` 后端的回调方法
+3. ```DAPP``` 后端验证签名
+
+DAPP 发起调用合约请求：
+
+![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-4-cn.png)
+
+1. ```DAPP``` 唤醒钱包（[调用合约](#调用合约)）
+2. 钱包构造交易，用户输入密码，钱包预执行交易，待用户确认后，发送到链上，返回交易 ```Hash``` 给 ```callback``` 地址
+3. DAPP 后端可以根据交易 ```Hash``` 到链上查询这笔合约交易事件
+
+
+## 场景1演示
 
 移动版 ```Cyano``` 钱包源码链接地址 [cyano-android](https://github.com/ontio-cyano/cyano-android),[cyano-ios](https://github.com/ontio-cyano/cyano-ios)。
 
