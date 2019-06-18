@@ -1,8 +1,12 @@
 
+随着本体生态发展，越来越多的节点开放接受用户授权质押，用户可以通过授权质押给节点获取额外的收益。本文介绍了在钱包中如何集成授权质押功能。
 
-质押包括节点质押和授权质押，可以通过 SDK 实现质押 [ontology-ts-sdk](https://github.com/ontio/ontology-ts-sdk), [ontology-java-sdk](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/GovernanceDemo.java)。
+授权质押，可以通过 SDK 实现质押 [ontology-ts-sdk](https://github.com/ontio/ontology-ts-sdk), [ontology-java-sdk](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/GovernanceDemo.java)。
+
 
 > 参与质押数额须为500的整数倍，质押时间必须超过1个月，若中途退出，则视为主动放弃收益。
+
+> 当前支持用户授权质押的钱包：[Owallet](https://github.com/ontio/OWallet/releases)
 
 
 ## 授权质押
