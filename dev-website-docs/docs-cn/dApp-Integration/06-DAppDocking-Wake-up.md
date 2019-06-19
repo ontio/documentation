@@ -176,6 +176,9 @@ public static boolean checkInstallCynoApp(Context context) {
 	}
 }
 ```
+
+> base58 地址如 AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ 可以填 ```%address```，钱包会把 ```%address``` 改成钱包的资产地址。如果参数里有 %ontid 钱包会改成钱包的 ontid 地址。
+
 #### 具体实施流程
 
 1. 确保手机已安装集成了 Provider-sdk 的钱包 APP

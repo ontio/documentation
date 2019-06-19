@@ -44,7 +44,7 @@
 	"version": "v1.0.0",
 	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
 	"params": {
-		"type": "ontid or account",
+		"type": "ontid or address",
 		"dappName": "dapp Name",
 		"dappIcon": "dapp Icon",
 		"message": "helloworld",
@@ -58,7 +58,7 @@
 | :---| :---| :---|
 | action   |  string |  定义此二维码的功能，登录设定为 "Login"，调用智能合约设定为 "invoke" |
 | id   |  string |  消息序列号，可选 |
-| type   |  string |  定义是使用ontid登录设定为 "ontid"，钱包地址登录设定为 "account" |
+| type   |  string |  定义是使用ontid登录设定为 "ontid"，钱包地址登录设定为 "address" |
 | dappName   | string  | dapp名字 |
 | dappIcon   | string  | dapp icon信息 |
 | message   | string  | 随机生成，用于校验身份  |
@@ -75,7 +75,7 @@ method: post
 	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
 	"params": {
 		"type": "ontid or account",
-		"user": "did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz",
+		"user": "did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz or AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz",
 		"message": "helloworld",
 		"publickey": "0205c8fff4b1d21f4b2ec3b48cf88004e38402933d7e914b2a0eda0de15e73ba61",
 		"signature": "01abd7ea9d79c857cd838cabbbaad3efb44a6fc4f5a5ef52ea8461d6c055b8a7cf324d1a58962988709705cefe40df5b26e88af3ca387ec5036ec7f5e6640a1754"
@@ -115,6 +115,46 @@ method: post
   "error": 80001,
   "desc": "PARAMS ERROR",
   "result": 1
+}
+```
+### 消息签名
+
+跟登录协议一样，但 DApp 请求时不需要 DApp 名字和 icon。DApp 发起签名请求，数据如下，**URI 编码，Base64 编码**后发送请求：
+```json
+{
+	"action": "signMessage",
+	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+	"params": {
+		"type": "ontid or address",
+		"message": "helloworld"
+	}
+}
+```
+
+|字段|类型|定义|
+| :---| :---| :---|
+| action   |  string |  操作类型 |
+| type   |  string |  定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"address"，不填就默认是"address" |
+| message   | string  | 随机生成，用于校验身份  |
+
+钱包响应登录请求，**URI 解码，Base64 解码**后，获取到的数据如下：
+
+返回成功内容：
+```json
+{
+	"action": "signMessage",
+	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+	"error": 0,
+    "desc": "SUCCESS",
+	"result": {
+		"type": "ontid or address",
+		"user": "did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz or AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz",
+		"message": "helloworld",
+		"publickey": "0205c8fff4b1d21f4b2ec3b48cf88004e38402933d7e914b2a0eda0de15e73ba61",
+		"signature": "01abd7ea9d79c857cd838cabbbaad3efb44a6fc4f5a5ef52ea8461d6c055b8a7cf324d1a58962988709705cefe40df5b26e88af3ca387ec5036ec7f5e6640a1754"
+	}
 }
 ```
 
@@ -186,7 +226,7 @@ method: post
 
 
 ```
-
+> base58 地址如 AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ 可以填 ```%address```，钱包会把 ```%address``` 改成钱包的资产地址。如果参数里有 %ontid 钱包会改成钱包的 ontid 地址。
 
 钱包构造交易，用户签名，预执行交易，发送交易，POST 交易 hash 给 callback url 。
 

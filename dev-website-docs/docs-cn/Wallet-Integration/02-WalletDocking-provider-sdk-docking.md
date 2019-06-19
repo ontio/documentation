@@ -14,7 +14,7 @@
 
 
 
-## dAPI 使用场景
+## dAPI 使用场景===
 
 移动端 ```dAPI``` 规范文档包括唤醒、扫码、和钱包中打开 ```H5 DAPP``` 三种场景。对于已支持 DAPI 的钱包如 [麦子钱包](http://www.mathwallet.org/en/)，请参考对应的对接文档。关于协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。
 

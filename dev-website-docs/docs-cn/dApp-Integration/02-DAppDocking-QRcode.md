@@ -203,6 +203,9 @@ method: post
 	}
 }
 ```
+
+> base58 地址如 AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ 可以填 ```%address```，钱包会把 ```%address``` 改成钱包的资产地址。如果参数里有 %ontid 钱包会改成钱包的 ontid 地址。
+
 <p class = "info">调用合约时，如果二维码里 payer 没填写，就由钱包填写。如果二维码里 payer 有填写，钱包要验证是否与钱包的资产地址一致。</p>
 
 Provider 构造交易，进行用户签名、预执行交易、发送交易，最后 POST 交易 hash 给 callback url。
