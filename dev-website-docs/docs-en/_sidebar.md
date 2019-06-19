@@ -52,8 +52,8 @@
 - Wallet Integration Guide
   - [Overview](docs-en/Wallet-Integration/00-wallet_integration.md)
   - [Asset integration](docs-en/Wallet-Integration/01-WalletDocking-asset-docking.md)
+  - [Staking integration](docs-en/Wallet-Integration/08-WalletDocking-staking-docking.md)
   - [provider  integration](docs-en/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
-      - [Scan code integration](docs-en/Wallet-Integration/03-WalletDocking-scan-qrcode.md)
       - [Open dApp in the wallet integration](docs-en/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
 
 - Exchange Integration Guide
