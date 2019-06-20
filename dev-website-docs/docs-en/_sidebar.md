@@ -30,8 +30,9 @@
 
 - Smart Contract
   - [Getting Started](docs-en/smartcontract/01-started.md)
-  - [Template](docs-en/smartcontract/02-template.md)
-  - [API Reference](docs-en/smartcontract/03-sc-api.md)
+  - [API Reference](docs-en/smartcontract/02-template.md)
+  - [Video](docs-cn/smartcontract/04-tutorials.md)
+  - [FAQ](docs-cn/smartcontract/05-sc-faq.md)
 
 - DApp Development Guide
   - [DAPP Development](docs-en/QuickGuide/00-dapp_development.md)

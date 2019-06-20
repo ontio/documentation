@@ -1,4 +1,8 @@
 
+### Native API
+
+* [Native Contract API](https://github.com/ontio/ontology/blob/master/docs/specifications/native_contract/paramapi.md).
+* Python Smart Contract [API doc](https://apidoc.ont.io/smartcontract/).
 
 ### Template for compiler 2.0
 
@@ -15,7 +19,7 @@
 | 9| [Event test](https://github.com/ONT-Avocados/python-template/blob/master/EventTest/event_test_compiler2.0.py) | Python|   Event test  |
 |10| [Smart contract libs](https://github.com/ONT-Avocados/python-template/tree/master/libs) | Python|  Smart contract libs    |
 
-### Project
+### Project Example
 
 | # | Smart contract                             | Link         |        Language      |   Description   |
 | -----| ---------------------------------------- | ----------- | ---------------- | ---------------- |
