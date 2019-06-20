@@ -1,7 +1,7 @@
 
 
 
-Ontology签名服务器sigsvr是一个用于对交易进行签名的rpc服务器。签名服务器绑定在127.0.0.1地址上，只支持本机发送的签名请求。
+Ontology 签名服务器 ```sigsvr``` 是一个用于对交易进行签名的 ```RPC``` 服务器。签名服务器绑定在 ```127.0.0.1``` 地址上，只支持本机发送的签名请求。
 
 * [Ontology 签名服务器使用说明](#ontology-签名服务器使用说明)
 	* [1. 签名服务启动](#1-签名服务启动)
@@ -233,7 +233,7 @@ http://localhost:20000/cli
 Native合约调用交易根据ABI构造，并签名。
 
 注意：  
-sigsvr启动时，会在当前目录下查找"./cmd/abi/native"下的native合约abi。如果naitve目录下没有该合约的abi，怎会返回1007错误。
+sigsvr启动时，会在当前目录下查找 ```./cmd/abi/native``` 下的 native 合约 abi。如果 naitve 目录下没有该合约的 abi，怎会返回 1007 错误。
 
 方法名称：signativeinvoketx  
 请求参数：

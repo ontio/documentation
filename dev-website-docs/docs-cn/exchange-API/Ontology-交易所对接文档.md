@@ -1,11 +1,11 @@
 
-# Ontology 交易所对接文档
-
-ONT中有两种资产：原生资产和合约资产。原生资产如ont和ong。交易所对接时，主要处理这两种类型资产的充值、提现等操作。
 
 
+ONT 中有两种资产：原生资产和合约资产。原生资产是 ONT 和 ONG。交易所对接时，主要处理这两种类型资产的充值、提现等操作。
 
-## 1.部署Ontology同步节点
+
+
+## 1.部署 Ontology 同步节点
 
 部署Ontology同步节点主要有两种方式：
 
@@ -13,26 +13,26 @@ ONT中有两种资产：原生资产和合约资产。原生资产如ont和ong�
 
 克隆ontology仓库到 **$GOPATH/src/github.com/ontio** 目录
 
-```
+```shell
 $ git clone https://github.com/ontio/ontology.git
 ```
 
 或者
 
-```
+```shell
 $ go get github.com/ontio/ontology
 ```
 
 用第三方包管理工具glide拉取依赖库
 
-```
+```shell
 $ cd $GOPATH/src/github.com/ontio/ontology
 $ glide install
 ```
 
 用make编译源码
 
-```
+```shell
 $ make
 ```
 
@@ -85,7 +85,9 @@ $ make
 
    启动节点命令：
 
-   ```./ontology ```
+   ```shell
+   $ ./ontology 
+   ```
 
    节点启动默认是关闭websocket和rest端口的，需要开放上述端口，可以配置以下参数
 
@@ -929,7 +931,7 @@ Tip:
 
 ![ong](./images/ong1.png)
 
-### 用户提取ONG
+### 用户提取 ONG
 
 用户提取ONG的流程和提取ONT的流程一致，只需指定asset 参数为ong即可：
 
@@ -948,10 +950,10 @@ Tip:
 
 ```
 
-使用Java SDK 提取ONG，请参照[Java SDK:ONG转账](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
+使用 ```Java SDK``` 提取 ```ONG```，请参照 [Java SDK:ONG转账](https://github.com/ontio/ontology-java-sdk/blob/master/docs/cn/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
 
 ## 6. 签名服务
-当无法使用sdk或cli时，您可以通过签名服务器来构造和发送交易：
+当无法使用 ```SDK``` 或 ```CLI``` 时，您可以通过签名服务器来构造和发送交易：
 
 [Ontology 签名服务器使用说明](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr_CN.md)
 
@@ -969,10 +971,7 @@ Authorization Manager(Auth) | 0600000000000000000000000000000000000000 | AFmseVr
 Governance | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK
 DDXF(Decentralized Exchange) | 0800000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviKTaSnK
 
-## 附2 FAQ
-[FAQ](https://github.com/ontio/documentation/blob/master/exchangeDocs/ONT%20%E4%BA%A4%E6%98%93%E6%89%80%E5%AF%B9%E6%8E%A5FAQ.md)
 
-## 附3 主网及sdk更新日志
-请参照下面的更新日志，根据需要来决定是否要更新您的sdk版本
-[Update note](https://github.com/ontio/documentation/blob/master/exchangeDocs/Ontology%20mainnet%20update%20note.md)
+## 附2 主网及sdk更新日志
+请参照下面的更新日志，根据需要来决定是否要更新您的 SDK 版本 [Update note](https://github.com/ontio/documentation/blob/master/exchangeDocs/Ontology%20mainnet%20update%20note.md)
 

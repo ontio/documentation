@@ -5,8 +5,6 @@
 
 A : 启动时增加参数：```--networkid 2``` 。具体请参照```./ontology --help```
 
-
-
 ## 转账手续费是什么
 
 A: ontology网络每次转账需要消耗ONG(gas)，在主网需要500+的gasprice的指定才会打包
@@ -17,13 +15,13 @@ gaslimit的最低值是20000，gasprice的最低值是500，一般的交易情�
 
 
 
-## ONT解绑ONG问题
+## ONT 解绑 ONG 问题
 
-A:初始化时，所有的ONG会被发送到ONT合约地址中，随着时间的推移逐步的解绑ONG。解绑的ONG的地址确定且唯一。
+A:初始化时，所有的 ONG 会被发送到 ONT 合约地址中，随着时间的推移逐步的解绑 ONG。解绑的 ONG 的地址确定且唯一。
 
 
 
-## 关于ONT和ONG精度问题
+## 关于 ONT 和 ONG 精度问题
 
 A:ONT为实际数量，不可分割。ONG精度为9，可分割。交易手续费使用ONG支付
 
@@ -31,7 +29,7 @@ A:ONT为实际数量，不可分割。ONG精度为9，可分割。交易手续�
 
 ## 交易如果产生交易费用，交易费用也会对应一笔转账，怎么识别这笔转账呢？这笔转账的目标地址是固定地址吗？
 
-A:交易总手续费在消息推送中由gasConsumed标识，在消息中为最后一个消息。且转到治理合约地址中：AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK，该地址唯一。
+A:交易总手续费在消息推送中由 gasConsumed 标识，在消息中为最后一个消息。且转到治理合约地址中：AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK，该地址唯一。
 
 ## 特殊合约地址说明
 
@@ -44,7 +42,7 @@ A:
 | 治理合约 | 0700000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK |
 
 
-## ONT有区块链浏览器么
+## ONT 有区块链浏览器么
 A：[https://explorer.ont.io/](https://explorer.ont.io/)
 
 ## 什么是白名单启动方式
