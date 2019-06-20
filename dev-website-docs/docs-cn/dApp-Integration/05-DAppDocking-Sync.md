@@ -1,16 +1,16 @@
 
 
-本文档介绍如何同步链上数据到应用本地的数据库。
+本章节会介绍如何将链上数据同步到应用本地的数据库。
 
-当 ```DAPP``` 需要查询链上数据（比如交易记录等），可以通过公开的 [浏览器 API](https://dev-docs.ont.io/#/docs-cn/explorer/overview) 进行查询，这种方式适用于一些查询频率，查询量不大的 ```DAPP```，对一些高频次查询需求的 ```DAPP```，通过浏览器接口查询的方式就无法满足其业务需求，所以我们推出了同步链上数据到应用本地数据库的方法。
+当 ```DAPP``` 需要查询链上数据（比如交易记录等）时，可以通过公开的 [浏览器 API](https://dev-docs.ont.io/#/docs-cn/explorer/overview) 进行一些查询频率低、查询量少的 ```DAPP```查询，而对一些高频次查询需求的 ```DAPP```，通过浏览器接口查询的方式无法满足其业务需求，从而本体推出了同步链上数据到应用本地数据库的方法。
 
-> 请注意，同步链上数据到本地数据库对于dApp开发者是一个非必选项，请开发者在衡量自身应用具体需求后做出判断。
+> 请注意，同步链上数据到本地数据库对于 DAPP 开发者不是一个必选项，请开发者在衡量自身应用具体需求后做出判断。
 
-## 连接本体节点
+## 1. 连接本体节点
 
 可以连接本体公共节点或启动同步节点。
 
-### 连接公用节点
+### 1.1 连接公共节点
 通常情况下，开发者自己运行节点是极为不便的。因此，本体提供了 `polaris` 测试网节点以及主网节点供开发者使用，它们均支持 ```RPC```、 ```Restful``` 以及 ```WebSocket``` 调用，并使用默认的端口号。
 
 - `polaris` 测试网节点
@@ -30,20 +30,20 @@
 
 如果你希望基于 `polaris` 测试网进行开发，你可以在 [这里](https://developer.ont.io/applyOng) 申请测试所需的 `ONT` 与 `ONG`。
 
-### 运行自己的节点
+### 1.2 运行自己的节点
 
 开发者也可以自己运行同步节点，请参考 [本体节点部署](http://dev-docs.ont.io/#/docs-cn/ontology-cli/09-deploy-node?id=%E9%83%A8%E7%BD%B2%E5%90%8C%E6%AD%A5%E8%8A%82%E7%82%B9)
 
-## 运行同步程序
+## 2. 运行同步程序
 
-同步是将节点上所有区块、交易、合约事件保存到数据库，供应用查询，[Explorer](https://explorer.ont.io) 就是典型的同步程序。项目方可以选择性同步自己关注的数据，比如自己部署的合约的合约事件。
+同步是将节点上所有区块、交易、合约事件保存到数据库，供应用查询，[Explorer](https://explorer.ont.io) 就是典型的同步程序。项目方可以选择性同步自己关注的数据，比如自己部署的合约事件。
 
 
-### 同步所有区块信息
+### 2.1 同步所有区块信息
 
 部分 ```DAPP``` 需要同步所有的区块信息，比较典型的就是本体的浏览器，有类似需求的开发者可以参考 [本体浏览器的区块同步程序](https://github.com/ontio/ontology-explorer/tree/master/back-end-projects/OntSynHandler)。
 
-根据快高获取块，通过链 [getblk_by_height](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getblk_by_height) 接口得到的返回值示例：
+- 根据快高获取块，通过链 [getblk_by_height](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getblk_by_height) 接口得到的返回值示例：
 ```json
 http://polaris1.ont.io:20334/api/v1/block/details/height/909220
 
@@ -95,18 +95,18 @@ http://polaris1.ont.io:20334/api/v1/block/details/height/909220
 	"Version": "1.0.0"
 }
 ```
-### 只同步具体合约相关的 Event
+### 2.2 只同步具体合约相关的 Event
 
-大部分 ```DAPP``` 只需要关系自己的合约中产生的 ```Event``` 即可，不需要同步所有区块的信息。
+大部分 ```DAPP``` 只需要同步自己的合约中产生的 ```Event``` 即可，不需要同步所有区块的信息。
 
 具体的同步程序应该根据应用的具体业务需求编写，在这里我们为开发者提供了一个只同步自身合约信息的 [示例](https://github.com/lucas7788/wontologyserver/blob/master/src/main/java/com/github/ontio/asyncService/BlkSyncService.java)。
 
-开发者在合约中自定义 ```Notify``` 的内容。示例:
+- 开发者在合约中自定义 ```Notify``` 的内容。示例:
 ```python
 Notify(["params1", "params2", "params3"])
 ```
 
-根据快高查合约事件，通过链 [getSmartCodeEvent](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsc_event_by_height) 接口得到的返回值示例：
+- 根据快高查合约事件，通过链 [getSmartCodeEvent](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsc_event_by_height) 接口得到的返回值示例：
 
 
 ```json
@@ -136,7 +136,7 @@ http://polaris1.ont.io:20334/api/v1/smartcode/event/transactions/909220
 }
 ```
 
-数组 ExecuteNotify 的数据结构是
+  - 数组 ExecuteNotify 的数据结构是
 
 ```go
 type ExecuteNotify struct {
@@ -146,7 +146,8 @@ type ExecuteNotify struct {
 	Notify      []*NotifyEventInfo
 }
 ```
-NotifyEventInfo 的数据结构是
+
+ - NotifyEventInfo 的数据结构是
 
 ```go
 type NotifyEventInfo struct {
@@ -155,8 +156,7 @@ type NotifyEventInfo struct {
 }
 ```
 
-
-#### 监听特定合约事件示例
+-  监听特定合约事件示例
 
 ```java
 public void run() {
