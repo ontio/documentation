@@ -43,7 +43,8 @@
 
 部分 ```DAPP``` 需要同步所有的区块信息，比较典型的就是本体的浏览器，有类似需求的开发者可以参考 [本体浏览器的区块同步程序](https://github.com/ontio/ontology-explorer/tree/master/back-end-projects/OntSynHandler)。
 
-- 根据快高获取块，通过链 [getblk_by_height](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getblk_by_height) 接口得到的返回值示例：
+根据快高获取块，通过链 [getblk_by_height](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getblk_by_height) 接口得到的返回值示例：
+
 ```json
 http://polaris1.ont.io:20334/api/v1/block/details/height/909220
 
@@ -102,6 +103,7 @@ http://polaris1.ont.io:20334/api/v1/block/details/height/909220
 具体的同步程序应该根据应用的具体业务需求编写，在这里我们为开发者提供了一个只同步自身合约信息的 [示例](https://github.com/lucas7788/wontologyserver/blob/master/src/main/java/com/github/ontio/asyncService/BlkSyncService.java)。
 
 - 开发者在合约中自定义 ```Notify``` 的内容。示例:
+
 ```python
 Notify(["params1", "params2", "params3"])
 ```
@@ -109,7 +111,7 @@ Notify(["params1", "params2", "params3"])
 - 根据快高查合约事件，通过链 [getSmartCodeEvent](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsc_event_by_height) 接口得到的返回值示例：
 
 
-```json
+ ```json
 
 http://polaris1.ont.io:20334/api/v1/smartcode/event/transactions/909220
  
@@ -136,7 +138,7 @@ http://polaris1.ont.io:20334/api/v1/smartcode/event/transactions/909220
 }
 ```
 
-  - 数组 ExecuteNotify 的数据结构是
+- 数组 ExecuteNotify 的数据结构是
 
 ```go
 type ExecuteNotify struct {
@@ -147,7 +149,7 @@ type ExecuteNotify struct {
 }
 ```
 
- - NotifyEventInfo 的数据结构是
+- NotifyEventInfo 的数据结构是
 
 ```go
 type NotifyEventInfo struct {

@@ -38,7 +38,7 @@
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-4-cn.png)
 
 
-## dAPI 协议介绍
+## dAPI 协议使用
 
 DApp 开发要实现唤醒功能中的两种流程：
 - 登录
@@ -125,10 +125,10 @@ public static boolean checkInstallCynoApp(Context context) {
 ![wakeup-login](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/wakeupInvoke.png)
 
 1. 构建调用合约数据给特定 Provider
-2. Provider 签名，预执行，并最终发送到链上（本步骤无需 DApp 开发）
-3. Provider 将交易 hash 发给 DApp 后台
-4. DApp 后台从链上查询合约执行结果
-5. DApp 后台将结果反馈给 DApp，呈献给用户
+2. Provider 签名，预执行，并最终发送到链上（本步骤无需 ```DAPP``` 开发）
+3. Provider 将交易 hash 发给 ```DAPP``` 后台
+4. DAPP 后台从链上查询合约执行结果
+5. DAPP 后台将结果反馈给 ```DAPP```，呈献给用户
 
 #### 调用合约数据
 
