@@ -35,19 +35,19 @@
   - [FAQ](docs-en/smartcontract/05-sc-faq.md)
 
 - DApp Development Guide
-  - [DAPP Development](docs-en/QuickGuide/00-dapp_development.md)
-  - [DAPI Usage](docs-en/QuickGuide/06-dapi-useage.md)
   - [Toolkits Guide](docs-en/DeveloperGuide/tools.md)
+  - [DAPP Development](docs-en/QuickGuide/00-dapp_development.md)
+  - [dAPI Usage](docs-en/QuickGuide/06-dapi-useage.md)
 
-- DApp Integration Guide
+- DAPP Integration Guide
   - [Overview](docs-en/dApp-Integration/00-dapp_integration.md)
-  - [DApi integration](docs-en/dApp-Integration/09-dapi_integration.md)
-      - [DAPP supports opening inside mobile wallet](docs-en/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
-      - [DAPP supports mobile wallet scan code](docs-en/dApp-Integration/02-DAppDocking-QRcode.md)
-      - [DAPP supports chrome plugin wallet](docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
+  - [dAPI integration](docs-en/dApp-Integration/09-dapi_integration.md)
+      - [Chrome plugin wallet](docs-en/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet.md)
+      - [Open DAPP in mobile wallet](docs-en/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp.md)
+      - [Mobile wallet scan qrcode](docs-en/dApp-Integration/02-DAppDocking-QRcode.md)
       - [DAPP wakes up mobile wallet](docs-en/dApp-Integration/06-DAppDocking-Wake-up.md)
   - [Unity 3D integration](docs-en/dApp-Integration/12-unity_integration.md)       
-  - [Q&A](docs-en/dApp-Integration/11-Q&A.md)
+  - [FAQ](docs-en/dApp-Integration/11-Q&A.md)
 
 
 - Wallet Integration Guide
@@ -55,7 +55,7 @@
   - [Asset integration](docs-en/Wallet-Integration/01-WalletDocking-asset-docking.md)
   - [Staking integration](docs-en/Wallet-Integration/08-WalletDocking-staking-docking.md)
   - [provider  integration](docs-en/Wallet-Integration/02-WalletDocking-provider-sdk-docking.md)
-      - [Open dApp in the wallet integration](docs-en/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
+      - [Open DAPP in mobile wallet](docs-en/Wallet-Integration/04-WalletDocking-wallet-open-DApp.md)
 
 - Exchange Integration Guide
   - [Overview](docs-en/exchange-API/Ontology+Exchange+Docking+Document.md)
@@ -73,10 +73,10 @@
 - Cyano
   - [Overview](docs-en/Cyano/00-overview.md)
   - [Cyano Wallet](docs-en/Cyano/02-getting-started.md)
-  - [Mobile Wallet Docking](docs-en/Cyano/Cyano-provider/00-overview.md)
+  - [Mobile Wallet integration](docs-en/Cyano/Cyano-provider/00-overview.md)
       - [Scan QR code](docs-en/Cyano/Cyano-provider/02-scan-qrcode.md)
       - [Embedded H5 DApp](docs-en/Cyano/Cyano-provider/03-embedded-h5.md)
-  - [DAPP Docking](docs-en/Cyano/dApi/00-overview.md)
+  - [DAPP integration](docs-en/Cyano/dApi/00-overview.md)
       - [dAPI-Chrome](docs-en/Cyano/dApi/02-getting-started.md)
       - [dAPI-Mobile](docs-en/Cyano/dApi-mobile/02-getting-started.md)
 
