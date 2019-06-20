@@ -192,12 +192,12 @@ response示例:
 ```
 
 
-| Error Code |  Description
-| :------- | :------- | :------- |
-| 0 | Success
-| 80001| Params error
-| 80002| Method error
-| 80003| Internal error
+| Error Code |  Description  |
+| :------- | :------- | 
+| 0 | Success  |
+| 80001| Params error |
+| 80002| Method error |
+| 80003| Internal error |
 
 ## 代码参考
 

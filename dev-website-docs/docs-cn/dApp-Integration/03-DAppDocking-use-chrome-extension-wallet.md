@@ -45,7 +45,7 @@ client.registerClient({});
 #### ③ dAPI 方法
 创建 ```dAPI``` 实例成功后，就可以在你的 ```DAPP``` 中调用 ```dAPI``` 方法。
 
-#####* 获取账号或身份信息
+##### 获取账号或身份信息
 
 ```javascript
 account = await client.api.asset.getAccount()
@@ -53,14 +53,14 @@ res = await client.api.identity.getIdentity();
 ```
 
 
-#####* 智能合约方法
+##### 智能合约方法
 ```javascript
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
 
-#####* 与链交互方法
+##### 与链交互方法
 ```javascript
 const network = await client.api.network.getNetwork();
 const height = await client.api.network.getBlockHeight();
@@ -68,12 +68,12 @@ const block = await client.api.network.getBlock({ block: 1 });
 const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
 const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
 ```
-#####* 转账方法
+##### 转账方法
 ```javascript
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
 ```
 
-#####* 数据签名
+##### 数据签名
 
 可以用做登录时验证用户身份。
 ```javascript
@@ -116,7 +116,7 @@ $ npm run start
 
 ![Cyano Wallet Confirm](https://raw.githubusercontent.com/ontio/documentation/master/docs/lib/images/demo.png)
 
-####* 如何填写 gaslimit 和 gasprice
+#### 如何填写 gaslimit 和 gasprice
 
 每笔交易都包含 ```gas limit``` 和 ```gas price```。
 
@@ -124,7 +124,7 @@ gasprice 会影响到该笔交易被打包所需等待的时间，目前主网�
 
 gaslimit 根据合约执行复杂性而定，可以通过预执行查询该调用需要的最小 gaslimit 值。```Native``` 合约调用 ```gaslimit``` 默认是 20000。部署合约根据合约而定，```gaslimit``` 一般是 20000000 以上。
 
-####* 地址的处理
+#### 地址的处理
 
 Chrome 插件钱包 ```Cyano wallet``` 在处理传入的地址时，只接受 ```ByteArray``` 类型，在使用 [SmartX](https://smartx.ont.io/#/) 进行调试的时候，SmartX 会自动将识别到的 address 类型转化为 ByteArray 类型，所以调用不会有问题，但是在开发者自身的环境下，如果没有做类型转换，```Cyano wallet``` 就会报错。
 
