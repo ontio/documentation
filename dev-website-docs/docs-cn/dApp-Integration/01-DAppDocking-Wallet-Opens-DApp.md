@@ -205,7 +205,7 @@ response示例:
 | 80002| Method error |
 | 80003| Internal error |
 
-<p><br>
+
 ## 4. 代码参考
 
 ##### 签名验证方法

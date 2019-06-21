@@ -94,9 +94,12 @@
 | callback   | string  | 用户扫码签名后发送到 DAPP 后端 URL |
 
 ### 3.2 DAPP 服务端登录接口
-method: post
+
+> 该接口是钱包处理完请求回调时调用，服务器 IP 必须得是外网。
 
 ```json
+method: post
+
 {
 	"action": "login",
 	"version": "v1.0.0",
@@ -219,7 +222,9 @@ method: post
 
 Provider 构造交易，进行用户签名、预执行交易、发送交易，最后 POST 交易 hash 给 callback url。
 
-发送交易成功，POST 给 callback：
+发送交易成功，钱包 POST 给 callback：
+
+> 该接口是钱包处理完请求回调时调用，服务器 IP 必须得是外网。
 
 ```json
 {
