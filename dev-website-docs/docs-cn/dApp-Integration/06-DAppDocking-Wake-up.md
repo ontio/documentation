@@ -1,6 +1,6 @@
 
 
-## 概述
+## 1. 概述
 
 进行特殊适配的钱包 ```App``` 可以支持被手机内其他 ```App``` 唤醒，本文将介绍在 ```App``` 内如何通过唤醒钱包 ```App``` 实现登录，调用智能合约（包括付款）等功能，应用唤醒实现请参考 [Android 应用例子](https://github.com/ontio-cyano/android-app-demo)。
 
@@ -8,45 +8,57 @@
 
 介绍去中心化应用程序和去中心化手机钱包的职责。
 
-##### DAPP
+#### ①去中心化应用程序
 
-去中心化应用程序
+#####  DAPP 
 
-##### DAPP 后台：
+-  ```DAPP``` 后台主要提供以下功能：
 
-主要提供以下功能：
-- ```DAPP``` 操作，生成相应的登录参数或者调用智能合约的参数。
-- 同步链上信息，获取登录或调用智能合约的结果
+ - ```DAPP``` 操作，生成相应的登录参数或者调用智能合约的参数。
+ - 同步链上信息，获取登录或调用智能合约的结果。
+
+#### ②去中心化手机钱包的职责
 
 ##### Provider
-提供签名，预执行交易，执行交易等与链交互。本文档描述针对目前支持的两个钱包：
-- ONTO [下载](https://onto.app)
-- Cyano [下载](http://101.132.193.149/files/app-debug.apk)
+- 提供签名，预执行交易，执行交易等与链交互职责。
 
-##### 演示
-我们提供了一个唤醒特定钱包的Demo app 供参考：[唤醒演示](https://github.com/ontio-cyano/android-app-demo)，[Unity 游戏演示](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
+> 当前描述仅针对目前支持的两个钱包：
 
+> - ONTO [下载](https://onto.app)
+> - Cyano [下载](http://101.132.193.149/files/app-debug.apk)
 
-## 交互流程
+#### ③演示
+此处提供了两个唤醒特定钱包的  ```Demo app``` 供您参考：
 
-登录流程：
+* [唤醒演示](https://github.com/ontio-cyano/android-app-demo)
+
+* [Unity 游戏演示](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
+
+<p><br>
+
+## 2. 交互流程
+
+### 登录流程：
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-3-cn.png)
 
-支付流程：
+### 支付流程：
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-4-cn.png)
 
 
-## dAPI 协议使用
+## 3. dAPI 协议使用
 
-DApp 开发要实现唤醒功能中的两种流程：
+DAPP 开发要实现唤醒功能中的两种流程：
+
 - 登录
 - 调用智能合约
 
-登录流程不用过多解释，调用智能合约这个流程可以根据调用不同合约不同方法，实现 ```DApp``` 的各种业务逻辑，以游戏为例，可以实现购买，出售，租赁等不同的业务。
+登录流程较为简单，会在下面列举，此处不多赘述。
 
-### 登录
+调用智能合约这个流程可以根据调用不同合约不同方法，实现 ```DAPP``` 的各种业务逻辑，以游戏为例，可以实现购买，出售，租赁等不同的业务。
+
+### 3.1 登录
 
 登录流程如下图所示：
 
@@ -97,7 +109,7 @@ public static boolean checkInstallCynoApp(Context context) {
    }
 ```
 
-2. ```DAPp``` 将 ```DAPP``` 后台服务构建的登录信息发送给特定的 ```Provider``` （钱包），例如：
+2. ```DAPP``` 将 ```DAPP``` 后台服务构建的登录信息发送给特定的 ```Provider``` （钱包），例如：
 
 ```java
    String data = "{\"action\":\"login\",\"id\":\"10ba038e-48da-487b-96e8-8d3b99b6d18a\",\"version\":\"v1.0.0\",\"params\":{\"type\":\"ontid or account\",\"dappName\":\"dapp Name\",\"dappIcon\":\"dapp Icon\",\"message\":\"helloworld\",\"expire\":1546415363,\"callback\":\"http://127.0.0.1:80/login/callback\"}}"; //此处就是将之前的登录数据拼接后的状态。
@@ -118,17 +130,17 @@ public static boolean checkInstallCynoApp(Context context) {
 * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
 
-### 调用合约
+### 3.2 调用合约
 
 调用合约流程如下图所示：
 
 ![wakeup-login](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/wakeupInvoke.png)
 
-1. 构建调用合约数据给特定 Provider
-2. Provider 签名，预执行，并最终发送到链上（本步骤无需 ```DAPP``` 开发）
-3. Provider 将交易 hash 发给 ```DAPP``` 后台
-4. DAPP 后台从链上查询合约执行结果
-5. DAPP 后台将结果反馈给 ```DAPP```，呈献给用户
+1. 构建调用合约数据给特定  ```Provider```
+2. ```Provider``` 签名，预执行，并最终发送到链上（本步骤无需 ```DAPP``` 开发）
+3. ```Provider``` 将交易 ```hash``` 发给 ```DAPP``` 后台
+4. ```DAPP``` 后台从链上查询合约执行结果
+5. ```DAPP``` 后台将结果反馈给 ```DAPP```，呈献给用户
 
 #### 调用合约数据
 
@@ -177,13 +189,14 @@ public static boolean checkInstallCynoApp(Context context) {
 }
 ```
 
-> base58 地址如 AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ 可以填 ```%address```，钱包会把 ```%address``` 改成钱包的资产地址。如果参数里有 %ontid 钱包会改成钱包的 ontid 地址。
+> base58 地址如 AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ 可以填 ```%address```，钱包会把 ```%address``` 改成钱包的资产地址。 
+> 如果参数里有 ```%ontid```, 钱包会改成钱包的 ```ontid``` 地址。
 
 #### 具体实施流程
 
-1. 确保手机已安装集成了 Provider-sdk 的钱包 APP
+1. 确保手机已安装集成了 ```Provider-sdk``` 的钱包 ```APP```
 
-2. 构造调用合约的 json 数据，唤醒钱包。
+2. 构造调用合约的 ```json``` 数据，唤醒钱包。
 
 ```java
 

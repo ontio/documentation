@@ -6,16 +6,16 @@
 与传统 ```APP``` 不同，```DAPP``` 没有一个中心化的账号管理后台，用户完全掌控自身的身份和资产，所以 ```DAPP``` 除了通过智能合约构建自己的业务逻辑，也需要通过各种方式和链进行交互。为了降低 ```DAPP``` 开发难度，我们提供了丰富的 ```dAPI``` 方法用于 ```DAPP``` 与链交互，目前的技术已经适用于在所有主流设备中使用 ```DAPP``` 的场景。
 
 - 目前支持以下场景：
- - [DApp 调用 Chrome 插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
- - [手机钱包内打开 DApp](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)
- - [手机钱包扫码 DApp](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/02-DAppDocking-QRcode)
+ - [DAPP 调用 Chrome 插件钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/03-DAppDocking-use-chrome-extension-wallet)
+ - [手机钱包内打开 DAPP](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)
+ - [手机钱包扫码 DAPP](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/02-DAppDocking-QRcode)
  - [应用唤醒手机钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/06-DAppDocking-Wake-up)
 
 - 目前已支持 ```dAPI``` 协议的钱包有：
  -  [麦子钱包](http://www.mathwallet.org/en/)
  - [Banko](http://bankowallet.com/pc.html) 
 
-- 目前已支持 dAPI 的 DAPPs： 
+- 目前已支持 ```dAPI``` 的 DAPPs： 
  - [https://github.com/ontio-community/dapp-store](https://github.com/ontio-community/dapp-store)。
 
 协议详情请查看 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)。调试使用 ```Android``` 钱包，下载地址：[http://101.132.193.149/files/app-debug.apk](http://101.132.193.149/files/app-debug.apk)
@@ -27,8 +27,8 @@
 
 * 移动版 ```Cyano``` 钱包源码链接地址：[cyano-android](https://github.com/ontio-cyano/cyano-android) ，[Cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 * 移动版 ```Cyano``` 安卓钱包下载地址：[http://101.132.193.149/files/app-debug.apk](http://101.132.193.149/files/app-debug.apk)
-* H5 DAPP 例子源码：[mobile-dapp-demo](https://github.com/ontio-cyano/mobile-dapp-demo)
-* H5 DAPP 例子链接：[http://101.132.193.149:5000/#/](http://101.132.193.149:5000/#/)
+* H5 ```DAPP``` 例子源码：[mobile-dapp-demo](https://github.com/ontio-cyano/mobile-dapp-demo)
+* H5 ```DAPP``` 例子链接：[http://101.132.193.149:5000/#/](http://101.132.193.149:5000/#/)
 
 ### 1. 在钱包中打开 DAPP
 
