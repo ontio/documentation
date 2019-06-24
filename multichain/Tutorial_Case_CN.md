@@ -16,9 +16,15 @@
 
 
 
+<br/>
+<br/>
+<br/>
+
 ## 资产转移，前往下载 [multichain-transfer ](https://github.com/siovanus/multichain-transfer)资产转移工具
 
 [multichain-transfer ](https://github.com/siovanus/multichain-transfer)是资产转移工具，在正式使用之前，我们先了解相关的配置和使用帮助
+
+<br/>
 
 ### 配置文件和使用帮助
 
@@ -57,17 +63,19 @@
 
 ![4](resources/4.png)
 
-<br/>
+
 <br/>
 
 运行命令行，执行：`./main --fee 10000000000 --chain-id 1 --amount 150000000000`，并且输入密码
 
 ![5](resources/5.png)
 
-<br/>
+
 <br/>
 
 `config.json ` 当中指定了我们当前处于主链，当使用资产转移工具执行跨链交易时，指定了 `--chain-id 1`  , `--fee 10000000000` , `--amount 150000000000` ，即向id为1的侧链转账150个 `ONG`，并扣除当前所处主链的费用 10个`ONG`
+
+<br/>
 
 <br/>
 
@@ -79,12 +87,12 @@
 
 ![6](resources/6.png)
 
-<br/>
+
 <br/>
 更改之后，我们可以查看到，刚刚所转账的 `ONG` 已经到账
 
 ![7](resources/7.png)
-<br/>
+
 <br/>
 
 若想主链向其他侧链，或侧链向主链转账，同理。但需要主要的是，侧链和侧链直接转账不可行，`ONG` 必须经过主链。因此，若想侧链向侧链，需要先将侧链 `ONG` 转移至主链，再将转移到主链的 `ONG` 转移至新的侧链
@@ -97,7 +105,7 @@
 
 我们可以使用 [samrtx](https://smartx.ont.io) 部署和运行智能合约
 
-
+<br/>
 
 #### 部署智能合约并初始化
 
@@ -106,7 +114,6 @@
 合约文件中，`owner` 为智能合约的管理人，我们更改为自己需要设置的 `owner` 地址即可
 
 ![8](resources/8.png)
-<br/>
 <br/>
 
 部署完成之后，调用 `init` 方法，初始化10亿 `token` 给 `owner` 地址
@@ -140,7 +147,6 @@
 <br/>
 
 **2. 验证侧链是否到账**
-<br/>
 在此之前，我们需要在 `Cyano` 上添加 `OEP4 Token` 的地址，此地址即为 `B` 合约部署在侧链的合约地址
 
 ![13](resources/13.png)
@@ -149,7 +155,7 @@
 
 <br/>
 
-<br/>
+
 
 
 
