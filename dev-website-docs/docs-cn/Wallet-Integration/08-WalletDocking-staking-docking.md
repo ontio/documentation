@@ -11,7 +11,7 @@
 
 接下来介绍授权质押的接口：
 
-### 1. 查询开发授权质押的节点列表
+## 1. 查询开发授权质押的节点列表
 
 ```javascript
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
@@ -58,7 +58,7 @@ Map m = sdk.nativevm().governance().getPeerPoolMap();
   }
 ```
 
-### 2.查询授权质押详情
+## 2.查询授权质押详情
 
 ```javascript
 //@param pk {string} Public key of the node to stake
@@ -94,7 +94,7 @@ class AuhtorizeInfo {
 > 
 > 用户可提取的 ONT = withdrawUnfreezePos
 
-### 3. 查询授权质押收益
+## 3. 查询授权质押收益
 
 ```javascript
 //@param userAddr {Address} User's wallet address
@@ -119,7 +119,7 @@ class SplitFeeAddress {
 
 > The amount should divide by 1e9.
 
-### 4. 查询 ```ONT``` 解绑的 ```ONG```
+## 4. 查询 ```ONT``` 解绑的 ```ONG```
 
 ```javascript
 //@param addr {Address} User's wallet address
@@ -140,7 +140,7 @@ try {
 ```java
 String str = sdk.nativevm().governance().getPeerUbindOng("");
 ```
-### 5. 给某个节点授权质押
+## 5. 给某个节点授权质押
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
@@ -169,7 +169,7 @@ const tx = GovernanceTxBuilder.makeAuthorizeForPeerTx(
 ```java
 String txhash = sdk.nativevm().governance().authorizeForPeer(account1,new String[]{"02a98c15099d599b55c87834fd41bf9ad55408050b32bdc6ea88d6358717e19525"},new long[]{2000000},account1,20000,500);
 ```
-### 6. 取消对某个节点的授权质押
+## 6. 取消对某个节点的授权质押
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
@@ -199,7 +199,7 @@ const tx = GovernanceTxBuilder.makeUnauthorizeForPeerTx(
 ```java
 String txhash = sdk.nativevm().governance().unAuthorizeForPeer(account1,new String[]{"02a98c15099d599b55c87834fd41bf9ad55408050b32bdc6ea88d6358717e19525"},new long[]{20000},account1,20000,500);
 ```
-### 7. 提取可提取的 ```ONT```
+## 7. 提取可提取的 ```ONT```
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
@@ -224,7 +224,7 @@ const tx = GovernanceTxBuilder.makeWithdrawTx(
 ```java
 String txhash = sdk.nativevm().governance().withdraw(account,new String[]{"03e1e09221c9f513df76273f3cec0d033ee6056b159300d7b1072fc7020eadccbb"},new long[]{9999},payerAcct,sdk.DEFAULT_GAS_LIMIT,500);
 ```
-### 8. 提取解绑的 ```ONG```
+## 8. 提取解绑的 ```ONG```
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
@@ -245,7 +245,7 @@ const tx = GovernanceTxBuilder.makeWithdrawPeerUnboundOngTx(
 ```java
 String txhash = sdk.nativevm().governance().withdrawOng(account1,account1,20000,500);
 ```
-### 9. 提取授权质押的收益
+## 9. 提取授权质押的收益
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
