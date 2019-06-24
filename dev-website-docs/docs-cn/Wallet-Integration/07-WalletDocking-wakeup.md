@@ -21,7 +21,7 @@ ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 交互流程主要分两个步骤：
 
 
-### 第一步，```DAPP``` 发起登录请求
+### 第一步，DAPP 发起登录请求
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-3-cn.png)
 
@@ -29,7 +29,7 @@ ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 2. 钱包获取到 ```callback url``` 和验证用的消息，让用户输入密码对消息签名，钱包调用 ```DAPP``` 后端的回调方法
 3. ```DAPP``` 后端验证签名
 
-### 第二步，```DAPP``` 发起调用合约请求
+### 第二步，DAPP 发起调用合约请求
 
 ![login-invoke](https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/integration/split-login-invoke-4-cn.png)
 
@@ -40,7 +40,7 @@ ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 
 
 
-## 3. ```dAPI``` 协议介绍
+## 3. dAPI 协议介绍
 
 唤醒目前支持两个功能:登录和调用合约。
 

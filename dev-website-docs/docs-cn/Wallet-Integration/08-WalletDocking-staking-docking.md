@@ -119,7 +119,7 @@ class SplitFeeAddress {
 
 > The amount should divide by 1e9.
 
-## 4. 查询 ```ONT``` 解绑的 ```ONG```
+## 4. 查询 ONT 解绑的 ONG
 
 ```javascript
 //@param addr {Address} User's wallet address
@@ -199,7 +199,7 @@ const tx = GovernanceTxBuilder.makeUnauthorizeForPeerTx(
 ```java
 String txhash = sdk.nativevm().governance().unAuthorizeForPeer(account1,new String[]{"02a98c15099d599b55c87834fd41bf9ad55408050b32bdc6ea88d6358717e19525"},new long[]{20000},account1,20000,500);
 ```
-## 7. 提取可提取的 ```ONT```
+## 7. 提取可提取的 ONT
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
@@ -224,7 +224,7 @@ const tx = GovernanceTxBuilder.makeWithdrawTx(
 ```java
 String txhash = sdk.nativevm().governance().withdraw(account,new String[]{"03e1e09221c9f513df76273f3cec0d033ee6056b159300d7b1072fc7020eadccbb"},new long[]{9999},payerAcct,sdk.DEFAULT_GAS_LIMIT,500);
 ```
-## 8. 提取解绑的 ```ONG```
+## 8. 提取解绑的 ONG
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'

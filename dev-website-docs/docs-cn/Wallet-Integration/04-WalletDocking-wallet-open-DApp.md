@@ -29,14 +29,14 @@ ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 
  钱包 ```DAPP Store``` 页面使用 ```Webview``` 打开 ```H5 DAPP```
 
-#### 第二步，```DAPP``` 发起获取钱包地址信息请求
+#### 第二步，DAPP 发起获取钱包地址信息请求
 
 有两种获取方式:
 
 * [通过 getAccount 协议获取账户信息](#查询钱包账号或身份信息)
 * [通过 Login 协议获取账户信息](#登录)
 
-#### 第三步，```DAPP``` 发起调用合约请求
+#### 第三步，DAPP 发起调用合约请求
 
 详细流程：
 
@@ -48,7 +48,7 @@ ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 
 
 
-## 3. ```dAPI``` 协议介绍
+## 3. dAPI 协议使用
 
 dAPI 协议可扩展，现在支持的主要功能有：
 
