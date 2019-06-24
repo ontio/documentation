@@ -9,7 +9,7 @@
 > 当前支持用户授权质押的钱包：[Owallet](https://github.com/ontio/OWallet/releases)
 
 
-## 授权质押操作流程
+接下来介绍授权质押的接口：
 
 ### 1. 查询开发授权质押的节点列表
 
