@@ -215,7 +215,6 @@ ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 ```
 
 > base58 地址如 AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ 可以填 ```%address```，钱包会把 ```%address``` 改成钱包的资产地址。
-> 
 > 如果参数里有 ```%ontid``` 钱包会改成钱包的 ```ontid``` 地址。
 
 |字段|类型|定义|

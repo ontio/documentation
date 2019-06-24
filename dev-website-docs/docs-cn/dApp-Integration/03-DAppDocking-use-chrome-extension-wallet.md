@@ -46,7 +46,7 @@ client.registerClient({});
 #### 3.3 调用 dAPI 方法
 创建 ```dAPI``` 实例成功后，就可以在你的 ```DAPP``` 中调用 ```dAPI``` 方法。
 
-##### ① 获取账号或身份信息
+##### 3.3.1 获取账号或身份信息
 
 ```javascript
 account = await client.api.asset.getAccount()
@@ -54,14 +54,14 @@ res = await client.api.identity.getIdentity();
 ```
 
 
-##### ② 智能合约方法
+##### 3.3.2 智能合约方法
 ```javascript
 const result = await client.api.smartContract.invoke({contract,method,parameters,gasPrice,gasLimit,requireIdentity});
 const result = await client.api.smartContract.invokeRead({ contract, method, parameters });
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
 
-##### ③ 与链交互方法
+##### 3.3.3 与链交互方法
 ```javascript
 const network = await client.api.network.getNetwork();
 const height = await client.api.network.getBlockHeight();
@@ -69,12 +69,12 @@ const block = await client.api.network.getBlock({ block: 1 });
 const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb0bd88852b2f13e673e5dcdfd53bdab909de8b9812644d6871bc05f'});
 const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
 ```
-##### ④ 转账方法
+##### 3.3.4 转账方法
 ```javascript
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
 ```
 
-##### ⑤ 数据签名
+##### 3.3.5 数据签名
 
 可以用做登录时验证用户身份。
 ```javascript

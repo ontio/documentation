@@ -12,8 +12,9 @@
  - [应用唤醒手机钱包](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/06-DAppDocking-Wake-up)
 
 - 目前已支持 ```dAPI``` 协议的钱包有：
- -  [麦子钱包](http://www.mathwallet.org/en/)
+ - [麦子钱包](http://www.mathwallet.org/en/)
  - [Banko](http://bankowallet.com/pc.html) 
+ - [火币钱包](https://www.huobiwallet.com/)
 
 - 目前已支持 ```dAPI``` 的 DAPPs： 
  - [https://github.com/ontio-community/dapp-store](https://github.com/ontio-community/dapp-store)。
