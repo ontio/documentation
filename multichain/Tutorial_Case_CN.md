@@ -39,7 +39,7 @@
 }
 ```
 
-- `ChainID`  是当前所处链的 ID
+- `ChainID`  是当前所处链的 `ID`
 
 - `JsonRpcAddress` 是当前所处链的 `ip` 地址和 `rpc` 端口
 
@@ -146,6 +146,7 @@
 <br/>
 
 **2. 验证侧链是否到账**
+<br/>
 在此之前，我们需要在 `Cyano` 上添加 `OEP4 Token` 的地址，此地址即为 `B` 合约部署在侧链的合约地址
 
 ![13](resources/13.png)
