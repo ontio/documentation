@@ -25,7 +25,7 @@ ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 
 
 
-#### 第一步，钱包使用 ```Webview``` 打开 ```DAPP```（使用 H5 开发）
+#### 第一步，钱包使用 Webview 打开 DAPP（使用 H5 开发）
 
  钱包 ```DAPP Store``` 页面使用 ```Webview``` 打开 ```H5 DAPP```
 
@@ -58,7 +58,7 @@ dAPI 协议可扩展，现在支持的主要功能有：
 * 消息签名
 * 调用合约
 
-### 3.1 查询 ```Provider``` 信息
+### 3.1 查询 Provider 信息
 
 DAPP 发起查询 ```Provider``` 信息请求，数据如下，**URI 编码，Base64 编码**后发送请求：
 
@@ -257,7 +257,7 @@ action 是 invokePasswordFree: 有些游戏会用到自动投注功能，比如�
 
 
 
-#### 3.5.1 ```DAPP``` 发起调用合约请求
+#### 3.5.1 DAPP 发起调用合约请求
 数据如下，**URI 编码，Base64 编码**后发送请求：
 
 ```json

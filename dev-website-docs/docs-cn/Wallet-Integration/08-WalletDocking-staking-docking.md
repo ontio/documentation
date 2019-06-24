@@ -5,7 +5,6 @@
 
 
 > 参与质押数额须为 500 的整数倍，质押时间必须超过 1 个月，若中途退出，则视为主动放弃收益。
-
 > 当前支持用户授权质押的钱包：[Owallet](https://github.com/ontio/OWallet/releases)
 
 
