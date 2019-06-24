@@ -69,9 +69,9 @@
 | callback   | string  |  用户扫码签名后发送到 DAPP 后端 URL |
 
 ### 3.2 ```DAPP``` 服务端的回调接口
-method: post
 
 ```json
+method: post
 {
 	"action": "login",
 	"version": "v1.0.0",

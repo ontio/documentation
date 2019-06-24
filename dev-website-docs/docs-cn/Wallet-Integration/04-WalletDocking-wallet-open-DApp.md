@@ -15,7 +15,8 @@
 
 交互流程中 ```DAPP``` 请求数据 ```URI scheme``` ：
 
-```ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
+```
+ontprovider://ont.io?param=Base64.encode(Uri.encode({the json data}.toString()))
 ```
 
 交互流程主要分三个步骤，如下图所示：
