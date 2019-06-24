@@ -8,7 +8,7 @@
 
 介绍去中心化应用程序和去中心化手机钱包的职责。
 
-#### ①去中心化应用程序
+#### 1.1 去中心化应用程序
 
 #####  DAPP 
 
@@ -17,7 +17,7 @@
  - ```DAPP``` 操作，生成相应的登录参数或者调用智能合约的参数。
  - 同步链上信息，获取登录或调用智能合约的结果。
 
-#### ②去中心化手机钱包的职责
+#### 1.2 去中心化手机钱包的职责
 
 ##### Provider
 - 提供签名，预执行交易，执行交易等与链交互职责。
@@ -27,14 +27,14 @@
 > - ONTO [下载](https://onto.app)
 > - Cyano [下载](http://101.132.193.149/files/app-debug.apk)
 
-#### ③演示
+#### 1.3 演示
 此处提供了两个唤醒特定钱包的  ```Demo app``` 供您参考：
 
 * [唤醒演示](https://github.com/ontio-cyano/android-app-demo)
 
 * [Unity 游戏演示](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
 
-<p><br>
+
 
 ## 2. 交互流程
 

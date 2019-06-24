@@ -1,17 +1,17 @@
 
-随着本体生态发展，越来越多的节点开放接受用户授权质押，用户可以通过授权质押给节点获取额外的收益。本文介绍了在钱包中如何集成授权质押功能。
+随着本体生态发展，越来越多的节点开放并接受用户授权质押，用户可以通过授权质押给节点获取额外的收益。本文介绍了在钱包中如何集成授权质押功能。
 
-授权质押，可以通过 SDK 实现质押 [ontology-ts-sdk](https://github.com/ontio/ontology-ts-sdk), [ontology-java-sdk](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/GovernanceDemo.java)。
+授权质押，可以通过 ```SDK``` 实现质押 [ontology-ts-sdk](https://github.com/ontio/ontology-ts-sdk), [ontology-java-sdk](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/GovernanceDemo.java) 。
 
 
-> 参与质押数额须为500的整数倍，质押时间必须超过1个月，若中途退出，则视为主动放弃收益。
+> 参与质押数额须为 500 的整数倍，质押时间必须超过 1 个月，若中途退出，则视为主动放弃收益。
 
 > 当前支持用户授权质押的钱包：[Owallet](https://github.com/ontio/OWallet/releases)
 
 
-## 授权质押
+## 授权质押操作流程
 
-### 查询开发授权质押的节点列表
+### 1. 查询开发授权质押的节点列表
 
 ```javascript
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
@@ -22,7 +22,8 @@ const peerMap = await GovernanceTxBuilder.getPeerPoolMap(url)
 ```java
 Map m = sdk.nativevm().governance().getPeerPoolMap();
 ```
-该接口返回的结果是所有的节点详情。展示的列表需要对返回结果做一些处理，如按质押总数进行排序，匹配节点名称等。具体步骤可以参考OWallet的处理方式[NodeAuthorization.js --> fetchNodeList()](https://github.com/ontio/OWallet/blob/master/src/renderer/store/modules/NodeAuthorization.js)
+
+该接口返回的结果是所有的节点详情。展示的列表需要对返回结果做一些处理，如按质押总数进行排序，匹配节点名称等。具体步骤可以参考 ```OWallet``` 的处理方式： [NodeAuthorization.js --> fetchNodeList()](https://github.com/ontio/OWallet/blob/master/src/renderer/store/modules/NodeAuthorization.js)
 
 目前开放授权质押的节点如下：
 
@@ -57,7 +58,7 @@ Map m = sdk.nativevm().governance().getPeerPoolMap();
   }
 ```
 
-### 查询授权质押详情
+### 2.查询授权质押详情
 
 ```javascript
 //@param pk {string} Public key of the node to stake
@@ -88,10 +89,12 @@ class AuhtorizeInfo {
     }
 ```
 > 用户质押总数 = consensusPos + freezePos + newPos
-> 用户锁定中的ONT = withdrawPos + withdrawFreezePos
-> 用户可提取的ONT = withdrawUnfreezePos
+> 
+> 用户锁定中的 ONT = withdrawPos + withdrawFreezePos
+> 
+> 用户可提取的 ONT = withdrawUnfreezePos
 
-### 查询授权质押收益
+### 3. 查询授权质押收益
 
 ```javascript
 //@param userAddr {Address} User's wallet address
@@ -116,7 +119,7 @@ class SplitFeeAddress {
 
 > The amount should divide by 1e9.
 
-### 查询ONT解绑的ONG
+### 4. 查询 ```ONT``` 解绑的 ```ONG```
 
 ```javascript
 //@param addr {Address} User's wallet address
@@ -137,7 +140,7 @@ try {
 ```java
 String str = sdk.nativevm().governance().getPeerUbindOng("");
 ```
-### 给某个节点授权质押
+### 5. 给某个节点授权质押
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
@@ -159,12 +162,14 @@ const tx = GovernanceTxBuilder.makeAuthorizeForPeerTx(
     GAS_LIMIT
 )
 ```
-> User can stake some units.Stake amount = 500 ONT * units
+> User can stake some units.
+> 
+> Stake amount = 500 ONT * units
 
 ```java
 String txhash = sdk.nativevm().governance().authorizeForPeer(account1,new String[]{"02a98c15099d599b55c87834fd41bf9ad55408050b32bdc6ea88d6358717e19525"},new long[]{2000000},account1,20000,500);
 ```
-### 取消对某个节点的授权质押
+### 6. 取消对某个节点的授权质押
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
@@ -188,12 +193,13 @@ const tx = GovernanceTxBuilder.makeUnauthorizeForPeerTx(
 )
 ```
 > The amount to cancel can not exceed the total amount in authorization.
+> 
 > The amount to cancel = 500 * units
 
 ```java
 String txhash = sdk.nativevm().governance().unAuthorizeForPeer(account1,new String[]{"02a98c15099d599b55c87834fd41bf9ad55408050b32bdc6ea88d6358717e19525"},new long[]{20000},account1,20000,500);
 ```
-### 提取可提取的ONT
+### 7. 提取可提取的 ```ONT```
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
@@ -218,7 +224,7 @@ const tx = GovernanceTxBuilder.makeWithdrawTx(
 ```java
 String txhash = sdk.nativevm().governance().withdraw(account,new String[]{"03e1e09221c9f513df76273f3cec0d033ee6056b159300d7b1072fc7020eadccbb"},new long[]{9999},payerAcct,sdk.DEFAULT_GAS_LIMIT,500);
 ```
-### 提取解绑的ONG
+### 8. 提取解绑的 ```ONG```
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
@@ -239,7 +245,7 @@ const tx = GovernanceTxBuilder.makeWithdrawPeerUnboundOngTx(
 ```java
 String txhash = sdk.nativevm().governance().withdrawOng(account1,account1,20000,500);
 ```
-### 提取授权质押的收益
+### 9. 提取授权质押的收益
 
 ```javascript
 import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
