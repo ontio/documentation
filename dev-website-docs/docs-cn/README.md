@@ -302,7 +302,7 @@
                       <div>
                           <a href="#/docs-cn/cyano/02-mobile-provider">手机钱包 Provider sdk</a>
                       </div>
-                  </div>  
+                  </div>
                   <div>
                       <div>
                           <a href="#/docs-cn/cyano/00-overview">查看全部</a>
