@@ -866,7 +866,7 @@ System.out.println(ontSdk.verifySignature(acct.serializePublicKey(), data, signa
 
 接口与 ```ONT``` 类似：
 
-```
+```java
 ontSdk.nativevm().ong().makeTransfer...
 ```
 
@@ -998,7 +998,7 @@ OEP4 token 是 ```ontology``` 上的代币协议：[ OEP4 协议说明](https://
 
 1. 设置 ```OEP4``` 的合约 ```hash```
 
-```
+```java
 OntSdk wm = OntSdk.getInstance();
         wm.setRpc(rpcUrl);
         wm.setRestful(restUrl);
@@ -1007,7 +1007,7 @@ OntSdk wm = OntSdk.getInstance();
 ```
 2. 转账
 
-   ```
+   ```java
    String txhash = ontSdk.neovm().oep4().sendTransfer(account,  //from
    acct.getAddressU160().toBase58(),             //to
    1000,                                         //amount
@@ -1020,13 +1020,13 @@ OntSdk wm = OntSdk.getInstance();
 
 3. 监控合约事件
 
-   ```
+   ```java
    Object result = ontSdk.getConnect().getSmartCodeEvent(height)
    ```
 
    result 为：
 
-   ```
+   ```java
    [  
       {  
          "GasConsumed":0,
@@ -1064,35 +1064,35 @@ OntSdk wm = OntSdk.getInstance();
 
    method:
 
-   ```
+   ```java
    byte[] bs =Helper.hexToBytes("7472616e73666572");
    String s = new String(bs); //s is "transfer"
    ```
 
    from address:
 
-   ```
+   ```java
    Address from = Address.parse("e98f4998d837fcdd44a50561f7f32140c7c6c260");
    System.out.println("from is " + from.toBase58());
    ```
 
    to address:
 
-   ```
+   ```java
     Address to = Address.parse("70a2ababdae0a9d1f9fc7296df3c6d343b772cf7");
     System.out.println("to is " + to.toBase58());
    ```
 
    amount:
 
-   ```
+   ```java
    BigInteger amount = Helper.BigIntFromNeoBytes(Helper.hexToBytes("00a0724e1809"));
    System.out.println("amount is " + amount);
    ```
 
    ***Note*** amount 的值是包含精度（ decimal ）的数值，可以通过
 
-   ```
+   ```java
    ontSdk.neovm().oep4().queryDecimals()
    ```
 
