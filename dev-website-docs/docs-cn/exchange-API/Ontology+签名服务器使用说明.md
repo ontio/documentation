@@ -71,14 +71,14 @@ walletdir 参数用于设置钱包数据存储目录。默认值为:"./wallet_da
 
 **导入钱包账户命令**
 
-```
-./sigsvr import
+```shell
+$ ./sigsvr import
 ```
 
 ### 1.3 启动
 
-```
-./sigsvr
+```shell
+$ ./sigsvr
 ```
 
 
@@ -140,14 +140,14 @@ http://localhost:20000/cli
 
 请求参数：
 
-```
+```json
 {
     "raw_data":"XXX"    //待签名的数据（用16进制编码后的数据）
 }
 ```
 应答结果：
 
-```
+```json
 {
     "signed_data": "XXX"//签名后的数据（用16进制编码后的数据）
 }
@@ -157,7 +157,7 @@ http://localhost:20000/cli
 
 请求：
 
-```
+```json
 {
     "qid":"t",
     "method":"sigdata",
@@ -170,7 +170,7 @@ http://localhost:20000/cli
 ```
 应答：
 
-```
+```json
 {
     "qid": "t",
     "method": "sigdata",
@@ -335,7 +335,7 @@ sigtransfertx 方法默认使用签名账户作为手续费支付方，如果需
 >注意：如果指定了手续费付费账户，还需要调用 ```sigrawtx``` 方法，使用手续费账户对 ```sigtransfertx``` 方法生成的交易进行签名，否则会导致交易执行失败。
 
 举例
-```
+```json
 {
     "qid":"t",
     "method":"sigtransfertx",
@@ -425,7 +425,7 @@ signativeinvoketx 方法默认使用签名账户作为手续费支付方，如�
 >注意：如果指定了手续费付费账户，还需要调用 ```sigrawtx``` 方法，使用手续费账户对 ```signativeinvoketx``` 方法生成的交易进行签名，否则会导致交易执行失败。
 
 #### 举例1: 构造普通转账交易
-```
+```json
 {
     "Qid":"t",
     "Method":"signativeinvoketx",
@@ -453,7 +453,7 @@ signativeinvoketx 方法默认使用签名账户作为手续费支付方，如�
 
 #### 举例2: 构造提取 ONG 交易
 
-``` json
+```json
 {
 	"Qid":"t",
 	"Method":"signativeinvoketx",
@@ -548,7 +548,7 @@ signeovminvoketx 方法默认使用签名账户作为手续费支付方，如果
 >注意：如果指定了手续费付费账户，还需要调用 ```sigrawtx``` 方法，使用手续费账户对 ```signeovminvoketx``` 方法生成的交易进行签名，否则会导致交易执行失败。
 
 举例
-```
+```json
 {
     "gas_price":XXX,    //gasprice
     "gas_limit":XXX,    //gaslimit
@@ -568,7 +568,7 @@ NeoVM 合约 ```ABI``` 调用签名，需要提供合约的 ```abi```，以及�
 
 请求参数：
 
-```
+```json
 {
     "gas_price":XXX,    //gasprice
     "gas_limit":XXX,    //gaslimit
@@ -579,7 +579,7 @@ NeoVM 合约 ```ABI``` 调用签名，需要提供合约的 ```abi```，以及�
 ```
 应答
 
-```
+```json
 {
     "signed_tx":XXX     //签名后的交易
 }
@@ -588,7 +588,7 @@ NeoVM 合约 ```ABI``` 调用签名，需要提供合约的 ```abi```，以及�
 
 请求：
 
-```
+```json
 {
     "qid": "t",
     "method": "signeovminvokeabitx",
@@ -640,7 +640,7 @@ NeoVM 合约 ```ABI``` 调用签名，需要提供合约的 ```abi```，以及�
 ```
 应答:
 
-```
+```json
 {
     "qid": "t",
     "method": "signeovminvokeabitx",
@@ -655,7 +655,7 @@ signeovminvokeabitx 方法默认使用签名账户作为手续费支付方，如
 >注意：如果指定了手续费付费账户，还需要调用 ```sigrawtx``` 方法，使用手续费账户对 ```signeovminvokeabitx``` 方法生成的交易进行签名，否则会导致交易执行失败。
 
 举例
-```
+```json
 {
     "gas_price":XXX,    //gasprice
     "gas_limit":XXX,    //gaslimit
@@ -678,7 +678,7 @@ signeovminvokeabitx 方法默认使用签名账户作为手续费支付方，如
 
 应答
 
-```
+```json
 {
     "account":XXX     //新创建的账户地址
 }
@@ -686,7 +686,7 @@ signeovminvokeabitx 方法默认使用签名账户作为手续费支付方，如
 举例
 请求：
 
-```
+```json
 {
 	"qid":"t",
 	"method":"createaccount",
@@ -696,7 +696,7 @@ signeovminvokeabitx 方法默认使用签名账户作为手续费支付方，如
 ```
 应答：
 
-```
+```json
 {
     "qid": "t",
     "method": "createaccount",
@@ -716,7 +716,7 @@ signeovminvokeabitx 方法默认使用签名账户作为手续费支付方，如
 
 请求参数:
 
-```
+```json
 {
     "wallet_path":"XXX" //导出钱包文件存储目录, 如果填，则默认存储于签名服务运行时的当前目录下。
 }
@@ -724,7 +724,7 @@ signeovminvokeabitx 方法默认使用签名账户作为手续费支付方，如
 
 应答:
 
-```
+```json
 {
    "wallet_file": "XXX",//导出的钱包文件路径及名称
    "account_num": XXX   //导出的账户数量
@@ -735,7 +735,7 @@ signeovminvokeabitx 方法默认使用签名账户作为手续费支付方，如
 
 请求：
 
-```
+```json
 {
 	"qid":"t",
 	"method":"exportaccount",
@@ -744,7 +744,7 @@ signeovminvokeabitx 方法默认使用签名账户作为手续费支付方，如
 ```
 
 应答：
-```
+```json
 {
     "qid": "t",
     "method": "exportaccount",
