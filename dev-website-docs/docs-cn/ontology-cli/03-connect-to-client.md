@@ -1,5 +1,5 @@
 
-本体客户端提供了大量的调用接口，你可以通过 RPC、 Restful 或者 WebSockek 进行访问。
+本体客户端提供了大量的调用接口，你可以通过 RPC、 Restful 或者 WebSocket 进行访问。
 
 默认情况下，Restful 接口监听在 20334 端口，Websocket 接口监听在 20335 端口，RPC 接口监听在 20336 端口。
 
