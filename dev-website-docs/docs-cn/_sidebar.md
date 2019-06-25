@@ -81,18 +81,20 @@
   - [SDK 使用](docs-cn/faq/sdks-faq.md)
   - [对接问题](docs-cn/faq/business-faq.md)
       
-- SmartX
+- 智能合约 IDE
   - [概述](docs-cn/SmartX/overview.md)
-  - [开始使用](docs-cn/SmartX/getting-started.md)
+  - [SmartX](docs-cn/SmartX/getting-started.md)
+  - [VSCode 插件](docs-cn/Punica/sc-extension.md)
+  - [IDEA 插件](docs-cn/Punica/sc-idea-extension.md)
 
-- Cyano
+- Cyano 开源钱包
   - [概述](docs-cn/cyano/00-overview.md)
   - [Chrome 插件 Provider](docs-cn/cyano/01-chrome-wallet.md)
   - [手机端 Provider](docs-cn/cyano/02-mobile-provider.md)
   - [Chrome 插件 dAPI](docs-cn/cyano/03-ontology-dapi.md)
   - [手机端 dAPI](docs-cn/cyano/04-cyano-bridge.md)
 
-- Punica
+- DAPP 开发套件 Punica
   - [概述](docs-cn/Punica/punica.md)
   - [Punica Cli](docs-cn/Punica/punica-cli.md)
   - [Punica Box](docs-cn/Punica/punica-box.md)
