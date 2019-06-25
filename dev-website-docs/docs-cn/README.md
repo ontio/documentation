@@ -241,15 +241,25 @@
       <div class="content-container" style="background-color: #f4f4f4;padding: 1.2rem 1.2rem 2.4rem;margin: 2.4rem 0;">
           <div class="row content-row">
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title"  style="border-bottom: 1px solid #979797;">SmartX</p>
+                <p class="content-title"  style="border-bottom: 1px solid #979797;">智能合约 IDE</p>
                   <div>
                       <div>
-                          <a href="#/docs-cn/SmartX/overview">概述</a>
+                          <a href="#/docs-cn/SmartX/getting-started">SmartX</a>
                       </div>
                   </div>
                   <div>
                       <div>
-                          <a href="#/docs-cn/SmartX/overview">查看全部</a>
+                          <a href="#/docs-cn/Punica/sc-extension">VSCode 插件</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/Punica/sc-idea-extension">IDEA 插件</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/SmartX/getting-started">查看全部</a>
                       </div>
                   </div>
             </div>
@@ -262,12 +272,22 @@
                   </div>
                   <div>
                       <div>
+                          <a href="#/docs-cn/cyano/01-chrome-wallet">Chrome 插件钱包 Provider sdk</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/cyano/02-mobile-provider">手机钱包 Provider sdk</a>
+                      </div>
+                  </div>  
+                  <div>
+                      <div>
                           <a href="#/docs-cn/cyano/00-overview">查看全部</a>
                       </div>
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title"  style="border-bottom: 1px solid #979797;">Punica</p>
+                <p class="content-title"  style="border-bottom: 1px solid #979797;">DAPP 开发套件 Punica</p>
                   <div>
                       <div>
                           <a href="#/docs-cn/Punica/punica">概述</a>
@@ -294,6 +314,11 @@
                   <div>
                       <div>
                           <a href="#/docs-cn/SDKs/00-overview">概述</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/SDKs/wallet-file-specification">钱包规范</a>
                       </div>
                   </div>
                   <div>
