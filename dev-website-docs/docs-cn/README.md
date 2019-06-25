@@ -264,29 +264,6 @@
                   </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                <p class="content-title"  style="border-bottom: 1px solid #979797;">Cyano</p>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/cyano/00-overview">概述</a>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/cyano/01-chrome-wallet">Chrome 插件钱包 Provider sdk</a>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/cyano/02-mobile-provider">手机钱包 Provider sdk</a>
-                      </div>
-                  </div>  
-                  <div>
-                      <div>
-                          <a href="#/docs-cn/cyano/00-overview">查看全部</a>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
                 <p class="content-title"  style="border-bottom: 1px solid #979797;">DAPP 开发套件 Punica</p>
                   <div>
                       <div>
@@ -310,6 +287,29 @@
                   </div></br>
             </div>
             <div class="col-sm-4 col-xs-12">
+                <p class="content-title"  style="border-bottom: 1px solid #979797;">Cyano 开源钱包</p>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/cyano/00-overview">概述</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/cyano/01-chrome-wallet">Chrome 插件钱包 Provider sdk</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/cyano/02-mobile-provider">手机钱包 Provider sdk</a>
+                      </div>
+                  </div>  
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/cyano/00-overview">查看全部</a>
+                      </div>
+                  </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
                 <p class="content-title"  style="border-bottom: 1px solid #979797;">SDKs</p>
                   <div>
                       <div>
@@ -319,6 +319,11 @@
                   <div>
                       <div>
                           <a href="#/docs-cn/SDKs/wallet-file-specification">钱包规范</a>
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <a href="#/docs-cn/SDKs/04-ts-sdk">TypeScript SDK</a>
                       </div>
                   </div>
                   <div>

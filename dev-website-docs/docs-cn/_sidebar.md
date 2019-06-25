@@ -82,10 +82,16 @@
   - [对接问题](docs-cn/faq/business-faq.md)
       
 - 智能合约 IDE
-  - [概述](docs-cn/SmartX/overview.md)
   - [SmartX](docs-cn/SmartX/getting-started.md)
   - [VSCode 插件](docs-cn/Punica/sc-extension.md)
   - [IDEA 插件](docs-cn/Punica/sc-idea-extension.md)
+
+- DAPP 开发套件 Punica
+  - [概述](docs-cn/Punica/punica.md)
+  - [Punica Cli](docs-cn/Punica/punica-cli.md)
+  - [Punica Box](docs-cn/Punica/punica-box.md)
+  - [Solo Chain](docs-cn/Punica/solo-chain.md)
+  - [视频教程](docs-cn/Punica/tutorials.md)
 
 - Cyano 开源钱包
   - [概述](docs-cn/cyano/00-overview.md)
@@ -93,16 +99,7 @@
   - [手机端 Provider](docs-cn/cyano/02-mobile-provider.md)
   - [Chrome 插件 dAPI](docs-cn/cyano/03-ontology-dapi.md)
   - [手机端 dAPI](docs-cn/cyano/04-cyano-bridge.md)
-
-- DAPP 开发套件 Punica
-  - [概述](docs-cn/Punica/punica.md)
-  - [Punica Cli](docs-cn/Punica/punica-cli.md)
-  - [Punica Box](docs-cn/Punica/punica-box.md)
-  - [VSCode 插件](docs-cn/Punica/sc-extension.md)
-  - [IDEA 插件](docs-cn/Punica/sc-idea-extension.md)
-  - [Solo Chain](docs-cn/Punica/solo-chain.md)
-  - [视频教程](docs-cn/Punica/tutorials.md)
-
+  
 - SDKs
   - [概述](docs-cn/SDKs/00-overview.md)
   - [钱包文件规范](docs-cn/SDKs/wallet-file-specification.md)
