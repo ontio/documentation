@@ -1,0 +1,37 @@
+{
+  "SeedList": [
+          "139.217.111.185:20338",
+          "139.217.103.126:20338",
+          "139.217.111.232:20338",
+          "139.217.80.65:20338",
+          "139.217.111.194:20338",
+          "139.217.111.250:20338",
+          "139.217.103.26:20338"
+  ],
+  "ConsensusType":"vbft",
+  "VBFT":{
+  "n":7,
+  "c":2,
+  "k":7,
+  "l":112,
+  "init_txid": 0,
+  "genesis_timestamp": 0,
+  "block_msg_delay":10000,
+  "hash_msg_delay":10000,
+  "peer_handshake_timeout":10,
+  "max_block_change_view":7,
+  "admin_ont_id":"did:ont:ARiwjLzjzLKZy8V43vm6yUcRG9b56DnZtY",
+  "min_init_stake":10000,
+   "vrf_value":"1c9810aa9822e511d5804a9c4db9dd08497c31087b0daafa34d768a3253441fa20515e2f30f81741102af0ca3cefc4818fef16adb825fbaa8cad78647f3afb590e",
+  "vrf_proof":"c57741f934042cb8d8b087b44b161db56fc3ffd4ffb675d36cd09f83935be853d8729f3f5298d12d6fd28d45dde515a4b9d7f67682d182ba5118abf451ff1988",
+  "peers":[
+    { "index":1, "peerPubkey":"0253ccfd439b29eca0fe90ca7c6eaa1f98572a054aa2d1d56e72ad96c466107a85", "address":"AZonXUcUgzWb2KYdSiLapgqCMEfWGCDTw5", "initPos":20001 },
+    { "index":2, "peerPubkey":"035eb654bad6c6409894b9b42289a43614874c7984bde6b03aaf6fc1d0486d9d45", "address":"AZ1L9xX4DLrG4A7DkyVAYzgLTpsP18FaBF", "initPos":20002 },
+    { "index":3, "peerPubkey":"0281d198c0dd3737a9c39191bc2d1af7d65a44261a8a64d6ef74d63f27cfb5ed92", "address":"APyA8ZuU7RZdamYRP5gchgbAnxJjHqmfua", "initPos":20003 },
+    { "index":4, "peerPubkey":"023967bba3060bf8ade06d9bad45d02853f6c623e4d4f52d767eb56df4d364a99f", "address":"AWVpNjLWiRTXGfyp6vzoLcx36J7uqbx2E9", "initPos":20004 },
+    { "index":5, "peerPubkey":"038bfc50b0e3f0e5df6d451069065cbfa7ab5d382a5839cce82e0c963edb026e94", "address":"AJmc2BQdQdZJBfDjDtQqXm8sEfSNBhgPV6", "initPos":20005 },
+    { "index":6, "peerPubkey":"03f1095289e7fddb882f1cb3e158acc1c30d9de606af21c97ba851821e8b6ea535", "address":"AHvYokQTYWHpWZJekPzAqQqzi95hSHpt2c", "initPos":20006 },
+    { "index":7, "peerPubkey":"0215865baab70607f4a2413a7a9ba95ab2c3c0202d5b7731c6824eef48e899fc90", "address":"AKecq2DQF5vpCLmsYDGBY8cvJKTwf8TN69", "initPos":20007 }
+  ]
+}
+}
