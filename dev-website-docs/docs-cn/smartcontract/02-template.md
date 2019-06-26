@@ -1,14 +1,14 @@
 
 
-* Native 合约 API： 有关本体网络中使用的 ```Native``` 合约 API，请参考 [Native Contract API](https://github.com/ontio/ontology/blob/master/docs/specifications/native_contract/paramapi.md)。
-* Python 合约 API： 有关本体网络中使用的 ```Python``` 合约 ```API``` 和示例，请参考 [API doc](https://apidoc.ont.io/smartcontract/)。
+* Native 合约 ```API```： 有关本体网络中使用的 ```Native``` 合约 ```API``` ，请参考 [Native Contract API](https://github.com/ontio/ontology/blob/master/docs/specifications/native_contract/paramapi.md)。
+* Python 合约 `API`： 有关本体网络中使用的 ```Python``` 合约 ```API``` 和示例，请参考 [API doc](https://apidoc.ont.io/smartcontract/)。
 
 
 为了方便开发者快速开始智能合约编写，我们提供了众多实用的合约模板。我们推出了 1.0 和 2.0 两个版本的编译器，今后将以 2.0 作为主流，请各位优先参考 2.0 版本的模板。
 
-## 基础合约模板
+## 1. 基础合约模板
 
-ONG 转账 和存储是合约里较基础的功能。
+ONG 转账和存储是合约里较基础的功能。
 
 ### 合约里支持 ONG 转账
 
@@ -91,7 +91,7 @@ def _isOwner():
 ```
 
 
-## 编译器 2.0 的合约模板
+## 2. 编译器 2.0 的合约模板
 
 | # | 智能合约                         |        语言      |   描述   |
 | -----| ---------------------------------------- | ---------------- | ---------------- |
@@ -108,7 +108,7 @@ def _isOwner():
 
 > 2.0编译版本中，`from boa.builtins import concat,ToScriptHash` 由于方法重复已经被取消，请使用`from ontology.interop.Ontology.Runtime import Base58ToAddress`
 
-## 编译器 1.0 的合约模板
+## 3. 编译器 1.0 的合约模板
 
 | # | 智能合约                         |        语言      |   描述   |
 | -----| ---------------------------------------- | ---------------- | ---------------- |
