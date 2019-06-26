@@ -1,20 +1,20 @@
 
 
-## 测试网币申请
+## 1. 如何申请测试网币
 
 ONT/ONG 申请链接： [https://developer.ont.io/applyOng](https://developer.ont.io/applyOng) 
 
-OEP4/OEP5/OEP8 币申请： 联系对接人员，或根据[合约模板](https://dev-docs.ont.io/#/docs-cn/smartcontract/02-template)自己部署合约测试。
+OEP4/OEP5/OEP8 币申请： 联系对接人员，或根据 [合约模板](https://dev-docs.ont.io/#/docs-cn/smartcontract/02-template) 自己部署合约测试。
 
 
-## 公共节点地址
+## 2. 公共节点的地址
 
-polaris 测试网节点: http://polaris1.ont.io, http://polaris2.ont.io, http://polaris3.ont.io, http://polaris4.ont.io, http://polaris5.ont.io
+polaris 测试网节点:  [http://polaris1.ont.io ](http://polaris1.ont.io), [http://polaris2.ont.io](http://polaris2.ont.io), [http://polaris3.ont.io](http://polaris3.ont.io), [http://polaris4.ont.io](http://polaris4.ont.io), [http://polaris5.ont.io](http://polaris5.ont.io)
 
-主网节点: http://dappnode1.ont.io, http://dappnode2.ont.io, http://dappnode3.ont.io, http://dappnode4.ont.io
+主网节点: [http://dappnode1.ont.io](http://dappnode1.ont.io), [http://dappnode2.ont.io](http://dappnode2.ont.io), [http://dappnode3.ont.io](http://dappnode3.ont.io), [http://dappnode4.ont.io](http://dappnode4.ont.io)
 
 
-## 浏览器
+## 3. 浏览器
 
 浏览器地址：[https://explorer.ont.io/](https://explorer.ont.io/)
 
@@ -22,42 +22,42 @@ polaris 测试网节点: http://polaris1.ont.io, http://polaris2.ont.io, http://
 
 浏览器 API 功能：根据地址查余额和交易记录，查所合约信息，根据合约地址查交易记录，查询统计数据等。
 
-## ONG 的解绑规则是什么
-可提取的ong数量 = 每秒解绑ong的数量 × ont的持有时间 × 持有ont的数量 / ont的总量
+## 4. ONG 的解绑规则是什么
+可提取的 ong 数量 = 每秒解绑 ong 的数量 × ont 的持有时间 × 持有ont 的数量 / ont 的总量
 
-每秒解绑ong的数量：按照 [5, 4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] 逐年递减
+每秒解绑 ong 的数量：按照 [5, 4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] 逐年递减
 
-ont的持有时间：当前时间 - 上次ont变动时间
+ont 的持有时间：当前时间 - 上次 ont 变动时间
 
-ont总量：10亿
+ont 总量：10亿
 
-例如：账户A 第一天持有100个ont，第二天持有200个ont，第三天持有300个ont，可提取的ong数量为：
+例如：账户 A 第一天持有100个 ont，第二天持有200个 ont，第三天持有300个 ont，可提取的 ong 数量为：
 
 （24×60×60)×5×100/1000000000 + （24×60×60)×5×200/1000000000 
 
-之后300个ont可提取的ong在下次账户变动时结算。
+之后300个 ont 可提取的 ong 在下次账户变动时结算。
 
-初次做token swap时，上次ont变动时间为2018.6.30  ontology主网上线时间。
+初次做 ```token swap``` 时，上次 ```ont``` 变动时间为2018.6.30  ```ontology``` 主网上线时间。
 
-## 关于 ONT 和 ONG 精度问题
+## 5. 关于 ONT 和 ONG 精度问题
 
-ONT为实际数量，不可分割。ONG精度为9，可分割。交易手续费使用ONG支付
+ONT 为实际数量，不可分割。 ```ONG``` 精度为 9，可分割。交易手续费使用 ```ONG``` 支付
 
 
-## 转账手续费是什么
+## 6. 转账手续费是什么
 
-ontology网络每次转账需要消耗ONG(gas)，在主网需要500+的gasprice的指定才会打包
+ontology 网络每次转账需要消耗 ```ONG``` ( gas )，在主网需要500+的 ```gasprice``` 的指定才会打包
 
 ```gasprice * gaslimit = ong  cost```
 
-gaslimit的最低值是20000，gasprice的最低值是500，一般的交易情况都为最低值，也就是0.01个ONG。如果合约过于复杂，gaslimit的值可能会超过20000的最低值，gasprice为用户自己设定，但不能低于最低。
+gaslimit 的最低值是 20000，```gasprice``` 的最低值是 500，一般的交易情况都为最低值，也就是 0.01个 ```ONG``` 。如果合约过于复杂，```gaslimit``` 的值可能会超过 20000 的最低值，```gasprice``` 为用户自己设定，但不能低于最低。
 
 
-## 签名机
+## 7. 签名机
 
 提供私钥托管的服务，可以通过简单 API， 支持：创建账户，导出钱包，构造交易，交易签名，多签地址签名等。
 
-## 钱包
+## 8. 钱包
 
 Chrome 插件钱包： [https://dev-docs.ont.io/#/docs-cn/cyano/01-chrome-wallet](https://dev-docs.ont.io/#/docs-cn/cyano/01-chrome-wallet)
 
@@ -67,42 +67,42 @@ Chrome 插件钱包： [https://dev-docs.ont.io/#/docs-cn/cyano/01-chrome-wallet
 
 桌面钱包 Owallet ：[https://github.com/ontio/OWallet/releases](https://github.com/ontio/OWallet/releases)
 
-其他支持本体的钱包：目前大约支持20款钱包
+其他支持本体的钱包：目前大约支持 20 款钱包
 
-## DAPP 相关
+## 9. DAPP 相关
 
-已经上线的 DAPP： [https://dapp.ont.io/](https://dapp.ont.io/)
+已经上线的 ```DAPP```： [https://dapp.ont.io/](https://dapp.ont.io/)
 
 DAPP 激励计划 ： [https://dapp.ont.io/support](https://dapp.ont.io/support)
 
 开发指导： [https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development](https://dev-docs.ont.io/#/docs-cn/QuickGuide/00-dapp_development)
 
 
-## API 接口
+## 10. API 接口
 
 1. 节点接口： [RPC、Restful、Websocket](https://dev-docs.ont.io/#/docs-cn/ontology-cli/04-interface-specification)
 2. 浏览器 API ：[https://dev-docs.ont.io/#/docs-cn/explorer/overview](https://dev-docs.ont.io/#/docs-cn/explorer/overview)
 
-查询合约事件：[https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)
+查询合约事件：[点此链接](https://dev-docs.ont.io/#/docs-cn/ontology-cli/06-restful-specification?id=getsmtcode_evts)
 
-## dAPI 使用
+## 11. dAPI 使用
 
-这个链接里有dAPI对接文档，测试钱包，演示DAPP。[https://github.com/ontio-cyano/integration-docs/blob/master/README_CN.md](https://github.com/ontio-cyano/integration-docs/blob/master/README_CN.md)
+这个 [链接 ](https://github.com/ontio-cyano/integration-docs/blob/master/README_CN.md)里有 ```dAPI``` 对接文档，测试钱包，演示 ```DAPP```。
 
-如何调用 dAPI 参考 [https://github.com/ontio-cyano/dapi-universal/blob/master/DApiUtil.tsx](https://github.com/ontio-cyano/dapi-universal/blob/master/DApiUtil.tsx)
+如何调用 ```dAPI``` 参考： [这里](https://github.com/ontio-cyano/dapi-universal/blob/master/DApiUtil.tsx)
 
-## 如何创建地址？
+## 12. 如何创建地址？
 
-通过私钥创建账户，账户的公钥计算出地址，地址是 Base58 格式。合约的地址是 Hex 格式，它跟 Base58 可以互转。
+通过私钥创建账户，账户的公钥计算出地址，地址是 ```Base58``` 格式。合约的地址是 ```Hex``` 格式，它跟 ```Base58``` 可以互转。
 ```java
 com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(Helper.hexToBytes(privKey),ontSdk.defaultSignScheme);
 System.out.println(acct2.getAddressU160().toBase58());
 
 ```
 
-## 如何计算一个交易的手续费？如何查询一笔交易的手续费？
+## 13. 如何计算一个交易的手续费？如何查询一笔交易的手续费？
 
-GAS price 是给执行 opcode 定价，执行 opcode 步数等于 GAS limit，交易手续费 = GAS Price * GAS limit 。
+GAS price 是给执行 ```opcode``` 定价，执行 ```opcode``` 步数等于 ```GAS limit```，交易手续费 = GAS Price * GAS limit 。
 
 预执行，返回的数据如下：
 ```json
@@ -117,7 +117,8 @@ GAS price 是给执行 opcode 定价，执行 opcode 步数等于 GAS limit，�
 }
 
 ```
-其中```Gas``` 就是该交易需要花费的 gasLimit，GAS price 目前固定值是 500。在主网上花费的手续费是500 * 20000 = 0.01 ONG。
+
+其中 ```Gas``` 就是该交易需要花费的 ```gasLimit```，```GAS price``` 目前固定值是 500。在主网上花费的手续费是500 * 20000 = 0.01 ONG。
 
 执行交易返回的结果：
 ```json
@@ -156,10 +157,10 @@ GAS price 是给执行 opcode 定价，执行 opcode 步数等于 GAS limit，�
 ```
 
 
-## 获取交易池交易数量的返回信息，这种情况怎么区分转账是否成功呢？
+## 14. 获取交易池交易数量的返回信息，这种情况怎么区分转账是否成功呢？
 
 
-GET http://dappnode1.ont.io:20334/api/v1/mempool/txcount
+GET [http://dappnode1.ont.io:20334/api/v1/mempool/txcount](http://dappnode1.ont.io:20334/api/v1/mempool/txcount)
 
 ```json
 
@@ -175,46 +176,47 @@ GET http://dappnode1.ont.io:20334/api/v1/mempool/txcount
 }
 
 ```
-交易池中还未落账的交易总数 = 已验证 + 未验证。通过查询 Hash 查询交易或查询合约事件能查到信息说明转账成功。一般发交易后2 - 20秒之前会落账。
+
+交易池中还未落账的交易总数 = 已验证 + 未验证。通过查询  ```Hash``` 查询交易或查询合约事件能查到信息说明转账成功。一般发交易后 2 - 20秒之前会落账。
 
 
-## 什么是助记词？
+## 15. 什么是助记词？
 
 助记词是私钥的另一种表现形式。最早是由 BIP39 提案提出, 其目的是为了帮助用户记忆复杂的私钥字符串。助记词一般由12、15、18、21个单词构成, 这些单词都取自一个固定词库, 其生成顺序也是按照一定算法而来。
 
 任何人得到了你的助记词, 在钱包中输入助记词并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。
 
-所以在创建钱包后，一定要完成助记词备份，而且助记词只能备份一次，备份后，在钱包中再也不会显示，牢记在备份时一定要抄写下来，保存好！
+所以在创建钱包后，**一定要完成助记词备份**，而且助记词只能备份一次，备份后，在钱包中再也不会显示，牢记在备份时一定要抄写下来，保存好！
 
-## 什么是Keystore?
+## 16. 什么是 Keystore ?
 
-Keystore是允许你以加密的方式存储私钥。你自定义的密码加密私钥，起到了对ONT ID和钱包的保护作用。
+Keystore 允许你以加密的方式存储私钥。你自定义的密码加密私钥，起到了对 ONT ID 和钱包的保护作用。
 
-一定要记住Keystore 的密码, 一旦忘记密码, 你就会失去了Keystore 的使用权, 同时ONTO无法帮你找回密码。
+一定要记住 Keystore 的密码, 一旦忘记密码, 你就会失去了 Keystore 的使用权, 同时 ONTO 无法帮你找回密码。
 
 因此一定要妥善保管好 Keystore 以及密码。
 
 
-##  什么是明文私钥？什么是WIF私钥？
+##  17. 什么是明文私钥？什么是 WIF 私钥？
          
-明文私钥是随机生成的，用来解锁对应钱包的一串字符。交易场景下, 私钥用于生成交易所必须的签名，以证明资产的所有权。任何人得到了你的明文私钥, 在钱包中输入明文私钥并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。因此，妥善保存好你的明文私钥。
+明文私钥是随机生成的，用来解锁对应钱包的一串字符。交易场景下, 私钥用于生成交易所必须的签名，以证明资产的所有权。任何人得到了你的明文私钥, 在钱包中输入明文私钥并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。因此，**妥善保存好你的明文私钥**。
 
-WIF（Wallet Import Format）是将明文私钥以Base58校验和编码格式显示的钱包导入格式。WIF和私钥可以互转，因此也理解为是另一种形式的明文私钥。任何人得到了你的WIF, 在钱包中输入WIF并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。因此，妥善保存好你的WIF。
+WIF（Wallet Import Format）是将明文私钥以 Base58 校验和编码格式显示的钱包导入格式。 WIF 和私钥可以互转，因此也理解为是另一种形式的明文私钥。任何人得到了你的 WIF, 在钱包中输入 WIF 并设置一个密码（不用输入原密码），就能进入钱包并拥有这个钱包的掌控权，可以轻而易举地夺走你的数字资产。因此，**妥善保存好你的 WIF8**。
 
 
-## Unity 游戏方如何对接？
+## 18. Unity 游戏方如何对接？
 
 请参考对接文档，[Unity SDK 对接](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/12-unity_integration)
 
 
-## 如何唤醒 ONTO/Cyano 钱包支付？
+## 19. 如何唤醒 ONTO/Cyano 钱包支付？
 
 如果是 Unity 游戏请参考： [https://github.com/ontio-community/unity-demo](https://github.com/ontio-community/unity-demo)
 
-如果是 手机应用请参考：[android-app-demo](https://github.com/ontio-cyano/android-app-demo),[ios-app-demo](https://github.com/ontio-cyano/ios-app-demo)
+如果是手机应用请参考：[ android-app-demo ](https://github.com/ontio-cyano/android-app-demo),[ ios-app-demo ](https://github.com/ontio-cyano/ios-app-demo)
 
 
-## 游戏如何对接支付 ONG？
+## 20. 游戏如何对接支付 ONG？
 
 部署合约：
 
@@ -249,7 +251,7 @@ def transferOng(id,from_acct, to_acct,  ong_amount):
         return False
 ```
 
-转账函数```transferOng(id,from_acct, to_acct,  ong_amount)``` 第一个参数是订单的id编号，转入方和转出方。
+转账函数 ```transferOng(id,from_acct, to_acct,  ong_amount)``` 第一个参数是订单的 id 编号，转入方和转出方。
 
 转账成功的合约事件，如果金额不足的失败合约事件里没有转账信息：
 ```json
@@ -292,7 +294,7 @@ def transferOng(id,from_acct, to_acct,  ong_amount):
 
 ```
 
-## 转账如何用Base58地址而不是ByteArray？
+## 21. 转账为何用 Base58 地址而不是 ByteArray？
 
 ```python
 OntCversion = '2.0.0'
