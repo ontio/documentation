@@ -109,7 +109,7 @@ $ go build main.go -o ontology-tool
 
 #### 启动分片节点
 （可选操作）
-下载Ontology Sharding测试网的配置文件。(./Config/config.json) 保存到Ontology应用程序相同的目录中。
+下载Ontology Sharding测试网的配置文件 [config.json](./Config/config.json)。 保存到Ontology应用程序相同的目录中。
 启动Ontology分片测试网的同步节点。
 
 ```
@@ -192,10 +192,6 @@ Ontology Sharding节点启动后，将首先同步root shard区块，同时等�
 ```
 $ ./ontology-tool -t ShardActivate
 ```
-
-#### 分片资产初始化
-
-
 
 ## 分片智能合约开发
 
