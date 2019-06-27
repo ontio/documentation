@@ -138,4 +138,14 @@ SDK 中构造交易时的 Payer 就是网络费付款人，gasPrice 固定值 50
     result = ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 ```
 
+## 11. OEP4 的合约转账事件解析
+
+```java
+
+new String(Helper.hexToBytes(""));  //"transfer"
+Address.parse("").toBase58();   //from和 to 转成base58地址
+Helper.BigIntFromNeoBytes(Helper.hexToBytes("")); //金额，小端转大端显示
+
+```
+
 
