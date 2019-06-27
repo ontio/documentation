@@ -202,10 +202,24 @@ $ ./ontology-tool -t ShardActivate
 
 ## 分片智能合约开发
 
+Ontology Sharding采用了面向智能合约的分片策略，将root shard中的智能合约分配到sharding中，而资产可以保持在root shard中，因此同时实现业务智能合约性能提高和保证区块链资产的安全。
 
+在Ontology Sharding中，所有智能合约都部署在root shard中，而智能合约的运行有两种模式
+
+* All-Shard : 智能合约将可以同时运行在所有分片上。
+* One-Shard ： 智能合约同一时刻只能运行在某一个分片上。
+
+运行在All-Shard的智能合约状态将由其运行的所有分片中保存的对应状态，因此All-Shard智能合约的状态将必须以帐户形式保存。在当前Ontology Sharding网络中，基于shardAsset合约的智能合约可以实现帐户形式的智能合约状态管理，具体可以参考[OEP-9](https://github.com/ontio/OEPs/pull/50)。
 
 #### 跨分片智能合约开发
+分片智能合约开发与当前Ontology的智能合约开发基本一致，分片中添加了跨分片智能合约调用的接口。在分片的网络环境中，ontology提供了两个跨分片通信的接口：<code>NotifyRemoteShard</code>和<code>InvokeRemoteShard</code>，分别用来进行异步调用和同步调用。因为跨分片调用中的通信过程依赖于网络传输，所以跨分片调用时传输的参数应序列化成byte array。
 
+* NotifyRemoteShard
+* InvokeRemoteShard
+
+NotifyRemoteShard 用来进行跨分片异步调用。但是，caller无法取到callee的调用结果，也不知道callee在目标分片上什么时候执行，也不知道callee执行成功还是失败。
+
+InvokeRemoteShard 用来进行跨分片同步调用，caller可以取到callee的调用结果。可以将其视为延时执行的跨合约调用。由于调用的结果经网络传输返回，所以callee的返回结果应该是序列化之后的byte array。
 
 ## 部署分片智能合约
 
