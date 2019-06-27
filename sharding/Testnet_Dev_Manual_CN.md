@@ -15,7 +15,7 @@ Ontology Sharding TestNet 目前已经上线，邀请广大开发者体验。很
 
 ## 测试网环境
 
-本体多链测试网包含一条主链和侧链，两条链之间可以完成跨链业务。
+本体分片测试网包含三个分片，分片之间可以完成跨链业务。
 
 |         |           | IP Address       | Rest     | P2P   |
 | ----    | --------- | ---------------  | -------- | ----- |
@@ -48,17 +48,30 @@ Ontology Sharding TestNet 目前已经上线，邀请广大开发者体验。很
 
 该入口可供一个地址申请一次1000 Ont和1000 Ong的测试币，跨链测试只会用到Ong。
 
-该入口会同时发放polaris测试网和multi-chain测试网的测试代币。
-
-## 创建分片
-
-
+该入口会同时发放polaris测试网、多链测试网和分片测试网的测试代币。
 
 
 ## 部署分片智能合约
 
+分片环境下支持了新的智能合约特性，最重要的两个特性以OEP的形式提出了，可以参阅[OEP-9](https://github.com/ontio/OEPs/pull/50)以及[OEP-11](https://github.com/ontio/OEPs/pull/54)了解详情。
 
+为了支持这些新的特性，智能合约的编译器也做了升级，增加了新的分片的特有的Runtime API。目前只有Python版本的编译器做了升级，升级之后的编译器参阅[Ontology Sharding Compiler](https://github.com/qiluge/ontology-python-compiler/tree/sharding)，使用方法与之前一致。
 
+这里提供一个跨分片合约调用的例子，该合约是[OEP-9的例子](https://github.com/qiluge/ontology-xshard-contract/blob/master/xshardasset/xshardassetdemo.py)。
+
+### 编译
+
+```
+git clone https://github.com/qiluge/ontology-python-compiler
+git clone https://github.com/qiluge/ontology-xshard-contract
+cd ontology-python-compiler
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+git checkout -b sharding origin/sharding
+./run.py -n ../ontology-xshard-contract/xshardasset/xshardassetdemo.py -m 1
+```
+编译完成之后进入
 
 
 ## 调用分片智能合约
