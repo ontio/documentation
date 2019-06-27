@@ -307,8 +307,7 @@ txHash, err := ctx.Ont.NeoVM.InvokeShardNeoVMContract(shardId, gasPrice,
 部署好了一本OEP-9合约之后，可以进行跨分片转账，示例如下：
 
 1. 调用```init```方法，对合约初始化：
-
-```
+    ```
     contract, err := common.AddressFromHexString("8ae002c5c3fe5bf8c3ef8a043fc618645c314c42")
     if err != nil {
         log.Error(err)
@@ -320,10 +319,10 @@ txHash, err := ctx.Ont.NeoVM.InvokeShardNeoVMContract(shardId, gasPrice,
         return
     }
     log.Infof("init success, tx hash: %s", initTx.ToHexString())
-```
+    ```
 2. 初始化完成之后，查询Owner账户中的资产余额：
 
-```
+    ```
     value, err := ctx.Ont.NeoVM.PreExecInvokeShardNeoVMContract(0, contract,
         []interface{}{"balanceOf", []interface{}{user}})
     if err != nil {
@@ -334,27 +333,31 @@ txHash, err := ctx.Ont.NeoVM.InvokeShardNeoVMContract(shardId, gasPrice,
         return fmt.Errorf("parse result failed, err: %s", err)
     }
     log.Infof("balance of %s is: %s", user.ToBase58(), info.String())
-```
-查询的结果为：
-```
-balance of AZ3BTJt7jNGwJjVLsYJAyfLtCJ38Cd8Uri is: 100000000000000000
-```
+    ```
+    查询的结果为：
+
+    ```
+    balance of AZ3BTJt7jNGwJjVLsYJAyfLtCJ38Cd8Uri is: 100000000000000000
+    ```
+
 3. 跨分片从Owner转账1000000000个到分片1的```AZqk4i7Zhfhc1CRUtZYKrLw4YTSq4Y9khN```地址上：
-```
-txHash, err = ctx.Ont.NeoVM.InvokeShardNeoVMContract(0, 0,
-				200000, user, contractAddress,
-				[]interface{}{"xshardTransfer", []interface{}{from, toAddr, 1, 1000000000}})
-		}
-		if err != nil {
-			return fmt.Errorf("invokeNativeContract error :", err)
-		}
-		log.Infof("txHash is: %s", txHash.ToHexString())
-```
+
+    ```
+    txHash, err = ctx.Ont.NeoVM.InvokeShardNeoVMContract(0, 0, 200000, user, contractAddress,
+                []interface{}{"xshardTransfer", []interface{}{from, toAddr, 1, 1000000000}})
+    if err != nil {
+        return fmt.Errorf("invokeNativeContract error :", err)
+    }
+    log.Infof("txHash is: %s", txHash.ToHexString())
+    ```
+
 查询Owner账户中的资产余额：
+
 ```
 balance of AZ3BTJt7jNGwJjVLsYJAyfLtCJ38Cd8Uri is: 99999999000000000
 ```
 等待分片1出块，查询```AZqk4i7Zhfhc1CRUtZYKrLw4YTSq4Y9khN```在分片1上的资产：
+
 ```
 balance of AZ3BTJt7jNGwJjVLsYJAyfLtCJ38Cd8Uri is: 1000000000
 ```
