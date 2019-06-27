@@ -227,6 +227,8 @@ InvokeRemoteShard 用来进行跨分片同步调用，caller可以取到callee�
 
 为了支持这些新的特性，智能合约的编译器也做了升级，增加了新的分片的特有的Runtime API。目前只有Python版本的编译器做了升级，升级之后的编译器参阅[Ontology Sharding Compiler](https://github.com/qiluge/ontology-python-compiler/tree/sharding)，使用方法与之前一致。
 
+同样的，在分片环境下，为了支持分片的特性，交易的结构发生了变化，目前暂时只有[ontology-go-sdk](https://github.com/ontio/ontology-go-sdk/tree/sharding)对分片交易作出了支持。
+
 这里提供一个跨分片合约调用的例子，该合约是[OEP-9的例子](https://github.com/qiluge/ontology-xshard-contract/blob/master/xshardasset/xshardassetdemo.py)。
 
 ### 编译
@@ -241,19 +243,118 @@ pip install -r requirements.txt
 git checkout -b sharding origin/sharding
 ./run.py -n ../ontology-xshard-contract/xshardasset/xshardassetdemo.py -m 1
 ```
-编译完成之后进入
+编译完成之后进入```ontology-xshard-contract/xshardasset```目录，其中含有的文件如下：
+```
+xshardassetdemo.Func.Map
+xshardassetdemo.abi.json
+xshardassetdemo.avm
+xshardassetdemo.avm.str
+xshardassetdemo.debug.json
+xshardassetdemo.py
+xshardassetdemo.warning
+```
+其中的```xshardassetdemo.avm.str```即是我们编译得到的字节码文件。
 
-#### 部署分片资产合约
+### 部署
 
-#### 部署分片业务合约
-
-#### 配置跨分片合约
-
+根据[OEP-11]的描述，如果需要合约能够跨分片运行，则应将合约部署到root shard上。
+可以使用ontology-go-sdk部署智能合约，示例代码如下：
+```
+    avmCode, err := ioutil.ReadFile("xshardassetdemo.avm.str")
+    if err != nil {
+        log.Error(err)
+        return
+    }
+    InitSdk()
+    testOntSdk.ClientMgr.GetRpcClient().SetAddress("http://139.217.111.185:20336")
+    hash, err := testOntSdk.NeoVM.DeployNeoVMSmartContract(0, 20000000, testDefAcc, true, string(avmCode),
+        "xshard asset demo", "1.0.0", "tester", "test@test.com", "xshard asset demo")
+    if err != nil {
+        log.Error(err)
+        return
+    }
+    log.Infof("deploy success, tx hash: %s", hash.ToHexString())
+```
 
 ## 调用分片智能合约
 
-#### 资产合约的分片调用
+目前提供了两种方式调用分片合约：ontology-cli和ontology-go-sdk。
 
-#### 业务合约的分片调用
+### 使用cli调用
 
+使用ontology-cli调用的方法与[已有的cli](https://github.com/ontio/ontology/blob/master/docs/specifications/cli_user_guide_CN.md)一致，只是需要多加一个参数```--ShardID```。新增的```--ShardID```参数用来指明调用哪个分片上的合约，不指定则默认为0。使用ontology-cli调用分片智能合约有两点限制：
+1. cli程序需要使用[ontology sharding 分支](https://github.com/ontio/ontology/tree/sharding)的代码编译；
+2. 必须在本机启动分片测试网的同步节点才能使用，要调用哪个分片的合约，则需要同步哪个分片的区块。
 
+调用示例如下：
+```
+./ontology contract invoke --address 8ae002c5c3fe5bf8c3ef8a043fc618645c314c42 --params string:init,[int:0] --gasprice 0 --gaslimit 3000000 --ShardID 1 --rpcport 30336
+```
+这将调用合约```8ae002c5c3fe5bf8c3ef8a043fc618645c314c42```的init方法。
+需要注意的是，如果调用的合约方法不需要参数，cli仍需要传任意参数，同时cli也不支持较为复杂的数据类型。
+
+### 使用ontology-go-sdk调用
+
+使用ontology-go-sdk调用智能合约时，没有ontology-cli的限制。例如，调用示例智能合约```xshardassetdemo.py```的跨分片转账的示例代码如下：
+```
+txHash, err := ctx.Ont.NeoVM.InvokeShardNeoVMContract(shardId, gasPrice,
+                gasLimit, user, contractAddress,
+                []interface{}{"xshardTransfer", []interface{}{from, toAddr, toShard, num}})
+```
+
+### 完整示例
+
+部署好了一本OEP-9合约之后，可以进行跨分片转账，示例如下：
+
+1. 调用```init```方法，对合约初始化：
+
+```
+    contract, err := common.AddressFromHexString("8ae002c5c3fe5bf8c3ef8a043fc618645c314c42")
+    if err != nil {
+        log.Error(err)
+        return
+    }
+    initTx, err := testOntSdk.NeoVM.InvokeNeoVMContract(0, 20000, testDefAcc, contract, []interface{}{"init", []interface{}{}})
+    if err != nil {
+        log.Error(err)
+        return
+    }
+    log.Infof("init success, tx hash: %s", initTx.ToHexString())
+```
+2. 初始化完成之后，查询Owner账户中的资产余额：
+
+```
+    value, err := ctx.Ont.NeoVM.PreExecInvokeShardNeoVMContract(0, contract,
+        []interface{}{"balanceOf", []interface{}{user}})
+    if err != nil {
+        return fmt.Errorf("pre-execute err: %s", err)
+    }
+    info, err := value.Result.ToInteger()
+    if err != nil {
+        return fmt.Errorf("parse result failed, err: %s", err)
+    }
+    log.Infof("balance of %s is: %s", user.ToBase58(), info.String())
+```
+查询的结果为：
+```
+balance of AZ3BTJt7jNGwJjVLsYJAyfLtCJ38Cd8Uri is: 100000000000000000
+```
+3. 跨分片从Owner转账1000000000个到分片1的```AZqk4i7Zhfhc1CRUtZYKrLw4YTSq4Y9khN```地址上：
+```
+txHash, err = ctx.Ont.NeoVM.InvokeShardNeoVMContract(0, 0,
+				200000, user, contractAddress,
+				[]interface{}{"xshardTransfer", []interface{}{from, toAddr, 1, 1000000000}})
+		}
+		if err != nil {
+			return fmt.Errorf("invokeNativeContract error :", err)
+		}
+		log.Infof("txHash is: %s", txHash.ToHexString())
+```
+查询Owner账户中的资产余额：
+```
+balance of AZ3BTJt7jNGwJjVLsYJAyfLtCJ38Cd8Uri is: 99999999000000000
+```
+等待分片1出块，查询```AZqk4i7Zhfhc1CRUtZYKrLw4YTSq4Y9khN```在分片1上的资产：
+```
+balance of AZ3BTJt7jNGwJjVLsYJAyfLtCJ38Cd8Uri is: 1000000000
+```
