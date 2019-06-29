@@ -156,7 +156,7 @@ $ ./ontology-tool -t ShardConfig
 
 #### 节点加入分片
 
-分片完成配置后，Root Shard中的节点将可以通过质押Stake神器加入到分片网络中。
+分片完成配置后，Root Shard中的节点将可以通过质押Stake申请加入到分片网络中。
 加入到分片网络中的节点需要为此分片启动新的Ontology节点。
 申请加入分片也需要使用Ontology-tool进行申请操作，参数保存于 params/shardmgmt/ShardPeerJoin.json。
 当前节点申请加入分片的参数如下：
