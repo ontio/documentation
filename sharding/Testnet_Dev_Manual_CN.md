@@ -1,3 +1,4 @@
+[English](README.md) | 中文
 
 # Ontology Sharding
 
@@ -183,7 +184,7 @@ $ ./ontology-tool -t ShardPeerExit
 
 #### 启动Ontology sharding节点
 
-在节点加入到分片后，即可以启动分片分片客户端，开始同步root shard区块。
+在节点加入到分片后，即可以启动分片客户端，开始同步root shard区块。
 启动命令为：
 ```
 $ ./ontology  --ShardID  <shard-ID>  --config config.json --networkid 606 --enable-consensus
