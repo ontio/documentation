@@ -48,11 +48,13 @@ We can see from the table above that the sharding network has 21 nodes as shown 
 #### Multi-layer Sharding Network Structure
 
 As can be seen from the above figure, all 21 nodes participate in the root shard, another 7 nodes form Shard-A, and 7 nodes form Shard-B.
+
 The entire sharding network forms a two-layer structure with 7 nodes participating only in the Root Shard at the top. The second layer consists of two sharding subnetworks.
 
 ## How to get Test Tokens
 
-Apply for test tokens here: https://developer.ont.io/applyOng
+Apply for test tokens here: https://developer.ont.io/applyOng.
+
 The site allows one address to apply for 1000 ONT and 10 ONG as test tokens.
 
 
@@ -117,7 +119,8 @@ $ go build main.go -o ontology-tool
 
 #### Activate Sharding Nodes
 (Optional operations)
-Download the configuration file [config.json] (./Config/config.json) of the Ontology Sharding TestNet and save it to the same directory in the Ontology application.
+Download the configuration file [config.json](./Config/config.json) of the Ontology Sharding TestNet and save it to the same directory in the Ontology application.
+
 Activate the synchronous nodes of the Ontology Sharding TestNet.
 
 ```
@@ -142,6 +145,7 @@ After the shard creation request is approved, a shard ID will be assigned to the
 #### Configure the Shard
 After obtaining the shard ID, the creator of the shard needs to configure the shard.
 The parameters for configuring the shard are saved to params/shardmgmt/ShardConfig.json.
+
 The parameters of the current shard configuration are as follows (may be increased on demand):
 
 * Network Size: The node size of the sharding network
@@ -159,7 +163,9 @@ $ ./ontology-tool -t ShardConfig
 
 After configuring the shard, the nodes in the Root Shard can join the sharding network via staking.
 After joining the sharding network, the nodes need to activate new Ontology nodes for this shard.
+
 To join the sharding network, nodes also need to use the Ontology-tool to apply. The parameters are saved to params/shardmgmt/ShardPeerJoin.json.
+
 The parameters for applying to join the sharding network are as follows:
 
 * Shard ID: The shard ID for applying to join the sharding network
@@ -174,8 +180,11 @@ $ ./ontology-tool -t ShardPeerApply
 ```
 
 After joining the sharding network, the nodes can apply to exit at any time.
+
 If the shard has not yet been activated when the node applys to exit, the node will be able to exit immediately and get back its stake.
+
 If the shard has been activated, the node will be able to exit after the consensus round according to the role of the node in the sharding network.
+
 Nodes can apply to exit with the command below:
 
 ```
@@ -186,9 +195,11 @@ $ ./ontology-tool -t ShardPeerExit
 
 After joining the sharding network, nodes can activate the sharding and synchronize the blocks of the root shard.
 Activate the sharding nodes with the command below:
+
 ```
 $ ./ontology  --ShardID  <shard-ID>  --config config.json --networkid 606 --enable-consensus
 ```
+
 After activating the Ontology sharding nodes, first you need to synchronize the blocks of the root shard and wait for the corresponding shard to activate.
 
 #### Activate the Shard
@@ -210,7 +221,7 @@ In the Ontology Sharding Network, all smart contracts are deployed in the root s
 * All-Shard: Smart contracts can run on all shards simultaneously.
 * One-Shard: Smart contracts can only run on a single shard at one time.
 
-The state of the smart contract running on All-Shard will be saved in all the shards it runs on, so the state of the All-Shard smart contract will have to be saved as an account. In the current Ontology Sharding network, smart contracts based on shardAsset contracts can implement smart contract state management in the form of accounts. For details, please refer to [OEP-9] (https://github.com/ontio/OEPs/pull/50).
+The state of the smart contract running on All-Shard will be saved in all the shards it runs on, so the state of the All-Shard smart contract will have to be saved as an account. In the current Ontology Sharding network, smart contracts based on shardAsset contracts can implement smart contract state management in the form of accounts. For details, please refer to [OEP-9](https://github.com/ontio/OEPs/pull/50).
 
 #### Cross-Shard Smart Contract Development
 Developing cross-shard smart contract development is basically the same as developing Ontology smart contract, except that two interfaces are added to the sharding network for calling cross-shard smart contract. Ontology provides two interfaces for cross-shard communication: <code>NotifyRemoteShard</code> and <code>InvokeRemoteShard</code> used for asynchronous and synchronous call. Since cross-shard communication relies on network transmission, Parameters transmitted during cross-shard communication should be serialized into byte array.
@@ -224,13 +235,13 @@ InvokeRemoteShard is used for synchronous cross-shard call. The caller can get t
 
 ## Deploy Sharding Smart Contract
 
-New smart contract features are supported in the sharding environment. The two most important features are presented in the form of OEP. See [OEP-9] (https://github.com/ontio/OEPs/pull/50) and [OEP-11] (https://github.com/ontio/OEPs/pull/54) for more details.
+New smart contract features are supported in the sharding environment. The two most important features are presented in the form of OEP. See [OEP-9](https://github.com/ontio/OEPs/pull/50) and [OEP-11](https://github.com/ontio/OEPs/pull/54) for more details.
 
 To support these new features, the smart contract compiler has also been upgraded and has added Runtime API specifically for the new sharding network. At the moment, only the compiler for Python has been upgraded. See [Ontology Sharding Compiler](https://github.com/qiluge/ontology-python-compiler/tree/sharding) for the upgraded compiler. The method is the same as before.
 
-Likewise, in order to support these new features in the sharding environment, the transaction structure has changed. Currently, only [ontology-go-sdk] (https://github.com/ontio/ontology-go-sdk/) Tree/sharding) supports sharding transactions.
+Likewise, in order to support these new features in the sharding environment, the transaction structure has changed. Currently, only [ontology-go-sdk](https://github.com/ontio/ontology-go-sdk/tree/sharding) supports sharding transactions.
 
-Below is an example of cross-shard contract call [an OEP-9 example] (https://github.com/qiluge/ontology-xshard-contract/blob/master/xshardasset/xshardassetdemo.py).
+Below is an example of cross-shard contract call [an OEP-9 example](https://github.com/qiluge/ontology-xshard-contract/blob/master/xshardasset/xshardassetdemo.py).
 
 ### Compile
 
@@ -258,7 +269,7 @@ xshardassetdemo.warning
 
 ### Deploy
 
-According to the descriptions of [OEP-11], if the contract needs to be able to run across shards, the contract should be deployed on the root shard.
+According to the descriptions of [OEP-11](https://github.com/ontio/OEPs/pull/54), if the contract needs to be able to run across shards, the contract should be deployed on the root shard.
 Smart contracts can be deployed using Ontology-Go-SDK. The sample codes are as follows:
 ```
     avmCode, err := ioutil.ReadFile("xshardassetdemo.avm.str")
@@ -283,8 +294,8 @@ You can call the sharding contract using two methods: Ontology-cli and Ontology-
 
 ### Ontology-cli
 
-The method of calling smart contract using Ontology-cli is the same as [existing cli] (https://github.com/ontio/ontology/blob/master/docs/specifications/cli_user_guide_CN.md), except that you need to add one more parameter ```- -ShardID```. The new ```--ShardID``` parameter is used to indicate contract on which shard is called. If not specified, the default is 0. There are two limitations to using Ontology-cli to call a sharding smart contract:
-1. Ontology-cli needs to be compiled with the code in the [ontology sharding branch] (https://github.com/ontio/ontology/tree/sharding);
+The method of calling smart contract using Ontology-cli is the same as [existing cli](https://github.com/ontio/ontology/blob/master/docs/specifications/cli_user_guide.md), except that you need to add one more parameter ```- -ShardID```. The new ```--ShardID``` parameter is used to indicate contract on which shard is called. If not specified, the default is 0. There are two limitations to using Ontology-cli to call a sharding smart contract:
+1. Ontology-cli needs to be compiled with the code in the [ontology sharding branch](https://github.com/ontio/ontology/tree/sharding);
 2. Only the synchronous nodes which activate the Sharding TestNet can use Ontology-cli. You need to synchronize the blocks on the shard whose contract you are going to call.
 
 Example:
