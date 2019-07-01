@@ -29,13 +29,13 @@
   - [Restful 接口](docs-cn/ontology-cli/06-restful-specification.md)
   - [WebSocket 接口](docs-cn/ontology-cli/07-ws-specification.md)
 
-- 智能合约
+- 智能合约指南
   - [快速入门](docs-cn/smartcontract/01-started.md)
   - [合约 API 和模板](docs-cn/smartcontract/02-template.md)
   - [智能合约课堂](docs-cn/smartcontract/04-tutorials.md)
   - [常见问题](docs-cn/smartcontract/05-sc-faq.md)
   
-- DAPP 开发指导
+- DAPP 开发指南
   - [开发工具介绍](docs-cn/introduction/tools.md)
   - [开始开发](docs-cn/QuickGuide/00-dapp_development.md)
   - [同步链上信息](docs-cn/dApp-Integration/05-DAppDocking-Sync.md)

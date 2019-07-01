@@ -253,6 +253,55 @@ def transferOng(id,from_acct, to_acct,  ong_amount):
 
 转账函数 ```transferOng(id,from_acct, to_acct,  ong_amount)``` 第一个参数是订单的 id 编号，转入方和转出方。
 
+二维码：
+
+```json
+{
+	"action": "invoke",
+	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+	"params": {
+		"login": true,
+		"callback": "http://101.132.193.149:4027/invoke/callback",
+		"qrcodeUrl": "http://101.132.193.149/files/invoke.json"
+	}
+}
+```
+
+qrcodeUrl 中的参数调用参数：
+```json
+{
+	"action": "invoke",
+	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+	"params": {
+		"invokeConfig": {
+			"contractHash": "8b344a43204e60750e7ccc8c1b708a67f88f2c43",
+			"functions": [{
+				"operation": "transferOng",
+				"args": [{
+					"name": "arg0-id",
+					"value": "String:hedgsg"
+				}, {
+					"name": "arg1-from",
+					"value": "Address:%address"
+				}, {
+					"name": "arg2-to",
+					"value": "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
+				}, {
+					"name": "arg3-int",
+					"value": 1
+				}]
+			}],
+			"payer": "%address",
+			"gasLimit": 20000,
+			"gasPrice": 500
+		}
+	}
+}
+
+```
+
 转账成功的合约事件，如果金额不足的失败合约事件里没有转账信息：
 ```json
 
