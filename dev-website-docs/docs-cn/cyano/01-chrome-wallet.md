@@ -1,7 +1,7 @@
 
 ## 简介
 
-`Chrome Provider` 基于 `ontology-ts-sdk` 实现，Chrome 钱包插件 `cyano wallet` 对 `Chrome Provider` 进行了封装，你可以通过点击 [这里](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm) 从 Chrome 网上应用店中获取该插件，或者点击 [这里](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases) 从 Github 上下载安装包。当钱包插件安装完成后，你可点击 [这里](https://dapp.review/explore/ont) 体验基于 `Chrome` 浏览器的 dApp。
+`Chrome Provider` 基于 `ontology-ts-sdk` 实现，Chrome 钱包插件 `cyano wallet` 对 `Chrome Provider` 进行了封装，你可以通过点击 [这里](https://chrome.google.com/webstore/detail/cyano-wallet/dkdedlpgdmmkkfjabffeganieamfklkm) 从 Chrome 网上应用店中获取该插件，或者点击 [这里](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases) 从 Github 上下载安装包。当钱包插件安装完成后，你可点击 [这里](https://dapp.review/explore/ont) 体验基于 `Chrome` 浏览器的 `DAPP`。
 
 <div align="center"><img height="400px" src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/cyano/cyano-wallet.png"><br><br></div>
 

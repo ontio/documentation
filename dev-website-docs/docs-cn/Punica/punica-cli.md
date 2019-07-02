@@ -1,20 +1,20 @@
 
 
-## 概述
-Punica-CLI 具有以下特性：
+## 1. 概述
+ Punica-CLI 具有以下特性：
 
 * 支持智能合约编译、部署、调用和测试。
-* 实现了 Python 和 TypeScript 版本。
-* 自动化生成 dapp 工程目录，提供多种 box，为开发者基于 Punica-Boxes 开发提供便利。
-* 智能合约测试配置与 smartx 有相同的配置标准。
+* 实现了 `Python` 和 `TypeScript` 两个版本。
+* 自动化生成 `DAPP` 工程目录，提供多种 `box` ，为开发者基于 `Punica-Boxes` 开发提供便利。
+* 智能合约测试配置与 `smartx` 有相同的配置标准。
 * 提供智能合约包管理工具。
 
-## 安装
+## 2. 安装
 
 安装之前请先确认已安装以下工具：
 
-- [Python 3.7](https://www.python.org/downloads/release/python-370/)
-- [Git](https://git-scm.com/)
+- [ Python 3.7](https://www.python.org/downloads/release/python-370/)
+- [ Git](https://git-scm.com/)
 
 然后，执行以下命令进行安装：
 
@@ -22,9 +22,9 @@ Punica-CLI 具有以下特性：
 pip install punica
 ```
 
-## 快速开始
+## 3. 快速开始
 
-如果想使用更多 Punica 命令，请先创建一个 Punica 项目。
+如果想使用更多 `Punica` 命令，请先创建一个 `Punica` 项目。
 
 
 ```shell
@@ -57,14 +57,14 @@ Unpacking...
 Unbox successful. Enjoy it!
 ```
 
-## 开始使用
+## 4. 开始使用
 
 
-### 创建项目
+### 4.1 创建项目
 
-#### 初始化新项目
+#### 4.1.1 初始化新项目
 
-可以使用`punica init`命令创建一个空项目
+可以使用 `punica init` 命令创建一个空项目
 
 ```shell
 $punica init --help
@@ -87,24 +87,24 @@ Unbox successful. Enjoy it!
 
 生成的项目结构如下：
 
-- `contracts/`: 用于存放合约文件.
-- `src/`: 用于存放dapp js和html等相关文件.
-- `test/`: 合约代码测试文件.
-- `wallet/`: 用于存放钱包文件.
+- `contracts/`: 用于存放合约文件
+- `src/`: 用于存放 dapp js 和 html 等相关文件
+- `test/`: 用于存放合约代码测试文件
+- `wallet/`: 用于存放钱包文件
 - `punica-config.json` 用于配置区块链网络
 
-#### 创建 Box 项目
+#### 4.1.2 创建 Box 项目
 
-Punica Box 是Punica dapp 模板库，你可以下载感兴趣的项目，然后基于该项目创建你的 dapp。
+Punica Box 是 `Punica dapp` 模板库，你可以下载感兴趣的项目，然后基于该项目创建你的 `DAPP` 。
 
-1. 创建一个新文件夹:
+1. 创建一个新文件夹 :
 
    ```shell
    mkdir tutorialtoken
    cd tutorialtoken
    ```
 
-2. 下载 Box:
+2. 下载 Box :
 
    ```shell
    punica unbox tutorialtoken
@@ -123,11 +123,11 @@ Punica Box 是Punica dapp 模板库，你可以下载感兴趣的项目，然后
 
 > **注意**:
 >
-> - 你可以使用 `punica unbox <box-name>` 免费下载任意的 Box 项目。
-> - 你可以在你的项目根目录使用 punica 的其他命令，也可以使用`-p` or `--project` 选项指定使用哪个项目。
+> - 你可以使用 `punica unbox <box-name>` 免费下载任意的 `Box` 项目。
+> - 你可以在你的项目根目录使用 `punica` 的其他命令，也可以使用`-p` or `--project` 选项指定使用哪个项目。
 >
 
-### 编译
+### 4.2 编译
 
 使用下面的命令编译你的合约：
 
@@ -136,7 +136,7 @@ Punica Box 是Punica dapp 模板库，你可以下载感兴趣的项目，然后
 punica compile
 ```
 
-如果执行成功，将会在 contracts 文件夹下生成 build 文件夹：
+如果执行成功，将会在 `contracts` 文件夹下生成 `build` 文件夹：
 
 
 ```shell
@@ -146,7 +146,7 @@ contacts
     │      contract_abi.json
 ```
 
-如果想使用 punica 编译时的更多选项，使用`punica compile --help` 命令查看。
+如果想使用 `punica` 编译时的更多选项，使用`punica compile --help` 命令查看。
 
 ```shell
 $ punica compile --help
@@ -163,12 +163,12 @@ Options:
 - `--contracts`：指定编译的合约文件。
 - `--local`：指定使用的编译器。
 
-### 部署
+### 4.3 部署
 
 部署之前，你需要关心以下两个配置文件：
 
 - `punica-config.json`：配置使用的区块链网络
-- `default-config.json`（contracts 目录下）：配置部署合约的参数信息和调用合约中函数的参数。
+- `default-config.json`（ contracts 目录下）：配置部署合约的参数信息和调用合约中函数的参数。
 
 部署命令：
 
@@ -206,15 +206,15 @@ Options:
 ```
 
 - `--network TEXT` ：指定使用的网络，默认使用 punica-config.json 里的配置文件
-- `--avm TEXT` ：指定使用的 avm，默认使用 defaul-config.json 中配置的 avm 文件
-- `--wallet TEXT`：指定使用的钱包文件，默认使用 walle t文件夹下的 wallet.json 文件
-- `--config TEXT`：指定使用的配置文件，默认使用 defaul-config.json
+- `--avm TEXT` ：指定使用的 avm ，默认使用 defaul-config.json 中配置的 avm 文件
+- `--wallet TEXT`：指定使用的钱包文件，默认使用 wallet 文件夹下的 wallet.json 文件
+- `--config TEXT`：指定使用的配置文件，默认使用 defaul-config.json 里的配置文件
 
-### 调用
+### 4.4 调用
 
-调用之前，请确保 default-config.json 文件中已经配好合约方法需要的参数。
+调用之前，请确保 `default-config.json` 文件中已经配好合约方法需要的参数。
 
-`default-config.json `配置示例部分内容如下所示，完整内容请查看 [init box](https://github.com/punica-box/punica-init-default-box/blob/master/contracts/default-config.json)。
+`default-config.json ` 配置示例部分内容如下所示，完整内容请查看 [ init box ](https://github.com/punica-box/punica-init-default-box/blob/master/contracts/default-config.json)。
 
 ```json
 {
@@ -304,10 +304,10 @@ Options:
 ```
 
 参数值的配置如下：
-- "String:test"："String" 表示合约中的函数需要的参数类型是 String。
-- "ByteArry:test"："ByteArray" 表示合约中的函数需要的参数类型是 ByteArray。
-- "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"：表示将参数`AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ ` 按照 Address 的格式转换成字节数组。
-- "Hex:0a"：表示将参数 `0a` 按照 hex 的形式转换成字节数组
+- "String:test "：" String " 表示合约中的函数需要的参数类型是  `String` 。
+- " ByteArry:test "：" ByteArray " 表示合约中的函数需要的参数类型是 `ByteArray` 。
+- " Address : AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ "：表示将参数 `AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ ` 按照 `Address` 的格式转换成字节数组。
+- " Hex:0a "：表示将参数 `0a` 按照 `hex` 的形式转换成字节数组
 
 `default-config.json` 配置完成后，可以通过下面的命令查看可以调用的函数
 
@@ -342,7 +342,7 @@ Invoke successful
 Invoke result: ['01', '64', '74657374', '74657374', '0a', '8f651d459b4f146380dab28e7cfb9d4bb9c3fcd1']
 ```
 
-要查看invoke更多信息，执行下面的命令：
+要查看 `invoke` 更多信息，执行下面的命令：
 ```shell
 $ punica invoke -h
 Usage: punica invoke [OPTIONS] COMMAND [ARGS]...
@@ -361,12 +361,13 @@ Commands:
   list  List all the function in default-config or...
 ```
 
-- `--functions TEXT`：指定要执行的函数，可以一次指定多个函数，例如：`punica invoke --functions testHello,testNumList`
+- `--functions TEXT`：指定要执行的函数，可以一次指定多个函数，例如：`punica invoke` , `--functions testHello` , `testNumList`
 - `--preexec TEXT`：预执行，预执行表示不会将状态更新到区块链，适合于查询的函数。
+
 其他的配置信息请参看上面的讲解。
 
 
-### Node
+### 4.5 Node
 
 
 ```shell
@@ -380,7 +381,7 @@ Options:
    -h, --help  Show this message and exit.
 ```
 
-### Scpm
+### 4.6 Scpm
 
 ```shell
 $ punica scpm
@@ -392,7 +393,7 @@ Options:
    -h, --help  Show this message and exit.
 
 ```
-### Smartx
+### 4.7 Smartx
 
 ```shell
 $ punica smartx
@@ -400,7 +401,7 @@ $ punica smartx
 Please go to Smartx for debugging smart contracts:
 http://smartx.ont.io/#/
 ```
-### 测试
+### 4.8 测试
 
 ```shell
 $ punica test -h
@@ -416,7 +417,7 @@ Commands:
   template  generate test template file
 ```
 
-### 钱包
+### 4.9 钱包
 
 ```shell
 $ punica wallet

@@ -1,11 +1,11 @@
 
-`cyano-mobile` 是 `Mobile Provider` 的一套标准化的开源实现，其遵循 [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki#scenario-3-provider-opens-dapp) 提案，将电脑端的 dApi 扩展到了移动端，涵盖了移动端 dApp 的三个使用场景。
+`cyano-mobile` 是 `Mobile Provider` 的一套标准化的开源实现，其遵循 [CEP-1 ](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki#scenario-3-provider-opens-dapp) 提案，将电脑端的 `dAPI` 扩展到了移动端，涵盖了移动端 `DAPP` 的三个使用场景。
 
 - 集成了 `dAPI-mobile` 的钱包通过二维码进行账户登陆、智能合约的调用。
-- 集成了 `cyano-sdk` 的 dApp 唤醒集成了 `dAPI-mobile` 的钱包。
-- 集成了 `dAPI-mobile` 的钱包打开内嵌的 dApp 并进行账户登陆、智能合约的调用。
+- 集成了 `cyano-sdk` 的 `DAPP` 唤醒集成了 `dAPI-mobile` 的钱包。
+- 集成了 `dAPI-mobile` 的钱包打开内嵌的 `DAPP` 并进行账户登陆、智能合约的调用。
 
-在 `cyano-mobile` 中，dApp 的数据请求 URL 遵循 `CEP-1` 规范：
+在 `cyano-mobile` 中，`DAPP` 的数据请求 `URL` 遵循 `CEP-1` 规范：
 
 ```java
 import android.net.Uri;
@@ -17,37 +17,37 @@ String param = Base64.encodeToString(Uri.encode(JSON.toJSONString(map)).getBytes
 String url = "ontprovider://ont.io?param=".concat(param);
 ```
 
-同时，本体提供了实现了 `CEP-1` 移动端钱包：
+同时，本体提供了实现了 `CEP-1` 的移动端钱包：
 
-- [Android](https://github.com/ontio-cyano/cyano-android) 端移动钱包。
-- [IOS](https://github.com/ontio-cyano/cyano-ios) 端移动钱包
+- [Android ](https://github.com/ontio-cyano/cyano-android) 端移动钱包
+- [IOS ](https://github.com/ontio-cyano/cyano-ios) 端移动钱包
 
-## 交互流程
+## 1. 交互流程
 
-### 登陆
+### 1.1 登陆
 
-对于一个集成了 `dAPI-mobile` 的钱包 `W`，dApp 通过钱包进行登陆的流程如下。
+对于一个集成了 `dAPI-mobile` 的钱包 `W`，`DAPP` 通过钱包进行登陆的流程如下:
 
-1. 集成了 `dAPI-mobile` 的钱包扫描 dApp 提供的二维码。
-2. 集成了 `dAPI-mobile` 的钱包解析出回调 URL 与验证用的消息 `msg`。
+1. 集成了 `dAPI-mobile` 的钱包扫描 `DAPP` 提供的二维码。
+2. 集成了 `dAPI-mobile` 的钱包解析出回调 `URL` 与验证用的消息 `msg`。
 3. 集成了 `dAPI-mobile` 的钱包对 `msg` 进行签名，调用登陆方法。
-4. `dApp` 验证签名，根据验证结果进行登陆流程的处理。
+4. `DAPP` 验证签名，根据验证结果进行登陆流程的处理。
 
-### 调用智能合约
+### 1.2 调用智能合约
 
-对于一个集成了 `dAPI-mobile` 的钱包 `W`，其调用 dApp 所要求的智能合约流程如下。
+对于一个集成了 `dAPI-mobile` 的钱包 `W`，其调用 `DAPP` 所要求的智能合约流程如下:
 
-1. 钱包 `W` 扫描 dApp 提供的二维码。
+1. 钱包 `W` 扫描 `DAPP` 提供的二维码。
 2. 钱包 `W` 解析出交易参数。
 3. 钱包 `W` 根据交易参数构造交易。
 4. 钱包 `W` 提示用户签名。
 5. 钱包 `W` 预执行交易，并将预执行结果发送给用户进行确认。
-6. 用户确认预执行结果后，钱包 `W` 将交易发送到链上，返回交易哈希 `TxHash`。
-7. dApp 根据交易哈希查询交易。
+6. 用户确认预执行结果后，钱包 `W` 将交易发送到链上，返回交易哈希  `TxHash` 。
+7. `DAPP` 根据交易哈希查询交易。
 
-## 技术规范
+## 2. 技术规范
 
-### 查询 Provider
+### 2.1 查询 Provider
 
 - 请求数据
 
@@ -77,7 +77,7 @@ String url = "ontprovider://ont.io?param=".concat(param);
 }
 ```
 
-### 查询账户信息
+### 2.2 查询账户信息
 
 - 请求数据
 
@@ -96,8 +96,8 @@ String url = "ontprovider://ont.io?param=".concat(param);
 | 字段     | 类型   | 定义          |
 | :------- | :----- | :------------ |
 | action   | string | 操作类型      |
-| dappName | string | dapp名字      |
-| dappIcon | string | dapp icon信息 |
+| dappName | string | DAPP 名字      |
+| dappIcon | string | DAPP icon 信息 |
 
 - 响应数据
 
@@ -112,7 +112,7 @@ String url = "ontprovider://ont.io?param=".concat(param);
 }
 ```
 
-### 查询身份信息
+### 2.3 查询身份信息
 
 - 请求数据
 
@@ -131,8 +131,8 @@ String url = "ontprovider://ont.io?param=".concat(param);
 | 字段     | 类型   | 定义          |
 | :------- | :----- | :------------ |
 | action   | string | 操作类型      |
-| dappName | string | dapp名字      |
-| dappIcon | string | dapp icon信息 |
+| dappName | string | DAPP 名字      |
+| dappIcon | string | DAPP icon 信息 |
 
 - 响应数据
 
@@ -147,7 +147,7 @@ String url = "ontprovider://ont.io?param=".concat(param);
 }
 ```
 
-### 消息签名
+### 2.4 消息签名
 
 - 请求数据
 
@@ -166,12 +166,12 @@ String url = "ontprovider://ont.io?param=".concat(param);
 | 字段    | 类型   | 定义                                                                                 |
 | :------ | :----- | :----------------------------------------------------------------------------------- |
 | action  | string | 操作类型                                                                             |
-| type    | string | 定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account"，不填就默认是"account" |
+| type    | string | 定义是使用 ontid 登录设定为 "ontid"，钱包地址登录设定为 "account"，不填就默认是 "account" |
 | message | string | 随机生成，用于校验身份                                                               |
 
-### 登陆
+### 2.5 登陆
 
-#### 二维码
+#### 2.5.1 二维码
 
 ```json
 {
@@ -191,16 +191,16 @@ String url = "ontprovider://ont.io?param=".concat(param);
 
 | 字段     | 类型   | 定义                                                              |
 | :------- | :----- | :---------------------------------------------------------------- |
-| action   | string | 定义此二维码的功能，登录设定为"Login"，调用智能合约设定为"invoke" |
+| action   | string | 定义此二维码的功能，登录设定为 "Login"，调用智能合约设定为 "invoke" |
 | id       | string | 消息序列号，可选                                                  |
-| type     | string | 定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account"     |
-| dappName | string | dapp名字                                                          |
-| dappIcon | string | dapp icon信息                                                     |
+| type     | string | 定义是使用 ontid 登录设定为 "ontid"，钱包地址登录设定为 "account"     |
+| dappName | string | DAPP 名字                                                          |
+| dappIcon | string | DAPP icon 信息                                                     |
 | message  | string | 随机生成，用于校验身份                                            |
 | expire   | long   | 可选                                                              |
-| callback | string | 用户扫码签名后发送到DApp后端URL                                   |
+| callback | string | 用户扫码签名后发送到 DAPP 后端 URL                                   |
 
-#### dApp
+#### 2.5.2 DAPP
 
 - `POST` 请求
 
@@ -226,8 +226,8 @@ String url = "ontprovider://ont.io?param=".concat(param);
 | action    | string | 操作类型                                                      |
 | id        | string | 消息序列号，可选                                              |
 | params    | string | 方法要求的参数                                                |
-| type      | string | 定义是使用ontid登录设定为"ontid"，钱包地址登录设定为"account" |
-| user      | string | 用户做签名的账户，比如用户的ontid或者钱包地址                 |
+| type      | string | 定义是使用 ontid 登录设定为 "ontid"，钱包地址登录设定为 "account" |
+| user      | string | 用户做签名的账户，比如用户的 ontid 或者钱包地址                 |
 | message   | string | 随机生成，用于校验身份                                        |
 | publickey | string | 账户公钥                                                      |
 | signature | string | 用户签名                                                      |
@@ -254,9 +254,9 @@ String url = "ontprovider://ont.io?param=".concat(param);
 }
 ```
 
-### 执行智能合约
+### 2.6 执行智能合约
 
-#### 二维码
+#### 2.6.1 二维码
 
 ```json
 {
@@ -273,13 +273,17 @@ String url = "ontprovider://ont.io?param=".concat(param);
 
 | 字段      | 类型   | 定义                                                    |
 | :-------- | :----- | :------------------------------------------------------ |
-| action    | string | 操作类型，登录设定为"Login"，调用智能合约设定为"invoke" |
+| action    | string | 操作类型，登录设定为 "Login"，调用智能合约设定为 "invoke" |
 | qrcodeUrl | string | 二维码参数地址                                          |
-| callback  | string | 选填，返回交易hash给dApp服务端                          |
+| callback  | string | 选填，返回交易 hash 给 DAPP 服务端                          |
 
-!> 当 `action` 字段为 `invoke` 时，为执行智能合约；当 `action` 字段为 `invokeRead` 时，为预执行智能合约；当 `action` 字段为 `action是invokePasswordFree` 时，为免密执行智能合约。
+!> 当 `action` 字段为 `invoke` 时，为执行智能合约；
 
-#### dApp
+当 `action` 字段为 `invokeRead` 时，为预执行智能合约；
+
+当 `action` 字段为 `action是invokePasswordFree` 时，为免密执行智能合约。
+
+#### 2.6.2 Dapp
 
 - `GET` 请求
 
@@ -350,17 +354,17 @@ String url = "ontprovider://ont.io?param=".concat(param);
 }
 ```
 
-## Android SDK
+## 3 Android SDK
 
-`cyano-android-sdk` 基于 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 进行实现，对 Android WebView 进行了封装，用于帮助基于 WebView 进行开发的 Android 手机端 dApp 与实现了 `CEP1` 规范的钱包之间进行通信。
+`cyano-android-sdk` 基于 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 实现对 `Android WebView` 的封装，能被用来帮助基于 `WebView` 进行开发的 `Android` 手机端 `DAPP` 与实现了 `CEP1` 规范的钱包之间的通信。
 
 !> `WebView` 的通信方式为 `window.postmeaage()`
 
-### 导入项目
+### 3.1 导入项目
 
-你可以从[这里](https://github.com/ontio-cyano/cyano-android-sdk)获取完整的项目代码，然后将 `cyano-android-sdk` 以模块的形式导入到你的项目中。
+你可以从[ 这里 ](https://github.com/ontio-cyano/cyano-android-sdk)获取完整的项目代码，然后将 `cyano-android-sdk` 以模块的形式导入到你的项目中。
 
-### 初始化
+### 3.2 初始化
 
 在调用 `cyano-andorid-sdk` 所提供的方法之前，你需要对其进行初始化。
 
@@ -369,19 +373,21 @@ CyanoWebView cyanoWebView = new CyanoWebView(context);
 cyanoWebView.loadUrl(url);
 ```
 
-更详细的使用方法，你可以点击[这里](https://github.com/ontio-cyano/cyano-android)查看我们提供的示例程序 `cyano-android`，点击[这里](http://101.132.193.149/files/app-debug.apk)获取示例程序的安装包。
+更详细的使用方法，你可以点击[ 这里 ](https://github.com/ontio-cyano/cyano-android)查看我们提供的示例程序 `cyano-android`
 
-## IOS SDK
+点击[ 这里 ](http://101.132.193.149/files/app-debug.apk)获取示例程序的安装包。
 
-`cyano-ios-sdk` 基于 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 进行实现，对 IOS WebView 进行了封装，用于帮助基于 WebView 进行开发的 IOS 手机端 dApp 与实现了 `CEP1` 规范的钱包之间进行通信。
+## 4 IOS SDK
+
+`cyano-ios-sdk` 基于 [CEP1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 实现对 `IOS WebView` 的封装，用于帮助基于 `WebView` 进行开发的 `IOS` 手机端 `DAPP` 与实现了 `CEP1` 规范的钱包之间的通信。
 
 !> `WebView` 的通信方式为 `window.postmeaage()`
 
-### 导入项目
+### 4.1 导入项目
 
-你可以从[这里](https://github.com/ontio-cyano/cyano-ios-sdk)获取完整的项目代码，然后将 `cyano-ios-sdk` 以模块的形式导入到你的项目中。
+你可以从[ 这里 ](https://github.com/ontio-cyano/cyano-ios-sdk)获取完整的项目代码，然后将 `cyano-ios-sdk` 以模块的形式导入到你的项目中。
 
-### 初始化
+### 4.2 初始化
 
 在调用 `cyano-ios-sdk` 所提供的方法之前，你需要对其进行初始化。
 
@@ -390,4 +396,4 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 [webView setURL:@""];
 ```
 
-更详细的使用方法，你可以点击[这里](https://github.com/ontio-cyano/cyano-ios)查看我们提供的示例程序 `cyano-ios`。
+更详细的使用方法，你可以点击[ 这里 ](https://github.com/ontio-cyano/cyano-ios)查看我们提供的示例程序 `cyano-ios`。

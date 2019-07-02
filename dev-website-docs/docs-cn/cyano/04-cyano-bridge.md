@@ -1,9 +1,9 @@
 
 [CEP-1](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) 提案定义了手机端的 dApi 规范。基于该提案，我们提供了 `cyano-bridge`，用于供手机端的 dApp 使用。
 
-## 安装
+## 1. 安装
 
-### npm 安装
+### 1.1 npm 安装
 
 你可以使用 `npm` 进行安装
 
@@ -11,31 +11,31 @@
 npm install cyanobridge
 ```
 
-### CDN
+### 1.2 CDN 安装
 
-目前可以通过 `jsDelivr` 获取到最新版本的资源，在页面上引入 js 文件即可开始使用。
+目前可以通过 `jsDelivr` 获取到最新版本的资源，在页面上引入 `js`  文件即可开始使用。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/cyanobridge/lib/browser.min.js"></script>
 ```
 
-!> 建议使用 CDN 引入 `cyano-bridge` 的用户在链接地址上锁定版本，以免将来 `cyano-bridge` 升级时受到非兼容性更新的影响。
+!> 建议使用 `CDN` 引入 `cyano-bridge` 的用户在链接地址上锁定版本，以免将来 `cyano-bridge` 升级时受到非兼容性更新的影响。
 
-## 导入
+## 2. 导入
 
-### CommonJS
+### 2.1 CommonJS
 
 ```javascript
 var client = require('cyanobridge').client
 ```
 
-### ES6 模块
+### 2.2 ES6 模块
 
 ```javascript
 import { client } from 'cyanobridge'
 ```
 
-### Web require
+### 2.3 Web require
 
 导入 `./lib` 文件夹下的 `browser.js` 文件:
 
@@ -45,7 +45,7 @@ import { client } from 'cyanobridge'
 var client = CyanoMobile.client;
 ```
 
-## 初始化
+## 3. 初始化
 
 ```javascript
 import { client } from 'cyanobridge'
@@ -53,9 +53,9 @@ import { client } from 'cyanobridge'
 client.registerClient();
 ```
 
-## 使用
+## 4. 使用
 
-### 查询钱包账户
+### 4.1 查询钱包账户
 
 ```javascript
 const params = {
@@ -71,9 +71,9 @@ try {
 }
 ```
 
-!> 在获取钱包账户信息时，`params` 中的 dApp 信息为可选的。
+!> 在获取钱包账户信息时，`params` 中的 `DAPP` 信息为可选的。
 
-### 查询身份
+### 4.2 查询身份
 
 ```javascript
 const params = {
@@ -88,11 +88,11 @@ try {
 }
 ```
 
-!> 在获取身份信息时，`params` 中的 dApp 信息为可选的。
+!> 在获取身份信息时，`params` 中的 `DAPP` 信息为可选的。
 
-### 登录
+### 4.3 登录
 
-在移动端，登录操作通过钱包签名，dApp 验证签名完成。
+在移动端，登录操作通过钱包签名，`DAPP` 验证签名完成。
 
 ```javascript
 const params = {
@@ -112,9 +112,9 @@ try {
 }
 ```
 
-### 智能合约
+### 4.4 智能合约
 
-#### 执行智能合约
+#### 4.4.1 执行智能合约
 
 ```javascript
 const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
@@ -149,9 +149,9 @@ try {
 }
 ```
 
-#### 免密执行智能合约
+#### 4.4.2 免密执行智能合约
 
-在免密执行智能合约中，第一次执行时需要用户输入密码，此后执行相同的合约方法时将不再需要用户输入密码。
+在免密执行智能合约中，第一次执行时需要用户输入密码，此后执行相同的合约方法时,用户将不再需要输入密码。
 
 ```javascript
 const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
@@ -186,9 +186,9 @@ try {
 }
 ```
 
-在免密执行智能合约中，我们所信任的是固定的方法和参数，而不是信任整个合约的所有方法，所以输入密码后会保存该交易的参数，当且仅当下次请求为同样的交易参数时才不需要再次输入密码。
+在免密执行智能合约时，我们所信任的是**固定的方法和参数**,而不是信任整个合约的所有方法，所以输入密码后会保存该交易的参数，当且仅当下次请求为同样的交易参数时才不需要再次输入密码。
 
-> 出于安全考虑，当用户离开当前的 dApp 时，必须清空内存中的私钥和参数。
+> 出于安全考虑，当用户离开当前的 `DAPP` 时，必须清空内存中的私钥和参数。
 
 #### 预执行智能合约
 
@@ -224,8 +224,8 @@ try{
 }
 ```
 
-## 常见问题
+## 5. 常见问题
 
-- 我可以利用 `cyano` 将我的 dApp 同时兼容移动端与浏览器端吗？
+- 我可以利用 `cyano` 将我的 `DAPP` 同时兼容移动端与浏览器端吗？
   
   完全没问题！你可以参考我们提供的示例项目[dapi-universal](https://github.com/ontio-cyano/dapi-universal)。
