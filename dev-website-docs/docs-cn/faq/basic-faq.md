@@ -378,3 +378,27 @@ def transferOng(from_base58, to_base58,  ong_amount):
         Notify([False,from_base58, to_base58,  ong_amount])
         return False
 ```
+
+
+## 22. Ontology CLI 设置GAS Price
+
+以 ONT 转账为例，使用 Ontology CLI 手动设置 GAS price 和 GAS limit 参数: `--gasprice` 、`--gaslimit`   
+
+**查询余额**
+
+```
+./ontology asset balance TA7FwLmuX6qMcWTgZtUxt6tjzFgfaBM5sz
+```
+
+
+**转账**
+
+```
+./ontology asset transfer --from TA7FwLmuX6qMcWTgZtUxt6tjzFgfaBM5sz  --to TA7FwLmuX6qMcWTgZtUxt6tjzFgfaBM5sz  --amount 1000 --gasprice 500 --gaslimit 40000
+```
+
+
+
+可以看到，转账1000 个 ONT，GAS price  = 5，GAS limit = 40000，
+
+最终消耗的 **GAS** =  1787019.99985 - 1787019.9997 = 0.00015

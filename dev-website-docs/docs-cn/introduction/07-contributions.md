@@ -25,9 +25,8 @@
 
 | **分组**                              | **姓名**     | **Discord**              | **GitHub**   | **Gitter**   |
 | ------------------------------------- | ------------ | ------------------------ | ------------ | ------------ |
-|                                       | Zhou Yan     | harry.zy                 | harryzy      | harryzy      |
-|                                       | Tan Yuan     | tanyuan                  | tanZiWen     | tanZiWen     |
 | [OEPs](https://github.com/ontio/OEPs) | Hu Ning      | dcjojo                   | javajoker    | javajoker    |
 |                                       | Cong Honglei | Honglei                  | Honglei-Cong | Honglei-Cong |
+|                                       | Tan Yuan     | tanyuan                  | tanZiWen     | tanZiWen     |
 | [dApps](https://dapp.ont.io/)         | Xiao Min     | xiaomin-trouble shooting | xiaomin49    | xiaomin49    |
 |                                       | Zhou Xi      | josh chow                | xizho10      | xizho10      |
