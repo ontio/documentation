@@ -1,5 +1,5 @@
 
-## 快速开始
+## 1. 快速开始
 
 ```java
 import com.github.ontio.OntSdk;
@@ -7,7 +7,7 @@ import com.github.ontio.OntSdk;
 OntSdk ontSdk = OntSdk.getInstance();
 ```
 
-## 网络
+## 2. 网络
 
 | 接口                                                | 描述                 |
 | :-------------------------------------------------- | :------------------- |
@@ -28,7 +28,7 @@ OntSdk ontSdk = OntSdk.getInstance();
 | ontSdk.getConnect().getMemPoolTxCount()             | 查询交易池中交易总量 |
 | ontSdk.getConnect().getMemPoolTxState()             | 查询交易池中交易状态 |
 
-### 交易池
+### 2.1 交易池
 
 根据交易哈希 `TxHash` 可以查询交易在交易池（内存）中的状态。
 
@@ -54,7 +54,7 @@ public class NetworkDemo {
 }
 ```
 
-### 合约事件
+### 2.2 合约事件
 
 - 根据交易哈希 `TxHash` 查询交易对应的合约事件。
 
@@ -127,9 +127,9 @@ public class NetworkDemo {
 }
 ```
 
-### Merkle 证明
+### 2.3 Merkle 证明
 
-`getMerkleProof` 接口用于获取指定交易哈希所对应交易的 Merkle 证明。
+`getMerkleProof` 接口用于获取指定交易哈希所对应交易的 `Merkle` 证明。
 
 ```java
 package demo;
@@ -157,11 +157,11 @@ public class NetworkDemo {
 
 <p class = "info">由于 <code>Merkle</code> 树的结构特征，通过使用默克尔证明技术，能够快速判断特定数据是否存在于默克尔树之中。</p>
 
-## 账户
+## 3. 账户
 
-不同于比特币的 UTXO(Unspent Transaction Output) 模型，本体采用了账户余额模型。
+不同于比特币的 `UTXO` (Unspent Transaction Output) 模型，本体采用了账户余额模型。
 
-### 创建随机账户
+### 3.1 创建随机账户
 
 ```java
 import com.github.ontio.OntSdk;
@@ -179,9 +179,9 @@ public class AcctDemo {
 }
 ```
 
-### 指定私钥创建账户
+### 3.2 指定私钥创建账户
 
-在账户余额模型中，钱包地址由公钥生成经哈希运算得到。因此，你可以通过提供私钥来得到公钥，进而得到该私钥所对应的钱包地址。
+在账户余额模型中，钱包地址由公钥生成,经哈希运算得到。因此，你可以通过提供私钥来得到公钥，进而得到该私钥所对应的钱包地址。
 
 ```java
 import com.github.ontio.account.Account;
@@ -199,7 +199,7 @@ public class AcctDemo {
 }
 ```
 
-### 批量创建账户
+### 3.3 批量创建账户
 
 ```java
 import com.github.ontio.OntSdk;
@@ -219,9 +219,9 @@ public class AcctDemo {
 
 <p class="info">在技术上，公私钥可以存储在数据库中，也可以按照本体的钱包规范存储在 <code>Keystore</code> 文件中。</p>
 
-## 身份
+## 4. 身份
 
-### 创建随机身份
+### 4.1 创建随机身份
 
 ```java
 import com.github.ontio.OntSdk;
@@ -240,7 +240,7 @@ public class AcctDemo {
 }
 ```
 
-### 指定私钥创建身份
+### 4.2 指定私钥创建身份
 
 ```java
 import com.github.ontio.OntSdk;
@@ -260,11 +260,11 @@ public class AcctDemo {
 }
 ```
 
-## 钱包文件
+## 5. 钱包文件
 
 在 `ontology-java-sdk` 中，`WalletMgr` 类会根据本体的钱包规范帮你管理你的钱包账户和身份信息（本质上是对私钥的管理）。
 
-### 创建账户
+### 5.1 创建账户
 
 在 `WalletMgr` 类中，`createAccounts` 方法用于生成指定数量的随机账户。
 
@@ -286,7 +286,7 @@ public class WalletDemo {
 }
 ```
 
-### 保存钱包文件
+### 5.2 保存钱包文件
 
 在 `WalletMgr` 类中，`writeWallet` 方法用于将当前内存中的钱包信息保存到 `Keystore` 文件中。
 
@@ -309,7 +309,7 @@ public class WalletDemo {
 }
 ```
 
-### 重置钱包文件
+### 5.3 重置钱包文件
 
 在 `WalletMgr` 类中，`resetWallet` 方法用于重置 `Keystore` 文件。
 
@@ -332,7 +332,7 @@ public class WalletDemo {
 }
 ```
 
-### 获取钱包信息
+### 5.4 获取钱包信息
 
 在 `WalletMgr` 类中，`getWallet` 方法用于查看钱包文件信息。
 
@@ -355,7 +355,7 @@ public class WalletDemo {
 }
 ```
 
-### 获取账户信息列表
+### 5.5 获取账户信息列表
 
 在 `WalletMgr` 类中，利用 `getWallet` 方法获得钱包文件信息后，可以使用 `getAccounts` 方法获取账户信息列表。
 
@@ -380,11 +380,11 @@ public class WalletDemo {
 }
 ```
 
-## 地址
+## 6. 地址
 
 在本体中，地址分为单签地址（由一个公钥生成）与多签地址（由多个公钥生成）。
 
-### 生成单签地址
+### 6.1 生成单签地址
 
 ```java
 package demo;
@@ -410,7 +410,7 @@ public class WalletDemo {
 }
 ```
 
-### 生成多签地址
+### 6.2 生成多签地址
 
 ```java
 package demo;
@@ -447,7 +447,7 @@ public class WalletDemo {
   </ul>
 </section>
 
-## 原生资产
+## 7. 原生资产
 
 在对原生资产 `ONT` 与 `ONG` 进行操作前，需要将你的 SDK 连接到本体网络（主网、`polaris` 测试网、私有网络）。
 
@@ -471,7 +471,7 @@ public class MakeTxDemo {
 }
 ```
 
-### 查询余额
+### 7.1 查询余额
 
 ```java
 package demo;
@@ -496,7 +496,7 @@ public class MakeTxDemo {
 }
 ```
 
-### 查询名称
+### 7.2 查询名称
 
 ```java
 package demo;
@@ -525,7 +525,7 @@ public class MakeTxDemo {
 }
 ```
 
-### 查询符号
+### 7.3 查询符号
 
 ```java
 package demo;
@@ -554,7 +554,7 @@ public class MakeTxDemo {
 }
 ```
 
-### 查询精度
+### 7.4 查询精度
 
 ```java
 package demo;
@@ -583,7 +583,7 @@ public class MakeTxDemo {
 }
 ```
 
-### 查询总供应量
+### 7.5 查询总供应量
 
 ```java
 package demo;
@@ -612,7 +612,7 @@ public class MakeTxDemo {
 }
 ```
 
-### 转账
+### 7.6 转账
 
 ```java
 package demo;
@@ -672,9 +672,9 @@ public class MakeTxDemo {
 
 !> 一笔交易所包含的转账交易数上限为 1024 笔。
 
-## 签名
+## 8. 签名
 
-### 交易签名
+### 8.1 交易签名
 
 ```java
 package demo;
@@ -707,7 +707,7 @@ public class MakeTxDemo {
 }
 ```
 
-### 增加交易签名
+### 8.2 增加交易签名
 
 ```java
 package demo;
@@ -743,7 +743,7 @@ public class MakeTxDemo {
 
 !> 如果转出账户的地址和网络费支付账户的地址不同，需要在交易中添加转出账户与网络费支付账户的签名。
 
-### 多签交易签名
+### 8.3 多签交易签名
 
 ```java
 package demo;
@@ -785,7 +785,7 @@ public class MakeTxDemo {
 }
 ```
 
-### 数据签名
+### 8.4 数据签名
 
 ```java
 package demo;

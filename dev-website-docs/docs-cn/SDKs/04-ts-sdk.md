@@ -1,19 +1,31 @@
 
 
 
-# 概述
+## 1. 概述
 
-该项目是本体官方Typescript SDK，目前支持：本地钱包管理、数字身份管理、数字资产管理、智能合约部署和调用以及资产转账等等。未来还将支持更丰富的功能和应用。
+该项目是本体官方 `Typescript SDK`。
+
+目前支持：
+
+本地钱包管理、数字身份管理、数字资产管理、智能合约部署和调用以及资产转账等等。未来还将支持更丰富的功能和应用。
+
+### 主要功能
+* 钱包文件规范
+* 数字身份及可信声明
+* 数字资产
+* 智能合约的部署和调用
+* 错误码
+
+## 2. 数字资产管理
 
 
-# 数字资产管理
+### 2.1 钱包 Wallet
 
+钱包 `Wallet` 是一个 `Json` 格式的数据存储文件。
 
-## 钱包 Wallet
+在本体 `Ontology` 中， `Wallet` 既可存储数字身份，也可以存储数字资产。
 
-钱包Wallet是一个Json格式的数据存储文件。在本体Ontology中， Wallet既可存储数字身份，也可以存储数字资产。
-
-### Wallet 数据规范
+#### 2.1.1 Wallet 数据规范
 
 ````
 {
@@ -35,25 +47,25 @@
 
 `name` 是用户为钱包所取的名称。
 
-```defaultOntid``` 是钱包默认的数字身份的ONT ID。
+```defaultOntid``` 是钱包默认的数字身份的 ONT ID。
 
 ```defaultAccountAddress``` 是钱包默认的资产账户的地址
 
-```createTime``` 是ISO格式表示的钱包的创建时间，如 : "2018-02-06T03:05:12.360Z"
+```createTime``` 是 ISO 格式表示的钱包的创建时间，如 :  "2018-02-06T03:05:12.360Z"。
 
-`version` 目前为固定值1.0，留待未来功能升级使用。
+`version` 目前为固定值 1.0，留待未来功能升级使用。
 
 `scrypt` 是加密算法所需的参数，该算法是在钱包加密和解密私钥时使用。
 
-`identities` 是钱包中所有数字身份对象的数组
+`identities` 是钱包中所有数字身份对象的数组。
 
-```accounts``` 是钱包中所有数字资产账户对象的数组
+```accounts``` 是钱包中所有数字资产账户对象的数组。
 
-```extra``` 是客户端由开发者用来存储额外数据字段，可以为null。
+```extra``` 是客户端由开发者用来存储额外数据字段，可以为 null。
 
-希望了解更多钱包数据规范请参考[Wallet_File_Specification](./Wallet_File_Specification.md).
+希望了解更多钱包数据规范请参考[ Wallet_File_Specification ](./Wallet_File_Specification.md)。
 
-### 创建钱包
+#### 2.1.2 创建钱包
 
 用户可以从零开始创建自己的钱包。
 
@@ -77,7 +89,7 @@ var wallet = Wallet.create( name )
 
 ```label``` 账户名称。
 
-```params``` 额外的参数用来加密解密私钥。它具有以下结构，如果不传，SDK会使用默认值创建账户。
+```params``` 额外的参数用来加密解密私钥。它具有以下结构，如果不传，SDK 会使用默认值创建账户。
 
 ```
 interface ScryptParams {
@@ -102,13 +114,15 @@ const DEFAULT_SCRYPT = {
 
 ### 2.1) 生成私钥
 
-我们可以使用相应的算法和曲线生成随机的私钥。SDK支持以下三种公私钥生成算法：
+我们可以使用相应的算法和曲线生成随机的私钥。
+
+SDK 支持以下三种公私钥生成算法：
 
 * ECDSA
 * SM2
 * EDDSA
 
-ECDSA 是默认的算法. SECP256R1是默认的曲线。
+ECDSA 是默认的算法. `SECP256R1` 是默认的曲线。
 
 ```typescript
 import { Crypto } from 'ontology-ts-sdk';
@@ -134,11 +148,11 @@ wallet.addAccount(account)
 
 ````
 
-# 账户
+## 3. 账户
 
-账户用来管理用户的资产。
+账户是作用是用来管理用户的资产。
 
-## 账户的数据结构
+### 3.1 账户的数据结构
 
 ````
 {
@@ -158,32 +172,32 @@ wallet.addAccount(account)
 }
 ````
 
-```address``` 账户地址。base58格式。
+```address``` 账户地址。 base58 格式
 
-```label``` 账户名称。
+```label``` 账户名称
 
-`lock` 声明账户是否锁定。
+`lock` 声明账户是否锁定
 
-`algorithm` 公私钥生成算法名称。
+`algorithm` 公私钥生成算法名称
 
 `parameters`算法的参数
 
-`curve` 算法使用的曲线.
+`curve` 算法使用的曲线
 
-`key` 加密后私钥。
+`key` 加密后私钥
 
-`enc-alg` 加密私钥的算法.
+`enc-alg` 加密私钥的算法
 
-`salt` 加密算法的盐值。base64格式.
+`salt` 加密算法的盐值。 base64 格式
 
-`isDefault` 声明是否是默认账户.
+`isDefault` 声明是否是默认账户
 
-`publicKey` 账户的公钥.
+`publicKey` 账户的公钥
 
-`signatureScheme` 签名算法.
+`signatureScheme` 签名算法
 
 
-###  创建账户
+####  创建账户
 
 ````
 import {Account} from 'ontology-ts-sdk'
@@ -195,11 +209,11 @@ var account = Account.create(privateKey, password, label, params)
 
 ````
 
-##  导入账户
+##  3.2 导入账户
 
 可以通过备份的数据导入账户。
 
-### 导入keystore
+### 导入 keystore
 
 导入账户的过程中会验证密码和加密后的私钥，如果不正确会抛出相应错误码。
 
@@ -211,7 +225,9 @@ import { Account, Crypto } from 'ontology-ts-sdk'
 //@param password {string} The password used to decrypt private key
 //@param address {Address} The address of the account
 //@param salt {string} The salt in base64 format
-//@param params {ScryptParams} Optional scrypt params to decrypt private key
+//@param params {Scryp
+
+1. tParams} Optional scrypt params to decrypt private key
 
 var account;
 const encryptedPrivateKey = new Crypto.PrivateKey(key);//key is the encrypted private key
@@ -229,9 +245,9 @@ try {
 ````
 
 
-## 数字资产转账 Transfer
+## 4 数字资产转账 Transfer
 
-####  转账函数说明
+###  4.1 转账函数说明
 ````
 function makeTransferTransaction(tokenType:string, from : string, to : string, value : string,  privateKey : string)
 
@@ -242,7 +258,7 @@ value: 转账数值，需要乘以10^8以避免小数点后精度损失
 privateKey: 转账者公钥对应的私钥
 ````
 
-####Token类型
+### 4.2 Token 类型
 ````
 TOKEN_TYPE = {
   ONT : 'ONT',  //Ontology Token
@@ -250,7 +266,7 @@ TOKEN_TYPE = {
 }
 ````
 
-#### 样例
+### 4.3 样例
 ````
 import { Crypto, OntAssetTxBuilder, TransactionBuilder, WebsocketClient } from 'ontology-ts-sdk'
 
@@ -270,9 +286,9 @@ const response = await socketClient.sendRawTransaction(tx.serialize(), false, tr
 console.log(JSON.stringify(response));
 ````
 
-## 数字资产查询 getBalance
+## 5. 数字资产查询 getBalance
 
-### 查询余额
+### 5.1 查询余额
 
 ````
 //nodeURL 节点的IP地址
@@ -281,7 +297,7 @@ console.log(JSON.stringify(response));
 http://${nodeURL}:${HTTP_REST_PORT}/api/v1/balance/${address}
 ````
 
-### 样例：
+### 5.2 样例：
 
 ````
 let request = `http://127.0.0.1:20384/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kPqJzGZWq`
@@ -305,13 +321,13 @@ let request = `http://127.0.0.1:20384/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kP
 	})
 ````
 
-## 查询可提取的ONG
+## 6 查询可提取的 ONG
 
-有两种方式查询可提取的ONG。
+有两种方式查询可提取的 `ONG`。
 
-### 使用区块链API查询
+### 6.1 使用区块链 API 查询
 
-这里以Restful API为例：
+这里以 `Restful API` 为例：
 
 #### Example:
 
@@ -334,9 +350,9 @@ const result = await restClient.getAllowance('ong', new Address(ONT_CONTRACT), a
 }
 ```
 
-**Result** 是带精度的可提取ONG数额.
+**Result** 是带精度的可提取 `ONG` 数额.
 
-### 使用合约API查询
+### 6.2 使用合约 API 查询
 
 #### Example：
 
@@ -354,13 +370,13 @@ if (result.Result) {
 }
 ```
 
-**num** 是可提取ONG数额。我们需要将返回的结果处理下得到实际的数额。
+**num** 是可提取 `ONG` 数额。我们需要将返回的结果处理下得到实际的数额。
 
-## 提取ONG
+## 7. 提取 ONG
 
 提取ONG的步骤如下：
 
-### 构造交易
+### 7.1 构造交易
 
 `from` Sender's address to withdraw ONG.
 
@@ -387,9 +403,9 @@ const payer = account.address;
 const tx = OntAssetTxBuilder.makeWithdrawOngTx(from, to, amount, payer, gasPrice, gasLimit);
 ```
 
-### 发送交易
+### 7.2 发送交易
 
-我们以Restful API为例。
+我们以 `Restful API` 为例。
 
 ```typescript
 //sign transaction before send it
@@ -408,7 +424,7 @@ rest.sendRawTransaction(tx.serialize()).then(res => {
 
 ```
 
-发送了交易后，我们可以查询余额来检查提取ONG过程是否成功。
+发送了交易后，我们可以查询余额来检查提取 `ONG` 过程是否成功。
 
 
 

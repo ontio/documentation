@@ -1,6 +1,6 @@
 
 
-### 获取当前区块列表
+## 1. 获取当前区块列表
 
 ```json
 url：/api/v1/explorer/blocklist/{amount}
@@ -35,21 +35,21 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|   Hash|   String|  区块hash  |
+|   Hash|   String|  区块 hash  |
 |	Height|   int|  区块高度|
-|	TxnsRoot|   String|  该区块内所有交易的merkleroot  |
+|	TxnsRoot|   String|  该区块内所有交易的 merkleroot  |
 |   BookKeeper|   String|  记账人,多个记账人以"&"分割  |
 |   NextBlock|   String|  下一区块hash  |
 |	ConsensusData	|	String|	共识数据  |
-|	PrevBlock|	String|	上一区块hash  |
+|	PrevBlock|	String|	上一区块 hash  |
 |	BlockSize|	int|	区块大小，单位：byte  |
-|	BlockTime|	int|	区块时间戳，unix时间戳  |
+|	BlockTime|	int|	区块时间戳，unix 时间戳  |
 |	TxnNum|	int|	交易数  |
 
 
 
 
-### 分页获取区块列表
+## 2. 分页获取区块列表
 
 ```json
 url：/api/v1/explorer/blocklist/{pagesize}/{pagenumber}
@@ -89,20 +89,20 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|   BlockList.Hash|   String|  区块hash  |
+|   BlockList.Hash|   String|  区块 hash  |
 |   BlockList.Height|   int|  区块高度|
-|   BlockList.TxnsRoot|   String|  该区块内所有交易的merkleroot  |
+|   BlockList.TxnsRoot|   String|  该区块内所有交易的 merkleroot  |
 |   BlockList.BookKeeper|   String|  记账人,多个记账人以"&"分割  |
-|   BlockList.NextBlock|   String|  下一区块hash  |
+|   BlockList.NextBlock|   String|  下一区块 hash  |
 |	BlockList.ConsensusData	|	String|	共识数据  |
 |	BlockList.PrevBlock|	String|	上一区块hash  |
 |	BlockList.BlockSize|	int|	区块大小，单位：byte  |
-|	BlockList.BlockTime|	int|	区块时间戳，unix时间戳|
+|	BlockList.BlockTime|	int|	区块时间戳，unix 时间戳|
 |	BlockList.TxnNum|	int|	交易数  |
 |	Total|	int|	总的区块数量  |
 
 
-### 根据区块高度或区块hash获取区块详情
+## 3. 根据区块高度或区块 hash 获取区块详情
 
 
 ```json
@@ -145,23 +145,23 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    param|   String|  区块高度或区块hash  |
+|    param|   String|  区块高度或区块 hash  |
 
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|   Hash|   String|  区块hash  |
+|   Hash|   String|  区块 hash  |
 |	Height|   int|  区块高度|
-|	TxnsRoot|   String|  该区块内所有交易的merkleroot  |
+|	TxnsRoot|   String|  该区块内所有交易的 merkleroot  |
 |   BookKeeper|   String|  记账人,多个记账人以"&"分割    |
-|   NextBlock|   String|  下一区块hash  |
+|   NextBlock|   String|  下一区块 hash  |
 |	ConsensusData	|	String|	共识数据  |
-|	PrevBlock|	String|	上一区块hash  |
+|	PrevBlock|	String|	上一区块 hash  |
 |	BlockSize|	int|	区块大小，单位：byte  |
-|	BlockTime|	int|	区块时间戳，unix时间戳  |
+|	BlockTime|	int|	区块时间戳，unix 时间戳  |
 |	TxnNum|	int|	该区块的交易数量  |
-|	Txnlist.TxnHash|	String|	交易hash  |
+|	Txnlist.TxnHash|	String|	交易 hash  |
 |	Txnlist.TxnType|	int|	交易类型  |
 |	Txnlistist.Height|	int |	交易区块高度  |
-|	Txnlistist.TxnTime|	int |	交易时间戳，unix时间戳  |
+|	Txnlistist.TxnTime|	int |	交易时间戳，unix 时间戳  |

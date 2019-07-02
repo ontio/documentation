@@ -1,5 +1,5 @@
 
-## 概述
+## 1. 概述
 
 在默认情况下，签名机监听在本地的 `20000` 端口上. 其他服务通过 `HTTP POST` 方法请求服务。
 
@@ -54,7 +54,7 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 | 1008       | ABI is not matched        |
 | 9999       | Unknown error             |
 
-## 创建账户
+## 2. 创建账户
 
 - 请求
 
@@ -81,7 +81,7 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 }
 ```
 
-## 导出账户
+## 3. 导出账户
 
 - 请求
 
@@ -108,7 +108,7 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 }
 ```
 
-## 交易签名
+## 4. 交易签名
 
 - 请求
 
@@ -138,7 +138,7 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 }
 ```
 
-## 多重签名
+## 5. 多重签名
 
 - 请求
 
@@ -173,7 +173,7 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 }
 ```
 
-## 数据签名
+## 6. 数据签名
 
 - 请求
 
@@ -203,25 +203,27 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 }
 ```
 
-## 转账交易
+## 7. 转账交易
 
 - 请求
-
-
 
 - 响应
 
 
 
-## 智能合约
+## 8. 智能合约
 
-### Native 合约调用
-Native合约调用交易根据ABI构造，并签名。
+### 8.1 Native 合约调用
+Native 合约调用交易根据 `ABI` 构造，并签名。
 
-注意：
-sigsvr启动时，默认会在当前目录下查找"./abi"下的native合约abi。如果naitve目录下没有该合约的abi，会返回1007错误。Native 合约abi的查询路径可以通过--abi参数设定。
+>注意：
 
-方法名称：signativeinvoketx
+> sigsvr 启动时，默认会在当前目录下查找 "./abi" 下的 `native` 合约 `abi` 。
+
+> 如果 `naitve` 目录下没有该合约的 `abi` ，会返回 1007 错误。 `Native` 合约 `abi` 的查询路径可以通过 `--abi` 参数设定。
+
+方法名称： `signativeinvoketx` 
+
 请求参数：
 
 ```
@@ -243,7 +245,8 @@ sigsvr启动时，默认会在当前目录下查找"./abi"下的native合约abi�
 }
 ```
 
-以构造ont转账交易举例
+以构造 `ont` 转账交易举例
+
 请求：
 
 ```
@@ -284,8 +287,11 @@ sigsvr启动时，默认会在当前目录下查找"./abi"下的native合约abi�
 }
 ```
 
-signativeinvoketx 方法默认使用签名账户作为手续费支付方，如果需要使用其他账户作为手续费的付费账户，可以使用payer参数指定。
-注意：如果指定了手续费付费账户，还需要调用sigrawtx方法，使用手续费账户对 signativeinvoketx 方法生成的交易进行签名，否则会导致交易执行失败。
+signativeinvoketx 方法默认使用签名账户作为手续费支付方，如果需要使用其他账户作为手续费的付费账户，可以使用 `payer` 参数指定。
+
+>注意：
+
+>如果指定了手续费付费账户，还需要调用 `sigrawtx` 方法，使用手续费付费账户对 `signativeinvoketx` 方法生成的交易进行签名，否则会导致交易执行失败。
 
 #### 举例1: 构造普通转账交易
 ```
@@ -314,7 +320,7 @@ signativeinvoketx 方法默认使用签名账户作为手续费支付方，如�
 }
 ```
 
-#### 举例2: 构造提取ONG交易
+#### 举例2: 构造提取 ONG 交易
 
 ``` json
 {
@@ -340,13 +346,16 @@ signativeinvoketx 方法默认使用签名账户作为手续费支付方，如�
 
 
 
-### NeoVm 合约调用
+### 8.2 NeoVm 合约调用
 
-NeoVM合约调用根据要调用的NeoVM合约构造调用交易，并签名。
+NeoVM 合约调用根据要调用的 `NeoVM` 合约构造调用交易，并签名。
 
-NeoVM参数合约支持array、bytearray、string、int以及bool类型，构造参数时需要提供参数类型及参数值，参数值统一使用字符串类型。array是对象数组，数组元素支持任意NeoVM支持的参数类型和数量。
+NeoVM 参数合约支持 `array` 、 `bytearray` 、 `string` 、 `int` 以及 `bool` 类型，构造参数时需要提供参数类型及参数值，参数值统一使用字符串类型。
 
-方法名称：signeovminvoketx
+* `array` 是对象数组，数组元素支持任意 `NeoVM` 支持的参数类型和数量。
+
+方法名称：`signeovminvoketx`
+
 请求参数：
 ```
 {
@@ -411,8 +420,11 @@ NeoVM参数合约支持array、bytearray、string、int以及bool类型，构造
 }
 ```
 
-signeovminvoketx 方法默认使用签名账户作为手续费支付方，如果需要使用其他账户作为手续费的付费账户，可以使用payer参数指定。
-注意：如果指定了手续费付费账户，还需要调用sigrawtx方法，使用手续费账户对 signeovminvoketx 方法生成的交易进行签名，否则会导致交易执行失败。
+signeovminvoketx 方法默认使用签名账户作为手续费支付方，如果需要使用其他账户作为手续费的付费账户，可以使用 `payer` 参数指定。
+
+>注意：
+
+>如果指定了手续费付费账户，还需要调用 `sigrawtx` 方法，使用手续费账户对 `signeovminvoketx` 方法生成的交易进行签名，否则会导致交易执行失败。
 
 举例
 ```
@@ -422,7 +434,7 @@ signeovminvoketx 方法默认使用签名账户作为手续费支付方，如果
     "address":"XXX",    //调用Neovm合约的地址
     "payer":"XXX",      //手续费付费地址
     "params":[
-        //具体合约 Neovm合约调用的参数，根据需要调用的具体合约构造。所有值都使用字符串类型。
+        //具体合约 Neovm 合约调用的参数，根据需要调用的具体合约构造。所有值都使用字符串类型。
     ]
 }
 ```

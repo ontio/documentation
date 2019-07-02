@@ -1,9 +1,9 @@
 
 
 
-## 钱包文件
+## 1. 钱包文件
 
-钱包用户存储多个数字身份以及数字资产账户。钱包文件采用 JSON 格式对数据进行组织，各个字段的详细可以参考[钱包文件规范](https://ontio.github.io/documentation/Wallet_File_Specification_cn.html)。
+钱包用户可以同时存储多个数字身份以及数字资产账户。钱包文件采用 `JSON` 格式对数据进行存储，各个字段的详细资料可以参考[ 钱包文件规范 ](https://ontio.github.io/documentation/Wallet_File_Specification_cn.html)。
 
 ### 创建钱包
 
@@ -24,11 +24,11 @@ let str = "wallet_json"
 let w = try JSONDecoder().decode(Wallet.self, from: str.data(using: .utf8)!)
 ```
 
-## 公私钥和地址
+## 2. 公私钥和地址
 
 账户是基于公私钥创建的，地址是公钥转换而来。
 
-### 创建私钥 
+### 2.1 创建私钥 
 
 使用默认的参数创建:
 
@@ -36,7 +36,7 @@ let w = try JSONDecoder().decode(Wallet.self, from: str.data(using: .utf8)!)
 let prikey = try! PrivateKey.random()
 ```
 
-用到的默认参数在 Constant 类中:
+用到的默认参数在 `Constant` 类中:
 
 ```swift
 public final class Constant {
@@ -67,7 +67,7 @@ let prikey = try! PrivateKey(
 )
 ```
 
-### 导入私钥 
+### 2.2 导入私钥 
 
 直接导入:
 
@@ -79,19 +79,19 @@ let prikey = try PrivateKey(
 )
 ```
 
-从 WIF 导入:
+从 `WIF` 导入:
 
 ```swift
 let pri = try PrivateKey.from(wif: "L4shZ7B4NFQw2eqKncuUViJdFRq6uk1QUb6HjiuedxN4Q2CaRQKW")
 ```
 
-### 获取公钥
+### 2.3 获取公钥
 
 ```swift
 let pubkey = try prikey.getPublicKey()
 ```
 
-### 获取地址
+### 2.4 获取地址
 
 当获取了公钥实例后，可以通过下面方式获得对应的地址:
 
@@ -100,24 +100,24 @@ let pubkey = try prikey.getPublicKey()
 let addr = try Address.from(pubkey: pubkey)
 ```
 
-## 账户
+## 3. 账户
 
-### 创建账户
+### 3.1 创建账户
 
 ```swift
 let acc = try! Account.create(pwd: "123456")
 ```
 
-### 导入账户
+### 3.2 导入账户
 
-从 keystore 导入:
+从 `keystore` 导入:
 
 ```swift
 let str = "keystore_content"
 let acc = try Account.from(keystore: str, pwd: "111111")
 ```
 
-从 WIF 导入:
+从 `WIF` 导入:
 
 ```swift
 let acc = try Account.from(wif: "L4shZ7B4NFQw2eqKncuUViJdFRq6uk1QUb6HjiuedxN4Q2CaRQKW", pwd: "111111")
@@ -130,7 +130,7 @@ let mnemonic = "doll remember harbor resource desert curious fatigue nature arre
 let acc = try Account.from(mnemonic: mnemonic, pwd: "111111")
 ```
 
-### 加入钱包
+### 3.3 加入钱包
 
 ```swift
 let wallet = Wallet(name: "mickey")
@@ -138,7 +138,7 @@ let acc = try! Account.create(pwd: "123456")
 wallet.add(account: acc)
 ```
 
-### 移除账户
+### 3.4 移除账户
 
 ```swift
 let wallet = Wallet(name: "mickey")
@@ -146,13 +146,13 @@ let acc = wallet.accounts[0]
 wallet.delete(account: acc)
 ```
 
-## 资产
+## 4. 资产
 
-本体中有两种原生资产: ONT 和 ONG
+本体中有两种原生资产: `ONT` 和 `ONG`
 
-### 转账
+### 4.1 转账
 
-下面是一个比较完整的对 ONT 进行转账的例子:
+下面是一个比较完整的对 `ONT` 进行转账的例子:
 
 ```swift
 // 转账发起地址
@@ -184,11 +184,11 @@ try! rpc!.send(rawTransaction: tx.serialize()).then {
 }
 ```
 
-转账 ONG 与上面的流程基本一样，只是 `tokenType` 值替换为 `ONG` 即可。
+对`ONG` 转账的流程与上面的流程基本一样，只是 `tokenType` 值替换为 `ONG` 即可。
 
-### 余额查询
+### 4.2 余额查询
 
-使用 RPC 来进行余额查询:
+使用 `RPC` 来进行余额查询:
 
 ```swift
 try! rpc!.getBalance(address: Address(value:"AL9PtS6F8nue5MwxhzXCKaTpRb3yhtsix5")).then {
@@ -197,20 +197,24 @@ try! rpc!.getBalance(address: Address(value:"AL9PtS6F8nue5MwxhzXCKaTpRb3yhtsix5"
 }
 ```
 
-## 创建身份
+## 5. 创建身份
 
-ONT ID 是一个去中心化的身份标识，能够管理用户的各种数字身份认证。数字身份(Identity)是 ONT SDK 导出的一个核心类，该类包含代表身份的 ONT ID 属性。可以通过 SDK 来创建一个身份。创建身份的过程中会基于用户的私钥生成 ONT ID。
+ONT ID 是一个去中心化的身份标识，能够管理用户的各种数字身份认证。数字身份( Identity )是 `ONT SDK` 导出的一个核心类，该类包含代表身份的 `ONT ID` 属性。
 
-> 有关 ONT ID 的规范，见 [ONT ID 生成规范](https://ontio.github.io/documentation/ONTID_protocol_spec_en.html)
+可以通过 `SDK` 来创建一个身份。创建身份的过程中会基于用户的私钥生成 `ONT ID` 。
+
+> 有关 `ONT ID` 的规范，见 [ONT ID 生成规范](https://ontio.github.io/documentation/ONTID_protocol_spec_en.html)
 
 ```swift
 let prikey = try! PrivateKey.random()
 let id = try! Identity.create(prikey: prikey!, pwd: "123456", label: "mickey")
 ```
 
-## 注册身份
+## 6. 注册身份
 
-身份创建完成后，还需要将身份的 ONT ID 注册到链上，身份才算真正地创建完成。发送 ONT ID 上链是需要发送交易的过程。可以通过调用 SDK 提供的方法构造交易对象。一种比较典型的场景是通过传递刚刚创建的 ONT ID 和用户的私钥来构造交易对象。
+身份创建完成后，还需要将身份的 `ONT ID` 注册到链上，身份才算真正地创建完成。
+
+发送 `ONT ID` 上链是需要发送交易的过程。可以通过调用  `SDK` 提供的方法构造交易对象。一种比较典型的场景是通过传递刚刚创建的 `ONT ID` 和用户的私钥来构造交易对象。
 
 ```swift
 // 构造 ontid
@@ -240,7 +244,7 @@ try! rpc!.send(rawTransaction: tx.serialize()).then {
 }
 ```
 
-## 查询 DDO
+## 7. 查询 DDO
 
 ```swift
 // 构造交易
@@ -257,7 +261,7 @@ try! rpc!.send(rawTransaction: tx.serialize(), preExec: true).then {
 }
 ```
 
-## 部署合约
+## 8. 部署合约
 
 部署合约需要构建并发送相应的交易到链上执行。
 
@@ -301,17 +305,21 @@ try! rpc!.send(rawTransaction: tx.serialize(), preExec: false, waitNotify: true)
 }
 ```
 
-## 调用合约
+## 9. 调用合约
 
 合约必须在成功部署后才能调用。 调用合约需要构建并发送相应的交易到链上执行。
 
-### 通过 abi 文件构建交易
+### 9.1 通过 abi 文件构建交易
 
-针对于 NEO 虚拟机的智能合约可以编译出相应的 `.avm` 文件和 `.abi` 文件。`.abi` 文件是以 JSON 格式存储，包含了描述智能合约的方法和参数的内容。可以通过读取`.abi` 文件方便的构建调用合约的交易。构建的交易可能还需要使用用户的私钥签名。
+针对于 `NEO` 虚拟机的智能合约可以编译出相应的 `.avm` 文件和 `.abi` 文件。
 
-为了对合约方法进行调用，我们需要得到该方法的 abi 信息，以此构造调用请求。abi 信息所涉及的类包括: `AbiInfo`，`AbiFunction` 和 `Parameter`。
+* `.abi` 文件是以 `JSON` 格式存储，包含了描述智能合约的方法和参数的内容。可以通过读取 `.abi` 文件方便的构建调用合约的交易。构建的交易可能还需要使用用户的私钥签名。
 
-`AbiInfo` 类用于将 `.abi` 文件的内容体现到内存中，方便对其中的方法信息的操作。
+为了对合约方法进行调用，我们需要得到该方法的 `abi` 信息，以此构造调用请求。 
+
+`abi`  信息所涉及的类包括: `AbiInfo`，`AbiFunction` 和 `Parameter`。
+
+* `AbiInfo` 类用于将 `.abi` 文件的内容体现到内存中，方便对其中的方法信息的操作。
 
 ```swift
 // 载入 abi
@@ -355,16 +363,16 @@ try! rpc!.send(rawTransaction: tx.serialize(), preExec: true).then {
 }
 ```
 
-## 实例化 RPC 客户端
+## 10. 实例化 RPC 客户端
 
-在进行 RPC 调用前，需要先对客户端进行实例化:
+在进行 `RPC` 调用前，需要先对客户端进行实例化:
 
 ```swift
 let rpc = WebsocketRpc(url: "ws://127.0.0.1:20335")!
 rpc.open()
 ```
 
-## 获取当前区块高度
+## 11. 获取当前区块高度
 
 ```swift
 rpc.getBlockHeight().then {
@@ -372,7 +380,7 @@ rpc.getBlockHeight().then {
 }
 ```
 
-## 获取区块
+## 12. 获取区块
 
 ```swift
 rpc.getBlock(by: hash).then {
@@ -384,7 +392,7 @@ rpc.getBlock(by: height).then {
 }
 ```
 
-## 获得 block json 数据
+## 13. 获得 block json 数据
 
 ```swift
 rpc.getBlock(by: hash, json: true).then {
@@ -392,7 +400,7 @@ rpc.getBlock(by: hash, json: true).then {
 }
 ```
 
-## 根据合约 hash 获得合约代码
+## 14. 根据合约 hash 获得合约代码
 
 ```swift
 rpc.getContract(by: hash, json: true).then {
@@ -400,7 +408,7 @@ rpc.getContract(by: hash, json: true).then {
 }
 ```
 
-## 查询余额
+## 15. 查询余额
 
 ```swift
 rpc.getBalance(address: addr).then {
@@ -408,7 +416,7 @@ rpc.getBalance(address: addr).then {
 }
 ```
 
-## 获取区块链节点数
+## 16. 获取区块链节点数
 
 ```swift
 rpc.getNodeCount().then {
@@ -416,7 +424,7 @@ rpc.getNodeCount().then {
 }
 ```
 
-## 获得智能合约事件
+## 17. 获得智能合约事件
 
 ```swift
 rpc.getSmartCodeEvent(by: hash).then {
@@ -428,7 +436,7 @@ rpc.getSmartCodeEvent(by: height).then {
 }
 ```
 
-## 根据交易 hash 获得区块高度
+## 18. 根据交易 hash 获得区块高度
 
 ```swift
 rpc.getBlockHeight(by: hash).then {
@@ -436,7 +444,7 @@ rpc.getBlockHeight(by: hash).then {
 }
 ```
 
-## 获得 merkle proof
+## 19. 获得 merkle proof
 
 ```swift
 rpc.getMerkleProof(hash: hash).then {
@@ -444,7 +452,7 @@ rpc.getMerkleProof(hash: hash).then {
 }
 ```
 
-## 根据交易 hash 获得交易 json 数据
+## 20. 根据交易 hash 获得交易 json 数据
 
 ```swift
 rpc.getRawTransaction(txHash: hash, json: true).then {
