@@ -27,7 +27,7 @@
 
 #### 2.1.1 Wallet 数据规范
 
-````
+```javascript
 {
 	name: string;
     defaultOntid: string;
@@ -43,7 +43,7 @@
     accounts: Array<Account>;
     extra: null;
 }
-````
+```
 
 `name` 是用户为钱包所取的名称。
 
@@ -73,11 +73,11 @@
 
 用户只需要传入钱包名称。
 
-````
+```javascript
 import {Wallet} from 'Ont'
 //@param name {string} Name of the wallet
 var wallet = Wallet.create( name )
-````
+```
 
 #### 2) 创建账户并添加到钱包中
 
@@ -91,7 +91,7 @@ var wallet = Wallet.create( name )
 
 ```params``` 额外的参数用来加密解密私钥。它具有以下结构，如果不传，SDK 会使用默认值创建账户。
 
-```
+```javascript
 interface ScryptParams {
     cost: number;
     blockSize: number;
@@ -101,7 +101,7 @@ interface ScryptParams {
 ```
 默认值如下：
 
-```
+```javascript
 const DEFAULT_SCRYPT = {
     cost: 4096,
     blockSize: 8,
@@ -124,7 +124,7 @@ SDK 支持以下三种公私钥生成算法：
 
 ECDSA 是默认的算法. `SECP256R1` 是默认的曲线。
 
-```typescript
+```javascript
 import { Crypto } from 'ontology-ts-sdk';
 
 cont keyType = Crypto.KeyType.ECDSA;
@@ -139,14 +139,14 @@ const privateKey2 = Crypto.PrivateKey.random() // Use default params
 ### 2.2) 创建账户
 然后我们可以创建账户并添加到钱包中。
 
-````
+```javascript
 import {Account, Crypto} from 'ontology-ts-sdk';
 
 var account = Account.create( privateKey, password, name ); //Use the default scrypt params
 
 wallet.addAccount(account)
 
-````
+```
 
 ## 3. 账户
 
@@ -154,7 +154,7 @@ wallet.addAccount(account)
 
 ### 3.1 账户的数据结构
 
-````
+```javascript
 {
 	"address": "AJQLNWy9X6qdeEFrSH6UzgEjadSsRiYDCS",
 	"label": "mickey",
@@ -170,7 +170,7 @@ wallet.addAccount(account)
 	"publicKey": "037fb6dfc9420e1d8275d9133d6d69fe64e8e3567241e7583234b9efa8b2ce7ae1",
 	"signatureScheme": "SHA256withECDSA"
 }
-````
+```
 
 ```address``` 账户地址。 base58 格式
 
@@ -199,7 +199,7 @@ wallet.addAccount(account)
 
 ####  创建账户
 
-````
+```javascript
 import {Account} from 'ontology-ts-sdk'
 //@param {PrivateKey} The user's private key
 //@param {string} The user's password
@@ -207,17 +207,17 @@ import {Account} from 'ontology-ts-sdk'
 //@param {object} Optional parameter. The encryption algorithm object.
 var account = Account.create(privateKey, password, label, params)
 
-````
+```
 
-##  3.2 导入账户
+###  3.2 导入账户
 
 可以通过备份的数据导入账户。
 
-### 导入 keystore
+#### 导入 keystore
 
 导入账户的过程中会验证密码和加密后的私钥，如果不正确会抛出相应错误码。
 
-````
+```javascript
 import { Account, Crypto } from 'ontology-ts-sdk'
 
 //@param label {srint} Name of the account
@@ -242,13 +242,13 @@ try {
 } catch(error) {
     //密码或私钥不正确
 }
-````
+```
 
 
 ## 4 数字资产转账 Transfer
 
 ###  4.1 转账函数说明
-````
+```javascript
 function makeTransferTransaction(tokenType:string, from : string, to : string, value : string,  privateKey : string)
 
 tokenType: token 类型
@@ -256,18 +256,18 @@ from: 转账者的公钥哈希地址
 to: 接收者的公钥哈希地址
 value: 转账数值，需要乘以10^8以避免小数点后精度损失
 privateKey: 转账者公钥对应的私钥
-````
+```
 
 ### 4.2 Token 类型
-````
+```javascript
 TOKEN_TYPE = {
   ONT : 'ONT',  //Ontology Token
   ONG : 'ONG'   //Ontology Gas
 }
-````
+```
 
 ### 4.3 样例
-````
+```javascript
 import { Crypto, OntAssetTxBuilder, TransactionBuilder, WebsocketClient } from 'ontology-ts-sdk'
 
 const gasLimit = '20000';
@@ -284,22 +284,22 @@ const socketClient = new WebsocketClient('ws://polaris1.ont.io:20335');
 const response = await socketClient.sendRawTransaction(tx.serialize(), false, true);
 // tslint:disable:no-console
 console.log(JSON.stringify(response));
-````
+```
 
 ## 5. 数字资产查询 getBalance
 
 ### 5.1 查询余额
 
-````
+```javascript
 //nodeURL 节点的IP地址
 //HTTP_REST_PORT 节点暴露给Restful接口的端口
 //address 查询余额的地址
 http://${nodeURL}:${HTTP_REST_PORT}/api/v1/balance/${address}
-````
+```
 
 ### 5.2 样例：
 
-````
+```javascript
 let request = `http://127.0.0.1:20384/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kPqJzGZWq`
 	axios.get(request).then((res : any) => {
 		if(res.data.Error === 0) {
@@ -319,7 +319,7 @@ let request = `http://127.0.0.1:20384/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kP
 			result: ''
 		}
 	})
-````
+```
 
 ## 6 查询可提取的 ONG
 
@@ -331,7 +331,7 @@ let request = `http://127.0.0.1:20384/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kP
 
 #### Example:
 
-```typescript
+```javascript
 const address = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz');
 const rest = new RestClient();// default connects to Testnet
 const result = await restClient.getAllowance('ong', new Address(ONT_CONTRACT), addr);
@@ -356,7 +356,7 @@ const result = await restClient.getAllowance('ong', new Address(ONT_CONTRACT), a
 
 #### Example：
 
-```typescript
+```javascript
 import {OntAssetTxBuilder} from 'ontology-ts-sdk'
 const ONT_CONTRACT = '0000000000000000000000000000000000000001'
 const address = new Address('AdLUBSSHUuFaak9j169hiamXUmPuCTnaRz');
@@ -390,7 +390,7 @@ if (result.Result) {
 
 `payer` Payer's address to pay for the transaction gas.
 
-```typescript
+```javascript
 import {OntAssetTxBuilder} from 'ontology-ts-sdk'
 
 //suppose we have an account already
@@ -407,7 +407,7 @@ const tx = OntAssetTxBuilder.makeWithdrawOngTx(from, to, amount, payer, gasPrice
 
 我们以 `Restful API` 为例。
 
-```typescript
+```javascript
 //sign transaction before send it
 import {RestClient, CONST, TransactionBuilder} from 'ontology-ts-sdk'
 
