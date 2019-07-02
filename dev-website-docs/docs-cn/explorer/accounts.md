@@ -1,7 +1,7 @@
 
 
 
-## 1. 资产名称字典
+* 资产名称字典
 
 
 | value     |     Type |   Description   |
@@ -22,7 +22,7 @@
 |    ALV|oep4资产| oep4|
 |    PAX|oep4资产| oep4|
 
-## 2. 分页查询某个地址的所有转账交易信息
+## 1. 分页查询某个地址的所有转账交易信息
 
 ```json
 url：/api/v1/explorer/address/{address}/{pagesize}/{pagenumber}
@@ -120,7 +120,7 @@ successResponse：
 
 
 
-## 3. 分页查询某个地址的某种资产的所有转账交易信息
+## 2. 分页查询某个地址的某种资产的所有转账交易信息
 
 ```json
 url：/api/v1/explorer/address/{address}/{assetname}/{pagesize}/{pagenumber}
@@ -192,7 +192,7 @@ successResponse：
 
 
 
-## 4. 根据时间范围查询某个地址的某种资产的所有转账交易信息
+## 3. 根据时间范围查询某个地址的某种资产的所有转账交易信息
 
 ```json
 url：/api/v1/explorer/address/time/{address}/{assetname}/{begintime}/{endtime}
@@ -274,7 +274,7 @@ successResponse：
 
 
 
-## 5. 查询某个地址的资产余额
+## 4. 查询某个地址的资产余额
 
 ```json
 url：/api/v1/explorer/address/balance/{address}
