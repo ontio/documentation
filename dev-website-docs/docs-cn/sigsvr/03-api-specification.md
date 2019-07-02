@@ -177,7 +177,7 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 
 - 请求
 
-```shell
+```json
 {
   "qid":"1",
   "method":"sigdata",
@@ -191,7 +191,7 @@ curl http://localhost:20000/cli -X POST -H "Content-Type:application/json"
 
 - 响应
 
-```shell
+```json
 {
   "qid": "1",
   "method": "sigdata",
@@ -226,7 +226,7 @@ Native 合约调用交易根据 `ABI` 构造，并签名。
 
 请求参数：
 
-```
+```json
 {
     "gas_price":XXX,    //gasprice
     "gas_limit":XXX,    //gaslimit
@@ -239,7 +239,7 @@ Native 合约调用交易根据 `ABI` 构造，并签名。
 }
 ```
 应答结果：
-```
+```json
 {
     "signed_tx":XXX     //签名后的交易
 }
@@ -249,7 +249,7 @@ Native 合约调用交易根据 `ABI` 构造，并签名。
 
 请求：
 
-```
+```json
 {
     "Qid":"t",
     "Method":"signativeinvoketx",
@@ -275,7 +275,7 @@ Native 合约调用交易根据 `ABI` 构造，并签名。
 ```
 应答：
 
-```
+```json
 {
     "qid": "t",
     "method": "signativeinvoketx",
@@ -294,7 +294,7 @@ signativeinvoketx 方法默认使用签名账户作为手续费支付方，如�
 >如果指定了手续费付费账户，还需要调用 `sigrawtx` 方法，使用手续费付费账户对 `signativeinvoketx` 方法生成的交易进行签名，否则会导致交易执行失败。
 
 #### 举例1: 构造普通转账交易
-```
+```json
 {
     "Qid":"t",
     "Method":"signativeinvoketx",
@@ -322,7 +322,7 @@ signativeinvoketx 方法默认使用签名账户作为手续费支付方，如�
 
 #### 举例2: 构造提取 ONG 交易
 
-``` json
+```json
 {
 	"Qid":"t",
 	"Method":"signativeinvoketx",
@@ -357,7 +357,7 @@ NeoVM 参数合约支持 `array` 、 `bytearray` 、 `string` 、 `int` 以及 `
 方法名称：`signeovminvoketx`
 
 请求参数：
-```
+```json
 {
     "gas_price":XXX,    //gasprice
     "gas_limit":XXX,    //gaslimit
@@ -368,7 +368,7 @@ NeoVM 参数合约支持 `array` 、 `bytearray` 、 `string` 、 `int` 以及 `
 }
 ```
 应答结果：
-```
+```json
 {
     "signed_tx":XXX     //签名后的交易
 }
@@ -377,7 +377,7 @@ NeoVM 参数合约支持 `array` 、 `bytearray` 、 `string` 、 `int` 以及 `
 举例
 请求:
 
-```
+```json
 {
     "qid": "t",
     "method": "signeovminvoketx",
@@ -408,7 +408,7 @@ NeoVM 参数合约支持 `array` 、 `bytearray` 、 `string` 、 `int` 以及 `
 ```
 应答：
 
-```
+```json
 {
     "qid": "t",
     "method": "signeovminvoketx",
@@ -427,7 +427,7 @@ signeovminvoketx 方法默认使用签名账户作为手续费支付方，如果
 >如果指定了手续费付费账户，还需要调用 `sigrawtx` 方法，使用手续费账户对 `signeovminvoketx` 方法生成的交易进行签名，否则会导致交易执行失败。
 
 举例
-```
+```json
 {
     "gas_price":XXX,    //gasprice
     "gas_limit":XXX,    //gaslimit
