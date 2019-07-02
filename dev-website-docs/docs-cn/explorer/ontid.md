@@ -1,6 +1,6 @@
 
 
-## 1. OntId 操作描述字典
+* OntId 操作描述字典
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
@@ -14,7 +14,7 @@
 |    add recovery:xxxx |   String|  添加恢复人信息，新的恢复人地址为xxxx  |
 
 
-## 2. DDO Attribute 字典
+* DDO Attribute 字典
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-## 3. 当前 OntId 基本信息列表
+## 1. 当前 OntId 基本信息列表
 
 ```json
 url：/api/v1/explorer/ontidlist/{amount}
@@ -73,7 +73,7 @@ successResponse：
 
 
 
-## 4. 分页查询 OntId 信息列表
+## 2. 分页查询 OntId 信息列表
 
 ```json
 url：/api/v1/explorer/ontidlist/{pagesize}/{pagenumber}
@@ -116,7 +116,7 @@ successResponse：
 
 
 
-## 5. 分页查询某个 OntId 相关信息
+## 3. 分页查询某个 OntId 相关信息
 
 ```json
 url：/api/v1/explorer/ontid/{ontid}/{pagesize}/{pagenumber}

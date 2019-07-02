@@ -141,22 +141,23 @@ successResponse：
 
 ##  4. 查询 TPS
 
-  	url：/api/v1/explorer/summary/tps
+```json
+url：/api/v1/explorer/summary/tps
 
-	method：GET
-  
-  	successResponse：
-	{
-	    "Action": "QueryTps",
-	    "Error": 0,
-	    "Desc": "SUCCESS",
-	    "Version": "1.0",
-	    "Result": {
-	        "CurrentTps": "10.02",
-		"MaxTps": 10000
-		}
-	}
+method：GET
 
+successResponse：
+{
+    "Action": "QueryTps",
+    "Error": 0,
+    "Desc": "SUCCESS",
+    "Version": "1.0",
+    "Result": {
+        "CurrentTps": "10.02",
+    "MaxTps": 10000
+    }
+}
+```
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
