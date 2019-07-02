@@ -1,9 +1,11 @@
 
-[OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) 提案定义了浏览器端的 dAPI 规范。基于该提案，我们提供了 `ontology-dapi`，用于供 Chrome 浏览器上的 dApp 使用。dAPI 使用 TypeScript 实现，同时也支持在 javascript 工程中使用。
+[OEP-6 ](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) 提案定义了浏览器端的 `dAPI` 规范。
 
-## 安装
+基于该提案，我们提供了 `ontology-dapi`，用于供 `Chrome` 浏览器上的 `DAPP` 使用。dAPI 使用 `TypeScript` 实现，同时也支持在 `javascript` 工程中使用。
 
-### npm 安装
+## 1. 安装
+
+### 1.1 npm 安装
 
 你可以使用 `npm` 进行安装
 
@@ -11,31 +13,31 @@
 npm install ontology-dapi
 ```
 
-### CDN
+### 1.2 CDN 安装
 
-目前可以通过 `jsDelivr` 获取到最新版本的资源，在页面上引入 js 文件即可开始使用。
+目前可以通过 `jsDelivr` 获取到最新版本的资源，在页面上引入 `js`  文件即可开始使用。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/ontology-dapi/lib/browser.min.js"></script>
 ```
 
-!> 建议使用 CDN 引入 `ontology-dapi` 的用户在链接地址上锁定版本，以免将来 `ontology-dapi` 升级时受到非兼容性更新的影响。
+!> 建议使用 `CDN` 引入 `ontology-dapi` 的用户在链接地址上锁定版本，以免将来 `ontology-dapi` 升级时受到非兼容性更新的影响。
 
-## 导入
+## 2. 导入
 
-### CommonJS
+### 2.1 CommonJS
 
 ```javascript
 var client = require('ontology-dapi').client;
 ```
 
-### ES6 模块
+### 2.2 ES6 模块
 
 ```javascript
 import { client } from 'ontology-dapi';
 ```
 
-### Web require
+### 2.3 Web require
 
 导入 `./lib` 文件夹下的 `browser.js` 文件:
 
@@ -43,7 +45,7 @@ import { client } from 'ontology-dapi';
 <script src="./lib/browser.js"></script>
 ```
 
-## 初始化
+## 3. 初始化
 
 ```javascript
 import { client } from 'ontology-dapi';
@@ -54,11 +56,11 @@ client.registerClient({});
 
 !> `Mobile Provider` 需要注册，`Chrome Provider` 不需要注册。
 
-## 使用
+## 4. 使用
 
-在 `ontology-dapi` 中，有7个模块：`asset`、`identity`、`message`、`network`、`provider`、`smartContract` 和 `utils`。
+在 `ontology-dapi` 中，有 7 个模块： `asset` 、 `identity` 、 `message` 、 `network` 、 `provider` 、 `smartContract` 和  `utils` 。
 
-### 网络
+### 4.1 网络
 
 - 查询所接入网络
 
@@ -90,7 +92,7 @@ const transaction = await client.api.network.getTransaction({txHash: '314e24e5bb
 const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBMLALVMWRdVJ83TTgBUwU' });
 ```
 
-### 资产
+### 4.2 资产
 
 `makeTransfer` 接口用于构造交易。
 
@@ -98,7 +100,7 @@ const balance = await client.api.network.getBalance({ address: 'AcyLq3tokVpkMBML
 const result = await client.api.asset.makeTransfer({ recipient, asset, amount });
 ```
 
-### 智能合约
+### 4.3 智能合约
 
 - 执行智能合约
 
@@ -118,9 +120,9 @@ const result = await client.api.smartContract.invokeRead({ contract, method, par
 const result = await client.api.smartContract.deploy({code,name,version,author,email,description,needStorage,gasPrice,gasLimit});
 ```
 
-### 消息
+### 4.4 消息
 
-你可以通过钱包插件签名，dApp 验证签名实现你的 dApp 登陆流程。
+你可以通过钱包插件签名，`DAPP` 验证签名实现你的 `DAPP` 登陆流程。
 
 - 签名
 
@@ -140,10 +142,10 @@ const signature: Signature = {
 const result = await client.api.message.verifyMessage({ message, signature });
 ```
 
-!> 如果希望获得更多的示例代码，你可以点击[这里](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)获取 `ontology-dapi` 的实例程序。
+!> 如果希望获得更多的示例代码，你可以点击[ 这里 ](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)获取 `ontology-dapi` 的实例程序。
 
-## 常见问题
+## 5. 常见问题
 
-- 我可以利用 `cyano` 将我的 dApp 同时兼容移动端与浏览器端吗？
+- 我可以利用 `cyano` 将我的 `DAPP` 同时兼容移动端与浏览器端吗？
   
-  完全没问题！你可以参考我们提供的示例项目[dapi-universal](https://github.com/ontio-cyano/dapi-universal)。
+  完全没问题！你可以参考我们提供的示例项目[ dapi-universal ](https://github.com/ontio-cyano/dapi-universal)。
