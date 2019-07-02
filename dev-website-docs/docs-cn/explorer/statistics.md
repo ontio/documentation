@@ -169,37 +169,38 @@ successResponse：
 
 ###  type： 每天 或者 每周 或者 每月
 
-  	url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
+```json
+url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
 
-	method：GET
-  
-  	successResponse：
-	{
-	    "Action": "QuerySummary",
-	    "Error": 0,
-	    "Desc": "SUCCESS",
-	    "Version": "1.0",
-	    "Result": {
-          "Total": 3,
-          "SummaryList": [
-              {
-                  "TxnCount": 0,
-                  "ActiveAddress": 0,
-                  "BlockCount": 0,
-                  "OngCount": "0.000000000",
-                  "OntIdActiveCount": 0,
-                  "OntIdNewCount": 0,
-                  "NewAddress": 0,
-                  "OntCount": "0.000000000",
-                  "Time": "2018-07-02",
-		  "OntIdSum": 0,
-		  "AddressSum": 0
-              },
-            .......
-           ]
-      }
-	}
+method：GET
 
+successResponse：
+{
+    "Action": "QuerySummary",
+    "Error": 0,
+    "Desc": "SUCCESS",
+    "Version": "1.0",
+    "Result": {
+      "Total": 3,
+      "SummaryList": [
+          {
+              "TxnCount": 0,
+              "ActiveAddress": 0,
+              "BlockCount": 0,
+              "OngCount": "0.000000000",
+              "OntIdActiveCount": 0,
+              "OntIdNewCount": 0,
+              "NewAddress": 0,
+              "OntCount": "0.000000000",
+              "Time": "2018-07-02",
+      "OntIdSum": 0,
+      "AddressSum": 0
+          },
+        .......
+       ]
+  }
+}
+```
 | RequestField|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 | type|   String|     daily or weekly or monthly |
@@ -228,35 +229,37 @@ successResponse：
 
 ###  type： 每天 或者 每周 或者 每月
 
-  	url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
+```json
+url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
 
-	method：GET
-  
-  	successResponse：
-	{
-	    "Action": "QueryContract",
-	    "Error": 0,
-	    "Desc": "SUCCESS",
-	    "Version": "1.0",
-	    "Result": {
-          "Total": 20,
-          "OntCountSum": "0.000000000",
-          "OngCountSum": "179923.466767857",
-          "AddressSum": 7,
-          "TxCountSum": 13,
-          "SummaryList": [
-              {
-                  "Time": "2018-07-02",
-                  "TxnCount": 0,
-                  "ActiveAddress": 0,
-                  "NewAddress": 0,
-                  "OntCount": "0.000000000",
-                  "OngCount": "0.000000000"
-              },
-            .......
-           ]
-      }
-	}
+method：GET
+
+successResponse：
+{
+    "Action": "QueryContract",
+    "Error": 0,
+    "Desc": "SUCCESS",
+    "Version": "1.0",
+    "Result": {
+      "Total": 20,
+      "OntCountSum": "0.000000000",
+      "OngCountSum": "179923.466767857",
+      "AddressSum": 7,
+      "TxCountSum": 13,
+      "SummaryList": [
+          {
+              "Time": "2018-07-02",
+              "TxnCount": 0,
+              "ActiveAddress": 0,
+              "NewAddress": 0,
+              "OntCount": "0.000000000",
+              "OngCount": "0.000000000"
+          },
+        .......
+       ]
+  }
+}
+```
 
 | RequestField|     Type |   Description   | 
 | :--------------: | :--------:| :------: |
@@ -286,35 +289,37 @@ successResponse：
 
 ###  type： 每天 或者 每周 或者 每月
 
-  	url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
+```json
+url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
 
-	method：GET
-  
-  	successResponse：
-	{
-	    "Action": "QueryProject",
-	    "Error": 0,
-	    "Desc": "SUCCESS",
-	    "Version": "1.0",
-	    "Result": {
-          "Total": 20,
-          "OntCountSum": "0.000000000",
-          "OngCountSum": "110.000000000",
-          "AddressSum": 7,
-          "TxCountSum": 13,
-          "SummaryList": [
-              {
-                  "Time": "2018-07-02",
-                  "TxnCount": 0,
-                  "ActiveAddress": 0,
-                  "NewAddress": 0,
-                  "OntCount": "0.000000000",
-                  "OngCount": "0.000000000"
-              },
-            .......
-           ]
-      }
-	}
+method：GET
+
+successResponse：
+{
+    "Action": "QueryProject",
+    "Error": 0,
+    "Desc": "SUCCESS",
+    "Version": "1.0",
+    "Result": {
+      "Total": 20,
+      "OntCountSum": "0.000000000",
+      "OngCountSum": "110.000000000",
+      "AddressSum": 7,
+      "TxCountSum": 13,
+      "SummaryList": [
+          {
+              "Time": "2018-07-02",
+              "TxnCount": 0,
+              "ActiveAddress": 0,
+              "NewAddress": 0,
+              "OntCount": "0.000000000",
+              "OngCount": "0.000000000"
+          },
+        .......
+       ]
+  }
+}
+```
 
 | RequestField|     Type |   Description   | 
 | :--------------: | :--------:| :------: |

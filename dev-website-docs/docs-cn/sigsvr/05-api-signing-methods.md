@@ -18,7 +18,7 @@ sigdata
 
 ### 请求参数
 
-```
+```json
 {
   "raw_data": "XXX"       // Unsigned data, Note that data must be encode as a hex string.
 }
@@ -27,7 +27,7 @@ sigdata
 
 ### 响应结果
 
-```
+```json
 {
   "signed_data": "XXX"    // Signed data, Note that data was encoded as a hex string.
 }
@@ -37,7 +37,7 @@ sigdata
 ### 例子
 
 请求:
-```
+```json
 {
   "qid": "t",
   "method": "sigdata",
@@ -50,7 +50,7 @@ sigdata
 ```
 
 响应:
-```
+```json
 {
   "qid": "t",
   "method": "sigdata",
@@ -74,7 +74,7 @@ sigrawtx
 
 ### 请求参数
 
-```
+```json
 {
   "raw_tx": "XXX"      // Unsigned transaction
 }
@@ -83,7 +83,7 @@ sigrawtx
 
 ### Response result
 
-```
+```json
 {
   "signed_tx": "XXX"   //Signed transaction
 }
@@ -93,7 +93,7 @@ sigrawtx
 ### 例子
 
 请求:
-```
+```json
 {
   "qid": "1",
   "method": "sigrawtx",
@@ -106,7 +106,7 @@ sigrawtx
 ```
 
 响应:
-```
+```json
 {
   "qid": "1",
   "method": "sigrawtx",
@@ -130,10 +130,10 @@ sigmutilrawtx
 
 ### 请求参数
 
-```
+```json
 {
   "raw_tx": "XXX", // Unsigned transaction
-  "m": xxx         // The minimum number of signatures required for multiple signatures
+  "m": xxx,         // The minimum number of signatures required for multiple signatures
   "pub_keys": []   // Public key list of signature
 }
 ```
@@ -141,7 +141,7 @@ sigmutilrawtx
 
 ### 响应结果
 
-```
+```json
 {
   "signed_tx": "XXX" // Signed transaction
 }
@@ -151,7 +151,7 @@ sigmutilrawtx
 ### 例子
 
 请求:
-```
+```json
 {
   "qid": "1",
   "method": "sigmutilrawtx",
@@ -169,7 +169,7 @@ sigmutilrawtx
 ```
 
 响应:
-```
+```json
 {
   "qid": "1",
   "method": "sigmutilrawtx",

@@ -20,7 +20,7 @@ None
 ```
 
 ### 响应
-```
+```json
 {
   "account": "XXX"             // The address of account created by sigsvr
 }
@@ -29,7 +29,7 @@ None
 ### 例子
 
 Request:
-```
+```json
 {
   "qid": "t",
   "method": "createaccount",
@@ -39,7 +39,7 @@ Request:
 ```
 
 响应:
-```
+```json
 {
   "qid": "t",
   "method": "createaccount",
@@ -63,7 +63,7 @@ exportaccount
 
 ### 请求参数
 
-```
+```json
 {
   "wallet_path": "XXX"   // Path to save .dat wallet file to. If left blank, will default to the sigsvr default path.
 }
@@ -72,7 +72,7 @@ exportaccount
 
 ### 响应结果
 
-```
+```json
 {
   "wallet_file": "XXX"   // Full path of exported wallet file.
   "account_num": "XXX"   // Number of accounts exported in the wallet file.
@@ -83,7 +83,7 @@ exportaccount
 ### 例子
 
 请求:
-```
+```json
 {
   "qid": "t",
   "method": "exportaccount",
@@ -92,7 +92,7 @@ exportaccount
 ```
 
 响应:
-```
+```json
 {
   "qid": "t",
   "method": "exportaccount",

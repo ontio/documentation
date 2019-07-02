@@ -7,25 +7,25 @@
 
 1. 获取源码：
 
-   ```shell
-   go get github.com/ontio/ontology
-   ```
+```shell
+go get github.com/ontio/ontology
+```
 
 2. 使用包管理工具 `glide` 获取依赖：
 
-   ```shell
-   cd $GOPATH/src/github.com/ontio/ontology
-   glide install
-   ```
+```shell
+cd $GOPATH/src/github.com/ontio/ontology
+glide install
+```
 
 3. 编译源码：
 
-   ```shell
-   make tools
-   ```
+```shell
+make tools
+```
 
 4. 切换到 `tools` 目录，使用编译完成的签名机 `sigsvr`。
 
-    ```shell
-    cd tools
-    ```
+```shell
+cd tools
+```

@@ -1,22 +1,22 @@
 
 ## 1. 获取 TPS 信息
 
-  url：/api/v1/explorer/summary/tps
+```json
+url：/api/v1/explorer/summary/tps
+method：GET
 
-	method：GET
-
-  	successResponse：
-	{
-	    "Action": "QueryTps",
-	    "Error": 0,
-	    "Desc": "SUCCESS",
-	    "Version": "1.0",
-	    "Result": {
-	        "CurrentTps": "10.02",
-		"MaxTps": 10000
-		}
-	}
-
+successResponse：
+{
+    "Action": "QueryTps",
+    "Error": 0,
+    "Desc": "SUCCESS",
+    "Version": "1.0",
+    "Result": {
+        "CurrentTps": "10.02",
+    "MaxTps": 10000
+    }
+}
+```
 
 | ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
@@ -29,34 +29,36 @@
 
 ### 类型： 日，周，月
 
-  url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
+```json
+url：/api/v1/explorer/summary/{type}/{starttime}/{endtime}
 
-	method：GET
+method：GET
 
-  	successResponse：
-	{
-	    "Action": "QuerySummary",
-	    "Error": 0,
-	    "Desc": "SUCCESS",
-	    "Version": "1.0",
-	    "Result": {
-          "Total": 3,
-          "SummaryList": [
-              {
-                  "TxnCount": 0,
-                  "ActiveAddress": 0,
-                  "BlockCount": 0,
-                  "OngCount": "0.000000000",
-                  "OntIdActiveCount": 0,
-                  "OntIdNewCount": 0,
-                  "NewAddress": 0,
-                  "OntCount": "0.000000000",
-                  "Time": "2018-07-02"
-              },
-            .......
-           ]
-      }
-	}
+successResponse：
+{
+    "Action": "QuerySummary",
+    "Error": 0,
+    "Desc": "SUCCESS",
+    "Version": "1.0",
+    "Result": {
+      "Total": 3,
+      "SummaryList": [
+          {
+              "TxnCount": 0,
+              "ActiveAddress": 0,
+              "BlockCount": 0,
+              "OngCount": "0.000000000",
+              "OntIdActiveCount": 0,
+              "OntIdNewCount": 0,
+              "NewAddress": 0,
+              "OntCount": "0.000000000",
+              "Time": "2018-07-02"
+          },
+        .......
+       ]
+  }
+}
+```
 
 | RequestField|     Type |   Description   |
 | :--------------: | :--------:| :------: |
@@ -84,36 +86,38 @@
 
 ### 类型： 日，周，月
 
-  url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
+```json
+url：/api/v1/explorer/summary/contract/{contracthash}/{type}/{starttime}/{endtime}
 
-	method：GET
 
-  	successResponse：
-	{
-	    "Action": "QueryContract",
-	    "Error": 0,
-	    "Desc": "SUCCESS",
-	    "Version": "1.0",
-	    "Result": {
-          "Total": 20,
-          "OntCountSum": "0.000000000",
-          "OngCountSum": "179923.466767857",
-          "AddressSum": 7,
-          "TxCountSum": 13,
-          "SummaryList": [
-              {
-                  "Time": "2018-07-02",
-                  "TxnCount": 0,
-                  "ActiveAddress": 0,
-                  "NewAddress": 0,
-                  "OntCount": "0.000000000",
-                  "OngCount": "0.000000000"
-              },
-            .......
-           ]
-      }
-	}
+method：GET
 
+successResponse：
+{
+    "Action": "QueryContract",
+    "Error": 0,
+    "Desc": "SUCCESS",
+    "Version": "1.0",
+    "Result": {
+      "Total": 20,
+      "OntCountSum": "0.000000000",
+      "OngCountSum": "179923.466767857",
+      "AddressSum": 7,
+      "TxCountSum": 13,
+      "SummaryList": [
+          {
+              "Time": "2018-07-02",
+              "TxnCount": 0,
+              "ActiveAddress": 0,
+              "NewAddress": 0,
+              "OntCount": "0.000000000",
+              "OngCount": "0.000000000"
+          },
+        .......
+       ]
+  }
+}
+```
 | RequestField|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | contracthash|   String|      |
@@ -142,36 +146,38 @@
 
 ### 类型： 日，周，月
 
-  url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
+```json
 
-	method：GET
+url：/api/v1/explorer/summary/project/{project}/{type}/{starttime}/{endtime}
 
-  	successResponse：
-	{
-	    "Action": "QueryProject",
-	    "Error": 0,
-	    "Desc": "SUCCESS",
-	    "Version": "1.0",
-	    "Result": {
-          "Total": 20,
-          "OntCountSum": "0.000000000",
-          "OngCountSum": "110.000000000",
-          "AddressSum": 7,
-          "TxCountSum": 13,
-          "SummaryList": [
-              {
-                  "Time": "2018-07-02",
-                  "TxnCount": 0,
-                  "ActiveAddress": 0,
-                  "NewAddress": 0,
-                  "OntCount": "0.000000000",
-                  "OngCount": "0.000000000"
-              },
-            .......
-           ]
-      }
-	}
+method：GET
 
+successResponse：
+{
+    "Action": "QueryProject",
+    "Error": 0,
+    "Desc": "SUCCESS",
+    "Version": "1.0",
+    "Result": {
+      "Total": 20,
+      "OntCountSum": "0.000000000",
+      "OngCountSum": "110.000000000",
+      "AddressSum": 7,
+      "TxCountSum": 13,
+      "SummaryList": [
+          {
+              "Time": "2018-07-02",
+              "TxnCount": 0,
+              "ActiveAddress": 0,
+              "NewAddress": 0,
+              "OntCount": "0.000000000",
+              "OngCount": "0.000000000"
+          },
+        .......
+       ]
+  }
+}
+```
 | RequestField|     Type |   Description   |
 | :--------------: | :--------:| :------: |
 | project|   String|   projectName   |
@@ -200,21 +206,21 @@
 ### 5. 查询 ONT,ONG 流通量
 
   url：/api/v1/explorer/summary/native/totalsupply
+```json
+method：GET
 
-	method：GET
-
-  	successResponse：
-	{
-	  "Action": "QueryNativeTotalSupply",
-	  "Error": 0,
-	  "Desc": "SUCCESS",
-	  "Version": "1.0",
-	  "Result": {
-	    "ont": 613398625,
-	    "ong": 69147056.050323125
-	  }
-	}
-
+successResponse：
+{
+  "Action": "QueryNativeTotalSupply",
+  "Error": 0,
+  "Desc": "SUCCESS",
+  "Version": "1.0",
+  "Result": {
+    "ont": 613398625,
+    "ong": 69147056.050323125
+  }
+}
+```
 
 | ResponseField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |

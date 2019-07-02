@@ -1,7 +1,7 @@
 
 
 
-## 1. Ontology 资产名称字典
+## 1. 资产名称字典
 
 
 | value     |     Type |   Description   |
