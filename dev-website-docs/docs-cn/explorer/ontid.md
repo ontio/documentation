@@ -1,10 +1,10 @@
 
 
-### OntId操作描述字典
+## 1. OntId 操作描述字典
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    register OntId |   String|  注册OntId |
+|    register OntId |   String|  注册 OntId |
 |    add publicKey:xxxxx |   String|  添加公钥，公钥值为xxxxx |
 |    remove publicKey:xxxxx |   String|  删除公钥，公钥值为xxxxx |
 |    add attribute:value1&value2 |   String|  添加属性，属性名为value1，若有多个属性以&分割  |
@@ -14,23 +14,23 @@
 |    add recovery:xxxx |   String|  添加恢复人信息，新的恢复人地址为xxxx  |
 
 
-### DDO Attribute字典
+## 2. DDO Attribute 字典
 
 
 
 | Key     | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |:-----:|
-|    Claim |    ContextDesc |   String|  claim模板描述 |
-|    |    ClaimContext |   String|  claim模板标识  |
-|    |    IssuerOntId |   String| 颁发者ONTID |
-|    |    ClaimId |   String|  claim的唯一标识 |
-|   SelfDefined |    value |   String|  用户自定义的DDO信息 |
+|    Claim |    ContextDesc |   String|  claim 模板描述 |
+|    |    ClaimContext |   String|  claim 模板标识  |
+|    |    IssuerOntId |   String| 颁发者 ONTID |
+|    |    ClaimId |   String|  claim 的唯一标识 |
+|   SelfDefined |    value |   String|  用户自定义的 DDO 信息 |
 
 
 
 
 
-### 当前OntId基本信息列表
+## 3. 当前 OntId 基本信息列表
 
 ```json
 url：/api/v1/explorer/ontidlist/{amount}
@@ -63,17 +63,17 @@ successResponse：
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    OntId |   String|  OntId |
-|    TxnHash |   String|  交易hash |
+|    TxnHash |   String|  交易 hash |
 |    Height |   int|  区块高度  |
-|    TxnTime |   int|  区块时间，unix时间戳  |
-|    Description |   String|  操作描述，具体参考**4.4.0 OntId操作描述字典**  |
+|    TxnTime |   int|  区块时间，unix 时间戳  |
+|    Description |   String|  操作描述，具体参考 **4.4.0  OntId 操作描述字典**  |
 |    TxnType |   int|  交易类型  |
 |    Fee |   String|  交易手续费  |
 
 
 
 
-### 分页查询OntId信息列表
+## 4. 分页查询 OntId 信息列表
 
 ```json
 url：/api/v1/explorer/ontidlist/{pagesize}/{pagenumber}
@@ -104,19 +104,19 @@ successResponse：
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    OntIdList.OntId|   String|  OntId |
-|    OntIdList.TxnHash|   String|  交易hash |
+|    OntIdList.TxnHash|   String|  交易 hash |
 |    OntIdList.Height|   int|  区块高度  |
-|    OntIdList.TxnTime|   int|  区块时间，unix时间戳  |
-|    OntIdList.Description|   String|  操作描述，具体参考**4.4.0 OntId操作描述字典**  |
+|    OntIdList.TxnTime|   int|  区块时间，unix 时间戳  |
+|    OntIdList.Description|   String|  操作描述，具体参考 **4.4.0 OntId 操作描述字典**  |
 |    OntIdList.TxnType|   int|  交易类型  |
 |    OntIdList.Fee |   String|  交易手续费  |
-|    Total|   int|  ontId相关的交易总数  |
+|    Total|   int|  ontId 相关的交易总数  |
 
 
 
 
 
-### 分页查询某个OntId相关信息
+## 5. 分页查询某个 OntId 相关信息
 
 ```json
 url：/api/v1/explorer/ontid/{ontid}/{pagesize}/{pagenumber}
@@ -174,18 +174,18 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    TxnTotal| int|  跟该OntId相关的总交易数量  |
-|    Ddo.Attributes|   list|  DDO属性信息，里面是自定义信息,具体可参考**4.4.0 DDO Attribute字典**|
+|    TxnTotal| int|  跟该 OntId 相关的总交易数量  |
+|    Ddo.Attributes|   list|  DDO 属性信息，里面是自定义信息,具体可参考**4.4.0 DDO Attribute 字典**|
 |    Ddo.OntId|   String|  OntId |
-|    Ddo.Owners|   list|  OntId公钥列表|
-|    Ddo.Owners.Type|   String|  OntId公钥类型|
-|    Ddo.Owners.Value|   String|  OntId公钥值|
-|    TxnList.TxnHash|   String|  交易hash |
+|    Ddo.Owners|   list|  OntId 公钥列表|
+|    Ddo.Owners.Type|   String|  OntId 公钥类型|
+|    Ddo.Owners.Value|   String|  OntId 公钥值|
+|    TxnList.TxnHash|   String|  交易 hash |
 |    TxnList.Height|   int|  区块高度  |
 |    TxnList.TxnType|   int|  交易类型  |
 |    TxnList.Fee| String|  交易手续费  |
 |    TxnList.OntId| String|  OntId  |
-|    TxnList.TxnTime| int|  区块时间，unix时间戳  |
-|    TxnList.Description|   String|  操作描述，具体参考**4.4.0 OntId操作描述字典**  |
+|    TxnList.TxnTime| int|  区块时间，unix 时间戳  |
+|    TxnList.Description|   String|  操作描述，具体参考**4.4.0 OntId 操作描述字典**  |
 
 

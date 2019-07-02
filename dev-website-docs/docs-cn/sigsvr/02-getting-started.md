@@ -1,18 +1,18 @@
 
-## 启动
+## 1. 启动
 
 ```shell
 ./sigsvr
 ```
 
-## 操作
+## 2. 操作
 
 通过下面的链接访问:
 ```
 http://localhost:20000/cli
 ```
 
-## 访问控制
+## 3. 访问控制
 
 ### IP 地址
 
@@ -30,12 +30,12 @@ sigsvr --cliaddress 0.0.0.0
 sigsvr --cliport 1024
 ```
 
-## 导入账户
+## 4. 导入账户
 
 你可以通过 `import` 命令导入钱包账户。
 
-- `--wallet`：用于指定签名机从哪个钱包文件中导入钱包账户，默认为 `./wallet.data`。
-- `--walletdir`：用于指定签名机钱包数据的存储文件夹，默认为 `./wallet_data`。
+- `--wallet`：指定签名机从哪个钱包文件中导入钱包账户，默认为 `./wallet.data`。
+- `--walletdir`：指定签名机钱包数据的存储文件夹，默认为 `./wallet_data`。
 
 ```shell
 $ sigsvr import
@@ -45,7 +45,7 @@ Add account number:3
 Update account number:0
 ```
 
-## 日志记录
+## 5. 日志记录
 
 签名机提供了 7 种级别的日志记录，默认为第 2 级 `Info`。
 

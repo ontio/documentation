@@ -1,8 +1,10 @@
 
 
-C# SDK 的目标是帮助 .NET 开发者开发基于本体链的 DAPP。源码地址：[https://github.com/ontio-community/ontology-csharp-sdk](https://github.com/ontio-community/ontology-csharp-sdk)。
+C# SDK 的目标是帮助 `.NET` 开发者开发基于本体链的 `DAPP` 。
 
-## 初始化
+源码地址：[https://github.com/ontio-community/ontology-csharp-sdk](https://github.com/ontio-community/ontology-csharp-sdk)。
+
+## 1. 初始化
 
 ```c#
 OntologySdk OntSDK = new OntologySdk(_node, ConnectionMethodFactory.ConnectionMethod.REST);
@@ -11,7 +13,7 @@ Console.WriteLine("random create private key: "+ Helper.Bytes2HexString(Helper.C
 
 ```
 
-## 与节点交互
+## 2. 与节点交互
 
 ```c#
 
@@ -32,14 +34,14 @@ try { Console.WriteLine("getSmartCodeEvent: " + OntSDK.Connection.getSmartCodeEv
 
 ```
 
-## 转账
+## 3. 转账
 
 ```c#
 NetworkResponse result = OntSDK.transfer("ONG", from, to, 5, payer, 20000,500, new List<byte[]>() { Helper.HexString2Bytes(privatekey) },true);
 Console.WriteLine(result.JobjectResponse);
 ```
 
-## 调用合约
+## 4. 调用合约
 
 ```c#
 

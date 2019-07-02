@@ -1,26 +1,26 @@
 
 
-### TxnType交易类型字典
+* TxnType 交易类型字典
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    208|   int|  部署智能合约交易  |
 |    209|   int|  调用智能合约交易  |
 
-### Description交易描述字典
+* Description 交易描述字典
 
 | Value     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    transfer|   String|  资产转账交易  |
 |    gasconsume|   String|  手续费交易  |
-|    ontId- |   String|  OntId相关动作交易  |
+|    ontId- |   String|  OntId 相关动作交易  |
 |    claimRecord- |   String|  存证动作交易  |
 |    auth |   String|  权限交易  |
 
 
 
 
-### 获取当前最新交易基本信息列表
+## 1. 获取当前最新交易基本信息列表
 
 ```json
 url：/api/v1/explorer/transactionlist/{amount}
@@ -51,9 +51,9 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    TxnHash|   String|  交易hash  |
+|    TxnHash|   String|  交易 hash  |
 |    TxnType|   int|  交易类型|
-|    TxnTime|   int|  交易时间戳，unix时间戳  |
+|    TxnTime|   int|  交易时间戳，unix 时间戳  |
 |    Height|   int|  区块高度  |
 |    BlockIndex|   int|  交易在该区块的索引  |
 |    ConfirmFlag|   int |  确认标识 1:交易成功 2:交易失败 |
@@ -61,7 +61,7 @@ successResponse：
 
 
 
-### 根据分页获取交易基本信息列表
+## 2. 根据分页获取交易基本信息列表
 
 
 ```json
@@ -99,9 +99,9 @@ successResponse：
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    Txnlistist.TxnHash|   String|  交易hash  |
+|    Txnlistist.TxnHash|   String|  交易 hash  |
 |    Txnlistist.TxnType|   int|  交易类型|
-|    Txnlistist.TxnTime|   int|  交易时间戳，unix时间戳  |
+|    Txnlistist.TxnTime|   int|  交易时间戳，unix 时间戳  |
 |    Txnlistist.Height|   int|  区块高度  |
 |    Txnlistist.BlockIndex|   int|  交易在该区块的索引  |
 |    Txnlistist.ConfirmFlag|   int|  确认标识 1:交易成功 2:交易失败 |
@@ -110,7 +110,7 @@ successResponse：
 
 
 
-### 根据交易hash获取交易详细信息
+## 3. 根据交易 hash 获取交易详细信息
 
 
 ```json
@@ -139,15 +139,15 @@ successResponse：
 
 | RequestField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    txnhash|   String|  交易hash  |
+|    txnhash|   String|  交易 hash  |
 
 
 
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
-|    TxnHash|   String|  交易hash  |
+|    TxnHash|   String|  交易 hash  |
 |    TxnType|   int|  交易类型|
-|    TxnTime|   int|  交易时间戳，unix时间戳  |
+|    TxnTime|   int|  交易时间戳，unix 时间戳  |
 |    Height|   int|  区块高度  |
 |    BlockIndex|   int|  交易在该区块的索引  |
 |    Fee|   String |  手续费 |
@@ -189,7 +189,7 @@ successResponse：
 |    TransferList.Description|   String|  transfer|
 
 
-- ontid相关交易
+- ontid 相关交易
 
 ```json
 successResponse：
@@ -205,6 +205,6 @@ successResponse：
 | ResponseField     |     Type |   Description   | 
 | :--------------: | :--------:| :------: |
 |    OntId|   String|  OntId|
-|    Description|   String|  OntId操作描述，具体字段参考**OntId操作描述字典**|
+|    Description|   String|  OntId 操作描述，具体字段参考 **OntId 操作描述字典**|
 
 

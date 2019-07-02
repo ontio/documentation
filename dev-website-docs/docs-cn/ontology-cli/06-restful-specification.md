@@ -1,15 +1,15 @@
 
 ## 简介
 
-默认情况下，Restful 接口监听在 20334 端口。
+默认情况下，`Restful` 接口监听在 `20334` 端口。
 
-- 使用 `--rest` 选项可以开启客户端的 Restful 服务。
+- 使用 `--rest` 选项可以开启客户端的 `Restful` 服务。
 
 ```shell
 ontology --rest
 ```
 
-- 使用 `--restport` 选项为客户端指定 Restful 监听端口。
+- 使用 `--restport` 选项为客户端指定 `Restful` 监听端口。
 
 ```shell
 ontology --rest --restport 1024
@@ -17,7 +17,7 @@ ontology --rest --restport 1024
 
 ## 方法列表
 
-本体客户端 Restful 接口所支持的方法如下表所示。
+本体客户端 `Restful` 接口所支持的方法如下表所示。
 
 | 方法                                                                                           | 描述                                     |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------- |
@@ -34,20 +34,20 @@ ontology --rest --restport 1024
 | [get_sc_event_by_height](docs-cn/ontology-cli/06-restful-specification#get_sc_event_by_height) | 得到该高度区块上的智能合约执行结果       |
 | [get_smtcode_evts](docs-cn/ontology-cli/06-restful-specification#get_smtcode_evts)             | 通过交易哈希得到该交易的执行结果         |
 | [get_blk_hgt_by_txhash](docs-cn/ontology-cli/06-restful-specification#get_blk_hgt_by_txhash)   | 通过交易哈希得到该交易落账的区块高度     |
-| [get_merkle_proof](docs-cn/ontology-cli/06-restful-specification#get_merkle_proof)             | 通过交易哈希得到该交易的 merkle 证明     |
-| [get_gasprice](docs-cn/ontology-cli/06-restful-specification#get_gasprice)                     | 得到 GAS 的价格                          |
-| [get_allowance](docs-cn/ontology-cli/06-restful-specification#get_allowance)                   | 返回允许从 from 账户转出到 to 账户的额度 |
-| [get_unboundong](docs-cn/ontology-cli/06-restful-specification#get_unboundong)                 | 返回该账户未提取的ong数量                |
+| [get_merkle_proof](docs-cn/ontology-cli/06-restful-specification#get_merkle_proof)             | 通过交易哈希得到该交易的 `merkle` 证明     |
+| [get_gasprice](docs-cn/ontology-cli/06-restful-specification#get_gasprice)                     | 得到  `GAS` 的价格                          |
+| [get_allowance](docs-cn/ontology-cli/06-restful-specification#get_allowance)                   | 返回允许从 `from` 账户转出到 `to` 账户的额度 |
+| [get_unboundong](docs-cn/ontology-cli/06-restful-specification#get_unboundong)                 | 返回该账户未提取的 `ong` 数量                |
 | [get_mempooltxcount](docs-cn/ontology-cli/06-restful-specification#get_mempooltxcount)         | 得到内存中的交易的数量                   |
 | [get_mempooltxstate](docs-cn/ontology-cli/06-restful-specification#get_mempooltxstate)         | 通过交易哈希得到内存中该交易的状态       |
 | [get_version](docs-cn/ontology-cli/06-restful-specification#get_version)                       | 得到版本信息                             |
 | [post_raw_tx](docs-cn/ontology-cli/06-restful-specification#post_raw_tx)                       | 向本体网络发送交易                       |
 | [get_networkid](docs-cn/ontology-cli/06-restful-specification#get_networkid)                   | 获取网络编号                             |
-| [get_grantong](docs-cn/ontology-cli/06-restful-specification#get_grantong)                     | 得到 grant ong                           |
+| [get_grantong](docs-cn/ontology-cli/06-restful-specification#get_grantong)                     | 得到  `grant ong`                          |
 
 ## 接口定义
 
-本体客户端的 Restful 接口定义如下：
+本体客户端的 `Restful` 接口定义如下：
 
 - 默认接口监听端口号：`20334`
 
@@ -81,7 +81,7 @@ ontology --rest --restport 1024
 | 45001 | int64 | 内部错误         |
 | 47001 | int64 | 智能合约执行错误 |
 
-## getconn_count
+## 1. getconn_count
 
 获取当前连接的节点数量。
 
@@ -109,7 +109,7 @@ curl -i http://server:port/api/v1/node/connectioncount
 }
 ```
 
-## getblk_txs_by_height
+## 2. getblk_txs_by_height
 
 获取该高度的区块的所有交易哈希。
 
@@ -143,7 +143,7 @@ curl -i http://server:port/api/v1/block/transactions/height/100
 }
 ```
 
-## getblk_by_height
+## 3. getblk_by_height
 
 得到该高度的详细的区块信息。
 
@@ -222,7 +222,7 @@ curl -i http://server:port/api/v1/block/details/height/22
 }
 ```
 
-## getblk_by_hash
+## 4. getblk_by_hash
 
 通过区块哈希得到区块信息。
 
@@ -301,7 +301,7 @@ curl -i http://server:port/api/v1/block/details/hash/ea5e5219d2f1591f4feef89885c
 }
 ```
 
-## getblk_height
+## 5. getblk_height
 
 得到当前网络上的区块高度。
 
@@ -329,7 +329,7 @@ curl -i http://server:port/api/v1/block/height
 }
 ```
 
-## getblk_hash
+## 6. getblk_hash
 
 查询指定高度的区块哈希。
 
@@ -357,7 +357,7 @@ curl -i http://server:port/api/v1/block/hash/100
 }
 ```
 
-## gettx
+## 7. gettx
 
 通过交易哈希得到该交易的信息。
 
@@ -411,7 +411,7 @@ curl -i http://server:port/api/v1/transaction/5623dbd283a99ff1cd78068cba474a22be
 }
 ```
 
-## getstorage
+## 8. getstorage
 
 通过合约地址哈希和键得到对应的值。
 
@@ -442,11 +442,11 @@ curl -i http://localhost:20334/api/v1/storage/ff00000000000000000000000000000000
 <section class = "info">
   <ul>
     <li>请求中的 <code>key</code> 为十六进制字符串形式的合约存储键值。</li>
-    <li>响应中的 <code>result</code> 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。</li>
+    <li>响应中的 <code>result</code> 所对应的值为序列化后的十六进制字符串，可以使用 <code>SDK</code> 进行反序列化。</li>
   </ul>
 </section>
 
-根据智能合约编译后所得到的 `avm code`，可以使用 SDK 生成合约地址。
+根据智能合约编译后所得到的 `avm code`，可以使用 `SDK` 生成合约地址。
 
 ```python
 from ontology.common.address import Address
@@ -491,7 +491,7 @@ public class NetworkDemo {
 }
 ```
 
-## getbalance
+## 9. getbalance
 
 得到该地址的账户的余额。
 
@@ -527,7 +527,7 @@ curl -i http://localhost:20334/api/v1/balance/TA5uYzLU2vBvvfCMxyV2sdzc9kPqJzGZWq
 }
 ```
 
-## getcontract_state
+## 10. getcontract_state
 
 根据合约地址哈希得到合约信息。
 
@@ -565,7 +565,7 @@ curl -i http://server:port/api/v1/contract/0100000000000000000000000000000000000
 }
 ```
 
-## getsc_event_by_height
+## 11. getsc_event_by_height
 
 得到该高度区块上的智能合约执行结果。
 
@@ -630,7 +630,7 @@ curl -i http://localhost:20334/api/v1/smartcode/event/transactions/900
 
 <p class = "warning"> 返回的结果是交易简略信息的集合，并不是完整的交易信息。</p>
 
-## getsmtcode_evts
+## 12. getsmtcode_evts
 
 通过交易哈希得到该交易的执行结果。
 
@@ -669,7 +669,7 @@ curl -i http://localhost:20334/api/v1/smartcode/event/txhash/6b391812b6a3230c057
 }
 ```
 
-## getblk_hgt_by_txhash
+## 13. getblk_hgt_by_txhash
 
 通过交易哈希得到该交易落账的区块高度。
 
@@ -697,9 +697,9 @@ curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d414125
 }
 ```
 
-## getmerkle_proof
+## 14. getmerkle_proof
 
-通过交易哈希得到该交易的merkle证明。
+通过交易哈希得到该交易的 `merkle` 证明。
 
 GET
 ```
@@ -747,9 +747,9 @@ curl -i http://localhost:20334/api/v1/merkleproof/3e23cf222a47739d4141255da617cd
 }
 ```
 
-## getgasprice
+## 15. getgasprice
 
-得到 GAS 的价格。
+得到 `GAS` 的价格。
 
 GET
 ```
@@ -779,9 +779,9 @@ curl -i http://localhost:20334/api/v1/block/height/txhash/3e23cf222a47739d414125
 }
 ```
 
-## getallowance
+## 16. getallowance
 
-得到允许从 from 账户转出到 to 账户的额度。
+得到允许从 `from` 账户转出到 `to` 账户的额度。
 
 GET
 ```
@@ -807,9 +807,9 @@ curl -i http://localhost:20334/api/v1/allowance/:asset/:from/:to
 }
 ```
 
-## getunboundong
+## 17. getunboundong
 
-得到该账户未提取的 ONG 数量。
+得到该账户未提取的 `ONG` 数量。
 
 GET
 ```
@@ -836,7 +836,7 @@ curl -i http://localhost:20334/api/v1/unboundong/:addr
 }
 ```
 
-## getmempooltxcount
+## 18. getmempooltxcount
 
 得到内存中的交易的数量。
 
@@ -864,7 +864,7 @@ curl -i http://localhost:20334/api/v1/mempool/txcount
 }
 ```
 
-## getmempooltxstate
+## 19. getmempooltxstate
 
 通过交易哈希获取交易池（内存）中的交易的状态。
 
@@ -902,7 +902,7 @@ curl -i http://localhost:20334/api/v1/mempool/txstate/:hash
 }
 ```
 
-## getversion
+## 20. getversion
 
 获取当前连接节点的版本信息。
 
@@ -930,7 +930,7 @@ curl -i http://localhost:20334/api/v1/version
 }
 ```
 
-## post_raw_tx
+## 21. post_raw_tx
 
 向本体网络发送交易。
 
@@ -959,7 +959,7 @@ Post Params:
     "Data":"80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
 }
 ```
-可以使用 ontology-go-sdk 生成十六进制数据，参考 [示例](rpc_api_CN.md#8-sendrawtransaction)。
+可以使用 `ontology-go-sdk` 生成十六进制数据，参考 [示例](rpc_api_CN.md#8-sendrawtransaction)。
 
 响应：
 
@@ -975,9 +975,9 @@ Post Params:
 
 `Result`: 交易哈希
 
-## getnetworkid
+## 22. getnetworkid
 
-获取 network id.
+获取 `network id`.
 
 GET
 ```
@@ -1004,9 +1004,9 @@ curl -i http://localhost:20334/api/v1/networkid
 }
 ```
 
-## getgrantong
+## 23. getgrantong
 
-获取 grant ong。
+获取 `grant ong` 。
 
 GET
 ```

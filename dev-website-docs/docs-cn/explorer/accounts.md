@@ -1,15 +1,15 @@
 
 
 
-### Ontology资产名称字典
+## 1. Ontology 资产名称字典
 
 
 | value     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
-|    ont|   String|  ont资产|
-|    ong|   String|  ong资产|
-|    waitboundong|   String|  等待提取ong资产|
-|    unboundong|   String|  未提取ong资产|
+|    ont|   String|  ont 资产|
+|    ong|   String|  ong 资产|
+|    waitboundong|   String|  等待提取 ong 资产|
+|    unboundong|   String|  未提取 ong 资产|
 |    YLTK|oep4资产| oep4|
 |    HP|oep4资产| oep4|
 |    DICE|oep4资产| oep4|
@@ -22,7 +22,7 @@
 |    ALV|oep4资产| oep4|
 |    PAX|oep4资产| oep4|
 
-### 分页查询某个地址的所有转账交易信息
+## 2. 分页查询某个地址的所有转账交易信息
 
 ```json
 url：/api/v1/explorer/address/{address}/{pagesize}/{pagenumber}
@@ -94,8 +94,8 @@ successResponse：
 | RequestField     |     Type |   Description   |
 | :--------------: | :--------:| :------: |
 |    address|   String|  账户地址  |
-|    pagesize|   int|  分页大小(当前限制最大值为20)  |
-|    pagenumber|   int|  页数，从1开始计数  |
+|    pagesize|   int|  分页大小(当前限制最大值为 20 )  |
+|    pagenumber|   int|  页数，从 1 开始计数  |
 
 
 
@@ -104,11 +104,11 @@ successResponse：
 |    AssetBalance.AssetName|   String|  资产名称，具体可参考**资产名称字典**|
 |    AssetBalance.Balance|   String|  该资产的账户余额|
 |    AssetBalance.AssertType|   String|  该资产的类型|
-|    TxnList.TxnHash|   String|  交易hash |
+|    TxnList.TxnHash|   String|  交易 hash |
 |    TxnList.ConfirmFlag|   int|  交易状态，1:交易成功 2:交易失败 |
 |    TxnList.Height|   int|  区块高度  |
 |    TxnList.TxnType|   int|  交易类型  |
-|    TxnList.TxnTime| int|  交易时间，unix时间戳  |
+|    TxnList.TxnTime| int|  交易时间，unix 时间戳  |
 |    TxnList.Fee|   String|  手续费  |
 |    TxnList.BlockIndex|   int|  该交易在该区块中的索引  |
 |    TxnList.TransferList.FromAddress|   String|  转出账户地址  |
@@ -120,7 +120,7 @@ successResponse：
 
 
 
-### 分页查询某个地址的某种资产的所有转账交易信息
+## 3. 分页查询某个地址的某种资产的所有转账交易信息
 
 ```json
 url：/api/v1/explorer/address/{address}/{assetname}/{pagesize}/{pagenumber}
@@ -175,11 +175,11 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  资产名称|
 |    AssetBalance.Balance|   String|  该资产的账户余额|
-|    TxnList.TxnHash|   String|  交易hash |
+|    TxnList.TxnHash|   String|  交易 hash |
 |    TxnList.ConfirmFlag|   int|  交易状态，1:交易成功 2:交易失败 |
 |    TxnList.Height|   int|  区块高度  |
 |    TxnList.TxnType|   int|  交易类型  |
-|    TxnList.TxnTime| int|  交易时间，unix时间戳  |
+|    TxnList.TxnTime| int|  交易时间，unix 时间戳  |
 |    TxnList.Fee|   String|  手续费  |
 |    TxnList.BlockIndex|   int|  该交易在该区块中的索引  |
 |    TxnList.TransferList.FromAddress|   String|  转出账户地址  |
@@ -188,11 +188,11 @@ successResponse：
 |    TxnList.TransferList.AssetName|   String|  交易资产名称，具体可参考**资产名称字典**  |
 
 
-> 查询ong资产，会同时返回waitboundong，unboundong
+> 查询 `ong` 资产，会同时返回 `waitboundong` ，`unboundong`
 
 
 
-### 根据时间范围查询某个地址的某种资产的所有转账交易信息
+## 4. 根据时间范围查询某个地址的某种资产的所有转账交易信息
 
 ```json
 url：/api/v1/explorer/address/time/{address}/{assetname}/{begintime}/{endtime}
@@ -246,8 +246,8 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    address|   String|  账户地址  |
 |    assetname|   String|  资产名称，具体可参考**资产名称字典**  |
-|    begintime|   int|  开始时间，unix时间戳  |
-|    endtime|   int|  结束时间，unix时间戳  |
+|    begintime|   int|  开始时间，unix 时间戳  |
+|    endtime|   int|  结束时间，unix 时间戳  |
 
 
 
@@ -255,11 +255,11 @@ successResponse：
 | :--------------: | :--------:| :------: |
 |    AssetBalance.AssetName|   String|  资产名称|
 |    AssetBalance.Balance|   String|  该资产的账户余额|
-|    TxnList.TxnHash|   String|  交易hash |
+|    TxnList.TxnHash|   String|  交易 hash |
 |    TxnList.ConfirmFlag|   int|  交易状态，1:交易成功 2:交易失败 |
 |    TxnList.Height|   int|  区块高度  |
 |    TxnList.TxnType|   int|  交易类型  |
-|    TxnList.TxnTime| int|  交易时间，unix时间戳  |
+|    TxnList.TxnTime| int|  交易时间，unix 时间戳  |
 |    TxnList.Fee|   String|  手续费  |
 |    TxnList.BlockIndex|   int|  该交易在该区块中的索引  |
 |    TxnList.TransferList.FromAddress|   String|  转出账户地址  |
@@ -274,7 +274,7 @@ successResponse：
 
 
 
-### 查询某个地址的资产余额
+## 5. 查询某个地址的资产余额
 
 ```json
 url：/api/v1/explorer/address/balance/{address}

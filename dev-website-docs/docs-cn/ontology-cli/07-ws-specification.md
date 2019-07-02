@@ -1,15 +1,15 @@
 
 ## 简介
 
-默认情况下，WebSocket 接口监听在 `20335` 端口。
+默认情况下，`WebSocket` 接口监听在 `20335` 端口。
 
-- 使用 `--ws` 选项可以开启客户端的 WebSocket 服务。
+- 使用 `--ws` 选项可以开启客户端的 `WebSocket` 服务。
 
   ```shell
   ontology --ws
   ```
 
-- 使用 `--wsport` 选项为客户端指定 WebSocket 监听端口。
+- 使用 `--wsport` 选项为客户端指定 `WebSocket` 监听端口。
 
   ```shell
   ontology --wsport 1024
@@ -17,7 +17,7 @@
 
 ## 方法列表
 
-本体客户端 WebSocket 接口所支持的方法如下表所示。
+本体客户端 `WebSocket` 接口所支持的方法如下表所示。
 
 | 方法                                                                                            | 说明                                                 |
 | :---------------------------------------------------------------------------------------------- | :--------------------------------------------------- |
@@ -37,11 +37,11 @@
 | [getsmartcodeeventbyheight](docs-cn/ontology-cli/07-ws-specification#getsmartcodeeventbyheight) | 得到该高度区块上的智能合约执行结果                   |
 | [getsmartcodeeventbyhash](docs-cn/ontology-cli/07-ws-specification#getsmartcodeeventbyhash)     | 通过交易哈希得到该交易的执行结果                     |
 | [getblockheightbytxhash](docs-cn/ontology-cli/07-ws-specification#getblockheightbytxhash)       | 通过交易哈希得到该交易落账的区块高度                 |
-| [getmerkleproof](docs-cn/ontology-cli/07-ws-specification#getmerkleproof)                       | 通过交易哈希得到该交易的 merkle 证明                 |
+| [getmerkleproof](docs-cn/ontology-cli/07-ws-specification#getmerkleproof)                       | 通过交易哈希得到该交易的 `merkle` 证明                 |
 | [getsessioncount](docs-cn/ontology-cli/07-ws-specification#getsessioncount)                     | 得到会话数量                                         |
-| [getgasprice](docs-cn/ontology-cli/07-ws-specification#getgasprice)                             | 得到 GAS 的价格                                      |
-| [getallowance](docs-cn/ontology-cli/07-ws-specification#getallowance)                           | 返回允许从 from 账户转出到 to 账户的额度             |
-| [getunboundong](docs-cn/ontology-cli/07-ws-specification#getunboundong)                         | 返回该账户未提取的ONG 数量                           |
+| [getgasprice](docs-cn/ontology-cli/07-ws-specification#getgasprice)                             | 得到 `GAS` 的价格                                      |
+| [getallowance](docs-cn/ontology-cli/07-ws-specification#getallowance)                           | 返回允许从 `from` 账户转出到 `to` 账户的额度             |
+| [getunboundong](docs-cn/ontology-cli/07-ws-specification#getunboundong)                         | 返回该账户未提取的 `ONG` 数量                           |
 | [getmempooltxstate](docs-cn/ontology-cli/07-ws-specification#getmempooltxstate)                 | 通过交易哈希得到内存中该交易的状态                   |
 | [getmempooltxcount](docs-cn/ontology-cli/07-ws-specification#getmempooltxcount)                 | 得到内存中的交易的数量                               |
 | [getversion](docs-cn/ontology-cli/07-ws-specification#getversion)                               | 得到版本信息                                         |
@@ -50,7 +50,7 @@
 
 ## 接口定义
 
-本体客户端的 Websocket 接口规范定义如下：
+本体客户端的 `Websocket` 接口规范定义如下：
 
 - 默认接口监听端口号：`20335`
 
@@ -85,7 +85,7 @@
 | 45001 | int64 | 内部错误         |
 | 47001 | int64 | 智能合约执行错误 |
 
-## heartbeat
+## 1. heartbeat
 
 #### 调用示例
 
@@ -118,7 +118,7 @@
 
 !> 如果超过五分钟没有发送心跳信号，则连接关闭。
 
-## subscribe
+## 2. subscribe
 
 `subscribe` 接口用于订阅消息推送服务。
 
@@ -157,7 +157,7 @@
 }
 ```
 
-## getconnectioncount
+## 3. getconnectioncount
 
 得到当前连接的节点数量。
 
@@ -185,7 +185,7 @@
 }
 ```
 
-## getblocktxsbyheight
+## 4. getblocktxsbyheight
 
 返回对应高度的区块中落账的所有交易哈希。
 
@@ -220,7 +220,7 @@
 }
 ```
 
-## getblockbyheight
+## 5. getblockbyheight
 
 得到该高度的区块的详细信息。
 
@@ -301,7 +301,7 @@
 }
 ```
 
-## getblockbyhash
+## 6. getblockbyhash
 
 通过区块哈希得到区块信息。
 
@@ -382,7 +382,7 @@
 }
 ```
 
-## getblockheight
+## 7. getblockheight
 
 得到当前网络上的区块高度。
 
@@ -410,7 +410,7 @@
 }
 ```
 
-## getblockhash
+## 8. getblockhash
 
 根据高度得到对应区块的哈希。
 
@@ -439,7 +439,7 @@
 }
 ```
 
-## gettransaction
+## 9. gettransaction
 
 通过交易哈希得到该交易的信息。
 
@@ -500,7 +500,7 @@
 }
 ```
 
-## sendrawtransaction
+## 10. sendrawtransaction
 
 向本体网络发送交易。
 
@@ -534,7 +534,7 @@
 
 <p class="info">在交易成功的情况下，响应中 <code>Result</code> 字段对应的值为交易哈希。</p>
 
-## getstorage
+## 11. getstorage
 
 通过合约地址哈希和键得到对应的值。
 
@@ -567,11 +567,11 @@
 <section class = "info">
   <ul>
     <li>请求中的 <code>key</code> 为十六进制字符串形式的合约存储键值。</li>
-    <li>响应中的 <code>result</code> 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。</li>
+    <li>响应中的 <code>result</code> 所对应的值为序列化后的十六进制字符串，可以使用 <code>SDK</code> 进行反序列化。</li>
   </ul>
 </section>
 
-根据智能合约编译后所得到的 `avm code`，可以使用 SDK 生成合约地址。
+根据智能合约编译后所得到的 `avm code`，可以使用 `SDK` 生成合约地址。
 
 ```python
 from ontology.common.address import Address
@@ -616,7 +616,7 @@ public class NetworkDemo {
 }
 ```
 
-## getbalance
+## 12. getbalance
 
 得到该地址的账户的余额。
 
@@ -648,7 +648,7 @@ public class NetworkDemo {
 }
 ```
 
-## getcontract
+## 13. getcontract
 
 根据合约地址哈希得到合约信息。
 
@@ -685,7 +685,7 @@ public class NetworkDemo {
 }
 ```
 
-## getsmartcodeeventbyheight
+## 14. getsmartcodeeventbyheight
 
 得到该高度区块上的智能合约执行结果。
 
@@ -760,7 +760,7 @@ public class NetworkDemo {
 
 <p class="info">返回的结果是交易简略信息的集合，并不是完整的交易信息。</p>
 
-## getsmartcodeeventbyhash
+## 15. getsmartcodeeventbyhash
 
 通过交易哈希得到该交易的执行结果。
 
@@ -804,7 +804,7 @@ public class NetworkDemo {
 }
 ```
 
-## getblockheightbytxhash
+## 16. getblockheightbytxhash
 
 通过交易哈希得到该交易落账的区块高度。
 
@@ -833,9 +833,9 @@ public class NetworkDemo {
 }
 ```
 
-## getmerkleproof
+## 17. getmerkleproof
 
-通过交易哈希得到该交易的 merkle 证明。
+通过交易哈希得到该交易的 `merkle` 证明。
 
 #### 调用示例
 
@@ -884,7 +884,7 @@ public class NetworkDemo {
 }
 ```
 
-## getsessioncount
+## 18. getsessioncount
 
 得到会话数量。
 
@@ -912,9 +912,9 @@ public class NetworkDemo {
 }
 ```
 
-## getgasprice
+## 19. getgasprice
 
-得到 GAS 的价格。
+得到 `GAS` 的价格。
 
 #### 调用示例
 
@@ -943,9 +943,9 @@ public class NetworkDemo {
 }
 ```
 
-## getallowance
+## 20. getallowance
 
-得到允许从 from 账户转出到 to 账户的额度。
+得到允许从 `from` 账户转出到 `to` 账户的额度。
 
 #### 调用示例
 
@@ -974,9 +974,9 @@ public class NetworkDemo {
 }
 ```
 
-## getunboundong
+## 21. getunboundong
 
-得到该账户未提取的 ONG 数量。
+得到该账户未提取的 `ONG` 数量。
 
 #### 调用示例
 
@@ -1003,7 +1003,7 @@ public class NetworkDemo {
 }
 ```
 
-## getmempooltxstate
+## 22. getmempooltxstate
 
 通过交易哈希得到内存中该交易的状态。
 
@@ -1042,7 +1042,7 @@ public class NetworkDemo {
 }
 ```
 
-## getmempooltxcount
+## 23. getmempooltxcount
 
 得到内存中的交易的数量。
 
@@ -1070,7 +1070,7 @@ public class NetworkDemo {
 }
 ```
 
-## getversion
+## 24. getversion
 
 得到版本信息。
 
@@ -1098,9 +1098,9 @@ public class NetworkDemo {
 }
 ```
 
-## getnetworkid
+## 25. getnetworkid
 
-获取 network id
+获取 `network id`
 
 #### 调用示例
 
@@ -1126,9 +1126,9 @@ public class NetworkDemo {
 }
 ```
 
-## getgrantong
+## 26. getgrantong
 
-获取 grant ong
+获取 `grant ong`
 
 #### 调用示例
 

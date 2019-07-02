@@ -1,5 +1,5 @@
 
-## 快速开始
+## 1. 快速开始
 
 ```go
 package demo
@@ -11,7 +11,7 @@ import (
 sdk := ontology.NewOntologySdk()
 ```
 
-## 网络
+## 2. 网络
 
 `ontology-go-sdk` 提供了 `RPC`、`Restful` 以及 `WebSocket` 接口。
 
@@ -36,7 +36,7 @@ if err != nil {
 }
 ```
 
-### 网络编号
+### 2.1 网络编号
 
 `GetNetworkId` 接口用于查询网络编号。
 
@@ -49,7 +49,7 @@ if err != nil {
 }
 ```
 
-### 节点版本
+### 2.2 节点版本
 
 `GetVersion` 接口用于查询所连接节点的版本号。
 
@@ -62,9 +62,9 @@ if err != nil {
 }
 ```
 
-### Merkle 证明
+### 2.3 Merkle 证明
 
-`GetMerkleProof` 接口用于获取指定交易哈希所对应交易的 Merkle 证明。
+`GetMerkleProof` 接口用于获取指定交易哈希所对应交易的 `Merkle`  证明。
 
 ```go
 txHash := "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
@@ -81,7 +81,7 @@ if err != nil {
 
 <p class = "info">由于 <code>Merkle</code> 树的结构特征，通过使用默克尔证明技术，能够快速判断特定数据是否存在于默克尔树之中。</p>
 
-### 区块高度
+### 2.4 区块高度
 
 - `GetBlockHeightByTxHash` 接口用于查询指定交易哈希所对处区块的区块高度。
 
@@ -106,7 +106,7 @@ if err != nil {
 }
 ```
 
-### 区块哈希
+### 2.5 区块哈希
 
 - `GetBlockHash` 接口用于查询指定块高度所对应区块的哈希值。
 
@@ -130,7 +130,7 @@ if err != nil {
 }
 ```
 
-### 区块信息
+### 2.6 区块信息
 
 - `GetBlockByHeight` 接口用于查询指定块高度所对应区块的信息。
 
@@ -156,7 +156,7 @@ if err != nil {
 }
 ```
 
-### 智能合约
+### 2.7 智能合约
 
 - `GetSmartContract` 接口用于根据合约地址查询合约信息。
 
@@ -196,7 +196,7 @@ if err != nil {
 }
 ```
 
-### 交易
+### 2.8 交易
 
 - 执行交易
 
@@ -242,7 +242,7 @@ if err != nil {
 }
 ```
 
-### 交易池
+### 2.9 交易池
 
 - `GetMemPoolTxState` 接口用于查询指定交易在交易池中的状态。
 
@@ -267,9 +267,9 @@ if err != nil {
 }
 ```
 
-## 钱包
+## 3. 钱包
 
-<p class = "info">GO SDK中的OpenWallet方法只能打开已经存在的钱包，如果该文件路径下没有.dat文件，将会报错</p>
+<p class = "info">`GO SDK` 中的 `OpenWallet` 方法只能打开已经存在的钱包，如果该文件路径下没有 `.dat` 文件，将会报错</p>
 
 ```go
 import (
@@ -289,9 +289,9 @@ if err != nil {
 }
 ```
 
-### 获取账户
+### 3.1 获取账户
 
-- 根据 Base58 编码地址获取账户
+- 根据 `Base58` 编码地址获取账户
 
 ```go
 b58Addr := "ANDfjwrUroaVtvBguDtrWKRMyxFwvVwnZD"
@@ -327,7 +327,7 @@ if err != nil {
 }
 ```
 
-### 创建账户
+### 3.2 创建账户
 
 - 创建随机账户
 
@@ -352,9 +352,13 @@ if err != nil {
 }
 ```
 
-!> <code>WIF（Wallet Import Format）</code> 是将明文私钥以 <code>Base58</code> 校验和编码格式显示的钱包导入格式。<code>WIF</code> 和私钥可以互转，因此也理解为是另一种形式的明文私钥。任何具有 <code>WIF</code> 的人，就能控制该 <code>WIF</code> 所对应的钱包账户。
+!> <code>WIF（Wallet Import Format）</code> 是将明文私钥导入以 <code>Base58</code> 校验和编码格式显示的钱包的格式。
 
-### 删除账户
+<code>WIF</code> 和私钥可以互转，因此其也理解为是另一种形式的明文私钥。
+
+任何拥有 <code>WIF</code> 的人，都能控制该 <code>WIF</code> 所对应的钱包账户。
+
+### 3.3 删除账户
 
 ```go
 b58Addr := "AHPVRC5biRZfHRcYFLHfRPfgmbFdCzYQWq"

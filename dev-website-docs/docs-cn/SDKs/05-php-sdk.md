@@ -1,11 +1,11 @@
 
 # 数字资产管理
 
-## 钱包数据规范
+## 1. 钱包数据规范
 
-钱包用户存储多个数字身份以及数字资产账户。钱包文件采用 JSON 格式对数据进行组织，各个字段的详细可以参考钱包文件规范。
+钱包用户可以同时存储多个数字身份以及数字资产账户。 钱包文件采用 `JSON` 格式对数据进行存储，各个字段的详细信息可以参考[ 钱包文件规范 ](https://ontio.github.io/documentation/Wallet_File_Specification_cn.html)。
 
-### 打开、创建本地钱包
+### 1.1 打开、创建本地钱包
 
 为了管理数字资产，首先需要创建或打开一个钱包文件:
 
@@ -19,9 +19,9 @@ $w = Wallet::fromFile('path_to_wallet_file');
 $w = Wallet::create('example_wallet');
 ```
 
-### 保存本地钱包
+### 1.2 保存本地钱包
 
-对钱包内容的修改，默认只作用于内存中的数据，如果需要将修改作用于钱包文件，则需要显式地进行保存:
+对钱包内容的修改，默认只作用于内存中的数据，如果需要将修改作用于钱包文件，则需要**显式**地进行保存:
 
 ```php
 use ontio\sdk\Wallet;
@@ -35,11 +35,11 @@ $w = Wallet::fromFile('path_to_wallet_file');
 $w->save('as_another_path_to_wallet_file');
 ```
 
-## 公私钥和地址
+## 2. 公私钥和地址
 
 账户是基于公私钥创建的，地址是公钥转换而来。
 
-### 创建私钥
+### 2.1 创建私钥
 
 ```php
 use ontio\crypto\KeyType;
@@ -55,7 +55,7 @@ $key = PrivateKey::random();
 $key = PrivateKey::random(KeyType::$Sm2, new KeyParameters(CurveLabel::$Sm2P256v1));
 ```
 
-### 导入私钥
+### 2.2 导入私钥
 
 ```php
 use ontio\crypto\PrivateKey;
@@ -74,7 +74,7 @@ $wif = 'L4shZ7B4NFQw2eqKncuUViJdFRq6uk1QUb6HjiuedxN4Q2CaRQKW'
 $prikey = PrivateKey::fromWif($wif);
 ```
 
-### 获取公钥
+### 2.3 获取公钥
 
 当获取了私钥实例后，可以通过调用实例上的方法来获取对应的公钥:
 
@@ -83,7 +83,7 @@ $prikey = PrivateKey::fromWif($wif);
 $pubkey = $prikey->getPublicKey();
 ```
 
-### 获取地址
+### 2.4 获取地址
 
 当获取了公钥实例后，可以通过下面方式获得对应的地址:
 
@@ -94,9 +94,9 @@ $pubkey = $prikey->getPublicKey();
 $addr = Address::fromPubKey($pubkey);
 ```
 
-## 账户
+## 3. 账户
 
-### 创建账户
+### 3.1 创建账户
 
 ```php
 use ontio\sdk\Account;
@@ -105,11 +105,11 @@ use ontio\sdk\Account;
 $acc =  Account::create('123456');
 ```
 
-### 导入账户
+### 3.2 导入账户
 
 支持多种方式导入账户:
 
-由 Keystore 导入:
+由 `Keystore` 导入:
 
 ```php
 use ontio\sdk\Keystore;
@@ -121,7 +121,7 @@ $keystore = Keystore::fromJson($data);
 $acc = Account::importFromKeystore($keystore, '111111');
 ```
 
-由 wif 导入:
+由 `wif` 导入:
 
 ```php
 use ontio\sdk\Account;
@@ -140,7 +140,7 @@ $mnemonic = 'hill ready family useful detect bacon visit canoe recall circle top
 $acc = Account::importFromMnemonic($mnemonic);
 ```
 
-### 加入钱包
+### 3.3 加入钱包
 
 账号导入成功后，如果需要作用到钱包上，需要将账户加入钱包:
 
@@ -153,7 +153,7 @@ $w->addAccount($acc);
 $w->save(); // 写入文件
 ```
 
-### 移除账户
+### 3.4 移除账户
 
 ```php
 $w = Wallet::fromFile('path_to_wallet_file');
@@ -162,13 +162,13 @@ $w->deleteAccount($acc);
 $w->save(); // 写入文件
 ```
 
-## 资产
+## 4. 资产
 
-本体中有两种原生资产: ONT 和 ONG
+本体中有两种原生资产: `ONT` 和 `ONG`
 
-### 转账
+### 4.1 转账
 
-下面是一个比较完整的对 ONT 进行转账的例子:
+下面是一个比较完整的对 `ONT` 进行转账的例子:
 
 ```php
 use ontio\crypto\Address;
@@ -209,11 +209,11 @@ $txBuilder->signTransaction($tx, $fromPrikey);
 $rpc->sendRawTransaction($tx->serialize());
 ```
 
-转账 ONG 与上面的流程基本一样，只是 `makeTransferTx` 第一个参数替换为 `ONG` 即可。
+对 `ONG` 转账流程与上面的流程基本一样，只是 `makeTransferTx` 第一个参数替换为 `ONG` 即可。
 
-### 余额查询
+### 4.2 余额查询
 
-使用 RPC 来进行余额查询:
+使用 `RPC` 来进行余额查询:
 
 ```php
 use ontio\network\JsonRpc;

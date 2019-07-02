@@ -1,6 +1,6 @@
 
 
-## 类型: 默认，OEP4 或OEP5
+## 类型: 默认，OEP4 或 OEP5
 
 	url：/api/v1/explorer/contract/registerContractInfo
 

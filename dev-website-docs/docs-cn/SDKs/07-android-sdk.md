@@ -1,5 +1,5 @@
 
-android sdk 项目地址[链接](https://github.com/ontio-community/ontology-andriod-sdk)。
+android sdk 项目地址[ 链接 ](https://github.com/ontio-community/ontology-andriod-sdk)。
 
 ## 1. 与链交互
 
@@ -19,11 +19,11 @@ ontSdk.setDefaultConnect(ontSdk.getRpc());
 
 #### 查询 Unbound ong
 
-通过地址查询余额，ONT, ONG, claimable ONG and unbound ONG.
+通过地址查询余额: `ONT` , `ONG` , `claimable ONG` and  `unbound ONG` .
 
-测试网服务器  https://polarisexplorer.ont.io
+测试网服务器  [https://polarisexplorer.ont.io](https://polarisexplorer.ont.io)
 
-主网服务器 https://explorer.ont.io
+主网服务器 [https://explorer.ont.io](https://explorer.ont.io)
 
 ````
 /api/v1/explorer/address/balance/{address}
@@ -155,7 +155,7 @@ successResponse：
 | 20   |        ontSdk.getConnect().getMemPoolTxState("")         | getMemPoolTxState |
 
 
-#### 查询 ONT/ONG 余额
+#### 1.3.1 查询 ONT/ONG 余额
 
 ```
 ontSdk.getConnect().getBalance("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2");
@@ -176,7 +176,7 @@ System.out.println(ontSdk.nativevm().ong().queryTotalSupply());
 
 ```
 
-#### 查询交易是否在交易池中
+#### 1.3.2 查询交易是否在交易池中
 
 ```
 ontSdk.getConnect().getMemPoolTxState("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
@@ -217,7 +217,7 @@ or not in pool
 
 ```
 
-#### 查询交易是否成功
+#### 1.3.3 查询交易是否成功
 
 查询智能合约事件: 
 
@@ -288,9 +288,10 @@ response:
 
 
 
-### 2.1 助记词和keystore
+### 2.1 助记词和 keystore
 
-Users can use the menmonic code to create an account. The BIP44 path Ontology uses is "m/44'/1024'/0'/0/0".
+
+用户可以使用 `menmonic` 代码创建帐户。 本体使用的 `BIP44` 路径是 “m / 44'/ 1024'/ 0'/ 0/0”。
 
 Mnemonic code
 ```
@@ -307,7 +308,12 @@ com.github.ontio.sdk.wallet.Account acct = ontSdk.getWalletMgr().createAccountFr
 
 ```
 
-Keystore is  a data structure to backup user's account.And it can saved in QR code.Then users can use mobile to scan that QR code to read the data and recover the account. You can check the [Wallet Specification](Wallet_Specification_en.md) to see more info.
+Keystore 是备份用户帐户的数据结构。它可以保存在 `QR` 码中。
+
+用户可以使用手机扫描该 `QR` 码来读取数据并恢复帐户。 
+
+您可以查看 [ Wallet Specification ](Wallet_Specification_en.md) 以查看更多信息。
+
 
 ```
 //get keystore
@@ -326,7 +332,7 @@ String prikey2 = WalletQR.getPriKeyFromQrCode(JSON.toJSONString(keystore),"passw
 Account acct2 = new Account(prikey2,SignatureScheme.SHA256WITHECDSA);
  ```
 
-import keystore
+导入 keystore
 
  ```
  
@@ -342,7 +348,7 @@ com.github.ontio.sdk.wallet.Account acct = ontSdk.getWalletMgr().createAccount("
 ontSdk.getWalletMgr().writeWallet();
 ```
 
-remove account from wallet:
+从钱包中删除帐户:
 
 ```
 
@@ -359,7 +365,7 @@ com.github.ontio.sdk.wallet.Account acct = ontSdk.getWalletMgr().createAccountFr
 ontSdk.getWalletMgr().writeWallet();
 ```
 
-### 2.4 通过WIF创建账号
+### 2.4 通过 WIF 创建账号
 
 ```
 
@@ -449,8 +455,8 @@ String hash = ontSdk.nativevm().oep4().sendTransfer(acct0,"AUe2KKPnNMnM7hLHj6dEP
 
 ### 3.4 提取 ONG
 
-1. 查询 unboundOng
-2. 提取 ONG
+1. 查询 `unboundOng`
+2. 提取 `ONG`
 
 ```
 query unboundOng:
@@ -474,7 +480,7 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 参考例子：[例子](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
-#### 转账
+#### 3.5.1 转账
 
 ```
 
@@ -504,9 +510,9 @@ ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 | makeTransfer | String sender，String recvAddr,long amount,String payer,long gaslimit,long gasprice | sender,to,amount,payer,gaslimit,gasprice |
 | makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice    | multi state                                   |
 
-#### 签名
+#### 3.5.2 签名
 
-如果转出方和网络费付款人不是统一个人，两则都需要签名.
+如果转出方和网络费付款人不是同一个人，两者都需要签名.
 
 ```
 1.add Sign
@@ -519,9 +525,9 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct0,acct1});
 
 
 
-#### 一转多多转多
+#### 3.5.3 一转多多转多
 
-1. 构造多个state
+1. 构造多个 `state`
 2. 签名
 
 ```
@@ -565,7 +571,7 @@ String ddo2 = ontSdk.nativevm().ontId().sendGetDDO(identity.ontid);
  
 ```
 
-#### 4.3 身份keystore
+#### 4.3 身份 keystore
 
 导出助记词
 
@@ -592,7 +598,7 @@ String prikey2 = WalletQR.getPriKeyFromQrCode(JSON.toJSONString(keystore),"passw
 
 ### 5.1 注册候选节点
 
-注册候选节点.
+注册候选节点：
 
 ````
 
@@ -609,7 +615,7 @@ String txhash = sdk.nativevm().governance().registerCandidate(account,peerPubkey
 
 ### 5.2 取消注册
 
-取消注册.
+取消注册：
 
 ```
 String peerPubkey = Helper.toHexString(account8.serializePublicKey());
@@ -619,7 +625,7 @@ String txhash = sdk.nativevm().governance().unRegisterCandidate(account,peerPubk
 
 ### 5.3 提取 
 
-提取 ONT.
+提取 `ONT`:
 
 ```
 
@@ -630,7 +636,7 @@ String txhash = sdk.nativevm().governance().withdraw(account,peerPubkeys,new lon
 
 ### 5.4 退出质押
 
-退出质押.
+退出质押:
 
 ```
 String[] peerPubkeys = new String[]{"03e1e09221c9f513df76273f3cec0d033ee6056b159300d7b1072fc7020eadccbb"};

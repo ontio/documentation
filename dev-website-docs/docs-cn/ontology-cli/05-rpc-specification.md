@@ -1,7 +1,7 @@
 
 ## 简介
 
-默认情况下，```RPC``` 接口监听在 20336 端口。
+默认情况下，```RPC``` 接口监听在 `20336` 端口。
 
 使用 `--rpcport` 选项为客户端指定 ```RPC``` 监听端口：
 
@@ -9,17 +9,17 @@
 ontology --rpcport 1024
 ```
 
-使用 `--disable-rpc` 选项可以关闭客户端的 RPC 服务：
+使用 `--disable-rpc` 选项可以关闭客户端的 `RPC` 服务：
 
 ```shell
 ontology --disable-rpc
 ```
 
-<p class = "info">远程过程调用（RPC）也称为函数调用或子例程调用，用于供位于网络上的一台计算机向另一台计算机中请求服务（无需了解网络的详细信息）。</p>
+<p class = "info">远程过程调用（ RPC）也称为函数调用或子例程调用，用于供位于网络上的一台计算机向另一台计算机中请求服务（无需了解网络的详细信息）。</p>
 
 ## 方法列表
 
-本体客户端 RPC 接口所支持的方法如下表所示。
+本体客户端 `RPC` 接口所支持的方法如下表所示。
 
 | 方法                                                                                       | 描述                                           |
 | :----------------------------------------------------------------------------------------- | :--------------------------------------------- |
@@ -38,17 +38,17 @@ ontology --disable-rpc
 | [getsmartcodeevent](docs-cn/ontology-cli/05-rpc-specification#getsmartcodeevent)           | 获取智能合约的执行结果                         |
 | [getblockheightbytxhash](docs-cn/ontology-cli/05-rpc-specification#getblockheightbytxhash) | 获取交易落账的区块高度                         |
 | [getbalance](docs-cn/ontology-cli/05-rpc-specification#getbalance)                         | 获取账户地址的余额                             |
-| [getmerkleproof](docs-cn/ontology-cli/05-rpc-specification#getmerkleproof)                 | 获取交易的 merkle 证明                         |
+| [getmerkleproof](docs-cn/ontology-cli/05-rpc-specification#getmerkleproof)                 | 获取交易的  `merkle` 证明                         |
 | [getgasprice](docs-cn/ontology-cli/05-rpc-specification#getgasprice)                       | 获取当前节点的 `gas price`                     |
 | [getallowance](docs-cn/ontology-cli/05-rpc-specification#getallowance)                     | 获取一方账户允许另一方账户转出的通证额度       |
-| [getgrantong](docs-cn/ontology-cli/05-rpc-specification#getgrantong)                       | 获取根据当前所持有 ONT 估算出的可提取 ONG 数量 |
-| [getunboundong](docs-cn/ontology-cli/05-rpc-specification#getunboundong)                   | 获取账户当前实际可提取的 ONG 数量              |
+| [getgrantong](docs-cn/ontology-cli/05-rpc-specification#getgrantong)                       | 获取根据当前所持有 `ONT` 估算出的可提取 `ONG` 数量 |
+| [getunboundong](docs-cn/ontology-cli/05-rpc-specification#getunboundong)                   | 获取账户当前实际可提取的 `ONG` 数量              |
 | [getblocktxsbyheight](docs-cn/ontology-cli/05-rpc-specification#getblocktxsbyheight)       | 获取指定高度的区块哈希                         |
 | [getnetworkid](docs-cn/ontology-cli/05-rpc-specification#getnetworkid)                     | 获取网络编号                                   |
 
 ## 接口定义
 
-本体客户端的 JSON-RPC 接口定义如下：
+本体客户端的 `JSON-RPC` 接口定义如下：
 
 - 默认接口监听端口号：`20336`
 
@@ -91,7 +91,7 @@ ontology --disable-rpc
 | 45001 | int64 | 内部错误         |
 | 47001 | int64 | 智能合约执行错误 |
 
-## getbestblockhash
+## 1. getbestblockhash
 
 获取当前节点最高区块的哈希值。
 
@@ -120,14 +120,14 @@ ontology --disable-rpc
 }
 ```
 
-## getblock
+## 2. getblock
 
 `getblock` 接口用于根据区块哈希或区块高度查询区块信息。
 
 #### 参数说明
 
 - `block_hash` / `block_height`：区块哈希/高度。
-- `verbose`：当值为 0 时，返回以十六进制字符串表示序列化后的区块信息。当值为1时，将以 json 格式返回对应区块的详细信息。
+- `verbose`：当值为 0 时，返回以十六进制字符串表示序列化后的区块信息。当值为1时，将以 `json` 格式返回对应区块的详细信息。
 
 `getblock` 接口的请求与响应如下所示。
 
@@ -223,7 +223,7 @@ ontology --disable-rpc
 }
 ```
 
-## getblockcount
+## 3. getblockcount
 
 查询当前的区块数量。
 
@@ -252,7 +252,7 @@ ontology --disable-rpc
 }
 ```
 
-## getblockhash
+## 4. getblockhash
 
 返回对应高度的区块哈希。
 
@@ -285,7 +285,7 @@ ontology --disable-rpc
 }
 ```
 
-## getconnectioncount
+## 5. getconnectioncount
 
 得到当前网络上连接的节点数。
 
@@ -314,14 +314,14 @@ ontology --disable-rpc
 }
 ```
 
-## getrawtransaction
+## 6. getrawtransaction
 
 通过交易哈希得到交易详情。
 
 #### 参数说明
 
 - `tx_hash`：交易哈希
-- `verbose`：当值为 0 时，返回以十六进制字符串表示的序列化交易信息；当值为 1 时，将以 json 格式返回对应的交易详细信息。
+- `verbose`：当值为 0 时，返回以十六进制字符串表示的序列化交易信息；当值为 1 时，将以 `json` 格式返回对应的交易详细信息。
 
 #### 调用示例
 
@@ -395,7 +395,7 @@ ontology --disable-rpc
 }
 ```
 
-## sendrawtransaction
+## 7. sendrawtransaction
 
 向网络中发送交易。
 
@@ -431,7 +431,7 @@ ontology --disable-rpc
 
 <p class = "info"> 响应中 <code>result</code> 所对应的值为交易哈希。</p>
 
-## getstorage
+## 8. getstorage
 
 获取合约存储中指定键值对应的值。
 
@@ -468,11 +468,11 @@ ontology --disable-rpc
 <section class = "info">
   <ul>
     <li>请求中的 <code>key</code> 为十六进制字符串形式的合约存储键值。</li>
-    <li>响应中的 <code>result</code> 所对应的值为序列化后的十六进制字符串，可以使用 SDK 进行反序列化。</li>
+    <li>响应中的 <code>result</code> 所对应的值为序列化后的十六进制字符串，可以使用 <code>SDK</code> 进行反序列化。</li>
   </ul>
 </section>
 
-根据智能合约编译后所得到的 `avm code`，可以使用 SDK 生成合约地址。
+根据智能合约编译后所得到的 `avm code`，可以使用 `SDK` 生成合约地址。
 
 ```python
 from ontology.common.address import Address
@@ -517,7 +517,7 @@ public class NetworkDemo {
 }
 ```
 
-## getversion
+## 9. getversion
 
 获取当前连接节点的版本。
 
@@ -546,14 +546,14 @@ public class NetworkDemo {
 }
 ```
 
-## getcontractstate
+## 10. getcontractstate
 
 根据合约地址获取合约信息。
 
 #### 参数说明
 
 - `hex_contract_address`：以十六进制字符串表示的合约哈希地址
-- `verbose`：当值为 0 时，返回以十六进制字符串表示的序列化合约信息；当值为 1 时，将以 json 格式返回对应的合约详细信息。
+- `verbose`：当值为 0 时，返回以十六进制字符串表示的序列化合约信息；当值为 1 时，将以 `json` 格式返回对应的合约详细信息。
 
 #### 调用示例
 
@@ -588,7 +588,7 @@ public class NetworkDemo {
 }
 ```
 
-## getmempooltxcount
+## 11. getmempooltxcount
 
 获取内存中的交易的数量。
 
@@ -617,7 +617,7 @@ public class NetworkDemo {
 }
 ```
 
-## getmempooltxstate
+## 12. getmempooltxstate
 
 获取交易池（内存）中的交易的状态。
 
@@ -660,7 +660,7 @@ public class NetworkDemo {
 }
 ```
 
-## getsmartcodeevent
+## 13. getsmartcodeevent
 
 获取智能合约的执行结果。
 
@@ -780,7 +780,7 @@ public class NetworkDemo {
 |    字段     |                     含义                     |
 | :---------: | :------------------------------------------: |
 |   TxHash    |                  交易哈希值                  |
-|    State    | 交易的执行状态，0表示执行失败，1表示执行成功 |
+|    State    | 交易的执行状态，0 表示执行失败，1 表示执行成功 |
 | GasConsumed |              交易所消耗的手续费              |
 |   Notify    |           交易所触发的合约事件列表           |
 
@@ -795,10 +795,10 @@ public class NetworkDemo {
 >
 > - 如果参数是区块高度，返回执行结果的集合。
 > - 如果是交易哈希，返回对应交易的执行结果。
-> - `Notify` 字段中的`States`在只包含一个字段时为字符串类型，包含多个字段时则为数组类型
->
+> - `Notify` 字段中的 `States` 在只包含一个字段时为字符串类型，包含多个字段时则为数组类型
 
-## getblockheightbytxhash
+
+## 14. getblockheightbytxhash
 
 得到该交易哈希所落账的区块的高度。
 
@@ -831,9 +831,9 @@ public class NetworkDemo {
 }
 ```
 
-## getbalance
+## 15. getbalance
 
-返回 base58 地址的余额
+返回 `base58` 地址的余额
 
 #### 参数说明
 
@@ -867,9 +867,9 @@ public class NetworkDemo {
 }
 ```
 
-## getmerkleproof
+## 16. getmerkleproof
 
-返回对应交易的 merkle 证明。
+返回对应交易的 `merkle` 证明。
 
 #### 参数定义
 
@@ -921,9 +921,9 @@ public class NetworkDemo {
 }
 ```
 
-## getgasprice
+## 17. getgasprice
 
-返回 GAS 价格。
+返回 `GAS` 价格。
 
 #### 调用示例
 
@@ -953,15 +953,15 @@ public class NetworkDemo {
 }
 ```
 
-## getallowance
+## 18. getallowance
 
-返回允许从 from 转出到 to 账户的额度。
+返回允许从 `from` 转出到 `to` 账户的额度。
 
 #### 参数说明
 
 - `asset`: "ont" 或者 "ong"
-- `from`: 转出账户 base58 地址
-- `to`: 转入账户 base58 地址
+- `from`: 转出账户 `base58` 地址
+- `to`: 转入账户 `base58` 地址
 
 #### 调用示例
 
@@ -988,13 +988,13 @@ public class NetworkDemo {
 }
 ```
 
-## getunboundong
+## 19. getunboundong
 
-返回可以提取的ong。
+返回可以提取的 `ong` 。
 
 #### 参数定义
 
-`address`：提取 ong 的账户地址。
+`address`：提取 `ong` 的账户地址。
 
 #### 调用示例
 
@@ -1021,7 +1021,7 @@ public class NetworkDemo {
 }
 ```
 
-## getblocktxsbyheight
+## 20. getblocktxsbyheight
 
 返回该高度对应的区块落账的所有交易的哈希。
 
@@ -1060,9 +1060,9 @@ public class NetworkDemo {
 }
 ```
 
-## getnetworkid
+## 21. getnetworkid
 
-获取 network id。
+获取 `network id`。
 
 #### 调用示例
 
@@ -1089,9 +1089,9 @@ public class NetworkDemo {
 }
 ```
 
-## getgrantong
+## 22. getgrantong
 
-获取 grant ong.
+获取 `grant ong`.
 
 #### 调用示例
 
