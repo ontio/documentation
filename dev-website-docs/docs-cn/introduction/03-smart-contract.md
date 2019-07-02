@@ -80,64 +80,6 @@ GAS price 是给执行 opcode 定价，GAS price 越高，共识节点会优先�
 
 <p class = "info"> 所有的 ONT, ONG 的转账 GAS limit 消费固定都是20000。</p>
 
-### 设置 GAS Fee
-
-####  使用 Ontology CLI 设置
-
-以 ONT 转账为例，使用 Ontology CLI 手动设置 GAS price 和 GAS limit 参数: `--gasprice` 、`--gaslimit`   
-
-**查询余额**
-
-```
-./ontology asset balance TA7FwLmuX6qMcWTgZtUxt6tjzFgfaBM5sz
-```
-
-![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fs3ot3e084j30tc03q0tn.jpg)
-
-**转账**
-
-```
-./ontology asset transfer --from TA7FwLmuX6qMcWTgZtUxt6tjzFgfaBM5sz  --to TA7FwLmuX6qMcWTgZtUxt6tjzFgfaBM5sz  --amount 1000 --gasprice 5 --gaslimit 40000
-```
-
-![image](https://ws4.sinaimg.cn/large/006tKfTcgy1fs3ot31uq6j30sc03qaav.jpg)
 
 
-可以看到，转账1000 个 ONT，GAS price  = 5，GAS limit = 40000，
 
-最终消耗的 **GAS** =  1787019.99985 - 1787019.9997 = 0.00015
-
-#### 使用 SDK 设置
-
-目前使用 Java SDK 和 Golang SDK 都可以设置 GAS limit 和 GAS price。
-
-以 JAVA SDK 转账为例：
-
-```
-String sendTransfer(Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)(Account sendAcct, String recvAddr, long amount, Account payerAcct, long gaslimit, long gasprice)
-```
-
-可以在 **sendTransfer** 函数参数中调用指定 GAS 价格。
-
-[JAVA SDK](https://github.com/ontio/ontology-java-sdk/tree/master/docs/cn)
-
-[Golang SDK](https://github.com/ontio/ontology-go-sdk)
-
-
-## DApp 去中心化应用
-
-DApp 是去中心化应用程序的缩写形式。 DApp 由在去中心化的 P2P 网络上运行的后端代码组成。 DApp 可以有一个用户界面，由可以调用后端服务的前端代码创建。 DApp 不需要中央权限来运行：它们允许用户和提供者之间的直接交互。
-
-![dapp](https://upload-images.jianshu.io/upload_images/150344-450fe6ab35cca843.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![app vs dapp.png](https://upload-images.jianshu.io/upload_images/150344-db176bdda1168c42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-DApp 具有以下特点:
-
-*   **开源**：理想情况下，它应该由自治来管理，所有变更必须由其用户的共识（或占大多数）决定。它的代码库应该可供审查。
-
-*   **去中心化**：应用程序操作的所有记录必须存储在公共和去中心化的区块链中，以避免集中化的陷阱。
-
-*   **激励**：应通过使用加密令牌相应地奖励区块链的验证者来激励它们。
-
-*   **协议**：应用程序社区必须就加密算法达成一致，以显示价值证明。例如，比特币使用 [Proof of Work (PoW)](https://en.bitcoin.it/wiki/Proof_of_work)，Ethereum 使用 [hybrid PoW/Proof of Stake (PoS)](https://github.com/ethereum/wiki/wiki/Proof-of-Stake-FAQ)[5](https://blockgeeks.com/guides/dapps/#sdfootnote5sym)。
