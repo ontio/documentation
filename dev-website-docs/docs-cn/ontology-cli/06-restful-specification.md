@@ -21,29 +21,29 @@ ontology --rest --restport 1024
 
 | 方法                                                                                           | 描述                                     |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| [_1-get_conn_count](docs-cn/ontology-cli/06-restful-specification#get_conn_count)                 | 得到当前连接的节点数量                   |
-| [_2-get_blk_txs_by_height](docs-cn/ontology-cli/06-restful-specification#get_blk_txs_by_height)   | 得到该高度的区块的所有交易哈希           |
-| [_3-get_blk_by_height](docs-cn/ontology-cli/06-restful-specification#get_blk_by_height)           | 得到该高度的区块信息                     |
-| [_4-get_blk_by_hash](docs-cn/ontology-cli/06-restful-specification#get_blk_by_hash)               | 通过区块哈希得到区块信息                 |
-| [_5-get_blk_height](docs-cn/ontology-cli/06-restful-specification#get_blk_height)                 | 得到当前网络上的区块高度                 |
-| [_6-get_blk_hash](docs-cn/ontology-cli/06-restful-specification#get_blk_hash)                     | 得到该高度的区块哈希                     |
-| [_7-get_tx](docs-cn/ontology-cli/06-restful-specification#get_tx)                                 | 通过交易哈希得到该交易的信息             |
-| [_8-get_storage](docs-cn/ontology-cli/06-restful-specification#get_storage)                       | 通过合约地址哈希和键得到对应的值         |
-| [_9-get_balance](docs-cn/ontology-cli/06-restful-specification#get_balance)                       | 得到该地址的账户的余额                   |
-| [_10-get_contract_state](docs-cn/ontology-cli/06-restful-specification#get_contract_state)         | 得到合约状态                             |
-| [_11-get_sc_event_by_height](docs-cn/ontology-cli/06-restful-specification#get_sc_event_by_height) | 得到该高度区块上的智能合约执行结果       |
-| [_12-get_smtcode_evts](docs-cn/ontology-cli/06-restful-specification#get_smtcode_evts)             | 通过交易哈希得到该交易的执行结果         |
-| [_13-get_blk_hgt_by_txhash](docs-cn/ontology-cli/06-restful-specification#get_blk_hgt_by_txhash)   | 通过交易哈希得到该交易落账的区块高度     |
-| [_14-get_merkle_proof](docs-cn/ontology-cli/06-restful-specification#get_merkle_proof)             | 通过交易哈希得到该交易的 `merkle` 证明     |
-| [_15-get_gasprice](docs-cn/ontology-cli/06-restful-specification#get_gasprice)                     | 得到  `GAS` 的价格                          |
-| [_16-get_allowance](docs-cn/ontology-cli/06-restful-specification#get_allowance)                   | 返回允许从 `from` 账户转出到 `to` 账户的额度 |
-| [_17-get_unboundong](docs-cn/ontology-cli/06-restful-specification#get_unboundong)                 | 返回该账户未提取的 `ong` 数量                |
-| [_18-get_mempooltxcount](docs-cn/ontology-cli/06-restful-specification#get_mempooltxcount)         | 得到内存中的交易的数量                   |
-| [_19-get_mempooltxstate](docs-cn/ontology-cli/06-restful-specification#get_mempooltxstate)         | 通过交易哈希得到内存中该交易的状态       |
-| [_20-get_version](docs-cn/ontology-cli/06-restful-specification#get_version)                       | 得到版本信息                             |
-| [_21-post_raw_tx](docs-cn/ontology-cli/06-restful-specification#post_raw_tx)                       | 向本体网络发送交易                       |
-| [_22-get_networkid](docs-cn/ontology-cli/06-restful-specification#get_networkid)                   | 获取网络编号                             |
-| [_23-get_grantong](docs-cn/ontology-cli/06-restful-specification#get_grantong)                     | 得到  `grant ong`                          |
+| [get_conn_count](docs-cn/ontology-cli/06-restful-specification#_1-get_conn_count)                 | 得到当前连接的节点数量                   |
+| [get_blk_txs_by_height](docs-cn/ontology-cli/06-restful-specification#_2-get_blk_txs_by_height)   | 得到该高度的区块的所有交易哈希           |
+| [get_blk_by_height](docs-cn/ontology-cli/06-restful-specification#_3-get_blk_by_height)           | 得到该高度的区块信息                     |
+| [get_blk_by_hash](docs-cn/ontology-cli/06-restful-specification#_4-get_blk_by_hash)               | 通过区块哈希得到区块信息                 |
+| [get_blk_height](docs-cn/ontology-cli/06-restful-specification#_5-get_blk_height)                 | 得到当前网络上的区块高度                 |
+| [get_blk_hash](docs-cn/ontology-cli/06-restful-specification#_6-get_blk_hash)                     | 得到该高度的区块哈希                     |
+| [get_tx](docs-cn/ontology-cli/06-restful-specification#_7-get_tx)                                 | 通过交易哈希得到该交易的信息             |
+| [get_storage](docs-cn/ontology-cli/06-restful-specification#_8-get_storage)                       | 通过合约地址哈希和键得到对应的值         |
+| [get_balance](docs-cn/ontology-cli/06-restful-specification#_9-get_balance)                       | 得到该地址的账户的余额                   |
+| [get_contract_state](docs-cn/ontology-cli/06-restful-specification#_10-get_contract_state)         | 得到合约状态                             |
+| [get_sc_event_by_height](docs-cn/ontology-cli/06-restful-specification#_11-get_sc_event_by_height) | 得到该高度区块上的智能合约执行结果       |
+| [get_smtcode_evts](docs-cn/ontology-cli/06-restful-specification#_12-get_smtcode_evts)             | 通过交易哈希得到该交易的执行结果         |
+| [get_blk_hgt_by_txhash](docs-cn/ontology-cli/06-restful-specification#_13-get_blk_hgt_by_txhash)   | 通过交易哈希得到该交易落账的区块高度     |
+| [get_merkle_proof](docs-cn/ontology-cli/06-restful-specification#_14-get_merkle_proof)             | 通过交易哈希得到该交易的 `merkle` 证明     |
+| [get_gasprice](docs-cn/ontology-cli/06-restful-specification#_15-get_gasprice)                     | 得到  `GAS` 的价格                          |
+| [get_allowance](docs-cn/ontology-cli/06-restful-specification#_16-get_allowance)                   | 返回允许从 `from` 账户转出到 `to` 账户的额度 |
+| [get_unboundong](docs-cn/ontology-cli/06-restful-specification#_17-get_unboundong)                 | 返回该账户未提取的 `ong` 数量                |
+| [get_mempooltxcount](docs-cn/ontology-cli/06-restful-specification#_18-get_mempooltxcount)         | 得到内存中的交易的数量                   |
+| [get_mempooltxstate](docs-cn/ontology-cli/06-restful-specification#_19-get_mempooltxstate)         | 通过交易哈希得到内存中该交易的状态       |
+| [get_version](docs-cn/ontology-cli/06-restful-specification#_20-get_version)                       | 得到版本信息                             |
+| [post_raw_tx](docs-cn/ontology-cli/06-restful-specification#_21-post_raw_tx)                       | 向本体网络发送交易                       |
+| [get_networkid](docs-cn/ontology-cli/06-restful-specification#_22-get_networkid)                   | 获取网络编号                             |
+| [get_grantong](docs-cn/ontology-cli/06-restful-specification#_23-get_grantong)                     | 得到  `grant ong`                          |
 
 ## 接口定义
 

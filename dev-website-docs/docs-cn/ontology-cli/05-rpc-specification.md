@@ -23,28 +23,28 @@ ontology --disable-rpc
 
 | 方法                                                                                       | 描述                                           |
 | :----------------------------------------------------------------------------------------- | :--------------------------------------------- |
-| [_1-getbestblockhash](docs-cn/ontology-cli/05-rpc-specification#getbestblokhash)              | 获取当前节点最高区块的哈希值                   |
-| [_2-getblock](docs-cn/ontology-cli/05-rpc-specification#getblock)                             | 根据区块哈希或区块高度查询区块信息             |
-| [_3-getblockcount](docs-cn/ontology-cli/05-rpc-specification#getblockcount)                   | 查询当前的区块数量                             |
-| [_4-getblockhash](docs-cn/ontology-cli/05-rpc-specification#getblockhash)                     | 查询指定高度的区块哈希                         |
-| [_5-getconnectioncount](docs-cn/ontology-cli/05-rpc-specification#getconnectioncount)         | 查询当前节点的连接节点数                       |
-| [_6-getrawtransaction](docs-cn/ontology-cli/05-rpc-specification#getrawtransaction)           | 通过交易哈希得到交易详情                       |
-| [_7-sendrawtransaction](docs-cn/ontology-cli/05-rpc-specification#sendrawtransaction)         | 向网络中发送交易                               |
-| [_8-getstorage](docs-cn/ontology-cli/05-rpc-specification#getstorage)                         | 获取合约存储中指定键值对应的值                 |
-| [_9-getversion](docs-cn/ontology-cli/05-rpc-specification#getversion)                         | 获取当前连接节点的版本                         |
-| [_10-getcontractstate](docs-cn/ontology-cli/05-rpc-specification#getcontractstate)             | 根据合约地址获取合约信息                       |
-| [_11-getmempooltxcount](docs-cn/ontology-cli/05-rpc-specification#getmempooltxcount)           | 获取交易池（内存）中的交易的数量               |
-| [_12-getmempooltxstate](docs-cn/ontology-cli/05-rpc-specification#getmempooltxstate)           | 获取交易池（内存）中的交易的状态               |
-| [_13-getsmartcodeevent](docs-cn/ontology-cli/05-rpc-specification#getsmartcodeevent)           | 获取智能合约的执行结果                         |
-| [_14-getblockheightbytxhash](docs-cn/ontology-cli/05-rpc-specification#getblockheightbytxhash) | 获取交易落账的区块高度                         |
-| [_15-getbalance](docs-cn/ontology-cli/05-rpc-specification#getbalance)                         | 获取账户地址的余额                             |
-| [_16-getmerkleproof](docs-cn/ontology-cli/05-rpc-specification#getmerkleproof)                 | 获取交易的  `merkle` 证明                         |
-| [_17-getgasprice](docs-cn/ontology-cli/05-rpc-specification#getgasprice)                       | 获取当前节点的 `gas price`                     |
-| [_18-getallowance](docs-cn/ontology-cli/05-rpc-specification#getallowance)                     | 获取一方账户允许另一方账户转出的通证额度       |
-| [_19-getgrantong](docs-cn/ontology-cli/05-rpc-specification#getgrantong)                       | 获取根据当前所持有 `ONT` 估算出的可提取 `ONG` 数量 |
-| [_20-getunboundong](docs-cn/ontology-cli/05-rpc-specification#getunboundong)                   | 获取账户当前实际可提取的 `ONG` 数量              |
-| [_21-getblocktxsbyheight](docs-cn/ontology-cli/05-rpc-specification#getblocktxsbyheight)       | 获取指定高度的区块哈希                         |
-| [_22-getnetworkid](docs-cn/ontology-cli/05-rpc-specification#getnetworkid)                     | 获取网络编号                                   |
+| [getbestblockhash](docs-cn/ontology-cli/05-rpc-specification#_1-getbestblokhash)              | 获取当前节点最高区块的哈希值                   |
+| [getblock](docs-cn/ontology-cli/05-rpc-specification#_2-getblock)                             | 根据区块哈希或区块高度查询区块信息             |
+| [getblockcount](docs-cn/ontology-cli/05-rpc-specification#_3-getblockcount)                   | 查询当前的区块数量                             |
+| [getblockhash](docs-cn/ontology-cli/05-rpc-specification#_4-getblockhash)                     | 查询指定高度的区块哈希                         |
+| [getconnectioncount](docs-cn/ontology-cli/05-rpc-specification#_5-getconnectioncount)         | 查询当前节点的连接节点数                       |
+| [getrawtransaction](docs-cn/ontology-cli/05-rpc-specification#_6-getrawtransaction)           | 通过交易哈希得到交易详情                       |
+| [sendrawtransaction](docs-cn/ontology-cli/05-rpc-specification#_7-sendrawtransaction)         | 向网络中发送交易                               |
+| [getstorage](docs-cn/ontology-cli/05-rpc-specification#_8-getstorage)                         | 获取合约存储中指定键值对应的值                 |
+| [getversion](docs-cn/ontology-cli/05-rpc-specification#_9-getversion)                         | 获取当前连接节点的版本                         |
+| [getcontractstate](docs-cn/ontology-cli/05-rpc-specification#_10-getcontractstate)             | 根据合约地址获取合约信息                       |
+| [getmempooltxcount](docs-cn/ontology-cli/05-rpc-specification#_11-getmempooltxcount)           | 获取交易池（内存）中的交易的数量               |
+| [getmempooltxstate](docs-cn/ontology-cli/05-rpc-specification#_12-getmempooltxstate)           | 获取交易池（内存）中的交易的状态               |
+| [getsmartcodeevent](docs-cn/ontology-cli/05-rpc-specification#_13-getsmartcodeevent)           | 获取智能合约的执行结果                         |
+| [getblockheightbytxhash](docs-cn/ontology-cli/05-rpc-specification#_14-getblockheightbytxhash) | 获取交易落账的区块高度                         |
+| [getbalance](docs-cn/ontology-cli/05-rpc-specification#_15-getbalance)                         | 获取账户地址的余额                             |
+| [getmerkleproof](docs-cn/ontology-cli/05-rpc-specification#_16-getmerkleproof)                 | 获取交易的  `merkle` 证明                         |
+| [getgasprice](docs-cn/ontology-cli/05-rpc-specification#_17-getgasprice)                       | 获取当前节点的 `gas price`                     |
+| [getallowance](docs-cn/ontology-cli/05-rpc-specification#_18-getallowance)                     | 获取一方账户允许另一方账户转出的通证额度       |
+| [getgrantong](docs-cn/ontology-cli/05-rpc-specification#_19-getgrantong)                       | 获取根据当前所持有 `ONT` 估算出的可提取 `ONG` 数量 |
+| [getunboundong](docs-cn/ontology-cli/05-rpc-specification#_20-getunboundong)                   | 获取账户当前实际可提取的 `ONG` 数量              |
+| [getblocktxsbyheight](docs-cn/ontology-cli/05-rpc-specification#_21-getblocktxsbyheight)       | 获取指定高度的区块哈希                         |
+| [getnetworkid](docs-cn/ontology-cli/05-rpc-specification#_22-getnetworkid)                     | 获取网络编号                                   |
 
 ## 接口定义
 

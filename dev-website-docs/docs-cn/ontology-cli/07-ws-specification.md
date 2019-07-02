@@ -21,32 +21,32 @@
 
 | 方法                                                                                            | 说明                                                 |
 | :---------------------------------------------------------------------------------------------- | :--------------------------------------------------- |
-| [_1-heartbeat](docs-cn/ontology-cli/07-ws-specification#heartbeat)                                 | 发送心跳信号                                         |
-| [_2-subscribe](docs-cn/ontology-cli/07-ws-specification#subscribe)                                 | 订阅某个服务                                         |
-| [_3-getconnectioncount](docs-cn/ontology-cli/07-ws-specification#getconnectioncount)               | 得到当前连接的节点数量                               |
-| [_4-getblocktxsbyheight](docs-cn/ontology-cli/07-ws-specification#getblocktxsbyheight)             | 返回对应高度的区块中落账的所有交易哈希               |
-| [_5-getblockbyheight](docs-cn/ontology-cli/07-ws-specification#getblockbyheight)                   | 得到该高度的区块的详细信息                           |
-| [_6-getblockbyhash](docs-cn/ontology-cli/07-ws-specification#getblockbyhash)                       | 通过区块哈希得到区块信息                             |
-| [_7-getblockheight](docs-cn/ontology-cli/07-ws-specification#getblockheight)                       | 得到当前网络上的区块高度                             |
-| [_8-getblockhash](docs-cn/ontology-cli/07-ws-specification#getblockhash)                           | 根据高度得到对应区块的哈希                           |
-| [_9-gettransaction](docs-cn/ontology-cli/07-ws-specification#gettransaction)                       | 通过交易哈希得到该交易的信息                         |
-| [_10-sendrawtransaction](docs-cn/ontology-cli/07-ws-specification#sendrawtransaction)               | 向本体网络发送交易, 如果 `preExec=1`，则交易为预执行 |
-| [_11-getstorage](docs-cn/ontology-cli/07-ws-specification#getstorage)                               | 通过合约地址哈希和键得到对应的值                     |
-| [_12-getbalance](docs-cn/ontology-cli/07-ws-specification#getbalance)                               | 得到该地址的账户的余额                               |
-| [_13-getcontract](docs-cn/ontology-cli/07-ws-specification#getcontract)                             | 根据合约地址哈希得到合约信息                         |
-| [_14-getsmartcodeeventbyheight](docs-cn/ontology-cli/07-ws-specification#getsmartcodeeventbyheight) | 得到该高度区块上的智能合约执行结果                   |
-| [_15-getsmartcodeeventbyhash](docs-cn/ontology-cli/07-ws-specification#getsmartcodeeventbyhash)     | 通过交易哈希得到该交易的执行结果                     |
-| [_16-getblockheightbytxhash](docs-cn/ontology-cli/07-ws-specification#getblockheightbytxhash)       | 通过交易哈希得到该交易落账的区块高度                 |
-| [_17-getmerkleproof](docs-cn/ontology-cli/07-ws-specification#getmerkleproof)                       | 通过交易哈希得到该交易的 `merkle` 证明                 |
-| [_18-getsessioncount](docs-cn/ontology-cli/07-ws-specification#getsessioncount)                     | 得到会话数量                                         |
-| [_19-getgasprice](docs-cn/ontology-cli/07-ws-specification#getgasprice)                             | 得到 `GAS` 的价格                                      |
-| [_20-getallowance](docs-cn/ontology-cli/07-ws-specification#getallowance)                           | 返回允许从 `from` 账户转出到 `to` 账户的额度             |
-| [_21-getunboundong](docs-cn/ontology-cli/07-ws-specification#getunboundong)                         | 返回该账户未提取的 `ONG` 数量                           |
-| [_22-getmempooltxstate](docs-cn/ontology-cli/07-ws-specification#getmempooltxstate)                 | 通过交易哈希得到内存中该交易的状态                   |
-| [_23-getmempooltxcount](docs-cn/ontology-cli/07-ws-specification#getmempooltxcount)                 | 得到内存中的交易的数量                               |
-| [_24-getversion](docs-cn/ontology-cli/07-ws-specification#getversion)                               | 得到版本信息                                         |
-| [_25-getnetworkid](docs-cn/ontology-cli/07-ws-specification#getnetworkid)                           | 得到 `network id`                                    |
-| [_26-getgrantong](docs-cn/ontology-cli/07-ws-specification#getgrantong)                             | 得到 `grant ong`                                     |
+| [heartbeat](docs-cn/ontology-cli/07-ws-specification#_1-heartbeat)                                 | 发送心跳信号                                         |
+| [subscribe](docs-cn/ontology-cli/07-ws-specification#_2-subscribe)                                 | 订阅某个服务                                         |
+| [getconnectioncount](docs-cn/ontology-cli/07-ws-specification#_3-getconnectioncount)               | 得到当前连接的节点数量                               |
+| [getblocktxsbyheight](docs-cn/ontology-cli/07-ws-specification#_4-getblocktxsbyheight)             | 返回对应高度的区块中落账的所有交易哈希               |
+| [getblockbyheight](docs-cn/ontology-cli/07-ws-specification#_5-getblockbyheight)                   | 得到该高度的区块的详细信息                           |
+| [getblockbyhash](docs-cn/ontology-cli/07-ws-specification#_6-getblockbyhash)                       | 通过区块哈希得到区块信息                             |
+| [getblockheight](docs-cn/ontology-cli/07-ws-specification#_7-getblockheight)                       | 得到当前网络上的区块高度                             |
+| [getblockhash](docs-cn/ontology-cli/07-ws-specification#_8-getblockhash)                           | 根据高度得到对应区块的哈希                           |
+| [gettransaction](docs-cn/ontology-cli/07-ws-specification#_9-gettransaction)                       | 通过交易哈希得到该交易的信息                         |
+| [sendrawtransaction](docs-cn/ontology-cli/07-ws-specification#_10-sendrawtransaction)               | 向本体网络发送交易, 如果 `preExec=1`，则交易为预执行 |
+| [getstorage](docs-cn/ontology-cli/07-ws-specification#_11-getstorage)                               | 通过合约地址哈希和键得到对应的值                     |
+| [getbalance](docs-cn/ontology-cli/07-ws-specification#_12-getbalance)                               | 得到该地址的账户的余额                               |
+| [getcontract](docs-cn/ontology-cli/07-ws-specification#_13-getcontract)                             | 根据合约地址哈希得到合约信息                         |
+| [getsmartcodeeventbyheight](docs-cn/ontology-cli/07-ws-specification#_14-getsmartcodeeventbyheight) | 得到该高度区块上的智能合约执行结果                   |
+| [getsmartcodeeventbyhash](docs-cn/ontology-cli/07-ws-specification#_15-getsmartcodeeventbyhash)     | 通过交易哈希得到该交易的执行结果                     |
+| [getblockheightbytxhash](docs-cn/ontology-cli/07-ws-specification#_16-getblockheightbytxhash)       | 通过交易哈希得到该交易落账的区块高度                 |
+| [getmerkleproof](docs-cn/ontology-cli/07-ws-specification#_17-getmerkleproof)                       | 通过交易哈希得到该交易的 `merkle` 证明                 |
+| [getsessioncount](docs-cn/ontology-cli/07-ws-specification#_18-getsessioncount)                     | 得到会话数量                                         |
+| [getgasprice](docs-cn/ontology-cli/07-ws-specification#_19-getgasprice)                             | 得到 `GAS` 的价格                                      |
+| [getallowance](docs-cn/ontology-cli/07-ws-specification#_20-getallowance)                           | 返回允许从 `from` 账户转出到 `to` 账户的额度             |
+| [getunboundong](docs-cn/ontology-cli/07-ws-specification#_21-getunboundong)                         | 返回该账户未提取的 `ONG` 数量                           |
+| [getmempooltxstate](docs-cn/ontology-cli/07-ws-specification#_22-getmempooltxstate)                 | 通过交易哈希得到内存中该交易的状态                   |
+| [getmempooltxcount](docs-cn/ontology-cli/07-ws-specification#_23-getmempooltxcount)                 | 得到内存中的交易的数量                               |
+| [getversion](docs-cn/ontology-cli/07-ws-specification#_24-getversion)                               | 得到版本信息                                         |
+| [getnetworkid](docs-cn/ontology-cli/07-ws-specification#_25-getnetworkid)                           | 得到 `network id`                                    |
+| [getgrantong](docs-cn/ontology-cli/07-ws-specification#_26-getgrantong)                             | 得到 `grant ong`                                     |
 
 ## 接口定义
 
