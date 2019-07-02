@@ -988,7 +988,36 @@ public class NetworkDemo {
 }
 ```
 
-## 19. getunboundong
+## 19. getgrantong
+
+获取 `grant ong`.
+
+#### 调用示例
+
+请求：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getgrantong",
+  "params": ["AKDFapcoUhewN9Kaj6XhHusurfHzUiZqUA"],
+  "id": 3
+}
+```
+
+响应：
+
+```json
+{
+  "desc":"SUCCESS",
+  "error":0,
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": 4995625
+}
+```
+
+## 20. getunboundong
 
 返回可以提取的 `ong` 。
 
@@ -1021,7 +1050,7 @@ public class NetworkDemo {
 }
 ```
 
-## 20. getblocktxsbyheight
+## 21. getblocktxsbyheight
 
 返回该高度对应的区块落账的所有交易的哈希。
 
@@ -1060,7 +1089,7 @@ public class NetworkDemo {
 }
 ```
 
-## 21. getnetworkid
+## 22. getnetworkid
 
 获取 `network id`。
 
@@ -1089,31 +1118,4 @@ public class NetworkDemo {
 }
 ```
 
-## 22. getgrantong
 
-获取 `grant ong`.
-
-#### 调用示例
-
-请求：
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "getgrantong",
-  "params": ["AKDFapcoUhewN9Kaj6XhHusurfHzUiZqUA"],
-  "id": 3
-}
-```
-
-响应：
-
-```json
-{
-  "desc":"SUCCESS",
-  "error":0,
-  "jsonrpc": "2.0",
-  "id": 3,
-  "result": 4995625
-}
-```
