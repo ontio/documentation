@@ -1,7 +1,7 @@
 
-# 1. 获取通证信息
+## 1. 获取通证信息
 
-## 类型: oep4
+### 类型: oep4
 
 	url：/api/v1/explorer/oepcontract/{type}/{pagesize}/{pagenumber}
 	method：GET
@@ -74,7 +74,7 @@
 | OngCount|	String|	  |
 
 
-## 类型: oep5
+### 类型: oep5
 
 	url：/api/v1/explorer/oepcontract/{type}/{pagesize}/{pagenumber}
 	method：GET
@@ -145,7 +145,7 @@
 | OngCount|	String|	  |
 
 
-## 类型: oep8
+### 类型: oep8
 
 	url：/api/v1/explorer/oepcontract/{type}/{pagesize}/{pagenumber}
 	method：GET
@@ -245,9 +245,9 @@
 
 
 
-# 2. 获取通证合约详情
+## 2. 获取通证合约详情
 
-## 类型: oep4
+### 类型: oep4
 
 	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{pagesize}/{pagenumber}
 	method：GET
@@ -322,7 +322,7 @@
 | Fee|	String|	  |
 
 
-## 类型: oep5
+### 类型: oep5
 
 	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{pagesize}/{pagenumber}
 	method：GET
@@ -396,7 +396,7 @@
 
 
 
-## 类型: oep8（添加通证名字）
+### 类型: oep8（添加通证名字）
 
 	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{pagesize}/{pagenumber}
 	method：GET
@@ -502,7 +502,7 @@
 
 
 
-## 类型: oep8(添加通证名字)
+### 类型: oep8(添加通证名字)
 
 	url：/api/v1/explorer/oepcontract/{type}/{contracthash}/{tokenname}/{pagesize}/{pagenumber}
 	method：GET
