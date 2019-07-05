@@ -23,7 +23,10 @@
     - [Korean](https://ont.io/wp/Ontology-Ecosystem-White-Paper-KR.pdf) translated by @Sunghwan Kim
     - [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Ecosystem%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel
     - [Japanese](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Ecosystem%20White%20Paper-JP.pdf) translated by @Miho Nakauchi
-- [Documentation Center](https://ontio.github.io/documentation/tutorial_for_developer_en.html)
+- Framework White Papers
+    - [English](https://ont.io/wp/Ontology-Framework-White-Paper-EN.pdf)
+    - [Chinese](https://ont.io/wp/Ontology-Framework-White-Paper-ZH.pdf)
+
 - [OEPs](https://github.com/ontio/OEPs)
 
 ---
