@@ -1,5 +1,5 @@
 
-## Shard Testcases
+## Sharding Testcases
 
 
 ![shard-test-stories](sharding-testcases.png)
