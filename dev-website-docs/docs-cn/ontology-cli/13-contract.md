@@ -40,9 +40,9 @@ def echo(msg):
 ontology --testmode
 ```
 
-## 部署智能合约
+## 1. 部署智能合约
 
-在智能合约模块中，`deploy` 命令用于部署智能合约，其参数如下：
+在智能合约模块中， `deploy` 命令用于部署智能合约，其参数如下：
 
 - `--needstore`：指定智能合约需要使用持久化的合约存储（默认不使用）。
 
@@ -74,7 +74,7 @@ Gas consumed:20000000.
   </ul>
 </section>
 
-智能合约的预部署不会把合约部署到链上，也不会消耗任何 `ONG`。通过预部署，你可以知道部署当前合约所需要消耗的 GAS。
+智能合约的预部署不会把合约部署到链上，也不会消耗任何 `ONG`。通过预部署，你可以知道部署当前合约所需要消耗的 `GAS` 。
 
 ```shell
 $ ontology contract deploy --code  .\hello_ontology.avm --name hello_ontology --version 1.0.0 --author NashMiao --email contact@ont.io --desc hello_ontology --gaslimit 20000000
@@ -97,7 +97,7 @@ Tip:
   </ul>
 </section>
 
-根据返回的交易哈希，我们可以查询智能合约部署交易的执行状态，`State` 字段为 `1`，表示智能合约部署成功。
+根据返回的交易哈希，我们可以查询智能合约部署交易的执行状态， `State` 字段为 `1`，表示智能合约部署成功。
 
 ```shell
 $ ontology info status ffb0a02847d31641f05a498a19a4f9f7e7d7616d0ab163c641d16d11fb02955e
@@ -120,7 +120,7 @@ Transaction states:
 
 此外，你可以通过 `--account` 选项指定支付部署智能合约所需 `ONG` 的钱包账户。
 
-## 调用智能合约
+## 2. 调用智能合约
 
 本体客户端 `Ontology-CLI` 支持以下参数类型：
 
@@ -141,7 +141,7 @@ Transaction states:
 
 由于在本体网络中，智能合约的调用分为执行和预执行。因此，我们也将分别介绍两种合约的调用方式。
 
-### 智能合约的执行
+### 2.1 智能合约的执行
 
 ```shell
 $ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500
@@ -153,7 +153,9 @@ Tips:
   Using './ontology info status 8d62fb42647c175dd5689dd5d1062dda093d59c66ca22f710a2b47174c7ed966' to query transaction status.
 ```
 
-当我们执行智能合约时，将会得到对应的交易哈希 `TxHash`。通过交易哈希，我们能够查询到该笔交易当前的状态、消耗的GAS、所在的区块（若执行成功）、触发的事件（若执行成功）等信息。因此，交易哈希是我们与区块链世界沟通的桥梁。
+当我们执行智能合约时，将会得到对应的交易哈希 `TxHash`。
+
+通过交易哈希，我们能够查询到该笔交易当前的状态、消耗的 `GAS` 、所在的区块（若执行成功）、触发的事件（若执行成功）等信息。因此，交易哈希是我们与区块链世界沟通的桥梁。
 
 ```shell
 $ ontology info status 8d62fb42647c175dd5689dd5d1062dda093d59c66ca22f710a2b47174c7ed966
@@ -180,7 +182,7 @@ Transaction states:
 - 该笔交易未消耗 `gas`：`GasConsumed` 字段为 `0`。
 - 该笔交易在地址为 `0203e74032b6b65de9872180f9b600f13858357d` 的合约中触发了 `echo` 事件，事件的值为 `ontology`。
 
-其中，利用交易哈希所查询到的序列化后的十六进制字符串，可以利用 `ontology-python-sdk` 快速进行反序列化。
+其中，利用交易哈希所查询到的序列化后的十六进制字符串，可以利用  `ontology-python-sdk` 快速进行反序列化。
 
 ```python
 from ontology.utils.contract_data import ContractDataParser
@@ -231,9 +233,9 @@ $ ontology info tx c6d34bf17eaf467bc47748408e6704d5fcd054269a0d0ca985c387eb930d7
 }
 ```
 
-### 智能合约的预执行
+### 2.2 智能合约的预执行
 
-我们可以使用 `-p` 参数预执行智能合约，获得执行结果以及 GAS 消耗。
+我们可以使用 `-p` 参数预执行智能合约，获得执行结果以及 `GAS` 消耗。
 
 ```shell
 $ ontology contract invoke --address 0203e74032b6b65de9872180f9b600f13858357d --params string:echo,[string:ontology] --gaslimit 200000 --gasprice 500 -p

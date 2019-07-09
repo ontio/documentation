@@ -3,7 +3,7 @@
 
 <p class="warning">为了使所构造的交易有效，交易在发送到链上之前，需要使用钱包账户进行签名。</p>
 
-## 转账
+## 1. 转账
 
 在构造交易模块中，`transfer` 命令用于构造转账交易，其包含以下参数：
 
@@ -12,14 +12,14 @@
 - `--from`：指定转账交易的扣款账户。
 - `--to` ：指定转账交易的收款账户。
 - `--payer`：指定支付交易手续费的钱包账户（默认使用转账交易的扣款账户）。
-- `--asset`：指定资产类型（`ONT` 与 `ONG`）。
+- `--asset`：指定资产类型（ `ONT` 与 `ONG` ）。
 - `--amount`：指定转账金额。
 - `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
-- `--rpcport`：指定 JSON RPC 服务器的监听端口（默认为 `20336`）。
+- `--rpcport`：指定 JSON RPC 服务器的监听端口（默认为  `20336`）。
 
 <section class="info">
   <ul>
-   <li><code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
+   <li><code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 <code>Base58</code> 编码的账户地址、索引或标签来表示。</li>
    <li><code>ONT</code> 的（小数点后）精度为 <code>0</code>。</li>
    <li><code>ONG</code> 的（小数点后）精度为 <code>9</code>。</li>
   </ul>
@@ -30,20 +30,20 @@
 ```shell
 ontology --testmode
 ```
-> Note: testmode模式下，gasprice会设置成0, 链上的交易不会收取手续费,方便开发者进行测试。
+> Note: `testmode` 模式下，`gasprice` 会设置成 `0` , 链上的交易不会收取手续费,方便开发者进行测试。
 
 然后在第二个终端中构造转账交易：
 
-构造ont转账交易
+构造 `ont` 转账交易
 ```shell
 $ ontology buildtx transfer --from 1 --to AaCe8nVkMRABnp5YgEjYZ9E5KYCxks2uce --asset ont --amount 10 --gasprice 0
 Transfer raw tx:
 00d1810144e2f401000000000000204e0000000000005c0708fbe99dcf821c1acf261dd61748b69d0c156e00c66b6a145c0708fbe99dcf821c1acf261dd61748b69d0c15c86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a5ac86c51c1087472616e736665721400000000000000000000000000000000000000010068164f6e746f6c6f67792e4e61746976652e496e766f6b650000
 ```
-`--from` 1 表示从钱包文件中的第一个账户向其他地址转账,可以通过`ontology account list`查看钱包里面的所有地址信息。请确认该地址，构造好的交易需要该地址进行签名。
-> Note: 构造交易的时候若不指定gasprice的值，系统会默认设置成500, gaslimit会默认设置成20000, 若测试账户没有足够的ong余额,请设置gasprice的值为0。
+`--from 1` 表示从钱包文件中的第一个账户向其他地址转账,可以通过 `ontology account list` 查看钱包里面的所有地址信息。请确认该地址，构造好的交易需要该地址进行签名。
+> Note: 构造交易的时候若不指定 `gasprice` 的值，系统会默认设置成 `500` , `gaslimit` 会默认设置成 `20000`, 若测试账户没有足够的 `ong` 余额,请设置 `gasprice` 的值为 `0`。
 
-构造ong转账交易
+构造 `ong` 转账交易
 ```shell
 $ ontology buildtx transfer --from 1 --to AaCe8nVkMRABnp5YgEjYZ9E5KYCxks2uce --asset ong --amount 0.05
 Transfer raw tx:
@@ -58,7 +58,7 @@ Password:
 RawTx after signed:
 00d19c0aaabef401000000000000204e0000000000005c0708fbe99dcf821c1acf261dd61748b69d0c157200c66b6a145c0708fbe99dcf821c1acf261dd61748b69d0c15c86a14ca216237583e7c32ba82ca352ecc30782f5a902dc86a0480f0fa02c86c51c1087472616e736665721400000000000000000000000000000000000000020068164f6e746f6c6f67792e4e61746976652e496e766f6b65000142410a8e9bf3e5740d34fdf0b6c8167b2aa1a6cc06ef9d87818cc75e4c6bd9911f82a74c45d4aaec8d0cb6e09d54ef632950388e2d1bab6703dc28d36c9a1f4de38c0624221419e9b0d726b0712fb92015b8e41ee5e5bb3d0321485b13322c6f36817042801013ac
 ```
->Note: 请确保`--account`指定的地址和buildtx时`--from`指定的地址一致。
+>Note: 请确保 `--account` 指定的地址和 `buildtx` 时 `--from` 指定的地址一致。
 
 
 将 `ONG` 转账交易发送到测试网：
@@ -106,7 +106,7 @@ Transaction states:
 }
 ```
 
-### 授权转账
+### 1.1 授权转账
 
 在构造交易模块中，`approve` 命令用于构造授权转账交易，其包含以下参数：
 
@@ -118,11 +118,11 @@ Transaction states:
 - `--asset`：指定资产类型（`ONT` 与 `ONG`，默认为 `ONT`）。
 - `--amount`：指定转账金额。
 - `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
-- `--rpcport` ：指定 JSON RPC 服务器的监听端口（默认为 `20336`）。
+- `--rpcport` ：指定 `JSON RPC` 服务器的监听端口（默认为 `20336`）。
 
 <section class="info">
   <ul>
-   <li><code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
+   <li><code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 `Base58` 编码的账户地址、索引或标签来表示。</li>
    <li><code>ONT</code> 的（小数点后）精度为 <code>0</code>。</li>
    <li><code>ONG</code> 的（小数点后）精度为 <code>9</code>。</li>
   </ul>
@@ -193,7 +193,7 @@ Transaction states:
 }
 ```
 
-### 授权账户转账
+### 1.2 授权账户转账
 
 在构造交易模块中，`transferfrom` 命令用于构造授权账户转账交易，其包含以下参数：
 
@@ -206,11 +206,11 @@ Transaction states:
 - `--asset`：指定资产类型（`ONT` 与 `ONG`，默认为 `ONT`）。
 - `--amount`：指定转账金额。
 - `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
-- `--rpcport`：指定 JSON RPC 服务器的监听端口（默认为 `20336`）。
+- `--rpcport`：指定 `JSON RPC` 服务器的监听端口（默认为 `20336`）。
 
 <section class="info">
   <ul>
-   <li><code>--sender</code>、<code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
+   <li><code>--sender</code>、<code>--from</code>、<code>--to</code>、<code>--payer</code> 的参数可以用 `Base58` 编码的账户地址、索引或标签来表示。</li>
    <li><code>ONT</code> 的（小数点后）精度为 <code>0</code>。</li>
    <li><code>ONG</code> 的（小数点后）精度为 <code>9</code>。</li>
   </ul>
@@ -314,7 +314,7 @@ BalanceOf:AM6WtTARSpGsF8ugSnx9QZRu2wnP2Dk8Vo
   ONG:0.05
 ```
 
-## 提取 ONG
+## 2. 提取 ONG
 
 在构造交易模块中，`withdrawong` 命令用于构造提取 `ONG` 交易，其包含以下参数：
 
@@ -325,11 +325,11 @@ BalanceOf:AM6WtTARSpGsF8ugSnx9QZRu2wnP2Dk8Vo
 - `--asset`：指定资产类型（`ONT` 与 `ONG`，默认为 `ONT`）。
 - `--amount`：指定转账金额。
 - `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
-- `--rpcport`：指定 JSON RPC 服务器的监听端口（默认为 `20336`）。
+- `--rpcport`：指定 `JSON RPC` 服务器的监听端口（默认为 `20336`）。
 
 <section class="info">
   <ul>
-   <li><code>--receive</code>、<code>--payer</code> 的参数可以用 Base58 编码的账户地址、索引或标签来表示。</li>
+   <li><code>--receive</code>、<code>--payer</code> 的参数可以用 `Base58` 编码的账户地址、索引或标签来表示。</li>
    <li><code>ONG</code> 的（小数点后）精度为 <code>9</code>。</li>
   </ul>
 </section>
@@ -439,7 +439,7 @@ BalanceOf:AL4m8xiSrmxAjCEGVdZWADQgVuasozpnF9
 ```
 
 
-## 签名
+## 3. 签名
 
 
 本体客户端 `Ontology-CLI` 提供了交易签名模块，用于对以十六进制字符串显示的序列化交易进行签名。可以在命令行中通过 `sigtx` 命令使用。
@@ -448,7 +448,7 @@ BalanceOf:AL4m8xiSrmxAjCEGVdZWADQgVuasozpnF9
 - `--prepare`：启用对签名交易的本地预执行。
 - `--account`：指定签名账户（默认为钱包默认账户）。
 - `--send`：指定将签名后的交易直接发送到网络中。
-- `--rpcport`：指定 RPC 服务器的监听端口号（默认为 `20336`）。
+- `--rpcport`：指定 `RPC` 服务器的监听端口号（默认为 `20336`）。
 
 <section class="info">
   <ul>
@@ -478,7 +478,7 @@ Result:01
 ```
 
 
-### 多签地址
+### 3.1 多签地址
 
 本体客户端 `Ontology-CLI` 提供了多签地址模块，用于根据公钥列表及签名门限 `M` 生成多重签名地址。可以在命令行中通过 `multisigaddr` 命令使用。
 
@@ -500,7 +500,7 @@ MultiSigAddress:ARCSXp1YYX5KUTogyTVczoypaAKc1h6o3h
 <p class="warning">目前多重签名所支持的最大公钥数为 <code>16</code>。</p>
 
 
-### 交易多签
+### 3.2 交易多签
 
 
 本体客户端 `Ontology-CLI` 提供了多重签名模块，用于对以十六进制字符串显示的序列化交易进行签名。可以在命令行中通过 `multisigtx` 命令使用。
@@ -575,12 +575,12 @@ Transaction states:
 }
 ```
 
-## 发送交易
+## 4. 发送交易
 
 
 本体客户端 `Ontology-CLI` 提供了交易发送模块，用于将以十六进制字符串显示的序列化交易发送到所接入的网络。可以在命令行中通过 `sendtx` 命令使用。
 
-- `--rpcport`：用于指定 RPC 服务器的监听端口号（默认为 `20336`）。
+- `--rpcport`：用于指定 `RPC` 服务器的监听端口号（默认为 `20336`）。
 - `--prepare`：用于指定预执行交易。
 
 ```shell
@@ -622,10 +622,10 @@ Transaction states:
 }
 ```
 
-## 查询交易
+## 5. 查询交易
 
 
-本体客户端 `Ontology-CLI` 提供了交易反序列化模块，用于将以十六进制字符串显示的序列化交易反序列化为 JSON 格式。可以在命令行中通过 `showtx` 命令使用。
+本体客户端 `Ontology-CLI` 提供了交易反序列化模块，用于将以十六进制字符串显示的序列化交易反序列化为 `JSON` 格式。可以在命令行中通过 `showtx` 命令使用。
 
 <p class="info">你可以在需要的时候通过 <code>help</code> 命令获取交易反序列化模块的帮助信息。</p>
 

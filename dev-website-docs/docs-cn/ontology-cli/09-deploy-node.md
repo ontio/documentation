@@ -1,10 +1,10 @@
 
-在本体的节点模型中，节点分为记账节点和同步节点。
+在本体的节点模型中，节点分为**记账节点**和**同步节点**。
 
 - 记账节点按照共识算法参与网络共识，产生区块。
 - 同步节点只同步记账节点生成的区块。
 
-## 部署记账节点
+## 1. 部署记账节点
 
 默认情况下，客户端 `Ontology CLI` 不会启动共识模块，需要通过 `--enable-consensus` 选项来开启共识。
 
@@ -12,7 +12,7 @@
 ontology  --enable-consensus
 ```
 
-默认情况下，客户端 `Ontology CLI` 会启动 RPC 服务器，这可能会存在安全问题。因此，如果没有特殊要求，推荐使用 `--disable-rpc` 选项关闭 `RPC` 模块。
+默认情况下，客户端 `Ontology CLI` 会启动 `RPC` 服务器，这可能会存在安全问题。因此，如果没有特殊要求，推荐使用 `--disable-rpc` 选项关闭 `RPC` 模块。
 
 ```shell
 ontology  --disable-rpc
@@ -30,7 +30,7 @@ ontology  --disable-event-log
 ontology --enable-consensus --disable-rpc --disable-event-log
 ```
 
-## 部署同步节点
+## 2. 部署同步节点
 
 使用以下命令启动同步节点。
 
@@ -40,7 +40,7 @@ ontology --enable-consensus --disable-rpc --disable-event-log
   ontology
   ```
 
-- Polaris 测试网
+- `Polaris` 测试网
 
   ```shell
   ontology --networkid 2
@@ -48,15 +48,15 @@ ontology --enable-consensus --disable-rpc --disable-event-log
 
 - 测试模式
 
-  测试模式用于搭建开发测试环境，为单节点网络。
+  测试模式用于搭建开发测试环境，是单节点网络。
 
   ```shell
   ontology --testmode
   ```
 
-<p class="info">在测试模式下，共识模块、RPC 模块、Restful 模块以及 WebSocket 模块会同时开启。</p>
+<p class="info">在测试模式下，共识模块、 `RPC` 模块、 `Restful` 模块以及 `WebSocket` 模块会同时开启。</p>
 
-## 常见问题
+## 3. 常见问题
 
 - 如何为节点指定创世区块？
 
@@ -70,6 +70,6 @@ ontology --enable-consensus --disable-rpc --disable-event-log
 
   使用 `--account` 选项。
 
-- 如何修改交易池的 GAS 参数？
+- 如何修改交易池的 `GAS` 参数？
 
   在你的记账节点上使用`--gasprice` 和 `--gaslimit` 参数来修改。
