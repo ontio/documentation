@@ -10,7 +10,7 @@
 ontology account help
 ```
 
-## 签名算法
+## 1. 签名算法
 
 本体客户端 `Ontology-CLI` 支持 `ECDSA`、`SM2` 以及 `ED25519` 三类签名算法。
 
@@ -67,11 +67,11 @@ ontology account help
     </tr>
 </table>
 
-要了解更多关于ECDSA 密钥曲线的信息，可以访问 [NIST Digital Signature Standard (FIPS 186-3)](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf)。
+要了解更多关于 `ECDSA`  密钥曲线的信息，可以访问 [ NIST Digital Signature Standard (FIPS 186-3) ](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf)。
 
-## 创建账户
+## 2. 创建账户
 
-要创建账户，使用 `add` 命令：
+要创建账户，需要使用 `add` 命令：
 
 ```bash
 ontology account add
@@ -85,7 +85,7 @@ ontology account add
 ontology account add -d
 ```
 
-要快速创建多个账户，使用 `-n` 选项：
+要快速创建多个账户，可以使用 `-n` 选项：
 
 ```shell
 ontology account add -n 5 -d
@@ -102,7 +102,7 @@ ontology account add -n 5 -d
   </ul>
 </section>
 
-在账户管理模块中， `add` 命令所支持的选项如下表所示，也可以通过 `--help` 选项获取帮助信息。
+在账户管理模块中， `add` 命令所支持的选项如下表所示，也可以通过  `--help` 选项获取帮助信息。
 
 ```shell
 ontology account add --help
@@ -126,7 +126,7 @@ ontology account add --help
   </ul>
 </section>
 
-## 创建 ONT ID
+## 3. 创建 ONT ID
 
 `add` 命令也可以用于创建 `ONT ID`，只需要添加 `--ontid` 选项即可：
 
@@ -142,7 +142,7 @@ ontology account add --ontid
 ontology account add --ontid -d
 ```
 
-## 查看账户
+## 4. 查看账户
 
 要查看 `Keystore` 文件中的账户列表，使用 `list` 命令：
 
@@ -175,9 +175,9 @@ ontology account list --help
 | `--wallet`, `-w` |         指定 `Keystore` 文件         |
 | `--verbose`, `-v` | 显示 `Keystore` 文件中账户的详细信息 |
 
-## 修改账户
+## 5. 修改账户
 
-要对账户进行修改，使用`set` 命令：
+要对账户进行修改，可以使用 `set` 命令：
 
 ```shell
 ontology account set
@@ -200,9 +200,9 @@ ontology account set
   </ul>
 </blockquote>
 
-## 删除账户
+## 6. 删除账户
 
-要删除（非默认）账户，使用`del` 命令：
+要删除（非默认）账户，可以使用 `del` 命令：
 
 ```shell
 ontology account del 2
@@ -212,15 +212,15 @@ ontology account del AQAUExGE2dQnw3bwJkz98DULGyxYJ6xBNa
 
 !> 未备份的账户删除后将无法恢复，请谨慎操作。
 
-## 导出账户
+## 7. 导出账户
 
-要导出钱包账户生成 `Keystore` 文件，使用`export` 命令：
+要导出钱包账户并生成 `Keystore` 文件，可以使用 `export` 命令：
 
 ```shell
 ontology account export ./export_wallet.dat
 ```
 
-在账户管理模块中，`export` 命令所支持的选项如下表所示，也可以通过 `--help` 选项获取帮助信息。
+在账户管理模块中， `export` 命令所支持的选项如下表所示，也可以通过 `--help` 选项获取帮助信息。
 
 |       选项       |                     描述                     |
 | :--------------: | :------------------------------------------: |
@@ -229,21 +229,21 @@ ontology account export ./export_wallet.dat
 
 !> 如果不是出于特殊需要，如为了将 `Keystore` 文件导入到低性能设备当中，请勿使用 `--low-security` 选项。
 
-## 导入账户
+## 8. 导入账户
 
-在账户管理模块中，`import` 命令用于将 `Keystore` 文件导入到钱包账户之中。
+在账户管理模块中， `import` 命令用于将 `Keystore` 文件导入到钱包账户之中。
 
 |      选项       |                    描述                    |
 | :-------------: | :----------------------------------------: |
 | `--wallet`, `w` | 用于指定接收导入钱包账户的 `Keystore` 文件 |
 | -`-source`,`s`  |  用于指定被导入钱包账户的 `Keystore` 文件  |
-|     `--wif`     |   用于指定被导入导入钱包账户的 WIF 文件    |
+|     `--wif`     |   用于指定被导入钱包账户的 `WIF` 文件    |
 
 ```shell
 ontology account import -s ./export_wallet.dat
 ```
 
-如果需要通过 `WIF` 导入钱包账户，你首先需要将52位的 `WIF` 文本保存到一个文件中，如 `wif`，然后使用如下命令导入。
+如果需要通过 `WIF` 导入钱包账户，你首先需要将 52 位的 `WIF` 文本保存到一个文件中，如 `wif` ，然后使用如下命令导入:
 
 ```shell
 ontology account import --wif ./wif
@@ -251,15 +251,19 @@ ontology account import --wif ./wif
 
 !> 请在导入完成后彻底清除设备中的 `WIF` 文件或将其置于安全的位置。
 
-## 常见问题
+## 9. 常见问题
 
 - 什么是明文私钥？
 
-  明文私钥是由（伪）随机数生成的，用来解锁对应钱包的一串字符。在交易场景下, 私钥用于生成交易所必须的签名，以证明资产的所有权。任何具有明文私钥的人，就能控制该私钥所对应的钱包账户。
+  明文私钥是由（伪）随机数生成的，用来解锁对应钱包的一串字符。在交易场景下, 私钥用于生成交易所必须的签名，以证明资产的所有权。
+
+  任何拥有明文私钥的人，就能控制该私钥所对应的钱包账户。
 
 - 什么是 `WIF`？
   
-  `WIF (Wallet Import Format)` 是将明文私钥以 `Base58` 校验和编码格式显示的钱包导入格式。`WIF` 和私钥可以互转，因此也理解为是另一种形式的明文私钥。任何具有 `WIF` 的人，就能控制该 `WIF` 所对应的钱包账户。
+  `WIF (Wallet Import Format)` 是将明文私钥以 `Base58` 校验和编码格式显示的钱包导入格式。 `WIF` 和私钥可以互转，因此也理解为是**另一种形式的明文私钥**。
+
+  任何具有 `WIF` 的人，就能控制该 `WIF` 所对应的钱包账户。
 
 - 什么是 `Keystore`？
   
@@ -267,10 +271,12 @@ ontology account import --wif ./wif
 
 - 什么是助记词？
   
-  助记词是私钥的另一种表现形式。最早是由 `BIP39` 提案提出, 其目的是为了帮助用户记忆复杂的私钥字符串。助记词一般由 12、15、18、21 个单词构成, 这些单词都取自一个固定词库, 其生成顺序也是按照一定算法而来。
+  助记词是私钥的另一种表现形式。最早是由 `BIP39` 提案提出, 其目的是为了帮助用户记忆复杂的私钥字符串。
 
-- 什么是 ONT ID？
+  助记词一般由 12、15、18、21 个单词构成, 这些单词都取自一个固定词库, 其生成顺序也是按照一定算法而来。
 
-  ONT ID 是现实世界中的实体（个人、组织、物品、内容等）在区块链上的身份标识。每⼀个 ONT ID 都对应着一个在区块链上的 ONT ID 描述对象（ONT DDO），用于记录 ONT ID 的控制人、公钥列表、属性对象和恢复人地址信息。
+- 什么是 `ONT ID`？
 
-  本质上，ONT ID 是一种统一资源标识符（URL），由每个实体自己生成（生成算法需要保证极低的碰撞率），并向区块链网络进行注册（共识节点负责检查是否已被注册）。
+  `ONT ID` 是现实世界中的实体（个人、组织、物品、内容等）在区块链上的身份标识。每⼀个 `ONT ID` 都对应着一个在区块链上的 `ONT ID` 描述对象（ ONT DDO ），用于记录 `ONT ID` 的控制人、公钥列表、属性对象和恢复人地址信息。
+
+  本质上，`ONT ID` 是一种统一资源标识符（ URL ），由每个实体自己生成（生成算法需要保证极低的碰撞率），并向区块链网络进行注册（共识节点负责检查是否已被注册）。

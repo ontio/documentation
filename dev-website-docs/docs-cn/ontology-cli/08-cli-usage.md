@@ -1,9 +1,9 @@
 
 本体客户端 `Ontology CLI` 提供了丰富的功能，在这一部分，我们将手把手地教你使用客户端。
 
-### 命令
+## 命令
 
-目前支持的命令如下表所示，你可以在需要的时候使用 `help` 命令在终端中查看。
+目前客户端支持的命令如下表所示，你可以在需要的时候使用 `help` 命令在终端中查看。
 
 ```shell
 ontology help
@@ -22,10 +22,10 @@ ontology help
 | multisigaddr |           生成多签地址           |
 |  multisigtx  |           签署多签交易           |
 |    sendtx    |        发送序列化后的交易        |
-|    showtx    | 以 JSON 格式显示序列化交易的信息 |
+|    showtx    | 以 `JSON` 格式显示序列化交易的信息 |
 |   help, h    |           显示帮助信息           |
 
-### 参数
+## 参数
 
 目前支持的命令行参数如下表所示，你可以在需要的时候使用 `help` 命令在终端中查看。
 
@@ -91,7 +91,7 @@ ontology help
     </tr>
     <tr>
         <td align="center" style=min-width:50px>--nodeport</td>
-        <td align="center" style=min-width:50px>用于指定P2P网络端口号（默认为20338）</td>
+        <td align="center" style=min-width:50px>用于指定 P2P 网络端口号（默认为20338）</td>
     </tr>
     <tr>
         <td align="center" style=min-width:50px>--consensus-port</td>
@@ -99,7 +99,7 @@ ontology help
     </tr>
     <tr>
         <td align="center" style=min-width:50px>--dual-port</td>
-        <td align="center" style=min-width:50px>启动双网络（P2P网络和共识网络，默认关闭）</td>
+        <td align="center" style=min-width:50px>启动双网络（P2P 网络和共识网络，默认关闭）</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="3">RPC 参数</td>
@@ -121,7 +121,7 @@ ontology help
     </tr>
     <tr>
         <td align="center" style=min-width:50px>--restport</td>
-        <td align="center" style=min-width:50px>指定节点 Resrful 服务绑定的端口号（默认值为20334）</td>
+        <td align="center" style=min-width:50px>指定节点  Resrful 服务绑定的端口号（默认值为20334）</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="3">WebSocket 参数</td>
@@ -132,7 +132,7 @@ ontology help
     </tr>
     <tr>
         <td align="center" style=min-width:50px>--wsport</td>
-        <td align="center" style=min-width:50px>用于指定节点 WebSocket 服务绑定的端口号（默认为20335）</td>
+        <td align="center" style=min-width:50px>用于指定节点  WebSocket 服务绑定的端口号（默认为20335）</td>
     </tr>
     <tr>
         <td style=min-width:50px rowspan="3">测试模式参数</td>
@@ -162,7 +162,7 @@ ontology help
     </tr>
     <tr>
         <td align="center" style=min-width:50px>--disable-sync-verify-tx</td>
-        <td align="center" style=min-width:50px>用于关闭 RPC、Restful、WebSocket 的同步验证交易</td>
+        <td align="center" style=min-width:50px>用于关闭 RPC 、Restful 、 WebSocket 的同步验证交易</td>
     </tr>
     <tr>
         <td align="center" style=min-width:50px>--disable-broadcast-net-tx</td>
@@ -173,10 +173,10 @@ ontology help
 <section class="info">
   <ul>
     <li>网络编号不同的节点之间无法直接互相连接形成共同的区块链网络</li>
-    <li>低于节点交易池接受交易的最低 <code>gasprice</code> 的交易将会被丢弃</li>
+    <li>低于节点交易池能够接受交易的最低 <code>gasprice</code> 值的交易将会被丢弃</li>
     <li>记账节点需要使用 <code>--enable-consensus</code> 参数参与到网络共识</li>
     <li>同一个网络所有节点的创世区块配置必须一致，否则会因为区块数据不兼容导致无法启动节点或同步区块数据</li>
     <li>在命令行中输入的账户密码会被保存在系统的日志中，容易造成密码泄露，因此在生产环境中不建议使用 <code>--password</code>, <code>-p</code> 参数</li>
-    <li>默认情况下，共识网络复用 P2P 网络，因此不需要指定共识网络端口，在通过 <code>--dualport</code> 参数启动双网络后，则需要通过 <code>--consensus-port</code> 参数单独设置共识网络端口号</li>
+    <li>默认情况下，共识网络复用 <code>P2P</code> 网络，因此不需要指定共识网络端口，在通过 <code>--dualport</code> 参数启动双网络后，则需要通过 <code>--consensus-port</code> 参数单独设置共识网络端口号</li>
   </ul>
 </section>
