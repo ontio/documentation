@@ -8,13 +8,21 @@
 在构造交易模块中，`transfer` 命令用于构造转账交易，其包含以下参数：
 
  `--gasprice`：指定交易的 `gasprice`（默认为 `500`）。
+ 
  `--gaslimit`：指定交易的 `gaslimit`（默认为 `20000`）。
+ 
  `--from`：指定转账交易的扣款账户。
+ 
  `--to` ：指定转账交易的收款账户。
+ 
  `--payer`：指定支付交易手续费的钱包账户（默认使用转账交易的扣款账户）。
+ 
  `--asset`：指定资产类型（ `ONT` 与 `ONG` ）。
+ 
  `--amount`：指定转账金额。
+ 
  `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
+ 
  `--rpcport`：指定 JSON RPC 服务器的监听端口（默认为  `20336`）。
 
 <section class="info">
@@ -111,13 +119,21 @@ Transaction states:
 在构造交易模块中，`approve` 命令用于构造授权转账交易，其包含以下参数：
 
  `--gasprice`：指定交易的 `gasprice`（默认为 `500`）。
+ 
  `--gaslimit`：指定交易的 `gaslimit`（默认为 `20000`）。
+ 
  `--from`：指定转账交易的扣款账户。
+ 
  `--to`：指定转账交易的收款账户。
+ 
  `--payer`：指定支付交易手续费的钱包账户（默认使用转账交易的扣款账户）。
+ 
  `--asset`：指定资产类型（`ONT` 与 `ONG`，默认为 `ONT`）。
+ 
  `--amount`：指定转账金额。
+ 
  `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
+ 
  `--rpcport` ：指定 `JSON RPC` 服务器的监听端口（默认为 `20336`）。
 
 <section class="info">
@@ -198,14 +214,23 @@ Transaction states:
 在构造交易模块中，`transferfrom` 命令用于构造授权账户转账交易，其包含以下参数：
 
  `--gasprice`：指定交易的 `gasprice`（默认为 `500`）。
+ 
  `--gaslimit` ：指定交易的 `gaslimit`（默认为 `20000`）。
+ 
  `--sender`：指定转账交易的发送账户（被授权账户，默认使用收款人账户）。
+ 
  `--from`：指定转账交易的扣款账户（授权账户）。
+ 
  `--to`：指定转账交易的收款账户。
+ 
  `--payer`：指定支付交易手续费的钱包账户（默认使用转账交易的扣款账户）。
+ 
  `--asset`：指定资产类型（`ONT` 与 `ONG`，默认为 `ONT`）。
+ 
  `--amount`：指定转账金额。
+ 
  `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
+ 
  `--rpcport`：指定 `JSON RPC` 服务器的监听端口（默认为 `20336`）。
 
 <section class="info">
@@ -319,12 +344,19 @@ BalanceOf:AM6WtTARSpGsF8ugSnx9QZRu2wnP2Dk8Vo
 在构造交易模块中，`withdrawong` 命令用于构造提取 `ONG` 交易，其包含以下参数：
 
  `--gasprice`：指定交易的 `gasprice`（默认为 `500`）。
+ 
  `--gaslimit`：指定交易的 `gaslimit`（默认为 `20000`）。
+ 
  `--receive`：指定所提取 `ONG` 的收款账户（默认使用提取账户作为收款账户）。
+ 
  `--payer`：指定支付交易手续费的钱包账户（默认使用转账交易的扣款账户）。
+ 
  `--asset`：指定资产类型（`ONT` 与 `ONG`，默认为 `ONT`）。
+ 
  `--amount`：指定转账金额。
+ 
  `--wallet`：指定钱包路径（当且仅当账户使用了非默认钱包文件的索引或标签时，才需要此参数）。
+ 
  `--rpcport`：指定 `JSON RPC` 服务器的监听端口（默认为 `20336`）。
 
 <section class="info">
@@ -445,9 +477,13 @@ BalanceOf:AL4m8xiSrmxAjCEGVdZWADQgVuasozpnF9
 本体客户端 `Ontology-CLI` 提供了交易签名模块，用于对以十六进制字符串显示的序列化交易进行签名。可以在命令行中通过 `sigtx` 命令使用。
 
  `--wallet`：指定钱包路径。
+ 
  `--prepare`：启用对签名交易的本地预执行。
+ 
  `--account`：指定签名账户（默认为钱包默认账户）。
+ 
  `--send`：指定将签名后的交易直接发送到网络中。
+ 
  `--rpcport`：指定 `RPC` 服务器的监听端口号（默认为 `20336`）。
 
 <section class="info">
@@ -483,6 +519,7 @@ Result:01
 本体客户端 `Ontology-CLI` 提供了多签地址模块，用于根据公钥列表及签名门限 `M` 生成多重签名地址。可以在命令行中通过 `multisigaddr` 命令使用。
 
  `--pubkey`：用于指定多重签名地址的公钥列表，公钥之间用 `,` 分隔。
+ 
  `-m`：用于指定签名门限（默认为 `1`）。
 
 要查看当前钱包账户中的公钥列表，使用 `ontology account list -v` 命令。
@@ -506,11 +543,17 @@ MultiSigAddress:ARCSXp1YYX5KUTogyTVczoypaAKc1h6o3h
 本体客户端 `Ontology-CLI` 提供了多重签名模块，用于对以十六进制字符串显示的序列化交易进行签名。可以在命令行中通过 `multisigtx` 命令使用。
 
  `--wallet`：指定钱包路径。
+ 
  `--account`：指定签名账户（默认使用钱包默认账户）。
+ 
  `--pubkey`：指定多重签名的公钥列表，公钥之间用 `,` 分隔。
+ 
  `-m`：指定签名门限（默认为 `1`）。
+ 
  `--send`：指定将签名后的交易直接发送到网络中。
+ 
  `--prepare`：启用对签名后交易的预执行。
+ 
  `--rpcport`：指定 RPC 服务器的监听端口号（默认为 `20336`）。
 
 <p class="warning">在多重签名中，需要使用公钥列表中的不同的账户对同一笔交易进行签名，一个账户签名后，返回的带签名交易需要作为下一个账户签名的输入，直到满足签名门限 <code>m</code>。</p>
@@ -581,6 +624,7 @@ Transaction states:
 本体客户端 `Ontology-CLI` 提供了交易发送模块，用于将以十六进制字符串显示的序列化交易发送到所接入的网络。可以在命令行中通过 `sendtx` 命令使用。
 
  `--rpcport`：用于指定 `RPC` 服务器的监听端口号（默认为 `20336`）。
+ 
  `--prepare`：用于指定预执行交易。
 
 ```shell
