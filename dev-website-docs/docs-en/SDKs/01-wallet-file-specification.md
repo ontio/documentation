@@ -205,7 +205,7 @@ Account object has the following structure:
 
 ```parameters``` is an array of parameter objects used in encryption system.
 
-```key``` is the private key of the account in the NEP-2 format. This field can be null (for watch-only addresses or non-standard addresses).
+```key``` is the encrypted private key of the account. This field can be null (for watch-only addresses or non-standard addresses).
 
 
 
