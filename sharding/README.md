@@ -137,7 +137,7 @@ The complete activation process of a shard is as follows:
 #### Create the Shard
 Apply to create a shard with Ontology-tool. The parameters of creating the shard are saved to params/shardmgmt/ShardCreate.json. The command for creating shard is:
 ```
-$ ./ontology-tool -t ShardInit
+$ ./ontology-tool -t ShardCreate
 ```
 
 After the shard creation request is approved, a shard ID will be assigned to the shard and all subsequent configuration and operations will be based on this ID.
