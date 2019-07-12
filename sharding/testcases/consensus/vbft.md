@@ -17,7 +17,7 @@ CheckUpdateChainConfig
 
 GetShardConfig
 
-    直接从 parent ledger读取分片管理合影的 shardState， shardState中保存了VBFT的所有配置信息，根据VBFT的配置信息构建新的Chain config。
+    直接从 parent ledger读取分片管理合约的 shardState， shardState中保存了VBFT的所有配置信息，根据VBFT的配置信息构建新的Chain config。
 
 Contruct Block
 
@@ -42,7 +42,7 @@ processProposalMsg
 5. 验证 VRF
 6. 验证 parent ledger 的区块高度
   1. 如果parent ledger没有达到对应的区块高度，发送 SyncBlock 请求p2p同步对应的区块
-7. 验证分片中上一个分片的CrossMsgHash，是当前分片向所有其他分片的msg hash root
+7. 验证分片中上一个区块的CrossMsgHash，是当前分片向所有其他分片的msg hash root
 8. 验证跨分片交易
 9. 验证区块中的所有分片内交易
 

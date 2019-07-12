@@ -4,7 +4,7 @@
 Cross shard invocation is to support synchronous cross-shard transaction.
 It can support cross shard atomic transaction.
 
-The atomicity is based on verifiable cross-shard message queue and 2PC commit protocol. Please referece sharding paper for details.
+The atomicity is based on verifiable cross-shard message queue and 2PC protocol. Please reference sharding paper for details.
 
 ### Test cases
 
