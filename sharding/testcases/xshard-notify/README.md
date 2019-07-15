@@ -1,5 +1,4 @@
-
-## Cross Shard Notification
+# Cross Shard Notification
 
 Cross Shard Notification is to support smart contract in shard to invoke smart contract in another shard asynchronously.
 
@@ -10,7 +9,7 @@ If two cross-shard notification created by one block, and they have same target 
 
 The notified shard execute notification pushed by original transaction, and the notification can be queried by using original transaction hash. Using ontology-cli and the command ```TODO``` can do it.
 
-### Test cases
+## Test cases
 
 * root -> shard notification
 * shard -> root notification
