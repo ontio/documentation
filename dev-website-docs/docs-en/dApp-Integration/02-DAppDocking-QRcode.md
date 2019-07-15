@@ -142,11 +142,11 @@ According to the qrcodeUrl link in the QR code, the GET data is as follows:
 	"version": "v1.0.0",
 	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
 	"params": {
+		"expire": 1546415363, //qrcode expire time
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
 			"functions": [{
 				"operation": "method name",
-				"expire": 1546415363, //qrcode expire time
 				"args": [{
 					"name": "arg0-list",
 					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
