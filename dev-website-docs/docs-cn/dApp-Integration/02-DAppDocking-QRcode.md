@@ -181,9 +181,9 @@ method: post
 	"version": "v1.0.0",
 	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
 	"params": {
+	    "expire": 1546415363, //二维码过期时间
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",  //合约地址
-			"expire": 1546415363, //二维码过期时间
 			"functions": [{
 				"operation": "method name", //调用的智能合约里的函数名
 				"args": [{   //调用合约的参数
