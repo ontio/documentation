@@ -182,16 +182,17 @@ method: post
 	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
 	"params": {
 		"invokeConfig": {
-			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
+			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",  //合约地址
+			"expire": 1546415363, //二维码过期时间
 			"functions": [{
-				"operation": "method name",
-				"args": [{
-					"name": "arg0-list",
+				"operation": "method name", //调用的智能合约里的函数名
+				"args": [{   //调用合约的参数
+					"name": "arg0-list",//参数1 的值是数组
 					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
 						"key": 6
 					}]
 				}, {
-					"name": "arg1-map",
+					"name": "arg1-map",//参数2的值是Map
 					"value": {
 						"key": "String:hello",
 						"key1": "ByteArray:aabb",
@@ -204,7 +205,7 @@ method: post
 						}
 					}
 				}, {
-					"name": "arg2-str",
+					"name": "arg2-str", //参数3的值是String
 					"value": "String:test"
 				}]
 			}],
