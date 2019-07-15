@@ -2,12 +2,12 @@
 ## Fee of shard transactions
 
 All transaction fee in shard network is paid with ONG.
-ONG in child shard is shadow of ONG in root shard, and managed by ONGx system contract in shard.
+Shard-asset system contract managed whole ONG wherever ONG locate at.
 
-To send transactions in shard, user need deposit ONG to shard-asset system contract at root shard, ONGx will be mint at child shard.
+To send transactions in shard, user need deposit ONG from root to shard, by calling shard-asset system contract. The procedure is that ONG locked into root shard-asset system contract, and unlocked from shard shard-asset system contract to user account.
 Transaction fees are paid to shard governance contract, and split to shard nodes at consensus epoch switching over.
 The fee splitting is done in two steps:
-1. ONGx in shard governance contract are burned
+1. ONG in shard governance contract are transferred back to shard-asset system contract;
 2. ONG in root shard is unfrozen from shard-asset system contract, and paid to shard nodes.
 
 ##### Fee of cross shard transactions
