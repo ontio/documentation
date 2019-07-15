@@ -1,6 +1,14 @@
 ## XShard 
 
+### 消息生成
 
+合约调用NotifyRemoteShard和InvokeRemoteShard后，会生成跨分片消息。这些消息暂时存储在StateDB里，下一个块共识时进行处理。
+
+保存到DB里的内容即为CommonShardMsg。
+
+### 消息发送
+
+proposer把上一个块包含的ShardMsg取出来放到proposol消息里，根据共识流程收集到足够的签名，在共识完成区块落账之前将proposol消息里包含的ShardMsg广播出去。
 
 #### Receive XShard Msg
 
