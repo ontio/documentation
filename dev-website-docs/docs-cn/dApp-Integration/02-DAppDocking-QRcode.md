@@ -193,7 +193,7 @@ method: post
 						"key": 6
 					}]
 				}, {
-					"name": "arg1-map",//参数2的值是Map
+					"name": "arg1-map",//参数2的值是Map类型
 					"value": {
 						"key": "String:hello",
 						"key1": "ByteArray:aabb",
@@ -205,8 +205,14 @@ method: post
 							"key": 6
 						}
 					}
-				}, {
-					"name": "arg2-str", //参数3的值是String
+				},{
+                   	"name": "arg2-ByteArray", //参数3的值是ByteArray类型
+                   	"value": "ByteArray:aabbcc"
+                },{
+                    "name": "arg3-int", //参数4的值是int/long类型
+                    "value": 100
+                },{
+					"name": "arg4-str", //参数5的值是String类型
 					"value": "String:test"
 				}]
 			}],
