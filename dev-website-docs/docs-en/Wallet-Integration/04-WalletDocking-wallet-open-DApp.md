@@ -402,14 +402,14 @@ The data is as follows, **URI encoding, Base64 encoding** after sending the requ
 		"invokeConfig": {
 			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
 			"functions": [{
-				"operation": "method name",
+				"operation": "method name", // invoke method name of smartcontract
 				"args": [{
-					"name": "arg0-list",
+					"name": "arg0-list", //type is Array
 					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
 						"key": 6
 					}]
 				}, {
-					"name": "arg1-map",
+					"name": "arg1-map", //type is map
 					"value": {
 						"key": "String:hello",
 						"key1": "ByteArray:aabb",
@@ -421,8 +421,14 @@ The data is as follows, **URI encoding, Base64 encoding** after sending the requ
 							"key": 6
 						}
 					}
-				}, {
-					"name": "arg2-str",
+                },{
+                    "name": "arg2-ByteArray", //type is ByteArray
+                    "value": "ByteArray:aabbcc"
+                },{
+                    "name": "arg3-int", //type is int or long
+                    "value": 100
+                },{
+					"name": "arg4-str",//type is string
 					"value": "String:test"
 				}]
 			}],

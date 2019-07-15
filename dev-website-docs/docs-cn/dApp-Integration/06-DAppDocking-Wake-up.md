@@ -130,6 +130,63 @@ public static boolean checkInstallCynoApp(Context context) {
 * [ts sdk验签](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
 
+#### DAPP 服务端登录接口
+
+> 该接口是钱包处理完请求回调时调用，服务器 IP 必须得是外网。
+
+```json
+method: post
+
+{
+	"action": "login",
+	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+	"params": {
+		"type": "ontid or account",
+		"user": "did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz",
+		"message": "helloworld",
+		"publickey": "0205c8fff4b1d21f4b2ec3b48cf88004e38402933d7e914b2a0eda0de15e73ba61",
+		"signature": "01abd7ea9d79c857cd838cabbbaad3efb44a6fc4f5a5ef52ea8461d6c055b8a7cf324d1a58962988709705cefe40df5b26e88af3ca387ec5036ec7f5e6640a1754"
+	}
+}
+```
+
+|字段|类型|定义|
+| :---| :---| :---|
+| action | string | 操作类型 |
+| id   |  string |  消息序列号，可选 |
+| params | string | 方法要求的参数 |
+| type   |  string | ontid 登录设定为 `ontid`，钱包地址登录设定为 `account` |
+| user | string | 用户做签名的账户，比如用户的 ontid 或者钱包地址 |
+| message   | string  | 随机生成，用于校验身份  |
+| publickey | string | 账户公钥 |
+| signature  |  string |  用户签名 |
+
+成功响应：
+
+```json
+{
+  "action": "login",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+  "error": 0,
+  "desc": "SUCCESS",
+  "result": true
+}
+```
+
+失败响应：
+
+```json
+{
+  "action": "login",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+  "error": 80001,
+  "desc": "PARAMS ERROR",
+  "result": 1
+}
+```
+
+
 ### 3.2 调用合约
 
 调用合约流程如下图所示：
@@ -155,16 +212,16 @@ public static boolean checkInstallCynoApp(Context context) {
 		"message": "will pay 1 ONT in this transaction",
 		"callback": "http://101.132.193.149:4027/invoke/callback",
 		"invokeConfig": {
-        			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
+        			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",//合约地址
         			"functions": [{
-        				"operation": "method name",
+        				"operation": "method name",//调用的方法名
         				"args": [{
-        					"name": "arg0-list",
+        					"name": "arg0-list", //参数类型是数组
         					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
         						"key": 6
         					}]
         				}, {
-        					"name": "arg1-map",
+        					"name": "arg1-map", //参数类型是Map
         					"value": {
         						"key": "String:hello",
         						"key1": "ByteArray:aabb",
@@ -176,8 +233,14 @@ public static boolean checkInstallCynoApp(Context context) {
         							"key": 6
         						}
         					}
-        				}, {
-        					"name": "arg2-str",
+                        },{
+                            "name": "arg2-ByteArray", //参数值是ByteArray类型
+                            "value": "ByteArray:aabbcc"
+                        },{
+                            "name": "arg3-int", //参数值是int/long类型
+                            "value": 100
+                        },{
+        					"name": "arg4-str",//参数值是string类型
         					"value": "String:test"
         				}]
         			}],
@@ -221,3 +284,34 @@ startActivity(intent);
    - [ts sdk 交易事件查询方法](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 
 6. ```DAPP``` 后台将结果反馈给 ```DAPP```，呈献给用户（本步视 ```DAPP``` 具体情况实现）。
+
+
+#### DAPP 服务器回调接口
+
+Provider 构造交易，进行用户签名、预执行交易、发送交易，最后 POST 交易 hash 给 callback url。
+
+发送交易成功，钱包 POST 给 callback：
+
+> 该接口是钱包处理完请求回调时调用，服务器 IP 必须得是外网。
+
+```json
+{
+  "action": "invoke",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+  "error": 0,
+  "desc": "SUCCESS",
+  "result": "tx hash"
+}
+```
+
+发送交易失败，POST 给 callback：
+
+```json
+{
+  "action": "invoke",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+  "error": 80001,
+  "desc": "SEND TX ERROR",
+  "result": 1
+}
+```

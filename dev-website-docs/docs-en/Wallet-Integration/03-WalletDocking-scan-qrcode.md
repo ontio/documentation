@@ -127,6 +127,7 @@ Scan code acquisition
 	"params": {
 		"login": true,
 		"callback": "http://101.132.193.149:4027/invoke/callback",
+	    "expire": 1546415363, // QR Code expire time
 		"qrcodeUrl": "http://101.132.193.149:4027/qrcode/AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
 	}
 }
@@ -136,7 +137,8 @@ Scan code acquisition
 | :--- | :--- | :--- |
 |Action | string | operation type, login is set to "Login", call smart contract is set to "invoke" |
 |qrcodeUrl | string | QR code parameter address |
-|Callback | string | Optional, return transaction hash to dApp server |
+|callback | string | Optional, return transaction hash to dApp server |
+|expire | long | Optional, QR Code expire time |
 
 According to the qrcodeUrl link in the QR code, the data of GET is as follows:
 
@@ -147,16 +149,16 @@ According to the qrcodeUrl link in the QR code, the data of GET is as follows:
 	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
 	"params": {
 		"invokeConfig": {
-			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
+			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02", //smartcontract hash
 			"functions": [{
-				"operation": "method name",
+				"operation": "method name", // invoke method in smartcontract
 				"args": [{
-					"name": "arg0-list",
+					"name": "arg0-list", //type is Array
 					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
 						"key": 6
 					}]
 				}, {
-					"name": "arg1-map",
+					"name": "arg1-map", //type is Map
 					"value": {
 						"key": "String:hello",
 						"key1": "ByteArray:aabb",
@@ -168,8 +170,14 @@ According to the qrcodeUrl link in the QR code, the data of GET is as follows:
 							"key": 6
 						}
 					}
-				}, {
-					"name": "arg2-str",
+                },{
+                    "name": "arg2-ByteArray", //type is ByteArray
+                    "value": "ByteArray:aabbcc"
+                },{
+                    "name": "arg2-int", //type is int or long
+                    "value": 100
+                },{
+					"name": "arg2-str",  // type is string
 					"value": "String:test"
 				}]
 			}],
