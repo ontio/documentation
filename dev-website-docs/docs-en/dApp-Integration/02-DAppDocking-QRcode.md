@@ -123,6 +123,7 @@ Scan QR code to acquire
 	"params": {
 		"login": true,
 		"callback": "http://101.132.193.149:4027/invoke/callback",
+		"expire": 1546415363, //qrcode expire time
 		"qrcodeUrl": "http://101.132.193.149:4027/qrcode/AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
 	}
 }
@@ -130,9 +131,10 @@ Scan QR code to acquire
 
 |Field|Type|Definition|
 | :--- | :--- | :--- |
-Action | string | Operation type, login set to `Login`, call smart contract set to `invoke`. |
-qrcodeUrl | string | QR code parameter address |
-Callback | string | Optional, return transaction hash to DApp server |
+| Action | string | Operation type, login set to `Login`, call smart contract set to `invoke`. |
+| qrcodeUrl | string | QR code parameter address |
+| Callback | string | Optional, return transaction hash to DApp server |
+| expire | long | qrcode expire time |
 
 According to the qrcodeUrl link in the QR code, the GET data is as follows:
 

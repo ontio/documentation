@@ -162,6 +162,7 @@ method: post
 	"params": {
 		"login": true,
 		"callback": "http://101.132.193.149:4027/invoke/callback",
+		"expire": 1546415363, //二维码过期时间
 		"qrcodeUrl": "http://101.132.193.149:4027/qrcode/AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
 	}
 }
@@ -172,6 +173,7 @@ method: post
 | action      | string  | 操作类型，登录设定为 `Login`，调用智能合约设定为 `invoke`. |
 | qrcodeUrl         | string  | 二维码参数地址                                           |
 | callback         | string  | 可选，返回交易 hash 给 `DAPP` 服务端                         |
+| expire         | long  | 可选，二维码过期时间                         |
 
 根据二维码中 `qrcodeUrl` 链接，GET 的数据如下：
 
@@ -182,16 +184,16 @@ method: post
 	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
 	"params": {
 		"invokeConfig": {
-			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",
+			"contractHash": "16edbe366d1337eb510c2ff61099424c94aeef02",  //合约地址
 			"functions": [{
-				"operation": "method name",
-				"args": [{
-					"name": "arg0-list",
+				"operation": "method name", //调用的智能合约里的函数名
+				"args": [{   //调用合约的参数
+					"name": "arg0-list",//参数1 的值是数组
 					"value": [true, 100, "Long:100000000000", "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ", "ByteArray:aabb", "String:hello", [true, 100], {
 						"key": 6
 					}]
 				}, {
-					"name": "arg1-map",
+					"name": "arg1-map",//参数2的值是Map类型
 					"value": {
 						"key": "String:hello",
 						"key1": "ByteArray:aabb",
@@ -203,8 +205,14 @@ method: post
 							"key": 6
 						}
 					}
-				}, {
-					"name": "arg2-str",
+				},{
+                   	"name": "arg2-ByteArray", //参数3的值是ByteArray类型
+                   	"value": "ByteArray:aabbcc"
+                },{
+                    "name": "arg3-int", //参数4的值是int/long类型
+                    "value": 100
+                },{
+					"name": "arg4-str", //参数5的值是String类型
 					"value": "String:test"
 				}]
 			}],

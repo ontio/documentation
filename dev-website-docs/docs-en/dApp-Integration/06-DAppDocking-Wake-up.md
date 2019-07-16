@@ -105,6 +105,60 @@ Signature verification method:
 * [ts sdk Signature verification](https://github.com/ontio/ontology-ts-sdk/blob/master/test/ecdsa.crypto.test.ts)
 
 
+#### DApp Server login interface
+method: post
+
+```json
+{
+	"action": "login",
+	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+	"params": {
+		"type": "ontid or account",
+		"user": "did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz",
+		"message": "helloworld",
+		"publickey": "0205c8fff4b1d21f4b2ec3b48cf88004e38402933d7e914b2a0eda0de15e73ba61",
+		"signature": "01abd7ea9d79c857cd838cabbbaad3efb44a6fc4f5a5ef52ea8461d6c055b8a7cf324d1a58962988709705cefe40df5b26e88af3ca387ec5036ec7f5e6640a1754"
+	}
+}
+```
+
+|Field|Type|definition|
+| :---| :---| :---|
+| action | string | operation type |
+| id | string | message serial number, optional |
+| params | string | parameters required by the method |
+| type | string | ontid login is set to `ontid`, wallet address login is set to `account` |
+User | string | The account for user signature, such as the user's ontid or wallet address |
+| message | string | Randomly generated for verifying identity |
+Publickey | string | account public key |
+| signature | string | User Signature |
+
+* Response success：
+
+```json
+{
+  "action": "login",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+  "error": 0,
+  "desc": "SUCCESS",
+  "result": true
+}
+```
+
+* Response failure：
+
+```json
+{
+  "action": "login",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+  "error": 80001,
+  "desc": "PARAMS ERROR",
+  "result": 1
+}
+```
+
+
 ### Calling contract
 
 Contract calling process is shown below
@@ -157,3 +211,31 @@ Contract calling data example
     * [java sdk Transaction event query method](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/basic.md)
     * [ts sdk Transaction event query method](https://github.com/ontio/ontology-ts-sdk/blob/master/test/websocket.test.ts)
 5. The dApp backend feeds the results back to the dApp and presents it to users. This step is implemented according to the actual condition of the dApp.
+
+#### DApp Server callback interface
+
+The Provider constructs the transaction, performs user signatures, pre-executes transactions, sends transactions, and finally POST the transaction hash to the callback url.
+
+Transaction successfully sent, POST to callback:
+
+```
+{
+  "action": "invoke",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+  "error": 0,
+  "desc": "SUCCESS",
+  "result": "tx hash"
+}
+```
+
+Transaction not sent, POST to callback:
+
+```
+{
+  "action": "invoke",
+  "id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+  "error": 80001,
+  "desc": "SEND TX ERROR",
+  "result": 1
+}
+```
