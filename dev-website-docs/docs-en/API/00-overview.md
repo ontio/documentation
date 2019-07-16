@@ -26,4 +26,4 @@ If you want to develop on a `polaris` test network, you can apply for the requir
 
 ## Deploy personal nodes
 
-According to the needs of developers, we also provide a way to [Running Node](https://dev-docs.ont.io/#/docs-cn/ontology-cli/09-deploy-node).
+According to the needs of developers, we also provide a way to [Running Node](https://dev-docs.ont.io/#/docs-en/OntologyCli/02-running-node).
