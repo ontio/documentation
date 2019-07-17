@@ -136,22 +136,29 @@ try {
 
 
 ```
-const scriptHash = 'cd948340ffcf11d4f5494140c93885583110f3e9';
-const operation = 'test'
+const scriptHash = '8b344a43204e60750e7ccc8c1b708a67f88f2c43';
+const operation = 'transferOng'
 const args = [
-​    {
-​        type: 'String',
-​        value: 'helloworld'
-​    }
+   {
+        "name": "arg0-id",
+        "value": "String:hedgsg"
+    }, {
+        "name": "arg1-from",
+        "value": "Address:AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ"
+    }, {
+        "name": "arg2-to",
+        "value": "Address:AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ"
+    }, {
+        "name": "arg3-int",
+        "value": 1
+    }
 ]
 const gasPrice = 500;
 const gasLimit = 20000;
 const payer = 'AecaeSEBkt5GcBCxwz1F41TvdjX3dnKBkJ'
 const config = {
 ​    "login": true,
-​    "message": "invoke smart contract test",
-​    "qrcodeUrl": "" ,
-    "callback": ""
+​    "message": "invoke smart contract test"
 }
 const params = {
           scriptHash,
