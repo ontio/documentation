@@ -55,19 +55,7 @@ ONTPass目前已经对外开放的认证服务包括：
 
 ### Step 2: 确定收费模式
 
-使用ONTPass需要支付一定的费用，ONTPass支持两种收费模式，您需要根据您的情况选择合适的支付方式。
-
-* 模式一：即时支付模式
-
-即时支付模式是完全开放并自治化，即每次认证请求都需要消耗ONG手续费，所以认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址和具体金额由各个TrustAnchor指定）。收到认证请求后由TrustAnchor先将交易发送到链上，交易发送成功后才会继续后续的身份认证流程。
-
-认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址是**ATGJSGzm2poCB8N44BgrAccJcZ64MFf187**）。
-
-每次认证费用：*1.2 ONG*
-
-* 模式二：后付费模式
-
-如果选择后付费模式，你需要联系[本体机构合作](https://info.ont.io/cooperation/zh)。
+使用ONTPass需要支付一定的费用，ONTPass目前支持后收费模式，请联系[本体机构合作](https://info.ont.io/cooperation/zh)。
 
 
 ### Step 3:  ONTPass平台注册
