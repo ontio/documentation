@@ -402,3 +402,8 @@ def transferOng(from_base58, to_base58,  ong_amount):
 可以看到，转账1000 个 ONT，GAS price  = 5，GAS limit = 40000，
 
 最终消耗的 **GAS** =  1787019.99985 - 1787019.9997 = 0.00015
+
+
+## 23. 如何查询到某个区块中所有的交易详情？
+
+可以连接[公共节点](#_2-公共节点的地址),使用节点 ```Restful``` 接口中 [getsc_event_by_height](/docs-cn/ontology-cli/06-restful-specification?id=_11-getsc_event_by_height) 方法，一次获取该区块所有合约事件的详情。
