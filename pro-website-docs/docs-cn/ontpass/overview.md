@@ -25,7 +25,7 @@ ONTPass具有以下优势：
 ![交互流程说明](http://assets.processon.com/chart_image/5a5fff53e4b0abe85d5e3e5f.png)
 
 
-- 1：ONTPass提供了公开的认证服务集市，认证需求方可以到ONTPass平台浏览并选定自己需要的TrustAnchor及其认证服务。认证需求方确认所需的认证服务后，需要到ONTPass平台注册相关基本信息，包括ONT ID，基本简介，所需的认证服务及回调地址。
+- 1：ONTPass提供了公开的认证服务集市，认证需求方可以到ONTPass平台浏览并选定自己需要的TrustAnchor及其认证服务。认证需求方确认所需的认证服务后，需要到ONTPass平台注册相关基本信息，包括ONT ID，基本简介，回调地址。
 - 2：认证需求方根据TrustAnchor身份认证的要求，将用户数据提交到ONTPass ,ONTPass转交给TrustAnchor。
 - 3.1：TrustAnchor对用户进行身份认证，完成可信声明签发。
 - 3.2：可信声明基本信息链上存证。
@@ -45,44 +45,32 @@ ONTPass目前已经对外开放的认证服务包括：
 
 认证模板:
 
-| Claim_Templete_Name | Claim_Description | 
-| :-----------------: | :----------------:|
-|claim:sfp_passport_authentication | 全球用户护照认证   |
-|claim:sfp_idcard_authentication   | 全球用户身份证认证 |
-|claim:sfp_dl_authentication       | 全球用户驾照认证   |
+| Claim_Templete_Name | Claim_Description | TrustAnchor ONT ID |
+| :-----------------: | :----------------: | ------------------ |
+|claim:sfp_passport_authentication | 全球用户护照认证   | did:ont:ARr6ApK24EU7nufND4s1SWpwULHBertpJb |
+|claim:sfp_idcard_authentication   | 全球用户身份证认证 | did:ont:ARr6ApK24EU7nufND4s1SWpwULHBertpJb |
+|claim:sfp_dl_authentication       | 全球用户驾照认证   | did:ont:ARr6ApK24EU7nufND4s1SWpwULHBertpJb |
+|claim:sensetime_authentication | 中国用户身份证认证 | did:ont:ARr6ApK24EU7nufND4s1SWpwULHBertpJb |
 
 
 ### Step 2: 确定收费模式
 
-使用ONTPass需要支付一定的费用，ONTPass支持两种收费模式，您需要根据您的情况选择合适的支付方式。
-
-* 模式一：即时支付模式
-
-即时支付模式是完全开放并自治化，即每次认证请求都需要消耗ONG手续费，所以认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址和具体金额由各个TrustAnchor指定）。收到认证请求后由TrustAnchor先将交易发送到链上，交易发送成功后才会继续后续的身份认证流程。
-
-认证需求方在每次认证请求时都需要构造一笔ONG转账交易（收款地址是**ATGJSGzm2poCB8N44BgrAccJcZ64MFf187**）。
-
-每次认证费用：*1.2 ONG*
-
-* 模式二：后付费模式
-
-如果选择后付费模式，你需要联系[本体机构合作](https://info.ont.io/cooperation/zh)。
+使用ONTPass需要支付一定的费用，ONTPass目前支持后收费模式，请联系[本体机构合作](https://info.ont.io/cooperation/zh)。
 
 
 ### Step 3:  ONTPass平台注册
 
+**测试环境域名：https://ontpass-prepro.ont.io**
 
-**测试环境域名：https://api.ont.network**
+认证需求方选定所需的`TrustAnchor`提供的认证服务后，需要到`ONTPass`平台注册相关信息，主要包括ONT ID，基本简介及回调地址。只有在平台注册过的需求方才会收到后续的可信声明回调推送。
 
-认证需求方选定所需的TrustAnchor提供的认证服务后，需要到ONTPass平台注册相关信息，主要包括ONT ID，基本简介，所需认证服务及回调地址。只有在平台注册过的需求方才会收到后续的可信声明回调推送。
-
-> 如何拥有自己的ONT ID并进行签名，可参考[附录DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=demo)
+> 如何拥有自己的ONT ID，可参考[附录DEMO](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=demo)
 
 
-#### 认证需求方注册API
+#### 3.1 认证需求方注册API
 
 ```json
-Host：域名+/api/v1/ontpass/authrequesters
+Host：域名+/v1/auth-requesters
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample：
@@ -90,48 +78,76 @@ RequestExample：
 	"callback_addr": "https://xxx",
 	"description": "coinwallet",
 	"name": "coinwallet",
-	"ontid": "did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM",
-	"ta_info": [
-		{
-			"claim_contexts": [
-				"claim:cfca_authentication",
-				"claim:sensetime_authentication"
-			],
-			"ontid": "did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM"
-		}
-	],
-	"signature":"AQp2ka0OJG5K7jlnaV8jwWneye7knHWTNN+D3yUly="
+	"ontid": "did:ont:AXXxiWCuJXmuPGnsBji4cqWqV1VrKx8nkM"
 }
 
 SuccessResponse：
 {
-	"version":"1.0",
-	"action":"Register",
-	"error":0,
-	"desc":"SUCCESS",
+	"msg":"Register",
+	"code":0,
+	"result":{
+        "app_id":"",
+        "app_key":""
+    }
+}
+```
+
+
+
+| RequestField  | Type   | Description        | Necessary |
+| ------------- | ------ | ------------------ | --------- |
+| callback_addr | String | 认证结果回调地址   | Y         |
+| description   | String | 认证需求方的描述   | Y         |
+| name          | String | 认证需求方的名称   | Y         |
+| ontid         | String | 认证需求方的ONT ID | Y         |
+
+> 为保证数据传输安全性，需求方注册的回调接口必须是https+域名形式，同时需求方需保证注册的回调接口高可用性且接受ONTPass标准的https的post请求
+
+
+
+| ResponseField  |  Type  |           Description           |
+| :------------: | :----: | :-----------------------------: |
+|      msg       | String |              描述               |
+|      code      |  int   | 错误码。可参考[错误码字典](xxx) |
+| result.app_id  | String |             app_id              |
+| result.app_key | String |             app_key             |
+
+> 注册时获取到的app_id，app_key，用于后续Hmac身份鉴权
+
+
+
+#### 3.2.认证需求方更新 API
+
+认证需求方可调用该API更新之前注册的某些信息。
+
+- 需要在`Http`请求头带上`Hmac`做身份鉴权。
+
+```javascript
+Host：域名+/v1/auth-requesters/{ontid}
+Method：PUT /HTTP/1.1
+Content-Type: application/json
+RequestExample：
+{
+	"callback_addr": "https://xxx",
+	"description": "coinwallet",
+	"name": "coinwallet"
+}
+
+SuccessResponse：
+{
+	"msg":"",
+	"code":0,
 	"result":true
 }
 ```
 
 
-| RequestField     |     Type |   Description   | Necessary|
-| :--------------: | :--------:| :------: |:----:|
-|    callback_addr |   String|  可信声明回调地址  | Y|
-|    description |   String|  需求方的描述  | Y|
-|    name|   String|  需求方的名称 |Y|
-|    ontid|   String|  需求方的ONT ID  | Y|
-|    ta_info.claim_contexts |   list|  选定所需的TrustAnchor的可信声明模板列表    | Y|
-|    ta_info.ontid |   String|  选定所需的TrustAnchor的ONT ID    | Y|
-|    signature |   String|  需求方使用ONT ID私钥按照[签名规则](http://pro-docs.ont.io/#/docs-cn/ontpass/specification?id=%E7%AD%BE%E5%90%8D%E5%8F%8A%E9%AA%8C%E7%AD%BE)对请求内容的签名  |Y|
 
-
-| ResponseField     |     Type |   Description   |
-| :--------------: | :--------:| :------: |
-|    version|   string|  版本号。目前是1.0|
-|    action|   string|  Register|
-|    error|   int|  错误码。可参考[错误码字典](http://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E9%94%99%E8%AF%AF%E7%A0%81%E5%AD%97%E5%85%B8)|
-|    result|   Boolean|  true：注册成功  false：注册失败|
-
+| RequestField  | Type   | Description      | Necessary |
+| ------------- | ------ | ---------------- | --------- |
+| callback_addr | String | 认证结果回调地址 | Y         |
+| description   | String | 认证需求方的描述 | Y         |
+| name          | String | 认证需求方的名称 | Y         |
 
 > 为保证数据传输安全性，需求方注册的回调接口必须是https+域名形式，同时需求方需保证注册的回调接口高可用性且接受ONTPass标准的https的post请求
 
@@ -139,118 +155,107 @@ SuccessResponse：
 
 ### Step 4: 向ONTPass提交认证
 
-需求方在ONTPass认证集市选定认证模板后，需向TrustAnchor提交认证数据。由TrustAnchor进行身份认证，可信声明签发，可信声明基本信息存证，并使用端到端加密传输可信声明到ONTPass。
+认证需求方向`ONTPass`提交kyc认证所需用户数据，由`ONTPass`进行路由转发到对应的`TrustAnchor`进行身份认证、可信声明签发、可信声明基本信息存证，并使用端到端加密传输可信声明到`ONTPass`（是否加密是可选的，由认证时传入的`encryption`加密参数确定）
 
-* 首先提交数据到临时存储
+- **端到端加密传输方案**：若url参数`encryption`指定为`true`，则认证成功后生成的可信声明会由`TrustAnchor`用用户`ONT ID`的公钥进行`ECDSA`加密，在后续传输过程中都是加密后的密文，保证数据隐私性且不被篡改，用户接收到后使用自己的`ONT ID`的私钥才可以解密获取可信声明原文。
+- **防刷**：以`owner_ontid`+`claim_context`+`ar_ontid`作为防刷维度。若一个用户提交了某种可信声明认证，该可信声明认证次数+1，认证失败后次数-1。到达某个限制次数后，用户再次提交认证会返回`62001`错误码。
+- **可信声明模板**：向`ONTPass`提交认证时，需传入正确的且匹配的可信声明模板和`TrustAnchor`的`ONTID`，即`claim_context`和`ta_ontid`字段
 
-```json
-Host：域名+/api/v1/ontpass/authentication/doc
+```javascript
+Host：域名+/v1/kyc-data?encryption=true|false
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample：
 {
     "auth_id":"123345667878780052",
-    "claim_template":"claim:sfp_passport_authentication",
-    "country":"CN",
-    "doc_type":"passport",
-    "frontdoc":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAkACQAAD...",
-    "backdoc":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAkACQAAD...",
+    "ar_ontid":"did:ont:A8V9Kq6te1Fk01KQ3ecqbfbPwrkBFx9P05",
+    "ta_ontid":"did:ont:A8V9Kq6te1Fk01KQ3ecqbfbPwrkBFx9P05",
     "owner_ontid":"did:ont:AJua7C6teoFUs2KhRecqbfbPwrF99kHHgj",
-    "doc_id":"12345678"
+    "claim_context":"claim:sfp_idcard_authentication",
+    "country":"CN",
+    "name":"dwqq",
+    "doc_type":"passport",
+    "doc_id":"12345678",
+    "front_doc":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAkACQAAD...",
+    "back_doc":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAkACQAAD..."
 }
 
+SuccessResponse：
 {
-  "action": "DocsSubmit",
-  "error": 0,
-  "desc": "SUCCESS",
-  "version": "1.0",
-  "result": true
+	"msg":"",
+	"code":0,
+	"result":true
 }
 ```
 
-
-| Field_Name | Required |  Format | Description |
-| :-----------------: | :----------------:| :------: | :------: |
-|auth_id | yes | string 20-255 characters Length | 请求认证编码，需保证唯一性。在后续认证过程中只做透传|
-|owner_ontid | yes | string | 用户ONT ID |
-|claim_template | yes | string | 认证模板 |
-|create_ontid_tx | yes | string | 用户ONT ID上链交易 |
-|country | yes | string 2 characters Length | 两位国家代码，参照ISO 3166-1 alpha-2编码标准。支持的国家及对应的国家编码可查询[认证支持国家列表](http://pro-docs.ont.io/#/docs-cn/ontpass/specification?id=%E8%AE%A4%E8%AF%81%E6%94%AF%E6%8C%81%E5%9B%BD%E5%AE%B6%E5%88%97%E8%A1%A8) |
-|doc_type | yes | string  | 证件类型  护照 passport 身份证 id_card  驾照 driving_license|
-|doc_id | no | string | 证件编号 |
-|frontdoc | no | JPG, JPEG, PNG, PDF | 16MB 证件照正面的base64编码  |
-|backdoc | no | JPG, JPEG, PNG, PDF | 16MB 证件照反面的base64编码  |
+| Url RequestField | Type    | Description                                                  | Necessary |
+| :--------------: | ------- | ------------------------------------------------------------ | --------- |
+|    encryption    | Boolean | true:认证成功生成的可信声明进行加密传输；false：认证成功的可信声明不进行加密传输 | Y         |
 
 
-| Field_Name  |  Format | Description |
-| :-----------------: | :----------------: | :------: |
-|version | String | 版本号，目前是1.0。|
-|action | String | 固定值：DocsSubmit。|
-|error | int | 错误码 |
-|desc | String | 错误信息。成功即SUCCESS，其他即错误信息|
-|result | boolean | true：即提交成功  false：即提交失败|
+
+| RequestField  | Type                            | Description                                                  | Necessary |
+| ------------- | ------------------------------- | ------------------------------------------------------------ | --------- |
+| auth_id       | string 20-255 characters Length | 请求认证编码，由认证需求方保证唯一性。在后续认证流程中只做透传。 | Y         |
+| ar_ontid      | string                          | 认证需求方的ONT ID                                           | Y         |
+| owner_ontid   | string                          | 用户ONT ID                                                   | Y         |
+| ta_ontid      | string                          | TrustAnchor的ONT ID。每个TrustAnchor都会注册自己的ONT ID，ONTPass根据认证需求方传入的ONT ID及可信声明模板进行认证路由。 | Y         |
+| claim_context | string                          | 可信声明模板。                                               | Y         |
+| country       | string 2 characters Length      | 两位国家代码，参照ISO 3166-1 alpha-2编码标准。支持的国家及对应的国家编码可查询[认证支持国家列表](http://pro-docs.ont.io/#/docs-cn/ontpass/specification?id=认证支持国家列表) | Y         |
+| name          | string                          | 姓名                                                         | Y         |
+| doc_type      | string                          | 证件类型。目前支持三种：护照:passport,身份证:id_card,驾照: driving_license | Y         |
+| doc_id        | string                          | 证件编号                                                     | Y         |
+| front_doc     | JPG, JPEG, PNG, PDF             | 0MB-16MB 证件照正面的base64编码                              | Y         |
+| back_doc      | JPG, JPEG, PNG, PDF             | 0MB-16MB 证件照反面的base64编码                              | Y         |
 
 
-* 提交认证请求
-
-```json
-Host：域名+/api/v1/ontpass/authentication
-Method：POST /HTTP/1.1
-Content-Type: application/json
-RequestExample：
-{
-    "auth_id":"123345667878780052",
-    "app_ontid":"did:ont:AcbVUAXkJSKy7g43KHW378pBwA48Ywbuuw",
-    "app_signature":"111111111111111111111"
-}
-
-{
-  "action": "AuthReq",
-  "error": 0,
-  "desc": "SUCCESS",
-  "version": "1.0",
-  "result": true
-}
-```
 
 ### Step 5: 获取认证结果
 
-ONTPass会根据认证需求方之前注册的回调地址，将认证结果和签发的可信声明推送到需求方。
+针对认证需求方，`ONTPass`会根据认证需求方之前注册的回调地址，将认证结果和可信声明推送到认证需求方。使用批量推送模式，一次最大推送50条记录。
 
-信息回调时ONTPass平台会带上自己的ONT ID对应的签名，认证需求方可进行验签，验证回调请求的可信性及未篡改性。
+- `ONTPass`回调认证结果时如果出现网络异常会有重试机制，但是认证需求方也需要保证注册的回调地址的高可用性，以便更实时的获取认证结果。
 
-```json
+```javascript
 Host：回调地址
 Method：POST /HTTP/1.1
 Content-Type: application/json
 RequestExample：
 {
-	"auth_flag":true,
-	"auth_id":"xxxxxxxxxxx",
-	"claim_context":"claim:sfp_passport_authentication",
-	"description":"shuftipro passport authentication ",
-    "encrp_origdata":"header.payload.signature.blockchain_proof",
-	"ontid":"did:ont:AEnB1v4zRzepHY344g2K1eiZqdskhwGuN3",
-	"owner_ontid":"did:ont:A9Kn1v4zRzepHY344g2K1eiZqdskhnh2Jv",
-	"ta_ontid":"did:ont:A7wB7v4zRzepHY344g2K1eiZqdskhwHu9J",
-	"txnhash":"836764a693000d2ca89ea7187af6d40c0a10c31b202b0551f63c6bc1be53fc5b"
-	"signature":"AQp2ka0OJWTNN+D3yUlydyjpLpS/GJp6cFt9+wWeT25dBdGYSaErxVDpM1hnbC6Pog="
+        "total":10,
+        "records":[
+            {
+                "id":"123123",
+                "auth_id":"2222333213233231231231232323",
+                "ar_ontid":"did:ont:A8V9Kq6te1Fk01KQ3ecqbfbPwrkBFx9P05",
+                "owner_ontid":"did:ont:Aju0Kq6te1Fk01KQ3ecqbfbPwrkBFx16Mc",
+                "ta_ontid":"did:ont:A5BtKqo9e1Fk01KQ3eckFv41wrkBFl09Fq",
+                "claim_context":"claim:sfp_idcard_authentication",
+                "encrp_origdata":"xxxxxxxxxx",
+                "tx_hash":"",
+                "description":"",
+                "status":1,
+                "encrp_flag":true
+            }
+        ]
 }
 ```
 
 
-| RequestField     |     Type |   Description   | Necessary|
-| :--------------: | :--------:| :------: |:----:|
-|    auth_flag |   Boolean|  TrustAnchor认证结果 true：认证通过  false：认证未通过  |Y|
-|    auth_id |   String|  需求方认证时传给TrustAnchor的认证编号  |Y|
-|    claim_context |   String|  可信声明模板标识  |Y|
-|    description|   String|  若认证失败，即失败原因。若认证成功，即可信声明描述 |Y|
-|    encrp_origdata|   String|  加密后的可信声明 |Y|
-|    ontid|   String|  ONTPass的ONT ID  |Y|
-|    owner_ontid|   String|  用户的ONT ID   |Y|
-|    ta_ontid|   String|  TrustAnchor的ONT ID   |Y|
-|    txnhash |   String|  可信声明存证交易hash  |Y|
-|    signature |   String|  ONTPass使用ONT ID私钥按照[签名规则](https://pro-docs.ont.io/#/docs-cn/ontpass/ontpass-auth?id=%E4%BD%BF%E7%94%A8ont-id%E7%AD%BE%E5%90%8D%E9%AA%8C%E7%AD%BE)对请求内容的签名  |Y|
+
+| RequestField   | Type    | Description                                        | Necessary |
+| -------------- | ------- | -------------------------------------------------- | --------- |
+| status         | int     | TA认证结果  1：认证通过，2：认证失败               | Y         |
+| auth_id        | String  | 认证需求方认证时传入的认证编号                     | Y         |
+| claim_context  | String  | 可信声明模板标识                                   | Y         |
+| description    | String  | 若认证失败，即失败原因。若认证成功，即可信声明描述 | Y         |
+| encrp_origdata | String  | 认证数据的可信声明。若认证失败，则为空字符串。     | Y         |
+| ar_ontid       | String  | 请求方的ONT ID                                     | Y         |
+| owner_ontid    | String  | 用户的ONT ID                                       | Y         |
+| ta_ontid       | String  | TrustAnchor的ONT ID                                | Y         |
+| tx_hash        | String  | 可信声明存证交易hash                               | Y         |
+| encrp_flag     | boolean | 加密标识。true：可信声明经过加密 false：未加密     | Y         |
+| id             | int     | id                                                 | Y         |
 
 
 
@@ -263,12 +268,23 @@ RequestExample：
 | :--- | :--- | :--- |
 | 0 | int | SUCCESS. 成功 |
 | 61001 | int | FAIL, param error. 参数错误 |
-| 61002 | int | FAIL, ONTID not exist. ONTID不存在 |
-| 62003 | int | FAIL, inner communicate fail. 内部通信异常 |
-| 62006 | int | FAIL, verify signature fail. 验签失败 |
-| 62007 | int | FAIL, txn toaddress error or amount insufficient. 交易收款地址错误或金额不足 |
-| 62008 | int | FAIL, send transaction fail. 交易发送失败 |
-| 63001 | int | FAIL, inner error. 内部异常 |
+| 61002 | int | FAIL, already exist. 已存在 |
+| 61003 | int | FAIL, not found. 未找到 |
+| 61012 | int | claim context already exist. 可信声明模板已存在 |
+| 61013 | int | claim context not found. 可信声明模板不存在 |
+| 61014 | int | trustanchor not match the claim context. Trustanchor和可信声明模板不匹配 |
+| 61015 | int | country not match claim context.国家与认证模板不匹配 |
+| 62001 | int | authentication request time exceed limit.认证请求次数超限 |
+| 62003 | int | FAIL, communication fail.通信异常 |
+| 62007 | int | FAIL, need authorization header.需要身份认证Header |
+| 62008 | int | FAIL, authorization fail.身份认证失败 |
+| 63001 | int | FAIL, inner error.内部异常 |
+
+
+
+### HMAC校验
+
+[参考](https://github.com/ontio/documentation/blob/master/pro-website-docs/assets/Demo.java)
 
 
 

@@ -253,7 +253,7 @@ def transferOng(id,from_acct, to_acct,  ong_amount):
 
 转账函数 ```transferOng(id,from_acct, to_acct,  ong_amount)``` 第一个参数是订单的 id 编号，转入方和转出方。
 
-二维码：
+扫码支付，二维码应该是这样：
 
 ```json
 {
@@ -268,7 +268,7 @@ def transferOng(id,from_acct, to_acct,  ong_amount):
 }
 ```
 
-qrcodeUrl 中的参数调用参数：
+qrcodeUrl 中的合约调用参数应该这样：
 ```json
 {
 	"action": "invoke",
@@ -302,7 +302,9 @@ qrcodeUrl 中的参数调用参数：
 
 ```
 
-转账成功的合约事件，如果金额不足的失败合约事件里没有转账信息：
+应用方确认转账订单，请到链上查询合约事件 http://polaris1.ont.io:20334/api/v1/smartcode/event/txhash/{txhash}，  主网域名是http://dappnode1.ont.io
+
+落账需要几秒时间，转账成功的合约事件内容：
 ```json
 
 {
@@ -315,7 +317,7 @@ qrcodeUrl 中的参数调用参数：
 				"transfer",
 				"APa7uMYqdqpFK2chwwmeE7SrQAWZukuGbX",  //转出方
 				"AUr5QUfeBADq6BMY6Tp5yuMsUNGpsD7nLZ",  //转入方
-				"1000                                  //金额 1000，
+				"1000"                                  //金额 1000，
 			]
 		},
 		{
