@@ -23,6 +23,12 @@
 - 框架白皮书
     - [英语](https://ont.io/wp/Ontology-Framework-White-Paper-EN.pdf)
     - [中文](https://ont.io/wp/Ontology-Framework-White-Paper-ZH.pdf)
+- 信任框架白皮书
+    - [英语](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-EN.pdf)
+    - [中文](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-ZH.pdf)
+- 基础设施白皮书
+    - [英语](https://ont.io/wp/Ontology-Infrastructure-White-Paper-EN.pdf)
+    - [中文](https://ont.io/wp/Ontology-Infrastructure-White-Paper-ZH.pdf)
 
 - [OEPs](https://github.com/ontio/OEPs)
 

@@ -26,7 +26,13 @@
 - Framework White Papers
     - [English](https://ont.io/wp/Ontology-Framework-White-Paper-EN.pdf)
     - [Chinese](https://ont.io/wp/Ontology-Framework-White-Paper-ZH.pdf)
-
+- Trust Framework White Paper
+    - [English](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-EN.pdf)
+    - [Chinese](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-ZH.pdf)
+- Infrastructure WhitePaper
+    - [English](https://ont.io/wp/Ontology-Infrastructure-White-Paper-EN.pdf)
+    - [Chinese](https://ont.io/wp/Ontology-Infrastructure-White-Paper-ZH.pdf)
+    
 - [OEPs](https://github.com/ontio/OEPs)
 
 ---
