@@ -24,14 +24,14 @@
     - [Dutch](https://github.com/ontio/documentation/blob/master/nl-NL/Ecosystem%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel
     - [Japanese](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Ecosystem%20White%20Paper-JP.pdf) translated by @Miho Nakauchi
 - Framework White Papers
-    - [English](https://ont.io/wp/Ontology-Framework-White-Paper-EN.pdf)
-    - [Chinese](https://ont.io/wp/Ontology-Framework-White-Paper-ZH.pdf)
-- Trust Framework White Paper
-    - [English](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-EN.pdf)
-    - [Chinese](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-ZH.pdf)
+    - [English](https://ont.io/wp/Ontology-Framework-White-Paper-EN-2.0.0.pdf)
+    - [Chinese](https://ont.io/wp/Ontology-Framework-White-Paper-CH-2.0.0.pdf)
 - Infrastructure WhitePaper
-    - [English](https://ont.io/wp/Ontology-Infrastructure-White-Paper-EN.pdf)
-    - [Chinese](https://ont.io/wp/Ontology-Infrastructure-White-Paper-ZH.pdf)
+    - [English](https://ont.io/wp/Ontology-Infrastructure-White-Paper-EN-2.0.0.pdf)
+    - [Chinese](https://ont.io/wp/Ontology-Infrastructure-White-Paper-CH-2.0.0.pdf)
+- Trust Framework White Paper
+    - [English](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-EN-2.0.0.pdf)
+    - [Chinese](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-CH-2.0.0.pdf)
 
 - [OEPs](https://github.com/ontio/OEPs)
 

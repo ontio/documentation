@@ -21,14 +21,14 @@
     - [荷兰语](https://github.com/ontio/documentation/blob/master/nl-NL/Ecosystem%20White%20Paper%20-%20Dutch%20V1.pdf) translated by @Mark Westerweel
     - [日语](https://github.com/ontio/documentation/blob/master/jp_JP/Ontology%20Ecosystem%20White%20Paper-JP.pdf) translated by @Miho Nakauchi
 - 框架白皮书
-    - [英语](https://ont.io/wp/Ontology-Framework-White-Paper-EN.pdf)
-    - [中文](https://ont.io/wp/Ontology-Framework-White-Paper-ZH.pdf)
-- 信任框架白皮书
-    - [英语](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-EN.pdf)
-    - [中文](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-ZH.pdf)
+    - [英语](https://ont.io/wp/Ontology-Framework-White-Paper-EN-2.0.0.pdf)
+    - [中文](https://ont.io/wp/Ontology-Framework-White-Paper-CH-2.0.0.pdf)
 - 基础设施白皮书
-    - [英语](https://ont.io/wp/Ontology-Infrastructure-White-Paper-EN.pdf)
-    - [中文](https://ont.io/wp/Ontology-Infrastructure-White-Paper-ZH.pdf)
+    - [英语](https://ont.io/wp/Ontology-Infrastructure-White-Paper-EN-2.0.0.pdf)
+    - [中文](https://ont.io/wp/Ontology-Infrastructure-White-Paper-CH-2.0.0.pdf)
+- 信任框架白皮书
+    - [英语](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-EN-2.0.0.pdf)
+    - [中文](https://ont.io/wp/Ontology-Trust-Framework-White-Paper-CH-2.0.0.pdf)
 
 - [OEPs](https://github.com/ontio/OEPs)
 
