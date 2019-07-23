@@ -2,7 +2,7 @@
 
 ## What is ONTPass?
 
-ONTPass is an open and decentralized authentication platform based on ONT ID and the Ontology trust ecosystem. It provides rich authentication services for people, finances, things, and affairs. The Ontology trust ecosystem has gathered trust anchors that provide global identity authentication services, including IdentityMind, CFCA, SenseTime, Shufti Pro, etc., as well as email, mobile, and social media authentication methods. [Learn more about trust anchors](https://info.ont.io/trust-anchor/en).
+ONTPass is an open and decentralized authentication platform based on ONT ID and the Ontology trust ecosystem. It provides KYC services for people, finances, things, and affairs. The Ontology trust ecosystem has gathered trust anchors that provide global identity authentication services, including IdentityMind, CFCA, SenseTime, Shufti Pro, etc., as well as email, mobile, and social media authentication methods. 
 
 ## What can ONTPass do for you?
 

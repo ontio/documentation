@@ -11,9 +11,4 @@
 - 信任锚
   - [概述](docs-cn/taconnector/01-overview.md)
   - [快速开始](docs-cn/taconnector/02-get-started.md)
-- 分布式数据交易框架 DDXF
-  - [概述](docs-cn/ddxf/01-overview.md)
-  - [快速开始](docs-cn/ddxf/02-get-started.md)
-- ONTO
-  - [概述](docs-cn/onto/overview.md)
-  - [KYC服务](docs-cn/onto/ONTO_login.md)
+
