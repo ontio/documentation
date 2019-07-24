@@ -93,7 +93,7 @@
 | expire   | long  | 可选  |
 | callback   | string  | 用户扫码签名后发送到 DAPP 后端 URL |
 
-### 3.2 DAPP 服务端登录接口
+#### DAPP 服务端登录接口
 
 > 该接口是钱包处理完请求回调时调用，服务器 IP 必须得是外网。
 
@@ -149,6 +149,52 @@ method: post
 }
 ```
 
+### 3.2 消息签名
+
+跟登录协议一样，但 ```DAPP``` 请求时不需要 ```DAPP``` 名字和 ```icon``` 。
+
+```DAPP``` 发起消息签名请求，二维码数据如下：
+
+```json 
+{
+	"action": "signMessage",
+	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+	"params": {
+		"type": "ontid or address",
+		"message": "helloworld",
+		"callback": "http://101.132.193.149:4027/blockchain/v1/common/test-onto-login"
+	}
+}
+```
+
+|字段|类型|定义|
+| :---| :---| :---|
+| action   |  string |  操作类型 |
+| type   |  string |  定义是使用 ontid 登录设定为 "ontid" ，钱包地址登录设定为 "address" ，不填就默认是 "address" |
+| message   | string  | 随机生成，用于校验身份  |
+| callback   | string  |  用户扫码签名后发送到 DAPP 后端 URL |
+
+钱包响应登录请求，**URI 解码，Base64 解码**后，获取到的数据如下：
+
+返回成功内容给回调地址：
+```json
+method: post
+{
+	"action": "signMessage",
+	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+	"error": 0,
+    "desc": "SUCCESS",
+	"result": {
+		"type": "ontid or address",
+		"user": "did:ont:AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz or AUEKhXNsoAT27HJwwqFGbpRy8QLHUMBMPz",
+		"message": "helloworld",
+		"publickey": "0205c8fff4b1d21f4b2ec3b48cf88004e38402933d7e914b2a0eda0de15e73ba61",
+		"signature": "01abd7ea9d79c857cd838cabbbaad3efb44a6fc4f5a5ef52ea8461d6c055b8a7cf324d1a58962988709705cefe40df5b26e88af3ca387ec5036ec7f5e6640a1754"
+	}
+}
+```
 
 ### 3.3 调用合约
 
