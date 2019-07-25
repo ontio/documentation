@@ -1,7 +1,7 @@
 # SHARD CONSENSUS USE VBFT
 
 
-###sharding consensus mode same as the root chain consensus,but there are some differences in make proposal,endorser and commiter stage.
+### sharding consensus mode same as the root chain consensus,but there are some differences in make proposal,endorser and commiter stage.
 
 ## consensus process
 
@@ -12,14 +12,14 @@
 #### 3、check current parent height,set block parent height
 #### 4、sig cross shard msg hash
 
-####In make proposal stage,you should check is need change consensus,get new chainconfig.
+#### In make proposal stage,you should check is need change consensus,get new chainconfig.
 
 ##### 1、get shard commit dpos height from shard ledger
 ##### 2、if height > last consensus height or current block height - height > maxblockchangeview then get current chainconfig from shard ledger.
 ##### 3、use new chainfig as next round consensus config info.
 ##### 4、if this change consensus is periodic switch,then need create new shard gov system tx
 
-####TestCase
+#### TestCase
 
 #### 1、get cross shard msg from shardNoify,need check CrossMsgHash is nil
 ```
