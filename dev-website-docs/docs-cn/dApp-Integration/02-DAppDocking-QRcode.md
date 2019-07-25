@@ -163,6 +163,7 @@ method: post
 	"params": {
 		"type": "ontid or address",
 		"message": "helloworld",
+		"ishex": false
 		"callback": "http://101.132.193.149:4027/blockchain/v1/common/test-onto-login"
 	}
 }
@@ -173,6 +174,7 @@ method: post
 | action   |  string |  操作类型 |
 | type   |  string |  定义是使用 ontid 登录设定为 "ontid" ，钱包地址登录设定为 "address" ，不填就默认是 "address" |
 | message   | string  | 随机生成，用于校验身份  |
+| ishex   | bool  | message 是不是hex  |
 | callback   | string  |  用户扫码签名后发送到 DAPP 后端 URL |
 
 钱包响应登录请求，**URI 解码，Base64 解码**后，获取到的数据如下：

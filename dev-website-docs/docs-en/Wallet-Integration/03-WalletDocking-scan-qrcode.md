@@ -44,6 +44,7 @@ Scan code acquisition
 		"dappName": "dapp Name",
 		"dappIcon": "dapp Icon",
 		"message": "helloworld",
+		"ishex": false
 		"expire": 1546415363, // QR Code expire time
 		"callback": "http://101.132.193.149:4027/blockchain/v1/common/test-onto-login"
 	}
@@ -58,6 +59,7 @@ Scan code acquisition
 | dappName | string | dapp name |
 | dappIcon | string | dapp icon information |
 | message | string | Randomly generated for verifying identity |
+| ishex | bool | hex message |
 | expire | long | Optional |
 Callback | string | User scans the signature and sends it to the DApp backend URL |
 
