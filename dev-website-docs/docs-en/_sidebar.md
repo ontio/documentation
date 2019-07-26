@@ -47,7 +47,7 @@
       - [Mobile wallet scan qrcode](docs-en/dApp-Integration/02-DAppDocking-QRcode.md)
       - [DAPP wakes up mobile wallet](docs-en/dApp-Integration/06-DAppDocking-Wake-up.md)
   - [Unity 3D Integration](docs-en/dApp-Integration/12-unity_integration.md)
-  - [Cocos-2dx Integration](docs-en/dApp-Integration/13-cocos-integration.md)       
+  - [Cocos2d-x Integration](docs-en/dApp-Integration/13-cocos-integration.md)       
   - [FAQ](docs-en/dApp-Integration/11-Q&A.md)
 
 
