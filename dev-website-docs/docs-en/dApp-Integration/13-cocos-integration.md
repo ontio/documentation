@@ -1,5 +1,5 @@
 
-## Waht's Cocos Creator
+## What's Cocos Creator
 
 Cocos Creator is a script development, entity-component and data-driven game development tool focused on content creation. An easy-to-follow content production workflow and a powerful suite of developer tools for game logic and high-performance game creation.
 
