@@ -74,22 +74,25 @@ client.registerClient();
 
 To give you a visual sense of the blockchain game, we deployed the sample project on GitHub pages.
 
+### Desktop Browser
+
+You can access games deployed in [here](https://punica-box.github.io/bitcoin-catcher-box/) in the Chrome kernel browser with Cyano Wallet installed.
+
+<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/dapp-integration/game-in-chrome.png" width="800px"></div>
+
 <p class="warning">
 The game's contract is currently only deployed on the polaris test network. So, before the experience, please switch your plugin wallet or mobile wallet to the polaris test network or any blockchain network that you have pre-deployed.
 </p>
 
-### Desktop Browser
-
-You can access games deployed in [here] (https://punica-box.github.io/bitcoin-catcher-box/) in the Chrome kernel browser with Cyano Wallet installed.
-
-<div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/dapp-integration/game-in-chrome.png" width="800px"></div>
-
 ### Mobile Phone
 
-You can access games deployed in [here] (https://punica-box.github.io/bitcoin-catcher-box/) in a wallet that supports `CEP-1`, such as Cyano Wallet, Math Wallet.
+You can access games deployed in [here](https://punica-box.github.io/bitcoin-catcher-box/) in a wallet that supports `CEP-1`, such as Cyano Wallet, Math Wallet.
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/dapp-integration/game-in-onto.jpg" width="280px"></div>
 
+<p class="warning">
+The game's contract is currently only deployed on the polaris test network. So, before the experience, please switch your plugin wallet or mobile wallet to the polaris test network or any blockchain network that you have pre-deployed.
+</p>
 
 ### Getting Started
 

@@ -77,21 +77,25 @@ client.registerClient();
 
 为了让你能够直观地感受区块链游戏，我们将该示例项目部署在了 GitHub pages 上。
 
-<p class="warning">
-游戏的合约目前只部署在了 polaris 测试网上。因此，在体验之前，请将你的插件钱包或者移动端钱包切换到 polaris 测试网或者任何你已预先部署好合约的区块链网络。
-</p>
-
 #### 桌面浏览器
 
 你可以在安装了 Cyano Wallet 的 Chrome 内核浏览器中访问部署在[这里](https://punica-box.github.io/bitcoin-catcher-box/)的游戏。
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/dapp-integration/game-in-chrome.png" width="800px"></div>
 
+<p class="warning">
+游戏的合约目前只部署在了 polaris 测试网上。因此，在体验之前，请将你的插件钱包或者移动端钱包切换到 polaris 测试网或者任何你已预先部署好合约的区块链网络。
+</p>
+
 #### 手机端
 
 你可以在支持 `CEP-1` 的钱包中访问部署在[这里](https://punica-box.github.io/bitcoin-catcher-box/)的游戏，例如 Cyano Wallet、麦子钱包。
 
 <div align="center"><img src="https://raw.githubusercontent.com/ontio/documentation/master/dev-website-docs/assets/dapp-integration/game-in-onto.jpg" width="280px"></div>
+
+<p class="warning">
+游戏的合约目前只部署在了 polaris 测试网上。因此，在体验之前，请将你的插件钱包或者移动端钱包切换到 polaris 测试网或者任何你已预先部署好合约的区块链网络。
+</p>
 
 ### 快速开始
 
