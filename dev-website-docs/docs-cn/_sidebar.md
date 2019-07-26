@@ -54,6 +54,7 @@
     - [手机钱包扫码](docs-cn/dApp-Integration/02-DAppDocking-QRcode.md)
     - [应用唤醒手机钱包](docs-cn/dApp-Integration/06-DAppDocking-Wake-up.md)
   - [Unity 3D 对接](docs-cn/dApp-Integration/12-unity_integration.md)
+  - [Cocos2d-x 对接](docs-cn/dApp-Integration/13-cocos-integration.md)
   - [常见问题](docs-cn/dApp-Integration/11-Q&A.md)
 
 - 手机钱包对接指南
