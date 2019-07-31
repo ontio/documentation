@@ -924,7 +924,7 @@ public class NetworkDemo {
 {
     "Action": "getgasprice",
     "Version": "1.0.0",
-    "Id":12345, //optional
+    "Id":12345 //optional
 }
 ```
 

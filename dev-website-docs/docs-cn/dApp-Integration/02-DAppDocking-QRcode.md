@@ -169,6 +169,21 @@ method: post
 }
 ```
 
+或一次签多个
+```json 
+{
+	"action": "signMultiMessage",
+	"version": "v1.0.0",
+	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",
+	"params": {
+		"type": "ontid or address",
+		"message": ["aabbccdd"],
+		"ishex": true
+		"callback": "http://101.132.193.149:4027/blockchain/v1/common/test-onto-login"
+	}
+}
+```
+
 |字段|类型|定义|
 | :---| :---| :---|
 | action   |  string |  操作类型 |
@@ -196,6 +211,8 @@ method: post
 		"signature": "01abd7ea9d79c857cd838cabbbaad3efb44a6fc4f5a5ef52ea8461d6c055b8a7cf324d1a58962988709705cefe40df5b26e88af3ca387ec5036ec7f5e6640a1754"
 	}
 }
+
+如果 action 是 signMultiMessage 那么 result 是数组
 ```
 
 ### 3.3 调用合约
