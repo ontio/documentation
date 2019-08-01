@@ -717,9 +717,9 @@ const tx = GovernanceTxBuilder.makeWithdrawFeeTx(
 )
 ```
 
-#### 6.10 查询节点质押总量
+### 6.10 查询用户质押的总数
 
-```js
+```
 //@param userAddr {Address} Address of user
 //@param url Url of network to connect
 
@@ -727,9 +727,6 @@ import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
 const url = getNodeUrl();
 const userAddr = new Crypto.Address(address);
 const totalStake = await GovernanceTxBuilder.getTotalStake(userAddr, url)
-```
-
-```js
 class TotalStake {
     address: Address; // User's address
     stake: number; // Total num of stake
