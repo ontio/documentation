@@ -535,38 +535,7 @@ const peerMap = await GovernanceTxBuilder.getPeerPoolMap(url)
 ```
 该接口返回的结果是所有的节点详情。展示的列表需要对返回结果做一些处理，如按质押总数进行排序，匹配节点名称等。具体步骤可以参考OWallet的处理方式[NodeAuthorization.js --> fetchNodeList()](https://github.com/ontio/OWallet/blob/master/src/renderer/store/modules/NodeAuthorization.js)
 
-目前开放授权质押的节点如下：
 
-```
-{
-    name: 'Dubhe',
-    pk: '02bcdd278a27e4969d48de95d6b7b086b65b8d1d4ff6509e7a9eab364a76115af7'
-  },
-  {
-    name: 'Merak',
-    pk: '0251f06bc247b1da94ec7d9fe25f5f913cedaecba8524140353b826cf9b1cbd9f4'
-  },
-  {
-    name: 'Phecda',
-    pk: '022e911fb5a20b4b2e4f917f10eb92f27d17cad16b916bce8fd2dd8c11ac2878c0'
-  },
-  {
-    name: 'Megrez',
-    pk: '0253719ac66d7cafa1fe49a64f73bd864a346da92d908c19577a003a8a4160b7fa'
-  },
-  {
-    name: 'Alioth',
-    pk: '022bf80145bd448d993abffa237f4cd06d9df13eaad37afce5cb71d80c47b03feb'
-  },
-  {
-    name: 'Mixar',
-    pk: '02765d98bb092962734e365bd436bdc80c5b5991dcf22b28dbb02d3b3cf74d6444'
-  },
-  {
-    name: 'Alkaid',
-    pk: '03c8f63775536eb420c96228cdccc9de7d80e87f1b562a6eb93c0838064350aa53'
-  }
-```
 
 ### 6.2 查询授权质押详情
 
@@ -747,3 +716,37 @@ const tx = GovernanceTxBuilder.makeWithdrawFeeTx(
     GAS_LIMIT
 )
 ```
+
+### 6.10 查询用户质押的总数
+
+```
+//@param userAddr {Address} Address of user
+//@param url Url of network to connect
+
+import {GovernanceTxBuilder, Crypto} from 'ontology-ts-sdk'
+const url = getNodeUrl();
+const userAddr = new Crypto.Address(address);
+const totalStake = await GovernanceTxBuilder.getTotalStake(userAddr, url)
+
+class TotalStake {
+    address: Address; // User's address
+    stake: number; // Total num of stake
+    timeOffset: number; //Start time for calculating the unbound ONG
+}
+```
+
+
+
+### 6.11 查询当前周期剩余区块数量
+
+```javascript
+import {GovernanceTxBuilder, RestClient} from 'ontology-ts-sdk'
+
+const url = 'http://dappnode1.ont.io:20334'
+const rest = new RestClient(url);
+const view = await GovernanceTxBuilder.getGovernanceView(url);
+const blockRes = await rest.getBlockHeight();
+const blockHeight = blockRes.Result;
+const countdown = 120000 - (blockHeight - view.height); // 当前周期剩余区块数量
+```
+

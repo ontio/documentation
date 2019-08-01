@@ -548,39 +548,6 @@ const peerMap = await GovernanceTxBuilder.getPeerPoolMap(url)
 ```
 The result returned is the details of all nodes.We need to handle the result for display.You can refer to the method in OWallet. [NodeAuthorization.js --> fetchNodeList()](https://github.com/ontio/OWallet/blob/master/src/renderer/store/modules/NodeAuthorization.js)
 
-Now the nodes that allow stake authorization are as below:
-
-```
-{
-    name: 'Dubhe',
-    pk: '02bcdd278a27e4969d48de95d6b7b086b65b8d1d4ff6509e7a9eab364a76115af7'
-  },
-  {
-    name: 'Merak',
-    pk: '0251f06bc247b1da94ec7d9fe25f5f913cedaecba8524140353b826cf9b1cbd9f4'
-  },
-  {
-    name: 'Phecda',
-    pk: '022e911fb5a20b4b2e4f917f10eb92f27d17cad16b916bce8fd2dd8c11ac2878c0'
-  },
-  {
-    name: 'Megrez',
-    pk: '0253719ac66d7cafa1fe49a64f73bd864a346da92d908c19577a003a8a4160b7fa'
-  },
-  {
-    name: 'Alioth',
-    pk: '022bf80145bd448d993abffa237f4cd06d9df13eaad37afce5cb71d80c47b03feb'
-  },
-  {
-    name: 'Mixar',
-    pk: '02765d98bb092962734e365bd436bdc80c5b5991dcf22b28dbb02d3b3cf74d6444'
-  },
-  {
-    name: 'Alkaid',
-    pk: '03c8f63775536eb420c96228cdccc9de7d80e87f1b562a6eb93c0838064350aa53'
-  }
-```
-
 ### 6.2 Query the detail of stake authorization
 
 ```
@@ -779,5 +746,19 @@ class TotalStake {
     timeOffset: number; //Start time for calculating the unbound ONG
 }
 ```
+
+### 6.11 Query the number of remaining blocks in the current round
+
+```javascript
+import {GovernanceTxBuilder, RestClient} from 'ontology-ts-sdk'
+
+const url = 'http://dappnode1.ont.io:20334'
+const rest = new RestClient(url);
+const view = await GovernanceTxBuilder.getGovernanceView(url);
+const blockRes = await rest.getBlockHeight();
+const blockHeight = blockRes.Result;
+const countdown = 120000 - (blockHeight - view.height); // the number of remaining blocks
+```
+
 
 
