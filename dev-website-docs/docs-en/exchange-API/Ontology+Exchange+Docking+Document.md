@@ -706,22 +706,40 @@ response:
     "Action": "getsmartcodeeventbyhash",
     "Desc": "SUCCESS",
     "Error": 0,
-    "Result": {
-        "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
-        "State": 1,
-        "GasConsumed": 0,
-        "Notify": [
-            {
-                "ContractAddress": "0100000000000000000000000000000000000000",
-                "States": [
-                    "transfer",
-                    "Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT",
-                    "AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb",
-                    1000000000
-                ]
-            }
-        ]
-    },
+    "Result": [
+                             {
+                                  "TxHash": "7e8c19fdd4f9ba67f95659833e336eac37116f74ea8bf7be4541ada05b13503e",
+                                  "State": 1,
+                                  "GasConsumed": 0,
+                                  "Notify": [
+                                      {
+                                          "ContractAddress": "0200000000000000000000000000000000000000",
+                                          "States": [
+                                              "transfer",
+                                              "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+                                              "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+                                              1000000000000000000
+                                          ]
+                                      }
+                                  ]
+                              },
+                              {
+                                  "TxHash": "fc82cd363271729367098fbabcfd0c02cf6ded1e535700d04658b596d53cf07d",
+                                  "State": 1,
+                                  "GasConsumed": 0,
+                                  "Notify": [
+                                      {
+                                          "ContractAddress": "0200000000000000000000000000000000000000",
+                                          "States": [
+                                              "transfer",
+                                              "AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM",
+                                              "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+                                              1000000000000000000
+                                          ]
+                                      }
+                                  ]
+                              }
+     ],
     "Version": "1.0.0"
 }
 
