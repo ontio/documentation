@@ -7,6 +7,7 @@
   - [DDXF](docs-kr/DeveloperGuide/05-ddxf.md)
   - [자원](docs-kr/DeveloperGuide/06-white-papers.md)
   - [공헌 가이드](docs-kr/DeveloperGuide/07-contributions-guide.md)
+  - [신장](docs-kr/DeveloperGuide/08-Extension.md)
 
 - 온톨로지 클라이언트 터미널
   - [개요](docs-kr/ontology-cli/00-overview.md)

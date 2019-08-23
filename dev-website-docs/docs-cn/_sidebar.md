@@ -8,6 +8,7 @@
   - [社区贡献](docs-cn/introduction/07-contributions.md)
   - [学习资源](docs-cn/introduction/06-white-papers.md)
   - [术语表](docs-cn/introduction/08-glossary.md)
+  - [扩展](docs-cn/introduction/09-Extension.md)
 
 - 本体客户端
   - [概述](docs-cn/ontology-cli/00-overview.md)
