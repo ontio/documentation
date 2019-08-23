@@ -6,6 +6,7 @@
   - [DDXF](docs-en/DeveloperGuide/05-ddxf.md)
   - [Resources](docs-en/DeveloperGuide/06-white-papers.md)
   - [Contribution Guide](docs-en/DeveloperGuide/07-contributions-guide.md)
+  - [Extension](docs-en/DeveloperGuide/08-Extension.md)
 
 - Ontology Client
   - [Overview](docs-en/OntologyCli/00-overview.md)
