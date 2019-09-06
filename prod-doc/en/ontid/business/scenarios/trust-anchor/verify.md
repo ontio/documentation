@@ -1,0 +1,1 @@
+# Trust anchor - verify claim
