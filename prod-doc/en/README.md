@@ -6,3 +6,6 @@
 2. [DDXF](./ddxf/framework/README.md)
    - [Scenarios](./ddxf/business/scenarios/README.md)
    - [Solutions](./ddxf/business/solutions/README.md)
+3. Usecases
+   1. Moviebloc
+   2. Openbase

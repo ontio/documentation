@@ -33,7 +33,7 @@ Tech document is way behind. For detail and technology support, please contact O
 ## 3. Share high value customers with lower cost over network
 
 1. Define the cost model of customer acquisition and publish
-   - [>>> Learn more.](../../../ddxf/business/solutions/customer.md)
+   - [>>> Learn more.](../../../ddxf/business/solutions/mp/id.md)
 2. Generate claim template and forward to claim store
 3. Wait for new customers to give a try
 4. Done
