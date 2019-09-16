@@ -7,7 +7,7 @@
 - 通过 `curl` 命令获取最新的客户端。
 
   ```shell
-  curl https://dev.ont.io/ontology_install | sh
+  $ curl https://dev.ont.io/ontology_install | sh
   ```
 
 ## 使用源码编译
@@ -17,20 +17,20 @@
 1. 获取源码：
 
    ```shell
-   go get github.com/ontio/ontology
+   $ go get github.com/ontio/ontology
    ```
 
 2. 使用包管理工具 `glide` 获取依赖：
 
    ```shell
-   cd $GOPATH/src/github.com/ontio/ontology
+   $ cd $GOPATH/src/github.com/ontio/ontology
    glide install
    ```
 
 3. 编译源码：
 
    ```shell
-   make all
+   $ make all
    ```
 
 源码成功编译后会生成两个可执行程序：
