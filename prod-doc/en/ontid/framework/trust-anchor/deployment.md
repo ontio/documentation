@@ -41,7 +41,7 @@ Sample configuration file in json,
   "ontId": "did:ont:AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
 	"domain": "sampletrustanchor.ont",
 	"enableONS": true,
-	"defaultPayer": "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+	"defaultPayer": "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV"
 }
 ```
 

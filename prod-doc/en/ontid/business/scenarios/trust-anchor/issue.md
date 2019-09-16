@@ -12,27 +12,47 @@
 
    
 
-2. 在获得验证报告之后，你需要为你的用户签发相应的可信申明，需页面程序生成 协议二维码，申请者通过Onto Auth 进行签名；
+2. 签发相应的可信申明
 
-   [二维码返回参数及API](../../../framework/trust-anchor/restful-api.md#claim_pro)
+   * 在获得验证报告之后，你需要为你的用户签发相应的可信申明，需页面程序生成 协议二维码，申请者通过Onto Auth 进行签名；
+   * 不需要第三方数据认证的情况下，Trust Anchor 可自己签发可信声明，通过Onto Auth 进行签名；
+   * 数据认证方也可自己签发Claim
 
-   二维码协议参数(具体参数通过上述Signing server API接口获取)
+   实施步骤：
+
+   ​	*	需要先注册 [获取可信声明](../web-app/action.md) 的Action Name
 
    ```json
    {
-   	"action": "getClaim",
-   	"id": "10ba038e-48da-487b-96e8-8d3b99b6d18a",  // 接口获取
-   	"version": "v1.0.0",
-   	"params": {
-   		"dappName": "dapp Name",
-   		"dappIcon": "dapp Icon",
-   		"message": "helloworld",  // 接口获取
-   		"expire": 1546415363,  // 接口获取
-   		"callback": "http://101.132.193.149:4027/getClaim" // 接口获取
-   	}
+      "domain": "on.ont",
+      "enableONS": true,
+      "defaultPayer": "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+      "actions": [{
+            "type": "getClaim",
+            "onchainRec": false
+         },
+         {
+            "type": "...",
+            "onchainRec": false
+         },
+         {
+            "type": "...",
+            "onchainRec": true,
+            "payer": "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+            "qrcodeUrl": "",
+            "callback": ""
+         }
+      ]
    }
-   
    ```
+
+   ​	*	通过 Singing-SDK [方法](../../../framework/signing-server/sdk/java/javadoc/[README.md](README.md))获取二维码协议参数
+
+   ```js
+   let qrStr = singingSdk.verify('getClaim', 'ad12-dis')
+   ```
+
+   
 
    示例二维码
 
@@ -40,7 +60,7 @@
 
    
 
-3. 签名通过后，TA通过Clain合约执行上链操作，申请者 通过Signing server API拿到生成的claim；
+3. 签名通过后，TA通过Clain合约执行[上链操作](../../../framework/trust-anchor/smart-contract-api.md)，申请者 通过TA API拿到生成的claim；
 
    [TA Claim Result API](../../../framework/trust-anchor/restful-api.md#claim_res)
 
