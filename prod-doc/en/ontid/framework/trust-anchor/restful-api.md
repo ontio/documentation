@@ -39,7 +39,7 @@ Ontology claim system reuses the "[general interface](../signing-server/restful-
 - End user acquire a claim for certain qualifications, provides proof of the qualification items
 - Trust anchor verify the proof and prepare for the claim, the claim follows the `verifiable claim specification`.
 
-#### 2.2 Generate QR code for ONT Auth
+#### 2.2 Generate QR code for ONT Auth<a id='claim_pro'></a>
 
 Ref., [signing server - generate a qrcode to verify the belonging of ONT ID](../signing-server/restful-api.md#genQrcode)
 
@@ -169,7 +169,7 @@ Response:
 1. ONT Auth will [contruct a claim invoke transaction](../signing-server/restful-api.md#constructTransaction) with the given pattern. 
 2. Sign the transaction and send. Ref., [transaction with signed tx string](../signing-server/restful-api.md#signedTx).
 
-#### 2.6 Get claim from TA
+#### 2.6 Get claim from TA<a id='claim_res'></a>
 
 ```
 url：/api/v1/ta/claim/{id}
@@ -241,7 +241,7 @@ Claim requirement parameters
 
 Ref., [anonymous credential](../claim-store/anonymous-credential.md).
 
-#### 3.3 Send anonymous credential
+#### 3.3 Send anonymous credential<a id='credential_id'></a>
 
 ```
 url：/api/v1/claim/callback

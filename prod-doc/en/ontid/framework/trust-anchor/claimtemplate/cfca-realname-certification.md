@@ -1,64 +1,76 @@
-### CFCA real name  certification claim template
 
-Claim of personal real-name information issued by CFCA.
+## CFCA实名认证可信声明模板
 
+
+### header：
 
 ```json
 {
-	"Id":"g84aj0f56d106a1c92e891b687fc4d9546fdf2en74a364776fa65a9j86b0387j",
-	"Context":"https://example.com/realname/template/v1",
-	"Content":{
-		"IdNumber": "510806199002122991",
-		"Name": "zhangsan"
-	},
-	"Metadata":{
-		"CreateTime":"2018-02-02T12:11:50Z",
-		"Issuer":"did:ont:THeNuzzVL5HWartjLpZDZHB1jNqeLFncCP",
-		"Subject":"did:ont:TA5ubZyowXUdfTyXwy3Q7FkxJwRuNXC9aZ",
-		"Revocation": { 
-			"Type": "Contract",
-			"Addr": "8055b362904715fd84536e754868f4c8d27ca3f6"
-		}
-	},
-	"Signature":{
-		"PublicKeyId": "did:ont:THeNuzzVL5HWartjLpZDZHB1jNqeLFncCP#keys-1",
-		"Format":"pgp",
-		"Algorithm":"ECDSAwithSHA256",
-		"Value":"AUak5urs4L989dk1im4ACjutojS1EnfqRnuOrUPlyiPG6tCnDunCdDf50RlQr9mtj+YnvTq0yeqIxf72x8PAiRk="
-	},
-	
-	"Proof":{
-		"Type":"MerkleProof",
-		"TxnHash":"0491abf615880f034874f1e8934f679b3bfa692036ba0648968e550a41e0038e",
-		"ContractAddr": "8055b362904715fd84536e754868f4c8d27ca3f6",
-		"BlockHeight":69,
-		"MerkleRoot":"c64695da1f7ce728209bdaa7a1aa5be3143aa56d4e52c4f28346980c84958ca7",
-		"Nodes":[
-			{
-				"Direction":"Right",
-				"TargetHash":"08f1f8ac790b936b06aeb15aa5afa325a0ac05d7dc501eba456560bb260c4542"
-			}, 
-			{
-				"Direction":"Left",
-				"TargetHash":"0e9f352bd54c28577f774e6077433e98a0a2bc991512a0f70fceb6c8e2e55ae1"
-			}
-		]
-	}
+    "alg": "ES256",
+    "typ": "JWT-X",
+    "kid": "did:ont:TRAtosUZHNSiLhzBdHacyxMX4Bg3cjWy3r#keys-1"
 }
 ```
 
-Content format definition as JSON file:
-```
+### payload:
+
+```json
 {
-    "Type": "claim:cfca_authentication", 
-    "IdNumber": {
-        "Doc": "Unique number of certificate",
-        "ValType": "String"
-    }, 
-    "Name": {
-        "Doc": "The full name of certificate owner",
-        "ValType": "String"
+    "ver": "0.7.0",
+    "iss": "did:ont:TRAtosUZHNSiLhzBdHacyxMX4Bg3cjWy3r",
+    "sub": "did:ont:SI59Js0zpNSiPOzBdB5cyxu80BO3cjGT70",
+    "iat": 1525465044,
+    "exp": 1530735444,
+    "jti":"4d9546fdf2eb94a364208fa65a9996b03ba0ca4ab2f56d106dac92e891b6f7fc",
+    "@context":"claim:cfca_authentication",
+    "clm":{
+        "身份证号": "510808088991762615",
+        "姓名": "zz",
+        "IssuerName":"CFCA"
+    },
+    "clm-rev":{ 
+        "typ": "AttestContract",
+        "addr": "8055b362904715fd84536e754868f4c8d27ca3f6"
     }
 }
+```
+
+
+可信声明具体内容clm对应字段说明：
+
+| Field     |     Type |   Description   |
+| :--------------: | :--------:| :------: |
+|    身份证号|   String|  身份证号  |
+|    姓名|   String|  姓名  |
+|    IssuerName|   String|  签发机构名称  |
+
+
+### signature
 
 ```
+"addadasdadadadadadadad"
+```
+
+### blockchain_proof
+
+```
+{
+    "Type":"MerkleProof",
+    "TxnHash":"c89e76ee58ae6ad99cfab829d3bf5bd7e5b9af3e5b38713c9d76ef2dcba2c8e0",
+    "ContractAddr": "8055b362904715fd84536e754868f4c8d27ca3f6",
+    "BlockHeight":10,
+    "MerkleRoot":"bfc2ac895685fbb01e22c61462f15f2a6e3544835731a43ae0cba82255a9f904",
+    "Nodes":[{
+    	"Direction":"Right",
+        "TargetHash":"2fa49b6440104c2de900699d31506845d244cc0c8c36a2fffb019ee7c0c6e2f6"
+    }, {
+        "Direction":"Left",
+        "TargetHash":"fc4990f9758a310e054d166da842dab1ecd15ad9f8f0122ec71946f20ae964a4"
+    }]
+}
+```
+
+
+
+
+

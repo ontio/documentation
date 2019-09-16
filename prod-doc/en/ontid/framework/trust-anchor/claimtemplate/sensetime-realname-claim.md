@@ -1,8 +1,4 @@
-### 公司在职证明可信声明模板
-
-公司给本公司的在职职员签发的在职证明可信声明
-
-
+## 商汤实名认证可信声明模板
 
 ### header：
 
@@ -24,14 +20,11 @@
     "iat": 1525465044,
     "exp": 1530735444,
     "jti":"4d9546fdf2eb94a364208fa65a9996b03ba0ca4ab2f56d106dac92e891b6f7fc",
-    "@context":"claim:employment_authentication",
+    "@context":"claim:sensetime_authentication",
     "clm":{
-	"IdNumber": "510806199002122991",
-	"Name": "zhangsan",
-	"Gender":"male",
-	"JobTitle": "SoftwareEngineer",
-	"MonthlySalary": 3000.00,
-	"Hiredata": "2017-03-20"
+        "身份证号": "510808088991762615",
+        "姓名": "zz",
+        "IssuerName":"Sensetime"
     },
     "clm-rev":{ 
         "typ": "AttestContract",
@@ -40,21 +33,13 @@
 }
 ```
 
-
-
 可信声明具体内容clm对应字段说明：
 
-
-
-| Field     |     Type |   Description   | 
-| :--------------: | :--------:| :------: |
-|    IdNumber|   String|  身份证号  |
-|    Name|   String|  姓名  |
-|    Gender|   String| 性别   |
-|    JobTitle|   String|  公司职位  |
-|    MonthlySalary|   Long|  月工资  |
-|    Hiredata|   String|  入职时间，格式：yyyy-MM-dd  |
-
+|   Field    |  Type  | Description  |
+| :--------: | :----: | :----------: |
+|  身份证号  | String |   身份证号   |
+|    姓名    | String |     姓名     |
+| IssuerName | String | 签发机构名称 |
 
 ### signature
 
@@ -80,3 +65,8 @@
     }]
 }
 ```
+
+
+
+
+

@@ -41,7 +41,7 @@ Sample configuration file in json,
   "ontId": "did:ont:AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
 	"domain": "sampletrustanchor.ont",
 	"enableONS": true,
-	"defaultPayer": "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+	"defaultPayer": "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV"
 }
 ```
 
@@ -54,11 +54,11 @@ Sample configuration file in json,
 
 ### 2.1 Enable ONS
 
-
+设置 enableONS 为true 时，启用ONS合约，需注意 ondtid 与 domain 要在ONS合约注册绑定，并登陆。
 
 ### 2.2 Set default payer
 
-
+设置 defaultPayer 为钱包地址，并且要配置该钱包的私钥，以便于签名时使用。
 
 ### 2.3 Config action(s)
 
