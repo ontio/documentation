@@ -15,8 +15,7 @@ Sample configuration file in json,
 	"defaultPayer": "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
 	"actions": [{
 			"type": "register",
-			"onchainRec": true,
-			"payer": "AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK"
+			"onchainRec": false
 		},
 		{
 			"type": "login",
@@ -25,7 +24,9 @@ Sample configuration file in json,
 		{
 			"type": "cus_action1",
 			"onchainRec": true,
-			"payer": ""
+			"payer": "AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV",
+			"qrcodeUrl": "",
+			"callback": ""
 		}
 	]
 }
@@ -48,19 +49,19 @@ Actions object.
 
 ### 2.1 Enable ONS
 
-
+若启用ONS，则用户需要注册与自己ontid绑定的子域名，并在登录时使用子域名登录
 
 ### 2.2 Set default payer
 
-
+设置default payer，需要在启动服务时，将payer对应的私钥在命令行输入，用于后续对交易的payer签名
 
 ### 2.3 Config action(s)
 
-
+配置指定签名action的payer及是否上链
 
 ### 2.4 Add customized action 
 
-
+自定义需要signing server签名的action
 
 ## 3. Create an Instance
 
