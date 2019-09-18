@@ -204,9 +204,14 @@ New action type can be registered. For detail, please view the [deployment](./de
 ### 1. <a name='genQrcode'></a>Generate a qrcode to verify the belonging of ONT ID
 
 ```
-url：/api/v1/ontid/verify/{action}
+url：/api/v1/ontid/verify/{action}?id={id}
 method：Get
 ```
+
+| Field Name | Type | Description |
+| --- | --- | --- |
+| action    | String | Action name, `register`, `login` or other names predefined for the domain |
+| id      | String    | The id of qrcodeUrl, to get the transaction params(onChainRec=true) or specified message to sign(onChainRec=false). Required false |
 
 Response:
 
