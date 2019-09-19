@@ -4,10 +4,9 @@
 
 <h1 align="center">iOS钱包集成</h1>
 <p align="center" class="version">Version 1.0.0 </p>
-
 内容:
 
-* [Typescript Sdk 教程](#typescript-sdk-教程)
+* [Typescript Sdk 教程](#typescript-sdk)
   * [1. 钱包](#1-钱包)
   * [2. 资产账户](#2-资产账户)
   * [3. Native 资产](#3-native-资产)
@@ -16,7 +15,7 @@
   * [6. 授权质押](#6-授权质押)
 
 
-## 1 钱包
+## <a name="1-钱包"></a>1 钱包 
 
 Wallet is a data storing file in JSON format. In Ontology, Wallet can store not only the digital identity but also digital assets.
 
@@ -43,7 +42,7 @@ wallet.addAccount(account)
 
 ````
 
-# 2 资产账户
+# <a name="2-资产账户"></a>2 资产账户
 
 
 ## 2.1 创建随机账户
@@ -184,7 +183,7 @@ const keystore = {
 
 请参考 **2.2 Import An Account**
 
-# 3 Native 资产
+# <a name="3-native-资产"></a>3 Native 资产
 
 Native 资产包括: ONT 和 ONG.
 
@@ -426,7 +425,7 @@ rest.sendRawTransaction(tx.serialize()).then(res => {
 
 
 
-## 4 与链交互 
+## <a name="4-与链交互"></a>4 与链交互 
 
 可以通过restful，rpc，websocket与链交互。
 
@@ -459,7 +458,7 @@ rest.getBalance(address: Address)
 rest.getAllowance(asset: string, from: Address, to: Address)
 ```
 
-## 5 节点质押
+## <a name="5-节点质押"></a>5 节点质押
 
 ### 5.1 注册候选节点
 
@@ -478,6 +477,34 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 //@param gasLimit {string} Usually set as '20000'
 const tx = GovernanceTxBuilder.makeRegisterCandidate(ontid, peerPubkey, keyNo, userAddr, initPos, payer, gasPrice, gasLimit)
 ````
+
+> 请注意所填参数的类型。比如：initPos 是number类型，userAddr 和 payer是Address类的实例。
+
+交易签名
+
+> 该交易需要两次签名：ONT ID的私钥签名和钱包私钥的签名
+
+```javascript
+import { TransactionBuilder } from 'ontology-ts-sdk'
+//@param {Transaction} tx是上一步构造好的交易
+//@param ontid_privateKey {PrivateKey} ONT ID的私钥
+//@param payer_privateKey {Privatekey} 付手续费的钱包私钥 
+TransactionBuilder.signTransaction(tx, ontid_privateKey);
+TransactionBuilder.addSign(tx, payer_privateKey);
+```
+
+发送交易
+
+```javascript
+import {RestClient} from 'ontology-ts-sdk'
+
+const rest = new RestClient(); // 默认参数是测试网；
+rest.sendRawTransaction(tx.serialize()).then(res => {
+	console.log(res)	
+})
+```
+
+
 
 ### 5.2 取消注册
 
@@ -524,7 +551,7 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 //@param gasLimit {string} Usually set as '20000'
 const tx = GovernanceTxBuilder.makeQuitNodeTx(userAddr, peerPubkey, payer, gasPrice, gasLimit)
 ```
-## 6.授权质押
+## <a name="6-授权质押"></a>6.授权质押
 
 ### 6.1 查询开发授权质押的节点列表
 
@@ -757,3 +784,5 @@ try {
 const url = 'http://dappnode1.ont.io:20334'
 const rest = new RestClient(url);
 const view = await GovernanceTxBuilder.getGovernanceView(url);
+
+```
