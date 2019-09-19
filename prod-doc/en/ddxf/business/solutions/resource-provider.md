@@ -100,7 +100,7 @@
 
    生成Token 所需字段，可参考[合约字段]()
 
-   ```json
+   ```js
    {
      dataId: "did:ont:aaaaaaa", // 数据的ontid
      ontid: ontid, // RP的ontid
@@ -151,13 +151,13 @@
 
    示例二维码
 
-![a](../../res/ontid_qrcode.png)
+   ![a](../../res/ontid_qrcode.png)
 
 
 
 
 
-​	DataId与Token绑定之后，选择上传Token的数量等，进行数据的上传操作
+​		DataId与Token绑定之后，选择上传Token的数量等，进行数据的上传操作
 
 3. 最后确认上传数据到Marketplace
 
