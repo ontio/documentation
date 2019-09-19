@@ -19,7 +19,7 @@
 
    ##### 元数据模板
 
-   ```json
+   ```js
    {
      @context: "http://schema.org",
      @type: Dataset,
@@ -44,7 +44,7 @@
 
    ##### 示例数据模板
 
-   ```json
+   ```js
    {
      certifier: "did:ont:AMz77J4iuHGmAdw7P9g1CZ7SoL996AdyxC",
      coin: "ONG",

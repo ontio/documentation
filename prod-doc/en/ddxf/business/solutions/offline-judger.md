@@ -19,7 +19,7 @@
 
    合约示例参数
 
-   ```json
+   ```js
    {
      "argsList": [
      { "name": "orderId", 

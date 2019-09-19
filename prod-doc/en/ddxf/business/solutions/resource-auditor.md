@@ -12,7 +12,7 @@
 
    API 参数
 
-   ```json
+   ```js
    {
      orderId: 'orderId',
      isCer: true,

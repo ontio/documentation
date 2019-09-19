@@ -21,7 +21,7 @@
 
    [合约所需参数]()
 
-   ```json
+   ```js
     {
       argsList: [
       { name: "orderId", "value": 
@@ -65,7 +65,7 @@
 
    示例合约参数
 
-   ```json
+   ```js
    {
      argsList: [
      { name: 'tokenId', 
@@ -93,7 +93,7 @@
 
    示例合约参数
 
-   ```json
+   ```js
    {
      argsList: [
        { name: "orderId", 
@@ -125,7 +125,7 @@
 
    示例合约参数
 
-   ```json
+   ```js
    {
      argsList: [
      { name: "orderId", 
