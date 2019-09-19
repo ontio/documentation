@@ -741,10 +741,10 @@ class TotalStake {
 ```javascript
 import {GovernanceTxBuilder, RestClient} from 'ontology-ts-sdk'
 
+<<<<<<< HEAD
 const url = 'http://polaris1.ont.io:20334' // Url of node.
 const rest = new RestClient(url);
 try {
-  const view = await GovernanceTxBuilder.getGovernanceView(url);
   const blockRes = await rest.getBlockHeight();
   const blockHeight = blockRes.Result;
   const countdown = 120000 - (blockHeight - view.height);
@@ -753,5 +753,7 @@ try {
   // alert('Network error.')
   console.log(err)
 }
-```
-
+=======
+const url = 'http://dappnode1.ont.io:20334'
+const rest = new RestClient(url);
+const view = await GovernanceTxBuilder.getGovernanceView(url);
