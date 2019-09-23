@@ -28,6 +28,10 @@ Marketplace 提供两种存储方案，平台方亦可外接自己的存储方�
 
 [具体 API ]()
 
+![a](../../res/home_search.jpeg)
+
+
+
 
 
 ### 交易
