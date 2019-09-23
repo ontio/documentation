@@ -14,7 +14,7 @@ MP 根据其交易资源的特性，确定定价体系。RP 以 MP 认可的方�
 
    RP 提供资源后，通过marketplace 提供的资源认证 API或者平台方自定义的数据存储 到 RA 中，RA 可以通过 Trust Anchor 进行对相关数据的资源认证，亦或者是将实体证书通过 ONT Sourcing 直接上链存证。资源认证成功后，资源方可进行数据的通证化。
 
-   [流程可参考](../solutions/resource-auditor.md)
+   [可参考](../solutions/resource-auditor.md)
 
 
 
@@ -30,7 +30,7 @@ MP 根据其交易资源的特性，确定定价体系。RP 以 MP 认可的方�
 
    根据 DToken 合约规定，将数据 token 化时，需要传递 RP 的  accout、资源的dataid、控制人的 ONTID 等，实现对人、财、物、事的绑定，传入的控制人拥有对数据的控制权限，资源的交易实质就是 Token 权限的转换，RC 购买Token之后，可以凭借此Token查看数据的具体信息。
 
-   [DToken 合约]()
+   [DToken 合约](../../framework/data-storage/smart-contract-api.md)
 
 
 
