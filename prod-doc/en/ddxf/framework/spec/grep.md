@@ -57,7 +57,7 @@ GREP 提供了资源价值锚定的方法。定价有多种方式，如拍卖定
 }
 ```
 
-GREP 规定了资源交换和数据交互的流程规范。用户根据自身需要选择想要进行交易的场所 MP。可以多次交付的资源可以在不同的 MP 上以不同的方式进行交易，如数据的使用权可以在多个 MP 进行交易。假定用户，包括 RP、RC 以及 OJ 等，都已经根据该 MP 的相应要求进行资质验证。整个资源的流转过程涉及到[资源准备](../../business/scenarios/resource-prepare.md)、[资源发布](../../business/scenarios/resource-publish.md)、[资源交易](../../business/scenarios/resource-transaction.md)、[分润](../../business/scenarios/resource-incentive-share.md)和[交易后评价](../../business/scenarios/tx-evaluate.md)。完整的流程规范在场景之中描述。在交易评价的基础上，GREP 实现的资源交换和数据交互的记录形成[声誉体系](../resource-audit/reputation-score.md)，进一步促进本体可信生态体系。
+GREP 规定了资源交换和数据交互的流程规范。用户根据自身需要选择想要进行交易的场所 MP。可以多次交付的资源可以在不同的 MP 上以不同的方式进行交易，如数据的使用权可以在多个 MP 进行交易。假定用户，包括 RP、RC 以及 OJ 等，都已经根据该 MP 的相应要求进行资质验证。整个资源的流转过程涉及到[资源准备](../../business/scenarios/resource-preparation.md)、[资源发布](../../business/scenarios/resource-publish.md)、[资源交易](../../business/scenarios/resource-transaction.md)、[分润](../../business/scenarios/resource-incentive-share.md)和[交易后评价](../../business/scenarios/tx-evaluation.md)。完整的流程规范在场景之中描述。在交易评价的基础上，GREP 实现的资源交换和数据交互的记录形成[声誉体系](../resource-audit/reputation-score.md)，进一步促进本体可信生态体系。
 
 1. 资源准备
   1. 资源链上注册。RP 针对将要发布的资源在链上生成一个 ONT ID 以及相应的 DDO 信息，作为资源在链上的映射；
