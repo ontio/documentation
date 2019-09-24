@@ -21,6 +21,24 @@ Tech document is way behind. For detail and technology support, please contact O
    3. [on-chain actions](../scenarios/web-app/action.md)
 6. Done
 
+### 1.1 Workaround for centralized identities
+
+1. Register on-chain domain to identify the web-app
+2. Have `root key` ready for "delegated ONT IDs"
+3. Enable [actions](../scenarios/web-app/centralized-id.md) with signing SDK
+   1. register 
+      1. Generate `ONT ID` for end users after the `root key`
+      2. Map `ONT ID` with user account
+      3. Sign with `root key`  and publish to Ontology mainnet for on-chain registration, if necessary
+   2. login
+      1. Common login
+      2. Query `ONT ID` with user account
+      3. Sign with `root key`  and publish to Ontology mainnet for on-chain login, if necessary
+   3. on-chain actions
+      1. Query `ONT ID` with user account
+      2. Sign with `root key`  and publish to Ontology mainnet for on-chain action
+4. Done
+
 ## 2. Enable qualification filtering on customer registration
 
 1. Use claim system (trust anchor) SDK in server side

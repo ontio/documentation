@@ -24,6 +24,14 @@ In Ontology `ONT ID framework`, "entity" refers to individuals, legal entities (
   - [>> Learn more about `ONT Auth`](./ont-auth/guide/README.md)
 3. **Ontology Name System** [>> Learn more](./ons/README.md)
 
+#### 1.1 Workaround for centralized business
+
+In order to satisfy traditional web-app user experiences, some web-apps may start with centralized id business. ONT ID framework provides workaround solution to meet the requirement above.
+
+The centralized identifiers are able to be handed back to the ONT ID owners, via change the  `Owner` of `ONT ID` DDO from web-app to the end user.
+
+[>> Learn more](./signing-server/centralized-id.md)
+
 ### 2. Ontology trust mechanism (the claim system)
 
 Entities issue claims and "sell" them to their customers, where there are verification scenarios. The close loop of issuing request, creation and consuming of claims setup the Ontology trust mechanim.

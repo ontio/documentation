@@ -4,7 +4,11 @@
 
 1. [register](./register.md)
 2. [login](./login.md)
-3. [on chain action](./action.md)
+3. [on-chain action](./action.md)
+
+### 1.1 Workaround - centralized identity
+
+- [register, login and on-chain actions](./centralized-id.md)
 
 ### 2. Ontology trust mechanism (the claim system)
 
