@@ -238,7 +238,7 @@ changeRecovery
 触发事件：("Recovery", "change", ONT ID, JSON形式表示的新恢复人)
 
 
-#### 所有者添加公钥
+#### <a name="addKey"></a>所有者添加公钥
 
 addKey
 
@@ -255,7 +255,7 @@ addKey
 触发事件：("PublicKey", "add", ONT ID, 新公钥, 新公钥编号)
 
 
-#### 所有者废除公钥
+#### <a name="removeKey"></a>所有者废除公钥
 
 removeKey
 
