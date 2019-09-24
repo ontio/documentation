@@ -31,7 +31,7 @@ method：POST
 	"expireTime": 0,
 	"makerReceiveAddress": "ARCESVnP8Lbf6S7FuTei3smA35EQYog4LR",
 	"mpReceiveAddress": "AR9NDnK3iMSZodbENnt7eX5TJ2s27fnHra",
-	"OJList": ["AR9NDnK3iMSZodbENnt7eX5TJ2s27fnHra"]
+	"ojList": ["AR9NDnK3iMSZodbENnt7eX5TJ2s27fnHra"]
 }
 ```
 
@@ -41,10 +41,10 @@ method：POST
 |symbol|String|token的symbol|
 |name|String|token的name|
 |amount|int|授权生成token的数量|
-|price|String|单价|
+|price|long|单价|
 |transferCount|int|token的可流转次数|
 |accessCount|int|token的可访问次数|
-|expireTime|int|token的过期时间，0为永久有效|
+|expireTime|long|token的过期时间，0为永久有效|
 |makerReceiveAddress|String|卖家收款地址|
 |mpReceiveAddress|String|平台收款地址|
 |ojList|List|仲裁者列表|
@@ -295,7 +295,7 @@ method：POST
 ###  查询交易结果及返回的参数
 
 ```
-url：/api/v1/order/result/{id}
+url：/back/result/{id}
 method：Get
 ```
 

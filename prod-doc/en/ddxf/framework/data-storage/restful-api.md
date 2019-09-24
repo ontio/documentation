@@ -66,7 +66,7 @@ method：POST
 ###  ONT Auth发送注册dataId交易
 
 ```
-url：/api/v1/data/invoke
+url：/back/invoke
 method：Post
 ```
 请求
@@ -114,7 +114,7 @@ method：Post
 ###  查询注册的dataId及结果
 
 ```
-url：/api/v1/data/dataId/result/{id}
+url：/back/result/{id}
 method：Get
 ```
 
@@ -219,7 +219,7 @@ method：POST
 ###  ONT Auth发送生成tokenId交易
 
 ```
-url：/api/v1/data/invoke
+url：/back/invoke
 method：Post
 ```
 请求
@@ -267,7 +267,7 @@ method：Post
 ###  查询生成的tokenId及结果
 
 ```
-url：/api/v1/data/tokenId/result/{id}
+url：/back/result/{id}
 method：Get
 ```
 
