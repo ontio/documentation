@@ -1,7 +1,5 @@
 # Web-app - verify claim
 
-
-
 1. 根据Singing-SDK 方法 得到二维码参数，通过 ontoAuth Signing server 扫码签名
 
    * 需要先注册 [获取可信声明](../web-app/action.md) 的Action Name
