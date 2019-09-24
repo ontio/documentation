@@ -22,7 +22,7 @@ MP 根据其交易资源的特性，确定定价体系。RP 以 MP 认可的方�
 
    RP 申请对资源进行价值确认或认证之后，可以通过 MP 进行对资源的通证化 (Token化)，MP 所进行的数据的转换就是 Token 的流转
 
-   [可参考](../solutions/resource-provider.md)
+   [可参考](./resource-publish.md)
 
 
 
