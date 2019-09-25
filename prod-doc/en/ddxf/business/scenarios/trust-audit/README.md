@@ -7,4 +7,5 @@
 - e-Contract and agreement
 
   - [sign contract](./econtract.md)
-  - [offline judge][./o-judge.md]
+  - [offline judge](./o-judge.md)
+
