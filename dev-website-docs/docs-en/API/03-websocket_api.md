@@ -550,7 +550,7 @@ According to the contract address hash, query the contract information.
     "Error": 0,
     "Version": "1.0.0",
     "Result": {
-        "Code": "0000000000000000000000000000000000000001",
+        "Code": "0100000000000000000000000000000000000000",
         "NeedStorage": true,
         "Name": "ONT",
         "CodeVersion": "1.0",
@@ -649,7 +649,7 @@ Get contract event by transaction hash.
              "GasConsumed": 0,
              "Notify": [
                     {
-                      "ContractAddress": "ff00000000000000000000000000000000000001",
+                      "ContractAddress": "0100000000000000000000000000000000000000",
                       "States": [
                             "transfer",
                             "A9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",

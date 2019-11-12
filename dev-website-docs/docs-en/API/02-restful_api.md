@@ -388,7 +388,7 @@ GET
 ```
 #### Request Example
 ```
-curl -i http://localhost:20334/api/v1/storage/ff00000000000000000000000000000000000001/0144587c1094f6929ed7362d6328cffff4fb4da2
+curl -i http://localhost:20334/api/v1/storage/0100000000000000000000000000000000000000/0144587c1094f6929ed7362d6328cffff4fb4da2
 ```
 #### Response
 ```
@@ -455,7 +455,7 @@ curl -i http://server:port/api/v1/contract/0100000000000000000000000000000000000
     "Error": 0,
     "Version": "1.0.0",
     "Result": {
-        "Code": "0000000000000000000000000000000000000001",
+        "Code": "0100000000000000000000000000000000000000",
         "NeedStorage": true,
         "Name": "ONT",
         "CodeVersion": "1.0",
@@ -554,7 +554,7 @@ curl -i http://localhost:20334/api/v1/smartcode/event/txhash/20046da68ef6a91f695
              "GasConsumed": 0,
              "Notify": [
                     {
-                      "ContractAddress": "ff00000000000000000000000000000000000001",
+                      "ContractAddress": "0100000000000000000000000000000000000000",
                       "States": [
                             "transfer",
                             "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
@@ -566,6 +566,33 @@ curl -i http://localhost:20334/api/v1/smartcode/event/txhash/20046da68ef6a91f695
     }
 }
 ```
+oep4 transfer event example:
+``` 
+{
+	TxHash: "a948ab394c6fd6296b93755b42fd4133a6ec82951a8931490a2c544a6eeaa21c",
+	State: 1,
+	GasConsumed: 10000000,
+	Notify: [{
+			ContractAddress: "a0fcb515a1d42b4aaf9734aabf40411fa93f6849",  //oep4 
+			States: [
+				"7472616e73666572", //transfer
+				"f54855d4e025d8f5b9f0ac1b2ae3c8171bb7fc17",  //from
+				"b264bd0a306fd3b815601a1ba968f8bd7b17c515",  //to
+				"666c9802"   //amount
+			]
+		},
+		{
+			ContractAddress: "0200000000000000000000000000000000000000",  //pay network fee by ong
+			States: [
+				"transfer",
+				"Ae8orSUnAtH9yRiepRvLUE3t9R2NbCTZPG",
+				"AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK",
+				10000000
+			]
+		}
+	]
+}
+``` 
 ### 13 get_blk_hgt_by_txhash
 
 Get block height by transaction hash.

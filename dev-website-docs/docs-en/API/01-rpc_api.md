@@ -599,7 +599,7 @@ Response:
     "id": 1,
     "jsonrpc": "2.0",
     "result": {
-        "Code": "0000000000000000000000000000000000000001",
+        "Code": "0100000000000000000000000000000000000000",
         "NeedStorage": true,
         "Name": "ONT",
         "CodeVersion": "1.0",
@@ -784,7 +784,7 @@ or
              "GasConsumed": 0,
              "Notify": [
                     {
-                      "ContractAddress": "ff00000000000000000000000000000000000001",
+                      "ContractAddress": "0100000000000000000000000000000000000000",
                       "States": [
                             "transfer",
                             "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
