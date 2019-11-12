@@ -16,12 +16,13 @@ The outline of this document is as follows:
 			* [Create account based on private key](#create-account-based-on-private-key)
 		* [Using wallet management](#using-wallet-management)
 	* [Address generation](#address-generation)
-* [ONT and ONG transfer](#ont-and-ong-transfer)
+* [ONT/ONG and OEP4 transfer](#ont/ong-and-oep4-transfer)
 	* [SDK Initialization](#sdk-Initialization)
 	* [Queries](#queries)
 		* [Query ONT or ONG Balance](#query-ont-or-ong-balance)
 		* [Query if the transaction is in the transaction pool](#query-if-the-transaction-is-in-the-transaction-pool)
-	* [Transaction deserialization](#transaction-deserialization)	
+	* [Transaction](#transaction)	
+	    * [Get transaction Event](#Get-transaction-Event)
 	* [ONT transfer](#ont-transfer)
 		* [Construct transfer transaction and send](#construct-transfer-transaction-and-send)
 		* [Multiple signatures](#multiple-signatures)
@@ -30,6 +31,10 @@ The outline of this document is as follows:
 	* [ONG transfer](#ong-transfer)
 		* [ONG transfer](#ong-transfer)
 		* [Withdraw ONG](#Withdraw-ong)
+		* [ONG transfer event](#ONG-transfer-event)
+    * [OEP4 transfer](#oep4-transfer)	
+    	* [OEP4 transfer](#OEP4-transfer)
+    	* [OEP4 transfer event](#OEP4-transfer-event)
 * [Smart Contracts](#smart-contracts)
 	* [Query content of a smart contract](#query-content-of-a-smart-contract)
 	* [Synchronize query smartcontract event](#synchronize-query-smartcontract-event)
@@ -136,7 +141,7 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 | addressFromMultiPubkeys | int m,byte\[\]... pubkeys | The minimum number of signatures (<=the number of public keys)，public key |
 
 
-## ONT and ONG transfer
+## ONT/ONG and OEP4 transfer
 
 [Full example](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
@@ -392,8 +397,74 @@ System.out.println(ontSdk.verifySignature(acct.serializePublicKey(), data, signa
 ```
 
 
-### Transaction deserialization
+### Transaction 
 
+#### Get transaction Event
+
+ONT transfer event:
+```  
+GET  /api/v1/smartcode/event/txhash/:hash
+{
+    "Action": "getsmartcodeeventbyhash",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Version": "1.0.0",
+    "Result": {
+             "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
+             "State": 1,
+             "GasConsumed": 0,
+             "Notify": [
+                    {
+                      "ContractAddress": "0100000000000000000000000000000000000000",
+                      "States": [
+                            "transfer",
+                            "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+                            "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
+                            1000000000
+                         ]
+                     },
+                    {
+                        ContractAddress: "0200000000000000000000000000000000000000",  //pay network fee by ong
+                        States: [
+                            "transfer",
+                            "Ae8orSUnAtH9yRiepRvLUE3t9R2NbCTZPG",
+                            "AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK",
+                            10000000
+                        ]
+                    }
+              ]
+    }
+}
+```  
+
+OEP4 transfer event:
+``` 
+GET  /api/v1/smartcode/event/txhash/:hash
+{
+	TxHash: "a948ab394c6fd6296b93755b42fd4133a6ec82951a8931490a2c544a6eeaa21c",
+	State: 1,
+	GasConsumed: 10000000,
+	Notify: [{
+			ContractAddress: "a0fcb515a1d42b4aaf9734aabf40411fa93f6849",
+			States: [
+				"7472616e73666572",
+				"f54855d4e025d8f5b9f0ac1b2ae3c8171bb7fc17",
+				"b264bd0a306fd3b815601a1ba968f8bd7b17c515",
+				"666c9802"
+			]
+		},
+		{
+			ContractAddress: "0200000000000000000000000000000000000000",
+			States: [
+				"transfer",
+				"Ae8orSUnAtH9yRiepRvLUE3t9R2NbCTZPG",
+				"AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK",
+				10000000
+			]
+		}
+	]
+}
+``` 
 ##### Get transaction in JSON format
 ```  
 http://polaris1.ont.io:20334/api/v1/transaction/8f4ab5db768e41e56643eee10ad9749be0afa54a891bcd8e5c45543a8dd0cf7d?raw=0
@@ -492,7 +563,86 @@ com.github.ontio.account.Account account = new com.github.ontio.account.Account(
 String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,30000,500);
 
 ```
+#### ONG transfer event
 
+ONG transfer event:
+```  
+GET  /api/v1/smartcode/event/txhash/:hash
+{
+    "Action": "getsmartcodeeventbyhash",
+    "Desc": "SUCCESS",
+    "Error": 0,
+    "Version": "1.0.0",
+    "Result": {
+             "TxHash": "20046da68ef6a91f6959caa798a5ac7660cc80cf4098921bc63604d93208a8ac",
+             "State": 1,
+             "GasConsumed": 0,
+             "Notify": [
+                    {
+                      "ContractAddress": "0200000000000000000000000000000000000000",
+                      "States": [
+                            "transfer",
+                            "T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb",
+                            "TA4WVfUB1ipHL8s3PRSYgeV1HhAU3KcKTq",
+                            1000000000
+                         ]
+                     },
+                    {
+                        ContractAddress: "0200000000000000000000000000000000000000",  //pay network fee by ong
+                        States: [
+                            "transfer",
+                            "Ae8orSUnAtH9yRiepRvLUE3t9R2NbCTZPG",
+                            "AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK",
+                            10000000
+                        ]
+                    }
+              ]
+    }
+}
+```  
+
+### OEP4
+
+
+#### OEP4 transfer
+
+The interface is similar to ONT/ONG above.
+
+```
+ontSdk.neovm().oep4().setContractAddress("55e02438c938f6f4eb15a9cb315b26d0169b7fd7");
+ontSdk.neovm().oep4().sendTransfer(...)
+```
+
+#### OEP4 transfer event
+
+
+``` 
+GET  /api/v1/smartcode/event/txhash/:hash
+{
+	TxHash: "a948ab394c6fd6296b93755b42fd4133a6ec82951a8931490a2c544a6eeaa21c",
+	State: 1,
+	GasConsumed: 10000000,
+	Notify: [{
+			ContractAddress: "a0fcb515a1d42b4aaf9734aabf40411fa93f6849",  //oep4 
+			States: [
+				"7472616e73666572", //transfer
+				"f54855d4e025d8f5b9f0ac1b2ae3c8171bb7fc17",  //from
+				"b264bd0a306fd3b815601a1ba968f8bd7b17c515",  //to
+				"666c9802"   //amount
+			]
+		},
+		{
+			ContractAddress: "0200000000000000000000000000000000000000",  //pay network fee by ong
+			States: [
+				"transfer",
+				"Ae8orSUnAtH9yRiepRvLUE3t9R2NbCTZPG",
+				"AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK",
+				10000000
+			]
+		}
+	]
+}
+``` 
 
 ## Smart contracts
 
