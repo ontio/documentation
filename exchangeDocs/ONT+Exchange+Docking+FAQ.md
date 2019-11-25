@@ -46,7 +46,7 @@ A:[https://explorer.ont.io/](https://explorer.ont.io/)
 
 ## Q: What's the "White list startup"
 A: In order to avoid syncing to some contaminated or malicious nodes, you can use the whitelist startup method to directly synchronize the official seed nodes. Command:
-``` ./ontology --reservedfile=./peers.rsv --reservedonly``` 
+``` ./ontology --reserved-file=./peers.rsv --reserved-only``` 
 We will provide the white list file peers.rsv in another place
 
 ## Q: How to swap NEP-5 ONT token
