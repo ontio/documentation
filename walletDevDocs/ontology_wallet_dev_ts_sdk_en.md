@@ -4,7 +4,6 @@ English / [中文](./ontology_wallet_dev_ts_sdk_zh.html)
 
 <h1 align="center">iOS Wallet Integration</h1>
 <p align="center" class="version">Version 1.0.0 </p>
-
 The outline of this document is as follows:
 * [Typescript Sdk Tutorial](#typescript-sdk-tutorial)
   * [1. Wallet](#1-wallet)
@@ -15,7 +14,7 @@ The outline of this document is as follows:
   * [6. Stake Authorization](#6-stake-authorization)
 
 
-## 1 Wallet
+## <a name="1-wallet"></a>1 Wallet
 
 Wallet is a data storing file in JSON format. In Ontology, Wallet can store not only the digital identity but also digital assets.
 
@@ -42,7 +41,7 @@ wallet.addAccount(account)
 
 ````
 
-# 2 Account
+# <a name="2-account"></a>2 Account
 Account is used to manage user's assets.
 
 
@@ -187,7 +186,7 @@ const keystore = {
 
 The process is the same as **2.2 Import An Account**
 
-# 3 Native Asset
+# <a name="3-native-asset"></a>3 Native Asset
 
 There are two kinds of native asset in Ontology: ONT and ONG.
 
@@ -438,7 +437,7 @@ The `Result` of the response is the transaction hash, it can be used to query th
 
 Then we can query the balance to check if the transaction succeeded.
 
-## 4 Blockchain 
+## <a name="4-blockchain"></a>4 Blockchain 
 
 Users can use restful api, rpc api or websocket api to access info from the blockchain.Here we use restful api for example.The result is promise.
 
@@ -471,7 +470,7 @@ rest.getBalance(address: Address)
 rest.getAllowance(asset: string, from: Address, to: Address)
 ```
 
-## 5 Node Stake
+## <a name="5-node-stake"></a>5 Node Stake
 
 ### 5.1 Register Candidate Node
 
@@ -513,6 +512,7 @@ Make transaction to withdraw the paied ONT.
 ```js
 import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 
+// construct transaction
 //@param userAddr {Address} User's address that paied for the register
 //@param peerPubkeys {[string]} Array of peer's public keys
 //@param withdrawList {[number]} Array of ONT to withdraw
@@ -520,6 +520,13 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 //@param gasPrice {string} Usually set as '500'
 //@param gasLimit {string} Usually set as '20000'
 const tx = GovernanceTxBuilder.makeWithdrawTx(userAddr, peerPubkeys, withdrawList, payer, gasPrice, gasLimit)
+
+// sign transaction. It needs two signatures;
+//@param {Transaction} tx是上一步构造好的交易
+//@param ontid_privateKey {PrivateKey} Private key of ONT ID
+//@param payer_privateKey {Privatekey} Private key of the payer 
+TransactionBuilder.signTransaction(tx, ontid_privateKey);
+TransactionBuilder.addSign(tx, payer_privateKey);
 ```
 
 ### 5.4 Quit Node
@@ -537,7 +544,7 @@ import {GovernanceTxBuilder} from 'ontology-ts-sdk'
 const tx = GovernanceTxBuilder.makeQuitNodeTx(userAddr, peerPubkey, payer, gasPrice, gasLimit)
 ```
 
-## 6. Stake Authorization
+## <a name="6-stake-authorization"></a>6. Stake Authorization
 
 ### 6.1 Query nodes that allow stake authorization
 
