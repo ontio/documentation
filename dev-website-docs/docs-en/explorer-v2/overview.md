@@ -26,7 +26,7 @@ Multiple words are connected using underscores, such as：`/v2/blocks?page_size=
 
 - **Page parameter**
 
-  - page_size: number of records per page`(The page size is limited between 1 and 2020)`.
+  - page_size: number of records per page`(The page size is limited between 1 and 20)`.
   - page_number: number of pages.`(At least 1 or greater)`.
 
 - **Time parameter**
