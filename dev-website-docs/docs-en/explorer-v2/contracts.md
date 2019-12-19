@@ -285,56 +285,6 @@ successResponse：{
 
 
 
-
-
-
-
-### 5.4 Get dappstore contracts information 
-
-```java
-url：/v2/contracts/dappstore?page_size=10&page_number=1, 
-method：GET, 
-successResponse：{
-    "code":0, 
-    "msg":"SUCCESS", 
-    "result":{
-    	"txs":[
-    		{
-                "tx_hash":"9762458cd30612509f7c...a010ccc7b347057eb5", 
-                "tx_type":209, 
-                "tx_time":1522210288, 
-                "block_height":1212, 
-                "confirm_flag":1, 
-                "block_index":1, 
-                "fee":"0.01"
-    		}
-    	], 
-    	"total":20
-    }
-}
-
-```
-
-| Url RequestField | Type   | Description                                     |
-| ---------------- | ------ | ----------------------------------------------- |
-| page_size        | int    | number of records in one page (The page size is limited between 1 and 20) |
-| page_number      | int    | number of the page (At least 1 or greater)              |
-| contract_type    | String | oep4, oep5, oep8, others                           |
-| contract_hash    | String | contract_hash                                   |
-
-|  ResponseField   |  Type  |                     Description                     |
-| :--------------: | :----: | :-------------------------------------------------: |
-|   txs.tx_hash    | String |                  transaction hash                   |
-|   txs.tx_type    |  int   |             transaction type (208/209)             |
-|   txs.tx_time    |  int   |            UNIX time of the transaction             |
-| txs.block_height |  int   |                    block height                     |
-| txs.confirm_flag |  int   | transaction state on the blockchain, 0:failure 1:success |
-| txs.block_index  |  int   |          The index of transactions within a block         |
-|     txs.fee      | String |                         fee                         |
-|      total       |  int   |                        total                        |
-
-
-
 ### 5.5 Get contract transaction list by contracthash(no contract_type url param)
 
 ```java

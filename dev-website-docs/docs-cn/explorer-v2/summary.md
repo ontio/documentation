@@ -5,7 +5,7 @@
 ### 7.1 Get blockchain,latest summary information
 
 ```java
-url：/v2/summary/blockchain,latest-info, 
+url：/v2/summary/blockchain/latest-info, 
 method：GET, 
 successResponse：{
     "code":0, 
@@ -36,7 +36,7 @@ successResponse：{
 ### 7.2 Get blockchain,tps information
 
 ```java
-url：/v2/summary/blockchain,tps, 
+url：/v2/summary/blockchain/tps, 
 method：GET, 
 successResponse：{
     "code":0, 
@@ -59,7 +59,7 @@ successResponse：{
 ### 7.3 Get blockchain,daily summary information
 
 ```java
-url：/v2/summary/blockchain,daily?start_time=1556027861&end_time=1556087861, 
+url：/v2/summary/blockchain/daily?start_time=1556027861&end_time=1556087861, 
 method：GET, 
 successResponse：{
     "code":0, 
