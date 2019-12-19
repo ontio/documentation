@@ -116,6 +116,16 @@
   - [Register Contract](docs-en/explorer/registerContract.md)
   - [Summary](docs-en/explorer/summary.md)
 
+- Explorer API V2
+  - [Overview](docs-en/explorer-v2/overview.md)
+  - [Blocks](docs-en/explorer-v2/blocks.md)
+  - [Address](docs-en/explorer-v2/addressInfo.md)
+  - [Contracts](docs-en/explorer-v2/contracts.md)
+  - [Tokens](docs-en/explorer-v2/tokens.md)
+  - [Transactions](docs-en/explorer-v2/transactions.md)
+  - [ONTID](docs-en/explorer-v2/ontid.md)
+  - [Statistics](docs-en/explorer-v2/summary.md)
+  
 - Sign Server
   - [Overview](docs-en/SignServer/00-overview.md)
   - [Installation](docs-en/SignServer/01-installation.md)
