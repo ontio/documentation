@@ -7,7 +7,7 @@
 | value |  Type  | Description |
 | :---: | :----: | :---------: |
 | neovm | String |   neo vm    |
-| wasmv | String |   wasm vm   |
+| wasvm | String |   wasm vm   |
 
 #### 
 

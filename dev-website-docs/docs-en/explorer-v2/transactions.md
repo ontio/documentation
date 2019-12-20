@@ -278,7 +278,8 @@ Smart contract detail in **description** filed
 				"amount": "0.02", 
 				"from_address":"Aege6VvWEiKauFa2ngrtwdXt8FeGkWNPRH", 
 				"to_address":"ATUD7W6t6tLPGgd8H9tCN6Kwkb9WKFddch", 
-				"asset_name":"ont", 
+				"asset_name":"ont",
+				"contract_hash":"9762458cd30612509f7c...",
 				"description":"transfer"
 			}
 		]
@@ -294,6 +295,7 @@ Smart contract detail in **description** filed
 | transfers.from_address | String |             fromaddress              |
 |    transfers.amount    | String |                amount                |
 | transfers.description  | String | transfer reference |
+| transfers.contract_hash | String | contract hash |
 
 - ONT ID transaction
 
