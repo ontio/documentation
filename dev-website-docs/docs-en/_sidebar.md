@@ -104,18 +104,6 @@
       - [iOS](docs-en/SDKs/ontology_wallet_dev_ts_sdk_en.md)
       - [Android](docs-en/SDKs/ontology_wallet_dev_android_en.md)
 
-- Explorer API
-  - [Overview](docs-en/explorer/overview.md)
-  - [Blocks](docs-en/explorer/blocks.md)
-  - [Accounts](docs-en/explorer/accounts.md)
-  - [Contracts](docs-en/explorer/contracts.md)
-  - [Tokens](docs-en/explorer/tokens.md)
-  - [Transactions](docs-en/explorer/transactions.md)
-  - [ONT ID](docs-en/explorer/ontid.md)
-  - [Statistics](docs-en/explorer/statistics.md)
-  - [Register Contract](docs-en/explorer/registerContract.md)
-  - [Summary](docs-en/explorer/summary.md)
-
 - Explorer API V2
   - [Overview](docs-en/explorer-v2/overview.md)
   - [Blocks](docs-en/explorer-v2/blocks.md)
