@@ -13,12 +13,12 @@
 
 #### Native Asset
 
-|     value     |  Type  |  Description  |
-| :-----------: | :----: | :-----------: |
-|      ont      | String |      ont      |
-|      ong      | String |      ong      |
-| waitbound_ong | String | waitbound ong |
-|  unbound_ong  | String |  unbound ong  |
+|    value     |  Type  |  Description  |
+| :----------: | :----: | :-----------: |
+|     ont      | String |      ont      |
+|     ong      | String |      ong      |
+| waitboundong | String | waitbound ong |
+|  unboundong  | String |  unbound ong  |
 
 
 
@@ -39,13 +39,13 @@ successResponse：{
 		}, 
 		{
 			"balance": "14006.83021186", 
-			"asset_name": "waitbound_ong", 
+			"asset_name": "waitboundong", 
 			"asset_type":"native", 
             "contract_hash":""
 		}, 
 		{
 			"balance": "71472.14798338", 
-			"asset_name": "unbound_ong", 
+			"asset_name": "unboundong", 
 			"asset_type":"native", 
             "contract_hash":""
 		}, 
@@ -111,13 +111,13 @@ successResponse：{
 		}, 
 		{
 			"balance": "14006.83021186", 
-			"asset_name": "waitbound_ong", 
+			"asset_name": "waitboundong", 
 			"asset_type":"native", 
             "contract_hash":""
 		}, 
 		{
 			"balance": "71472.14798338", 
-			"asset_name": "unbound_ong", 
+			"asset_name": "unboundong", 
 			"asset_type":"native", 
             "contract_hash":""
 		}, 
@@ -165,13 +165,13 @@ successResponse：{
 		}, 
 		{
 			"balance": "14006.83021186", 
-			"asset_name": "waitbound_ong", 
+			"asset_name": "waitboundong", 
 			"asset_type":"native", 
             "contract_hash":""
 		}, 
 		{
 			"balance": "71472.14798338", 
-			"asset_name": "unbound_ong", 
+			"asset_name": "unboundong", 
 			"asset_type":"native", 
             "contract_hash":""
 		}, 
