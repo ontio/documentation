@@ -757,19 +757,10 @@ class TotalStake {
 ### 6.11 Query the amount of blocks to the end of current round
 
 ```js
-import {GovernanceTxBuilder, RestClient} from 'ontology-ts-sdk'
-
-const url = 'http://polaris1.ont.io:20334' // Url of node.
-const rest = new RestClient(url);
-try {
-  const view = await GovernanceTxBuilder.getGovernanceView(url);
-  const blockRes = await rest.getBlockHeight();
-  const blockHeight = blockRes.Result;
-  const countdown = 120000 - (blockHeight - view.height);
-  return countdown; // The amount of blocks to the end of current round
-}catch(err) {
-  // alert('Network error.')
-  console.log(err)
-}
+// Use the explorer api
+const url = 'https://explorer.ont.io/v2/nodes/block-count-to-next-round'
+const res = await axios.get(url)
+console.log(res)
+// {"code":0,"msg":"SUCCESS","result":{"count_to_next_round":10466,"max_staking_change_count":60000}}
 ```
 
