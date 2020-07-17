@@ -918,8 +918,9 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 | :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | makeClaimOng | String claimer,String to,long amount,String payer,long gaslimit,long gasprice | claimer，who to send，amount, network payer address，gaslimit，gasprice |
 
-
 ## 4. Distribute ONG to Users
+
+**NOTE: the following section unavailable since ontology 2.0 update on July 7th 2020**
 
 The exchange can choose whether to distribute the ONG to users. The ONG is used to pay for the Ontology blockchain bookkeeping fees, network fees, and other service fees.
 
