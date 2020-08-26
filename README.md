@@ -15,26 +15,26 @@ English | [中文](/zh-CN/README.md)
 
 ## Ontology Infrastructure
 
-- [Ontology](#Ontology) :hatching_chick:
-- [Ontology WASM](#Ontology-wasm) :hatching_chick:
-- [Ontology Crypto](#Ontology-crypto) :hatching_chick:
-- [Ontology Eventbus](#Ontology-eventbus) :hatching_chick:
-- [Ontology RPC, Restful and WebSocket](#Ontology-rpc-restful-and-websocket) :hatching_chick:
-- [Ontology Oracle](#Ontology-oracle) :hatching_chick:
-- [Ontology FPGA](#Ontology-fpga) :egg:
+- [Ontology](#Ontology)
+- [Ontology WASM](#Ontology-wasm)
+- [Ontology Crypto](#Ontology-crypto)
+- [Ontology Eventbus](#Ontology-eventbus)
+- [Ontology RPC, Restful and WebSocket](#Ontology-rpc-restful-and-websocket)
+- [Ontology Oracle](#Ontology-oracle)
+- [Ontology FPGA](#Ontology-fpga)
 
 ## Ontology Protocols and SDK
 
-- [Ontology DID](#Ontology-did) :hatched_chick:
-- [Ontology TS SDK](#Ontology-ts-sdk) :hatched_chick:
-- [Ontology Go SDK](#Ontology-go-sdk) :hatched_chick:
-- [Ontology Java SDK](#Ontology-java-sdk) :hatched_chick:
-- [Ontology Python SDK](#Ontology-python-sdk) :hatched_chick:
+- [Ontology DID](#Ontology-did)
+- [Ontology TS SDK](#Ontology-ts-sdk)
+- [Ontology Go SDK](#Ontology-go-sdk)
+- [Ontology Java SDK](#Ontology-java-sdk)
+- [Ontology Python SDK](#Ontology-python-sdk)
 
 ## Ontology Applications
 
-- [ONTO](#onto) :hatching_chick:
-- [Ontology DDXF(Distributed Data eXchange Framework)](#Ontology-ddxf) :hatched_chick:
+- [ONTO](#onto)
+- [Ontology DDXF(Distributed Data eXchange Framework)]
 
 ---
 
