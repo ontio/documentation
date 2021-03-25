@@ -8,7 +8,7 @@
 你可以使用 `npm` 进行安装
 
 ```shell
-npm install ontology-dapi
+npm install @ont-dev/ontology-dapi
 ```
 
 ### CDN
@@ -26,13 +26,13 @@ npm install ontology-dapi
 ### CommonJS
 
 ```javascript
-var client = require('ontology-dapi').client;
+var client = require('@ont-dev/ontology-dapi').client;
 ```
 
 ### ES6 模块
 
 ```javascript
-import { client } from 'ontology-dapi';
+import { client } from '@ont-dev/ontology-dapi';
 ```
 
 ### Web require
@@ -46,7 +46,11 @@ import { client } from 'ontology-dapi';
 ## 初始化
 
 ```javascript
-import { client } from 'ontology-dapi';
+import { client, provider } from '@ont-dev/ontology-dapi';
+
+client.registerClient({
+        extension: provider.ExtensionType.Onto
+  })
 
 var client = dApi.client;
 client.registerClient({});

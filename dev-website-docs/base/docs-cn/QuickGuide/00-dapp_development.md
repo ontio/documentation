@@ -186,7 +186,7 @@ dApi 支持 [Web环境](https://github.com/ontio-cyano/cyano-bridge)（仅支持
 #### Chrome 版
 
 ```
-npm install ontology-dapi
+npm install @ont-dev/ontology-dapi
 ```
 
 #### 移动版
@@ -202,8 +202,11 @@ npm install cyanobridge
 #### Chrome 版
 
 ```
-import {client} from 'ontology-dapi'
-client.registerClient({})
+import { client, provider } from '@ont-dev/ontology-dapi';
+
+client.registerClient({
+        extension: provider.ExtensionType.Onto
+  })
 ```
 
 #### 移动版

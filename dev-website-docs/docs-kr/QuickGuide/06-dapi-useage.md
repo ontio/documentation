@@ -7,13 +7,22 @@ The document is broken down into the following sections:
 [Setting up the development environment](#setting-up-the-development-environment)
 
 [Ontology dAPI Overview](#ontology-dapi-overview)
-+ [dAPI Installation](#dapi-installation)
-+ [dAPI Instantiation](#dapi-instantiation)
-+ [Example dAPI methods](#example-dapi-methods)
-	+ [Example blockchain methods](#example-blockchain-methods)
-	+ [Example asset methods](#example-asset-methods)
-	+ [Example Smart Contract methods](#example-smart-contract-methods)
-	+ [Example Message methods](#example-message-methods)
+- [Setting up the Development Environment](#setting-up-the-development-environment)
+- [Ontology dAPI Overview](#ontology-dapi-overview)
+	- [dAPI Installation](#dapi-installation)
+	- [dAPI Instantiation](#dapi-instantiation)
+	- [Example dAPI methods](#example-dapi-methods)
+		- [Example blockchain methods](#example-blockchain-methods)
+		- [Example asset methods](#example-asset-methods)
+		- [Example Smart Contract Methods](#example-smart-contract-methods)
+		- [Example Message Methods](#example-message-methods)
+- [Running the Demo Project](#running-the-demo-project)
+	- [How to set gaslimit and gasprice](#how-to-set-gaslimit-and-gasprice)
+- [Writing a smart contract for your dApp](#writing-a-smart-contract-for-your-dapp)
+	- [Compiling and deploying your smart contract](#compiling-and-deploying-your-smart-contract)
+	- [Compiling your smart contract](#compiling-your-smart-contract)
+	- [Deploying your Smart Contract](#deploying-your-smart-contract)
+- [Testing Smart Contract](#testing-smart-contract)
 
 [Running the demo project](#running-the-demo-project)
 
@@ -40,7 +49,7 @@ Please ensure you have the following installed and configured in order to setup 
 The Ontology dAPI is the core API used to interface with the Ontology blockhain when creating a dApp and the repository can be found [here](https://github.com/ontio/ontology-dapi). First you must install the npm package using: 
 
 ```
-$ npm install ontology-dapi
+$ npm install @ont-dev/ontology-dapi
 ```
 
 #### dAPI Instantiation
@@ -48,9 +57,11 @@ $ npm install ontology-dapi
 To use the dAPI in your project, you need to import the library and then register as a client.
 Import and register the dAPI using:
 ```
-import { client } from 'ontology-dapi';
+import { client, provider } from '@ont-dev/ontology-dapi';
 
-client.registerClient({});
+client.registerClient({
+        extension: provider.ExtensionType.Onto
+  })
 ```
 
 #### Example dAPI methods

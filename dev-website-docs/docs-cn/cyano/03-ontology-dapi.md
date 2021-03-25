@@ -10,7 +10,7 @@
 你可以使用 `npm` 进行安装
 
 ```shell
-npm install ontology-dapi
+npm install @ont-dev/ontology-dapi
 ```
 
 ### 1.2 CDN 安装
@@ -28,13 +28,13 @@ npm install ontology-dapi
 ### 2.1 CommonJS
 
 ```javascript
-var client = require('ontology-dapi').client;
+var client = require('@ont-dev/ontology-dapi').client;
 ```
 
 ### 2.2 ES6 模块
 
 ```javascript
-import { client } from 'ontology-dapi';
+import { client } from '@ont-dev/ontology-dapi';
 ```
 
 ### 2.3 Web require
@@ -48,10 +48,11 @@ import { client } from 'ontology-dapi';
 ## 3. 初始化
 
 ```javascript
-import { client } from 'ontology-dapi';
+import { client, provider } from '@ont-dev/ontology-dapi';
 
-var client = dApi.client;
-client.registerClient({});
+client.registerClient({
+        extension: provider.ExtensionType.Onto
+  })
 ```
 
 !> `Mobile Provider` 需要注册，`Chrome Provider` 不需要注册。

@@ -23,7 +23,7 @@ Please make sure the following softwares are installed：
 When creating a dApp, Ontology DAPI is one of the core APIs for interacting with the Ontology blockchain, and the source code can be downloaded [here](https://github.com/ontio/ontology-dapi). Install Ontology-DAPI via ```npm```:
 
 ```
-$ npm install ontology-dapi
+$ npm install @ont-dev/ontology-dapi
 ```
 
 #### DAPI example
@@ -31,9 +31,11 @@ $ npm install ontology-dapi
 When creating a DAPI example, first import ontology-dapi and register as follows:
 
 ```typescript
-import { client } from 'ontology-dapi';
+import { client, provider } from '@ont-dev/ontology-dapi';
 
-client.registerClient({});
+client.registerClient({
+        extension: provider.ExtensionType.Onto
+  })
 ```
 
 #### DAPI method
