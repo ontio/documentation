@@ -31,9 +31,11 @@ $ npm install ontology-dapi
 When creating a DAPI example, first import ontology-dapi and register as follows:
 
 ```typescript
-import { client } from 'ontology-dapi';
+import { client, provider } from '@ont-dev/ontology-dapi';
 
-client.registerClient({});
+client.registerClient({
+        extension: provider.ExtensionType.Onto
+  })
 ```
 
 #### DAPI method
