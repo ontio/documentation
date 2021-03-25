@@ -116,18 +116,16 @@
   - [Objective-C SDK](docs-cn/SDKs/08-objective-c-sdk.md)
   - [C# SDK](docs-cn/SDKs/09-csharp-sdk.md)
 
-- 浏览器 API
-  - [概述](docs-cn/explorer/overview.md)
-  - [区块](docs-cn/explorer/blocks.md)
-  - [账户](docs-cn/explorer/accounts.md)
-  - [合约](docs-cn/explorer/contracts.md)
-  - [Tokens](docs-cn/explorer/tokens.md)
-  - [交易](docs-cn/explorer/transactions.md)
-  - [ONTID](docs-cn/explorer/ontid.md)
-  - [统计](docs-cn/explorer/statistics.md)
-  - [提交合约](docs-cn/explorer/registerContract.md)
-  - [摘要](docs-cn/explorer/summary.md)
-
+- 浏览器 API V2
+  - [概述](docs-cn/explorer-v2/overview.md)
+  - [区块](docs-cn/explorer-v2/blocks.md)
+  - [地址](docs-cn/explorer-v2/addressInfo.md)
+  - [合约](docs-cn/explorer-v2/contracts.md)
+  - [Tokens](docs-cn/explorer-v2/tokens.md)
+  - [交易](docs-cn/explorer-v2/transactions.md)
+  - [ONTID](docs-cn/explorer-v2/ontid.md)
+  - [统计](docs-cn/explorer-v2/summary.md)
+  
 - 签名机
   - [概述](docs-cn/sigsvr/00-overview.md)
   - [安装](docs-cn/sigsvr/01-install.md)

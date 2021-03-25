@@ -1,104 +1,105 @@
-# Ontology Exchange Docking Document
+# Ontology取引所ドッキングに関するドキュメント
 
-There are two kinds of assets in ONT: native assets and contract assets. Native assets are ONT and ONG. When docking with the exchange, it mainly processes deposit and withdrawal of these two assets.
+ONTには2種類のアセットがあり、ネイティブアセットとコントラクトアセットに分けられます。ネイティブアセットはONTとONGです。取引とドッキングする場合、この2種類のアセットの入金と送金を処理します。
 
-The outline of this document is as follows:
+このドキュメントの概要は下記のようになっております。
 
-* [Ontology Exchange Docking Document](#ontology-exchange-docking-document)
-	* [1.Deploy Ontology Synchronization Node](#1deploy-ontology-synchronization-node)
-		* [Get from source code](#get-from-source-code)
-		* [Get from release](#get-from-release)
-		* [Server deployment](#server-deployment)
-			* [Create wallet(not mandatory for sync node)](#create-walletnot-mandatory-for-sync-node)
-			* [Start up node](#start-up-node)
-	* [2. Use CLI Client](#2-use-cli-client)
-		* [Security policy](#security-policy)
-		* [CLI instruction](#cli-instruction)
-			* [Create wallet](#create-wallet)
-			* [Generate deposit address](#generate-deposit-address)
-	* [3. Process Asset Transactions](#3-process-asset-transactions)
-		* [Transaction docking program the exchange needs to develop](#transaction-docking-program-the-exchange-needs-to-develop)
-		* [User deposit](#user-deposit)
-		* [Deposit record](#deposit-record)
-		* [Process user withdrawal request](#process-user-withdrawal-request)
-	* [4. Java SDK Tutorials](#4-java-sdk-tutorials)
-		* [Account management](#account-management)
-			* [Do not use wallet management](#do-not-use-wallet-management)
-				* [Create account randomly](#create-account-randomly)
-				* [Create account based on private key](#create-account-based-on-private-key)
-			* [Use wallet management](#use-wallet-management)
-		* [Address generation](#address-generation)
-		* [ONT and ONG transfer](#ont-and-ong-transfer)
-			* [1. Initialization](#1-initialization)
-			* [2. Query](#2-query)
-				* [Query ONT, ONG Balance](#query-ont-ong-balance)
-				* [Query whether the transaction is in the transaction pool](#query-whether-the-transaction-is-in-the-transaction-pool)
-				* [Query whether the transaction is successful](#query-whether-the-transaction-is-successful)
-				* [The list of chain interaction interfaces](#the-list-of-chain-interaction-interfaces)
-			* [3. ONT transfer](#3-ont-transfer)
-				* [Construct transfer transaction and send](#construct-transfer-transaction-and-send)
-				* [Multiple signatures](#multiple-signatures)
-				* [One to multiple or multiple to multiple](#one-to-multiple-or-multiple-to-multiple)
-				* [Use signature server to sign](#use-signature-server-to-sign)
-			* [4. ONG transfer](#4-ong-transfer)
-				* [ONG transfer](#ong-transfer)
-				* [Withdraw ONG](#withdraw-ong)
-	* [4. Distribute ONG to Users](#4-distribute-ong-to-users)
-		* [What is ONG](#what-is-ong)
-		* [Calculate the amount of ONG that can withdraw](#calculate-the-amount-of-ong-that-can-withdraw)
-		* [Distribute ONG to users](#distribute-ong-to-users)
-		* [Users withdraw ONG](#users-withdraw-ong)
-	* [5. Signature service](#5-signature-service)
-	* [6. OEP4 Token](#6-oep4-token)
-	* [7. PAX token](#7-pax-token)
-	* [Native contract address](#native-contract-address)
-	* [FAQ](#faq)
-	* [Mainnet update note](#mainnet-update-note)
+* [Ontology取引所ドッキングに関するドキュメント](#Ontology取引所ドッキングに関するドキュメント)
+	* [1.Ontology同期化ノードの配備](#1.Ontology同期化ノードの配備)
+		* [ソースコードから取得](#ソースコードから取得)
+		* [リリースから取得](#リリースから取得)
+		* [サーバー配備](#サーバー配備)
+			* [財布を作る(同期化ノードは必須ではない)](#財布を作る(同期化ノードは必須ではない))
+			* [起動ノード](#起動ノード)
+	* [2.CLIクライアントの利用](#2.CLIクライアントの利用)
+		* [セキュリティポリシー](#セキュリティポリシー)
+		* [CLI 命令](#CLI 命令)
+			* [財布を作る](#財布を作る)
+			* [入金アドレス生成](#入金アドレス生成)
+	* [3.資産取引の処理](#3.資産取引の処理)
+		* [取引所が開発する必要がある取引のドッキングプログラム](#取引所が開発する必要がある取引のドッキングプログラム)
+		* [ユーザーの入金](#ユーザーの入金)
+		* [入金のレコード](#入金のレコード)
+		* [引き出しの処理](#引き出しの処理)
+	* [4.Java SDKチュートリアル](#4.Java-SDKチュートリアル)
+		* [アカウント管理](#アカウント管理)
+			* [財布管理を利用しないでください](#財布管理を利用しないでください)
+				* [ランダムにアカウントを作成](#ランダムにアカウントを作成)
+				* [秘密鍵に基づいたアカウントを作成](#秘密鍵に基づいたアカウントを作成)
+			* [財布管理を利用](#財布管理を利用)
+		* [アドレス生成](#アドレス生成)
+		* [ONTとONGの振替 ](#ONTとONGの振替)
+			* [1.初期化](#1.初期化)
+			* [2.お問い合わせ](#2.お問い合わせ)
+				* [ONTとONGの残高に関するお問い合わせ](#ONTとONGの残高に関するお問い合わせ)
+				* [取引は既に取引プールに入ったかに関するお問い合わせ](#取引は既に取引プールに入ったかに関するお問い合わせ)
+				* [取引が成功したかに関するお問い合わせ](#取引が成功したかに関するお問い合わせ)
+				* [チェーンの相互作用インターフェースに関するリスト](#チェーンの相互作用インターフェースに関するリスト)
+			* [3.ONT振替](#3.ONT振替)
+				* [振替の取引を生成してから発送する](#振替の取引を生成してから発送する)
+				* [複数の署名](#複数の署名)
+				* [1対複数もしくは複数対複数](#1対複数もしくは複数対複数)
+				* [署名サーバー経由でサイン](#署名サーバー経由でサイン)
+			* [4.ONG振替](#4.ONG振替)
+				* [ONG振替](#ONG振替)
+				* [ONG出金](#ONG出金)
+	* [4.ユーザーへのONG分配](#4.ユーザーへのONG分配)
+		* [ONGとは](#ONGとは)
+		* [引出せるONG数量の計算](#引出せるONG数量の計算)
+		* [ユーザーへのONG分配](#ユーザーへのONG分配)
+		* [ONGの引き出し](#ONGの引き出し)
+	* [5.サインサービス](#5.サインサービス)
+	* [6.OEP4トークン](#6.OEP4トークン)
+	* [7.PAXトークン](#7.PAXトークン)
+	* [ネイティブコントラクトアドレス](#ネイティブコントラクトアドレス)
+	* [FAQ](#FAQ)
+	* [メインネット更新ノート](#メインネット更新ノート)
 
-## 1.Deploy Ontology Synchronization Node
+## 1.Ontology同期化ノードの配備
 
-There are two ways to deploy Ontology synchronization nodes:
+Ontology同期化ノードの配備には2つの方法があります。
 
-### Get from source code
+### ソースコードから取得
 
-Clone ontology repository to  **$GOPATH/src/github.com/ontio** directory
+Ontologyのリポジトリを **$GOPATH/src/github.com/ontio** にそのままにコピーする
 
 ```
 $ git clone https://github.com/ontio/ontology.git
 ```
 
-Or
+もしくは
 
 ```
 $ go get github.com/ontio/ontology
 ```
 
-Use the third-party package management tool glide to manage the dependent libraries
+第三者機関のパッケージ管理ツールを利用し、依存ライブラリを管理する
 
 ```
 $ cd $GOPATH/src/github.com/ontio/ontology
 $ glide install
 ```
 
-Compile source code with make
+makeを利用してそーそコードをコンパイルする
 
 ```
 $ make
 ```
 
-An executable program will be generated after a successful compilation
-(using ```make all``` command will generate sig server under 'tools' directory ）
-- `ontology`: Node program/node control program provided by command line
+コンパイル成功した後に実行可能なプログラムが生成されます
+（```make all``` コマンドを使用すると、 'tools'ディレクトリの下にsigサーバーが生成されます）
 
-### Get from release
+- `ontology`: コマンドラインで提供されるノードプログラム/ノード制御プログラム
 
- [release page](https://github.com/ontio/ontology/releases)
+### リリースから取得
 
-### Server deployment
+ [リリースページ](https://github.com/ontio/ontology/releases)
 
-1. #### Create wallet(not mandatory for sync node)
+### サーバー配備
 
-   - Create the wallet file - wallet.dat that is required for nodes running through the CLI
+1. #### 財布を作る(同期化ノードは必須ではない)
+
+   - 財布ファイルを作成する - CLIを通して実行するノードに必要なwallet.datの作成
 
      ```
      $ ./ontology account add -d
@@ -118,9 +119,9 @@ An executable program will be generated after a successful compilation
      Create account successfully.
      ```
 
-     ​
+     
 
-   - Directory Structure
+   - ディレクトリ構造
 
      ```
         $ tree
@@ -130,13 +131,13 @@ An executable program will be generated after a successful compilation
      ```
 
 
-2. #### Start up node
+2. #### 起動ノード
 
-   start up command:
+   起動コマンド:
 
    ```./ontology ```
 
-   By default, the node startup will close the websocket and the rest port. If you want to open above-mentioned ports, you can configure the following parameters:
+   デフォルト設定では、ノード起動したら、websocketと残りのポートが閉じられます。上記のポートをオーペンしたい場合、次のパラメーターを設定してください。 
 
    ```
    RESTFUL OPTIONS:
@@ -148,28 +149,28 @@ An executable program will be generated after a successful compilation
      --wsport value  Ws server listening port (default: 20335)
    ```
 
-   ​
+   
 
-## 2. Use CLI Client
+## 2.CLIクライアントの利用
 
-### Security policy
+### セキュリティポリシー
 
-Mandatory: The exchange must use a whitelist or firewall to block external server requests, otherwise there will be a serious security risk.
+必須条件:ホワイトリストまたはファイアウォールを利用して外部サーバーのリクエストをブロックする状況で取引が行われます。そうしない場合、セキュリティリスクは非常に高いです。 
 
-The CLI does not provide remote open/close wallet function and there is no verification process when opening the wallet. Therefore, the security policy needs to be set by the exchange based on its own situation. Since the wallet must remain open in order to process the users' withdrawal, from a security point of view, the wallet must be running on a separate server, and the exchange configures the firewall with reference to the following table.
+CLIは遠隔操作で財布の起動・閉じる機能を提供していないです。財布起動した際に検証プロセスはありません。したがって、セキュリティポリシーは取引の各状況に基づいて設定する必要があります。引き出しの処理は財布起動したままで操作できるので、財布は単独なサーバーで実行する必要があります。取引所のファイアウォールの設定は下記の表をご参照ください。
 
-|               | Mainnet default port |
-| ------------- | -------------------- |
-| Rest Port     | 20334                |
-| Websorcket    | 20335                |
-| Json RPC port | 20336                |
-| Node port     | 20338                |
+|               | メインネット　デフォルト　ポート |
+| ------------- | -------------------------------- |
+| Rest Port     | 20334                            |
+| Websorcket    | 20335                            |
+| Json RPC port | 20336                            |
+| Node port     | 20338                            |
 
-### CLI instruction
+### CLI 命令
 
-#### Create wallet
+#### 財布を作る
 
-The exchange needs to create an online wallet to manage user deposit address. A wallet is used to store account (including public and private keys), contract address and other information, which is the most important certificate for users to hold assets. It is important to keep wallet files and wallet passwords safe and prevent them from loss or disclosure. The exchange does not need to create a wallet file for each address. Usually a wallet file can store all the user's deposit addresses. You can also use a cold wallet (offline wallet) as a more secure storage.
+ユーザーの入金アドレスを管理するために取引所はオンラインの財布を作成する必要があります。財布にはアカウント（公開鍵と秘密鍵）、コントラクトアドレスとその他の情報を保存しています。財布はユーザーが資産の保有者であることの一番重要な証明です。財布のファイルとパスワードの紛失と漏えいを防ぎ、安全に保管することが大事です。取引所はアドレスごとに財布のファイルを生成する必要がありません。通常、財布のファイルには全部の入金アドレスを保存できます。コールド財布（オフライン財布）はより安全なストレージとして使われます。
 
 ```
 $ ./ontology account add -d
@@ -189,23 +190,23 @@ Signature scheme: SHA256withECDSA
 Create account successfully.
 ```
 
-**The public and private key generation algorithms of ONT are consistent with NEO. The public key addresses of ONT and NEO corresponding to the same private key are the same.**
+**ONTの公開鍵と秘密鍵の生成アルゴリズムはNEOと一致しています。同じ秘密鍵に対応するONTとNEOの公開鍵のアドレスは同じです。**
 
-####  Generate deposit address
+####  入金アドレス生成
 
-**Note: ONT and ONG address is case-sensitive**
+**注意: ONTとONGのアドレスは大文字と小文字が区別されます**
 
-A wallet can store multiple addresses, and the exchange needs to generate a deposit address for each user.
+一つの財布は複数のアドレスを保存できます。取引所は各ユーザーの入金アドレスを生成する必要があります。
 
-There are two ways to generate deposit addresses:
+入金アドレスの生成方法は二つある:
 
-- When the user first deposits (ONT/ONG), the program dynamically creates the ONT address. Advantages: No manual creation of addresses is required. Disadvantages: It is inconvenient to back up the wallet.
+- ユーザーが初めて(ONT/ONG)を入金する際にプログラムが動的にONTアドレスを生成します。 優位性: アドレスを手動に生成する必要がありません。短所: 財布のバックアップは不便です。
 
-To create an address dynamically, you can use the Java SDK's implementation and the program will return the created address. Please refer to Java SDK [Create account randomly](#create-account-randomly)
+アドレスを動的に作成するにはJava SDKが使われます。プログラムは作成されたアドレスを取り戻します。Java SDK [ランダムにアカウントを作る](#create-account-randomly)をご参照ください。
 
-- The exchange creates a batch of ONT addresses in advance and assigns the user an ONT address when the user deposits for the first time (ONT/ONG). Advantages: It is easy to back up wallet; disadvantages: Manually create ONT address when the address is insufficient.
+- 取引所は事前にONTアドレスのバッチを作成します。ユーザーが初めて (ONT/ONG)を入金する際にONTアドレスが分配されます。優位性 :財布はバックアップしやすいです。 短所:アドレスが不足している場合、手動にONTアドレスを作成します。 
 
-  To create a batch of addresses, executing the ./ontology account add -n [n] -w [wallet file] command in the CLI. The -d bracket is an optional parameter and the default value is 1. -w specifies the wallet file and the default file is wallet.dat. For example, to create 100 addresses at one time:
+  アドレスのバッチを生成するにはCLIで ./ontology account add -n [n] -w [wallet file] のコマンドを実行します。-dブラケットは選択可能なパラメーター で、デフォルト値は１となっています。. -w は財布のファイルを指定し、デフォルトのファイルはwallet.datです。例えば、一回で100のアドレスを作成する場合 :
 
 ```
 $ ./ontology account add -n 100 -d -w wat.dat
@@ -239,23 +240,21 @@ Signature scheme: SHA256withECDSA
 
 
 
-## 3. Process Asset Transactions
+## 3.資産取引の処理
 
-### Transaction docking program the exchange needs to develop
+### 取引所が開発する必要がある取引のドッキングプログラム
 
-1. Monitor new blocks using CLI/API
-2. Complete user deposit according to the transaction information 
-3. Store transaction records of exchanges
+1. CLI/APIを利用し、新しいブロックをモニタリングする
+2. 取引情報に基づいてユーザーの入金を完成させる
+3. 取引記録の保存
 
-### User deposit
+### ユーザーの入金
 
-For user deposit, the exchange needs to understand the following:
+ユーザーの入金に対し、下記のことを理解する必要があります。
 
-- In general, due to the different strategies of each exchange, the balance in the exchange's deposit address may not equal to the user's balance in the exchange.
-
-- Ontology address contains ONT and ONG assets. When processing the users' deposit, the exchange needs to judge the asset type so as not to mix up the ONT and ONG deposit.
-
-- The Ontology wallet is a full node. To synchronize the blocks, the wallet needs to be online. You can view the current block height through the CLI command and judge the node status.
+- 通常、取引ごとのストラテジーが異なるので取引所の入金アドレスの残高とユーザーの残高は一致していない可能性があります。
+- OntologyのアドレスはONTとONGのアセットが含まれます。ユーザーの入金を処理する際、ONTとONG入金を混同しないように取引所はアセットのタイプを判断する必要があります。
+- Ontologyの財布は完全なコードです。ブロックを同期化するには財布はオンラインでなければなりません。CLIコマンドを使って現時点のブロックの高さの確認とノードの状態の判断ができます。
 
 
   ```
@@ -263,13 +262,13 @@ For user deposit, the exchange needs to understand the following:
   CurrentBlockHeight:2
   ```
 
-- Transfers between users within the exchange do not need to go through the blockchain, so the exchange can directly modify the users' balance in the database. Only deposit and withdrawal need to go through the blockchain.
+- 取引所内部の振替はブロックチェーンを経由しなくても大丈夫です。したがって、取引所はデータベースにあるユーザーの残高を直接に変更できます。入金と引き出しだけはブロックチェーンを経由します。
 
-Example:
+例えば:
 
-1. A user deposits tokens to the address - ```TA8MoGmzS4T6g3T1CMGEVFiNGkZnn7ixw9```
+1. ユーザーはトークンをアドレスに入金する - ```TA8MoGmzS4T6g3T1CMGEVFiNGkZnn7ixw9```
 
-2. Monitor block information by CLI ```./ontology info block <block number | block hash>```  
+2. CLIによるブロック情報のモニタリング```./ontology info block <block number | block hash>```  
 
    ```
    $ ./ontology info block 209304
@@ -367,7 +366,7 @@ Example:
    ```
 
 
-3. Get all transaction information in the block according to Transaction Hash by CLI  ```./ontology info status```
+3. CLIによる取引ハッシュに基づいてブロック内のすべての取引情報を取得します。 ```./ontology info status```
 
 ```
 $ ./ontology info status bce10eb97c6cd122131e448ddf415bcd15aabbddd466e6850074c6c839a26596
@@ -390,9 +389,9 @@ Transaction states:
 }
 ```
 
-"State" is 1 representing transaction success, and 0 representing the failure
+"State"  1は取引成功、0は失敗。
 
-Parse the "Notify" array:
+ "Notify" 配列を解析する:
 
 ​     ContractAddress: Contract address：	```0100000000000000000000000000000000000000```  is for ONT
 
@@ -400,29 +399,29 @@ Parse the "Notify" array:
 
 ​     States：array
 
-​                The first element: "transfer" represents a transfer operation
+​                一つ目の要素: "transfer" は振替の操作を意味する
 
-​		The second element: From address
+​		二つ目の要素: 差出先（From address）
 
-​                The third element: To address
+​                三つ目の要素: 発送先（To address）
 
-​                The fourth element: The transfer amounts （**The actual number of ONT is the number of ONT * 1, and the actual number of ONG is the number of ONG * 10^9**）
+​                四つ目の要素: 振替数量（**ONTの実際の数量はONT数量 * 1。ONGの実際の数量はONG数量* 10^9**）
 
-To obtain the user's deposit record, you can filter the to address that is generated by the exchange for users. 
+入金記録を取得するには取引所がユーザーのために生成したアドレスをフィルタリングすることができます。
 
-### Deposit record
+### 入金のレコード
 
-Same as user deposit, the exchange needs to write code to monitor all transactions in all blocks, and record all deposit and withdrawal transactions in the database. If there is a deposit transaction, the exchange needs to modify the corresponding user's balance in the database.
+ユーザーの入金と同じように取引所はすべてのブロック内の全部の取引をモニタリングするコードを作成します。データベース内のすべての入金と引き出しを記録する必要があります。入金の取引がある場合、取引所はデータベースに対応するユーザーの残高を変更します。
 
 
 
-### Process user withdrawal request
+### 引き出しの処理
 
-With regard to user withdrawal, the exchange needs to complete the following operations:
+ユーザーの引き出しを処理するには、次の操作を完成する必要があります。
 
-1. Record user withdrawals and modify users' account balances.
+1. ユーザーの引き出し数量を記録し、残高を変更させる。
 
-2. Use the CLI command to transfer tokens to the user's withdrawal address:
+2. CLIコマンドを使用して、トークンをユーザーの引き出しアドレスに振替します。
 
 ```
    $ ./ontology asset transfer --from Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT --to AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb --amount 10 
@@ -438,40 +437,41 @@ With regard to user withdrawal, the exchange needs to complete the following ope
 
 ```
 
-  The list of parameters for the command is as follows:
+  このコマンドにあるパラメーターのリスト:
 
    --wallet, -w  
-   Wallet specifies the wallet path of transfer-out account. The default value is: "./wallet.dat".
+  財布は振替アカウントの財布パスを指定します。デフォルト値は"./wallet.dat"です。
 
    --gasprice  
-   The total ONG cost of a transaction  is the gaslimit * Gasprice
-   The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 0. When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized. 
+   取引の総計ONGコストは gaslimit * Gasprice
+   gaspriceパラメーターはgasの価格を指定します。gasの価格はノードの取引プールで設定された最低価格より低くすることができません。そうしないと、取引が拒否されます。デフォルト値は0です。取引プールにはブロックにパッキング待ちの取引がある場合、gasの価格にしたがって取引を処理し、gasの価格が高い取引は優先されます。
 
    --gaslimit  
-   The gas limit is called the limit because it's the maximum amount of units of gas you are willing to spend on a transaction. 
-   However, the actual gas cost is determined by the number of steps or APIs executed by the VM, assuming the following two conditions:  
-      1. gaslimit>= actual cost, the transaction will be executed successfully, and return the unconsumed gas;  
-      2. Gaslimt< actual cost, the transaction will fail to execute and consume the gas that the VM has already executed;  
-        The minimum gas limit allowed for trading is 30,000. Transactions below this amount will not be packaged.
-           Gaslimit can be calculate by transaction pre-execution. (Of course by different execution context, such as time, this is not a definite value).  
-           In order to make the use of ONT/ONG simpler, all methods of ONT/ONG are set to the lowest gas limit, ie, 30000 gas.
+   gasの制限は取引に使うgas単位の最大量であるので制限と呼ばれます。
+   しかし、実際のgasコストはVMによって実行されるステップの数、もしくはAPIの数によって決められます。次の二つの条件を想定します。
+
+      1. gaslimit>= 実際のコスト。取引成功。消耗されていないgasを取り戻します;  
+            2. Gaslimt< 実際のコスト。取引失敗。VMが実行したgasが消耗されます;  
+               　gas取引の最小限は30,000です。この数値より低い取引はパッキングされないです。
+           Gaslimitは取引の事前実行によって計算できます。 (もちろん、時間などが異なる実行コンテキストであるために明確な数値ではない)。  
+           ONT/ONGの利用を簡素化にするために、ONT/ONGのすべての方法を最低のgas制限に設定し、つまり30000 gasです。
 
    --asset  
-   The asset parameter specifies the asset type of the transfer. Ont indicates the ONT and ong indicates the ONG. The default value is ONT.
+  アセットのパラメーター は振替する資産のタイプを指定します。OntはONTを代表し、ongはONGを代表します。デフォルト値はONTです。
 
    --from   
-   The from parameter specifies the transfer-out account address.
+   この fromのパラメーターは差出先のアカウントのアドレスを指します。 
 
    --to  
-   The to parameter specifies the transfer-in account address.
+   このtoのパラメーターは振替先のアカウントのアドレスを指します。 
 
    --amount   
-   The amount parameter specifies the transfer amount. Note: Since the precision of the ONT is 1, if the input is a floating-point value, then the value of the fractional part will be discarded; the precision of the ONG is 9, so the fractional part beyond 9 bits will be discarded.
+   この amountのパラメーターは振替数量を指します。注意: ONT精度は１であるので、インプットは浮動小数点である場合、小数部分の値は破棄されます。ONG精度は9であるので、9ビットを超える小数部分は破棄されます。
 
 
-   Confirm the transaction result:
+  取引の結果を確認する:
 
-   - Use the returned transaction hash to query directly:
+   - 取り戻した取引のハッシュを利用し、直接クエリする:
 
    ```
      $ ./ontology info status 49a705f6beb6a15b92493db496f56e8bcddc95b803dac1e4a02b4579ce760b3f
@@ -497,34 +497,34 @@ With regard to user withdrawal, the exchange needs to complete the following ope
 
 ​     
 
-   - Same as ”user deposit“, monitor transactions in new blocks and filter out successful transactions which are from exchange addresses to user's withdrawal addresses
+   - 「ユーザーの入金」と同じように新しいブロックの取引をモニタリングし、取引アドレスからユーザーの引き出し先のせいこうした取引を除外します。
 
-3. Extract the transaction ID from the returned transaction details of Json format and record it in the database.
+3. Json形式で返された取引の詳細から取引IDを抽出し、データベースに記録します。
 
-4. Wait for the blockchain confirmation. After confirmation, marking the withdrawal record as successful withdrawal.
+4. ブロックチェーンの確認を待ちます。確認した後、引き出し記録に引き出し成功の印をつけます。
 
-   Similar to monitoring the blockchain during deposit, the withdrawal process is also the same. If a certain transaction ID in the block is found to be equal to the transaction ID in the withdrawal record during monitoring, the transaction is confirmed and the withdrawal is successful.
+   入金中のブロックチェーンを監視すると同じように引き出しのプロセスも監視されています。モニタリング中の際に、ブロック内の特定な取引IDは引き出し記録にある取引IDと同じである場合、この取引が確認され、引き出しも成功します。
 
-5. If the transaction is not confirmed all the time, that is, the corresponding event log cannot be queried through the transaction hash, then
+5. 取引が長時間で確認されていなかったのは対応するイベントログが取引を通じて取引ハッシュの確認ができません。そうした場合の解決策は：
 
-   - Check if the transaction is in the transaction pool via RPC/SDK interface（refer to[Java SDK:ONT and ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md#2-%E5%8E%9F%E7%94%9F%E8%B5%84%E4%BA%A7ont%E5%92%8Cong%E8%BD%AC%E8%B4%A6))，if it exists，you needs to wait for the consensus node to pack and then query
+   - 取引がRPC／SDKインターフェース経由で取引プールにあるかどうかを確認します。（refer to[Java SDK:ONT and ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md#2-%E5%8E%9F%E7%94%9F%E8%B5%84%E4%BA%A7ont%E5%92%8Cong%E8%BD%AC%E8%B4%A6))。存在する場合、コンセンサスノードをパックしてから確認する必要があります。
 
-   - If not, the transaction can be considered as failure and the transfer operation needs to be executed again.
+   - 存在しない場合、取引が失敗し、振替のオペレーションをもう一度実行する必要があります。
 
 
-   - If the transaction is not packaged for a long time, it may be due to the gas price being too low.
+   - 取引は長時間でパッキングされていない場合、gas価格は低すぎるかもしれない。
 
-     ​
+     
 
-## 4. Java SDK Tutorials
+## 4.Java SDKチュートリアル
 
-Java SDK Tutorials: [Java SDK Tutorials](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md) 
+Java SDK チュートリアル: [Java SDK Tutorials](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md) 
 
-### Account management
+### アカウント管理
 
-#### Do not use wallet management
+#### 財布管理を利用しないでください
 
-##### Create account randomly
+##### ランダムにアカウントを作成
 
 ```java
 com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
@@ -533,7 +533,7 @@ acct.serializePublicKey();//Public key
 acct.getAddressU160().toBase58();//base58 address
 ```
 
-##### Create account based on private key
+##### 秘密鍵に基づいたアカウントを作成
 
 ```java
 com.github.ontio.account.Account acct0 = new com.github.ontio.account.Account(Helper.hexToBytes(privatekey0), ontSdk.defaultSignScheme);
@@ -542,9 +542,9 @@ com.github.ontio.account.Account acct2 = new com.github.ontio.account.Account(He
 
 ```
 
-#### Use wallet management
+#### 財布管理を利用
 
-[Example](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/WalletDemo.java) 
+[例を挙げると](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/WalletDemo.java) 
 
 ```java
 
@@ -563,9 +563,9 @@ com.github.ontio.account.Account acct0 = ontSdk.getWalletMgr().getAccount(info.a
 
 ```
 
-### Address generation
+### アドレス生成
 
-The address includes single-signature address and multi-signature address, and the generation method is the same as the NEO address.
+このアドレスにはシングルサインのアドレスと複数サインのアドレスが含まれます。作成方法はNEOアドレスと同じです。
 
 ```
 single-signature address generation
@@ -586,16 +586,16 @@ Address recvAddr = Address.addressFromMultiPubKeys(2, acct1.serializePublicKey()
 
 ```
 
-| Method Name             | Parameter                 | Parameter Description                                        |
+| 方法                    | パラメーター              | パラメーターの説明                                           |
 | :---------------------- | :------------------------ | :----------------------------------------------------------- |
 | addressFromMultiPubkeys | int m,byte\[\]... pubkeys | The minimum number of signatures (<=the number of public keys)，public key |
 
 
-### ONT and ONG transfer
+### ONTとONGの振替
 
-Example：[Example](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
+例えば：[Example](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java)
 
-#### 1. Initialization
+#### 1.初期化
 
 ```
 String ip = "http://polaris1.ont.io";
@@ -606,9 +606,9 @@ ontSdk.setDefaultConnect(ontSdk.getRpc());
 
 ```
 
-#### 2. Query
+#### 2.お問い合わせ
 
-##### Query ONT, ONG Balance
+##### ONTとONGの残高に関するお問い合わせ
 
 ```
 ontSdk.getConnect().getBalance("AVcv8YBABi9m6vH7faq3t8jWNamDXYytU2");
@@ -627,7 +627,7 @@ System.out.println(ontSdk.nativevm().ong().queryTotalSupply());
 
 ```
 
-##### Query whether the transaction is in the transaction pool
+##### 取引は既に取引プールに入ったかに関するお問い合わせ
 
 ```
 ontSdk.getConnect().getMemPoolTxState("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
@@ -669,9 +669,9 @@ Or transaction is Not in the tx pool:
 
 ```
 
-##### Query whether the transaction is successful
+##### 取引が成功したかに関するお問い合わせ
 
-Query pushing content of a smart contract
+スマートコントラクトのコンテンツをプッシュするか
 
 ```
 ontSdk.getConnect().getSmartCodeEvent("d441a967315989116bf0afad498e4016f542c1e7f8605da943f07633996c24cc")
@@ -703,7 +703,7 @@ response:
 
 ```
 
-You can use the block height to query a smart contract event, and the event transaction detail will be returned.
+ブロックの高さ（ block height）を利用してスマートコントラクトイベントを確認することができます。イベント取引の詳細が返されます。
 
 ```
 ontSdk.getConnect().getSmartCodeEvent(10)
@@ -752,7 +752,7 @@ response:
 
 ```
 
-##### The list of chain interaction interfaces
+##### チェーンの相互作用インターフェースに関するリスト
 
 | No   |                    Main   Function                     |                      Description                       |
 | ---- | :----------------------------------------------------: | :----------------------------------------------------: |
@@ -778,9 +778,9 @@ response:
 | 20   |        ontSdk.getConnect().getMemPoolTxCount()         | Query total transaction volumn in the transaction pool |
 | 21   |        ontSdk.getConnect().getMemPoolTxState()         |    Query transaction status in the transaction pool    |
 
-#### 3. ONT transfer
+#### 3.ONT振替
 
-##### Construct transfer transaction and send
+##### 振替の取引を生成してから発送する
 
 ```
 // Transferee and payee address
@@ -806,14 +806,14 @@ ontSdk.getConnect().sendRawTransaction(tx.toHexString());
 
 ```
 
-| Method Name  | Parameter                                                    | Parameter Description                                        |
+| 方法         | パラメーター                                                 | パラメーターの説明                                           |
 | :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | makeTransfer | String sender，String recvAddr,long amount,String payer,long gaslimit,long gasprice | sender address, receiver address, amount, network fee payer address, gaslimit, gasprice |
 | makeTransfer | State\[\] states,String payer,long gaslimit,long gasprice    | A transaction contains multiple transfers                    |
 
-##### Multiple signatures 
+##### 複数の署名
 
-If the addresses of the transferee and the payer who pay the network fee are different, the payer’s signature needs to be added.
+ネット料金の支払人と振替先のアドレスが異なる場合、支払人のサインを追加する必要があります。
 
 ```
 // 1.Add single signature 
@@ -825,11 +825,11 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct0,acct1});
 ```
 
 
-##### One to multiple or multiple to multiple
+##### 1対複数もしくは複数対複数
 
-1. Construct a transaction with multiple states
-2. Signature
-3. A transaction includes 1024 transfers at most
+1. 複数の状態を持つ取引を作成する
+2. サイン
+3. 一回の取引は最大で1024
 
 ```
 Address sender1 = acct0.getAddressU160();
@@ -847,13 +847,13 @@ ontSdk.addMultiSign(tx,2,new com.github.ontio.account.Account[]{acct1, acct2});
 
 ```
 
-##### Use signature server to sign
+##### 署名サーバー経由でサイン
 
-- **Construct transaction and sign**
+- **振替の取引を生成してからサインする**
 
-1. Construct a transaction, serialize a transaction, send a transaction to the signature server
-2. The signature server receives the transaction, deserializes, checks the transaction, and adds the signature
-3. Send transaction
+1. 取引を生成し、取引をシリアル化、署名サーバーに取引を発送する
+2. 署名サーバーは取引を受信し、デシリアライズし、取引を確認してからサインを追加する
+3. 取引を発送する
 
 ```
 //Send serialized transaction to signature server
@@ -869,9 +869,9 @@ System.out.println(Transfers.deserializeFrom(Contract.deserializeFrom(txRx.code)
 ontSdk.addSign(txRx,acct0);
 ```
 
-- **Sign data**
+- **サインデータ**
 
-[Example](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/SignatureDemo.java) 
+[例を挙げると](https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/SignatureDemo.java) 
 
 ```
 com.github.ontio.account.Account acct = new com.github.ontio.account.Account(ontSdk.defaultSignScheme);
@@ -885,23 +885,23 @@ System.out.println(ontSdk.verifySignature(acct.serializePublicKey(), data, signa
 
 
 
-#### 4. ONG transfer
+#### 4.ONG振替
 
-##### ONG transfer
+##### ONG振替
 
-The interface is similar to ONT:
+インターフェースはONTに類似:
 
 ```
 ontSdk.nativevm().ong().makeTransfer...
 ```
 
-##### Withdraw ONG
+##### ONG出金
 
-1. Check the balance of ONG
-2. Create account
-3. Construct transaction
-4. Signature
-5. Send transaction that withdraw ONG
+1. ONGの残高を確認する
+2. アカウントを作る
+3. 取引を生成する
+4. サイン
+5. 取引を発送し、ONGを引き出す
 
 ```
 //Query non-withdrawal ONG
@@ -914,30 +914,29 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 ```
 
-| Method Name  | Parameter                                                    | Parameter Description                                        |
+| 方法         | パラメーター                                                 | パラメーターの説明                                           |
 | :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | makeClaimOng | String claimer,String to,long amount,String payer,long gaslimit,long gasprice | claimer，who to send，amount, network payer address，gaslimit，gasprice |
 
-## 4. Distribute ONG to Users
 
-**NOTE: the following section unavailable since ontology 2.0 update on July 7th 2020**
+## 4.ユーザーへのONG分配
 
-The exchange can choose whether to distribute the ONG to users. The ONG is used to pay for the Ontology blockchain bookkeeping fees, network fees, and other service fees.
+取引所はONGをユーザーに配布するかどうかを選択できます。ONGはOntologyのブロックチェーンの簿記費用、ネットワーク料金とほかのサービス料金を支払います。
 
-### What is ONG
+### ONGとは
 
-The total number of ONG is 1 billion with a precision of 9. When the ONT transfer transaction occurs, the unlocked ONG will be authorized by the ONT contract to the transfer sender and receiver. The ONG quantity that the ONT holder can obtain is the percentage of the total amount of ONT owned by the ONT holder. If the transfer transaction has not been triggered, the ONG authorized to the ONT holder will be accumulated and will be issued at the time of the next transfer transaction. This part of the ONG needs to be manually withdrew into wallet address.
+ONGは総計10億で精度は９です。ONT振替取引が発生する場合、ロックが解除されたONGはONTコントラクトによって振替の差出人と受信者に許可されます。 ONT保有者が取得できるONG数量は所有するONTの合計額の割合です。 振替の取引が発効されていない場合、ONT所有者に許可されたONGがたまって今度の振替の取引の時点で配布されます。 このONGの部分は財布アドレスに手動で引き出す必要があります。
 
-### Calculate the amount of ONG that can withdraw
+### 引出せるONG数量の計算
 
-The number of unlocked ONGs is determined by the time interval. The unlock rule is as follows: Unlocking ONG once every second. The number of unlocked ONG is not constant and the unlocked number is determined by ontology unlocked distribution curve. Ontology unlocked distribution curve interval is [5, 4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]. Approximately every 31536000 blocks, the unlocked value of ONG will be changed. After about 18 years, all ONGs will be unlocked.
+ロック解除されたONGの数は時間間隔によって決められます。ロック解除ルールは下記のようになります。1秒ごとにONGのロックが解除されます。 ロック解除されたONGの数は一定ではなく、ロック解除された数はOntologyのロック解除の分布曲線によって確定されます。 Ontologyのロック解除の分布曲線の間隔は[5、4、3、3、2、2、2、2、1、1、1、1、1、1、1、1、1、1、1]です。 約31536000ブロックごとにロック解除されたONGの値が変更されます。 約18年後、すべてのONGはロック解除されます。
 
-**ONG locked list**
+**ONGロックリスト**
 ![ong](https://s15.postimg.cc/bwnan7anv/image.png)
 
-### Distribute ONG to users
+### ユーザーへのONG分配
 
-View locked ONG Balances via the CLI：```./ontology asset unboundong <address|index|label>```
+CLIを通してブロックされたONGの残高確認：```./ontology asset unboundong <address|index|label>```
 
 ```
 $ ./ontology asset unboundong 1
@@ -947,16 +946,16 @@ Unclaim Ong:
 
 ```
 
-Withdraw unlocked ONG via CLI：```./ontology asset withdrawong <address|index|label>```
+CLIを通してブロックされていないONGの引き出し：```./ontology asset withdrawong <address|index|label>```
 
 --wallet, -w  
-Wallet specifies the wallet path of withdrawal account. The default value is: "./wallet.dat".
+財布は振替アカウントの財布パスを指定します。デフォルト値は"./wallet.dat"です。
 
 --gasprice  
-The gasprice parameter specifies the gas price of the transfer transaction. The gas price of the transaction cannot be less than the lowest gas price set by node's transaction pool, otherwise the transaction will be rejected. The default value is 0. When there are transactions that are queued for packing into the block in the transaction pool, the transaction pool will deal with transactions according to the gas price and transactions with high gas prices will be prioritized. 
+  gaspriceパラメーターはgasの価格を指定します。gasの価格はノードの取引プールで設定された最低価格より低くすることができません。そうしないと、取引が拒否されます。デフォルト値は0です。取引プールにはブロックにパッキング待ちの取引がある場合、gasの価格にしたがって取引を処理し、gasの価格が高い取引は優先されます。
 
 --gaslimit  
-The gaslimit parameter specifies the gas limit of the transfer transaction. The gas limit of the transaction cannot be less than the minimum gas limit set by the node's transaction pool, otherwise the transaction will be rejected. Gasprice * gaslimit is actual ONG costs. The default value is 30000.
+このgaslimitのパラメーターは取引のgasの制限を指します。取引のgasの制限はノードの取引ぷーぷるにある 最低のgasの制限より低くすることができません。そうしないと、取引lが拒否されます。Gasprice * gaslimitは実際のONGコストです。デフォルト値は30,000です。
 
 ```
 $ ./ontology asset withdrawong 1
@@ -971,17 +970,17 @@ Tip:
 
 ```
 
-Same as user deposit，you can use ```./ontology info status c696033f1589a88c7b849dbd2ad0c13a9ca695c3220e4f846f9b1096d0972b80``` to query the result of the ONG withdrawal.
+入金と同じようにONG出金の結果の確認は下記のことも利用できる ```./ontology info status c696033f1589a88c7b849dbd2ad0c13a9ca695c3220e4f846f9b1096d0972b80``` 
 
-Example:
+例えば:
 
-Assuming that all addresses of the exchange are in one wallet, the following figure shows the process and calculation formula about how an exchange distributes ONG to a user A:
+取引所のすべてのアドレスは一つの財布にあると仮定すれば、次の図は取引所がユーザーAにONGの配布方法に関するプロセスと計算式を表しています。
 
 ![ong](./images/ong_en.png)
 
-### Users withdraw ONG
+### ONGの引き出し
 
-The process of withdrawing the ONG is the same as the process of withdrawing the ONT, just specify the asset parameter as ong:
+ONGの引き出しのプロセスはONTのと同じです。アセットのパラメーターをongに設定:
 
 ```
 $ ./ontology asset transfer --from Ad4pjz2bqep4RhQrUAzMuZJkBC3qJ1tZuT --to AS3SCXw8GKTEeXpdwVw7EcC4rqSebFYpfb --amount 10 --asset ong
@@ -997,20 +996,20 @@ Tip:
 
 ```
 
-Use Java SDK to withdraw ONG，please refer to[Java SDK:ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
+ Java SDKを利用してONGを引き出しには 下記のことをご参照ください。[Java SDK:ONG transfer](https://github.com/ontio/ontology-java-sdk/blob/master/docs/en/sdk_get_start.md#24-ong%E8%BD%AC%E8%B4%A6)
 
-## 5. Signature service
-When your system doesn't support the SDKs and CLI, you can use the sign server to make and sign transactions:
+## 5.サインサービス
+システムがSDKとCLIをサポートしていない場合、サインサーバーを利用し、取引を生成およびサインできます。
 
 [Ontology Signature Server Tutorials](https://github.com/ontio/ontology/blob/master/docs/specifications/sigsvr.md)
 
-## 6. OEP4 Token
+## 6.OEP4トークン
 
-OEP4 is ontology token protocol : [OEP-4 instruction](https://github.com/ontio/OEPs/blob/master/OEPS/OEP-4.mediawiki)
+OEP4はOntologyのトークンプロトコル : [OEP-4 instruction](https://github.com/ontio/OEPs/blob/master/OEPS/OEP-4.mediawiki)
 
-Use Java SDK:
+Java SDKを利用:
 
-1. Set OEP4 contract hash to sdk:
+1. OEP4コントラクトハッシュをsdkに設定:
 
    ```
    OntSdk wm = OntSdk.getInstance();
@@ -1020,9 +1019,9 @@ Use Java SDK:
            wm.neovm().oep4().setContractAddress("55e02438c938f6f4eb15a9cb315b26d0169b7fd7");
    ```
 
-   ​
+   
 
-2. transfer
+2. 振替
 
    ```
    String txhash = ontSdk.neovm().oep4().sendTransfer(account,  //from
@@ -1033,15 +1032,15 @@ Use Java SDK:
    500);                                         //gasprice    
    ```
 
-   ​
+   
 
-3. monitor contract events
+3. モニターコントラクトのイベント
 
    ```
    Object result = ontSdk.getConnect().getSmartCodeEvent(height)
    ```
 
-   the result is:
+   結果は次のように:
 
    ```
    [  
@@ -1064,11 +1063,11 @@ Use Java SDK:
    ]
    ```
 
-   familiar with ONT and ONG:
+   ONTとONGに精通:
 
-   "State":1 means the transaction is succeed
+   "State":1 は取引成功を表す
 
-   "ContractAddress":"75a5cdc00164266a1ba859da785e31cd914ddbd0"  is the OEP4 contract hash
+   "ContractAddress":"75a5cdc00164266a1ba859da785e31cd914ddbd0"  はOEP4コントラクトハッシュ 
 
    "States":[  
                   "7472616e73666572",                                                      //method
@@ -1077,53 +1076,53 @@ Use Java SDK:
                   "00a0724e1809"                                                                  //amount
                ]
 
-   For a standard OEP4 contract transfer , the event notify should contains "tranfer",from address, to address and amount fields, currently all the OEP4 contracts is Neovm contract, so we need to do decode the fields like below:
+   標準OEP4コントラクトを振替する場合、イベント通知には「振替」の差出先、発送先、数量が含まれます。現在、すべてのOEP4コントラクトはNeovmコントラクトであるので下記のようなフィールドをデコードすることが必要です。 
 
-   method:
+   方法:
 
    ```
    byte[] bs =Helper.hexToBytes("7472616e73666572");
    String s = new String(bs); //s is "transfer"
    ```
 
-   from address:
+   差出先:
 
    ```
    Address from = Address.parse("e98f4998d837fcdd44a50561f7f32140c7c6c260");
    System.out.println("from is " + from.toBase58());
    ```
 
-   to address:
+   振替先:
 
    ```
     Address to = Address.parse("70a2ababdae0a9d1f9fc7296df3c6d343b772cf7");
     System.out.println("to is " + to.toBase58());
    ```
 
-   amount:
+   数量:
 
    ```
    BigInteger amount = Helper.BigIntFromNeoBytes(Helper.hexToBytes("00a0724e1809"));
    System.out.println("amount is " + amount);
    ```
 
-   ***Note*** amount value is contains the "decimal"，you can get it by
+   ***注意*** 数量値には「小数」が含まれます。下記の式で算出できます。
 
    ```
    ontSdk.neovm().oep4().queryDecimals()
    ```
 
-   for the sig server solution, please refer to the [sigserver guide](https://github.com/ontio/documentation/blob/master/exchangeDocs/Sigsvr_Exchange_Guide.md#6-oep4-tokens-transfer)
+   サーバーのソリューションについては[sigserverガイドをご参照ください。](https://github.com/ontio/documentation/blob/master/exchangeDocs/Sigsvr_Exchange_Guide.md#6-oep4-tokens-transfer)
 
-   ## 7. PAX token
-   Pax is an OEP4 Protocol stable token issued by [Paxos](https://www.paxos.com/pax/) on ontology，same with other OEP4 token , you just need to change the contractAddress to：6bbc07bae862db0d7867e4e5b1a13c663e2b4bc8 即可。
+   ## 7.PAXトークン
+   PaxはOntologyで [Paxos](https://www.paxos.com/pax/) の保証によって発行されたOEP4プロトコル安定トークンです。ほかのOEP4　トークンと同じです。コントラクトアドレスを下記のアドレスに変更することが必要です。アドレス：6bbc07bae862db0d7867e4e5b1a13c663e2b4bc8。
    
    [browser](https://explorer.ont.io/contract/6bbc07bae862db0d7867e4e5b1a13c663e2b4bc8/10/1)
 
 
-## Native contract address
+## ネイティブコントラクトアドレス
 
-| Name                         | Address(Hex)                             | Address(Base58)                    |
+| 名称                         | アドレス(Hex)                            | アドレス(Base58)                   |
 | ---------------------------- | ---------------------------------------- | ---------------------------------- |
 | ONT Token                    | 0100000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhUMqNMV |
 | ONG Token                    | 0200000000000000000000000000000000000000 | AFmseVrdL9f9oyCzZefL9tG6UbvhfRZMHJ |
@@ -1137,6 +1136,6 @@ Use Java SDK:
 ## FAQ
 [FAQ](https://github.com/ontio/documentation/blob/master/exchangeDocs/ONT%2BExchange%2BDocking%2BFAQ.md)
 
-## Mainnet update note
-please refer to the following note to check whether you need to upgrade your sdk version or not:
-[Update note](https://github.com/ontio/documentation/blob/master/exchangeDocs/Ontology%20mainnet%20update%20note.md)
+## メインネット更新ノート
+SDKバージョンのアップデート状況の確認は下記のノートをご参照ください。
+[更新ノート](https://github.com/ontio/documentation/blob/master/exchangeDocs/Ontology%20mainnet%20update%20note.md)

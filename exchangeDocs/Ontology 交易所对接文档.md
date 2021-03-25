@@ -939,6 +939,8 @@ String hash = sdk.nativevm().ong().withdrawOng(account,toAddr,64000L,payerAcct,3
 
 ## 4. 给用户分发ONG
 
+**在ontology 2.0 版本升级后 2020 年7月7日后持有不再释放ONG, 以下内容不可用**
+
 交易所可以选择是否给用户分发ONG， ONG用于支付Ontology区块链的记账费用和网络等附加服务费。
 
 ### 什么是ONG
@@ -1140,7 +1142,6 @@ OntSdk wm = OntSdk.getInstance();
    Pax 是[Paxos](https://www.paxos.com/pax/)在ontology上发行的OEP4协议的稳定币，接入方式同标准的OEP4 方式，只需将合约的地址（contractAddress）设置为：6bbc07bae862db0d7867e4e5b1a13c663e2b4bc8 即可。
    
    [浏览器地址](https://explorer.ont.io/contract/6bbc07bae862db0d7867e4e5b1a13c663e2b4bc8/10/1)
-   
 
 
 

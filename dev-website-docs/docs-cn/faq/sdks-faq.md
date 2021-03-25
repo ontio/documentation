@@ -148,4 +148,10 @@ Helper.BigIntFromNeoBytes(Helper.hexToBytes("")); //金额，小端转大端显�
 
 ```
 
+## 12. 多签交易代码例子
+
+java sdk example: https://github.com/ontio/ontology-java-sdk/blob/master/src/main/java/demo/MakeTxWithoutWalletDemo.java#L106
+
+ts sdk example: https://github.com/ontio/ontology-ts-sdk/blob/master/test/transfer.test.ts#L127
+
 
