@@ -49,7 +49,7 @@ import { client } from '@ont-dev/ontology-dapi';
 import { client, provider } from '@ont-dev/ontology-dapi';
 
 client.registerClient({
-        extension: provider.ExtensionType.Onto
+        extension: provider.ExtensionType.Cyano
   })
 
 var client = dApi.client;

@@ -42,7 +42,7 @@ After we regist with Provider successful, we can use it in our project.
 
 ```JavaScript
 client.registerClient({
-        extension: provider.ExtensionType.Onto
+        extension: provider.ExtensionType.Cyano
   })
 ```
 

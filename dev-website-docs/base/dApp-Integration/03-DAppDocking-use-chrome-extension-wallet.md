@@ -34,7 +34,7 @@ When creating a DAPI example, first import ontology-dapi and register as follows
 import { client, provider } from '@ont-dev/ontology-dapi';
 
 client.registerClient({
-        extension: provider.ExtensionType.Onto
+        extension: provider.ExtensionType.Cyano
   })
 ```
 

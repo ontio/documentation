@@ -39,7 +39,7 @@ dApp needs to register itself as a client with the ontology-dapi library to enab
 import { client, provider } from '@ont-dev/ontology-dapi';
 
 client.registerClient({
-        extension: provider.ExtensionType.Onto
+        extension: provider.ExtensionType.Cyano
   })
 ```
 

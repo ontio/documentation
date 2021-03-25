@@ -11,13 +11,24 @@ The document is broken down into the following sections:
 [Architecture](#Architecture)
 
 [Ontology dAPI Overview](#ontology-dapi-overview)
-+ [dAPI Installation](#dapi-installation)
-+ [dAPI Instantiation](#dapi-instantiation)
-+ [Example dAPI methods](#example-dapi-methods)
-	+ [Example blockchain methods](#example-blockchain-methods)
-	+ [Example asset methods](#example-asset-methods)
-	+ [Example Smart Contract methods](#example-smart-contract-methods)
-	+ [Example Message methods](#example-message-methods)
+- [Overview](#overview)
+- [Setting up the Development Environment](#setting-up-the-development-environment)
+  - [Architecture](#architecture)
+- [dAPI Usage](#dapi-usage)
+    - [dAPI Installation](#dapi-installation)
+    - [dAPI Instantiation](#dapi-instantiation)
+    - [Example dAPI methods](#example-dapi-methods)
+      - [Example blockchain methods](#example-blockchain-methods)
+      - [Example asset methods](#example-asset-methods)
+      - [Example Smart Contract Methods](#example-smart-contract-methods)
+      - [Example Message Methods](#example-message-methods)
+  - [Running the Demo Project](#running-the-demo-project)
+    - [How to set gaslimit and gasprice](#how-to-set-gaslimit-and-gasprice)
+  - [Writing a smart contract for your dApp](#writing-a-smart-contract-for-your-dapp)
+    - [Compiling and deploying your smart contract](#compiling-and-deploying-your-smart-contract)
+    - [Compiling your smart contract](#compiling-your-smart-contract)
+    - [Deploying your Smart Contract](#deploying-your-smart-contract)
+  - [Testing Smart Contract](#testing-smart-contract)
 
 [Running the demo project](#running-the-demo-project)
 
@@ -65,7 +76,7 @@ Import and register the dAPI using:
 import { client, provider } from '@ont-dev/ontology-dapi';
 
 client.registerClient({
-        extension: provider.ExtensionType.Onto
+        extension: provider.ExtensionType.Cyano
   })
 ```
 
