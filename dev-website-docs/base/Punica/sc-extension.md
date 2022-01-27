@@ -40,8 +40,8 @@ This extension contributes the following settings:
 
 Those settings can be changed in standard VSCode settings by clicking the gear box icon in lower left corner.
 
-![Settings 1](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/settings1.png)
-![Settings 2](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/settings2.png)
+![Settings 1](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/settings1.png)
+![Settings 2](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/settings2.png)
 
 
 ### 2. How to use Ontology extension?
@@ -52,7 +52,7 @@ Go to extensions market first, and then find and install the **VSCode Extension 
 
 To compile a smart contract, show context menu on any .py or .cs file.
 
-![Compile](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/compile.png)
+![Compile](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/compile.png)
 
 Press `Compile smart contract`. You will be notified about the outcome of compilation through notifications. The compilation will produce compiled code in .avm file and smart contract description file in \_abi.json file, both in `build` folder.
 
@@ -60,7 +60,7 @@ Press `Compile smart contract`. You will be notified about the outcome of compil
 
 To deploy a smart contract, show context menu on compiled .avm file.
 
-![Deploy 1](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/deploy1.png)
+![Deploy 1](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/deploy1.png)
 
 Press `Deploy smart contract`. A new panel with description form will show up. Enter the necessary information and press `Deploy`. You will be notified about the outcome of compilation through notifications.
 
@@ -68,16 +68,16 @@ Press `Deploy smart contract`. A new panel with description form will show up. E
 
 To invoke a method in the smart contract, opening the \_abi.json file. A new panel with smart contract methods will show up.
 
-![Invoke 1](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/invoke1.png)
+![Invoke 1](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/invoke1.png)
 
 Double click on any of the methods to show invocation form. Fill out all the parameters and click the `invoke` button.
 
-![Invoke 2](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/invoke2b.png)
-![Invoke 3](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/invoke3b.png)
+![Invoke 2](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/invoke2b.png)
+![Invoke 3](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/invoke3b.png)
 
 You will be notified about the progress of invocation through notifications and a new panel with invocation result will show up.
 
-![Invoke 4](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/invoke4.png)
+![Invoke 4](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/invoke4.png)
 
 If you want to debug a smart contract  instead of invocation, pressing the `Debug` button. You can use standard debug features of VSCode like StepIn, StepOut, Next, Continue, Restart, Stop and breakpoints together with variables preview and set.
 

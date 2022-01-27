@@ -29,7 +29,7 @@ The document is broken down into the following sections:
 
 ## Overview
 
-It is necessary to have installed suitable **dAPI provider** . Reference implementation is [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
+It is necessary to have installed suitable **dAPI provider** . Reference implementation is [Cyano Wallet of Chrome](https://github.com/ontio/cyano-wallet)
 
 
 
@@ -107,10 +107,10 @@ A full list of methods can be found in the [dAPI Specification document](https:/
 
 ### Running the Demo Project
 
-Clone the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) which we will use to demonstrate functionality.
+Clone the [dAPI demo](https://github.com/ontio/ontology-dapi-demo) which we will use to demonstrate functionality.
 
 ```
-$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+$ git clone https://github.com/ontio/ontology-dapi-demo.git
 
 $ npm install
 

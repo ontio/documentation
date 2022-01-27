@@ -142,7 +142,7 @@ const signature: Signature = {
 const result = await client.api.message.verifyMessage({ message, signature });
 ```
 
-!> 如果希望获得更多的示例代码，你可以点击[ 这里 ](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)获取 `ontology-dapi` 的实例程序。
+!> 如果希望获得更多的示例代码，你可以点击[ 这里 ](https://github.com/ontio/ontology-dapi-demo)获取 `ontology-dapi` 的实例程序。
 
 ## 5. 常见问题
 

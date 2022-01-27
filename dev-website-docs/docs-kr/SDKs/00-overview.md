@@ -10,7 +10,7 @@ Ontology SDK는 온톨로지 블록체인을 위한 포괄적인 라이브러리
 * [Golang SDK](https://github.com/ontio/ontology-go-sdk)
 * [Objective-C SDK](https://github.com/ontio-community/ontology-oc-sdk)
 * [PHP SDK ](https://github.com/ontio-community/ontology-php-sdk)
-* [Kotlin SDK ](https://github.com/OntologyCommunityDevelopers/ontology-kotlin-sdk)
+* [Kotlin SDK ](https://github.com/ontio/ontology-kotlin-sdk)
 * [Swift SDK](https://github.com/ontio-community/ontology-swift-sdk)
 
 더붙여, C#, C++와 같은 SDK가 현재 개발중입니다.

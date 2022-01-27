@@ -1,7 +1,7 @@
 
 ### Download 
 
-Plugin is currently distributed in Chrome web store at https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm or install by yourself from [here](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)
+Plugin is currently distributed in Chrome web store at https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm or install by yourself from [here](https://github.com/ontio/cyano-wallet/releases)
 
 cyano mobile source code is [cyano-android](https://github.com/ontio-cyano/cyano-android), [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
@@ -29,7 +29,7 @@ npm install --global yarn
 
 #### Download
 ```
-git clone 'https://github.com/OntologyCommunityDevelopers/cyano-wallet.git'
+git clone 'https://github.com/ontio/cyano-wallet.git'
 ```
 
 #### Start the extension in watch mode

@@ -93,10 +93,10 @@ A full list of methods can be found in the [dAPI Specification document](https:/
 
 ### Running the Demo Project
 
-Clone the [dAPI demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) which we will use to demonstrate functionality.
+Clone the [dAPI demo](https://github.com/ontio/ontology-dapi-demo) which we will use to demonstrate functionality.
 
 ```
-$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+$ git clone https://github.com/ontio/ontology-dapi-demo.git
 
 $ npm install
 

@@ -1,7 +1,7 @@
 
 <p>
-  <img width="300px" src="https://raw.githubusercontent.com/OntologyCommunityDevelopers/cyano-wallet/master/wallet.png">
-  <img width="300px" src="https://raw.githubusercontent.com/OntologyCommunityDevelopers/cyano-wallet/master/wallet2.png">
+  <img width="300px" src="https://raw.githubusercontent.com/ontio/cyano-wallet/master/wallet.png">
+  <img width="300px" src="https://raw.githubusercontent.com/ontio/cyano-wallet/master/wallet2.png">
 </p>
 
 
@@ -20,13 +20,13 @@ Features:
 * Ontology dAPI support
 * NEO and ONT address support for normal and Ledger accounts
 
-> https://github.com/OntologyCommunityDevelopers/ontology-plugin-wallet
+> https://github.com/ontio/ontology-plugin-wallet
 
 ## Download
 
 
 * Cyano for mobile source code is [cyano-android](https://github.com/ontio-cyano/cyano-android), [cyano-ios](https://github.com/ontio-cyano/cyano-ios)
-* Cyano for Chrome is currently distributed in Chrome web store at https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm or install by yourself from [here](https://github.com/OntologyCommunityDevelopers/cyano-wallet/releases)
+* Cyano for Chrome is currently distributed in Chrome web store at https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm or install by yourself from [here](https://github.com/ontio/cyano-wallet/releases)
 
 
 ## Usage

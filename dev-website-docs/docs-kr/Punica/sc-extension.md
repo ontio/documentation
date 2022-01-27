@@ -40,8 +40,8 @@ Visual Studio Code는 소스코드 편집기의 단순성과 IntelliSense code �
 
 이러한 설정은 왼쪽 하단의 기어 박스 아이콘을 클릭하여 표준 VSCode 설정에서 변경할 수 있습니다.
 
-![Settings 1](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/settings1.png)
-![Settings 2](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/settings2.png)
+![Settings 1](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/settings1.png)
+![Settings 2](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/settings2.png)
 
 
 ### 2. Ontology extension 사용가이드
@@ -52,7 +52,7 @@ Visual Studio Code는 소스코드 편집기의 단순성과 IntelliSense code �
 
 스마트 컨트랙트를 컴파일하려면 .py 또는 .cs file을 컨트랙트 메뉴에서 표시하세요.
 
-![Compile](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/compile.png)
+![Compile](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/compile.png)
 
 `Compile smart contract`를 누릅니다. 편집 결과에 대한 알림은 알림으로 표시됩니다. 컴파일은 .avm file의 컴파일 된 코드와 _abi.json file의 스마트 컨트랙트 설명 파일을 빌드 폴더에 생성합니다.
 
@@ -60,7 +60,7 @@ Visual Studio Code는 소스코드 편집기의 단순성과 IntelliSense code �
 
 스마트 컨트랙트를 배치하려면 컴파일 된 .avm file에 컨트랙트 메뉴를 표시합니다.
 
-![Deploy 1](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/deploy1.png)
+![Deploy 1](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/deploy1.png)
 
 `Deploy smart contract`를 클릭하세요. 설명 양식이 있는 새 패널이 표시됩니다. 필요한 정보를 입력하고 배치를 누릅니다. 편집 결과에 대한 알림은 알림으로 표시됩니다.
 
@@ -68,16 +68,16 @@ Visual Studio Code는 소스코드 편집기의 단순성과 IntelliSense code �
 
 스마트 컨트랙트에서 메소드를 호출하려면 \_abi.json file을 엽니다. 스마트 컨트랙트 방식의 새 패널이 표시됩니다.
 
-![Invoke 1](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/invoke1.png)
+![Invoke 1](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/invoke1.png)
 
 호출 양식을 표시하기 위해 메소드 중 하나를 더블클릭해주세요. 파라미터를 채우고 호출 버튼을 클릭해주세요.
 
-![Invoke 2](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/invoke2b.png)
-![Invoke 3](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/invoke3b.png)
+![Invoke 2](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/invoke2b.png)
+![Invoke 3](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/invoke3b.png)
 
 호출 진행에 대한 알림을 받은 후 호출 결과는 새 패널에 표시됩니다.
 
-![Invoke 4](https://raw.githubusercontent.com/OntologyCommunityDevelopers/vscode-ext-ontology/master/img/invoke4.png)
+![Invoke 4](https://raw.githubusercontent.com/ontio/vscode-ext-ontology/master/img/invoke4.png)
 
 호출 대신 스마트 컨트랙트를 디버그를 진행하려면 디버그 버튼을 누릅니다. StepIn, StepOut, Next, Continue, Restart, Stop 및 breakpoints 와 같은 VScode의 표준 디버그 기능을 파라미터 미리보기 및 설정과 함께 사용할 수 있습니다.
 

@@ -41,7 +41,7 @@ client.registerClient({});
 
 ## Usage
 
-Examples of usage can be found in [EXAMPLES.md](EXAMPLES.md) or in a [demo app](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
+Examples of usage can be found in [EXAMPLES.md](EXAMPLES.md) or in a [demo app](https://github.com/ontio/ontology-dapi-demo)
 
 ## Documentation
 
@@ -61,7 +61,7 @@ Execute these commands in the project's root directory:
 
 ##### Download
 ```
-git clone 'https://github.com/OntologyCommunityDevelopers/ontology-dapi.git'
+git clone 'https://github.com/ontio/ontology-dapi.git'
 cd ontology-dapi
 ```
 

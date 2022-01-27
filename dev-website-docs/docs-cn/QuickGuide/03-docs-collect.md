@@ -7,7 +7,7 @@
 * TestNet: http://polaris1.ont.io -  http://polaris5.ont.io
 * [Ontology](https://github.com/ontio/ontology)
 * [Ontio-community](https://github.com/ontio-community/)
-* [Ontology Community Developers](https://github.com/OntologyCommunityDevelopers) 
+* [Ontology Community Developers](https://github.com/ontio) 
 * [Install Ontology](https://ontio.github.io/documentation/install_en.html)
 * [Release](https://github.com/ontio/ontology/releases)
 * [http API](https://ontio.github.io/documentation/rpc_api_en.html)
@@ -32,7 +32,7 @@
 * [C# compiler](https://github.com/ontio/ontology-compiler)
 * [Python compiler](https://github.com/ontio/neo-boa)
 * [ontology-wasm](https://github.com/ontio/ontology-wasm)
-* [ontology-ts-vm](https://github.com/OntologyCommunityDevelopers/ontology-ts-vm)
+* [ontology-ts-vm](https://github.com/ontio/ontology-ts-vm)
 * [ontology-python-vm](https://github.com/ontio-community/ontology-python-vm)
 * [ontology-ts-debugger](https://github.com/trueinsider/ontology-ts-debugger)
 
@@ -49,7 +49,7 @@
 
 * [ONTO](https://github.com/punica-box/)
 * [OWallet](https://github.com/ontio/OWallet)
-* [cyano for chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)
+* [cyano for chrome](https://github.com/ontio/cyano-wallet)
 * [cyano for mobile](https://github.com/ontio-cyano)
 * [punica](https://github.com/punicasuite)
 * [punica box](https://github.com/punica-box/)

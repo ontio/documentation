@@ -84,7 +84,7 @@ You will find more examples here. https://github.com/ontio/documentation/tree/ma
 ONTID is more than a key. It needs to support many complicated scenarios, such as multiple controllers, recovery of identity loss, (m,n)-threshold control, and so on. It is also needed to comply with W3C DID specifications. You can read more details at: https://github.com/ontio/ontology-DID/blob/master/docs/en/ONTID_protocol_spec.md.
 
 ### Is it possible to deploy the Ontology smart contract using C# with NeoVM in VS?
-Yes, it is supported. Now you have the Ontology Java SDK or JS SDK to deploy it. The community development group are working on a C# SDK, you can find it here: https://github.com/OntologyCommunityDevelopers/ontology-csharp-sdk.
+Yes, it is supported. Now you have the Ontology Java SDK or JS SDK to deploy it. The community development group are working on a C# SDK, you can find it here: https://github.com/ontio/ontology-csharp-sdk.
 
 ### Are there any docker images available for Ontology development?
 Docker images are currently in the process.

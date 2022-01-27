@@ -350,10 +350,10 @@ await client.api.smartContract.invoke(params)
 
 移动端应用例子 [http://101.132.193.149:5000/](http://101.132.193.149:5000/),[源码](https://github.com/ontio-cyano/mobile-dapp-demo)。
 
-Chrome 插件版演示 [https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)，现在开始演示 ```DAPP``` ：
+Chrome 插件版演示 [https://github.com/ontio/ontology-dapi-demo](https://github.com/ontio/ontology-dapi-demo)，现在开始演示 ```DAPP``` ：
 
 ```shell
-$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+$ git clone https://github.com/ontio/ontology-dapi-demo.git
 
 $ npm install
 

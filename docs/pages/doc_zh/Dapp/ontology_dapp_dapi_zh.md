@@ -19,7 +19,7 @@ giturl: https://github.com/ontio/ontology-dapi/blob/master/README_cn.md
 
 DAPI是基于Ontology blockchain开发dApp的轻量级去中心化API。本工程是根据OEP-6实现了dAPI ，请参考[OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) 协议。
 
-使用前请先安装 **dAPI provider** . 比如 [Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
+使用前请先安装 **dAPI provider** . 比如 [Cyano Wallet](https://github.com/ontio/cyano-wallet).
 
 dAPI使用TypeScript实现, 同时也支持在JavaScript工程中使用.
 
@@ -63,7 +63,7 @@ client.registerClient({});
 
 ## 使用例子
 
-请参考例子， [](EXAMPLES.md) 或 [demo app](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
+请参考例子， [](EXAMPLES.md) 或 [demo app](https://github.com/ontio/ontology-dapi-demo)
 
 # 文档
 
@@ -83,7 +83,7 @@ client.registerClient({});
 
 #### 下载
 ```
-git clone 'https://github.com/OntologyCommunityDevelopers/ontology-dapi.git'
+git clone 'https://github.com/ontio/ontology-dapi.git'
 cd ontology-dapi
 ```
 

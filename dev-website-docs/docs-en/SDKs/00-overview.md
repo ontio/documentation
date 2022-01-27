@@ -12,7 +12,7 @@ Ontology has developed a variety of SDKs, including:
 * [Github of Golang SDK](https://github.com/ontio/ontology-go-sdk)
 * [Github of Objective-C SDK](https://github.com/ontio-community/ontology-oc-sdk)
 * [Github of PHP SDK ](https://github.com/ontio-community/ontology-php-sdk)
-* [Github of Kotlin SDK ](https://github.com/OntologyCommunityDevelopers/ontology-kotlin-sdk)
+* [Github of Kotlin SDK ](https://github.com/ontio/ontology-kotlin-sdk)
 * [Github of Swift SDK](https://github.com/ontio-community/ontology-swift-sdk)
 * [Github of csharp SDK](https://github.com/ontio-community/ontology-csharp-sdk)
 

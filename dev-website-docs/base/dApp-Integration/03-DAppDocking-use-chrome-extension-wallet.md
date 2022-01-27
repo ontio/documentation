@@ -3,7 +3,7 @@
 
 ### Overview
 
-Before using [dAPI for chrome](https://github.com/ontio/ontology-dapi), please install a wallet that has the **DAPI provider** feature, such as [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
+Before using [dAPI for chrome](https://github.com/ontio/ontology-dapi), please install a wallet that has the **DAPI provider** feature, such as [Cyano Wallet of Chrome](https://github.com/ontio/cyano-wallet).
 
 DAPI is implemented using TypeScript and can also be used for JavaScript projects.
 
@@ -85,10 +85,10 @@ A list of all the methods can be found in the [DAPI Specification](https://githu
 
 ### Running example
 
-Copy [dAPI example](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) and test what features DAPI provides.
+Copy [dAPI example](https://github.com/ontio/ontology-dapi-demo) and test what features DAPI provides.
 
 ```
-$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+$ git clone https://github.com/ontio/ontology-dapi-demo.git
 
 $ npm install
 

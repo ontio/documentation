@@ -19,7 +19,7 @@ English / [中文](./ontology_dapp_dapi_zh.html)
 
 API for dApps on Ontology blockchain. This is an implementation of dAPI from [OEP-6](https://github.com/backslash47/OEPs/blob/oep-dapp-api/OEP-6/OEP-6.mediawiki) communication protocol.
 
-It is necessary to have installed suitable **dAPI provider** . Reference implementation is [Cyano Wallet](https://github.com/OntologyCommunityDevelopers/cyano-wallet).
+It is necessary to have installed suitable **dAPI provider** . Reference implementation is [Cyano Wallet](https://github.com/ontio/cyano-wallet).
 
 The library is written in TypeScript, so all the methods and objects are typed. It is therefore usable in TypeScript projects as well as vanilla JavaScript projects.
 
@@ -63,7 +63,7 @@ client.registerClient({});
 
 ## Usage
 
-Examples of usage can be found in [](EXAMPLES.md) or in a [demo app](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)
+Examples of usage can be found in [](EXAMPLES.md) or in a [demo app](https://github.com/ontio/ontology-dapi-demo)
 
 # Documentation
 
@@ -83,7 +83,7 @@ Execute these commands in the project's root directory:
 
 #### Download
 ```
-git clone 'https://github.com/OntologyCommunityDevelopers/ontology-dapi.git'
+git clone 'https://github.com/ontio/ontology-dapi.git'
 cd ontology-dapi
 ```
 

@@ -83,10 +83,10 @@ const result = await client.api.message.verifyMessage({ message, signature });
 
 ### 运行例子
 
-拷贝 [dAPI 例子](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo) ，可以测试dAPI提供了哪些功能.
+拷贝 [dAPI 例子](https://github.com/ontio/ontology-dapi-demo) ，可以测试dAPI提供了哪些功能.
 
 ```
-$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+$ git clone https://github.com/ontio/ontology-dapi-demo.git
 
 $ npm install
 

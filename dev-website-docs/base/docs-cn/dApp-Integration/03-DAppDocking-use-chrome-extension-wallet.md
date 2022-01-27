@@ -3,7 +3,7 @@
 
 ### 概述
 
-使用 [dAPI for chrome](https://github.com/ontio/ontology-dapi) 前请先安装实现了 **DAPI provider** 功能的钱包，比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)。
+使用 [dAPI for chrome](https://github.com/ontio/ontology-dapi) 前请先安装实现了 **DAPI provider** 功能的钱包，比如 [Cyano Wallet of Chrome](https://github.com/ontio/cyano-wallet)。
 
 DAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 
@@ -93,10 +93,10 @@ const result = await client.api.message.verifyMessage({ message, signature });
 
 ### 运行例子
 
-拷贝 [dAPI 例子](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)，可以测试 DAPI 提供了哪些功能。
+拷贝 [dAPI 例子](https://github.com/ontio/ontology-dapi-demo)，可以测试 DAPI 提供了哪些功能。
 
 ```
-$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+$ git clone https://github.com/ontio/ontology-dapi-demo.git
 
 $ npm install
 

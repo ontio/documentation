@@ -3,7 +3,7 @@
 
 ## 1. 概述
 
-使用 [dAPI for chrome](https://github.com/ontio/ontology-dapi) 前需要先安装实现了 ```dAPI provider``` 功能的钱包，比如 [Cyano Wallet of Chrome](https://github.com/OntologyCommunityDevelopers/cyano-wallet)。```dAPI``` 使用 ```TypeScript``` 实现，同时也支持在 ```JavaScript``` 工程中使用。
+使用 [dAPI for chrome](https://github.com/ontio/ontology-dapi) 前需要先安装实现了 ```dAPI provider``` 功能的钱包，比如 [Cyano Wallet of Chrome](https://github.com/ontio/cyano-wallet)。```dAPI``` 使用 ```TypeScript``` 实现，同时也支持在 ```JavaScript``` 工程中使用。
 
 目前比较主流的 ```DAPP``` 使用渠道除了在 ```Chrome``` 中打开，还可以在手机钱包中打开，在手机钱包中使用 ```DAPP``` 的接入方案为 [手机钱包内打开](https://dev-docs.ont.io/#/docs-cn/dApp-Integration/01-DAppDocking-Wallet-Opens-DApp)。
 
@@ -92,10 +92,10 @@ const result = await client.api.message.verifyMessage({ message, signature });
 
 ## 4. 演示例子
 
-拷贝 [dAPI 例子](https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo)，可以测试 ```dAPI``` 提供了哪些功能。
+拷贝 [dAPI 例子](https://github.com/ontio/ontology-dapi-demo)，可以测试 ```dAPI``` 提供了哪些功能。
 
 ```shell
-$ git clone https://github.com/OntologyCommunityDevelopers/ontology-dapi-demo.git
+$ git clone https://github.com/ontio/ontology-dapi-demo.git
 
 $ npm install
 
