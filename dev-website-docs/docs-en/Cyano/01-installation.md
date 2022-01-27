@@ -29,7 +29,7 @@ npm install --global yarn
 
 #### Download
 ```
-git clone 'https://github.com/OntologyCommunityDevelopers/cyano-wallet.git'
+git clone 'https://github.com/ontio/cyano-wallet.git'
 ```
 
 #### Start the extension in watch mode
