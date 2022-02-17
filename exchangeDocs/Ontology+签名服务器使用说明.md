@@ -266,7 +266,7 @@ sigsvr启动时，会在当前目录下查找"./cmd/abi/native"下的native合�
 	"Params":{
 		"gas_price":0,
 		"gas_limit":50000,
-		"address":"ff00000000000000000000000000000000000001",
+		"address":"0000000000000000000000000000000000000001",
 		"method":"transfer",
 		"version":0,
 		"params":[
