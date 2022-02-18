@@ -54,6 +54,8 @@ Request structure:
 {
 	"qid":"XXX",    //Request ID， the response will bring the same qid
 	"method":"XXX", //Requested method name
+	"account":"XXX", //signer address
+	"pwd":"XXX",     //password for signer address
 	"params":{
 		//The request parameters that are filled in according to the request method
 	}
@@ -112,6 +114,8 @@ Request:
 {
 	"qid":"1",
 	"method":"sigrawtx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"params":{
 		"raw_tx":"00d14150175b000000000000000000000000000000000000000000000000000000000000000000000000ff4a0000ff00000000000000000000000000000000000001087472616e736665722a0101d4054faaf30a43841335a2fbc4e8400f1c44540163d551fe47ba12ec6524b67734796daaf87f7d0a0000"
 	}
@@ -162,6 +166,8 @@ Request:
 {
 	"qid":"1",
 	"method":"sigmutilrawtx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"params":{
 		"raw_tx":"00d12454175b000000000000000000000000000000000000000000000000000000000000000000000000ff4a0000ff00000000000000000000000000000000000001087472616e736665722a01024ce71f6cc6c0819191e9ec9419928b183d6570012fb5cfb78c651669fac98d8f62b5143ab091e70a0000",
 		"m":2,
@@ -217,12 +223,14 @@ Request:
 {
 	"qid":"t",
 	"method":"sigtransfertx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"params":{
-		"gas_price":0,
-		"gas_limit":30000,
+		"gas_price":2500,
+		"gas_limit":20000,
 		"asset":"ont",
-		"from":"TADPWFL3yHoHeNN3Bx1RUCrrXjU35EmeXp",
-		"to":"TA5gYXCSiUq9ejGCa54M3yoj9kfMv3ir4j",
+		"from":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
+		"to":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 		"amount":10
 	}
 }
@@ -241,6 +249,45 @@ Response:
     "error_info": ""
 }
 ```
+
+For the decimal ONT/ONG transfer, you can invoke "sigtransfertxv2"
+
+Examples:
+
+Request:
+
+```
+{
+	"qid":"t",
+	"method":"sigtransfertxv2",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj2",
+	"params":{
+		"gas_price":2500,
+		"gas_limit":20000,
+		"asset":"ont",
+		"from":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj2",
+		"to":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj2",
+		"amount":"500000000" //0.5 ONT
+	},
+    "pwd":"123456"
+}
+```
+
+Response:
+
+```
+{
+    "qid": "t",
+    "method": "sigdata",
+    "result": {
+        "signed_data": "b54261e272da73390b50cd2d64c0510269c6c84652ac45b9b2c1f5a8cee57fbd4151a507d419516c2f3be450277fb443efc4ce97a9caee6fbd719c1b921d174a"
+    },
+    "error_code": 0,
+    "error_info": ""
+}
+```
+
+
 
 ### 2.5 Native Contract Invokes Signature
 
@@ -282,6 +329,8 @@ Request:
 {
 	"Qid":"t",
 	"Method":"signativeinvoketx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"Params":{
 		"gas_price":0,
 		"gas_limit":50000,
@@ -291,8 +340,8 @@ Request:
 		"params":[
 			[
 				[
-				"TA587BCw7HFwuUuzY1wg2HXCN7cHBPaXSe",
-				"TA5gYXCSiUq9ejGCa54M3yoj9kfMv3ir4j",
+				"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
+				"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 				"1000"
 				]
 			]
@@ -345,6 +394,8 @@ Request:
 {
 	"qid": "t",
 	"method": "signeovminvoketx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"params": {
 		"gas_price": 0,
 		"gas_limit": 50000,

@@ -190,5 +190,5 @@ https://github.com/ontio/ontology-ts-sdk/blob/master/test/integration/v2/transfe
 
 或：
 
-1. 直接调用签名机的sigtransfertxV2构造交易并签名。（TBA）
+1. 直接调用签名机的sigtransfertxV2构造交易并签名。
 2. 调用节点的sendrawtx广播交易。
