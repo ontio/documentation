@@ -1,7 +1,7 @@
 # Guide for Ontology EVM & Token Decimals Upgrade
 
 # 1. Introduction
-   
+
 To provide better support for dApps on Ontology, the network now is EVM compatible. Transaction fees are still paid in ONG. However, now **ONT** has **9** decimals, and **ONG** has **18** decimals.
 
 This guide introduces the upgrade work needed on your end to enjoy these features. 
@@ -10,7 +10,7 @@ This guide introduces the upgrade work needed on your end to enjoy these feature
 
 ## 2.1 Ontology Nodes
 
-The Ontology miannet will be upgraded at the block height of [TBD], please finish the local node upgrade before that.
+The Ontology miannet will be upgraded at the block height of **[13920000],** **please finish the local node upgrade before that**.
 
 Ontology release link: [TBD]
 
@@ -156,7 +156,7 @@ Please use the latest SDKs:
 | [TypeScript](https://github.com/ontio/ontology-ts-sdk) | [Demo](https://github.com/ontio/ontology-ts-sdk/blob/master/test/integration/v2/transfer.test.ts)                                                                                                                                                                                                                                           |
 
 ### 2.3.2 Signature Server
-    
+
 There are two ways to sign a transaction:
 
 1. First, invoke the Ontology SDK method `transferV2` to construct a transaction, and get the raw transaction in hex format. Then call the Ontology signature server method `sigrawtx` to sign the transaction, and get the signed transaction in hex format. Last, call the node's `sendrawtx` method to broadcast the transaction.
