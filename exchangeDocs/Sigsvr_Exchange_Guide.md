@@ -543,6 +543,10 @@ Notify:
 		2nd element: from address
 		3rd element: to address
 		4th element: amount (for Ont, it's integer, for ont, it's [ong amount to be transferred]X10^9 )
+		5th element: amount (exist for decimal Ont(9) and Ong(9))
+		
+		the total transfered amount should be :for Ont(4th elemnt + 5th element * 10 ^(-9)(if exist 5 elements)) 
+											   for Ong(4th elemnt + 5th element * 10 ^(-9)(if exist 5 elements)) * 10^(-9) 
 ```
 What you need to do is to filter the "to address". When it's detected that "to address" is one of your users account address, then it can be recorded that that user has deposited some ong/ont to his account.
 

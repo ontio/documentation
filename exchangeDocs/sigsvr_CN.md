@@ -16,7 +16,7 @@ Ontology签名服务器sigsvr是一个用于对交易进行签名的rpc服务器
     * [2.7 NeoVM合约调用签名](#27-neovm合约调用签名)
     * [2.8 NeoVM合约ABI调用签名](#28-neovm合约abi调用签名)
 
-      ​
+      
 
 ## 1、签名服务启动
 
@@ -57,6 +57,8 @@ http://localhost:20000/cli
 {
 	"qid":"XXX",    //请求ID，同一个应答会带上相同的qid
 	"method":"XXX", //请求的方法名
+	"account":"XXX", //签名的地址
+	"pwd":"XXX",     //签名地址的密码
 	"params":{
 		//具体方法的请求参数,按照调用的请求方法要求填写
 	}
@@ -119,6 +121,8 @@ http://localhost:20000/cli
 {
 	"qid":"t",
 	"method":"sigdata",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"params":{
 		"raw_data":"48656C6C6F20776F726C64" //Hello world
 	}
@@ -163,6 +167,8 @@ http://localhost:20000/cli
 {
 	"qid":"1",
 	"method":"sigrawtx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"params":{
 		"raw_tx":"00d14150175b000000000000000000000000000000000000000000000000000000000000000000000000ff4a0000ff00000000000000000000000000000000000001087472616e736665722a0101d4054faaf30a43841335a2fbc4e8400f1c44540163d551fe47ba12ec6524b67734796daaf87f7d0a0000"
 	}
@@ -208,6 +214,8 @@ http://localhost:20000/cli
 {
 	"qid":"1",
 	"method":"sigmutilrawtx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"params":{
 		"raw_tx":"00d12454175b000000000000000000000000000000000000000000000000000000000000000000000000ff4a0000ff00000000000000000000000000000000000001087472616e736665722a01024ce71f6cc6c0819191e9ec9419928b183d6570012fb5cfb78c651669fac98d8f62b5143ab091e70a0000",
 		"m":2,
@@ -261,12 +269,14 @@ http://localhost:20000/cli
 {
 	"qid":"t",
 	"method":"sigtransfertx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"params":{
-		"gas_price":0,
-		"gas_limit":30000,
+		"gas_price":2500,
+		"gas_limit":20000,
 		"asset":"ont",
-		"from":"TADPWFL3yHoHeNN3Bx1RUCrrXjU35EmeXp",
-		"to":"TA5gYXCSiUq9ejGCa54M3yoj9kfMv3ir4j",
+		"from":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
+		"to":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 		"amount":10
 	}
 }
@@ -285,6 +295,45 @@ http://localhost:20000/cli
     "error_info": ""
 }
 ```
+
+
+
+对于新的带精度的ONT/ONG转账，可以调用sigtransfertxv2方法
+
+举例：
+
+```
+{
+	"qid":"t",
+	"method":"sigtransfertxv2",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj2",
+	"params":{
+		"gas_price":2500,
+		"gas_limit":20000,
+		"asset":"ont",
+		"from":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj2",
+		"to":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj2",
+		"amount":"500000000" //0.5 ONT
+	},
+    "pwd":"123456"
+}
+```
+
+应答：
+
+```
+{
+    "qid": "t",
+    "method": "sigdata",
+    "result": {
+        "signed_data": "b54261e272da73390b50cd2d64c0510269c6c84652ac45b9b2c1f5a8cee57fbd4151a507d419516c2f3be450277fb443efc4ce97a9caee6fbd719c1b921d174a"
+    },
+    "error_code": 0,
+    "error_info": ""
+}
+```
+
+
 
 ### 2.6 Native合约调用签名
 
@@ -322,17 +371,19 @@ sigsvr启动时，会在当前目录下查找"./cmd/abi/native"下的native合�
 {
 	"Qid":"t",
 	"Method":"signativeinvoketx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"Params":{
 		"gas_price":0,
 		"gas_limit":50000,
-		"address":"ff00000000000000000000000000000000000001",
+		"address":"0000000000000000000000000000000000000001",
 		"method":"transfer",
 		"version":0,
 		"params":[
 			[
 				[
-				"TA587BCw7HFwuUuzY1wg2HXCN7cHBPaXSe",
-				"TA5gYXCSiUq9ejGCa54M3yoj9kfMv3ir4j",
+				"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
+				"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 				"1000"
 				]
 			]
@@ -385,6 +436,8 @@ NeoVM参数合约支持array、bytearray、string、int以及bool类型，构造
 {
 	"qid": "t",
 	"method": "signeovminvoketx",
+	"pwd":"123456",
+    "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
 	"params": {
 		"gas_price": 0,
 		"gas_limit": 50000,
@@ -454,6 +507,8 @@ NeoVM合约ABI调用签名，需要提供合约的abi，以及合约调用的参
 {
   "qid": "t",
   "method": "signeovminvokeabitx",
+  "pwd":"123456",
+  "account":"ASwHNVY8jvtuJoxbFKDcz1KkVCxcYUvSj1",
   "params": {
     "gas_price": 0,
     "gas_limit": 50000,
