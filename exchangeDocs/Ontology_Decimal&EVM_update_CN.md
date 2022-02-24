@@ -10,7 +10,7 @@
 
 ### 2.1 Ontology 节点升级
 
-Ontology 主网将于区块高度 **[13920000]** 进行升级，请在**务必**该高度前完成本地的同步节点的升级。
+Ontology 主网将于区块高度 **[13920000]** 进行升级，请在**务必**该高度前完成本地的同步节点的升级（并请确保在本体主网的共识节点已经完成升级之后）。
 
 Ontology Release 链接：**[https://github.com/ontio/ontology/releases/tag/v2.3.5]**
 
