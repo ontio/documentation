@@ -10,9 +10,9 @@ This guide introduces the upgrade work needed on your end to enjoy these feature
 
 ## 2.1 Ontology Nodes
 
-The Ontology miannet will be upgraded at the block height of **[13920000],** **please finish the local node upgrade before that**.
+The Ontology miannet will be upgraded at the block height of **[13920000],** **please finish the local node upgrade before that (MAKE SURE the  MainNet consensus nodes has upgraded)**.
 
-Ontology release link: **[https://github.com/ontio/ontology/releases/tag/v2.3.4]**
+Ontology release link: **[https://github.com/ontio/ontology/releases/tag/v2.3.5]**
 
 ## 2.2 Changes to ONT & ONG Deposit Events (required)
 
