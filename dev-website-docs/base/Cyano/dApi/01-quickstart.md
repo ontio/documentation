@@ -6,7 +6,7 @@ ontology-dapi can be used as CommonJS/ES6 module or directly referencing in web 
 
 ### Install CommonJS/ES module
 ```
-npm install ontology-dapi
+npm install @ont-dev/ontology-dapi
 ```
 
 ### Import CommonJS
@@ -34,9 +34,11 @@ var client = dApi.client;
 dApp needs to register itself as a client with the ontology-dapi library to enable the communication.
 
 ```
-import { client } from 'ontology-dapi';
+import { client, provider } from '@ont-dev/ontology-dapi';
 
-client.registerClient({});
+client.registerClient({
+        extension: provider.ExtensionType.Cyano
+  })
 ```
 
 ## Usage

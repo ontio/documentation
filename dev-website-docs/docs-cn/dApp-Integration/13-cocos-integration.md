@@ -22,19 +22,19 @@ Cocos2d-x 是一套成熟的开源跨平台游戏开发框架，提供了图形�
 `ontology-dapi` 是一个用于与 Chrome 钱包插件交互的轻量级 JavaScript 库。
 
 ```bash
-$ npm install ontology-dapi -S
+$ npm install @ont-dev/ontology-dapi -S
 ```
 
 我们可以在游戏场景的脚本中以 ES6 模块的形式导入：
 
 ```bash
-import { client } from 'ontology-dapi';
+import { client } from '@ont-dev/ontology-dapi';
 ```
 
 我们也可以在游戏场景的脚本中以 CommonJS/ES6 模块的形式导入：
 
 ```bash
-var client = require('ontology-dapi').client;
+var client = require('@ont-dev/ontology-dapi').client;
 ```
 
 在完成模块的导入后，我们只需要在场景的加载函数中与浏览器中的 Provide 实例注册即可：

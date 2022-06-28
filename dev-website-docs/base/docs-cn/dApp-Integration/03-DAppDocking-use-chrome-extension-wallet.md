@@ -31,7 +31,7 @@ DAPI 使用 TypeScript 实现，同时也支持在 JavaScript 工程中使用。
 创建 DApp 时，本体 DAPI 是与本体链交互的核心 API 之一，可以从 [这里](https://github.com/ontio/ontology-dapi) 下载源码。 通过 ```npm``` 安装 ontology-DAPI：
 
 ```
-$ npm install ontology-dapi
+$ npm install @ont-dev/ontology-dapi
 ```
 
 #### DAPI 实例
@@ -39,9 +39,11 @@ $ npm install ontology-dapi
 创建 DAPI 实例时，要先导入库 ontology-dapi，并注册客户端，如下所示：
 
 ```typescript
-import { client } from 'ontology-dapi';
+import { client, provider } from '@ont-dev/ontology-dapi';
 
-client.registerClient({});
+client.registerClient({
+        extension: provider.ExtensionType.Cyano
+  })
 ```
 
 #### DAPI 方法

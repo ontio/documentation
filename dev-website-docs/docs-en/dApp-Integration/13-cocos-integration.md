@@ -23,25 +23,27 @@ The <code>ontology-dapi</code> on the desktop browser cannot be used on the mobi
 ontology-dapi is A lightweight Javascript library for interacting with Chrome Plugin which is integrated provider engine.
 
 ```bash
-$ npm install ontology-dapi -S
+$ npm install @ont-dev/ontology-dapi -S
 ```
 
 We can use it as ES6 module in our game scene's script.
 
 ```JavaScript
-import { client } from 'ontology-dapi';
+import { client, provider } from '@ont-dev/ontology-dapi';
 ```
 
 We can also use it as CommonJS/ES6 module in our game scene's script.
 
 ```JavaScript
-var client = require('ontology-dapi').client;
+var client = require('@ont-dev/ontology-dapi').client;
 ```
 
 After we regist with Provider successful, we can use it in our project.
 
 ```JavaScript
-client.registerClient({});
+client.registerClient({
+        extension: provider.ExtensionType.Cyano
+  })
 ```
 
 ### Mobile Phone

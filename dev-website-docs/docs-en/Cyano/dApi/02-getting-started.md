@@ -54,7 +54,7 @@ Please ensure you have the following installed and configured in order to setup 
 The Ontology dAPI is the core API used to interface with the Ontology blockhain when creating a dApp and the repository can be found [here](https://github.com/ontio/ontology-dapi). First you must install the npm package using: 
 
 ```
-$ npm install ontology-dapi
+$ npm install @ont-dev/ontology-dapi
 ```
 
 #### dAPI Instantiation
@@ -62,9 +62,11 @@ $ npm install ontology-dapi
 To use the dAPI in your project, you need to import the library and then register as a client.
 Import and register the dAPI using:
 ```
-import { client } from 'ontology-dapi';
+import { client, provider } from '@ont-dev/ontology-dapi';
 
-client.registerClient({});
+client.registerClient({
+        extension: provider.ExtensionType.Cyano
+  })
 ```
 
 #### Example dAPI methods
